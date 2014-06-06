@@ -33,7 +33,7 @@ echo "Now in: '`pwd`'"
 # Options parsing
 ########################################################
 # source shell flags script
-. shflags
+. $ScriptDirectory/shflags
 
 # Set up possible options
 DEFINE_string PathToSourceCode '' "Path to source code directory" i
