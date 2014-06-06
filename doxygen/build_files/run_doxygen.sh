@@ -1,6 +1,7 @@
 #! /bin/bash 
 # Script to run doxygen, designed to be called from cron with something like:
 # /path/to/script/run_doxygen.sh
+# use the -h for usage
 
 ########################################################
 # control variables
@@ -48,6 +49,18 @@ PathToSourceCode="$FLAGS_PathToSourceCode"
 PathToOutputHtml="$FLAGS_PathToOutputHtml"
 SourceBranch="$FLAGS_SourceBranch"
 
+if [ -z "$PathToSourceCode" ];then
+        echo "ERROR: You must define the PathToSourceCode with option -i"
+        echo
+        flags_help
+        exit 1
+elif [ -z "$PathToOutputHtml" ];then
+        echo "ERROR: You must define the PathToOutputHtml with option -o"
+        echo
+        flags_help
+        exit 1
+fi
+
 # Check the directories we need exist
 if [ ! -d "$PathToSourceCode" ];then
         echo "Unable to find PathToSourceCode: $PathToSourceCode"
@@ -73,11 +86,6 @@ echo Running $0 on $DateString
 # Change into the directory containing this file
 cd `dirname $0`
 
-## Get all local variable definitions
-#[ ! -f "$ConfigFile" ] && \
-#echo "Unable to find config file '$ConfigFile' in `pwd`" && exit 1
-#source "$ConfigFile"
-
 # In AlcapDAQ, pull the latest version of SourceBranch
 cd "$PathToSourceCode"
 PrintNowIn
@@ -95,7 +103,7 @@ cd "$PathToOutputHtml"
 git pull
 PrintNowIn
 #git config -l
-git add -n -A .
+git add -A .
 git commit -m "Automatically regenerated doxygen documentation for $DateString"
 echo git push
 
