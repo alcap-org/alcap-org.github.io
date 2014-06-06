@@ -46,7 +46,7 @@
 <a name="l00019"></a>00019 <span class="preprocessor">#include &lt;utility&gt;</span>
 <a name="l00020"></a>00020 
 <a name="l00021"></a>00021 <span class="comment">/* MIDAS includes */</span>
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00023"></a>00023 
 <a name="l00024"></a>00024 <span class="comment">/* ROOT includes */</span>
 <a name="l00025"></a>00025 <span class="preprocessor">#include &lt;TH1.h&gt;</span>
@@ -58,24 +58,24 @@
 <a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="TGlobalData_8h.html">TGlobalData.h</a>&quot;</span>
 <a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">using</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>;
-<a name="l00035"></a>00035 <span class="keyword">using</span> <a class="code" href="melog_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>;
+<a name="l00034"></a>00034 <span class="keyword">using</span> std::string;
+<a name="l00035"></a>00035 <span class="keyword">using</span> std::map;
 <a name="l00036"></a>00036 <span class="keyword">using</span> std::vector;
 <a name="l00037"></a>00037 <span class="keyword">using</span> std::pair;
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039 <span class="comment">/*-- Module declaration --------------------------------------------*/</span>
-<a name="l00040"></a>00040 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a473155c6eda2bc6bec8f9e49824b1c91">MOctalFADCProcessRaw_init</a>(<span class="keywordtype">void</span>);
-<a name="l00041"></a>00041 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a5cacde186ded3b4b04b6caa9ebde8cdd">MOctalFADCProcessRaw</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>*, <span class="keywordtype">void</span>*);
+<a name="l00040"></a>00040 INT  <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a473155c6eda2bc6bec8f9e49824b1c91">MOctalFADCProcessRaw_init</a>(<span class="keywordtype">void</span>);
+<a name="l00041"></a>00041 INT  <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a5cacde186ded3b4b04b6caa9ebde8cdd">MOctalFADCProcessRaw</a>(EVENT_HEADER*, <span class="keywordtype">void</span>*);
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="keyword">extern</span> <a class="code" href="group__midasincludecode.html#ga0e1bcf128ad8422667adffd1dea59791">HNDLE</a> <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
+<a name="l00043"></a>00043 <span class="keyword">extern</span> HNDLE <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
 <a name="l00044"></a>00044 <span class="keyword">extern</span> <a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>;
 <a name="l00045"></a>00045 <span class="keyword">extern</span> <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>;
 <a name="l00046"></a>00046 
-<a name="l00047"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#abac7a88ddc6cf7f11c29cffed1bfb6f6">00047</a> <span class="keyword">static</span> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a>* <a class="code" href="MOctalFADCProcessRaw_8cpp.html#abac7a88ddc6cf7f11c29cffed1bfb6f6">hNOctalFADCIslandsReadPerBlock</a>;
+<a name="l00047"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#abac7a88ddc6cf7f11c29cffed1bfb6f6">00047</a> <span class="keyword">static</span> TH2* <a class="code" href="MOctalFADCProcessRaw_8cpp.html#abac7a88ddc6cf7f11c29cffed1bfb6f6">hNOctalFADCIslandsReadPerBlock</a>;
 <a name="l00048"></a>00048 
 <a name="l00049"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">00049</a> <span class="keyword">static</span> vector&lt;TOctalFADCBankReader*&gt; <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>;
 <a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#aaa49941af6da92b58fd500397cfee47a">00051</a> <a class="code" href="structANA__MODULE.html">ANA_MODULE</a> <a class="code" href="MOctalFADCProcessRaw_8cpp.html#aaa49941af6da92b58fd500397cfee47a">MOctalFADCProcessRaw_module</a> =
+<a name="l00051"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#aaa49941af6da92b58fd500397cfee47a">00051</a> ANA_MODULE <a class="code" href="MOctalFADCProcessRaw_8cpp.html#aaa49941af6da92b58fd500397cfee47a">MOctalFADCProcessRaw_module</a> =
 <a name="l00052"></a>00052 {
 <a name="l00053"></a>00053   <span class="stringliteral">&quot;MOctalFADCProcessRaw&quot;</span>,        <span class="comment">/* module name           */</span>
 <a name="l00054"></a>00054   <span class="stringliteral">&quot;Michael Murray&quot;</span>,              <span class="comment">/* author                */</span>
@@ -89,7 +89,7 @@
 <a name="l00062"></a>00062   NULL,                          <span class="comment">/* initial parameters    */</span>
 <a name="l00063"></a>00063 };
 <a name="l00064"></a>00064 
-<a name="l00067"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#a473155c6eda2bc6bec8f9e49824b1c91">00067</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a473155c6eda2bc6bec8f9e49824b1c91">MOctalFADCProcessRaw_init</a>()
+<a name="l00067"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#a473155c6eda2bc6bec8f9e49824b1c91">00067</a> INT <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a473155c6eda2bc6bec8f9e49824b1c91">MOctalFADCProcessRaw_init</a>()
 <a name="l00068"></a>00068 {
 <a name="l00069"></a>00069   <span class="comment">// This histogram has the bank names labeled on the X-axis, and the midas</span>
 <a name="l00070"></a>00070   <span class="comment">// block number on the Y-axis.</span>
@@ -105,7 +105,7 @@
 <a name="l00080"></a>00080   <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator mapIter = bank_to_detector_map.begin(); 
 <a name="l00081"></a>00081       mapIter != bank_to_detector_map.end(); mapIter++) { 
 <a name="l00082"></a>00082     
-<a name="l00083"></a>00083     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname = mapIter-&gt;first;
+<a name="l00083"></a>00083     std::string bankname = mapIter-&gt;first;
 <a name="l00084"></a>00084 
 <a name="l00085"></a>00085     <span class="comment">// We only want the FADC banks here</span>
 <a name="l00086"></a>00086     <span class="keywordflow">if</span> (<a class="code" href="classTSetupData.html#a235d6afeda79e30b3b8f0ee2767af262">TSetupData::IsFADC</a>(bankname))
@@ -115,10 +115,10 @@
 <a name="l00090"></a>00090   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00091"></a>00091 }
 <a name="l00092"></a>00092 
-<a name="l00096"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#a5cacde186ded3b4b04b6caa9ebde8cdd">00096</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a5cacde186ded3b4b04b6caa9ebde8cdd">MOctalFADCProcessRaw</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *pheader, <span class="keywordtype">void</span> *pevent)
+<a name="l00096"></a><a class="code" href="MOctalFADCProcessRaw_8cpp.html#a5cacde186ded3b4b04b6caa9ebde8cdd">00096</a> INT <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a5cacde186ded3b4b04b6caa9ebde8cdd">MOctalFADCProcessRaw</a>(EVENT_HEADER *pheader, <span class="keywordtype">void</span> *pevent)
 <a name="l00097"></a>00097 {
 <a name="l00098"></a>00098   <span class="comment">// Get the event number</span>
-<a name="l00099"></a>00099   <span class="keywordtype">int</span> midas_event_number = pheader-&gt;<a class="code" href="group__midasincludecode.html#ga5ed07c075ebce619a8fa47e96f188440">serial_number</a>;
+<a name="l00099"></a>00099   <span class="keywordtype">int</span> midas_event_number = pheader-&gt;serial_number;
 <a name="l00100"></a>00100 
 <a name="l00102"></a>00102   <span class="comment">// Make TPulseIsland objects for each of the TOctalFADCIslands.</span>
 <a name="l00103"></a>00103 
@@ -140,27 +140,27 @@
 <a name="l00119"></a>00119       iter != pulse_islands_map.end(); iter++){
 <a name="l00120"></a>00120     vector&lt;TPulseIsland*&gt;&amp; islands = iter-&gt;second;
 <a name="l00121"></a>00121     <span class="comment">// Delete the pointers to TPulseIslands, then clear the vector</span>
-<a name="l00122"></a>00122     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>=0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>&lt;islands.size(); <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
-<a name="l00123"></a>00123       <span class="keywordflow">if</span>(islands[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>]) { <span class="keyword">delete</span> islands[j]; islands[j] = NULL; }
+<a name="l00122"></a>00122     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;islands.size(); j++) {
+<a name="l00123"></a>00123       <span class="keywordflow">if</span>(islands[j]) { <span class="keyword">delete</span> islands[j]; islands[j] = NULL; }
 <a name="l00124"></a>00124     }
 <a name="l00125"></a>00125     islands.clear();
 <a name="l00126"></a>00126   }
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128   <span class="comment">// Get islands from all banks and add them to the global structure</span>
-<a name="l00129"></a>00129   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>.size(); <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00130"></a>00130     <span class="keywordtype">string</span> <a class="code" href="mdump_8c.html#a29615e4ecb94c1a935bc21365ea50f61">bank_name</a> = <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetBankName();
+<a name="l00129"></a>00129   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>.size(); <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00130"></a>00130     <span class="keywordtype">string</span> <a class="code" href="mzdump_8c.html#a29615e4ecb94c1a935bc21365ea50f61">bank_name</a> = <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetBankName();
 <a name="l00131"></a>00131 
 <a name="l00132"></a>00132     <span class="comment">// Read the islands with the bank reader</span>
-<a name="l00134"></a>00134 <span class="comment"></span>    <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;ProcessEvent(pheader, pevent);
+<a name="l00134"></a>00134 <span class="comment"></span>    <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;ProcessEvent(pheader, pevent);
 <a name="l00135"></a>00135     vector&lt;TOctalFADCIsland*&gt; fadc_islands =
-<a name="l00136"></a>00136       <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetIslandVectorCopy();
+<a name="l00136"></a>00136       <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetIslandVectorCopy();
 <a name="l00137"></a>00137 
 <a name="l00138"></a>00138     <span class="comment">// Make vector of TPulseIsland from TOctalFADCIsland. Now this module</span>
 <a name="l00139"></a>00139     <span class="comment">// owns the memory associated with these.</span>
 <a name="l00140"></a>00140     vector&lt;TPulseIsland*&gt; pulse_islands;
-<a name="l00141"></a>00141     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>=0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>&lt;fadc_islands.size(); <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00141"></a>00141     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;fadc_islands.size(); j++) {
 <a name="l00142"></a>00142       pulse_islands.push_back(<span class="keyword">new</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>(
-<a name="l00143"></a>00143         fadc_islands[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>]-&gt;<a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(), fadc_islands[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>]-&gt;GetSampleVector(),bank_name));
+<a name="l00143"></a>00143         fadc_islands[j]-&gt;<a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(), fadc_islands[j]-&gt;GetSampleVector(),bank_name));
 <a name="l00144"></a>00144     }
 <a name="l00145"></a>00145 
 <a name="l00146"></a>00146     <span class="comment">// Add a pair (bank_name, vector_of_islands) to the std::map in gData</span>
@@ -173,8 +173,8 @@
 <a name="l00153"></a>00153     <span class="comment">// print for testing</span>
 <a name="l00154"></a>00154     <span class="keywordflow">if</span>(midas_event_number == 1) {      
 <a name="l00155"></a>00155                   printf(<span class="stringliteral">&quot;TEST MESSAGE: Read %d events from bank %s in event %d\n&quot;</span>,
-<a name="l00156"></a>00156         <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetNIslands(),
-<a name="l00157"></a>00157         <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetBankName().c_str(),
+<a name="l00156"></a>00156         <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetNIslands(),
+<a name="l00157"></a>00157         <a class="code" href="MOctalFADCProcessRaw_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetBankName().c_str(),
 <a name="l00158"></a>00158         midas_event_number);
 <a name="l00159"></a>00159     }
 <a name="l00160"></a>00160   }

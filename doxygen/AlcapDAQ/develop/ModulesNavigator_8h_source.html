@@ -49,17 +49,17 @@
 <a name="l00027"></a>00027       <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code" href="classmodules_1_1navigator.html">navigator</a>* <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">Instance</a>();
 <a name="l00028"></a>00028       
 <a name="l00029"></a>00029   <span class="keyword">public</span>:
-<a name="l00032"></a>00032       <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">LoadConfigFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>);
+<a name="l00032"></a>00032       <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">LoadConfigFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename);
 <a name="l00033"></a>00033       
 <a name="l00034"></a>00034   <span class="keyword">public</span>:
 <a name="l00035"></a>00035       <span class="comment">// Get a named module.</span>
 <a name="l00036"></a>00036       <span class="comment">// Returns NULL if the module doesn&apos;t exist</span>
-<a name="l00037"></a>00037       <span class="keyword">inline</span> <a class="code" href="classFillHistBase.html">BaseModule</a>* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">GetModule</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>;
+<a name="l00037"></a>00037       <span class="keyword">inline</span> <a class="code" href="classFillHistBase.html">BaseModule</a>* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">GetModule</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>;
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039       <span class="comment">// Get a named module and cast it to the correct type</span>
 <a name="l00040"></a>00040       <span class="comment">// Returns NULL if the module doesn&apos;t exist</span>
 <a name="l00041"></a>00041       <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00042"></a>00042       <span class="keyword">inline</span> T* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">GetModule</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>;
+<a name="l00042"></a>00042       <span class="keyword">inline</span> T* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">GetModule</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>;
 <a name="l00043"></a>00043       
 <a name="l00044"></a>00044       <span class="comment">// Return an iterator to the first module in the list</span>
 <a name="l00045"></a><a class="code" href="classmodules_1_1navigator.html#a4f93736f07dd0a0f3afbc07f3eba3bc5">00045</a>       modules::list::iterator <a class="code" href="classmodules_1_1navigator.html#a4f93736f07dd0a0f3afbc07f3eba3bc5">Begin</a>(){<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a4f9cfb249e0839b297953ba3b288e147">fModules</a>.begin();};
@@ -82,14 +82,14 @@
 <a name="l00062"></a>00062     <span class="keywordflow">return</span> instance;
 <a name="l00063"></a>00063 }
 <a name="l00064"></a>00064 
-<a name="l00065"></a><a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">00065</a> <span class="keyword">inline</span> <a class="code" href="classFillHistBase.html">modules::BaseModule</a>* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">modules::navigator::GetModule</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>{
+<a name="l00065"></a><a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">00065</a> <span class="keyword">inline</span> <a class="code" href="classFillHistBase.html">modules::BaseModule</a>* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">modules::navigator::GetModule</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>{
 <a name="l00066"></a>00066     modules::list::const_iterator mod=<a class="code" href="classmodules_1_1navigator.html#a4f9cfb249e0839b297953ba3b288e147">fModules</a>.find(module.c_str());
 <a name="l00067"></a>00067     <span class="keywordflow">if</span>(mod==<a class="code" href="classmodules_1_1navigator.html#a4f9cfb249e0839b297953ba3b288e147">fModules</a>.end()) <span class="keywordflow">return</span> NULL;
 <a name="l00068"></a>00068     <span class="keywordflow">return</span> mod-&gt;second;
 <a name="l00069"></a>00069 }
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00072"></a>00072 <span class="keyword">inline</span> T* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">modules::navigator::GetModule</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>{
+<a name="l00072"></a>00072 <span class="keyword">inline</span> T* <a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">modules::navigator::GetModule</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="generate-MODULES_8h.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>)<span class="keyword">const</span>{
 <a name="l00073"></a>00073     <a class="code" href="classFillHistBase.html">BaseModule</a>* base_mod=<a class="code" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">GetModule</a>(module);
 <a name="l00074"></a>00074     <span class="keywordflow">if</span>(!base_mod) <span class="keywordflow">return</span> NULL;
 <a name="l00075"></a>00075     T* mod=NULL;

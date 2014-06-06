@@ -75,7 +75,7 @@
 <a name="l00063"></a>00063 <span class="comment">/* --------------------------------------------------------------------------------------------------------- */</span>
 <a name="l00064"></a><a class="code" href="ReadoutTest__DPP__PSD__x720_2include_2Functions_8h.html#ac4b6f39003c717291c046fb51783570f">00064</a> <span class="keywordtype">int</span> <a class="code" href="ReadoutTest__DPP__CI__x720_2include_2Functions_8h.html#ac4b6f39003c717291c046fb51783570f" title="Do some data consistency check.">DataConsistencyCheck</a>(uint32_t *buff32, <span class="keywordtype">int</span> NumWords)
 <a name="l00065"></a>00065 {
-<a name="l00066"></a>00066     <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, zcnt=0, pnt=0;
+<a name="l00066"></a>00066     <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, zcnt=0, pnt=0;
 <a name="l00067"></a>00067     uint32_t EventSize;
 <a name="l00068"></a>00068 
 <a name="l00069"></a>00069     <span class="keywordflow">if</span> (NumWords == 0)
@@ -115,8 +115,8 @@
 <a name="l00106"></a>00106 <span class="comment">        NB: each EHisto[ch] must be a pointer already initialized with at least 10000 values</span>
 <a name="l00107"></a>00107 <span class="comment">        */</span>
 <a name="l00108"></a>00108     FILE *fh;
-<a name="l00109"></a>00109     <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
-<a name="l00110"></a>00110     <span class="keywordtype">char</span> <a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>[20];
+<a name="l00109"></a>00109     <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00110"></a>00110     <span class="keywordtype">char</span> filename[20];
 <a name="l00111"></a>00111     sprintf(filename, <span class="stringliteral">&quot;%s_%d_%d.txt&quot;</span>, basename, b, ch);
 <a name="l00112"></a>00112     fh = fopen(filename, <span class="stringliteral">&quot;w&quot;</span>);
 <a name="l00113"></a>00113     <span class="keywordflow">if</span> (fh == NULL)
@@ -132,14 +132,14 @@
 <a name="l00123"></a>00123 
 <a name="l00124"></a>00124 <span class="comment">/* --------------------------------------------------------------------------------------------------------- */</span>
 <a name="l00128"></a>00128 <span class="comment">/* --------------------------------------------------------------------------------------------------------- */</span>
-<a name="l00129"></a><a class="code" href="ReadoutTest__DPP__PSD__x720_2include_2Functions_8h.html#a19fd4dffb35bea38cd908da4f8703352">00129</a> <span class="keywordtype">int</span> <a class="code" href="ReadoutTest__DPP__CI__x720_2include_2Functions_8h.html#a19fd4dffb35bea38cd908da4f8703352">SaveWaveform</a>(<span class="keywordtype">int</span> b, <span class="keywordtype">int</span> ch, <span class="keywordtype">int</span> trace, <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a>, int16_t *WaveData)
+<a name="l00129"></a><a class="code" href="ReadoutTest__DPP__PSD__x720_2include_2Functions_8h.html#a19fd4dffb35bea38cd908da4f8703352">00129</a> <span class="keywordtype">int</span> <a class="code" href="ReadoutTest__DPP__CI__x720_2include_2Functions_8h.html#a19fd4dffb35bea38cd908da4f8703352">SaveWaveform</a>(<span class="keywordtype">int</span> b, <span class="keywordtype">int</span> ch, <span class="keywordtype">int</span> trace, <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a>, int16_t *WaveData)
 <a name="l00130"></a>00130 {
 <a name="l00131"></a>00131         <span class="comment">/*</span>
 <a name="l00132"></a>00132 <span class="comment">        This function saves the waveform in a textfile as a sequence of number representing the wave height</span>
 <a name="l00133"></a>00133 <span class="comment">        */</span>
 <a name="l00134"></a>00134     FILE *fh;
-<a name="l00135"></a>00135     <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
-<a name="l00136"></a>00136     <span class="keywordtype">char</span> <a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>[20];
+<a name="l00135"></a>00135     <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00136"></a>00136     <span class="keywordtype">char</span> filename[20];
 <a name="l00137"></a>00137 
 <a name="l00138"></a>00138     sprintf(filename, <span class="stringliteral">&quot;Waveform_%d_%d_%d.txt&quot;</span>, b, ch, trace);
 <a name="l00139"></a>00139     fh = fopen(filename, <span class="stringliteral">&quot;w&quot;</span>);
@@ -153,14 +153,14 @@
 <a name="l00147"></a>00147 
 <a name="l00148"></a>00148 <span class="comment">/* --------------------------------------------------------------------------------------------------------- */</span>
 <a name="l00152"></a>00152 <span class="comment">/* --------------------------------------------------------------------------------------------------------- */</span>
-<a name="l00153"></a><a class="code" href="ReadoutTest__DPP__PSD__x720_2include_2Functions_8h.html#a13499a51b86dd1269682b9fb002011ca">00153</a> <span class="keywordtype">int</span> <a class="code" href="ReadoutTest__DPP__CI__x720_2include_2Functions_8h.html#ae0f9fc2ef80b97ba1b36a30c04f536d2" title="Save Digital Waveforms to output file.">SaveDigitalProbe</a>(<span class="keywordtype">int</span> b, <span class="keywordtype">int</span> ch, <span class="keywordtype">int</span> trace, <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a>, uint8_t *WaveData)
+<a name="l00153"></a><a class="code" href="ReadoutTest__DPP__PSD__x720_2include_2Functions_8h.html#a13499a51b86dd1269682b9fb002011ca">00153</a> <span class="keywordtype">int</span> <a class="code" href="ReadoutTest__DPP__CI__x720_2include_2Functions_8h.html#ae0f9fc2ef80b97ba1b36a30c04f536d2" title="Save Digital Waveforms to output file.">SaveDigitalProbe</a>(<span class="keywordtype">int</span> b, <span class="keywordtype">int</span> ch, <span class="keywordtype">int</span> trace, <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a>, uint8_t *WaveData)
 <a name="l00154"></a>00154 {
 <a name="l00155"></a>00155         <span class="comment">/*</span>
 <a name="l00156"></a>00156 <span class="comment">        This function saves the digital waveform in a textfile as a sequence of number representing the wave height</span>
 <a name="l00157"></a>00157 <span class="comment">        */</span>
 <a name="l00158"></a>00158     FILE *fh;
-<a name="l00159"></a>00159     <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
-<a name="l00160"></a>00160     <span class="keywordtype">char</span> <a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>[20];
+<a name="l00159"></a>00159     <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00160"></a>00160     <span class="keywordtype">char</span> filename[20];
 <a name="l00161"></a>00161 
 <a name="l00162"></a>00162     sprintf(filename, <span class="stringliteral">&quot;DWaveform_%d_%d_%d.txt&quot;</span>, b, ch, trace);
 <a name="l00163"></a>00163     fh = fopen(filename, <span class="stringliteral">&quot;w&quot;</span>);

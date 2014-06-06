@@ -29,7 +29,7 @@
 <div class="contents">
 <h1>crate6_CAEN_TDC/diag.cpp File Reference</h1><code>#include &lt;stdio.h&gt;</code><br/>
 <code>#include &lt;stdarg.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="midas_8h_source.html">midas.h</a>&quot;</code><br/>
+<code>#include &quot;midas.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="crate9_2odb__wrapper_8h_source.html">odb_wrapper.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="crate9_2crate_8h_source.html">crate.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="crate9_2diag_8h_source.html">diag.h</a>&quot;</code><br/>
@@ -79,12 +79,12 @@
 
 <p>Definition at line <a class="el" href="crate6__CAEN__TDC_2diag_8cpp_source.html#l00035">35</a> of file <a class="el" href="crate6__CAEN__TDC_2diag_8cpp_source.html">diag.cpp</a>.</p>
 
-<p>References <a class="el" href="fal_8c_source.html#l00201">buffer</a>, <a class="el" href="lrs1821_8h_source.html#l00218">cm_msg</a>, <a class="el" href="crate3_2diag_8cpp_source.html#l00011">diag_cm_msg_threshold</a>, <a class="el" href="crate3_2crate_8cpp_source.html#l00033">frontend_name</a>, <a class="el" href="crate3_2diag_8cpp_source.html#l00013">last_message_time</a>, <a class="el" href="lrs1821_8h_source.html#l00221">MINFO</a>, <a class="el" href="crate3_2diag_8cpp_source.html#l00014">num_messages_this_second</a>, and <a class="el" href="CAET_8h_source.html#l00002">time</a>.</p>
+<p>References <a class="el" href="crate3_2diag_8cpp_source.html#l00011">diag_cm_msg_threshold</a>, <a class="el" href="crate3_2crate_8cpp_source.html#l00033">frontend_name</a>, <a class="el" href="crate3_2diag_8cpp_source.html#l00013">last_message_time</a>, <a class="el" href="crate3_2diag_8cpp_source.html#l00014">num_messages_this_second</a>, and <a class="el" href="CAET_8h_source.html#l00002">time</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00036"></a>00036 {
 <a name="l00037"></a>00037   <span class="comment">// Format the message.</span>
-<a name="l00038"></a>00038   <span class="keywordtype">char</span> <a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>[4096];
-<a name="l00039"></a>00039   vsnprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="webpaw_8c.html#a6113855b8e5965f1e91ee407b4026ab7">format</a>, argp);
+<a name="l00038"></a>00038   <span class="keywordtype">char</span> buffer[4096];
+<a name="l00039"></a>00039   vsnprintf(buffer, <span class="keyword">sizeof</span>(buffer), format, argp);
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041   <span class="comment">// Print on standard output</span>
 <a name="l00042"></a>00042   <span class="comment">// if (level &lt;= diag_print_threshold) {</span>
@@ -102,7 +102,7 @@
 <a name="l00054"></a>00054     <span class="keywordflow">if</span>(<a class="code" href="crate3_2diag_8cpp.html#ab0c95de8bfbe9109eb696eee56c02c38">last_message_time</a> == now) {
 <a name="l00055"></a>00055       <a class="code" href="crate3_2diag_8cpp.html#afba6432f1f59c0c79290b36a2a74ed11">num_messages_this_second</a>++;
 <a name="l00056"></a>00056       <span class="keywordflow">if</span>(<a class="code" href="crate3_2diag_8cpp.html#afba6432f1f59c0c79290b36a2a74ed11">num_messages_this_second</a> &lt; 1) {
-<a name="l00057"></a>00057         <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#a6e27d8876a43afce3ee4dd16527cbb9e">MINFO</a>, <a class="code" href="crate3_2crate_8cpp.html#ac1f0c6df66e35778b61c611107501ec4">frontend_name</a>, buffer); 
+<a name="l00057"></a>00057         cm_msg(MINFO, <a class="code" href="crate3_2crate_8cpp.html#ac1f0c6df66e35778b61c611107501ec4">frontend_name</a>, buffer); 
 <a name="l00058"></a>00058       }
 <a name="l00059"></a>00059     } <span class="keywordflow">else</span> {
 <a name="l00060"></a>00060       <a class="code" href="crate3_2diag_8cpp.html#afba6432f1f59c0c79290b36a2a74ed11">num_messages_this_second</a> = 0;

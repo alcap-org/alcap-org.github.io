@@ -35,13 +35,13 @@
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a2bdc21aea1e0802faef4f1531e300895">TMuonEvent</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a647035c54a9e1e3fdb9b284ac93d6c3f">~TMuonEvent</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a5499fdeb17887987b3d3ec47c1ada99c">GetPulse</a> (const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;detector) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a5caaf93ea550ae77de415e2ec588053c">SetPulse</a> (const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;detector, <a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> *pulse)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a5499fdeb17887987b3d3ec47c1ada99c">GetPulse</a> (const std::string &amp;detector) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a5caaf93ea550ae77de415e2ec588053c">SetPulse</a> (const std::string &amp;detector, <a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> *pulse)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a0215b671593c175b511dcc603da15ca9">GetNumPulses</a> () const </td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#afa31cfd537cd11235acfd0c75769cf4d">ResetDetectors</a> ()</td></tr>
 <tr><td colspan="2"><h2>Static Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
@@ -64,7 +64,7 @@
 
 <p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00009">9</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00051">fDetectorNames</a>, <a class="el" href="mdump_8c_source.html#l00115">i</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00025">ResetDetectors()</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00051">fDetectorNames</a>, <a class="el" href="mzdump_8c_source.html#l00129">i</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00025">ResetDetectors()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00009"></a>00009                       {
 <a name="l00010"></a>00010         <span class="comment">// The first muon_event to be created will fill the vector of detector names</span>
@@ -74,7 +74,7 @@
 <a name="l00014"></a>00014                         <span class="stringliteral">&quot;Ge&quot;</span>, <span class="stringliteral">&quot;LiquidSc&quot;</span>, <span class="stringliteral">&quot;NDet&quot;</span>, <span class="stringliteral">&quot;NDet2&quot;</span>, <span class="stringliteral">&quot;ScGe&quot;</span>, <span class="stringliteral">&quot;ScL&quot;</span>, <span class="stringliteral">&quot;ScR&quot;</span>,
 <a name="l00015"></a>00015                         <span class="stringliteral">&quot;ScVe&quot;</span>, <span class="stringliteral">&quot;SiL1_1&quot;</span>, <span class="stringliteral">&quot;SiL1_2&quot;</span>, <span class="stringliteral">&quot;SiL1_3&quot;</span>, <span class="stringliteral">&quot;SiL1_4&quot;</span>, <span class="stringliteral">&quot;SiL2&quot;</span>, <span class="stringliteral">&quot;SiR1_1&quot;</span>,
 <a name="l00016"></a>00016                         <span class="stringliteral">&quot;SiR1_2&quot;</span>, <span class="stringliteral">&quot;SiR1_3&quot;</span>, <span class="stringliteral">&quot;SiR1_4&quot;</span>, <span class="stringliteral">&quot;SiR1_sum&quot;</span>, <span class="stringliteral">&quot;SiR2&quot;</span>, <span class="stringliteral">&quot;MuSc&quot;</span>, <span class="stringliteral">&quot;MuScA&quot;</span> };
-<a name="l00017"></a>00017                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;num_det_names;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) <a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>.push_back(det_names[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00017"></a>00017                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;num_det_names;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) <a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>.push_back(det_names[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00018"></a>00018         }
 <a name="l00019"></a>00019         <a class="code" href="classTMuonEvent.html#afa31cfd537cd11235acfd0c75769cf4d">ResetDetectors</a>();
 <a name="l00020"></a>00020 }
@@ -123,14 +123,14 @@
 
 <p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00033">33</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="mdump_8c_source.html#l00115">count</a>, <a class="el" href="TMuonEvent_8h_source.html#l00051">fDetectorNames</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00044">GetPulse()</a>, and <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="mzdump_8c_source.html#l00129">count</a>, <a class="el" href="TMuonEvent_8h_source.html#l00051">fDetectorNames</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00044">GetPulse()</a>, and <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxTimeDiffMEGenerator_8cpp_source.html#l00009">MaxTimeDiffMEGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033                                  {
-<a name="l00034"></a>00034         <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>=0;
-<a name="l00035"></a>00035         <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>.size();<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
-<a name="l00036"></a>00036                 <span class="keywordflow">if</span>(<a class="code" href="classTMuonEvent.html#a5499fdeb17887987b3d3ec47c1ada99c">GetPulse</a>(<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>])) count++;
+<a name="l00034"></a>00034         <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>=0;
+<a name="l00035"></a>00035         <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>.size();<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
+<a name="l00036"></a>00036                 <span class="keywordflow">if</span>(<a class="code" href="classTMuonEvent.html#a5499fdeb17887987b3d3ec47c1ada99c">GetPulse</a>(<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>])) count++;
 <a name="l00037"></a>00037         }
 <a name="l00038"></a>00038         <span class="keywordflow">return</span> count;
 <a name="l00039"></a>00039 }
@@ -145,7 +145,7 @@
         <tr>
           <td class="memname"><a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> * TMuonEvent::GetPulse </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;&nbsp;</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>detector</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td> const</td>
@@ -208,15 +208,15 @@
 
 <p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00025">25</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00051">fDetectorNames</a>, <a class="el" href="mdump_8c_source.html#l00115">i</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00076">SetPulse()</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00051">fDetectorNames</a>, <a class="el" href="mzdump_8c_source.html#l00129">i</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00076">SetPulse()</a>.</p>
 
 <p>Referenced by <a class="el" href="TMuonEvent_8cpp_source.html#l00009">TMuonEvent()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00025"></a>00025                                {
 <a name="l00026"></a>00026    <span class="comment">// For now just NULL the pointers, but we need to decide an ownership scheme</span>
 <a name="l00027"></a>00027    <span class="comment">// in which case we may want to delete them as well</span>
-<a name="l00028"></a>00028    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>.size();<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
-<a name="l00029"></a>00029        <a class="code" href="classTMuonEvent.html#a5caaf93ea550ae77de415e2ec588053c">SetPulse</a>(<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>],NULL);
+<a name="l00028"></a>00028    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>.size();<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
+<a name="l00029"></a>00029        <a class="code" href="classTMuonEvent.html#a5caaf93ea550ae77de415e2ec588053c">SetPulse</a>(<a class="code" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">fDetectorNames</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>],NULL);
 <a name="l00030"></a>00030    }
 <a name="l00031"></a>00031 }
 </pre></div></p>
@@ -230,7 +230,7 @@
         <tr>
           <td class="memname">void TMuonEvent::SetPulse </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;&nbsp;</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>detector</em>, </td>
         </tr>
         <tr>
@@ -291,7 +291,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &gt; <a class="el" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">TMuonEvent::fDetectorNames</a><code> [static, private]</code></td>
+          <td class="memname">std::vector&lt; std::string &gt; <a class="el" href="classTMuonEvent.html#a3358335411868dc0194c25886eadb8ed">TMuonEvent::fDetectorNames</a><code> [static, private]</code></td>
         </tr>
       </table>
 </div>

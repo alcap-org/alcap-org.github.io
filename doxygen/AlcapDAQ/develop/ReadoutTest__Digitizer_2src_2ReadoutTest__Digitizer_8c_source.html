@@ -71,12 +71,12 @@
 <a name="l00044"></a>00044     <a class="code" href="structCAEN__DGTZ__BoardInfo__t.html">CAEN_DGTZ_BoardInfo_t</a> BoardInfo;
 <a name="l00045"></a>00045         <a class="code" href="structCAEN__DGTZ__EventInfo__t.html">CAEN_DGTZ_EventInfo_t</a> eventInfo;
 <a name="l00046"></a>00046         <a class="code" href="structCAEN__DGTZ__UINT16__EVENT__t.html">CAEN_DGTZ_UINT16_EVENT_t</a> *Evt = NULL;
-<a name="l00047"></a>00047         <span class="keywordtype">char</span> *<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a> = NULL;
+<a name="l00047"></a>00047         <span class="keywordtype">char</span> *buffer = NULL;
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049         <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>,b;
-<a name="l00050"></a>00050         <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#adce6024c3a1b29c5fcede88815f9b152">c</a> = 0, <a class="code" href="mdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>[<a class="code" href="ReadoutTest__Digitizer_2src_2ReadoutTest__Digitizer_8c.html#a613f91735f2c206ce6bd8aa4d33dde5c">MAXNB</a>];
+<a name="l00049"></a>00049         <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>,b;
+<a name="l00050"></a>00050         <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#adce6024c3a1b29c5fcede88815f9b152">c</a> = 0, <a class="code" href="mzdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>[<a class="code" href="ReadoutTest__Digitizer_2src_2ReadoutTest__Digitizer_8c.html#a613f91735f2c206ce6bd8aa4d33dde5c">MAXNB</a>];
 <a name="l00051"></a>00051         <span class="keywordtype">char</span> * evtptr = NULL;
-<a name="l00052"></a>00052         uint32_t <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a>,bsize;
+<a name="l00052"></a>00052         uint32_t <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a>,bsize;
 <a name="l00053"></a>00053         uint32_t numEvents;
 <a name="l00054"></a>00054         i = <span class="keyword">sizeof</span>(<a class="code" href="CAENDigitizerType_8h.html#a6821276e871691c1f076f2654fd709e7">CAEN_DGTZ_TriggerMode_t</a>);
 <a name="l00055"></a>00055 
@@ -166,7 +166,7 @@
 <a name="l00139"></a>00139                     ret = <a class="code" href="CAENDigitizer_8h.html#a731df31feb6b4a7dadf416f675f270f3" title="Gets current number of event stored in the acquisition buffer.">CAEN_DGTZ_GetNumEvents</a>(handle[b],buffer,bsize,&amp;numEvents);
 <a name="l00140"></a>00140 
 <a name="l00141"></a>00141                     printf(<span class="stringliteral">&quot;.&quot;</span>);
-<a name="l00142"></a>00142                     <a class="code" href="mdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>[b] +=numEvents;
+<a name="l00142"></a>00142                     <a class="code" href="mzdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>[b] +=numEvents;
 <a name="l00143"></a>00143                     <span class="keywordflow">for</span> (i=0;i&lt;numEvents;i++) {
 <a name="l00144"></a>00144                 <span class="comment">/* Get the Infos and pointer to the event */</span>
 <a name="l00145"></a>00145                             ret = <a class="code" href="CAENDigitizer_8h.html#a694fbeb4edc1fcf4c834c8925914db86" title="Retrieves the information associated with a specified event.">CAEN_DGTZ_GetEventInfo</a>(handle[b],buffer,bsize,i,&amp;eventInfo,&amp;evtptr);
@@ -186,7 +186,7 @@
 <a name="l00159"></a>00159 
 <a name="l00160"></a>00160 Continue:
 <a name="l00161"></a>00161     <span class="keywordflow">for</span>(b=0; b&lt;MAXNB; b++)
-<a name="l00162"></a>00162         printf(<span class="stringliteral">&quot;\nBoard %d: Retrieved %d Events\n&quot;</span>,b, <a class="code" href="mdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>[b]);
+<a name="l00162"></a>00162         printf(<span class="stringliteral">&quot;\nBoard %d: Retrieved %d Events\n&quot;</span>,b, <a class="code" href="mzdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>[b]);
 <a name="l00163"></a>00163     <span class="keywordflow">goto</span> QuitProgram;
 <a name="l00164"></a>00164 
 <a name="l00165"></a>00165 <span class="comment">/* Quit program routine */</span>

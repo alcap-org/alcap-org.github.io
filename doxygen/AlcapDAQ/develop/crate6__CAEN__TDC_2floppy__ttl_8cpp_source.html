@@ -31,15 +31,15 @@
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;unistd.h&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;sys/io.h&gt;</span>
 <a name="l00006"></a>00006 
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2crate_8h.html">crate.h</a>&quot;</span>
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2diag_8h.html">diag.h</a>&quot;</span>
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a7a482c6f25639175dc959ff84a6e7bd8">floppy_ttl_init</a>();
-<a name="l00013"></a>00013 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ab97750319cc41417c8addd1ff9c613b3">floppy_ttl_start_block</a>();
-<a name="l00014"></a>00014 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ade470340b3b6ead06b976447bfa705b9">floppy_ttl_poll_live</a>();
-<a name="l00015"></a>00015 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a69de23d91a84c123164d834d80da1bfa">floppy_ttl_poll_dead</a>();
+<a name="l00012"></a>00012 INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a7a482c6f25639175dc959ff84a6e7bd8">floppy_ttl_init</a>();
+<a name="l00013"></a>00013 INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ab97750319cc41417c8addd1ff9c613b3">floppy_ttl_start_block</a>();
+<a name="l00014"></a>00014 INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ade470340b3b6ead06b976447bfa705b9">floppy_ttl_poll_live</a>();
+<a name="l00015"></a>00015 INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a69de23d91a84c123164d834d80da1bfa">floppy_ttl_poll_dead</a>();
 <a name="l00016"></a>00016 
 <a name="l00017"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a3fba99c9ddbc0f964c503c9363c9f35b">00017</a> <span class="keyword">struct </span><a class="code" href="structreadout__module.html">readout_module</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a3fba99c9ddbc0f964c503c9363c9f35b">floppy_ttl_module</a> = {
 <a name="l00018"></a>00018   <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a7a482c6f25639175dc959ff84a6e7bd8">floppy_ttl_init</a>,        <span class="comment">// init</span>
@@ -60,7 +60,7 @@
 <a name="l00033"></a>00033 <span class="comment"> * Called at the beginning of the run to discover SIS3600 modules</span>
 <a name="l00034"></a>00034 <span class="comment"> * and initialize them.</span>
 <a name="l00035"></a>00035 <span class="comment"> */</span>
-<a name="l00036"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a7a482c6f25639175dc959ff84a6e7bd8">00036</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a7a482c6f25639175dc959ff84a6e7bd8">floppy_ttl_init</a>()
+<a name="l00036"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a7a482c6f25639175dc959ff84a6e7bd8">00036</a> INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a7a482c6f25639175dc959ff84a6e7bd8">floppy_ttl_init</a>()
 <a name="l00037"></a>00037 {
 <a name="l00038"></a>00038   <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = iopl( 3 );
 <a name="l00039"></a>00039 
@@ -78,17 +78,17 @@
 <a name="l00051"></a>00051 <span class="comment"> * floppy_ttl_start_block</span>
 <a name="l00052"></a>00052 <span class="comment"> *</span>
 <a name="l00053"></a>00053 <span class="comment"> */</span>
-<a name="l00054"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ab97750319cc41417c8addd1ff9c613b3">00054</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ab97750319cc41417c8addd1ff9c613b3">floppy_ttl_start_block</a>()
+<a name="l00054"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ab97750319cc41417c8addd1ff9c613b3">00054</a> INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ab97750319cc41417c8addd1ff9c613b3">floppy_ttl_start_block</a>()
 <a name="l00055"></a>00055 {
 <a name="l00056"></a>00056   <span class="comment">// Produce a quick pulse on the output</span>
 <a name="l00057"></a>00057   outb(0x0d, 0x3f2);
 <a name="l00058"></a>00058   outb(0x1d, 0x3f2);
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060   <span class="keywordtype">bool</span> <a class="code" href="crate3_2rpc__master_8cpp.html#a0373285036a176709fe00acabb111198">ready</a> = <span class="keyword">false</span>;
-<a name="l00061"></a>00061   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> start_waiting = <a class="code" href="group__msectionh.html#gaeb8fc912d50c2360588c50782b9c916d">ss_millitime</a>();
-<a name="l00062"></a>00062   <span class="keywordflow">while</span>(!ready &amp;&amp; <a class="code" href="group__msectionh.html#gaeb8fc912d50c2360588c50782b9c916d">ss_millitime</a>() &lt; start_waiting + 1000) {
+<a name="l00061"></a>00061   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> start_waiting = ss_millitime();
+<a name="l00062"></a>00062   <span class="keywordflow">while</span>(!ready &amp;&amp; ss_millitime() &lt; start_waiting + 1000) {
 <a name="l00063"></a>00063 <span class="comment">//  while(!ready) {</span>
-<a name="l00064"></a>00064     <span class="keywordtype">int</span> <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a> = inb(0x3f7);
+<a name="l00064"></a>00064     <span class="keywordtype">int</span> input = inb(0x3f7);
 <a name="l00065"></a>00065     <span class="keywordflow">if</span>((input &amp; 0x80)) {
 <a name="l00066"></a>00066       ready = <span class="keyword">true</span>;
 <a name="l00067"></a>00067     }
@@ -111,9 +111,9 @@
 <a name="l00084"></a>00084 <span class="comment"> * - a request for a &quot;soft stop&quot; end-of-block, or</span>
 <a name="l00085"></a>00085 <span class="comment"> * - an error code</span>
 <a name="l00086"></a>00086 <span class="comment"> */</span>
-<a name="l00087"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ade470340b3b6ead06b976447bfa705b9">00087</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ade470340b3b6ead06b976447bfa705b9">floppy_ttl_poll_live</a>()
+<a name="l00087"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ade470340b3b6ead06b976447bfa705b9">00087</a> INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#ade470340b3b6ead06b976447bfa705b9">floppy_ttl_poll_live</a>()
 <a name="l00088"></a>00088 {
-<a name="l00089"></a>00089   <span class="keywordtype">int</span> <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a> = inb(0x3f7);
+<a name="l00089"></a>00089   <span class="keywordtype">int</span> input = inb(0x3f7);
 <a name="l00090"></a>00090 
 <a name="l00091"></a>00091   <span class="comment">// high bit of input: 1 = TTL LOW, 0 = TTL HIGH</span>
 <a name="l00092"></a>00092   <span class="keywordflow">if</span>(!(input &amp; 0x80)) {
@@ -123,7 +123,7 @@
 <a name="l00096"></a>00096   }
 <a name="l00097"></a>00097 }
 <a name="l00098"></a>00098 
-<a name="l00099"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a69de23d91a84c123164d834d80da1bfa">00099</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a69de23d91a84c123164d834d80da1bfa">floppy_ttl_poll_dead</a>()
+<a name="l00099"></a><a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a69de23d91a84c123164d834d80da1bfa">00099</a> INT <a class="code" href="crate6__CAEN__TDC_2floppy__ttl_8cpp.html#a69de23d91a84c123164d834d80da1bfa">floppy_ttl_poll_dead</a>()
 <a name="l00100"></a>00100 {
 <a name="l00101"></a>00101     <span class="keywordflow">return</span> <a class="code" href="crate3_2crate_8h.html#aac4e46f1dee23b4f7e95387315520c2e">FE_NEED_START</a>;
 <a name="l00102"></a>00102 }

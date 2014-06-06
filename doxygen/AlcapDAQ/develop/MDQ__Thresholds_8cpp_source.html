@@ -45,7 +45,7 @@
 <a name="l00018"></a>00018 <span class="preprocessor">#include &lt;cmath&gt;</span>
 <a name="l00019"></a>00019 
 <a name="l00020"></a>00020 <span class="comment">/* MIDAS includes */</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00022"></a>00022 
 <a name="l00023"></a>00023 <span class="comment">/* ROOT includes */</span>
 <a name="l00024"></a>00024 <span class="preprocessor">#include &lt;TH1.h&gt;</span>
@@ -56,23 +56,23 @@
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
 <a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="TPulseIsland_8h.html">TPulseIsland.h</a>&quot;</span>
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keyword">using</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>;
-<a name="l00033"></a>00033 <span class="keyword">using</span> <a class="code" href="melog_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>;
+<a name="l00032"></a>00032 <span class="keyword">using</span> std::string;
+<a name="l00033"></a>00033 <span class="keyword">using</span> std::map;
 <a name="l00034"></a>00034 <span class="keyword">using</span> std::vector;
 <a name="l00035"></a>00035 <span class="keyword">using</span> std::pair;
 <a name="l00036"></a>00036 
 <a name="l00037"></a>00037 <span class="comment">/*-- Module declaration --------------------------------------------*/</span>
-<a name="l00038"></a>00038 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MDQ__Thresholds_8cpp.html#ac274ce45c0ed1772fa51fc4d944f69b9">MDQ_Thresholds_init</a>(<span class="keywordtype">void</span>);
-<a name="l00039"></a>00039 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MDQ__Thresholds_8cpp.html#ad30586e115e4538e5bb079fc6a02b4ed">MDQ_Thresholds</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>*, <span class="keywordtype">void</span>*);
-<a name="l00040"></a>00040 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MDQ__Thresholds_8cpp.html#a918aab0be34c1a50edf96446a664c363">MDQ_Thresholds_eor</a>(<a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>);
+<a name="l00038"></a>00038 INT  <a class="code" href="MDQ__Thresholds_8cpp.html#ac274ce45c0ed1772fa51fc4d944f69b9">MDQ_Thresholds_init</a>(<span class="keywordtype">void</span>);
+<a name="l00039"></a>00039 INT  <a class="code" href="MDQ__Thresholds_8cpp.html#ad30586e115e4538e5bb079fc6a02b4ed">MDQ_Thresholds</a>(EVENT_HEADER*, <span class="keywordtype">void</span>*);
+<a name="l00040"></a>00040 INT  <a class="code" href="MDQ__Thresholds_8cpp.html#a918aab0be34c1a50edf96446a664c363">MDQ_Thresholds_eor</a>(INT);
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="keyword">extern</span> <a class="code" href="group__midasincludecode.html#ga0e1bcf128ad8422667adffd1dea59791">HNDLE</a> <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
+<a name="l00042"></a>00042 <span class="keyword">extern</span> HNDLE <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
 <a name="l00043"></a>00043 <span class="keyword">extern</span> <a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>;
 <a name="l00044"></a>00044 <span class="keyword">extern</span> <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>;
 <a name="l00045"></a>00045 
 <a name="l00046"></a><a class="code" href="MDQ__Thresholds_8cpp.html#a0af7f6898547b29c734769e4aebfa5b2">00046</a> map &lt;std::string, TH1F*&gt; <a class="code" href="MDQ__Thresholds_8cpp.html#a0af7f6898547b29c734769e4aebfa5b2">DQ_Thresholds_histograms_map</a>;
 <a name="l00047"></a>00047 
-<a name="l00048"></a><a class="code" href="MDQ__Thresholds_8cpp.html#ad3b11b0da74984835f6f424d7dd1a974">00048</a> <a class="code" href="structANA__MODULE.html">ANA_MODULE</a> <a class="code" href="MDQ__Thresholds_8cpp.html#ad3b11b0da74984835f6f424d7dd1a974">MDQ_Thresholds_module</a> =
+<a name="l00048"></a><a class="code" href="MDQ__Thresholds_8cpp.html#ad3b11b0da74984835f6f424d7dd1a974">00048</a> ANA_MODULE <a class="code" href="MDQ__Thresholds_8cpp.html#ad3b11b0da74984835f6f424d7dd1a974">MDQ_Thresholds_module</a> =
 <a name="l00049"></a>00049 {
 <a name="l00050"></a>00050         <span class="stringliteral">&quot;MDQ_Thresholds&quot;</span>,                    <span class="comment">/* module name           */</span>
 <a name="l00051"></a>00051         <span class="stringliteral">&quot;Andrew Edmonds&quot;</span>,              <span class="comment">/* author                */</span>
@@ -86,12 +86,12 @@
 <a name="l00059"></a>00059         NULL,                          <span class="comment">/* initial parameters    */</span>
 <a name="l00060"></a>00060 };
 <a name="l00061"></a>00061 
-<a name="l00064"></a><a class="code" href="MDQ__Thresholds_8cpp.html#ac274ce45c0ed1772fa51fc4d944f69b9">00064</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MDQ__Thresholds_8cpp.html#ac274ce45c0ed1772fa51fc4d944f69b9">MDQ_Thresholds_init</a>()
+<a name="l00064"></a><a class="code" href="MDQ__Thresholds_8cpp.html#ac274ce45c0ed1772fa51fc4d944f69b9">00064</a> INT <a class="code" href="MDQ__Thresholds_8cpp.html#ac274ce45c0ed1772fa51fc4d944f69b9">MDQ_Thresholds_init</a>()
 <a name="l00065"></a>00065 {
 <a name="l00066"></a>00066     <span class="comment">// See if the DataQuality_LowLevel/ directory already exists</span>
 <a name="l00067"></a>00067   <span class="keywordflow">if</span> (!gDirectory-&gt;Cd(<span class="stringliteral">&quot;DataQuality_LowLevel&quot;</span>)) {
 <a name="l00068"></a>00068     
-<a name="l00069"></a>00069     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> dir_name(<span class="stringliteral">&quot;DataQuality_LowLevel/&quot;</span>);
+<a name="l00069"></a>00069     std::string dir_name(<span class="stringliteral">&quot;DataQuality_LowLevel/&quot;</span>);
 <a name="l00070"></a>00070     gDirectory-&gt;mkdir(dir_name.c_str());
 <a name="l00071"></a>00071     gDirectory-&gt;Cd(dir_name.c_str());
 <a name="l00072"></a>00072   }
@@ -101,12 +101,12 @@
 <a name="l00076"></a>00076   <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator mapIter = bank_to_detector_map.begin(); 
 <a name="l00077"></a>00077       mapIter != bank_to_detector_map.end(); mapIter++) { 
 <a name="l00078"></a>00078 
-<a name="l00079"></a>00079     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname = mapIter-&gt;first;
-<a name="l00080"></a>00080     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00079"></a>00079     std::string bankname = mapIter-&gt;first;
+<a name="l00080"></a>00080     std::string detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082     <span class="comment">// hDQ_Thresholds_[DetName]_[BankName]</span>
-<a name="l00083"></a>00083     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histname = <span class="stringliteral">&quot;hDQ_Thresholds_&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + bankname;
-<a name="l00084"></a>00084     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histtitle = <span class="stringliteral">&quot;ODB Thresholds in &quot;</span> + bankname;
+<a name="l00083"></a>00083     std::string histname = <span class="stringliteral">&quot;hDQ_Thresholds_&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + bankname;
+<a name="l00084"></a>00084     std::string histtitle = <span class="stringliteral">&quot;ODB Thresholds in &quot;</span> + bankname;
 <a name="l00085"></a>00085     TH1F* hDQ_Histogram = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), 
 <a name="l00086"></a>00086                                    2,0,2); <span class="comment">// will want an upper and lower threshold for FADC channels</span>
 <a name="l00087"></a>00087     hDQ_Histogram-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;&quot;</span>);
@@ -118,13 +118,13 @@
 <a name="l00093"></a>00093   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00094"></a>00094 }
 <a name="l00095"></a>00095 
-<a name="l00098"></a><a class="code" href="MDQ__Thresholds_8cpp.html#a918aab0be34c1a50edf96446a664c363">00098</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MDQ__Thresholds_8cpp.html#a918aab0be34c1a50edf96446a664c363">MDQ_Thresholds_eor</a>(<a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#a16695ea2bfd19f294afe066d6007ab36">run_number</a>) {
+<a name="l00098"></a><a class="code" href="MDQ__Thresholds_8cpp.html#a918aab0be34c1a50edf96446a664c363">00098</a> INT <a class="code" href="MDQ__Thresholds_8cpp.html#a918aab0be34c1a50edf96446a664c363">MDQ_Thresholds_eor</a>(INT <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#a16695ea2bfd19f294afe066d6007ab36">run_number</a>) {
 <a name="l00099"></a>00099 
 <a name="l00100"></a>00100   <span class="comment">// Get the run duration to scale the histogram</span>
-<a name="l00101"></a>00101   <a class="code" href="group__midasincludecode.html#ga0e1bcf128ad8422667adffd1dea59791">HNDLE</a> <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, <a class="code" href="mevb_8cpp.html#a8cd567d23219ba7fc83280cf20caf1c2">hKey</a>;
+<a name="l00101"></a>00101   HNDLE <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, <a class="code" href="mevb_8cpp.html#a8cd567d23219ba7fc83280cf20caf1c2">hKey</a>;
 <a name="l00102"></a>00102   <span class="keywordtype">char</span> keyName[200];
 <a name="l00103"></a>00103 
-<a name="l00104"></a>00104   <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga1932e7947b0a024a845c5b8c19c3dda0">cm_get_experiment_database</a>(&amp;hDB, NULL) != <a class="code" href="group__err21.html#ga0180947941230d805f5dbb6f1801c17c">CM_SUCCESS</a>){
+<a name="l00104"></a>00104   <span class="keywordflow">if</span>(cm_get_experiment_database(&amp;hDB, NULL) != CM_SUCCESS){
 <a name="l00105"></a>00105     printf(<span class="stringliteral">&quot;Warning: Could not connect to ODB database!\n&quot;</span>);
 <a name="l00106"></a>00106     <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00107"></a>00107   }
@@ -134,29 +134,29 @@
 <a name="l00111"></a>00111   <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator mapIter = bank_to_detector_map.begin(); 
 <a name="l00112"></a>00112       mapIter != bank_to_detector_map.end(); mapIter++) { 
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname = mapIter-&gt;first;
+<a name="l00114"></a>00114     std::string bankname = mapIter-&gt;first;
 <a name="l00115"></a>00115 
 <a name="l00116"></a>00116     <span class="keywordflow">if</span> (<a class="code" href="classTSetupData.html#a96d8c48f8693f69adda6aac005d17589">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a235d6afeda79e30b3b8f0ee2767af262">IsFADC</a>(bankname)) {
 <a name="l00117"></a>00117       <span class="comment">// get the FADC thresholds (both upper and lower)</span>
 <a name="l00118"></a>00118 
 <a name="l00119"></a>00119       <span class="comment">// first get the channel and address from the bankname</span>
 <a name="l00120"></a>00120       <span class="keywordtype">int</span> iChn = (int)(bankname[1] - 97);
-<a name="l00121"></a>00121       <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> iAddr = bankname.substr(2, 2);
+<a name="l00121"></a>00121       std::string iAddr = bankname.substr(2, 2);
 <a name="l00122"></a>00122 
 <a name="l00123"></a>00123       <span class="comment">// Get the lower threshold</span>
 <a name="l00124"></a>00124       sprintf(keyName, <span class="stringliteral">&quot;/Equipment/Crate 9/Settings/NFADC %s/Channel %d/Lower threshold&quot;</span>, iAddr.c_str(), iChn);
-<a name="l00125"></a>00125       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga2c6408e2f225703c9a666a2ab23d7680">db_find_key</a>(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
+<a name="l00125"></a>00125       <span class="keywordflow">if</span>(db_find_key(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
 <a name="l00126"></a>00126         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00127"></a>00127         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00128"></a>00128       }
-<a name="l00129"></a>00129       <a class="code" href="structKEY.html">KEY</a> lower_threshold_key;
-<a name="l00130"></a>00130       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#gab97e8d856c8089519a59d3e44c0c4e65">db_get_key</a>(hDB, hKey, &amp;lower_threshold_key) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00129"></a>00129       KEY lower_threshold_key;
+<a name="l00130"></a>00130       <span class="keywordflow">if</span>(db_get_key(hDB, hKey, &amp;lower_threshold_key) != DB_SUCCESS){
 <a name="l00131"></a>00131         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00132"></a>00132         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00133"></a>00133       }
-<a name="l00134"></a>00134       <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> LowerThresholds[lower_threshold_key.<a class="code" href="group__midasincludecode.html#ga2604fa0fc38ce19b011785f806185a02">num_values</a>];
-<a name="l00135"></a>00135       <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = <span class="keyword">sizeof</span>(LowerThresholds);
-<a name="l00136"></a>00136       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(hDB, 0, keyName, LowerThresholds, &amp;size, <a class="code" href="group__mdefineh.html#gad950d5fde6dd3ea7eba59fb6760a38cb">TID_INT</a>, 0) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00134"></a>00134       INT LowerThresholds[lower_threshold_key.num_values];
+<a name="l00135"></a>00135       <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = <span class="keyword">sizeof</span>(LowerThresholds);
+<a name="l00136"></a>00136       <span class="keywordflow">if</span>(db_get_value(hDB, 0, keyName, LowerThresholds, &amp;size, TID_INT, 0) != DB_SUCCESS){
 <a name="l00137"></a>00137         printf(<span class="stringliteral">&quot;Warning: Could not retrieve values for key %s\n&quot;</span>, keyName);
 <a name="l00138"></a>00138         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00139"></a>00139       }
@@ -164,18 +164,18 @@
 <a name="l00141"></a>00141 
 <a name="l00142"></a>00142       <span class="comment">// Upper threshold</span>
 <a name="l00143"></a>00143       sprintf(keyName, <span class="stringliteral">&quot;/Equipment/Crate 9/Settings/NFADC %s/Channel %d/Upper threshold&quot;</span>, iAddr.c_str(), iChn);
-<a name="l00144"></a>00144       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga2c6408e2f225703c9a666a2ab23d7680">db_find_key</a>(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
+<a name="l00144"></a>00144       <span class="keywordflow">if</span>(db_find_key(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
 <a name="l00145"></a>00145         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00146"></a>00146         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00147"></a>00147       }
-<a name="l00148"></a>00148       <a class="code" href="structKEY.html">KEY</a> upper_threshold_key;
-<a name="l00149"></a>00149       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#gab97e8d856c8089519a59d3e44c0c4e65">db_get_key</a>(hDB, hKey, &amp;upper_threshold_key) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00148"></a>00148       KEY upper_threshold_key;
+<a name="l00149"></a>00149       <span class="keywordflow">if</span>(db_get_key(hDB, hKey, &amp;upper_threshold_key) != DB_SUCCESS){
 <a name="l00150"></a>00150         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00151"></a>00151         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00152"></a>00152       }
-<a name="l00153"></a>00153       <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> UpperThresholds[upper_threshold_key.<a class="code" href="group__midasincludecode.html#ga2604fa0fc38ce19b011785f806185a02">num_values</a>];
+<a name="l00153"></a>00153       INT UpperThresholds[upper_threshold_key.num_values];
 <a name="l00154"></a>00154       size = <span class="keyword">sizeof</span>(UpperThresholds);
-<a name="l00155"></a>00155       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(hDB, 0, keyName, UpperThresholds, &amp;size, <a class="code" href="group__mdefineh.html#gad950d5fde6dd3ea7eba59fb6760a38cb">TID_INT</a>, 0) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00155"></a>00155       <span class="keywordflow">if</span>(db_get_value(hDB, 0, keyName, UpperThresholds, &amp;size, TID_INT, 0) != DB_SUCCESS){
 <a name="l00156"></a>00156         printf(<span class="stringliteral">&quot;Warning: Could not retrieve values for key %s\n&quot;</span>, keyName);
 <a name="l00157"></a>00157         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00158"></a>00158       }
@@ -192,18 +192,18 @@
 <a name="l00169"></a>00169 
 <a name="l00170"></a>00170       <span class="comment">// Get the threshold</span>
 <a name="l00171"></a>00171       sprintf(keyName, <span class="stringliteral">&quot;/Equipment/Crate 4/Settings/CAEN0/Ch%d/trigger threshhold&quot;</span>, iChn);
-<a name="l00172"></a>00172       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga2c6408e2f225703c9a666a2ab23d7680">db_find_key</a>(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
+<a name="l00172"></a>00172       <span class="keywordflow">if</span>(db_find_key(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
 <a name="l00173"></a>00173         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00174"></a>00174         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00175"></a>00175       }
-<a name="l00176"></a>00176       <a class="code" href="structKEY.html">KEY</a> threshold_key;
-<a name="l00177"></a>00177       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#gab97e8d856c8089519a59d3e44c0c4e65">db_get_key</a>(hDB, hKey, &amp;threshold_key) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00176"></a>00176       KEY threshold_key;
+<a name="l00177"></a>00177       <span class="keywordflow">if</span>(db_get_key(hDB, hKey, &amp;threshold_key) != DB_SUCCESS){
 <a name="l00178"></a>00178         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00179"></a>00179         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00180"></a>00180       }
-<a name="l00181"></a>00181       <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> Thresholds[threshold_key.<a class="code" href="group__midasincludecode.html#ga2604fa0fc38ce19b011785f806185a02">num_values</a>];
-<a name="l00182"></a>00182       <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = <span class="keyword">sizeof</span>(Thresholds);
-<a name="l00183"></a>00183       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(hDB, 0, keyName, Thresholds, &amp;size, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>, 0) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00181"></a>00181       <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> Thresholds[threshold_key.num_values];
+<a name="l00182"></a>00182       <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = <span class="keyword">sizeof</span>(Thresholds);
+<a name="l00183"></a>00183       <span class="keywordflow">if</span>(db_get_value(hDB, 0, keyName, Thresholds, &amp;size, TID_DWORD, 0) != DB_SUCCESS){
 <a name="l00184"></a>00184         printf(<span class="stringliteral">&quot;Warning: Could not retrieve values for key %s\n&quot;</span>, keyName);
 <a name="l00185"></a>00185         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00186"></a>00186       }
@@ -217,18 +217,18 @@
 <a name="l00194"></a>00194 
 <a name="l00195"></a>00195       <span class="comment">// Get the threshold</span>
 <a name="l00196"></a>00196       sprintf(keyName, <span class="stringliteral">&quot;/Equipment/Crate 5/Settings/CAEN/Ch0%d/self_trigger_threshhold&quot;</span>, iChn);
-<a name="l00197"></a>00197       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga2c6408e2f225703c9a666a2ab23d7680">db_find_key</a>(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
+<a name="l00197"></a>00197       <span class="keywordflow">if</span>(db_find_key(hDB,0,keyName, &amp;hKey) != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>){
 <a name="l00198"></a>00198         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00199"></a>00199         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00200"></a>00200       }
-<a name="l00201"></a>00201       <a class="code" href="structKEY.html">KEY</a> threshold_key;
-<a name="l00202"></a>00202       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#gab97e8d856c8089519a59d3e44c0c4e65">db_get_key</a>(hDB, hKey, &amp;threshold_key) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00201"></a>00201       KEY threshold_key;
+<a name="l00202"></a>00202       <span class="keywordflow">if</span>(db_get_key(hDB, hKey, &amp;threshold_key) != DB_SUCCESS){
 <a name="l00203"></a>00203         printf(<span class="stringliteral">&quot;Warning: Could not find key %s\n&quot;</span>, keyName);
 <a name="l00204"></a>00204         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00205"></a>00205       }
-<a name="l00206"></a>00206       <span class="keywordtype">float</span> Thresholds[threshold_key.<a class="code" href="group__midasincludecode.html#ga2604fa0fc38ce19b011785f806185a02">num_values</a>];
-<a name="l00207"></a>00207       <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = <span class="keyword">sizeof</span>(Thresholds);
-<a name="l00208"></a>00208       <span class="keywordflow">if</span>(<a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(hDB, 0, keyName, Thresholds, &amp;size, <a class="code" href="group__mdefineh.html#gae932ec1b283f6c4b9c30a6d489beea7f">TID_FLOAT</a>, 0) != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>){
+<a name="l00206"></a>00206       <span class="keywordtype">float</span> Thresholds[threshold_key.num_values];
+<a name="l00207"></a>00207       <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = <span class="keyword">sizeof</span>(Thresholds);
+<a name="l00208"></a>00208       <span class="keywordflow">if</span>(db_get_value(hDB, 0, keyName, Thresholds, &amp;size, TID_FLOAT, 0) != DB_SUCCESS){
 <a name="l00209"></a>00209         printf(<span class="stringliteral">&quot;Warning: Could not retrieve values for key %s\n&quot;</span>, keyName);
 <a name="l00210"></a>00210         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00211"></a>00211       }
@@ -239,10 +239,10 @@
 <a name="l00216"></a>00216   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00217"></a>00217 }
 <a name="l00218"></a>00218 
-<a name="l00221"></a><a class="code" href="MDQ__Thresholds_8cpp.html#ad30586e115e4538e5bb079fc6a02b4ed">00221</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MDQ__Thresholds_8cpp.html#ad30586e115e4538e5bb079fc6a02b4ed">MDQ_Thresholds</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *pheader, <span class="keywordtype">void</span> *pevent)
+<a name="l00221"></a><a class="code" href="MDQ__Thresholds_8cpp.html#ad30586e115e4538e5bb079fc6a02b4ed">00221</a> INT <a class="code" href="MDQ__Thresholds_8cpp.html#ad30586e115e4538e5bb079fc6a02b4ed">MDQ_Thresholds</a>(EVENT_HEADER *pheader, <span class="keywordtype">void</span> *pevent)
 <a name="l00222"></a>00222 {
 <a name="l00223"></a>00223         <span class="comment">// Get the event number</span>
-<a name="l00224"></a>00224         <span class="keywordtype">int</span> midas_event_number = pheader-&gt;<a class="code" href="group__midasincludecode.html#ga5ed07c075ebce619a8fa47e96f188440">serial_number</a>;
+<a name="l00224"></a>00224         <span class="keywordtype">int</span> midas_event_number = pheader-&gt;serial_number;
 <a name="l00225"></a>00225 
 <a name="l00226"></a>00226         <span class="comment">// Some typedefs</span>
 <a name="l00227"></a>00227         <span class="keyword">typedef</span> map&lt;string, vector&lt;TPulseIsland*&gt; &gt; <a class="code" href="namespaceAlCap.html#a5ce0de646755e93f9915669e61b638ef">TStringPulseIslandMap</a>;

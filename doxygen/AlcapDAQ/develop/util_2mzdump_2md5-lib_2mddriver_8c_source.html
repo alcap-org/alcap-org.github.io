@@ -106,7 +106,7 @@
 <a name="l00079"></a>00079 
 <a name="l00080"></a>00080 <span class="keywordtype">char</span> *argv[];
 <a name="l00081"></a>00081 {
-<a name="l00082"></a>00082   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00082"></a>00082   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00083"></a>00083 
 <a name="l00084"></a>00084   <span class="keywordflow">if</span> (argc &gt; 1)
 <a name="l00085"></a>00085  <span class="keywordflow">for</span> (i = 1; i &lt; argc; i++)
@@ -150,7 +150,7 @@
 <a name="l00123"></a>00123   <a class="code" href="structMD5__CTX.html">MD5_CTX</a> context;
 <a name="l00124"></a>00124   time_t endTime, startTime;
 <a name="l00125"></a>00125   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> block[<a class="code" href="analyzer_2md5-lib_2mddriver_8c.html#ad5041807fa129dcdd01cc6f7d8b437ea">TEST_BLOCK_LEN</a>], digest[16];
-<a name="l00126"></a>00126   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00126"></a>00126   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128 
 <a name="l00129"></a>00129   printf
@@ -202,13 +202,13 @@
 <a name="l00175"></a>00175 
 <a name="l00176"></a>00176 <span class="comment">/* Digests a file and prints the result.</span>
 <a name="l00177"></a>00177 <span class="comment"> */</span>
-<a name="l00178"></a><a class="code" href="util_2mzdump_2md5-lib_2mddriver_8c.html#a44ac526a6bdef3392f5d6a2fb1757546">00178</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="util_2mzdump_2md5-lib_2mddriver_8c.html#a44ac526a6bdef3392f5d6a2fb1757546">MDFile</a> (<a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>)
-<a name="l00179"></a>00179 char *<a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>;
+<a name="l00178"></a><a class="code" href="util_2mzdump_2md5-lib_2mddriver_8c.html#a44ac526a6bdef3392f5d6a2fb1757546">00178</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="util_2mzdump_2md5-lib_2mddriver_8c.html#a44ac526a6bdef3392f5d6a2fb1757546">MDFile</a> (filename)
+<a name="l00179"></a>00179 char *filename;
 <a name="l00180"></a>00180 {
 <a name="l00181"></a>00181   FILE *file;
 <a name="l00182"></a>00182   <a class="code" href="structMD5__CTX.html">MD5_CTX</a> context;
 <a name="l00183"></a>00183   <span class="keywordtype">int</span> len;
-<a name="l00184"></a>00184   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>[1024], digest[16];
+<a name="l00184"></a>00184   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buffer[1024], digest[16];
 <a name="l00185"></a>00185 
 <a name="l00186"></a>00186   <span class="keywordflow">if</span> ((file = fopen (filename, <span class="stringliteral">&quot;rb&quot;</span>)) == NULL)
 <a name="l00187"></a>00187  printf (<span class="stringliteral">&quot;%s can&apos;t be opened\n&quot;</span>, filename);
@@ -233,7 +233,7 @@
 <a name="l00206"></a>00206 {
 <a name="l00207"></a>00207   <a class="code" href="structMD5__CTX.html">MD5_CTX</a> context;
 <a name="l00208"></a>00208   <span class="keywordtype">int</span> len;
-<a name="l00209"></a>00209   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>[16], digest[16];
+<a name="l00209"></a>00209   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buffer[16], digest[16];
 <a name="l00210"></a>00210 
 <a name="l00211"></a>00211   <a class="code" href="analyzer_2md5-lib_2mddriver_8c.html#aa17dc12742f7f4cc961baee929f098a0">MDInit</a> (&amp;context);
 <a name="l00212"></a>00212   <span class="keywordflow">while</span> (len = fread (buffer, 1, 16, stdin))
@@ -250,7 +250,7 @@
 <a name="l00223"></a>00223 unsigned <span class="keywordtype">char</span> digest[16];
 <a name="l00224"></a>00224 {
 <a name="l00225"></a>00225 
-<a name="l00226"></a>00226   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00226"></a>00226   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00227"></a>00227 
 <a name="l00228"></a>00228   <span class="keywordflow">for</span> (i = 0; i &lt; 16; i++)
 <a name="l00229"></a>00229  printf (<span class="stringliteral">&quot;%02x&quot;</span>, digest[i]);

@@ -39,7 +39,7 @@
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TObject *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="getHist_8cpp.html#a8015f23cfaf12d6a6e9753ed0bf56c71">getObjectFromSocket</a> (const char *name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TObject *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="getHist_8cpp.html#a246e046cbb92dd95e0bf8ffe792f4761">getObjectFromFile</a> (const char *name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">TFile *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="getHist_8cpp.html#adc70716094e1a297637c1499f9f2360c">openRootFile</a> (const char *<a class="el" href="mana__orig_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TFile *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="getHist_8cpp.html#adc70716094e1a297637c1499f9f2360c">openRootFile</a> (const char *filename)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TSocket *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="getHist_8cpp.html#ae2f869592bf010019d7af5f73106300b">openSocket</a> (const char *hostname, const int port_nr)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="getHist_8cpp.html#a95a0ca585f90fba7381403e00089729d">closeSource</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TObject *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="getHist_8cpp.html#a6d09d9455aeaf1aa45f044938d3318aa">getObject</a> (const char *name)</td></tr>
@@ -159,7 +159,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 
 <p>Definition at line <a class="el" href="getHist_8cpp_source.html#l00426">426</a> of file <a class="el" href="getHist_8cpp_source.html">getHist.cpp</a>.</p>
 
-<p>References <a class="el" href="getHist_8cpp_source.html#l00178">closeSource()</a>, <a class="el" href="getHist_8cpp_source.html#l00311">getObjectFromFile()</a>, <a class="el" href="getHist_8cpp_source.html#l00060">gl_status</a>, <a class="el" href="camac_8c_source.html#l00506">n</a>, <a class="el" href="getHist_8cpp_source.html#l00044">r_file</a>, <a class="el" href="getHist_8cpp_source.html#l00043">r_socket</a>, <a class="el" href="getHist_8h_source.html#l00017">RDISP_ERR_NO_CON</a>, <a class="el" href="patch__mevb_8cpp_source.html#l00079">status</a>, and <a class="el" href="getHist_8cpp_source.html#l00057">timeout</a>.</p>
+<p>References <a class="el" href="getHist_8cpp_source.html#l00178">closeSource()</a>, <a class="el" href="getHist_8cpp_source.html#l00311">getObjectFromFile()</a>, <a class="el" href="getHist_8cpp_source.html#l00060">gl_status</a>, <a class="el" href="getHist_8cpp_source.html#l00044">r_file</a>, <a class="el" href="getHist_8cpp_source.html#l00043">r_socket</a>, <a class="el" href="getHist_8h_source.html#l00017">RDISP_ERR_NO_CON</a>, <a class="el" href="patch__mevb_8cpp_source.html#l00079">status</a>, and <a class="el" href="getHist_8cpp_source.html#l00057">timeout</a>.</p>
 
 <p>Referenced by <a class="el" href="TOnlineFrame_8cpp_source.html#l00483">TOnlineFrame::runMacro()</a>.</p>
 
@@ -170,7 +170,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00431"></a>00431         <span class="keywordflow">if</span> (<a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a> != NULL) 
 <a name="l00432"></a>00432         {
 <a name="l00433"></a>00433                 TMessage *m;
-<a name="l00434"></a>00434                 <span class="keywordtype">char</span> <a class="code" href="odbhist_8c.html#a45bb529d5408fcb730eeccb339110d3f">str</a>[256];
+<a name="l00434"></a>00434                 <span class="keywordtype">char</span> str[256];
 <a name="l00435"></a>00435 
 <a name="l00436"></a>00436                 sprintf(str, <span class="stringliteral">&quot;GetRunNumber&quot;</span>);
 <a name="l00437"></a>00437                 Int_t <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>-&gt;Select(TSocket::kWrite,<a class="code" href="getHist_8cpp.html#a654210ae605a61110cf5a8a0c9f2d72c">timeout</a>);
@@ -191,7 +191,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00452"></a>00452                         <a class="code" href="getHist_8cpp.html#a51f62867975b7956cafed95f8d3d99c7">gl_status</a> = <a class="code" href="getHist_8h.html#a8bf1fa83a97948ff31c9319fc42d4dea" title="cannot connect to the server">RDISP_ERR_NO_CON</a>;
 <a name="l00453"></a>00453                         <span class="keywordflow">return</span> 0;
 <a name="l00454"></a>00454                 }
-<a name="l00455"></a>00455                 Int_t <a class="code" href="camac_8c.html#a76f11d9a0a47b94f72c2d0e77fb32240">n</a> = <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>-&gt;Recv(m);
+<a name="l00455"></a>00455                 Int_t n = <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>-&gt;Recv(m);
 <a name="l00456"></a>00456 
 <a name="l00457"></a>00457                 <span class="keywordflow">if</span> ( n &lt;= 0 )
 <a name="l00458"></a>00458                 {
@@ -309,11 +309,11 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <p><div class="fragment"><pre class="fragment"><a name="l00203"></a>00203 {
 <a name="l00204"></a>00204         <span class="keywordflow">if</span> (<a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a> != NULL) 
 <a name="l00205"></a>00205         {
-<a name="l00206"></a>00206                 <span class="keywordflow">return</span> <a class="code" href="getHist_8cpp.html#a8015f23cfaf12d6a6e9753ed0bf56c71">getObjectFromSocket</a>( <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a> );
+<a name="l00206"></a>00206                 <span class="keywordflow">return</span> <a class="code" href="getHist_8cpp.html#a8015f23cfaf12d6a6e9753ed0bf56c71">getObjectFromSocket</a>( name );
 <a name="l00207"></a>00207         } 
 <a name="l00208"></a>00208         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a> != NULL) 
 <a name="l00209"></a>00209         {
-<a name="l00210"></a>00210                 <span class="keywordflow">return</span> <a class="code" href="getHist_8cpp.html#a246e046cbb92dd95e0bf8ffe792f4761">getObjectFromFile</a>( <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a> );
+<a name="l00210"></a>00210                 <span class="keywordflow">return</span> <a class="code" href="getHist_8cpp.html#a246e046cbb92dd95e0bf8ffe792f4761">getObjectFromFile</a>( name );
 <a name="l00211"></a>00211         } 
 <a name="l00212"></a>00212 
 <a name="l00214"></a>00214         <span class="keywordflow">if</span> ( <a class="code" href="getHist_8cpp.html#a51f62867975b7956cafed95f8d3d99c7">gl_status</a> == 0 )
@@ -383,9 +383,9 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00343"></a>00343 <span class="comment">                 */</span>
 <a name="l00344"></a>00344 
 <a name="l00345"></a>00345 <span class="preprocessor">#if 0</span>
-<a name="l00346"></a>00346 <span class="preprocessor"></span>        TObject *obj = r_folder-&gt;FindObject(<a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>);
+<a name="l00346"></a>00346 <span class="preprocessor"></span>        TObject *obj = r_folder-&gt;FindObject(name);
 <a name="l00347"></a>00347 <span class="preprocessor">#else</span>
-<a name="l00348"></a>00348 <span class="preprocessor"></span>        TObject *obj = <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a>-&gt;Get(<a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>);
+<a name="l00348"></a>00348 <span class="preprocessor"></span>        TObject *obj = <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a>-&gt;Get(name);
 <a name="l00349"></a>00349 <span class="preprocessor">#endif</span>
 <a name="l00350"></a>00350 <span class="preprocessor"></span>
 <a name="l00351"></a>00351         <span class="comment">/*</span>
@@ -419,16 +419,16 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 
 <p>Definition at line <a class="el" href="getHist_8cpp_source.html#l00243">243</a> of file <a class="el" href="getHist_8cpp_source.html">getHist.cpp</a>.</p>
 
-<p>References <a class="el" href="getHist_8cpp_source.html#l00178">closeSource()</a>, <a class="el" href="getHist_8cpp_source.html#l00053">folder</a>, <a class="el" href="getHist_8cpp_source.html#l00060">gl_status</a>, <a class="el" href="camac_8c_source.html#l00506">n</a>, <a class="el" href="getHist_8cpp_source.html#l00043">r_socket</a>, <a class="el" href="getHist_8h_source.html#l00017">RDISP_ERR_NO_CON</a>, <a class="el" href="patch__mevb_8cpp_source.html#l00079">status</a>, and <a class="el" href="getHist_8cpp_source.html#l00057">timeout</a>.</p>
+<p>References <a class="el" href="getHist_8cpp_source.html#l00178">closeSource()</a>, <a class="el" href="getHist_8cpp_source.html#l00053">folder</a>, <a class="el" href="getHist_8cpp_source.html#l00060">gl_status</a>, <a class="el" href="getHist_8cpp_source.html#l00043">r_socket</a>, <a class="el" href="getHist_8h_source.html#l00017">RDISP_ERR_NO_CON</a>, <a class="el" href="patch__mevb_8cpp_source.html#l00079">status</a>, and <a class="el" href="getHist_8cpp_source.html#l00057">timeout</a>.</p>
 
 <p>Referenced by <a class="el" href="getHist_8cpp_source.html#l00202">getObject()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00244"></a>00244 {
 <a name="l00245"></a>00245         TMessage *m;
-<a name="l00246"></a>00246         <span class="keywordtype">char</span> <a class="code" href="odbhist_8c.html#a45bb529d5408fcb730eeccb339110d3f">str</a>[256];
+<a name="l00246"></a>00246         <span class="keywordtype">char</span> str[256];
 <a name="l00247"></a>00247         TObject *obj;
 <a name="l00248"></a>00248 
-<a name="l00249"></a>00249         <span class="keywordflow">if</span> ( strlen(<a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>) &gt; 230 )
+<a name="l00249"></a>00249         <span class="keywordflow">if</span> ( strlen(name) &gt; 230 )
 <a name="l00250"></a>00250         {
 <a name="l00251"></a>00251                 printf(<span class="stringliteral">&quot;***ERROR! Best object name\n&quot;</span>); 
 <a name="l00252"></a>00252                 <span class="keywordflow">return</span> NULL;
@@ -440,7 +440,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00258"></a>00258                 <a class="code" href="getHist_8cpp.html#a95dc79959bb858a2df2e52edc9a15586">folder</a>-&gt;SetOwner( kTRUE );
 <a name="l00259"></a>00259         }
 <a name="l00260"></a>00260 
-<a name="l00261"></a>00261         sprintf(str, <span class="stringliteral">&quot;GET %s&quot;</span>, <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>);
+<a name="l00261"></a>00261         sprintf(str, <span class="stringliteral">&quot;GET %s&quot;</span>, name);
 <a name="l00262"></a>00262 
 <a name="l00263"></a>00263         <span class="comment">// make sure that the socket is alive</span>
 <a name="l00264"></a>00264         Int_t <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>-&gt;Select(TSocket::kWrite,<a class="code" href="getHist_8cpp.html#a654210ae605a61110cf5a8a0c9f2d72c">timeout</a>);
@@ -464,7 +464,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00282"></a>00282                 <span class="keywordflow">return</span> NULL;
 <a name="l00283"></a>00283         }
 <a name="l00284"></a>00284         <span class="comment">//printf(&quot;Alive!\n&quot;);</span>
-<a name="l00285"></a>00285         Int_t <a class="code" href="camac_8c.html#a76f11d9a0a47b94f72c2d0e77fb32240">n</a> = <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>-&gt;Recv(m);
+<a name="l00285"></a>00285         Int_t n = <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>-&gt;Recv(m);
 <a name="l00286"></a>00286 
 <a name="l00287"></a>00287         <span class="keywordflow">if</span> ( n &lt;= 0 )
 <a name="l00288"></a>00288         {
@@ -478,7 +478,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00296"></a>00296 
 <a name="l00297"></a>00297         <span class="keywordflow">if</span> (obj == 0) 
 <a name="l00298"></a>00298         {
-<a name="l00299"></a>00299                 printf(<span class="stringliteral">&quot;Unable to get object [%s] from socket\n&quot;</span>, <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>);
+<a name="l00299"></a>00299                 printf(<span class="stringliteral">&quot;Unable to get object [%s] from socket\n&quot;</span>, name);
 <a name="l00300"></a>00300         }
 <a name="l00301"></a>00301         <span class="keywordflow">else</span>
 <a name="l00302"></a>00302         {
@@ -526,10 +526,10 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <p><div class="fragment"><pre class="fragment"><a name="l00076"></a>00076 {
 <a name="l00077"></a>00077         <a class="code" href="getHist_8cpp.html#a95a0ca585f90fba7381403e00089729d">closeSource</a>();
 <a name="l00078"></a>00078 
-<a name="l00079"></a>00079         <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a> = <span class="keyword">new</span> TFile(<a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>);
+<a name="l00079"></a>00079         <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a> = <span class="keyword">new</span> TFile(filename);
 <a name="l00080"></a>00080         <span class="keywordflow">if</span> ( <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a>-&gt;IsZombie() )
 <a name="l00081"></a>00081         {
-<a name="l00082"></a>00082                 printf(<span class="stringliteral">&quot;***ERROR! Cannot open ROOT file [%s]\n&quot;</span>,<a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>);
+<a name="l00082"></a>00082                 printf(<span class="stringliteral">&quot;***ERROR! Cannot open ROOT file [%s]\n&quot;</span>,filename);
 <a name="l00083"></a>00083                 <span class="keyword">delete</span> <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a>;
 <a name="l00084"></a>00084                 <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a> = NULL;
 <a name="l00085"></a>00085 <span class="preprocessor">#if 0</span>
@@ -544,7 +544,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00094"></a>00094                 <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a>-&gt;GetObject(<span class="stringliteral">&quot;histos&quot;</span>,r_folder);
 <a name="l00095"></a>00095                 <span class="keywordflow">if</span> ( !r_folder )
 <a name="l00096"></a>00096                 {      
-<a name="l00097"></a>00097                         printf(<span class="stringliteral">&quot;**ERROR! Cannot load folder &apos;histos&apos; from file [%filename]\n&quot;</span>,<a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>);
+<a name="l00097"></a>00097                         printf(<span class="stringliteral">&quot;**ERROR! Cannot load folder &apos;histos&apos; from file [%filename]\n&quot;</span>,filename);
 <a name="l00098"></a>00098                         <span class="keyword">delete</span> <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a>;
 <a name="l00099"></a>00099                         <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a> = NULL;
 <a name="l00100"></a>00100                         r_folder = NULL;  
@@ -557,7 +557,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00107"></a>00107         }
 <a name="l00108"></a>00108 <span class="preprocessor">#endif</span>
 <a name="l00109"></a>00109 <span class="preprocessor"></span>
-<a name="l00110"></a>00110         printf(<span class="stringliteral">&quot;Connected to source file :[%s]\n&quot;</span>,<a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>);
+<a name="l00110"></a>00110         printf(<span class="stringliteral">&quot;Connected to source file :[%s]\n&quot;</span>,filename);
 <a name="l00111"></a>00111 
 <a name="l00112"></a>00112         <span class="keywordflow">return</span> <a class="code" href="getHist_8cpp.html#a14b7a3344ce461b69bf73b15db3bcc3c">r_file</a>;
 <a name="l00113"></a>00113 }
@@ -620,7 +620,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 <a name="l00137"></a>00137                 <span class="keywordflow">return</span> <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>;
 <a name="l00138"></a>00138         }
 <a name="l00139"></a>00139 
-<a name="l00140"></a>00140         <span class="keywordtype">char</span> <a class="code" href="odbhist_8c.html#a45bb529d5408fcb730eeccb339110d3f">str</a>[64];
+<a name="l00140"></a>00140         <span class="keywordtype">char</span> str[64];
 <a name="l00141"></a>00141         sprintf(str,<span class="stringliteral">&quot;ERROR&quot;</span>);
 <a name="l00142"></a>00142         status = <a class="code" href="getHist_8cpp.html#a9724d2314ed09c37012a4c5244d0713f">r_socket</a>-&gt;Select(TSocket::kRead,<a class="code" href="getHist_8cpp.html#a654210ae605a61110cf5a8a0c9f2d72c">timeout</a>);
 <a name="l00143"></a>00143         <span class="keywordflow">if</span> ( status == 1 ) 
@@ -766,7 +766,7 @@ Last-Updated: Mon Nov 4 22:07:22 2013 (-0500) By : Vladimir Tishchenko Update #:
 
 <p>Definition at line <a class="el" href="getHist_8cpp_source.html#l00057">57</a> of file <a class="el" href="getHist_8cpp_source.html">getHist.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="midas_8c_source.html#l04949">cm_enable_watchdog()</a>, <a class="el" href="odbedit_8c_source.html#l01415">command_loop()</a>, <a class="el" href="odb_8c_source.html#l00993">db_open_database()</a>, <a class="el" href="midas_8c_source.html#l17314">dm_pointer_get()</a>, <a class="el" href="midas_8c_source.html#l17529">dm_task()</a>, <a class="el" href="getHist_8cpp_source.html#l00426">get_run_number()</a>, <a class="el" href="getHist_8cpp_source.html#l00243">getObjectFromSocket()</a>, <a class="el" href="old__mevb_8cpp_source.html#l00658">main()</a>, <a class="el" href="mscb_8c_source.html#l00805">mscb_out()</a>, <a class="el" href="null_8c_source.html#l00241">null()</a>, <a class="el" href="getHist_8cpp_source.html#l00124">openSocket()</a>, <a class="el" href="midas_2examples_2experiment_2frontend_8c_source.html#l00337">read_trigger_event()</a>, <a class="el" href="mevb_8cpp_source.html#l00370">scan_fragment()</a>, <a class="el" href="old__mevb_8cpp_source.html#l00486">source_scan()</a>, <a class="el" href="vmedrv_8c_source.html#l01876">start_dma()</a>, <a class="el" href="tcpip_8c_source.html#l00366">tcpip()</a>, and <a class="el" href="vmedrv_8c_source.html#l00606">vmedrv_unlocked_ioctl()</a>.</p>
+<p>Referenced by <a class="el" href="getHist_8cpp_source.html#l00426">get_run_number()</a>, <a class="el" href="getHist_8cpp_source.html#l00243">getObjectFromSocket()</a>, <a class="el" href="old__mevb_8cpp_source.html#l00658">main()</a>, <a class="el" href="getHist_8cpp_source.html#l00124">openSocket()</a>, <a class="el" href="mevb_8cpp_source.html#l00370">scan_fragment()</a>, <a class="el" href="old__mevb_8cpp_source.html#l00486">source_scan()</a>, <a class="el" href="vmedrv_8c_source.html#l01876">start_dma()</a>, and <a class="el" href="vmedrv_8c_source.html#l00606">vmedrv_unlocked_ioctl()</a>.</p>
 
 </div>
 </div>

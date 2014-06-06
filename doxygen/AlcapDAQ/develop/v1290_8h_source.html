@@ -34,7 +34,7 @@
 <a name="l00007"></a>00007 <span class="preprocessor">#ifndef V1290_7NX5IH0R</span>
 <a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define V1290_7NX5IH0R</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="midas_2include_2mvmestd_8h.html">mvmestd.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="mvmestd_8h.html">mvmestd.h</a>&quot;</span>
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;stdint.h&gt;</span>
 <a name="l00012"></a>00012 
 <a name="l00013"></a><a class="code" href="v1290_8h.html#a13784d6b50d17e4dd268b24010cd1716">00013</a> <span class="preprocessor">#define V1290_AM MVME_AM_A32_ND</span>
@@ -227,19 +227,19 @@
 <a name="l00200"></a><a class="code" href="v1290_8h.html#abb09ec68a4f117f1c720b5e8f8e01d50">00200</a> <span class="preprocessor"></span><span class="preprocessor">#define V1290_GET_TDC_MSR_MEASURE(data)         ((uint32_t)(((uint32_t)data)&amp; V1290_TDC_MSR_MEASURE_MSK))                               </span>
 <a name="l00201"></a>00201 <span class="preprocessor"></span>
 <a name="l00202"></a>00202 <span class="comment">//Basic read/write</span>
-<a name="l00203"></a>00203 uint16_t <a class="code" href="v1290_8c.html#ab1771dd80dd95fb80a83e232a88c829a">v1290_Read16</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, <span class="keywordtype">int</span> <a class="code" href="mgd_8c.html#aed7ea92f45bd273dde380a45ddced592">offset</a>);
-<a name="l00204"></a>00204 uint32_t <a class="code" href="v1290_8c.html#a09904edd50548a436eb10c13c1753778">v1290_Read32</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, <span class="keywordtype">int</span> <a class="code" href="mgd_8c.html#aed7ea92f45bd273dde380a45ddced592">offset</a>);
+<a name="l00203"></a>00203 uint16_t <a class="code" href="v1290_8c.html#ab1771dd80dd95fb80a83e232a88c829a">v1290_Read16</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, <span class="keywordtype">int</span> offset);
+<a name="l00204"></a>00204 uint32_t <a class="code" href="v1290_8c.html#a09904edd50548a436eb10c13c1753778">v1290_Read32</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, <span class="keywordtype">int</span> offset);
 <a name="l00205"></a>00205 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a6b40ee54d037bbc61755c409fa101c8b">v1290_Write16</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, 
-<a name="l00206"></a>00206                 <span class="keywordtype">int</span> <a class="code" href="mgd_8c.html#aed7ea92f45bd273dde380a45ddced592">offset</a>, uint16_t <a class="code" href="ADCS_8h.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>);
+<a name="l00206"></a>00206                 <span class="keywordtype">int</span> offset, uint16_t <a class="code" href="ADCS_8h.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>);
 <a name="l00207"></a>00207 <span class="keywordtype">int</span> <a class="code" href="v1290_8h.html#aa6e44a139ec77a01175fa3f5feaa87c7">v1290_EventRead</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, 
 <a name="l00208"></a>00208                 uint32_t *pdest, <span class="keywordtype">int</span> *nentry);
 <a name="l00209"></a>00209 <span class="keywordtype">int</span>  <a class="code" href="v1290_8c.html#a0fe8b5b504d041c3374bcd17037cfc7e">v1290_DataRead</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, 
 <a name="l00210"></a>00210                 uint32_t base, uint32_t *pdest, <span class="keywordtype">int</span> nentry);
 <a name="l00211"></a>00211 
 <a name="l00212"></a>00212 <span class="comment">// Opcode related functions</span>
-<a name="l00213"></a>00213 <span class="keywordtype">int</span> <a class="code" href="v1290_8c.html#aaec3b9ecccbe0d149367116a88b968b3">v1290_MicroWrite</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t <a class="code" href="lrs1821_8c.html#a7c3d85e54927f04c38e110e849168bb9">data</a>);
+<a name="l00213"></a>00213 <span class="keywordtype">int</span> <a class="code" href="v1290_8c.html#aaec3b9ecccbe0d149367116a88b968b3">v1290_MicroWrite</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t data);
 <a name="l00214"></a>00214 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a0fc53414ea4fca44b1f49eaad0529a04">v1290_WriteMicro</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, 
-<a name="l00215"></a>00215                 uint16_t opcode, uint16_t <a class="code" href="lrs1821_8c.html#a7c3d85e54927f04c38e110e849168bb9">data</a>);
+<a name="l00215"></a>00215                 uint16_t opcode, uint16_t data);
 <a name="l00216"></a>00216 <span class="keywordtype">int</span> <a class="code" href="v1290_8c.html#a1a3914ce5cfb3e4954a77d8ea5c8861b">v1290_MicroRead</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, <span class="keyword">const</span> uint32_t base);
 <a name="l00217"></a>00217 uint16_t <a class="code" href="v1290_8c.html#ac6ad6d040e70f6979227b69f6e7b51cb">v1290_ReadMicro</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, <span class="keyword">const</span> uint32_t base, 
 <a name="l00218"></a>00218                 uint16_t opcode);
@@ -251,7 +251,7 @@
 <a name="l00224"></a>00224 <span class="comment">// Trigger matching mode related settings</span>
 <a name="l00225"></a>00225 <span class="keywordtype">int</span> <a class="code" href="v1290_8c.html#aa4f3e21f2e170f66b8071dbfd16da69b">v1290_TriggerConfRead</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t *conf);
 <a name="l00226"></a>00226 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a95c2b25ffea7fc8f6af7353d3c48bb68">v1290_SetWindowWidth</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t <a class="code" href="mainWindow_8cpp.html#a2474a5474cbff19523a51eb1de01cda4">width</a>);
-<a name="l00227"></a>00227 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a7e77b3ff0bb491a9e735bee84a5f9bd7">v1290_SetWindowOffset</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, int16_t <a class="code" href="mgd_8c.html#aed7ea92f45bd273dde380a45ddced592">offset</a>);
+<a name="l00227"></a>00227 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a7e77b3ff0bb491a9e735bee84a5f9bd7">v1290_SetWindowOffset</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, int16_t offset);
 <a name="l00228"></a>00228 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a0f0d6f609fc9fc682c8f32a4be08559b">v1290_SetExtraMargin</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t margin);
 <a name="l00229"></a>00229 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a2f3a29a098296a9a3feb53327f932caf">v1290_SetRejectMargin</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t margin);
 <a name="l00230"></a>00230 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a33bfe2b7bd957f3ec41a4f191bc46aa8">v1290_EnableTriggerSubtraction</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, <span class="keywordtype">bool</span> en);
@@ -272,7 +272,7 @@
 <a name="l00245"></a>00245 uint16_t <a class="code" href="v1290_8c.html#a150ceebf3226f22cca62b3f08b8b92d5">v1290_ReadMaxHits</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base);
 <a name="l00246"></a>00246 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#ae6d1746b48d9f818e74663e0d5b23f6c">v1290_EnableTDCErrorMark</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, <span class="keywordtype">bool</span> en);
 <a name="l00247"></a>00247 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a4dde3cb22036ebad4ba87bd3f407034c">v1290_EnableBypassTDC</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, <span class="keywordtype">bool</span> en);
-<a name="l00248"></a>00248 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a9b1e2e27b8010fcbb8b127b975e40333">v1290_SetFIFOSize</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a>);
+<a name="l00248"></a>00248 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#a9b1e2e27b8010fcbb8b127b975e40333">v1290_SetFIFOSize</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base, uint16_t <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a>);
 <a name="l00249"></a>00249 uint16_t <a class="code" href="v1290_8c.html#a1d4d34a5a12d9a2b3ed8a088aa4424a9">v1290_ReadFIFOSize</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base);
 <a name="l00250"></a>00250 <span class="comment">// Channel enable, section 5.6</span>
 <a name="l00251"></a>00251 <span class="keywordtype">void</span> <a class="code" href="v1290_8c.html#af88d57238725cc4b62e226f03c6daab7">v1290_EnableChannel</a>(<a class="code" href="structMVME__INTERFACE.html">MVME_INTERFACE</a> *mvme, uint32_t base,uint16_t chn,<span class="keywordtype">bool</span> en);

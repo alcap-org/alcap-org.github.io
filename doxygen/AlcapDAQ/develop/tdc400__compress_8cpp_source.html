@@ -33,14 +33,14 @@
 <a name="l00007"></a>00007 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <a name="l00008"></a>00008 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
 <a name="l00009"></a>00009 
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="mucap__compress_8h.html">mucap_compress.h</a>&quot;</span>
 <a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="mucap__structures_8h.html">mucap_structures.h</a>&quot;</span>
 <a name="l00014"></a>00014 
 <a name="l00015"></a><a class="code" href="tdc400__compress_8cpp.html#a89453e0e13e80d9a8298f79b8d49d30a">00015</a> <a class="code" href="structhuffman__table.html">huffman_table</a> <a class="code" href="mucap__compress_8h.html#a89453e0e13e80d9a8298f79b8d49d30a">bits_huffman</a>[2];
 <a name="l00016"></a><a class="code" href="tdc400__compress_8cpp.html#a119f5e1899fa0d99a4cf8cea6a18cb3f">00016</a> <a class="code" href="structhuffman__table.html">huffman_table</a> <a class="code" href="mucap__compress_8h.html#a119f5e1899fa0d99a4cf8cea6a18cb3f">time_huffman</a>;
-<a name="l00017"></a><a class="code" href="tdc400__compress_8cpp.html#a2dadd9a43c97d37b6b60f99b8c6e650f">00017</a> <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="mucap__compress_8h.html#a2dadd9a43c97d37b6b60f99b8c6e650f">should_compress_tdc400</a> = <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;
+<a name="l00017"></a><a class="code" href="tdc400__compress_8cpp.html#a2dadd9a43c97d37b6b60f99b8c6e650f">00017</a> BOOL <a class="code" href="mucap__compress_8h.html#a2dadd9a43c97d37b6b60f99b8c6e650f">should_compress_tdc400</a> = <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;
 <a name="l00018"></a>00018 
 <a name="l00019"></a><a class="code" href="tdc400__compress_8cpp.html#a2be7c78e8f179774a3493583e306eb2d">00019</a> <span class="keywordtype">void</span> <a class="code" href="mucap__compress_8h.html#a2be7c78e8f179774a3493583e306eb2d">tdc400_optimize</a>()
 <a name="l00020"></a>00020 {
@@ -63,14 +63,14 @@
 <a name="l00037"></a>00037   <a class="code" href="huffman_8cpp.html#a5e92c1dfa160fcef488964550b48b79e">load_huffman</a>(<span class="stringliteral">&quot;/Compression/Lossless/TDC400/Huffman/Bits 0&quot;</span>, &amp;bits_huffman[0]);
 <a name="l00038"></a>00038   <a class="code" href="huffman_8cpp.html#a5e92c1dfa160fcef488964550b48b79e">load_huffman</a>(<span class="stringliteral">&quot;/Compression/Lossless/TDC400/Huffman/Bits 1&quot;</span>, &amp;bits_huffman[1]);
 <a name="l00039"></a>00039 
-<a name="l00040"></a>00040   <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = <span class="keyword">sizeof</span>(<a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a>);
-<a name="l00041"></a>00041   <a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, <span class="stringliteral">&quot;/Compression/Lossless/TDC400/Enabled&quot;</span>, &amp;<a class="code" href="mucap__compress_8h.html#a2dadd9a43c97d37b6b60f99b8c6e650f">should_compress_tdc400</a>,
-<a name="l00042"></a>00042     &amp;size, <a class="code" href="group__mdefineh.html#ga252eb84661dfaa5959b5cb316117d696">TID_BOOL</a>, <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);
+<a name="l00040"></a>00040   <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = <span class="keyword">sizeof</span>(BOOL);
+<a name="l00041"></a>00041   db_get_value(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, <span class="stringliteral">&quot;/Compression/Lossless/TDC400/Enabled&quot;</span>, &amp;<a class="code" href="mucap__compress_8h.html#a2dadd9a43c97d37b6b60f99b8c6e650f">should_compress_tdc400</a>,
+<a name="l00042"></a>00042     &amp;size, TID_BOOL, <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);
 <a name="l00043"></a>00043 }
 <a name="l00044"></a>00044 
 <a name="l00045"></a><a class="code" href="tdc400__compress_8cpp.html#a4122a59f4ba1c2f27e90aa258a585123">00045</a> <span class="keywordtype">void</span> <a class="code" href="tdc400__compress_8cpp.html#a4122a59f4ba1c2f27e90aa258a585123">binary_print</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="patch__mevb_8cpp.html#adce6024c3a1b29c5fcede88815f9b152">c</a>)
 <a name="l00046"></a>00046 {
-<a name="l00047"></a>00047   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00047"></a>00047   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00048"></a>00048     <span class="keywordflow">if</span> (c &amp; 0x80) {
 <a name="l00049"></a>00049       printf(<span class="stringliteral">&quot;X&quot;</span>);
 <a name="l00050"></a>00050     } <span class="keywordflow">else</span> {
@@ -81,13 +81,13 @@
 <a name="l00055"></a>00055   }
 <a name="l00056"></a>00056 }
 <a name="l00057"></a>00057 
-<a name="l00058"></a><a class="code" href="tdc400__compress_8cpp.html#adfb85f4e58c6be8e56fe6f507d362f1e">00058</a> <span class="keywordtype">void</span> <a class="code" href="tdc400__compress_8cpp.html#adfb85f4e58c6be8e56fe6f507d362f1e">event_display</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> <a class="code" href="FDCR_8h.html#a9f59b34b1f25fe00023291b678246bcc">length</a>)
+<a name="l00058"></a><a class="code" href="tdc400__compress_8cpp.html#adfb85f4e58c6be8e56fe6f507d362f1e">00058</a> <span class="keywordtype">void</span> <a class="code" href="tdc400__compress_8cpp.html#adfb85f4e58c6be8e56fe6f507d362f1e">event_display</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * input, <span class="keywordtype">int</span> <a class="code" href="FDCR_8h.html#a9f59b34b1f25fe00023291b678246bcc">length</a>)
 <a name="l00059"></a>00059 {
-<a name="l00060"></a>00060   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; length; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00061"></a>00061     printf(<span class="stringliteral">&quot;%d &quot;</span>, input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="CAET_8h.html#ab2d5aa7fce1a14d8bddfb2c333ea9679">time</a>);
+<a name="l00060"></a>00060   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; length; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00061"></a>00061     printf(<span class="stringliteral">&quot;%d &quot;</span>, input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="CAET_8h.html#ab2d5aa7fce1a14d8bddfb2c333ea9679">time</a>);
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; 6; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
-<a name="l00064"></a>00064       <a class="code" href="tdc400__compress_8cpp.html#a4122a59f4ba1c2f27e90aa258a585123">binary_print</a>(<a class="code" href="mucap__structures_8h.html#a905d881950ab69a5caa08bbcc2ebf2a6">tdc400_byte</a>(input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>));
+<a name="l00063"></a>00063     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 6; j++) {
+<a name="l00064"></a>00064       <a class="code" href="tdc400__compress_8cpp.html#a4122a59f4ba1c2f27e90aa258a585123">binary_print</a>(<a class="code" href="mucap__structures_8h.html#a905d881950ab69a5caa08bbcc2ebf2a6">tdc400_byte</a>(input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], j));
 <a name="l00065"></a>00065       printf(<span class="stringliteral">&quot; &quot;</span>);
 <a name="l00066"></a>00066     }
 <a name="l00067"></a>00067 
@@ -97,7 +97,7 @@
 <a name="l00071"></a>00071   printf(<span class="stringliteral">&quot;------------------------------------------------------------\n&quot;</span>);
 <a name="l00072"></a>00072 }
 <a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="tdc400__compress_8cpp.html#a654cefd9b782fe947a41ebe74a4bd9c4">00074</a> <span class="keywordtype">int</span> <a class="code" href="stck__compress_8cpp.html#abd3b4c21240137305556bb4049a2b7b4">encode_times</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>)
+<a name="l00074"></a><a class="code" href="tdc400__compress_8cpp.html#a654cefd9b782fe947a41ebe74a4bd9c4">00074</a> <span class="keywordtype">int</span> <a class="code" href="stck__compress_8cpp.html#abd3b4c21240137305556bb4049a2b7b4">encode_times</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * input, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * output)
 <a name="l00075"></a>00075 {
 <a name="l00076"></a>00076   <span class="comment">// </span>
 <a name="l00077"></a>00077   <span class="comment">// Perform a variant of run-length encoding on the times in the TDC400</span>
@@ -121,16 +121,16 @@
 <a name="l00095"></a>00095   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> prev_time = 0;
 <a name="l00096"></a>00096   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> prev_run_time = 0;
 <a name="l00097"></a>00097 
-<a name="l00098"></a>00098   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00099"></a>00099     <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> this_time = input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="structtdc400__word.html#acb5a8c23307b57e48b8090012375c29e">time</a>;
+<a name="l00098"></a>00098   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00099"></a>00099     <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> this_time = input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="structtdc400__word.html#acb5a8c23307b57e48b8090012375c29e">time</a>;
 <a name="l00100"></a>00100 
-<a name="l00101"></a>00101     <span class="keywordflow">if</span> (this_time == prev_time + 1 &amp;&amp; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != 0 &amp;&amp; run_length &lt; 127) {
+<a name="l00101"></a>00101     <span class="keywordflow">if</span> (this_time == prev_time + 1 &amp;&amp; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != 0 &amp;&amp; run_length &lt; 127) {
 <a name="l00102"></a>00102       run_length++;
 <a name="l00103"></a>00103     } <span class="keywordflow">else</span> {
-<a name="l00104"></a>00104       <span class="keywordflow">if</span> (<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != 0) {
+<a name="l00104"></a>00104       <span class="keywordflow">if</span> (<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != 0) {
 <a name="l00105"></a>00105 <span class="preprocessor">#if 0</span>
 <a name="l00106"></a>00106 <span class="preprocessor"></span>        <span class="keywordflow">if</span> (run_length &gt;= 8) {
-<a name="l00107"></a>00107           <a class="code" href="tdc400__compress_8cpp.html#adfb85f4e58c6be8e56fe6f507d362f1e">event_display</a>(&amp;input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - run_length], run_length);
+<a name="l00107"></a>00107           <a class="code" href="tdc400__compress_8cpp.html#adfb85f4e58c6be8e56fe6f507d362f1e">event_display</a>(&amp;input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - run_length], run_length);
 <a name="l00108"></a>00108         }
 <a name="l00109"></a>00109 <span class="preprocessor">#endif</span>
 <a name="l00110"></a>00110 <span class="preprocessor"></span>        <a class="code" href="huffman_8cpp.html#a81a23f1eabc888ce48ec931fb80b1179">huffman_put_symbol</a>(&amp;time_huffman, output, run_length);
@@ -156,7 +156,7 @@
 <a name="l00130"></a>00130   <span class="keywordflow">return</span> <a class="code" href="io__buffer_8cpp.html#af53dac5c67e861179d7a37f3cbe75961">flush_output_buffer</a>(output);
 <a name="l00131"></a>00131 }
 <a name="l00132"></a>00132 
-<a name="l00133"></a><a class="code" href="tdc400__compress_8cpp.html#a7a3a6ed07b235df47ba62f86f51a76a8">00133</a> <span class="keywordtype">void</span> <a class="code" href="stck__compress_8cpp.html#aad92013678c5340b411d6363a42da5bd">decode_times</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <a class="code" href="structtdc400__word.html">tdc400_word</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>)
+<a name="l00133"></a><a class="code" href="tdc400__compress_8cpp.html#a7a3a6ed07b235df47ba62f86f51a76a8">00133</a> <span class="keywordtype">void</span> <a class="code" href="stck__compress_8cpp.html#aad92013678c5340b411d6363a42da5bd">decode_times</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * input, <a class="code" href="structtdc400__word.html">tdc400_word</a> * output)
 <a name="l00134"></a>00134 {
 <a name="l00135"></a>00135   <span class="comment">// </span>
 <a name="l00136"></a>00136   <span class="comment">// Reverse the encoding performed by encode_times.</span>
@@ -166,7 +166,7 @@
 <a name="l00140"></a>00140   <span class="keywordtype">int</span> output_size = 0;
 <a name="l00141"></a>00141   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> prev_run_time = 0;
 <a name="l00142"></a>00142 
-<a name="l00143"></a>00143   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; num_words_in; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00143"></a>00143   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; num_words_in; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00144"></a>00144     <span class="keywordtype">int</span> first_time_length_flag = <a class="code" href="io__buffer_8cpp.html#ad72a17b4cdcccfde3419ab0cfc3bdf0a">io_buffer_get</a>(input, 1);
 <a name="l00145"></a>00145     <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> first_time;
 <a name="l00146"></a>00146     <span class="keywordflow">if</span> (first_time_length_flag) {
@@ -177,15 +177,15 @@
 <a name="l00151"></a>00151 
 <a name="l00152"></a>00152     <span class="keywordtype">int</span> run_length = <a class="code" href="huffman_8cpp.html#ad6be44228ca3e1de5375487dc336b73d">huffman_get_symbol</a>(&amp;time_huffman, input);
 <a name="l00153"></a>00153 
-<a name="l00154"></a>00154     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; run_length; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
-<a name="l00155"></a>00155       output[output_size++].<a class="code" href="structtdc400__word.html#acb5a8c23307b57e48b8090012375c29e">time</a> = first_time + prev_run_time + <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>;
+<a name="l00154"></a>00154     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; run_length; j++) {
+<a name="l00155"></a>00155       output[output_size++].<a class="code" href="structtdc400__word.html#acb5a8c23307b57e48b8090012375c29e">time</a> = first_time + prev_run_time + j;
 <a name="l00156"></a>00156     }
 <a name="l00157"></a>00157 
 <a name="l00158"></a>00158     prev_run_time += first_time;
 <a name="l00159"></a>00159   }
 <a name="l00160"></a>00160 }
 <a name="l00161"></a>00161 
-<a name="l00162"></a><a class="code" href="tdc400__compress_8cpp.html#a907cdc8286be29a96b91bdebce21b535">00162</a> <span class="keywordtype">int</span> <a class="code" href="stck__compress_8cpp.html#a82b1a1a0c5f2ab1e193fb2f657a1873e">encode_bits</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>)
+<a name="l00162"></a><a class="code" href="tdc400__compress_8cpp.html#a907cdc8286be29a96b91bdebce21b535">00162</a> <span class="keywordtype">int</span> <a class="code" href="stck__compress_8cpp.html#a82b1a1a0c5f2ab1e193fb2f657a1873e">encode_bits</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * input, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * output)
 <a name="l00163"></a>00163 {
 <a name="l00164"></a>00164   <span class="comment">// </span>
 <a name="l00165"></a>00165   <span class="comment">// Perform bitwise run-length encoding on the bit mask portion of </span>
@@ -204,9 +204,9 @@
 <a name="l00178"></a>00178 
 <a name="l00179"></a>00179   <a class="code" href="structrle__state.html">rle_state</a> s = { 0, 0, {128, 128}, 0, bits_huffman };
 <a name="l00180"></a>00180 
-<a name="l00181"></a>00181   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00182"></a>00182     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; 6; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
-<a name="l00183"></a>00183       <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> b = <a class="code" href="mucap__structures_8h.html#a905d881950ab69a5caa08bbcc2ebf2a6">tdc400_byte</a>(input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00181"></a>00181   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00182"></a>00182     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 6; j++) {
+<a name="l00183"></a>00183       <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> b = <a class="code" href="mucap__structures_8h.html#a905d881950ab69a5caa08bbcc2ebf2a6">tdc400_byte</a>(input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], j);
 <a name="l00184"></a>00184       <a class="code" href="mucap__compress_8h.html#a7b2a49e299d8ab4bf7660a2dc15cbb3b">rle_put</a>(b, &amp;s, output);
 <a name="l00185"></a>00185     }
 <a name="l00186"></a>00186   }
@@ -214,15 +214,15 @@
 <a name="l00188"></a>00188   <span class="keywordflow">return</span> <a class="code" href="mucap__compress_8h.html#a046b47629347b32d4988db528e7ea64a">flush_rle</a>(&amp;s, output);
 <a name="l00189"></a>00189 }
 <a name="l00190"></a>00190 
-<a name="l00191"></a><a class="code" href="tdc400__compress_8cpp.html#a8562460c714bddb06adbe9adc44588d1">00191</a> <span class="keywordtype">void</span> <a class="code" href="stck__compress_8cpp.html#a4d1ad510e999ffa34b3f4b31d364c9c3">decode_bits</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <a class="code" href="structtdc400__word.html">tdc400_word</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <span class="keywordtype">int</span> output_size)
+<a name="l00191"></a><a class="code" href="tdc400__compress_8cpp.html#a8562460c714bddb06adbe9adc44588d1">00191</a> <span class="keywordtype">void</span> <a class="code" href="stck__compress_8cpp.html#a4d1ad510e999ffa34b3f4b31d364c9c3">decode_bits</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * input, <a class="code" href="structtdc400__word.html">tdc400_word</a> * output, <span class="keywordtype">int</span> output_size)
 <a name="l00192"></a>00192 {
 <a name="l00193"></a>00193   <a class="code" href="structrle__state.html">rle_state</a> s = { 1, 0, {128, 128}, 0, bits_huffman };
 <a name="l00194"></a>00194 
-<a name="l00195"></a>00195   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; output_size; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00196"></a>00196     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; 6; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00195"></a>00195   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; output_size; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00196"></a>00196     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 6; j++) {
 <a name="l00197"></a>00197       <span class="keywordtype">int</span> b = <a class="code" href="mucap__compress_8h.html#a03a609e68b24e7234190414c2cb95408">rle_get</a>(input, &amp;s);
 <a name="l00198"></a>00198       <span class="keywordflow">if</span> (b &gt;= 0) {
-<a name="l00199"></a>00199         <a class="code" href="mucap__structures_8h.html#a905d881950ab69a5caa08bbcc2ebf2a6">tdc400_byte</a>(output[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>) = (<span class="keywordtype">unsigned</span> char) b;
+<a name="l00199"></a>00199         <a class="code" href="mucap__structures_8h.html#a905d881950ab69a5caa08bbcc2ebf2a6">tdc400_byte</a>(output[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], j) = (<span class="keywordtype">unsigned</span> char) b;
 <a name="l00200"></a>00200       } <span class="keywordflow">else</span> {
 <a name="l00201"></a>00201         <span class="keywordflow">return</span>;
 <a name="l00202"></a>00202       }
@@ -230,8 +230,8 @@
 <a name="l00204"></a>00204   }
 <a name="l00205"></a>00205 }
 <a name="l00206"></a>00206 
-<a name="l00207"></a><a class="code" href="tdc400__compress_8cpp.html#abde84ecb3c3f08dfa302dec6574ba2f6">00207</a> <span class="keywordtype">int</span> <a class="code" href="mucap__compress_8h.html#abde84ecb3c3f08dfa302dec6574ba2f6">tdc400_compress</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size,
-<a name="l00208"></a>00208                     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <span class="keywordtype">int</span> userParam)
+<a name="l00207"></a><a class="code" href="tdc400__compress_8cpp.html#abde84ecb3c3f08dfa302dec6574ba2f6">00207</a> <span class="keywordtype">int</span> <a class="code" href="mucap__compress_8h.html#abde84ecb3c3f08dfa302dec6574ba2f6">tdc400_compress</a>(<a class="code" href="structtdc400__word.html">tdc400_word</a> * input, <span class="keywordtype">int</span> input_size,
+<a name="l00208"></a>00208                     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *output, <span class="keywordtype">int</span> userParam)
 <a name="l00209"></a>00209 {
 <a name="l00210"></a>00210   <span class="comment">// </span>
 <a name="l00211"></a>00211   <span class="comment">// Carry out lossless compression on the TPC data recorded by a</span>
@@ -278,8 +278,8 @@
 <a name="l00252"></a>00252   <span class="keywordflow">return</span> compressed_time_size + compressed_bits_size + 3 * <span class="keyword">sizeof</span>(int);
 <a name="l00253"></a>00253 }
 <a name="l00254"></a>00254 
-<a name="l00255"></a><a class="code" href="tdc400__compress_8cpp.html#ac27e28cf458c963278afad4320bab951">00255</a> <span class="keywordtype">int</span> <a class="code" href="mucap__compress_8h.html#ac27e28cf458c963278afad4320bab951">tdc400_expand</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size,
-<a name="l00256"></a>00256                   <a class="code" href="structtdc400__word.html">tdc400_word</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <span class="keywordtype">int</span> userParam)
+<a name="l00255"></a><a class="code" href="tdc400__compress_8cpp.html#ac27e28cf458c963278afad4320bab951">00255</a> <span class="keywordtype">int</span> <a class="code" href="mucap__compress_8h.html#ac27e28cf458c963278afad4320bab951">tdc400_expand</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input, <span class="keywordtype">int</span> input_size,
+<a name="l00256"></a>00256                   <a class="code" href="structtdc400__word.html">tdc400_word</a> * output, <span class="keywordtype">int</span> userParam)
 <a name="l00257"></a>00257 {
 <a name="l00258"></a>00258   <span class="comment">// </span>
 <a name="l00259"></a>00259   <span class="comment">// Uncompress the data produced by tdc400_compress().</span>

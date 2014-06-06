@@ -80,25 +80,25 @@
 <a name="l00053"></a>00053   <span class="keywordtype">int</span> s1, s2, ds;
 <a name="l00054"></a>00054   <span class="keywordtype">int</span> start, stop, loc, <a class="code" href="mainWindow_8cpp.html#ad12fc34ce789bce6c8a05d8a17138534">height</a>;
 <a name="l00055"></a>00055   <span class="keywordtype">bool</span> <a class="code" href="patch__mevb_8cpp.html#a408216eef095a35ba3963fc6f4f4d7a8">found</a> = <span class="keyword">false</span>;
-<a name="l00056"></a>00056   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; nsamps; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
-<a name="l00057"></a>00057     s1 = pPol * (samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-1] - pPed);
-<a name="l00058"></a>00058     s2 = pPol * (samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] - pPed);
+<a name="l00056"></a>00056   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; nsamps; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
+<a name="l00057"></a>00057     s1 = pPol * (samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-1] - pPed);
+<a name="l00058"></a>00058     s2 = pPol * (samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] - pPed);
 <a name="l00059"></a>00059     ds = s2 - s1;
 <a name="l00060"></a>00060     <span class="keywordflow">if</span> (found) {
 <a name="l00061"></a>00061       <span class="keywordflow">if</span> (-ds &gt; fall) {
-<a name="l00062"></a>00062         stop = (int)<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00062"></a>00062         stop = (int)<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00063"></a>00063         prepulses.push_back(<a class="code" href="classPrePulse.html#a74ec8ebd6c3c452e4efad5ec553daa3f">PrePulse</a>(start, stop, loc, height, pulse));
 <a name="l00064"></a>00064         start = stop = loc = height = 0;
 <a name="l00065"></a>00065         found = <span class="keyword">false</span>;
 <a name="l00066"></a>00066       }
 <a name="l00067"></a>00067       <span class="keywordflow">if</span> (s2 &gt; height) {
-<a name="l00068"></a>00068         loc = (int)<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00068"></a>00068         loc = (int)<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00069"></a>00069         height = s2;
 <a name="l00070"></a>00070       }
 <a name="l00071"></a>00071     } <span class="keywordflow">else</span> {
 <a name="l00072"></a>00072       <span class="keywordflow">if</span> (ds &gt; rise) {
 <a name="l00073"></a>00073         found = <span class="keyword">true</span>;
-<a name="l00074"></a>00074         start = (int)(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - 1);
+<a name="l00074"></a>00074         start = (int)(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - 1);
 <a name="l00075"></a>00075         loc = start + 1;
 <a name="l00076"></a>00076         height = s2;
 <a name="l00077"></a>00077       }

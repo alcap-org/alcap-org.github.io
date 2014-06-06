@@ -31,7 +31,7 @@
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &quot;Rtypes.h&quot;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00008"></a>00008 <span class="preprocessor">#include &quot;Parameters.h&quot;</span>
 <a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="TWFDRawIsland_8h.html">TWFDRawIsland.h</a>&quot;</span>
 <a name="l00010"></a>00010 
@@ -39,7 +39,7 @@
 <a name="l00018"></a>00018   <span class="keyword">private</span>:
 <a name="l00019"></a><a class="code" href="classTWFDBankReader.html#a62a4e77af69cc43b9b60a6cd2614a89b">00019</a>   Int_t <a class="code" href="classTWFDBankReader.html#a62a4e77af69cc43b9b60a6cd2614a89b">fDBC</a>;
 <a name="l00020"></a><a class="code" href="classTWFDBankReader.html#a5721810e5dedf30157fc0fba2c222d27">00020</a>   Int_t <a class="code" href="classTWFDBankReader.html#a5721810e5dedf30157fc0fba2c222d27">fPersonality</a>;
-<a name="l00021"></a><a class="code" href="classTWFDBankReader.html#a68b531afdd1e28892f89c5d361b3e050">00021</a>   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classTWFDBankReader.html#a68b531afdd1e28892f89c5d361b3e050">fBankName</a>; <span class="comment">// Must use string::c_str for MIDAS</span>
+<a name="l00021"></a><a class="code" href="classTWFDBankReader.html#a68b531afdd1e28892f89c5d361b3e050">00021</a>   std::string <a class="code" href="classTWFDBankReader.html#a68b531afdd1e28892f89c5d361b3e050">fBankName</a>; <span class="comment">// Must use string::c_str for MIDAS</span>
 <a name="l00022"></a>00022 
 <a name="l00023"></a><a class="code" href="classTWFDBankReader.html#abee24c8bb3fec67425602243cb4b4ec4">00023</a>   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>* <a class="code" href="classTWFDBankReader.html#abee24c8bb3fec67425602243cb4b4ec4">fBankPtr</a>;
 <a name="l00024"></a><a class="code" href="classTWFDBankReader.html#ab6256faed35a9bedefff759715b83087">00024</a>   <span class="keywordtype">void</span>* <a class="code" href="classTWFDBankReader.html#ab6256faed35a9bedefff759715b83087">fEventPtr</a>;
@@ -62,11 +62,11 @@
 <a name="l00041"></a>00041   <a class="code" href="classTWFDBankReader.html#ade03e0619394c8937f9c61b1e956770a">TWFDBankReader</a>();
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043   <span class="keyword">public</span>:
-<a name="l00044"></a>00044   <a class="code" href="classTWFDBankReader.html#ade03e0619394c8937f9c61b1e956770a">TWFDBankReader</a>(Int_t dbc, Int_t personality, <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname);
+<a name="l00044"></a>00044   <a class="code" href="classTWFDBankReader.html#ade03e0619394c8937f9c61b1e956770a">TWFDBankReader</a>(Int_t dbc, Int_t personality, std::string bankname);
 <a name="l00045"></a>00045   
 <a name="l00046"></a>00046   Int_t <a class="code" href="classTWFDBankReader.html#a8e5fdc6581d76048b0450e0951c24b9c">GetDBC</a>();
 <a name="l00047"></a>00047   Int_t <a class="code" href="classTWFDBankReader.html#ac4a3298e56e197ca170f980d1ed62ddb">GetPersonality</a>();
-<a name="l00048"></a>00048   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classTWFDBankReader.html#a8c1c38a0edf191cc2382d4365dfbf453">GetBankName</a>();
+<a name="l00048"></a>00048   std::string <a class="code" href="classTWFDBankReader.html#a8c1c38a0edf191cc2382d4365dfbf453">GetBankName</a>();
 <a name="l00049"></a>00049   Int_t <a class="code" href="classTWFDBankReader.html#a56d346537ed9d8ae19bcfdff0a53ac72">GetNIslands</a>();
 <a name="l00050"></a>00050   Int_t <a class="code" href="classTWFDBankReader.html#aaaf215b7476339895bc1b11938e4a35b">GetNBlocks</a>();
 <a name="l00051"></a>00051   <span class="keyword">inline</span> Int_t <a class="code" href="classTWFDBankReader.html#a5fcb8292cafe6646429935d1cb9aa698" title="Block length in 4-byte words is 2*DBC + 2 time words.">GetBlockLength_Words</a>();
@@ -76,9 +76,9 @@
 <a name="l00055"></a>00055   Int_t <a class="code" href="classTWFDBankReader.html#a2848374ce2bbd28a021e1843210bc1d5">GetNReceivedWords</a>();
 <a name="l00056"></a>00056   Int_t <a class="code" href="classTWFDBankReader.html#aa7f25bcac061f31340b91ad2e8aedaa9">GetStatus</a>();
 <a name="l00057"></a>00057   
-<a name="l00058"></a>00058   <a class="code" href="classTWFDRawIsland.html">TWFDRawIsland</a>&amp; <a class="code" href="classTWFDBankReader.html#aaee51a616abc2b37c9bd5a87f6e39b04">at</a>(<span class="keywordtype">int</span> <a class="code" href="mana_8cpp.html#a312c2cad451d6bb0536fb9ec2863be59">index</a>); <span class="comment">// returns reference like std::vector</span>
+<a name="l00058"></a>00058   <a class="code" href="classTWFDRawIsland.html">TWFDRawIsland</a>&amp; <a class="code" href="classTWFDBankReader.html#aaee51a616abc2b37c9bd5a87f6e39b04">at</a>(<span class="keywordtype">int</span> index); <span class="comment">// returns reference like std::vector</span>
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060   <span class="keywordtype">void</span> <a class="code" href="classTWFDBankReader.html#a6b175c82b48c7cc6bf11120c198310d6">ProcessEvent</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>* pheader, <span class="keywordtype">void</span> *pevent);
+<a name="l00060"></a>00060   <span class="keywordtype">void</span> <a class="code" href="classTWFDBankReader.html#a6b175c82b48c7cc6bf11120c198310d6">ProcessEvent</a>(EVENT_HEADER* pheader, <span class="keywordtype">void</span> *pevent);
 <a name="l00061"></a>00061   <span class="keywordtype">void</span> <a class="code" href="classTWFDBankReader.html#a277228348e7556057ff5c5beea79cc89">ClearEvent</a>();
 <a name="l00062"></a>00062 };
 <a name="l00063"></a>00063 <span class="preprocessor">#endif</span>

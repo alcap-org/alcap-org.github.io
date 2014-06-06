@@ -42,8 +42,8 @@
 <a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
 <a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="TDetectorPulse_8h.html">TDetectorPulse.h</a>&quot;</span>
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="keyword">using</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>;
-<a name="l00019"></a>00019 <span class="keyword">using</span> <a class="code" href="melog_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>;
+<a name="l00018"></a>00018 <span class="keyword">using</span> std::string;
+<a name="l00019"></a>00019 <span class="keyword">using</span> std::map;
 <a name="l00020"></a>00020 <span class="keyword">using</span> std::vector;
 <a name="l00021"></a>00021 <span class="keyword">using</span> std::pair;
 <a name="l00022"></a>00022 
@@ -60,14 +60,14 @@
 <a name="l00033"></a>00033 }
 <a name="l00034"></a>00034 
 <a name="l00035"></a><a class="code" href="classDeadTimeGe.html#a652f92759e611500bae50f2629b5ac00">00035</a> <span class="keywordtype">int</span> <a class="code" href="classDeadTimeGe.html#a652f92759e611500bae50f2629b5ac00">DeadTimeGe::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
-<a name="l00036"></a>00036   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detname = <span class="stringliteral">&quot;Ge-S&quot;</span>;
+<a name="l00036"></a>00036   std::string detname = <span class="stringliteral">&quot;Ge-S&quot;</span>;
 <a name="l00037"></a>00037   <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> detA_pulses = <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>[detname];
 <a name="l00038"></a>00038   AnalysedPulseList::iterator currentDetAPulse = detA_pulses.begin(); 
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040   <span class="keywordflow">if</span> (<a class="code" href="DeadTimeGe_8cpp.html#a19600e09262fcbcee6afade7e6b8693a">timediff_plots</a>.find(detname) == <a class="code" href="DeadTimeGe_8cpp.html#a19600e09262fcbcee6afade7e6b8693a">timediff_plots</a>.end())
 <a name="l00041"></a>00041   {
-<a name="l00042"></a>00042         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322">GetName</a>();
-<a name="l00043"></a>00043         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histtitle = <span class="stringliteral">&quot;Time difference between to consecutive pulses on &quot;</span> + detname;
+<a name="l00042"></a>00042         std::string histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322">GetName</a>();
+<a name="l00043"></a>00043         std::string histtitle = <span class="stringliteral">&quot;Time difference between to consecutive pulses on &quot;</span> + detname;
 <a name="l00044"></a>00044         TH1F * htimediff = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), 
 <a name="l00045"></a>00045                         1e6, 10, 4.2e7);
 <a name="l00046"></a>00046         htimediff-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time [ns]&quot;</span>);
@@ -83,11 +83,11 @@
 <a name="l00056"></a>00056         detA_times.push_back(detA_time);
 <a name="l00057"></a>00057   }
 <a name="l00058"></a>00058   
-<a name="l00059"></a>00059   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; detA_times.size()-1; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>)
+<a name="l00059"></a>00059   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; detA_times.size()-1; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>)
 <a name="l00060"></a>00060   {
 <a name="l00061"></a>00061         <span class="comment">//printf(&quot;%.2f %.2f %.2f\n&quot;, detA_times.at(i+1), detA_times.at(i), </span>
 <a name="l00062"></a>00062                         <span class="comment">//detA_times.at(i+1) - detA_times.at(i));</span>
-<a name="l00063"></a>00063         <a class="code" href="DeadTimeGe_8cpp.html#a19600e09262fcbcee6afade7e6b8693a">timediff_plots</a>[detname]-&gt;Fill(detA_times.at(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1) - detA_times.at(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>));
+<a name="l00063"></a>00063         <a class="code" href="DeadTimeGe_8cpp.html#a19600e09262fcbcee6afade7e6b8693a">timediff_plots</a>[detname]-&gt;Fill(detA_times.at(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1) - detA_times.at(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>));
 <a name="l00064"></a>00064   }
 <a name="l00065"></a>00065   <span class="keywordflow">return</span> 0;
 <a name="l00066"></a>00066 }

@@ -31,15 +31,15 @@
 <code>#include &lt;sys/time.h&gt;</code><br/>
 <code>#include &lt;stdio.h&gt;</code><br/>
 <code>#include &lt;stdlib.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="midas_8h_source.html">midas.h</a>&quot;</code><br/>
+<code>#include &quot;midas.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="crate9_2crate_8h_source.html">crate.h</a>&quot;</code><br/>
 
 <p><a href="crate9_2dummy__master_8cpp_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="odbhist_8c.html#a392e62da233ed3e2f7c3fd4f487a3896">INT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a6ab04255b189acc665e87a2631c58e0e">dummy_master_poll_live</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="odbhist_8c.html#a392e62da233ed3e2f7c3fd4f487a3896">INT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a7f3bba271e0d4723ae9fb4ec468c9120">dummy_master_poll_dead</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="odbhist_8c.html#a392e62da233ed3e2f7c3fd4f487a3896">INT</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a7f65a34634873d0850ec8e67c9e4849a">dummy_master_start_block</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">INT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a6ab04255b189acc665e87a2631c58e0e">dummy_master_poll_live</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">INT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a7f3bba271e0d4723ae9fb4ec468c9120">dummy_master_poll_dead</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">INT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a7f65a34634873d0850ec8e67c9e4849a">dummy_master_start_block</a> ()</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structreadout__module.html">readout_module</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a349e77dabdafbf8f2d8bf24a23dd28cb">dummy_master_module</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct timeval&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="crate9_2dummy__master_8cpp.html#a67d1d76bd23c43308bf21341756ea94f">block_start_time</a></td></tr>
@@ -50,7 +50,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="odbhist_8c.html#a392e62da233ed3e2f7c3fd4f487a3896">INT</a> dummy_master_poll_dead </td>
+          <td class="memname">INT dummy_master_poll_dead </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -76,7 +76,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="odbhist_8c.html#a392e62da233ed3e2f7c3fd4f487a3896">INT</a> dummy_master_poll_live </td>
+          <td class="memname">INT dummy_master_poll_live </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -88,12 +88,12 @@
 
 <p>Definition at line <a class="el" href="crate9_2dummy__master_8cpp_source.html#l00034">34</a> of file <a class="el" href="crate9_2dummy__master_8cpp_source.html">dummy_master.cpp</a>.</p>
 
-<p>References <a class="el" href="crate6__CAEN__TDC_2caenV767_8cpp_source.html#l00053">block_start_time</a>, <a class="el" href="crate3_2crate_8h_source.html#l00001">FE_END_BLOCK</a>, <a class="el" href="examples_2macro_2midas__macro_8h_source.html#l00290">increment</a>, and <a class="el" href="bit3__mvme_2mvmestd_8h_source.html#l00045">SUCCESS</a>.</p>
+<p>References <a class="el" href="crate6__CAEN__TDC_2caenV767_8cpp_source.html#l00053">block_start_time</a>, <a class="el" href="crate3_2crate_8h_source.html#l00001">FE_END_BLOCK</a>, and <a class="el" href="mvmestd_8h_source.html#l00045">SUCCESS</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035 {
 <a name="l00036"></a>00036   <span class="keyword">struct </span>timeval now;
 <a name="l00037"></a>00037   gettimeofday(&amp;now, 0);
-<a name="l00038"></a>00038   <span class="keywordtype">double</span> <a class="code" href="examples_2macro_2midas__macro_8h.html#ac017f6d6a9757a5cc0ef17db878555b7">increment</a> = (now.tv_sec - <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a67d1d76bd23c43308bf21341756ea94f">block_start_time</a>.tv_sec)*1e6 + 
+<a name="l00038"></a>00038   <span class="keywordtype">double</span> increment = (now.tv_sec - <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a67d1d76bd23c43308bf21341756ea94f">block_start_time</a>.tv_sec)*1e6 + 
 <a name="l00039"></a>00039                       (now.tv_usec - <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a67d1d76bd23c43308bf21341756ea94f">block_start_time</a>.tv_usec);
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041   <span class="keywordflow">if</span>(increment &gt; 0.1e6) {
@@ -111,7 +111,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="odbhist_8c.html#a392e62da233ed3e2f7c3fd4f487a3896">INT</a> dummy_master_start_block </td>
+          <td class="memname">INT dummy_master_start_block </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>

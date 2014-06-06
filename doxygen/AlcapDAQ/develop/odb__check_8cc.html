@@ -38,7 +38,7 @@
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="odb__check_8cc.html#a2ef30c42cbc289d899a8be5d2d8f77d0">usage</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="odb__check_8cc.html#a97ee70a8770dc30d06c744b24eb2fcfc">help</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">parse_args</a> (int argc, char *argv[], std::vector&lt; int &gt; &amp;runs, <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;data_dir, <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;corr_dir)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">parse_args</a> (int argc, char *argv[], std::vector&lt; int &gt; &amp;runs, std::string &amp;data_dir, std::string &amp;corr_dir)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="odb__check_8cc.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TROOT *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a></td></tr>
@@ -111,7 +111,7 @@
 
 <p>Definition at line <a class="el" href="odb__check_8cc_source.html#l00117">117</a> of file <a class="el" href="odb__check_8cc_source.html">odb_check.cc</a>.</p>
 
-<p>References <a class="el" href="ODBCheck_8cc_source.html#l00121">ODBCheck::Check()</a>, <a class="el" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>, <a class="el" href="odb__check_8cc_source.html#l00032">parse_args()</a>, <a class="el" href="ODBCheck_8cc_source.html#l00016">ODBCheck::SetDirs()</a>, and <a class="el" href="scs__310__ql355p_8c_source.html#l00060">string</a>.</p>
+<p>References <a class="el" href="ODBCheck_8cc_source.html#l00121">ODBCheck::Check()</a>, <a class="el" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>, <a class="el" href="odb__check_8cc_source.html#l00032">parse_args()</a>, and <a class="el" href="ODBCheck_8cc_source.html#l00016">ODBCheck::SetDirs()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00117"></a>00117                                  {
 <a name="l00118"></a>00118   <span class="comment">// First and foremost, check that we can read in files</span>
@@ -120,16 +120,16 @@
 <a name="l00121"></a>00121 
 <a name="l00122"></a>00122   <span class="comment">// Next, process command line arguments</span>
 <a name="l00123"></a>00123   std::vector&lt;int&gt; runs;
-<a name="l00124"></a>00124   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> data_dir;
-<a name="l00125"></a>00125   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> corr_dir;
+<a name="l00124"></a>00124   std::string data_dir;
+<a name="l00125"></a>00125   std::string corr_dir;
 <a name="l00126"></a>00126 
 <a name="l00127"></a>00127   <span class="keywordflow">if</span> (!<a class="code" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">parse_args</a>(argc, argv, runs, data_dir, corr_dir))
 <a name="l00128"></a>00128     <span class="keywordflow">return</span> 1;
 <a name="l00129"></a>00129 
 <a name="l00130"></a>00130   <a class="code" href="classODBCheck.html">ODBCheck</a> x;
-<a name="l00131"></a>00131   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> raw_dir = data_dir + <span class="stringliteral">&quot;raw/&quot;</span>;
-<a name="l00132"></a>00132   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> odb_dir = data_dir + <span class="stringliteral">&quot;odb/&quot;</span>;
-<a name="l00133"></a>00133   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> hist_dir = data_dir + <span class="stringliteral">&quot;hist/&quot;</span>;
+<a name="l00131"></a>00131   std::string raw_dir = data_dir + <span class="stringliteral">&quot;raw/&quot;</span>;
+<a name="l00132"></a>00132   std::string odb_dir = data_dir + <span class="stringliteral">&quot;odb/&quot;</span>;
+<a name="l00133"></a>00133   std::string hist_dir = data_dir + <span class="stringliteral">&quot;hist/&quot;</span>;
 <a name="l00134"></a>00134   x.<a class="code" href="classODBCheck.html#a16b354aa5f3dc7fcc05e274cd551797f">SetDirs</a>(raw_dir, odb_dir, hist_dir, corr_dir);
 <a name="l00135"></a>00135   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> r = 0; r &lt; (int)runs.size(); ++r) {
 <a name="l00136"></a>00136     std::cout &lt;&lt; <span class="stringliteral">&quot;Checking run &quot;</span> &lt;&lt; runs[r] &lt;&lt; <span class="stringliteral">&quot;...&quot;</span> &lt;&lt; std::endl;
@@ -165,13 +165,13 @@
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;&nbsp;</td>
+          <td class="paramtype">std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>data_dir</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;&nbsp;</td>
+          <td class="paramtype">std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>corr_dir</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -185,7 +185,7 @@
 
 <p>Definition at line <a class="el" href="odb__check_8cc_source.html#l00032">32</a> of file <a class="el" href="odb__check_8cc_source.html">odb_check.cc</a>.</p>
 
-<p>References <a class="el" href="odb__check_8cc_source.html#l00016">help()</a>, <a class="el" href="mdump_8c_source.html#l00115">i</a>, <a class="el" href="scs__310__ql355p_8c_source.html#l00060">string</a>, and <a class="el" href="odb__check_8cc_source.html#l00011">usage()</a>.</p>
+<p>References <a class="el" href="odb__check_8cc_source.html#l00016">help()</a>, <a class="el" href="mzdump_8c_source.html#l00129">i</a>, and <a class="el" href="odb__check_8cc_source.html#l00011">usage()</a>.</p>
 
 <p>Referenced by <a class="el" href="odb__check_8cc_source.html#l00117">main()</a>.</p>
 
@@ -194,8 +194,8 @@
 <a name="l00034"></a>00034     <a class="code" href="odb__check_8cc.html#a97ee70a8770dc30d06c744b24eb2fcfc">help</a>();
 <a name="l00035"></a>00035     <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00036"></a>00036   }
-<a name="l00037"></a>00037   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; argc; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
-<a name="l00038"></a>00038     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> iarg(argv[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00037"></a>00037   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; argc; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
+<a name="l00038"></a>00038     std::string iarg(argv[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00039"></a>00039     <span class="keywordflow">if</span> (iarg == <span class="stringliteral">&quot;-h&quot;</span> || iarg == <span class="stringliteral">&quot;--help&quot;</span>) {
 <a name="l00040"></a>00040       <a class="code" href="odb__check_8cc.html#a97ee70a8770dc30d06c744b24eb2fcfc">help</a>();
 <a name="l00041"></a>00041       <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -203,8 +203,8 @@
 <a name="l00043"></a>00043       <a class="code" href="odb__check_8cc.html#a2ef30c42cbc289d899a8be5d2d8f77d0">usage</a>();
 <a name="l00044"></a>00044       <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00045"></a>00045     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iarg == <span class="stringliteral">&quot;-d&quot;</span>) {
-<a name="l00046"></a>00046       <span class="keywordflow">if</span> (++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != argc) {
-<a name="l00047"></a>00047         data_dir = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(argv[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00046"></a>00046       <span class="keywordflow">if</span> (++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != argc) {
+<a name="l00047"></a>00047         data_dir = std::string(argv[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00048"></a>00048         <span class="keywordflow">if</span> (data_dir[data_dir.size() - 1] != <span class="charliteral">&apos;/&apos;</span>)
 <a name="l00049"></a>00049           data_dir += <span class="charliteral">&apos;/&apos;</span>;
 <a name="l00050"></a>00050         <span class="keywordflow">continue</span>;
@@ -213,8 +213,8 @@
 <a name="l00053"></a>00053         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00054"></a>00054       }
 <a name="l00055"></a>00055     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iarg == <span class="stringliteral">&quot;-c&quot;</span>) {
-<a name="l00056"></a>00056       <span class="keywordflow">if</span> (++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != argc) {
-<a name="l00057"></a>00057         corr_dir = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(argv[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00056"></a>00056       <span class="keywordflow">if</span> (++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != argc) {
+<a name="l00057"></a>00057         corr_dir = std::string(argv[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00058"></a>00058         <span class="keywordflow">if</span> (corr_dir[corr_dir.size() - 1] != <span class="charliteral">&apos;/&apos;</span>)
 <a name="l00059"></a>00059           corr_dir += <span class="charliteral">&apos;/&apos;</span>;
 <a name="l00060"></a>00060         <span class="keywordflow">continue</span>;
@@ -224,13 +224,13 @@
 <a name="l00064"></a>00064     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iarg == <span class="stringliteral">&quot;-r&quot;</span>) {
 <a name="l00065"></a>00065       std::stringstream ss;
 <a name="l00066"></a>00066       <span class="keywordtype">int</span> rlow, rhigh;
-<a name="l00067"></a>00067       <span class="keywordflow">if</span> (<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 2 &gt;= argc) {
+<a name="l00067"></a>00067       <span class="keywordflow">if</span> (<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 2 &gt;= argc) {
 <a name="l00068"></a>00068         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: Not enough arguments following -r flag!&quot;</span> &lt;&lt; std::endl;
 <a name="l00069"></a>00069         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00070"></a>00070       }
-<a name="l00071"></a>00071       ss &lt;&lt; argv[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 1] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; argv[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 2];
+<a name="l00071"></a>00071       ss &lt;&lt; argv[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 1] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; argv[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 2];
 <a name="l00072"></a>00072       ss &gt;&gt; rlow &gt;&gt; rhigh;
-<a name="l00073"></a>00073       <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> += 2;
+<a name="l00073"></a>00073       <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> += 2;
 <a name="l00074"></a>00074       <span class="keywordflow">if</span> (rlow == 0 || rhigh == 0) {
 <a name="l00075"></a>00075         std::cout &lt;&lt;
 <a name="l00076"></a>00076           <span class="stringliteral">&quot;ERROR: Either 0 or a non-numerical value was passed as a run number.&quot;</span> &lt;&lt; std::endl &lt;&lt;
@@ -295,7 +295,7 @@
 
 <p>Definition at line <a class="el" href="odb__check_8cc_source.html#l00011">11</a> of file <a class="el" href="odb__check_8cc_source.html">odb_check.cc</a>.</p>
 
-<p>Referenced by <a class="el" href="mana_8cpp_source.html#l00800">getparam()</a>, <a class="el" href="odb__check_8cc_source.html#l00016">help()</a>, <a class="el" href="CAENBridgeUpgrade_8c_source.html#l00127">main()</a>, and <a class="el" href="odb__check_8cc_source.html#l00032">parse_args()</a>.</p>
+<p>Referenced by <a class="el" href="odb__check_8cc_source.html#l00016">help()</a>, <a class="el" href="CAENBridgeUpgrade_8c_source.html#l00127">main()</a>, and <a class="el" href="odb__check_8cc_source.html#l00032">parse_args()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00011"></a>00011              {
 <a name="l00012"></a>00012   <span class="keyword">using namespace </span>std;
@@ -317,7 +317,7 @@
 </div>
 <div class="memdoc">
 
-<p>Referenced by <a class="el" href="TOnlineFrame_8cpp_source.html#l00398">TOnlineFrame::ConnectToServer()</a>, <a class="el" href="plot__max_8c_source.html#l00012">for()</a>, <a class="el" href="odb__check_8cc_source.html#l00117">main()</a>, <a class="el" href="MTreeOutput_8cpp_source.html#l00069">MTreeOutput_init()</a>, <a class="el" href="TOnlineFrame_8cpp_source.html#l00438">TOnlineFrame::OpenRootFile()</a>, <a class="el" href="rsp_8c_source.html#l00001">rsp()</a>, <a class="el" href="rsp__ndet0_8c_source.html#l00001">rsp_ndet0()</a>, <a class="el" href="rsp__res__ana_8c_source.html#l00001">rsp_res_ana()</a>, <a class="el" href="TOnlineFrame_8cpp_source.html#l00483">TOnlineFrame::runMacro()</a>, <a class="el" href="TOnlineFrame_8cpp_source.html#l00034">TOnlineFrame::TOnlineFrame()</a>, and <a class="el" href="TOnlineFrame_8cpp_source.html#l00313">TOnlineFrame::UpdateDisplay()</a>.</p>
+<p>Referenced by <a class="el" href="TOnlineFrame_8cpp_source.html#l00398">TOnlineFrame::ConnectToServer()</a>, <a class="el" href="odb__check_8cc_source.html#l00117">main()</a>, <a class="el" href="MTreeOutput_8cpp_source.html#l00069">MTreeOutput_init()</a>, <a class="el" href="TOnlineFrame_8cpp_source.html#l00438">TOnlineFrame::OpenRootFile()</a>, <a class="el" href="rsp_8c_source.html#l00001">rsp()</a>, <a class="el" href="rsp__ndet0_8c_source.html#l00001">rsp_ndet0()</a>, <a class="el" href="rsp__res__ana_8c_source.html#l00001">rsp_res_ana()</a>, <a class="el" href="TOnlineFrame_8cpp_source.html#l00483">TOnlineFrame::runMacro()</a>, <a class="el" href="TOnlineFrame_8cpp_source.html#l00034">TOnlineFrame::TOnlineFrame()</a>, and <a class="el" href="TOnlineFrame_8cpp_source.html#l00313">TOnlineFrame::UpdateDisplay()</a>.</p>
 
 </div>
 </div>

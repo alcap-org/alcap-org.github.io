@@ -34,14 +34,14 @@
 <a name="l00007"></a>00007 <span class="keyword">using</span> std::cout;
 <a name="l00008"></a>00008 <span class="keyword">using</span> std::endl;
 <a name="l00009"></a>00009 
-<a name="l00010"></a><a class="code" href="namespacemodules_1_1parser.html#a4acbbc07e5a15e0a5e269f9ee3444f36">00010</a> <span class="keywordtype">int</span> <a class="code" href="namespacemodules_1_1parser.html#a4acbbc07e5a15e0a5e269f9ee3444f36">modules::parser::TokeniseByWhiteSpace</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, std::vector&lt;std::string&gt;&amp; <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>){
+<a name="l00010"></a><a class="code" href="namespacemodules_1_1parser.html#a4acbbc07e5a15e0a5e269f9ee3444f36">00010</a> <span class="keywordtype">int</span> <a class="code" href="namespacemodules_1_1parser.html#a4acbbc07e5a15e0a5e269f9ee3444f36">modules::parser::TokeniseByWhiteSpace</a>(<span class="keyword">const</span> std::string&amp; input, std::vector&lt;std::string&gt;&amp; output){
 <a name="l00011"></a>00011     std::stringstream ss(input);
-<a name="l00012"></a>00012     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> val;
+<a name="l00012"></a>00012     std::string val;
 <a name="l00013"></a>00013     <span class="keywordflow">while</span>(ss&gt;&gt;val) output.push_back(val);
 <a name="l00014"></a>00014     <span class="keywordflow">return</span> output.size();
 <a name="l00015"></a>00015 }
 <a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="namespacemodules_1_1parser.html#aac3ab68267d1ab53ce441b360e72b49b">00017</a> <span class="keywordtype">int</span> <a class="code" href="namespacemodules_1_1parser.html#aac3ab68267d1ab53ce441b360e72b49b">modules::parser::TokeniseByDelimiter</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, std::vector&lt;std::string&gt;&amp; <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <span class="keyword">const</span> <span class="keywordtype">char</span>* delim){
+<a name="l00017"></a><a class="code" href="namespacemodules_1_1parser.html#aac3ab68267d1ab53ce441b360e72b49b">00017</a> <span class="keywordtype">int</span> <a class="code" href="namespacemodules_1_1parser.html#aac3ab68267d1ab53ce441b360e72b49b">modules::parser::TokeniseByDelimiter</a>(<span class="keyword">const</span> std::string&amp; input, std::vector&lt;std::string&gt;&amp; output, <span class="keyword">const</span> <span class="keywordtype">char</span>* delim){
 <a name="l00018"></a>00018     <span class="keywordtype">char</span> line[<a class="code" href="namespacemodules_1_1parser.html#a2582172290f000705e6520483877aad0">modules::parser::max_line</a>];
 <a name="l00019"></a>00019     strcpy(line,input.c_str());
 <a name="l00020"></a>00020     <span class="keywordtype">char</span>* word = strtok(line,delim);
@@ -53,35 +53,35 @@
 <a name="l00026"></a>00026     <span class="keywordflow">return</span> output.size();
 <a name="l00027"></a>00027 }
 <a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">00029</a> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">modules::parser::GetOneWord</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> stop){
+<a name="l00029"></a><a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">00029</a> std::string <a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">modules::parser::GetOneWord</a>(<span class="keyword">const</span> std::string&amp; in, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> stop){
 <a name="l00030"></a>00030         std::stringstream ss(in.substr(start,stop-start));
-<a name="l00031"></a>00031         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> word;
+<a name="l00031"></a>00031         std::string word;
 <a name="l00032"></a>00032         ss&gt;&gt;word;
 <a name="l00033"></a>00033         <span class="keywordflow">return</span> word;
 <a name="l00034"></a>00034 }
 <a name="l00035"></a>00035 
-<a name="l00036"></a><a class="code" href="namespacemodules_1_1parser.html#ab4411944a2981899465ada3d96be880a">00036</a> std::pair&lt;std::string,std::string&gt; <a class="code" href="namespacemodules_1_1parser.html#ab4411944a2981899465ada3d96be880a">modules::parser::ParseConstructor</a>(<a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">char</span> open, <span class="keywordtype">char</span> close)
+<a name="l00036"></a><a class="code" href="namespacemodules_1_1parser.html#ab4411944a2981899465ada3d96be880a">00036</a> std::pair&lt;std::string,std::string&gt; <a class="code" href="namespacemodules_1_1parser.html#ab4411944a2981899465ada3d96be880a">modules::parser::ParseConstructor</a>(std::string input, <span class="keywordtype">char</span> open, <span class="keywordtype">char</span> close)
 <a name="l00037"></a>00037                 <span class="keywordflow">throw</span>(<a class="code" href="classmodules_1_1parser_1_1errors_1_1unmatched__parenthesis.html">modules::parser::errors::unmatched_parenthesis</a>){
 <a name="l00038"></a>00038     <span class="keywordtype">size_t</span> end_br=std::string::npos;
-<a name="l00039"></a>00039     <span class="keywordtype">size_t</span> start_br=<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>.find(open);
-<a name="l00040"></a>00040     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> first=<a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">GetOneWord</a>(<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>,0,start_br);
+<a name="l00039"></a>00039     <span class="keywordtype">size_t</span> start_br=input.find(open);
+<a name="l00040"></a>00040     std::string first=<a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">GetOneWord</a>(input,0,start_br);
 <a name="l00041"></a>00041     <span class="keywordflow">if</span>(start_br!=std::string::npos){
-<a name="l00042"></a>00042        end_br=<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>.find(close,start_br+1);
+<a name="l00042"></a>00042        end_br=input.find(close,start_br+1);
 <a name="l00043"></a>00043        <span class="keywordflow">if</span>(end_br==std::string::npos){
 <a name="l00044"></a>00044                <span class="keywordflow">throw</span> <a class="code" href="classmodules_1_1parser_1_1errors_1_1unmatched__parenthesis.html">modules::parser::errors::unmatched_parenthesis</a>(open,close);
 <a name="l00045"></a>00045        }
 <a name="l00046"></a>00046     }
-<a name="l00047"></a>00047     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> second=<a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">GetOneWord</a>(<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>,start_br+1,end_br);
+<a name="l00047"></a>00047     std::string second=<a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">GetOneWord</a>(input,start_br+1,end_br);
 <a name="l00048"></a>00048     <span class="keywordflow">return</span> std::make_pair(first,second);
 <a name="l00049"></a>00049 }
 <a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="namespacemodules_1_1parser.html#a66cc781537bf59528d352aacd62c144f">00051</a> <span class="keywordtype">size_t</span> <a class="code" href="namespacemodules_1_1parser.html#a66cc781537bf59528d352aacd62c144f">modules::parser::RemoveWhitespace</a>(<a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>){
+<a name="l00051"></a><a class="code" href="namespacemodules_1_1parser.html#a66cc781537bf59528d352aacd62c144f">00051</a> <span class="keywordtype">size_t</span> <a class="code" href="namespacemodules_1_1parser.html#a66cc781537bf59528d352aacd62c144f">modules::parser::RemoveWhitespace</a>(std::string&amp; input){
 <a name="l00052"></a>00052         std::string::iterator new_end=std::remove_if(input.begin(),input.end(),<a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">modules::parser::IsWhitespace</a>);
 <a name="l00053"></a>00053         input.erase(new_end,input.end());
 <a name="l00054"></a>00054         <span class="keywordflow">return</span> input.size();
 <a name="l00055"></a>00055 }
 <a name="l00056"></a>00056 
-<a name="l00057"></a><a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">00057</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">modules::parser::IsWhitespace</a>(<span class="keywordtype">char</span> <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>){
+<a name="l00057"></a><a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">00057</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">modules::parser::IsWhitespace</a>(<span class="keywordtype">char</span> in){
 <a name="l00058"></a>00058         <span class="keywordtype">bool</span> retval=<span class="keyword">false</span>;
 <a name="l00059"></a>00059         <span class="keywordflow">switch</span>(in){
 <a name="l00060"></a>00060                 <span class="keywordflow">case</span> <span class="charliteral">&apos; &apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;\t&apos;</span>:
@@ -93,7 +93,7 @@
 <a name="l00066"></a>00066         <span class="keywordflow">return</span> retval;
 <a name="l00067"></a>00067 }
 <a name="l00068"></a>00068 
-<a name="l00069"></a><a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">00069</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">modules::parser::IsDigit</a>(<span class="keywordtype">char</span> <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>){
+<a name="l00069"></a><a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">00069</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">modules::parser::IsDigit</a>(<span class="keywordtype">char</span> in){
 <a name="l00070"></a>00070         <span class="keywordtype">bool</span> retval=<span class="keyword">false</span>;
 <a name="l00071"></a>00071         <span class="keywordflow">switch</span>(in){
 <a name="l00072"></a>00072                 <span class="keywordflow">case</span> <span class="charliteral">&apos;0&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;1&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;2&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;3&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;4&apos;</span>:
@@ -103,23 +103,23 @@
 <a name="l00076"></a>00076         <span class="keywordflow">return</span> retval;
 <a name="l00077"></a>00077 }
 <a name="l00078"></a>00078 
-<a name="l00079"></a><a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">00079</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">modules::parser::IsDecimal</a>(<span class="keywordtype">char</span> <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>){
+<a name="l00079"></a><a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">00079</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">modules::parser::IsDecimal</a>(<span class="keywordtype">char</span> in){
 <a name="l00080"></a>00080         <span class="keywordflow">return</span> in==<span class="charliteral">&apos;.&apos;</span>;
 <a name="l00081"></a>00081 }
 <a name="l00082"></a>00082 
-<a name="l00083"></a><a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">00083</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">modules::parser::IsFloatChar</a>(<span class="keywordtype">char</span> <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>){
+<a name="l00083"></a><a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">00083</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">modules::parser::IsFloatChar</a>(<span class="keywordtype">char</span> in){
 <a name="l00084"></a>00084         <span class="keywordflow">return</span> <a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">IsDecimal</a>(in) || <a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">IsDigit</a>(in);
 <a name="l00085"></a>00085 }
 <a name="l00086"></a>00086 
-<a name="l00087"></a><a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">00087</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">modules::parser::IsNotFloatChar</a>(<span class="keywordtype">char</span> <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>){
+<a name="l00087"></a><a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">00087</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">modules::parser::IsNotFloatChar</a>(<span class="keywordtype">char</span> in){
 <a name="l00088"></a>00088         <span class="keywordflow">return</span> !<a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">IsFloatChar</a>(in);
 <a name="l00089"></a>00089 }
 <a name="l00090"></a>00090 
-<a name="l00091"></a><a class="code" href="namespacemodules_1_1parser.html#a5e6b6034024d2c554774158dd355377b">00091</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a5e6b6034024d2c554774158dd355377b">modules::parser::IsNumber</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>){
+<a name="l00091"></a><a class="code" href="namespacemodules_1_1parser.html#a5e6b6034024d2c554774158dd355377b">00091</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a5e6b6034024d2c554774158dd355377b">modules::parser::IsNumber</a>(<span class="keyword">const</span> std::string&amp; input){
 <a name="l00092"></a>00092         <span class="keywordflow">return</span> std::find_if(input.begin(),input.end(),<a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">IsNotFloatChar</a>) == input.end();
 <a name="l00093"></a>00093 }
 <a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="namespacemodules_1_1parser.html#a60030050aac01bdb531300aa2bcdb8f9">00095</a> <span class="keywordtype">int</span> <a class="code" href="namespacemodules_1_1parser.html#a60030050aac01bdb531300aa2bcdb8f9">modules::parser::GetNumber</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>){
+<a name="l00095"></a><a class="code" href="namespacemodules_1_1parser.html#a60030050aac01bdb531300aa2bcdb8f9">00095</a> <span class="keywordtype">int</span> <a class="code" href="namespacemodules_1_1parser.html#a60030050aac01bdb531300aa2bcdb8f9">modules::parser::GetNumber</a>(<span class="keyword">const</span> std::string&amp; input){
 <a name="l00096"></a>00096         <span class="keywordtype">int</span> val;
 <a name="l00097"></a>00097         sscanf ( input.c_str(), <span class="stringliteral">&quot;%d&quot;</span>, &amp;val );
 <a name="l00098"></a>00098         <span class="keywordflow">return</span> val;

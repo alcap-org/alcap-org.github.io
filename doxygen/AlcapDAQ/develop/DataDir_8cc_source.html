@@ -35,16 +35,16 @@
 <a name="l00008"></a>00008                      fRawDir(<span class="stringliteral">&quot;&quot;</span>), fODBDir(<span class="stringliteral">&quot;&quot;</span>), fHistDir(<span class="stringliteral">&quot;&quot;</span>), fCorrDir(<span class="stringliteral">&quot;&quot;</span>),
 <a name="l00009"></a>00009                      fRawPre(<span class="stringliteral">&quot;run&quot;</span>), fODBPre(<span class="stringliteral">&quot;run&quot;</span>), fHistPre(<span class="stringliteral">&quot;hist&quot;</span>), fCorrPre(<span class="stringliteral">&quot;corr&quot;</span>) {}
 <a name="l00010"></a>00010 
-<a name="l00011"></a><a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">00011</a> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">DataDir::GetCanonicalRun</a>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a369e3b30815f09142abc86f462a501ff">run</a>) {
-<a name="l00012"></a>00012   <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> def(<span class="stringliteral">&quot;00000&quot;</span>);
+<a name="l00011"></a><a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">00011</a> std::string <a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">DataDir::GetCanonicalRun</a>(<span class="keywordtype">int</span> run) {
+<a name="l00012"></a>00012   <span class="keyword">static</span> <span class="keyword">const</span> std::string def(<span class="stringliteral">&quot;00000&quot;</span>);
 <a name="l00013"></a>00013   <span class="keywordtype">char</span> num[8];
 <a name="l00014"></a>00014   <span class="keywordflow">if</span> (run &lt; 0 || run &gt; 99999)
 <a name="l00015"></a>00015     <span class="keywordflow">return</span> def;
 <a name="l00016"></a>00016   sprintf(num, <span class="stringliteral">&quot;%05d&quot;</span>, run);
-<a name="l00017"></a>00017   <span class="keywordflow">return</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(num);
+<a name="l00017"></a>00017   <span class="keywordflow">return</span> std::string(num);
 <a name="l00018"></a>00018 }
 <a name="l00019"></a>00019 
-<a name="l00020"></a><a class="code" href="classDataDir.html#ae16f4470c3f84d766ff99bcadde07b32">00020</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#a2d18b51ec81d45aa1c11c95efb5d9738">DataDir::SetRawDir</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; raw_dir) {
+<a name="l00020"></a><a class="code" href="classDataDir.html#ae16f4470c3f84d766ff99bcadde07b32">00020</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#a2d18b51ec81d45aa1c11c95efb5d9738">DataDir::SetRawDir</a>(<span class="keyword">const</span> std::string&amp; raw_dir) {
 <a name="l00021"></a>00021   <a class="code" href="classDataDir.html#a5437adaaaa99e12d6bfc29a7c117cafc">fRawDir</a> = raw_dir;
 <a name="l00022"></a>00022 }
 <a name="l00023"></a><a class="code" href="classDataDir.html#a2d18b51ec81d45aa1c11c95efb5d9738">00023</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#a2d18b51ec81d45aa1c11c95efb5d9738">DataDir::SetRawDir</a>() {
@@ -52,7 +52,7 @@
 <a name="l00025"></a>00025   std::cin &gt;&gt; <a class="code" href="classDataDir.html#a5437adaaaa99e12d6bfc29a7c117cafc">fRawDir</a>;
 <a name="l00026"></a>00026 }
 <a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="classDataDir.html#a5a022674d315a10fdb99cfa84aef1ec7">00028</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#a6153503a02f1c5ef06c23fde777b591f">DataDir::SetODBDir</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; odb_dir) {
+<a name="l00028"></a><a class="code" href="classDataDir.html#a5a022674d315a10fdb99cfa84aef1ec7">00028</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#a6153503a02f1c5ef06c23fde777b591f">DataDir::SetODBDir</a>(<span class="keyword">const</span> std::string&amp; odb_dir) {
 <a name="l00029"></a>00029   <a class="code" href="classDataDir.html#a059e5fc95f368460456ec63e28958ba0">fODBDir</a> = odb_dir;
 <a name="l00030"></a>00030 }
 <a name="l00031"></a>00031 
@@ -61,7 +61,7 @@
 <a name="l00034"></a>00034   std::cin &gt;&gt; <a class="code" href="classDataDir.html#a059e5fc95f368460456ec63e28958ba0">fODBDir</a>;
 <a name="l00035"></a>00035 }
 <a name="l00036"></a>00036 
-<a name="l00037"></a><a class="code" href="classDataDir.html#aab52a64929188f92b5655f05414ae48c">00037</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#a00d8b4b260ae68ae95cafb41906aece5">DataDir::SetHistDir</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; hist_dir) {
+<a name="l00037"></a><a class="code" href="classDataDir.html#aab52a64929188f92b5655f05414ae48c">00037</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#a00d8b4b260ae68ae95cafb41906aece5">DataDir::SetHistDir</a>(<span class="keyword">const</span> std::string&amp; hist_dir) {
 <a name="l00038"></a>00038   <a class="code" href="classDataDir.html#a7bc60190458fd8ede58d62b3cf484e66">fHistDir</a> = hist_dir;
 <a name="l00039"></a>00039 }
 <a name="l00040"></a>00040 
@@ -70,7 +70,7 @@
 <a name="l00043"></a>00043   std::cin &gt;&gt; <a class="code" href="classDataDir.html#a7bc60190458fd8ede58d62b3cf484e66">fHistDir</a>;
 <a name="l00044"></a>00044 }
 <a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="classDataDir.html#aaca5e0fe5036ead9e5adac7c66775dc3">00046</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#aa651f23cc7072b636452785a613644e2">DataDir::SetCorrDir</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; corr_dir) {
+<a name="l00046"></a><a class="code" href="classDataDir.html#aaca5e0fe5036ead9e5adac7c66775dc3">00046</a> <span class="keywordtype">void</span> <a class="code" href="classDataDir.html#aa651f23cc7072b636452785a613644e2">DataDir::SetCorrDir</a>(<span class="keyword">const</span> std::string&amp; corr_dir) {
 <a name="l00047"></a>00047   <a class="code" href="classDataDir.html#a1cceaba1d17334688114bf51f67ecd64">fCorrDir</a> = corr_dir;
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
@@ -79,19 +79,19 @@
 <a name="l00052"></a>00052   std::cin &gt;&gt; <a class="code" href="classDataDir.html#a1cceaba1d17334688114bf51f67ecd64">fCorrDir</a>;
 <a name="l00053"></a>00053 }
 <a name="l00054"></a>00054 
-<a name="l00055"></a><a class="code" href="classDataDir.html#ae05cdb5f1ce59d7ff5d3732c8df206b7">00055</a> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classDataDir.html#ae05cdb5f1ce59d7ff5d3732c8df206b7">DataDir::GetRawFileName</a>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a369e3b30815f09142abc86f462a501ff">run</a>)<span class="keyword"> const </span>{
+<a name="l00055"></a><a class="code" href="classDataDir.html#ae05cdb5f1ce59d7ff5d3732c8df206b7">00055</a> std::string <a class="code" href="classDataDir.html#ae05cdb5f1ce59d7ff5d3732c8df206b7">DataDir::GetRawFileName</a>(<span class="keywordtype">int</span> run)<span class="keyword"> const </span>{
 <a name="l00056"></a>00056   <span class="keywordflow">return</span> <a class="code" href="classDataDir.html#a5437adaaaa99e12d6bfc29a7c117cafc">fRawDir</a> + <a class="code" href="classDataDir.html#a99cb3d6bb7a669a9dc0c41508d31dd33">fRawPre</a> + <a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">GetCanonicalRun</a>(run) + <a class="code" href="classDataDir.html#a9819d77e1eed2b7e1fa3b4bf26899e98">fRawExt</a>;
 <a name="l00057"></a>00057 }
 <a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="classDataDir.html#a57f0ea0fdb6980dd8385137fdb6c1cce">00059</a> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classDataDir.html#a57f0ea0fdb6980dd8385137fdb6c1cce">DataDir::GetODBFileName</a>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a369e3b30815f09142abc86f462a501ff">run</a>)<span class="keyword"> const </span>{
+<a name="l00059"></a><a class="code" href="classDataDir.html#a57f0ea0fdb6980dd8385137fdb6c1cce">00059</a> std::string <a class="code" href="classDataDir.html#a57f0ea0fdb6980dd8385137fdb6c1cce">DataDir::GetODBFileName</a>(<span class="keywordtype">int</span> run)<span class="keyword"> const </span>{
 <a name="l00060"></a>00060   <span class="keywordflow">return</span> <a class="code" href="classDataDir.html#a059e5fc95f368460456ec63e28958ba0">fODBDir</a> + <a class="code" href="classDataDir.html#a4837c07ff9501f80387a9450cf31fb22">fODBPre</a> + <a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">GetCanonicalRun</a>(run) + <a class="code" href="classDataDir.html#afbfa467efbd0ba08a2407c4c21f3859d">fODBExt</a>;
 <a name="l00061"></a>00061 }
 <a name="l00062"></a>00062 
-<a name="l00063"></a><a class="code" href="classDataDir.html#af8dc95462173bbb3748994d6ccc318a2">00063</a> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classDataDir.html#af8dc95462173bbb3748994d6ccc318a2">DataDir::GetHistFileName</a>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a369e3b30815f09142abc86f462a501ff">run</a>)<span class="keyword"> const </span>{
+<a name="l00063"></a><a class="code" href="classDataDir.html#af8dc95462173bbb3748994d6ccc318a2">00063</a> std::string <a class="code" href="classDataDir.html#af8dc95462173bbb3748994d6ccc318a2">DataDir::GetHistFileName</a>(<span class="keywordtype">int</span> run)<span class="keyword"> const </span>{
 <a name="l00064"></a>00064   <span class="keywordflow">return</span> <a class="code" href="classDataDir.html#a7bc60190458fd8ede58d62b3cf484e66">fHistDir</a> + <a class="code" href="classDataDir.html#a5447935e615e79764167e3556ef01d17">fHistPre</a> + <a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">GetCanonicalRun</a>(run) + <a class="code" href="classDataDir.html#a885e9f818bbf456cbc5b5b793957ef06">fHistExt</a>;
 <a name="l00065"></a>00065 }
 <a name="l00066"></a>00066 
-<a name="l00067"></a><a class="code" href="classDataDir.html#ae5644ec5abf31cf318f526c8f38fc5eb">00067</a> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classDataDir.html#ae5644ec5abf31cf318f526c8f38fc5eb">DataDir::GetCorrFileName</a>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a369e3b30815f09142abc86f462a501ff">run</a>)<span class="keyword"> const </span>{
+<a name="l00067"></a><a class="code" href="classDataDir.html#ae5644ec5abf31cf318f526c8f38fc5eb">00067</a> std::string <a class="code" href="classDataDir.html#ae5644ec5abf31cf318f526c8f38fc5eb">DataDir::GetCorrFileName</a>(<span class="keywordtype">int</span> run)<span class="keyword"> const </span>{
 <a name="l00068"></a>00068   <span class="keywordflow">return</span> <a class="code" href="classDataDir.html#a1cceaba1d17334688114bf51f67ecd64">fCorrDir</a> + <a class="code" href="classDataDir.html#a72b55b02aac35779c082d0f2bb40da7f">fCorrPre</a> + <a class="code" href="classDataDir.html#a218d8de29b96619bfb0e6360fd024b52">GetCanonicalRun</a>(run) + <a class="code" href="classDataDir.html#ad1bf8e3565089fcadaea1caf9ff45a85">fCorrExt</a>;
 <a name="l00069"></a>00069 }
 <a name="l00070"></a>00070 

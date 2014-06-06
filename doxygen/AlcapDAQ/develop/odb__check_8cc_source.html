@@ -56,13 +56,13 @@
 <a name="l00029"></a>00029     <span class="stringliteral">&quot;           numbers to process.&quot;</span> &lt;&lt; endl;
 <a name="l00030"></a>00030 }
 <a name="l00031"></a>00031 
-<a name="l00032"></a><a class="code" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">00032</a> <span class="keywordtype">bool</span> <a class="code" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">parse_args</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[], std::vector&lt;int&gt;&amp; runs, <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; data_dir, <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; corr_dir) {
+<a name="l00032"></a><a class="code" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">00032</a> <span class="keywordtype">bool</span> <a class="code" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">parse_args</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[], std::vector&lt;int&gt;&amp; runs, std::string&amp; data_dir, std::string&amp; corr_dir) {
 <a name="l00033"></a>00033   <span class="keywordflow">if</span> (argc == 1) {
 <a name="l00034"></a>00034     <a class="code" href="odb__check_8cc.html#a97ee70a8770dc30d06c744b24eb2fcfc">help</a>();
 <a name="l00035"></a>00035     <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00036"></a>00036   }
-<a name="l00037"></a>00037   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; argc; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
-<a name="l00038"></a>00038     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> iarg(argv[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00037"></a>00037   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; argc; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
+<a name="l00038"></a>00038     std::string iarg(argv[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00039"></a>00039     <span class="keywordflow">if</span> (iarg == <span class="stringliteral">&quot;-h&quot;</span> || iarg == <span class="stringliteral">&quot;--help&quot;</span>) {
 <a name="l00040"></a>00040       <a class="code" href="odb__check_8cc.html#a97ee70a8770dc30d06c744b24eb2fcfc">help</a>();
 <a name="l00041"></a>00041       <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -71,7 +71,7 @@
 <a name="l00044"></a>00044       <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00045"></a>00045     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iarg == <span class="stringliteral">&quot;-d&quot;</span>) {
 <a name="l00046"></a>00046       <span class="keywordflow">if</span> (++i != argc) {
-<a name="l00047"></a>00047         data_dir = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(argv[i]);
+<a name="l00047"></a>00047         data_dir = std::string(argv[i]);
 <a name="l00048"></a>00048         <span class="keywordflow">if</span> (data_dir[data_dir.size() - 1] != <span class="charliteral">&apos;/&apos;</span>)
 <a name="l00049"></a>00049           data_dir += <span class="charliteral">&apos;/&apos;</span>;
 <a name="l00050"></a>00050         <span class="keywordflow">continue</span>;
@@ -81,7 +81,7 @@
 <a name="l00054"></a>00054       }
 <a name="l00055"></a>00055     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iarg == <span class="stringliteral">&quot;-c&quot;</span>) {
 <a name="l00056"></a>00056       <span class="keywordflow">if</span> (++i != argc) {
-<a name="l00057"></a>00057         corr_dir = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(argv[i]);
+<a name="l00057"></a>00057         corr_dir = std::string(argv[i]);
 <a name="l00058"></a>00058         <span class="keywordflow">if</span> (corr_dir[corr_dir.size() - 1] != <span class="charliteral">&apos;/&apos;</span>)
 <a name="l00059"></a>00059           corr_dir += <span class="charliteral">&apos;/&apos;</span>;
 <a name="l00060"></a>00060         <span class="keywordflow">continue</span>;
@@ -148,16 +148,16 @@
 <a name="l00121"></a>00121 
 <a name="l00122"></a>00122   <span class="comment">// Next, process command line arguments</span>
 <a name="l00123"></a>00123   std::vector&lt;int&gt; runs;
-<a name="l00124"></a>00124   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> data_dir;
-<a name="l00125"></a>00125   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> corr_dir;
+<a name="l00124"></a>00124   std::string data_dir;
+<a name="l00125"></a>00125   std::string corr_dir;
 <a name="l00126"></a>00126 
 <a name="l00127"></a>00127   <span class="keywordflow">if</span> (!<a class="code" href="odb__check_8cc.html#a9d2ec49066c497591eeb56e131d03e8c">parse_args</a>(argc, argv, runs, data_dir, corr_dir))
 <a name="l00128"></a>00128     <span class="keywordflow">return</span> 1;
 <a name="l00129"></a>00129 
 <a name="l00130"></a>00130   <a class="code" href="classODBCheck.html">ODBCheck</a> x;
-<a name="l00131"></a>00131   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> raw_dir = data_dir + <span class="stringliteral">&quot;raw/&quot;</span>;
-<a name="l00132"></a>00132   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> odb_dir = data_dir + <span class="stringliteral">&quot;odb/&quot;</span>;
-<a name="l00133"></a>00133   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> hist_dir = data_dir + <span class="stringliteral">&quot;hist/&quot;</span>;
+<a name="l00131"></a>00131   std::string raw_dir = data_dir + <span class="stringliteral">&quot;raw/&quot;</span>;
+<a name="l00132"></a>00132   std::string odb_dir = data_dir + <span class="stringliteral">&quot;odb/&quot;</span>;
+<a name="l00133"></a>00133   std::string hist_dir = data_dir + <span class="stringliteral">&quot;hist/&quot;</span>;
 <a name="l00134"></a>00134   x.<a class="code" href="classODBCheck.html#a16b354aa5f3dc7fcc05e274cd551797f">SetDirs</a>(raw_dir, odb_dir, hist_dir, corr_dir);
 <a name="l00135"></a>00135   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> r = 0; r &lt; (int)runs.size(); ++r) {
 <a name="l00136"></a>00136     std::cout &lt;&lt; <span class="stringliteral">&quot;Checking run &quot;</span> &lt;&lt; runs[r] &lt;&lt; <span class="stringliteral">&quot;...&quot;</span> &lt;&lt; std::endl;

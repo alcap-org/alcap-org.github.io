@@ -25,14 +25,14 @@
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
-<h1>show_pulses/rsp_ndet0.c</h1><a href="rsp__ndet0_8c.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="rsp__ndet0_8c.html#a1e5bfd4c3305be3d5c630333450ba10b">00001</a> <span class="keywordtype">void</span> <a class="code" href="rsp__ndet0_8c.html#a1e5bfd4c3305be3d5c630333450ba10b">rsp_ndet0</a>(<span class="keywordtype">int</span> runnr, <span class="keywordtype">int</span> <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>, <span class="keywordtype">int</span> fadc)
+<h1>show_pulses/rsp_ndet0.c</h1><a href="rsp__ndet0_8c.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="rsp__ndet0_8c.html#a1e5bfd4c3305be3d5c630333450ba10b">00001</a> <span class="keywordtype">void</span> <a class="code" href="rsp__ndet0_8c.html#a1e5bfd4c3305be3d5c630333450ba10b">rsp_ndet0</a>(<span class="keywordtype">int</span> runnr, <span class="keywordtype">int</span> addr, <span class="keywordtype">int</span> fadc)
 <a name="l00002"></a>00002 {
 <a name="l00003"></a>00003   gInterpreter-&gt;AddIncludePath(<span class="stringliteral">&quot;/home/l_data/daq/midas/include&quot;</span>);
 <a name="l00004"></a>00004   <a class="code" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>-&gt;LoadMacro(<span class="stringliteral">&quot;/home/l_data/daq/midas/linux64/lib/libmidas_shared.so&quot;</span>);
 <a name="l00005"></a>00005   <a class="code" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>-&gt;LoadMacro(<span class="stringliteral">&quot;hdb.cxx+&quot;</span>);
 <a name="l00006"></a>00006   <a class="code" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>-&gt;LoadMacro(<span class="stringliteral">&quot;/home/l_data/online-analysis/compress/libmucap_compress.so&quot;</span>);
 <a name="l00007"></a>00007   <a class="code" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>-&gt;LoadMacro(<span class="stringliteral">&quot;show_pulses_ndet_0.cxx+g&quot;</span>);
-<a name="l00008"></a>00008   <span class="keywordtype">char</span> <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>[256];
+<a name="l00008"></a>00008   <span class="keywordtype">char</span> name[256];
 <a name="l00009"></a>00009   sprintf(name, <span class="stringliteral">&quot;/data/midas-mucap/run%05d.mid&quot;</span>, runnr);
 <a name="l00010"></a>00010   <a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a>(name, addr, fadc);
 <a name="l00011"></a>00011 }

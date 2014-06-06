@@ -35,18 +35,18 @@
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="keyword">using</span> std::cout;
 <a name="l00010"></a>00010 <span class="keyword">using</span> std::endl;
-<a name="l00011"></a>00011 <span class="keyword">using</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>;
+<a name="l00011"></a>00011 <span class="keyword">using</span> std::string;
 <a name="l00012"></a>00012 
 <a name="l00013"></a>00013 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
 <a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="MakeAnalysedPulses_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">00015</a> <span class="keyword">static</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="MakeAnalysedPulses_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">getOneWord</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
+<a name="l00015"></a><a class="code" href="MakeAnalysedPulses_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">00015</a> <span class="keyword">static</span> std::string <a class="code" href="MakeAnalysedPulses_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">getOneWord</a>(<span class="keyword">const</span> std::string&amp; in, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
 <a name="l00016"></a>00016         std::stringstream ss(in.substr(start,stop));
-<a name="l00017"></a>00017         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> word;
+<a name="l00017"></a>00017         std::string word;
 <a name="l00018"></a>00018         ss&gt;&gt;word;
 <a name="l00019"></a>00019         <span class="keywordflow">return</span> word;
 <a name="l00020"></a>00020 }
 <a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="MakeAnalysedPulses_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">00022</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="MakeAnalysedPulses_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">getSeveralWords</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, std::vector&lt;std::string&gt; &amp;vect, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
+<a name="l00022"></a><a class="code" href="MakeAnalysedPulses_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">00022</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="MakeAnalysedPulses_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">getSeveralWords</a>(<span class="keyword">const</span> std::string&amp; in, std::vector&lt;std::string&gt; &amp;vect, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
 <a name="l00023"></a>00023         <span class="keywordtype">char</span> line[400];
 <a name="l00024"></a>00024         strcpy(line,in.substr(start,stop-start).c_str());
 <a name="l00025"></a>00025         <span class="keywordtype">char</span>* word = strtok(line,<span class="stringliteral">&quot;, &quot;</span>);
@@ -69,7 +69,7 @@
 <a name="l00042"></a><a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">00042</a> <a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">MakeAnalysedPulses::~MakeAnalysedPulses</a>(){
 <a name="l00043"></a>00043 }
 <a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">00045</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">MakeAnalysedPulses::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>,<a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="mscbmain_8c.html#a7dfd9b79bc5a37d7df40207afbc5431f">setup</a>){
+<a name="l00045"></a><a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">00045</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">MakeAnalysedPulses::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>,<a class="code" href="classTSetupData.html">TSetupData</a> *setup){
 <a name="l00046"></a>00046     <span class="comment">// Loop over every named detector channel in TSetupData</span>
 <a name="l00047"></a>00047     std::vector&lt;std::string&gt; <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>;
 <a name="l00048"></a>00048     setup-&gt;<a class="code" href="classTSetupData.html#ac3d446e50498906f011af9ac8a62367c">GetAllDetectors</a>(detectors);
@@ -77,8 +77,8 @@
 <a name="l00050"></a>00050     <span class="comment">// do we analyse all channels?</span>
 <a name="l00051"></a>00051     <span class="keywordtype">bool</span> analyse_all=<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.size()==0;
 <a name="l00052"></a>00052     <span class="keywordflow">if</span>(!analyse_all){
-<a name="l00053"></a>00053         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.size();<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
-<a name="l00054"></a>00054              <span class="keywordflow">if</span> (<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]==<span class="stringliteral">&quot;all&quot;</span>){
+<a name="l00053"></a>00053         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.size();<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
+<a name="l00054"></a>00054              <span class="keywordflow">if</span> (<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]==<span class="stringliteral">&quot;all&quot;</span>){
 <a name="l00055"></a>00055                 analyse_all=<span class="keyword">true</span>;
 <a name="l00056"></a>00056                 <span class="keywordflow">break</span>;
 <a name="l00057"></a>00057              }
@@ -91,7 +91,7 @@
 <a name="l00064"></a>00064 
 <a name="l00065"></a>00065     <span class="comment">// For each channel:</span>
 <a name="l00066"></a>00066     <span class="keywordtype">bool</span> skip_detector=<span class="keyword">false</span>;
-<a name="l00067"></a>00067     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> des_gen;
+<a name="l00067"></a>00067     std::string des_gen;
 <a name="l00068"></a>00068     <span class="keywordflow">for</span>(std::vector&lt;std::string&gt;::const_iterator det=detectors.begin();
 <a name="l00069"></a>00069                     det!=detectors.end();
 <a name="l00070"></a>00070                     det++){
@@ -163,7 +163,7 @@
 <a name="l00136"></a>00136 
 <a name="l00137"></a>00137 <span class="comment">// Creates a generator for each one in the list</span>
 <a name="l00138"></a>00138 <span class="comment">// Returns true on success or false if there was a problem</span>
-<a name="l00139"></a><a class="code" href="classMakeAnalysedPulses.html#a4823b2344730b981469120e23255e872">00139</a> <span class="keywordtype">bool</span> <a class="code" href="classMakeAnalysedPulses.html#a4823b2344730b981469120e23255e872">MakeAnalysedPulses::ParseGeneratorList</a>(<a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detector){
+<a name="l00139"></a><a class="code" href="classMakeAnalysedPulses.html#a4823b2344730b981469120e23255e872">00139</a> <span class="keywordtype">bool</span> <a class="code" href="classMakeAnalysedPulses.html#a4823b2344730b981469120e23255e872">MakeAnalysedPulses::ParseGeneratorList</a>(std::string detector){
 <a name="l00140"></a>00140         <span class="comment">// Get a vector for the generator(s) that we want to use for this detector</span>
 <a name="l00141"></a>00141         std::vector&lt;std::string&gt; generatorList;
 <a name="l00142"></a>00142         <a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#ad8bbe390e336fde3ed440be0fedd5399">GetVectorStringsByDelimiter</a>(detector,generatorList);
@@ -173,7 +173,7 @@
 <a name="l00146"></a>00146         <span class="keywordtype">size_t</span> end_br=std::string::npos;
 <a name="l00147"></a>00147         std::vector&lt;std::string&gt;::iterator gen;
 <a name="l00148"></a>00148         std::stringstream sstream;
-<a name="l00149"></a>00149         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> arg,generator;
+<a name="l00149"></a>00149         std::string arg,generator;
 <a name="l00150"></a>00150         <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts;
 <a name="l00151"></a>00151         <span class="keywordtype">bool</span> still_good=<span class="keyword">true</span>;
 <a name="l00152"></a>00152         <span class="keywordflow">for</span>(gen=generatorList.begin();gen!= generatorList.end();gen++){
@@ -185,8 +185,8 @@
 <a name="l00158"></a>00158                 end_br=gen-&gt;find(<span class="charliteral">&apos;)&apos;</span>);
 <a name="l00159"></a>00159                 sstream.str(gen-&gt;substr(start_br,end_br-start_br));
 <a name="l00160"></a>00160                 opts=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(detector+<span class="stringliteral">&quot;::&quot;</span>+generator);
-<a name="l00161"></a>00161                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>=0; std::getline(sstream, arg,<span class="charliteral">&apos;,&apos;</span>); <a class="code" href="mdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>++){
-<a name="l00162"></a>00162                     opts-&gt;<a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">AddArgument</a>(<a class="code" href="mdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>,arg);
+<a name="l00161"></a>00161                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>=0; std::getline(sstream, arg,<span class="charliteral">&apos;,&apos;</span>); <a class="code" href="mzdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>++){
+<a name="l00162"></a>00162                     opts-&gt;<a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">AddArgument</a>(<a class="code" href="mzdump_8c.html#a3d42cdd395a9c14f809d2fe53748c620">count</a>,arg);
 <a name="l00163"></a>00163                 }
 <a name="l00164"></a>00164             }
 <a name="l00165"></a>00165             still_good = <a class="code" href="classMakeAnalysedPulses.html#a0c4953230bbd9ccd90bd4e7e401a1dc4">AddGenerator</a>(detector,generator,opts);

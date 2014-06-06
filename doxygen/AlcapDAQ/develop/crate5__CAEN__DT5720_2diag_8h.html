@@ -86,8 +86,8 @@
 <a name="l00018"></a>00018   }
 <a name="l00019"></a>00019 
 <a name="l00020"></a>00020   va_list argp;
-<a name="l00021"></a>00021   va_start(argp, <a class="code" href="webpaw_8c.html#a6113855b8e5965f1e91ee407b4026ab7">format</a>);
-<a name="l00022"></a>00022   <a class="code" href="crate3_2diag_8cpp.html#a521b1f9b257612c93b4dd0f5c31595b9">diag_print_impl</a>(level, <a class="code" href="webpaw_8c.html#a6113855b8e5965f1e91ee407b4026ab7">format</a>, argp);
+<a name="l00021"></a>00021   va_start(argp, format);
+<a name="l00022"></a>00022   <a class="code" href="crate3_2diag_8cpp.html#a521b1f9b257612c93b4dd0f5c31595b9">diag_print_impl</a>(level, format, argp);
 <a name="l00023"></a>00023   va_end(argp);
 <a name="l00024"></a>00024 
 <a name="l00025"></a>00025 }
@@ -130,8 +130,8 @@
 
 <p><div class="fragment"><pre class="fragment"><a name="l00036"></a>00036 {
 <a name="l00037"></a>00037   <span class="comment">// Format the message.</span>
-<a name="l00038"></a>00038   <span class="keywordtype">char</span> <a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>[4096];
-<a name="l00039"></a>00039   vsnprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="webpaw_8c.html#a6113855b8e5965f1e91ee407b4026ab7">format</a>, argp);
+<a name="l00038"></a>00038   <span class="keywordtype">char</span> buffer[4096];
+<a name="l00039"></a>00039   vsnprintf(buffer, <span class="keyword">sizeof</span>(buffer), format, argp);
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041   <span class="comment">// Print on standard output</span>
 <a name="l00042"></a>00042   <span class="comment">// if (level &lt;= diag_print_threshold) {</span>
@@ -149,7 +149,7 @@
 <a name="l00054"></a>00054     <span class="keywordflow">if</span>(<a class="code" href="crate3_2diag_8cpp.html#ab0c95de8bfbe9109eb696eee56c02c38">last_message_time</a> == now) {
 <a name="l00055"></a>00055       <a class="code" href="crate3_2diag_8cpp.html#afba6432f1f59c0c79290b36a2a74ed11">num_messages_this_second</a>++;
 <a name="l00056"></a>00056       <span class="keywordflow">if</span>(<a class="code" href="crate3_2diag_8cpp.html#afba6432f1f59c0c79290b36a2a74ed11">num_messages_this_second</a> &lt; 1) {
-<a name="l00057"></a>00057         <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#a6e27d8876a43afce3ee4dd16527cbb9e">MINFO</a>, <a class="code" href="crate3_2crate_8cpp.html#ac1f0c6df66e35778b61c611107501ec4">frontend_name</a>, buffer); 
+<a name="l00057"></a>00057         cm_msg(MINFO, <a class="code" href="crate3_2crate_8cpp.html#ac1f0c6df66e35778b61c611107501ec4">frontend_name</a>, buffer); 
 <a name="l00058"></a>00058       }
 <a name="l00059"></a>00059     } <span class="keywordflow">else</span> {
 <a name="l00060"></a>00060       <a class="code" href="crate3_2diag_8cpp.html#afba6432f1f59c0c79290b36a2a74ed11">num_messages_this_second</a> = 0;

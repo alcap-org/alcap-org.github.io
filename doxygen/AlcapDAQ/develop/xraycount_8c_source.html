@@ -58,14 +58,14 @@
 <a name="l00031"></a>00031       pyGeAmp = (TH1D*)hGeTDiffAmp-&gt;ProjectionY(<span class="stringliteral">&quot;_py&quot;</span>,tBinLow,tBinHigh)-&gt;Clone(<span class="stringliteral">&quot;hGeHeights&quot;</span>);
 <a name="l00032"></a>00032       pyGeAmp-&gt;SetDirectory(0);
 <a name="l00033"></a>00033     } <span class="keywordflow">else</span> {
-<a name="l00034"></a>00034       TH1D* <a class="code" href="mhist_8c.html#a1c4effcb9a2b3357fbfa63a6edfa0cc6">tmp</a> = hGeTDiffAmp-&gt;ProjectionY(<span class="stringliteral">&quot;_py&quot;</span>,tBinLow,tBinHigh);
+<a name="l00034"></a>00034       TH1D* tmp = hGeTDiffAmp-&gt;ProjectionY(<span class="stringliteral">&quot;_py&quot;</span>,tBinLow,tBinHigh);
 <a name="l00035"></a>00035       pyGeAmp-&gt;Add(tmp);
 <a name="l00036"></a>00036     }
 <a name="l00037"></a>00037     fGe.Close();
 <a name="l00038"></a>00038   }
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040   TSpectrum s;
-<a name="l00041"></a>00041   <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a>* bgGe = s.Background(pyGeAmp);
+<a name="l00041"></a>00041   TH1* bgGe = s.Background(pyGeAmp);
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043   <span class="keywordtype">int</span> aBinLow    = pyGeAmp-&gt;GetXaxis()-&gt;FindBin(aVals[0]);
 <a name="l00044"></a>00044   <span class="keywordtype">int</span> aBinHigh   = pyGeAmp-&gt;GetXaxis()-&gt;FindBin(aVals[1]);

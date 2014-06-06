@@ -31,7 +31,7 @@
 <a name="l00004"></a>00004 <span class="keyword">using</span> std::cout;
 <a name="l00005"></a>00005 <span class="keyword">using</span> std::endl;
 <a name="l00006"></a>00006 
-<a name="l00007"></a><a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">00007</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">modules::navigator::LoadConfigFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="fal_8c.html#a258adbf16b88a7db88c7d8bce9708c50">filename</a>){
+<a name="l00007"></a><a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">00007</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">modules::navigator::LoadConfigFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename){
 <a name="l00008"></a>00008     <span class="comment">// Check we haven&apos;t already opened a modules file</span>
 <a name="l00009"></a>00009     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a> ==<span class="keyword">true</span>) {
 <a name="l00010"></a>00010             cout&lt;&lt;<span class="stringliteral">&quot;Error: Loading a new modules file, when one was already loaded&quot;</span>&lt;&lt;endl;
@@ -53,12 +53,12 @@
 <a name="l00026"></a>00026     <span class="comment">// Loop over each requested module and build it</span>
 <a name="l00027"></a>00027     <span class="comment">// If we have any problems making a module then stop running</span>
 <a name="l00028"></a>00028     <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::factory::Instance</a>();
-<a name="l00029"></a>00029     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>;
+<a name="l00029"></a>00029     std::string name;
 <a name="l00030"></a>00030     <a class="code" href="classmodules_1_1options.html">modules::options</a>* opts;
 <a name="l00031"></a>00031     <a class="code" href="classFillHistBase.html">FillHistBase</a>* mod=NULL;
-<a name="l00032"></a>00032     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;num_modules;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
-<a name="l00033"></a>00033             name = modules_file.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
-<a name="l00034"></a>00034             opts =  modules_file.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
+<a name="l00032"></a>00032     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;num_modules;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
+<a name="l00033"></a>00033             name = modules_file.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
+<a name="l00034"></a>00034             opts =  modules_file.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
 <a name="l00035"></a>00035             cout&lt;&lt;<span class="stringliteral">&quot;Creating module: &quot;</span>&lt;&lt;name&lt;&lt;endl;
 <a name="l00036"></a>00036             cout&lt;&lt;<span class="stringliteral">&quot;With options:&quot;</span>&lt;&lt;endl;
 <a name="l00037"></a>00037             opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);

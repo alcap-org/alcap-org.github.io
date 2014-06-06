@@ -31,7 +31,7 @@
 <p><a href="rsp_8c_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rsp_8c.html#a395d8b6cbb8618e6f0f06daabbea8629">rsp</a> (int runnr, int <a class="el" href="mcnaf_8c.html#addeb24c60c6b386335a9d77338c6e334">addr</a>, int fadc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rsp_8c.html#a395d8b6cbb8618e6f0f06daabbea8629">rsp</a> (int runnr, int addr, int fadc)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a395d8b6cbb8618e6f0f06daabbea8629"></a><!-- doxytag: member="rsp.c::rsp" ref="a395d8b6cbb8618e6f0f06daabbea8629" args="(int runnr, int addr, int fadc)" -->
@@ -67,7 +67,7 @@
 
 <p>Definition at line <a class="el" href="rsp_8c_source.html#l00001">1</a> of file <a class="el" href="rsp_8c_source.html">rsp.c</a>.</p>
 
-<p>References <a class="el" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>, <a class="el" href="examples_2macro_2midas__macro_8h_source.html#l00039">name</a>, and <a class="el" href="res__analysis_8cxx_source.html#l00067">process_file()</a>.</p>
+<p>References <a class="el" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>, and <a class="el" href="res__analysis_8cxx_source.html#l00067">process_file()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00002"></a>00002 {
 <a name="l00003"></a>00003   gInterpreter-&gt;AddIncludePath(<span class="stringliteral">&quot;../midas/include&quot;</span>);
@@ -76,9 +76,9 @@
 <a name="l00006"></a>00006   <a class="code" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>-&gt;LoadMacro(<span class="stringliteral">&quot;../midas/linux/lib/libmidas.so&quot;</span>);
 <a name="l00007"></a>00007   <a class="code" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>-&gt;LoadMacro(<span class="stringliteral">&quot;../compress/libmucap_compress.so&quot;</span>);
 <a name="l00008"></a>00008   <a class="code" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a>-&gt;LoadMacro(<span class="stringliteral">&quot;show_pulses.cxx+&quot;</span>);
-<a name="l00009"></a>00009   <span class="keywordtype">char</span> <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>[256];
+<a name="l00009"></a>00009   <span class="keywordtype">char</span> name[256];
 <a name="l00010"></a>00010   sprintf(name, <span class="stringliteral">&quot;../dir/run%05d.mid&quot;</span>, runnr);
-<a name="l00011"></a>00011   <a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a>(name, <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>, fadc);
+<a name="l00011"></a>00011   <a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a>(name, addr, fadc);
 <a name="l00012"></a>00012 }
 </pre></div></p>
 

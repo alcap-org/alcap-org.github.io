@@ -32,17 +32,17 @@
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;sys/time.h&gt;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;time.h&gt;</span>
 <a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2crate_8h.html">crate.h</a>&quot;</span>
 <a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2vme_8h.html">vme.h</a>&quot;</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2odb__wrapper_8h.html">odb_wrapper.h</a>&quot;</span>
 <a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2diag_8h.html">diag.h</a>&quot;</span>
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate9_2caenV767_8cpp.html#ab559e57b9e8e35f4b86ecb10feed734c">caenV767_bor</a>();
-<a name="l00016"></a>00016 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#add84522dc43036c0d3997114cbb5ef29">caenV767_eor</a>();
-<a name="l00017"></a>00017 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ac14d78c22499afc2f6d174dd0f3fb4d7">caenV767_poll_live</a>();
-<a name="l00018"></a>00018 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a699c24b6d2978d8056c88dba7a527c73">caenV767_read</a>(<span class="keywordtype">char</span> *pevent);
+<a name="l00015"></a>00015 INT <a class="code" href="crate9_2caenV767_8cpp.html#ab559e57b9e8e35f4b86ecb10feed734c">caenV767_bor</a>();
+<a name="l00016"></a>00016 INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#add84522dc43036c0d3997114cbb5ef29">caenV767_eor</a>();
+<a name="l00017"></a>00017 INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ac14d78c22499afc2f6d174dd0f3fb4d7">caenV767_poll_live</a>();
+<a name="l00018"></a>00018 INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a699c24b6d2978d8056c88dba7a527c73">caenV767_read</a>(<span class="keywordtype">char</span> *pevent);
 <a name="l00019"></a>00019 
 <a name="l00020"></a><a class="code" href="crate9_2caenV767_8cpp.html#a2bb3b78e7d797838640ae54315907700">00020</a> <span class="keyword">struct </span><a class="code" href="structreadout__module.html">readout_module</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a2bb3b78e7d797838640ae54315907700">caenV767_module</a> = {
 <a name="l00021"></a>00021   NULL,                 <span class="comment">// init</span>
@@ -120,11 +120,11 @@
 <a name="l00093"></a>00093   <span class="comment">// Wait for the microcontroller to become ready</span>
 <a name="l00094"></a>00094   <span class="keywordflow">while</span>(!(<a class="code" href="crate6__CAEN__TDC_2vme_8h.html#a06471f4b033f44311606bee07ef985ec">vme_read_d16</a>(caen-&gt;<a class="code" href="structcaenV767.html#ab2898a176ed37e9c59649e2c839faa9e">vme_handle</a>, caen-&gt;<a class="code" href="structcaenV767.html#a56720f4ec12f478ec3a1c95ddc010d53">vme_base</a> | <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af00ab341683b5a28edbef7c7a450e103">CAENV767_OPHAND</a>) &amp; 
 <a name="l00095"></a>00095          0x0002)) {
-<a name="l00096"></a>00096     <a class="code" href="group__msectionh.html#gaaec652d8878ceb5ef38ad1ba2cbf7dec">ss_sleep</a>(10);
+<a name="l00096"></a>00096     ss_sleep(10);
 <a name="l00097"></a>00097   }
 <a name="l00098"></a>00098 
 <a name="l00099"></a>00099   <span class="comment">// Wait a little longer</span>
-<a name="l00100"></a>00100   <a class="code" href="group__msectionh.html#gaaec652d8878ceb5ef38ad1ba2cbf7dec">ss_sleep</a>(10);
+<a name="l00100"></a>00100   ss_sleep(10);
 <a name="l00101"></a>00101 
 <a name="l00102"></a>00102   <span class="comment">// Write the opcode value</span>
 <a name="l00103"></a>00103   <a class="code" href="crate6__CAEN__TDC_2vme_8h.html#ab769350fd0f78458f7977e6ae938df51">vme_write_d16</a>(caen-&gt;<a class="code" href="structcaenV767.html#ab2898a176ed37e9c59649e2c839faa9e">vme_handle</a>, caen-&gt;<a class="code" href="structcaenV767.html#a56720f4ec12f478ec3a1c95ddc010d53">vme_base</a> | <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af42bef111b9454cfe464a4f09ed1356a">CAENV767_OPCODE</a>, code); 
@@ -136,11 +136,11 @@
 <a name="l00109"></a>00109   <span class="comment">// Wait for the microcontroller to become ready</span>
 <a name="l00110"></a>00110   <span class="keywordflow">while</span>(!(<a class="code" href="crate6__CAEN__TDC_2vme_8h.html#a06471f4b033f44311606bee07ef985ec">vme_read_d16</a>(caen-&gt;<a class="code" href="structcaenV767.html#ab2898a176ed37e9c59649e2c839faa9e">vme_handle</a>, caen-&gt;<a class="code" href="structcaenV767.html#a56720f4ec12f478ec3a1c95ddc010d53">vme_base</a> | <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af00ab341683b5a28edbef7c7a450e103">CAENV767_OPHAND</a>) &amp; 
 <a name="l00111"></a>00111          0x1)) {
-<a name="l00112"></a>00112     <a class="code" href="group__msectionh.html#gaaec652d8878ceb5ef38ad1ba2cbf7dec">ss_sleep</a>(10);
+<a name="l00112"></a>00112     ss_sleep(10);
 <a name="l00113"></a>00113   }
 <a name="l00114"></a>00114 
 <a name="l00115"></a>00115   <span class="comment">// Wait a little longer</span>
-<a name="l00116"></a>00116   <a class="code" href="group__msectionh.html#gaaec652d8878ceb5ef38ad1ba2cbf7dec">ss_sleep</a>(10);
+<a name="l00116"></a>00116   ss_sleep(10);
 <a name="l00117"></a>00117 
 <a name="l00118"></a>00118   <span class="comment">// Read the opcode value</span>
 <a name="l00119"></a>00119   <span class="keywordflow">return</span> <a class="code" href="crate6__CAEN__TDC_2vme_8h.html#a06471f4b033f44311606bee07ef985ec">vme_read_d16</a>(caen-&gt;<a class="code" href="structcaenV767.html#ab2898a176ed37e9c59649e2c839faa9e">vme_handle</a>, caen-&gt;<a class="code" href="structcaenV767.html#a56720f4ec12f478ec3a1c95ddc010d53">vme_base</a> | <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af42bef111b9454cfe464a4f09ed1356a">CAENV767_OPCODE</a>);
@@ -152,7 +152,7 @@
 <a name="l00125"></a>00125 <span class="comment"> *</span>
 <a name="l00126"></a>00126 <span class="comment"> * Initialize one CAENV767 module.</span>
 <a name="l00127"></a>00127 <span class="comment"> */</span>
-<a name="l00128"></a><a class="code" href="crate9_2caenV767_8cpp.html#a7ea6b750c3f229b2a07da8155b9a4580">00128</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a7ea6b750c3f229b2a07da8155b9a4580">caenV767_bor1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>)
+<a name="l00128"></a><a class="code" href="crate9_2caenV767_8cpp.html#a7ea6b750c3f229b2a07da8155b9a4580">00128</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a7ea6b750c3f229b2a07da8155b9a4580">caenV767_bor1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>)
 <a name="l00129"></a>00129 {
 <a name="l00130"></a>00130   <span class="comment">// Get the VME base address of the module</span>
 <a name="l00131"></a>00131   caen-&gt;<a class="code" href="structcaenV767.html#a56720f4ec12f478ec3a1c95ddc010d53">vme_base</a> = <a class="code" href="crate3_2odb__wrapper_8cpp.html#adccc5025685f61e7fe25a8718cdd20d3">odb_get_dword</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/%s/vme address&quot;</span>, 
@@ -214,7 +214,7 @@
 <a name="l00187"></a>00187   <span class="comment">// Enable the CAEN channels according to the ODB settings</span>
 <a name="l00188"></a>00188   <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(1, <span class="stringliteral">&quot;Enabling all channels on %s.\n&quot;</span>, caen-&gt;<a class="code" href="structcaenV767.html#a5b98b345aeb7af1756222fe280d21f98">odb_name</a>);
 <a name="l00189"></a>00189   <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a3f7856f98a5ff47893e5efcb702d3318">caenV767_opcode_write</a>(caen, 0x2300); <span class="comment">// enable all channels first </span>
-<a name="l00190"></a>00190   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> channel_enable_array[<a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a2a211d23efe9345cca5c23b9f396a237">CAENV767_NUM_CHANNELS</a>], channelstatus;
+<a name="l00190"></a>00190   BOOL channel_enable_array[<a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a2a211d23efe9345cca5c23b9f396a237">CAENV767_NUM_CHANNELS</a>], channelstatus;
 <a name="l00191"></a>00191   <a class="code" href="crate3_2odb__wrapper_8cpp.html#ad9d3fbd93344e6bb4681175893a43705">odb_get_boolarray</a>(&amp;channel_enable_array[0], <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a2a211d23efe9345cca5c23b9f396a237">CAENV767_NUM_CHANNELS</a>,
 <a name="l00192"></a>00192                     <span class="stringliteral">&quot;/Equipment/Crate %d/Settings/%s/channels/channel enabled&quot;</span>,
 <a name="l00193"></a>00193                     <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, caen-&gt;<a class="code" href="structcaenV767.html#a5b98b345aeb7af1756222fe280d21f98">odb_name</a>);
@@ -243,18 +243,18 @@
 <a name="l00216"></a>00216 <span class="comment"> * Called at the beginning of the run to discover CAENV767 modules</span>
 <a name="l00217"></a>00217 <span class="comment"> * and initialize them.</span>
 <a name="l00218"></a>00218 <span class="comment"> */</span>
-<a name="l00219"></a><a class="code" href="crate9_2caenV767_8cpp.html#ab559e57b9e8e35f4b86ecb10feed734c">00219</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate9_2caenV767_8cpp.html#ab559e57b9e8e35f4b86ecb10feed734c">caenV767_bor</a>()
+<a name="l00219"></a><a class="code" href="crate9_2caenV767_8cpp.html#ab559e57b9e8e35f4b86ecb10feed734c">00219</a> INT <a class="code" href="crate9_2caenV767_8cpp.html#ab559e57b9e8e35f4b86ecb10feed734c">caenV767_bor</a>()
 <a name="l00220"></a>00220 {
 <a name="l00221"></a>00221   <span class="comment">// Use the ODB to find any CAENV767 modules</span>
-<a name="l00222"></a>00222   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00222"></a>00222   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; j++) {
 <a name="l00223"></a>00223 
 <a name="l00224"></a>00224     <span class="keywordtype">bool</span> <a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a> = <span class="keyword">false</span>;
 <a name="l00225"></a>00225 
-<a name="l00226"></a>00226     <span class="keywordflow">if</span> (<a class="code" href="crate3_2odb__wrapper_8cpp.html#a2fbc7a9015bff7c6323e0d8ccd31fecb">odb_find_key</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/CAEN %d&quot;</span>, <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>)) {
-<a name="l00227"></a>00227       <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(1, <span class="stringliteral">&quot;ODB says CAEN %d is present, &quot;</span>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00226"></a>00226     <span class="keywordflow">if</span> (<a class="code" href="crate3_2odb__wrapper_8cpp.html#a2fbc7a9015bff7c6323e0d8ccd31fecb">odb_find_key</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/CAEN %d&quot;</span>, <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, j)) {
+<a name="l00227"></a>00227       <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(1, <span class="stringliteral">&quot;ODB says CAEN %d is present, &quot;</span>, j);
 <a name="l00228"></a>00228       enabled = 
 <a name="l00229"></a>00229         <a class="code" href="crate3_2odb__wrapper_8cpp.html#ada8dab96b6e370929013e9c170b19f8b">odb_get_bool</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/CAEN %d/enabled status&quot;</span>, 
-<a name="l00230"></a>00230             <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00230"></a>00230             <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, j);
 <a name="l00231"></a>00231       <span class="keywordflow">if</span> (enabled) {
 <a name="l00232"></a>00232         <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(1, <span class="stringliteral">&quot;and is enabled.  Initializing...\n&quot;</span>);
 <a name="l00233"></a>00233       } <span class="keywordflow">else</span> {
@@ -262,14 +262,14 @@
 <a name="l00235"></a>00235       }
 <a name="l00236"></a>00236     }
 <a name="l00237"></a>00237 
-<a name="l00238"></a>00238     <a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>].enabled = enabled;
+<a name="l00238"></a>00238     <a class="code" href="structcaenV767.html">caenV767</a>[j].enabled = enabled;
 <a name="l00239"></a>00239 
 <a name="l00240"></a>00240     <span class="comment">// Set up the name of the MIDAS bank associated with the module</span>
-<a name="l00241"></a>00241     sprintf(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>].<a class="code" href="mdump_8c.html#a29615e4ecb94c1a935bc21365ea50f61">bank_name</a>, <span class="stringliteral">&quot;CAE%d&quot;</span>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
-<a name="l00242"></a>00242     sprintf(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>].odb_name, <span class="stringliteral">&quot;CAEN %d&quot;</span>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00241"></a>00241     sprintf(<a class="code" href="structcaenV767.html">caenV767</a>[j].<a class="code" href="mzdump_8c.html#a29615e4ecb94c1a935bc21365ea50f61">bank_name</a>, <span class="stringliteral">&quot;CAE%d&quot;</span>, j);
+<a name="l00242"></a>00242     sprintf(<a class="code" href="structcaenV767.html">caenV767</a>[j].odb_name, <span class="stringliteral">&quot;CAEN %d&quot;</span>, j);
 <a name="l00243"></a>00243 
 <a name="l00244"></a>00244     <span class="keywordflow">if</span>(enabled) {
-<a name="l00245"></a>00245       <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a7ea6b750c3f229b2a07da8155b9a4580">caenV767_bor1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>]);
+<a name="l00245"></a>00245       <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a7ea6b750c3f229b2a07da8155b9a4580">caenV767_bor1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[j]);
 <a name="l00246"></a>00246     }
 <a name="l00247"></a>00247   }
 <a name="l00248"></a>00248 
@@ -277,7 +277,7 @@
 <a name="l00250"></a>00250 }
 <a name="l00251"></a>00251 
 <a name="l00252"></a>00252 <span class="comment">/* ********************************************************************* */</span>
-<a name="l00253"></a><a class="code" href="crate9_2caenV767_8cpp.html#ae17a390be92036fcecf0e9e41cff402a">00253</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ae17a390be92036fcecf0e9e41cff402a">caenV767_eor1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>)
+<a name="l00253"></a><a class="code" href="crate9_2caenV767_8cpp.html#ae17a390be92036fcecf0e9e41cff402a">00253</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ae17a390be92036fcecf0e9e41cff402a">caenV767_eor1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>)
 <a name="l00254"></a>00254 {
 <a name="l00255"></a>00255   <a class="code" href="crate6__CAEN__TDC_2vme_8h.html#ad698b9c9b670f74d77c5e833fcc4b747">vme_close</a>(caen-&gt;<a class="code" href="structcaenV767.html#ab2898a176ed37e9c59649e2c839faa9e">vme_handle</a>);
 <a name="l00256"></a>00256   <span class="keyword">delete</span>[] caen-&gt;<a class="code" href="structcaenV767.html#aac9f978e169b2a51c08b4925cd1e3121">active_readout_buffer</a>;
@@ -291,12 +291,12 @@
 <a name="l00264"></a>00264 <span class="comment"> * Called at the end of the run to release any resources that may have</span>
 <a name="l00265"></a>00265 <span class="comment"> * been allocated.</span>
 <a name="l00266"></a>00266 <span class="comment"> */</span>
-<a name="l00267"></a><a class="code" href="crate9_2caenV767_8cpp.html#add84522dc43036c0d3997114cbb5ef29">00267</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#add84522dc43036c0d3997114cbb5ef29">caenV767_eor</a>()
+<a name="l00267"></a><a class="code" href="crate9_2caenV767_8cpp.html#add84522dc43036c0d3997114cbb5ef29">00267</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#add84522dc43036c0d3997114cbb5ef29">caenV767_eor</a>()
 <a name="l00268"></a>00268 {
 <a name="l00269"></a>00269 
-<a name="l00270"></a>00270   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00271"></a>00271     <span class="keywordflow">if</span>(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
-<a name="l00272"></a>00272       <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ae17a390be92036fcecf0e9e41cff402a">caenV767_eor1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00270"></a>00270   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00271"></a>00271     <span class="keywordflow">if</span>(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
+<a name="l00272"></a>00272       <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ae17a390be92036fcecf0e9e41cff402a">caenV767_eor1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00273"></a>00273       <span class="keywordflow">if</span>(status != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>) {
 <a name="l00274"></a>00274          <span class="keywordflow">return</span> status;
 <a name="l00275"></a>00275       }
@@ -307,7 +307,7 @@
 <a name="l00280"></a>00280 }
 <a name="l00281"></a>00281 
 <a name="l00282"></a>00282 <span class="comment">/* ********************************************************************* */</span>
-<a name="l00283"></a><a class="code" href="crate9_2caenV767_8cpp.html#a33f7384ae7d2c3db5c4f3af9ca3b7735">00283</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a33f7384ae7d2c3db5c4f3af9ca3b7735">caenV767_fifo_read</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>, 
+<a name="l00283"></a><a class="code" href="crate9_2caenV767_8cpp.html#a33f7384ae7d2c3db5c4f3af9ca3b7735">00283</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a33f7384ae7d2c3db5c4f3af9ca3b7735">caenV767_fifo_read</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *buffer, 
 <a name="l00284"></a>00284                       <span class="keywordtype">int</span> max_size, <span class="keywordtype">bool</span> in_active_readout)
 <a name="l00285"></a>00285 {
 <a name="l00286"></a>00286   <span class="keywordflow">if</span>(!in_active_readout) {
@@ -317,9 +317,9 @@
 <a name="l00290"></a>00290                               max_size);
 <a name="l00291"></a>00291     <span class="keywordflow">return</span> status;
 <a name="l00292"></a>00292   } <span class="keywordflow">else</span> {
-<a name="l00293"></a>00293     <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = 0;
+<a name="l00293"></a>00293     <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = 0;
 <a name="l00294"></a>00294 
-<a name="l00295"></a>00295     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; max_size / <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>); <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00295"></a>00295     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; max_size / <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>); <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00296"></a>00296       <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> word = 
 <a name="l00297"></a>00297         <a class="code" href="crate6__CAEN__TDC_2vme_8h.html#aa7ab3399f1898150e82ab51934e9620e">vme_read_d32</a>(caen-&gt;<a class="code" href="structcaenV767.html#ab2898a176ed37e9c59649e2c839faa9e">vme_handle</a>, caen-&gt;<a class="code" href="structcaenV767.html#a56720f4ec12f478ec3a1c95ddc010d53">vme_base</a> | <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a22f25073396d55bf361f7d129b9d02af">CAENV767_OUTBUF</a>);
 <a name="l00298"></a>00298 
@@ -342,7 +342,7 @@
 <a name="l00315"></a>00315 <span class="comment"> *</span>
 <a name="l00316"></a>00316 <span class="comment"> * Performs active readout for a single CAENV767 FIFO.</span>
 <a name="l00317"></a>00317 <span class="comment"> */</span>
-<a name="l00318"></a><a class="code" href="crate9_2caenV767_8cpp.html#aaaed422dca750adb75bd1633aa5b35e4">00318</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#aaaed422dca750adb75bd1633aa5b35e4">caenV767_poll1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>)
+<a name="l00318"></a><a class="code" href="crate9_2caenV767_8cpp.html#aaaed422dca750adb75bd1633aa5b35e4">00318</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#aaaed422dca750adb75bd1633aa5b35e4">caenV767_poll1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>)
 <a name="l00319"></a>00319 {
 <a name="l00320"></a>00320   <span class="comment">// If active readout is not enabled, skip it.</span>
 <a name="l00321"></a>00321   <span class="keywordflow">if</span>(!caen-&gt;<a class="code" href="structcaenV767.html#ad9aa479dc8d4e4656350e72f651d6c42">do_active_readout</a>) {
@@ -362,7 +362,7 @@
 <a name="l00335"></a>00335   <span class="comment">// First check how much space we have available in the active</span>
 <a name="l00336"></a>00336   <span class="comment">// readout buffer.</span>
 <a name="l00337"></a>00337   <span class="keywordtype">int</span> size_left = caen-&gt;<a class="code" href="structcaenV767.html#abbb6a6c5dd4f5e4afc77fa0dc946cb98">active_readout_buffer_size</a> - caen-&gt;<a class="code" href="structcaenV767.html#a6a0dccf760d4388a9ca4e8f03501c44d">active_readout_size</a>;
-<a name="l00338"></a>00338   <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = <a class="code" href="Mql_8h.html#a3acffbd305ee72dcd4593c0d8af64a4f">MIN</a>(<a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#aff9859174886bc56a8ee0985eefd72f4">ACTIVE_READOUT_MAX_PER_POLL</a>, size_left);
+<a name="l00338"></a>00338   <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = <a class="code" href="Mql_8h.html#a3acffbd305ee72dcd4593c0d8af64a4f">MIN</a>(<a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#aff9859174886bc56a8ee0985eefd72f4">ACTIVE_READOUT_MAX_PER_POLL</a>, size_left);
 <a name="l00339"></a>00339   size = <a class="code" href="Mql_8h.html#a3acffbd305ee72dcd4593c0d8af64a4f">MIN</a>(size, expected_words);
 <a name="l00340"></a>00340 
 <a name="l00341"></a>00341   <span class="comment">// Now try to read up to that amount, without using block transfers,</span>
@@ -379,7 +379,7 @@
 <a name="l00352"></a>00352   } <span class="keywordflow">else</span> {
 <a name="l00353"></a>00353     <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(0, <span class="stringliteral">&quot;Status from caenV767_fifo_read is %d for %s\n&quot;</span>, status,
 <a name="l00354"></a>00354       caen-&gt;<a class="code" href="structcaenV767.html#a5b98b345aeb7af1756222fe280d21f98">odb_name</a>);
-<a name="l00355"></a>00355     <span class="keywordflow">return</span> <a class="code" href="group__err26.html#ga9fea053c26a278026fa0d7501c300c4f">FE_ERR_HW</a>;
+<a name="l00355"></a>00355     <span class="keywordflow">return</span> FE_ERR_HW;
 <a name="l00356"></a>00356   }
 <a name="l00357"></a>00357 
 <a name="l00358"></a>00358   <span class="keywordflow">if</span>(caen-&gt;<a class="code" href="structcaenV767.html#a6a0dccf760d4388a9ca4e8f03501c44d">active_readout_size</a> == caen-&gt;<a class="code" href="structcaenV767.html#abbb6a6c5dd4f5e4afc77fa0dc946cb98">active_readout_buffer_size</a>) {
@@ -400,16 +400,16 @@
 <a name="l00373"></a>00373 <span class="comment"> * - a request for a &quot;soft stop&quot; end-of-block, or</span>
 <a name="l00374"></a>00374 <span class="comment"> * - an error code</span>
 <a name="l00375"></a>00375 <span class="comment"> */</span>
-<a name="l00376"></a><a class="code" href="crate9_2caenV767_8cpp.html#ac14d78c22499afc2f6d174dd0f3fb4d7">00376</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ac14d78c22499afc2f6d174dd0f3fb4d7">caenV767_poll_live</a>()
+<a name="l00376"></a><a class="code" href="crate9_2caenV767_8cpp.html#ac14d78c22499afc2f6d174dd0f3fb4d7">00376</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#ac14d78c22499afc2f6d174dd0f3fb4d7">caenV767_poll_live</a>()
 <a name="l00377"></a>00377 {
 <a name="l00378"></a>00378   <span class="comment">// If this is our first active readout pass, just remember the time.</span>
 <a name="l00379"></a>00379   <span class="keywordflow">if</span>(<a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a67d1d76bd23c43308bf21341756ea94f">block_start_time</a>.tv_sec == 0 &amp;&amp; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a67d1d76bd23c43308bf21341756ea94f">block_start_time</a>.tv_usec == 0) {
 <a name="l00380"></a>00380     <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00381"></a>00381   }
 <a name="l00382"></a>00382 
-<a name="l00383"></a>00383   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00384"></a>00384     <span class="keywordflow">if</span>(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
-<a name="l00385"></a>00385       <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#aaaed422dca750adb75bd1633aa5b35e4">caenV767_poll1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00383"></a>00383   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00384"></a>00384     <span class="keywordflow">if</span>(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
+<a name="l00385"></a>00385       <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#aaaed422dca750adb75bd1633aa5b35e4">caenV767_poll1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00386"></a>00386       <span class="keywordflow">if</span>(status != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>) {
 <a name="l00387"></a>00387         <span class="keywordflow">return</span> status; 
 <a name="l00388"></a>00388       }
@@ -425,11 +425,11 @@
 <a name="l00398"></a>00398 <span class="comment"> *</span>
 <a name="l00399"></a>00399 <span class="comment"> * Constructs the MIDAS bank for a single CAENV767.</span>
 <a name="l00400"></a>00400 <span class="comment"> */</span>
-<a name="l00401"></a><a class="code" href="crate9_2caenV767_8cpp.html#af61dba18901b758505c360f0f1cf230c">00401</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af61dba18901b758505c360f0f1cf230c">caenV767_read1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>, <span class="keywordtype">char</span> *pevent)
+<a name="l00401"></a><a class="code" href="crate9_2caenV767_8cpp.html#af61dba18901b758505c360f0f1cf230c">00401</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af61dba18901b758505c360f0f1cf230c">caenV767_read1</a>(<span class="keyword">struct</span> <a class="code" href="structcaenV767.html">caenV767</a> *<a class="code" href="CAET_8h.html#a6b99b146b6570aa5a4e16d2afaedd662">caen</a>, <span class="keywordtype">char</span> *pevent)
 <a name="l00402"></a>00402 {
 <a name="l00403"></a>00403   <span class="comment">// Create the MIDAS bank</span>
 <a name="l00404"></a>00404   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> *pdata;
-<a name="l00405"></a>00405   <a class="code" href="group__msectionh.html#ga5d60ec9f544f56ab8170380ebe195584">bk_create</a>(pevent, caen-&gt;<a class="code" href="structcaenV767.html#a8ab2390f0afcb6ec7ef1eb986502cb37">bank_name</a>, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>, &amp;pdata);
+<a name="l00405"></a>00405   bk_create(pevent, caen-&gt;<a class="code" href="structcaenV767.html#a8ab2390f0afcb6ec7ef1eb986502cb37">bank_name</a>, TID_DWORD, &amp;pdata);
 <a name="l00406"></a>00406 
 <a name="l00407"></a>00407   <span class="comment">// Copy data that was read during the active readout</span>
 <a name="l00408"></a>00408   <span class="keywordtype">int</span> active_size = caen-&gt;<a class="code" href="structcaenV767.html#a6a0dccf760d4388a9ca4e8f03501c44d">active_readout_size</a>;
@@ -467,7 +467,7 @@
 <a name="l00440"></a>00440   }
 <a name="l00441"></a>00441 
 <a name="l00442"></a>00442   <span class="comment">// Close the bank</span>
-<a name="l00443"></a>00443   <a class="code" href="group__msectionh.html#gab0314f08910a3950815d265d090656b7">bk_close</a>(pevent, pdata + (active_size + final_size)/<span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>));
+<a name="l00443"></a>00443   bk_close(pevent, pdata + (active_size + final_size)/<span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>));
 <a name="l00444"></a>00444 
 <a name="l00445"></a>00445   <span class="comment">// Clear for the next block</span>
 <a name="l00446"></a>00446   caen-&gt;<a class="code" href="structcaenV767.html#a6a0dccf760d4388a9ca4e8f03501c44d">active_readout_size</a> = 0;
@@ -495,11 +495,11 @@
 <a name="l00468"></a>00468 <span class="comment"> * Called at the end of a block to assemble data from that block into a </span>
 <a name="l00469"></a>00469 <span class="comment"> * MIDAS event.</span>
 <a name="l00470"></a>00470 <span class="comment"> */</span>
-<a name="l00471"></a><a class="code" href="crate9_2caenV767_8cpp.html#a699c24b6d2978d8056c88dba7a527c73">00471</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a699c24b6d2978d8056c88dba7a527c73">caenV767_read</a>(<span class="keywordtype">char</span> *pevent)
+<a name="l00471"></a><a class="code" href="crate9_2caenV767_8cpp.html#a699c24b6d2978d8056c88dba7a527c73">00471</a> INT <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#a699c24b6d2978d8056c88dba7a527c73">caenV767_read</a>(<span class="keywordtype">char</span> *pevent)
 <a name="l00472"></a>00472 {
-<a name="l00473"></a>00473   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00474"></a>00474     <span class="keywordflow">if</span>(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
-<a name="l00475"></a>00475       <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af61dba18901b758505c360f0f1cf230c">caenV767_read1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], pevent);
+<a name="l00473"></a>00473   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af189f0410cd1bd0583e4869dbf5b18b2">MAX_CAENV767</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00474"></a>00474     <span class="keywordflow">if</span>(<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
+<a name="l00475"></a>00475       <span class="keywordtype">int</span> <a class="code" href="patch__mevb_8cpp.html#a015eb90e0de9f16e87bd149d4b9ce959">status</a> = <a class="code" href="crate6__CAEN__TDC_2caenV767_8cpp.html#af61dba18901b758505c360f0f1cf230c">caenV767_read1</a>(&amp;<a class="code" href="structcaenV767.html">caenV767</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>], pevent);
 <a name="l00476"></a>00476        <span class="keywordflow">if</span>(status != <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>) {
 <a name="l00477"></a>00477          <span class="keywordflow">return</span> status;
 <a name="l00478"></a>00478        }

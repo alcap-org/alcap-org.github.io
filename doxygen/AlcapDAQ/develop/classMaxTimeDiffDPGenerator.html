@@ -46,7 +46,7 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a2768ee367d63ee1e2c39eeea0878ee03">MaxTimeDiffDPGenerator</a> (<a class="el" href="classTDPGeneratorOptions.html">TDPGeneratorOptions</a> *opts)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#abd22edef4cf246ab9a423fc7e91db574">~MaxTimeDiffDPGenerator</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a1bad794f97db82d1312b77a3c3884abb">ChecksForPileUp</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a41bd22b57ce0b05f03e476e9e526e001">ProcessPulses</a> (const <a class="el" href="classTSetupData.html">TSetupData</a> *setup, const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;detector, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *<a class="el" href="TPCW_8h.html#a9c91e5c84c3910df17c909ccdea074db">fast</a>, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow, <a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;output)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a41bd22b57ce0b05f03e476e9e526e001">ProcessPulses</a> (const <a class="el" href="classTSetupData.html">TSetupData</a> *setup, const std::string &amp;detector, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *<a class="el" href="TPCW_8h.html#a9c91e5c84c3910df17c909ccdea074db">fast</a>, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow, <a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;output)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a> (const bool &amp;val=true)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a> ()</td></tr>
 </table>
@@ -161,7 +161,7 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;&nbsp;</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>detector</em>, </td>
         </tr>
         <tr>
@@ -247,7 +247,7 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 <a name="l00058"></a>00058               }
 <a name="l00059"></a>00059             }
 <a name="l00060"></a>00060             <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* det_pulse = <span class="keyword">new</span> <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>(fast_pulse, slow_pulse, detector); <span class="comment">// Create the TDetectorPulse</span>
-<a name="l00061"></a>00061             <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>.push_back(det_pulse);
+<a name="l00061"></a>00061             output.push_back(det_pulse);
 <a name="l00062"></a>00062             <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()){
 <a name="l00063"></a>00063                 cout&lt;&lt;<span class="stringliteral">&quot;Created a TDetectorPulse with:\n&quot;</span>;
 <a name="l00064"></a>00064                 cout&lt;&lt;<span class="stringliteral">&quot;Fast Pulse: &quot;</span> &lt;&lt; det_pulse-&gt;<a class="code" href="classTDetectorPulse.html#aec96d2ead9b48ee302d91622389ee9ec">GetFastPulseTime</a>() * 1e-6 &lt;&lt; std::endl;

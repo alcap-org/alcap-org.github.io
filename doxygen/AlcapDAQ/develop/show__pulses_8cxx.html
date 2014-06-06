@@ -29,7 +29,7 @@
 <div class="contents">
 <h1>show_pulses/show_pulses.cxx File Reference</h1><code>#include &lt;stdio.h&gt;</code><br/>
 <code>#include &lt;stdlib.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="midas_8h_source.html">midas.h</a>&quot;</code><br/>
+<code>#include &quot;midas.h&quot;</code><br/>
 <code>#include &quot;../analyzer/compress/mucap_compress.h&quot;</code><br/>
 <code>#include &quot;TH1.h&quot;</code><br/>
 <code>#include &quot;TCanvas.h&quot;</code><br/>
@@ -40,10 +40,10 @@
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a44d01ba0a136b8e27ad362f5a823d14e">_FILE_OFFSET_BITS</a>&nbsp;&nbsp;&nbsp;64</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#abd28748f479a1a5ae6d9153114dc4fa1">PRINT_SAMPLES</a>&nbsp;&nbsp;&nbsp;1</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a> (char *input_filename, int <a class="el" href="mcnaf_8c.html#addeb24c60c6b386335a9d77338c6e334">addr</a>, int fadc)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">process_event</a> (void *pevent, int <a class="el" href="mcnaf_8c.html#addeb24c60c6b386335a9d77338c6e334">addr</a>, int fadc)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">get_input_event</a> (FILE *<a class="el" href="mlxspeaker_8c.html#aa065f30aa9f5f9a42132c82c787ee70b">fp</a>, char *pevent, int <a class="el" href="crate9_2rpc__master_8cpp.html#aa3d005e853cff556eb57f4e3db030b02">event_number</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a> (int t0, int <a class="el" href="NDET_8h.html#a1d7032fb58a83cdde2d9963a8f76c7d3">nsamples</a>, int *<a class="el" href="FDCR_8h.html#aace59d5974b2dd84b95a15769cd29f6f">samples</a>, int <a class="el" href="lazylogger_8c.html#a7728c597c88e0bc9b73912265b2f7665">channel</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a> (char *input_filename, int addr, int fadc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">process_event</a> (void *pevent, int addr, int fadc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">get_input_event</a> (FILE *fp, char *pevent, int <a class="el" href="crate9_2rpc__master_8cpp.html#aa3d005e853cff556eb57f4e3db030b02">event_number</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a> (int t0, int <a class="el" href="NDET_8h.html#a1d7032fb58a83cdde2d9963a8f76c7d3">nsamples</a>, int *<a class="el" href="FDCR_8h.html#aace59d5974b2dd84b95a15769cd29f6f">samples</a>, int <a class="el" href="NDET_8h.html#adf7dff2c57c0da9a4a2b70e3e815be31">channel</a>)</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TCanvas *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="show__pulses_8cxx.html#a63b96401309cc0c66ce6c88f1783d7c2">c</a> = 0</td></tr>
 </table>
@@ -112,32 +112,32 @@
 
 <p>Definition at line <a class="el" href="show__pulses_8cxx_source.html#l00029">29</a> of file <a class="el" href="show__pulses_8cxx_source.html">show_pulses.cxx</a>.</p>
 
-<p>References <a class="el" href="midas_8h_source.html#l01195">EVENT_HEADER::data_size</a>, <a class="el" href="midas_8h_source.html#l00677">MAX_EVENT_SIZE</a>, <a class="el" href="midas_8h_source.html#l01240">MIDAS_MAGIC</a>, <a class="el" href="midas_8h_source.html#l01193">EVENT_HEADER::serial_number</a>, <a class="el" href="bit3__mvme_2mvmestd_8h_source.html#l00045">SUCCESS</a>, and <a class="el" href="midas_8h_source.html#l01192">EVENT_HEADER::trigger_mask</a>.</p>
+<p>References <a class="el" href="mvmestd_8h_source.html#l00045">SUCCESS</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00030"></a>00030 {
 <a name="l00031"></a>00031         <span class="keywordtype">int</span> event_size, size_read;
-<a name="l00032"></a>00032         <a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *header;
+<a name="l00032"></a>00032         EVENT_HEADER *header;
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034         size_read = fread(pevent, 1, <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>), <a class="code" href="mlxspeaker_8c.html#aa065f30aa9f5f9a42132c82c787ee70b">fp</a>);
-<a name="l00035"></a>00035         <span class="keywordflow">if</span> (size_read != <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>))
+<a name="l00034"></a>00034         size_read = fread(pevent, 1, <span class="keyword">sizeof</span>(EVENT_HEADER), fp);
+<a name="l00035"></a>00035         <span class="keywordflow">if</span> (size_read != <span class="keyword">sizeof</span>(EVENT_HEADER))
 <a name="l00036"></a>00036                 <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00037"></a>00037 
-<a name="l00038"></a>00038         header = (<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *) pevent;
-<a name="l00039"></a>00039         printf(<span class="stringliteral">&quot;block# %d\n&quot;</span>, header-&gt;<a class="code" href="group__midasincludecode.html#ga5ed07c075ebce619a8fa47e96f188440">serial_number</a>);
+<a name="l00038"></a>00038         header = (EVENT_HEADER *) pevent;
+<a name="l00039"></a>00039         printf(<span class="stringliteral">&quot;block# %d\n&quot;</span>, header-&gt;serial_number);
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041         <span class="keywordflow">if</span> (<a class="code" href="crate3_2rpc__master_8cpp.html#aa3d005e853cff556eb57f4e3db030b02">event_number</a> == 0 &amp;&amp; header-&gt;<a class="code" href="group__midasincludecode.html#ga9b4b94f41521f5c188655b7bb0f1ec1b">trigger_mask</a> != <a class="code" href="group__mbufferh.html#ga028a14f85456b68bf2babd1bdcaa1abb">MIDAS_MAGIC</a>) {
+<a name="l00041"></a>00041         <span class="keywordflow">if</span> (<a class="code" href="crate3_2rpc__master_8cpp.html#aa3d005e853cff556eb57f4e3db030b02">event_number</a> == 0 &amp;&amp; header-&gt;trigger_mask != MIDAS_MAGIC) {
 <a name="l00042"></a>00042                 fprintf(stderr, <span class="stringliteral">&quot;Input is not a valid MIDAS file\n&quot;</span>);
 <a name="l00043"></a>00043                 exit(1);
 <a name="l00044"></a>00044         }
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046         event_size = header-&gt;<a class="code" href="group__midasincludecode.html#ga194220c29419e01ef4cab6d3dd8daedb">data_size</a>;
+<a name="l00046"></a>00046         event_size = header-&gt;data_size;
 <a name="l00047"></a>00047 
-<a name="l00048"></a>00048         <span class="keywordflow">if</span> ((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) event_size &gt;= <a class="code" href="group__midasincludecode.html#ga05d5acc365e3342523d84bc4540adc09">MAX_EVENT_SIZE</a> - <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>)) {
+<a name="l00048"></a>00048         <span class="keywordflow">if</span> ((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) event_size &gt;= MAX_EVENT_SIZE - <span class="keyword">sizeof</span>(EVENT_HEADER)) {
 <a name="l00049"></a>00049                 fprintf(stderr, <span class="stringliteral">&quot;Invalid event size %d\n&quot;</span>, event_size);
 <a name="l00050"></a>00050                 exit(1);
 <a name="l00051"></a>00051         }
 <a name="l00052"></a>00052 
-<a name="l00053"></a>00053         size_read = fread(pevent + <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>), 1, event_size, <a class="code" href="mlxspeaker_8c.html#aa065f30aa9f5f9a42132c82c787ee70b">fp</a>);
+<a name="l00053"></a>00053         size_read = fread(pevent + <span class="keyword">sizeof</span>(EVENT_HEADER), 1, event_size, fp);
 <a name="l00054"></a>00054         <span class="keywordflow">if</span> (size_read != event_size)
 <a name="l00055"></a>00055                 <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00056"></a>00056 
@@ -180,18 +180,18 @@
 
 <p>Definition at line <a class="el" href="show__pulses_8cxx_source.html#l00154">154</a> of file <a class="el" href="show__pulses_8cxx_source.html">show_pulses.cxx</a>.</p>
 
-<p>References <a class="el" href="midas_8c_source.html#l12924">bk_locate()</a>, <a class="el" href="mdump_8c_source.html#l00115">i</a>, <a class="el" href="odbhist_8c_source.html#l00058">j</a>, <a class="el" href="examples_2macro_2midas__macro_8h_source.html#l00039">name</a>, and <a class="el" href="res__analysis_8cxx_source.html#l00230">processIsland()</a>.</p>
+<p>References <a class="el" href="mzdump_8c_source.html#l00129">i</a>, and <a class="el" href="res__analysis_8cxx_source.html#l00230">processIsland()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00155"></a>00155 {
-<a name="l00156"></a>00156         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00156"></a>00156         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00157"></a>00157 
-<a name="l00158"></a>00158                 <span class="keywordflow">if</span>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != fadc &amp;&amp; fadc &gt;= 0) <span class="keywordflow">continue</span>;
+<a name="l00158"></a>00158                 <span class="keywordflow">if</span>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != fadc &amp;&amp; fadc &gt;= 0) <span class="keywordflow">continue</span>;
 <a name="l00159"></a>00159 
 <a name="l00160"></a>00160                 <span class="comment">// get the bank</span>
-<a name="l00161"></a>00161                 <span class="keywordtype">char</span> <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>[80];
-<a name="l00162"></a>00162                 sprintf(name, <span class="stringliteral">&quot;N%c%02x&quot;</span>, <span class="charliteral">&apos;a&apos;</span> + <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>);
+<a name="l00161"></a>00161                 <span class="keywordtype">char</span> name[80];
+<a name="l00162"></a>00162                 sprintf(name, <span class="stringliteral">&quot;N%c%02x&quot;</span>, <span class="charliteral">&apos;a&apos;</span> + <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, addr);
 <a name="l00163"></a>00163                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *raw;
-<a name="l00164"></a>00164                 <span class="keywordtype">int</span> bank_size = <a class="code" href="group__msectionh.html#ga191a8ec88c5ff3512bc22d7fa6d1f5dc">bk_locate</a>(pevent, name, &amp;raw);
+<a name="l00164"></a>00164                 <span class="keywordtype">int</span> bank_size = bk_locate(pevent, name, &amp;raw);
 <a name="l00165"></a>00165                 printf(<span class="stringliteral">&quot;bank_size %d,&quot;</span>, bank_size);
 <a name="l00166"></a>00166                 bank_size = bank_size / 10;
 <a name="l00167"></a>00167                 printf(<span class="stringliteral">&quot; npkt %d\n&quot;</span>, bank_size);
@@ -207,8 +207,8 @@
 <a name="l00177"></a>00177 
 <a name="l00178"></a>00178                 <span class="comment">// loop through words to build up &quot;islands&quot;</span>
 <a name="l00179"></a>00179                 <span class="keywordtype">int</span> lastTimestamp = 0;
-<a name="l00180"></a>00180                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; bank_size; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
-<a name="l00181"></a>00181                         printf(<span class="stringliteral">&quot;pkt %d\n&quot;</span>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00180"></a>00180                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; bank_size; j++) {
+<a name="l00181"></a>00181                         printf(<span class="stringliteral">&quot;pkt %d\n&quot;</span>, j);
 <a name="l00182"></a>00182 
 <a name="l00183"></a>00183                         <span class="comment">// data format:</span>
 <a name="l00184"></a>00184                         <span class="comment">//</span>
@@ -219,26 +219,26 @@
 <a name="l00189"></a>00189                         <span class="comment">//  35-24       sampleA0</span>
 <a name="l00190"></a>00190                         <span class="comment">//  23-12       sampleB1</span>
 <a name="l00191"></a>00191                         <span class="comment">//  11-0        sampleA1</span>
-<a name="l00192"></a>00192                         <span class="keywordtype">int</span> timestamp =  (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+0] &lt;&lt; 20) |
-<a name="l00193"></a>00193                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+1] &lt;&lt; 12) |
-<a name="l00194"></a>00194                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+2] &lt;&lt; 4) |
-<a name="l00195"></a>00195                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &gt;&gt; 4);
-<a name="l00196"></a>00196                         <span class="keywordtype">bool</span> overflowB0 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x08) != 0);
-<a name="l00197"></a>00197                         <span class="keywordtype">bool</span> overflowA0 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x04) != 0);
-<a name="l00198"></a>00198                         <span class="keywordtype">bool</span> overflowB1 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x02) != 0);
-<a name="l00199"></a>00199                         <span class="keywordtype">bool</span> overflowA1 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x01) != 0);
+<a name="l00192"></a>00192                         <span class="keywordtype">int</span> timestamp =  (raw[j*10+0] &lt;&lt; 20) |
+<a name="l00193"></a>00193                                 (raw[j*10+1] &lt;&lt; 12) |
+<a name="l00194"></a>00194                                 (raw[j*10+2] &lt;&lt; 4) |
+<a name="l00195"></a>00195                                 (raw[j*10+3] &gt;&gt; 4);
+<a name="l00196"></a>00196                         <span class="keywordtype">bool</span> overflowB0 = ((raw[j*10+3] &amp; 0x08) != 0);
+<a name="l00197"></a>00197                         <span class="keywordtype">bool</span> overflowA0 = ((raw[j*10+3] &amp; 0x04) != 0);
+<a name="l00198"></a>00198                         <span class="keywordtype">bool</span> overflowB1 = ((raw[j*10+3] &amp; 0x02) != 0);
+<a name="l00199"></a>00199                         <span class="keywordtype">bool</span> overflowA1 = ((raw[j*10+3] &amp; 0x01) != 0);
 <a name="l00200"></a>00200                         <span class="keywordtype">int</span> sampleB0 = (overflowB0 &lt;&lt; 12) |
-<a name="l00201"></a>00201                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+4] &lt;&lt; 4) |
-<a name="l00202"></a>00202                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+5] &gt;&gt; 4);  
+<a name="l00201"></a>00201                                 (raw[j*10+4] &lt;&lt; 4) |
+<a name="l00202"></a>00202                                 (raw[j*10+5] &gt;&gt; 4);  
 <a name="l00203"></a>00203                         <span class="keywordtype">int</span> sampleA0 = (overflowA0 &lt;&lt; 12) |
-<a name="l00204"></a>00204                                 ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+5] &amp; 0xf) &lt;&lt; 8) |
-<a name="l00205"></a>00205                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+6]);  
+<a name="l00204"></a>00204                                 ((raw[j*10+5] &amp; 0xf) &lt;&lt; 8) |
+<a name="l00205"></a>00205                                 (raw[j*10+6]);  
 <a name="l00206"></a>00206                         <span class="keywordtype">int</span> sampleB1 = (overflowB1 &lt;&lt; 12) |
-<a name="l00207"></a>00207                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+7] &lt;&lt; 4) |
-<a name="l00208"></a>00208                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+8] &gt;&gt; 4);  
+<a name="l00207"></a>00207                                 (raw[j*10+7] &lt;&lt; 4) |
+<a name="l00208"></a>00208                                 (raw[j*10+8] &gt;&gt; 4);  
 <a name="l00209"></a>00209                         <span class="keywordtype">int</span> sampleA1 = (overflowA1 &lt;&lt; 12) |
-<a name="l00210"></a>00210                                 ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+8] &amp; 0xf) &lt;&lt; 8) |
-<a name="l00211"></a>00211                                 (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+9]);  
+<a name="l00210"></a>00210                                 ((raw[j*10+8] &amp; 0xf) &lt;&lt; 8) |
+<a name="l00211"></a>00211                                 (raw[j*10+9]);  
 <a name="l00212"></a>00212 
 <a name="l00213"></a>00213                         <span class="keywordflow">if</span>(timestamp &lt; lastTimestamp) {
 <a name="l00214"></a>00214                                 printf(<span class="stringliteral">&quot;Time ordering error!\n&quot;</span>);
@@ -246,7 +246,7 @@
 <a name="l00216"></a>00216 
 <a name="l00217"></a>00217                         <span class="keywordflow">if</span>(timestamp != lastTimestamp + 1) {
 <a name="l00218"></a>00218                                 <span class="keywordflow">if</span>(!firstIsland) {
-<a name="l00219"></a>00219                                         <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
+<a name="l00219"></a>00219                                         <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
 <a name="l00220"></a>00220 <span class="preprocessor">#ifdef PRINT_SAMPLES</span>
 <a name="l00221"></a>00221 <span class="preprocessor"></span>                                        printf(<span class="stringliteral">&quot;*\n&quot;</span>);
 <a name="l00222"></a>00222 <span class="preprocessor">#endif</span>
@@ -262,7 +262,7 @@
 <a name="l00232"></a>00232                         lastTimestamp = timestamp;
 <a name="l00233"></a>00233 
 <a name="l00234"></a>00234 <span class="preprocessor">#ifdef PRINT_SAMPLES</span>
-<a name="l00235"></a>00235 <span class="preprocessor"></span>                        printf(<span class="stringliteral">&quot;fadc=%d t=%d %d %d %d %d\n&quot;</span>, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, timestamp, 
+<a name="l00235"></a>00235 <span class="preprocessor"></span>                        printf(<span class="stringliteral">&quot;fadc=%d t=%d %d %d %d %d\n&quot;</span>, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, timestamp, 
 <a name="l00236"></a>00236                                         sampleA1, sampleB1, sampleA0,sampleB0);
 <a name="l00237"></a>00237 <span class="preprocessor">#endif</span>
 <a name="l00238"></a>00238 <span class="preprocessor"></span>
@@ -273,7 +273,7 @@
 <a name="l00243"></a>00243                 }
 <a name="l00244"></a>00244 
 <a name="l00245"></a>00245                 <span class="keywordflow">if</span>(islandNsamples != 0) {
-<a name="l00246"></a>00246                         <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
+<a name="l00246"></a>00246                         <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
 <a name="l00247"></a>00247 <span class="preprocessor">#ifdef PRINT_SAMPLES</span>
 <a name="l00248"></a>00248 <span class="preprocessor"></span>                        printf(<span class="stringliteral">&quot;*\n&quot;</span>);
 <a name="l00249"></a>00249 <span class="preprocessor">#endif</span>
@@ -320,7 +320,7 @@
 
 <p>Definition at line <a class="el" href="show__pulses_8cxx_source.html#l00060">60</a> of file <a class="el" href="show__pulses_8cxx_source.html">show_pulses.cxx</a>.</p>
 
-<p>References <a class="el" href="patch__mevb_8cpp_source.html#l00003">c</a>, <a class="el" href="midas_8c_source.html#l02327">cm_connect_experiment()</a>, <a class="el" href="patch__mevb_8cpp.html#aa598123f60ccd5496f2421c7bf2fabbf">cm_get_environment()</a>, <a class="el" href="midas_8c_source.html#l02913">cm_get_experiment_database()</a>, <a class="el" href="overall_8cpp_source.html#l00373">compress_load_all()</a>, <a class="el" href="midas_8h_source.html#l01191">EVENT_HEADER::event_id</a>, <a class="el" href="crate3_2rpc__master_8cpp_source.html#l00034">event_number</a>, <a class="el" href="crate6__CAEN__TDC_2mfe__mucap_8c_source.html#l00328">exp_name</a>, <a class="el" href="res__analysis_8cxx_source.html#l00029">get_input_event()</a>, <a class="el" href="mucap__compress_8cpp_source.html#l00011">hDB</a>, <a class="el" href="crate6__CAEN__TDC_2mfe__mucap_8c_source.html#l00327">host_name</a>, <a class="el" href="midas_8h_source.html#l00677">MAX_EVENT_SIZE</a>, <a class="el" href="miniana_8c_source.html#l00026">process_event()</a>, and <a class="el" href="bit3__mvme_2mvmestd_8h_source.html#l00045">SUCCESS</a>.</p>
+<p>References <a class="el" href="patch__mevb_8cpp_source.html#l00003">c</a>, <a class="el" href="patch__mevb_8cpp.html#aa598123f60ccd5496f2421c7bf2fabbf">cm_get_environment()</a>, <a class="el" href="overall_8cpp_source.html#l00373">compress_load_all()</a>, <a class="el" href="crate3_2rpc__master_8cpp_source.html#l00034">event_number</a>, <a class="el" href="crate6__CAEN__TDC_2mfe__mucap_8c_source.html#l00328">exp_name</a>, <a class="el" href="res__analysis_8cxx_source.html#l00029">get_input_event()</a>, <a class="el" href="mucap__compress_8cpp_source.html#l00011">hDB</a>, <a class="el" href="crate6__CAEN__TDC_2mfe__mucap_8c_source.html#l00327">host_name</a>, <a class="el" href="res__analysis_8cxx_source.html#l00266">process_event()</a>, and <a class="el" href="mvmestd_8h_source.html#l00045">SUCCESS</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00061"></a>00061 {
 <a name="l00062"></a>00062         FILE *input_fp;
@@ -331,8 +331,8 @@
 <a name="l00067"></a>00067 
 <a name="l00068"></a>00068         <span class="keywordtype">char</span> <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#af65cc3664520b7cd0817adc7106f9624">host_name</a>[256], <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#a11eee1a5e2cef985b90bdfe0bfc8cf76">exp_name</a>[32];
 <a name="l00069"></a>00069         <a class="code" href="patch__mevb_8cpp.html#aa598123f60ccd5496f2421c7bf2fabbf">cm_get_environment</a>(host_name, <span class="keyword">sizeof</span>(host_name), exp_name, <span class="keyword">sizeof</span>(exp_name));
-<a name="l00070"></a>00070         <a class="code" href="group__msectionh.html#gae12b15703f10f41044e599520e665f5a">cm_connect_experiment</a>(host_name, exp_name, <span class="stringliteral">&quot;show_pulses&quot;</span>, NULL);
-<a name="l00071"></a>00071         <a class="code" href="group__msectionh.html#ga1932e7947b0a024a845c5b8c19c3dda0">cm_get_experiment_database</a>(&amp;<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, NULL);
+<a name="l00070"></a>00070         cm_connect_experiment(host_name, exp_name, <span class="stringliteral">&quot;show_pulses&quot;</span>, NULL);
+<a name="l00071"></a>00071         cm_get_experiment_database(&amp;<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, NULL);
 <a name="l00072"></a>00072         <a class="code" href="mucap__compress_8h.html#ab8d3d2d200bab8b6c9cf0bd01787383f">compress_load_all</a>();
 <a name="l00073"></a>00073 
 <a name="l00074"></a>00074         <span class="comment">/* Open input and output files */</span>
@@ -344,17 +344,17 @@
 <a name="l00080"></a>00080         }
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082         <span class="comment">/* Allocate buffer to hold MIDAS event */</span>
-<a name="l00083"></a>00083         input_event = (<span class="keywordtype">char</span> *) malloc(<a class="code" href="group__midasincludecode.html#ga05d5acc365e3342523d84bc4540adc09">MAX_EVENT_SIZE</a>*2);
+<a name="l00083"></a>00083         input_event = (<span class="keywordtype">char</span> *) malloc(MAX_EVENT_SIZE*2);
 <a name="l00084"></a>00084 
 <a name="l00085"></a>00085         <span class="comment">/* Loop over MIDAS events */</span>
 <a name="l00086"></a>00086         event_number = 0;
 <a name="l00087"></a>00087         <span class="keywordflow">while</span> (<a class="code" href="res__analysis_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">get_input_event</a>(input_fp, input_event, event_number) == <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>) {
 <a name="l00088"></a>00088 
-<a name="l00089"></a>00089                 <a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *header = (<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *) input_event;
+<a name="l00089"></a>00089                 EVENT_HEADER *header = (EVENT_HEADER *) input_event;
 <a name="l00090"></a>00090 
-<a name="l00091"></a>00091                 <span class="keywordflow">if</span>(header-&gt;<a class="code" href="structEVENT__HEADER.html#a107bbb0fbe21582dc0f0e78f60b997b3">event_id</a> == 1) {
+<a name="l00091"></a>00091                 <span class="keywordflow">if</span>(header-&gt;event_id == 1) {
 <a name="l00092"></a>00092                         <span class="comment">//expand_event(header+1, header+1);</span>
-<a name="l00093"></a>00093                         <span class="keywordtype">int</span> stop = <a class="code" href="miniana_8c.html#a681f90cedc0c323da19bfef26d8854b5">process_event</a>(header + 1, <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>, fadc);
+<a name="l00093"></a>00093                         <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">process_event</a>(header + 1, addr, fadc);
 <a name="l00094"></a>00094                         <span class="keywordflow">if</span>(stop) <span class="keywordflow">break</span>;
 <a name="l00095"></a>00095                 }
 <a name="l00096"></a>00096 
@@ -407,22 +407,22 @@
 
 <p>Definition at line <a class="el" href="show__pulses_8cxx_source.html#l00104">104</a> of file <a class="el" href="show__pulses_8cxx_source.html">show_pulses.cxx</a>.</p>
 
-<p>References <a class="el" href="patch__mevb_8cpp_source.html#l00003">c</a>, <a class="el" href="mdump_8c_source.html#l00115">i</a>, <a class="el" href="odbhist_8c_source.html#l00062">sum</a>, and <a class="el" href="plot__max_8c_source.html#l00002">title</a>.</p>
+<p>References <a class="el" href="patch__mevb_8cpp_source.html#l00003">c</a>, and <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00105"></a>00105 {
 <a name="l00106"></a>00106 
 <a name="l00107"></a>00107         <a class="code" href="patch__mevb_8cpp.html#adce6024c3a1b29c5fcede88815f9b152">c</a>-&gt;Clear();
-<a name="l00108"></a>00108         <span class="keywordtype">char</span> <a class="code" href="plot__max_8c.html#ab683205367791ff60928e417b096d210">title</a>[80];
+<a name="l00108"></a>00108         <span class="keywordtype">char</span> title[80];
 <a name="l00109"></a>00109         sprintf(title, <span class="stringliteral">&quot;Waveform: channel %d, t0=%d&quot;</span>, <a class="code" href="ADCS_8h.html#adf7dff2c57c0da9a4a2b70e3e815be31">channel</a>, t0);
 <a name="l00110"></a>00110 
-<a name="l00111"></a>00111         <span class="keywordtype">double</span> <a class="code" href="odbhist_8c.html#a2943e5895f5488ed44ed4a86e59dcf1b">sum</a> = 0;
+<a name="l00111"></a>00111         <span class="keywordtype">double</span> sum = 0;
 <a name="l00112"></a>00112         <span class="keywordtype">int</span> min = 4097;
 <a name="l00113"></a>00113         <span class="keywordtype">int</span> max = -1;
 <a name="l00114"></a>00114 
 <a name="l00115"></a>00115         <span class="keywordtype">double</span> binWidth = 100./100.00;
 <a name="l00116"></a>00116         TH1D *waveform = <span class="keyword">new</span> TH1D(<span class="stringliteral">&quot;waveform&quot;</span>, title, <a class="code" href="NDET_8h.html#a1d7032fb58a83cdde2d9963a8f76c7d3">nsamples</a>, -0.5*binWidth, (<a class="code" href="NDET_8h.html#a1d7032fb58a83cdde2d9963a8f76c7d3">nsamples</a>-0.5)*binWidth);
-<a name="l00117"></a>00117         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="NDET_8h.html#a1d7032fb58a83cdde2d9963a8f76c7d3">nsamples</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00118"></a>00118                 waveform-&gt;SetBinContent(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1, <a class="code" href="FDCR_8h.html#aace59d5974b2dd84b95a15769cd29f6f">samples</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00117"></a>00117         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="NDET_8h.html#a1d7032fb58a83cdde2d9963a8f76c7d3">nsamples</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00118"></a>00118                 waveform-&gt;SetBinContent(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1, <a class="code" href="FDCR_8h.html#aace59d5974b2dd84b95a15769cd29f6f">samples</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00119"></a>00119                 sum += <a class="code" href="FDCR_8h.html#aace59d5974b2dd84b95a15769cd29f6f">samples</a>[i];
 <a name="l00120"></a>00120 
 <a name="l00121"></a>00121                 <span class="keywordflow">if</span>(<a class="code" href="FDCR_8h.html#aace59d5974b2dd84b95a15769cd29f6f">samples</a>[i] &lt; min) min = <a class="code" href="FDCR_8h.html#aace59d5974b2dd84b95a15769cd29f6f">samples</a>[i];

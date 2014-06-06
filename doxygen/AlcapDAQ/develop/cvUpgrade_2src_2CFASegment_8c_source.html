@@ -46,14 +46,14 @@
 <a name="l00019"></a>00019         stub = realloc(stub, stub-&gt;<a class="code" href="structCFASegmentStub__t.html#abe87d4bb7473e57e60b14bf8e8ff6880">headerSizeBytes</a> + stub-&gt;<a class="code" href="structCFASegmentStub__t.html#ab4fd8285afdf32e861ca81f1b336115f">fwSizeBytes</a>);
 <a name="l00020"></a>00020         fread((<span class="keywordtype">char</span>*)stub + stubSize, 1, stub-&gt;<a class="code" href="structCFASegmentStub__t.html#abe87d4bb7473e57e60b14bf8e8ff6880">headerSizeBytes</a> + stub-&gt;<a class="code" href="structCFASegmentStub__t.html#ab4fd8285afdf32e861ca81f1b336115f">fwSizeBytes</a> - stubSize, fin);
 <a name="l00021"></a>00021         <span class="keywordflow">if</span> (<a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#a7d76102a08d07184ce4c7e67f2079551">getSegmentType</a>(stub) == <a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#a104cb8c42cdd3b4ed9e3bf90d788ff33ad2e1cc830200c3f6e5cc468e8d639008">CFA_SEGMENT_TYPE_1</a>) {
-<a name="l00022"></a>00022                 <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, jump = 0;
+<a name="l00022"></a>00022                 <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, jump = 0;
 <a name="l00023"></a>00023                 <a class="code" href="structCFASegmentType1__t.html">CFASegmentType1</a>* t1s = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structCFASegmentType1__t.html">CFASegmentType1</a>));
 <a name="l00024"></a>00024                 memcpy(t1s, stub, <span class="keyword">sizeof</span>(<a class="code" href="structCFASegmentType1__t.html">CFASegmentType1</a>));
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026                 t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#a4f73f199c1449b17b34772cdd1f37417">models</a> = calloc(t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#a93ea49ca2eb74cdd7a0d7a738589d98c">numModels</a>, <span class="keyword">sizeof</span>(<a class="code" href="structCFAModelType1__t.html">CFAModelType1</a>*));
 <a name="l00027"></a>00027                 <span class="keywordflow">for</span> (i=0; i &lt; t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#a93ea49ca2eb74cdd7a0d7a738589d98c">numModels</a>; i++) {
 <a name="l00028"></a>00028                         <a class="code" href="structCFAModelType1__t.html">CFAModelType1</a>* first = (<a class="code" href="structCFAModelType1__t.html">CFAModelType1</a>*)((<span class="keywordtype">char</span>*)stub+stubSize+<a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#a220570ceb7db0a65331bf1f46180f9b5">CFA_SEGMENT_T1_FAMILY_FIELDS_SIZE</a>);
-<a name="l00029"></a>00029                         <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = ((<a class="code" href="structCFAModelType1__t.html">CFAModelType1</a>*)((<span class="keywordtype">char</span>*)first + jump))-&gt;numChecks * 8 + 8;
+<a name="l00029"></a>00029                         <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = ((<a class="code" href="structCFAModelType1__t.html">CFAModelType1</a>*)((<span class="keywordtype">char</span>*)first + jump))-&gt;numChecks * 8 + 8;
 <a name="l00030"></a>00030                         t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#a4f73f199c1449b17b34772cdd1f37417">models</a>[i] = malloc(size);
 <a name="l00031"></a>00031                         memcpy(t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#a4f73f199c1449b17b34772cdd1f37417">models</a>[i], (<span class="keywordtype">char</span>*)first + jump, size);
 <a name="l00032"></a>00032                         jump += size;
@@ -62,14 +62,14 @@
 <a name="l00035"></a>00035                 memcpy(t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#acaa9a8c3c6f2d5e592190ac462a507d8">fwData</a>, (<span class="keywordtype">char</span>*)stub+stub-&gt;<a class="code" href="structCFASegmentStub__t.html#abe87d4bb7473e57e60b14bf8e8ff6880">headerSizeBytes</a>, t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#af9f0d69afda3cb4d97723f643f59dad5">fwSizeBytes</a>);
 <a name="l00036"></a>00036                 segm = t1s;
 <a name="l00037"></a>00037         } <span class="keywordflow">else</span> {
-<a name="l00038"></a>00038                 <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, jump = 0;
+<a name="l00038"></a>00038                 <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, jump = 0;
 <a name="l00039"></a>00039                 <a class="code" href="structCFASegmentType2__t.html">CFASegmentType2</a>* t2s = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structCFASegmentType2__t.html">CFASegmentType2</a>));
 <a name="l00040"></a>00040                 memcpy(t2s, stub, <span class="keyword">sizeof</span>(<a class="code" href="structCFASegmentType2__t.html">CFASegmentType2</a>));
 <a name="l00041"></a>00041 
 <a name="l00042"></a>00042                 t2s-&gt;<a class="code" href="structCFASegmentType2__t.html#a642b293af552e07a1f61dc066caa9e28">models</a> = calloc(t2s-&gt;<a class="code" href="structCFASegmentType2__t.html#a4e3b80e2765a8451e4ec63ecd595aa1b">numModels</a>, <span class="keyword">sizeof</span>(<a class="code" href="structCFAModelType2__t.html">CFAModelType2</a>*));
 <a name="l00043"></a>00043                 <span class="keywordflow">for</span> (i=0; i &lt; t2s-&gt;<a class="code" href="structCFASegmentType2__t.html#a4e3b80e2765a8451e4ec63ecd595aa1b">numModels</a>; i++) {
 <a name="l00044"></a>00044                         <a class="code" href="structCFAModelType2__t.html">CFAModelType2</a>* first = (<a class="code" href="structCFAModelType2__t.html">CFAModelType2</a>*)((<span class="keywordtype">char</span>*)stub+stubSize);
-<a name="l00045"></a>00045                         <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = 4;
+<a name="l00045"></a>00045                         <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = 4;
 <a name="l00046"></a>00046                         t2s-&gt;<a class="code" href="structCFASegmentType2__t.html#a642b293af552e07a1f61dc066caa9e28">models</a>[i] = malloc(size);
 <a name="l00047"></a>00047                         memcpy(t2s-&gt;<a class="code" href="structCFASegmentType2__t.html#a642b293af552e07a1f61dc066caa9e28">models</a>[i], (<span class="keywordtype">char</span>*)first + jump, size);
 <a name="l00048"></a>00048                         jump += size;
@@ -88,7 +88,7 @@
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062 
 <a name="l00063"></a><a class="code" href="cvUpgrade_2src_2CFASegment_8c.html#aad8f25df0c0068878a32f42410f5a66a">00063</a> <span class="keywordtype">void</span> <a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#aad8f25df0c0068878a32f42410f5a66a">deleteSegment</a>(<a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#aafdf88beb07b294651158bcae73246ed">CFASegmentPtr</a> segm) {
-<a name="l00064"></a>00064         <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00064"></a>00064         <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00065"></a>00065         <span class="keywordflow">if</span> (<a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#a7d76102a08d07184ce4c7e67f2079551">getSegmentType</a>(segm) == <a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#a104cb8c42cdd3b4ed9e3bf90d788ff33ad2e1cc830200c3f6e5cc468e8d639008">CFA_SEGMENT_TYPE_1</a>) {
 <a name="l00066"></a>00066                 <a class="code" href="structCFASegmentType1__t.html">CFASegmentType1</a>* t1s = <a class="code" href="CAENBridgeUpgrade_2inc_2CFASegment_8h.html#ad7c4fdb8eb5e667c602458d9a6035ccb">toType1</a>(segm);
 <a name="l00067"></a>00067                 <span class="keywordflow">for</span> (i=0; i&lt;t1s-&gt;<a class="code" href="structCFASegmentType1__t.html#a93ea49ca2eb74cdd7a0d7a738589d98c">numModels</a>; i++)

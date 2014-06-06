@@ -49,7 +49,7 @@
 <a name="l00022"></a>00022 <span class="preprocessor">#include &lt;cmath&gt;</span>
 <a name="l00023"></a>00023 
 <a name="l00024"></a>00024 <span class="comment">/* MIDAS includes */</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027 <span class="comment">/* ROOT includes */</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &lt;TH1.h&gt;</span>
@@ -61,17 +61,17 @@
 <a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
 <a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="TPulseIsland_8h.html">TPulseIsland.h</a>&quot;</span>
 <a name="l00036"></a>00036 
-<a name="l00037"></a>00037 <span class="keyword">using</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>;
-<a name="l00038"></a>00038 <span class="keyword">using</span> <a class="code" href="melog_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>;
+<a name="l00037"></a>00037 <span class="keyword">using</span> std::string;
+<a name="l00038"></a>00038 <span class="keyword">using</span> std::map;
 <a name="l00039"></a>00039 <span class="keyword">using</span> std::vector;
 <a name="l00040"></a>00040 <span class="keyword">using</span> std::pair;
 <a name="l00041"></a>00041 
 <a name="l00042"></a>00042 <span class="comment">/*-- Module declaration --------------------------------------------*/</span>
-<a name="l00043"></a>00043 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MDQ__PulseShapes_8cpp.html#ae2cd6dd7d3bc9d47dc11dd44921fd4b6">MDQ_PulseShapes_init</a>(<span class="keywordtype">void</span>);
-<a name="l00044"></a>00044 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MDQ__PulseShapes_8cpp.html#a67d634180df2e8cc4bc3c6cccb2c9b89">MDQ_PulseShapes</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>*, <span class="keywordtype">void</span>*);
-<a name="l00045"></a>00045 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MDQ__PulseShapes_8cpp.html#a7b5ba3861145d421264d48d979755f6d">MDQ_PulseShapes_eor</a>(<a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>);
+<a name="l00043"></a>00043 INT  <a class="code" href="MDQ__PulseShapes_8cpp.html#ae2cd6dd7d3bc9d47dc11dd44921fd4b6">MDQ_PulseShapes_init</a>(<span class="keywordtype">void</span>);
+<a name="l00044"></a>00044 INT  <a class="code" href="MDQ__PulseShapes_8cpp.html#a67d634180df2e8cc4bc3c6cccb2c9b89">MDQ_PulseShapes</a>(EVENT_HEADER*, <span class="keywordtype">void</span>*);
+<a name="l00045"></a>00045 INT  <a class="code" href="MDQ__PulseShapes_8cpp.html#a7b5ba3861145d421264d48d979755f6d">MDQ_PulseShapes_eor</a>(INT);
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">extern</span> <a class="code" href="group__midasincludecode.html#ga0e1bcf128ad8422667adffd1dea59791">HNDLE</a> <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
+<a name="l00047"></a>00047 <span class="keyword">extern</span> HNDLE <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
 <a name="l00048"></a>00048 <span class="keyword">extern</span> <a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>;
 <a name="l00049"></a>00049 <span class="keyword">extern</span> <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>;
 <a name="l00050"></a>00050 
@@ -90,9 +90,9 @@
 <a name="l00063"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#a6ac8cad4b22c0a62b2a68928e9162b02">00063</a> TH1F* <a class="code" href="MDQ__PulseShapes_8cpp.html#a6ac8cad4b22c0a62b2a68928e9162b02">hDQ_PulseShapes_Pedestals</a>;
 <a name="l00064"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#a7abd214250609ee6035663a7ec6a30b9">00064</a> TH1F* <a class="code" href="MDQ__PulseShapes_8cpp.html#a7abd214250609ee6035663a7ec6a30b9">hDQ_PulseShapes_Noises</a>;
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="MDQ__PulseShapes_8cpp.html#a2695ff26db9dbef76a7343735d8d25fe">GetLastPresampleBin</a>(<a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname);
+<a name="l00066"></a>00066 <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="MDQ__PulseShapes_8cpp.html#a2695ff26db9dbef76a7343735d8d25fe">GetLastPresampleBin</a>(std::string bankname);
 <a name="l00067"></a>00067 
-<a name="l00068"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#ae008d94a452dc6f6d39ba70bdac4f6c6">00068</a> <a class="code" href="structANA__MODULE.html">ANA_MODULE</a> <a class="code" href="MDQ__PulseShapes_8cpp.html#ae008d94a452dc6f6d39ba70bdac4f6c6">MDQ_PulseShapes_module</a> =
+<a name="l00068"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#ae008d94a452dc6f6d39ba70bdac4f6c6">00068</a> ANA_MODULE <a class="code" href="MDQ__PulseShapes_8cpp.html#ae008d94a452dc6f6d39ba70bdac4f6c6">MDQ_PulseShapes_module</a> =
 <a name="l00069"></a>00069 {
 <a name="l00070"></a>00070         <span class="stringliteral">&quot;MDQ_PulseShapes&quot;</span>,                    <span class="comment">/* module name           */</span>
 <a name="l00071"></a>00071         <span class="stringliteral">&quot;Nam Tran&quot;</span>,              <span class="comment">/* author                */</span>
@@ -106,10 +106,10 @@
 <a name="l00079"></a>00079         NULL,                          <span class="comment">/* initial parameters    */</span>
 <a name="l00080"></a>00080 };
 <a name="l00081"></a>00081 
-<a name="l00084"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#ae2cd6dd7d3bc9d47dc11dd44921fd4b6">00084</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MDQ__PulseShapes_8cpp.html#ae2cd6dd7d3bc9d47dc11dd44921fd4b6">MDQ_PulseShapes_init</a>()
+<a name="l00084"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#ae2cd6dd7d3bc9d47dc11dd44921fd4b6">00084</a> INT <a class="code" href="MDQ__PulseShapes_8cpp.html#ae2cd6dd7d3bc9d47dc11dd44921fd4b6">MDQ_PulseShapes_init</a>()
 <a name="l00085"></a>00085 {
 <a name="l00086"></a>00086   <span class="comment">// See if the DataQuality_LowLevel/ directory already exists</span>
-<a name="l00087"></a>00087   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> dir_name(<span class="stringliteral">&quot;DataQuality_LowLevel/&quot;</span>);
+<a name="l00087"></a>00087   std::string dir_name(<span class="stringliteral">&quot;DataQuality_LowLevel/&quot;</span>);
 <a name="l00088"></a>00088   <span class="keywordflow">if</span> (!gDirectory-&gt;Cd(dir_name.c_str())) {
 <a name="l00089"></a>00089     gDirectory-&gt;mkdir(dir_name.c_str());
 <a name="l00090"></a>00090   }
@@ -120,15 +120,15 @@
 <a name="l00095"></a>00095   <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator mapIter = Bank2DetMap.begin(); 
 <a name="l00096"></a>00096       mapIter != Bank2DetMap.end(); mapIter++) { 
 <a name="l00097"></a>00097 
-<a name="l00098"></a>00098     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname = mapIter-&gt;first;
-<a name="l00099"></a>00099     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00098"></a>00098     std::string bankname = mapIter-&gt;first;
+<a name="l00099"></a>00099     std::string detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
 <a name="l00100"></a>00100 
-<a name="l00101"></a>00101     <span class="keywordtype">int</span> <a class="code" href="mgd_8c.html#a0afc02d985a2fd8aa308c655eada57ba">n_bits</a> = gSetup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
+<a name="l00101"></a>00101     <span class="keywordtype">int</span> n_bits = gSetup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
 <a name="l00102"></a>00102     <span class="keywordtype">int</span> max_adc_value = std::pow(2, n_bits);
 <a name="l00103"></a>00103 
 <a name="l00104"></a>00104     <span class="comment">// hDQ_PulseShapes_[DetName]_[BankName]</span>
-<a name="l00105"></a>00105     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histname = <span class="stringliteral">&quot;hDQ_PulseShapes_&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + bankname;
-<a name="l00106"></a>00106     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histtitle = <span class="stringliteral">&quot;Pulse shape of &quot;</span> + detname;
+<a name="l00105"></a>00105     std::string histname = <span class="stringliteral">&quot;hDQ_PulseShapes_&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + bankname;
+<a name="l00106"></a>00106     std::string histtitle = <span class="stringliteral">&quot;Pulse shape of &quot;</span> + detname;
 <a name="l00107"></a>00107     TH2F* hDQ_Histogram = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 
 <a name="l00108"></a>00108                                 400, -0.5, 399.5,
 <a name="l00109"></a>00109                                 max_adc_value, 0, max_adc_value);
@@ -147,8 +147,8 @@
 <a name="l00122"></a>00122   }
 <a name="l00123"></a>00123 
 <a name="l00124"></a>00124   <span class="comment">// hDQ_PulseShapes_Pedestals</span>
-<a name="l00125"></a>00125   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histname = <span class="stringliteral">&quot;hDQ_PulseShapes_Pedestals&quot;</span>;
-<a name="l00126"></a>00126   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histtitle = <span class="stringliteral">&quot;Pedestals&quot;</span>;
+<a name="l00125"></a>00125   std::string histname = <span class="stringliteral">&quot;hDQ_PulseShapes_Pedestals&quot;</span>;
+<a name="l00126"></a>00126   std::string histtitle = <span class="stringliteral">&quot;Pedestals&quot;</span>;
 <a name="l00127"></a>00127   <a class="code" href="MDQ__PulseShapes_8cpp.html#a6ac8cad4b22c0a62b2a68928e9162b02">hDQ_PulseShapes_Pedestals</a> = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(),1,0,1);
 <a name="l00128"></a>00128   <a class="code" href="MDQ__PulseShapes_8cpp.html#a6ac8cad4b22c0a62b2a68928e9162b02">hDQ_PulseShapes_Pedestals</a>-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Bank (Detector)&quot;</span>);
 <a name="l00129"></a>00129   <a class="code" href="MDQ__PulseShapes_8cpp.html#a6ac8cad4b22c0a62b2a68928e9162b02">hDQ_PulseShapes_Pedestals</a>-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Pedestal [ADC]&quot;</span>);
@@ -167,10 +167,10 @@
 <a name="l00142"></a>00142   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00143"></a>00143 }
 <a name="l00144"></a>00144 
-<a name="l00147"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#a67d634180df2e8cc4bc3c6cccb2c9b89">00147</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MDQ__PulseShapes_8cpp.html#a67d634180df2e8cc4bc3c6cccb2c9b89">MDQ_PulseShapes</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *pheader, <span class="keywordtype">void</span> *pevent)
+<a name="l00147"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#a67d634180df2e8cc4bc3c6cccb2c9b89">00147</a> INT <a class="code" href="MDQ__PulseShapes_8cpp.html#a67d634180df2e8cc4bc3c6cccb2c9b89">MDQ_PulseShapes</a>(EVENT_HEADER *pheader, <span class="keywordtype">void</span> *pevent)
 <a name="l00148"></a>00148 {
 <a name="l00149"></a>00149         <span class="comment">// Get the event number</span>
-<a name="l00150"></a>00150         <span class="keywordtype">int</span> midas_event_number = pheader-&gt;<a class="code" href="group__midasincludecode.html#ga5ed07c075ebce619a8fa47e96f188440">serial_number</a>;
+<a name="l00150"></a>00150         <span class="keywordtype">int</span> midas_event_number = pheader-&gt;serial_number;
 <a name="l00151"></a>00151 
 <a name="l00152"></a>00152         <span class="comment">// Some typedefs</span>
 <a name="l00153"></a>00153         <span class="keyword">typedef</span> map&lt;string, vector&lt;TPulseIsland*&gt; &gt; <a class="code" href="namespaceAlCap.html#a5ce0de646755e93f9915669e61b638ef">TStringPulseIslandMap</a>;
@@ -186,8 +186,8 @@
 <a name="l00163"></a>00163         <span class="keywordflow">for</span> (map_iterator mapIter = pulse_islands_map.begin(); 
 <a name="l00164"></a>00164                         mapIter != pulse_islands_map.end(); ++mapIter) 
 <a name="l00165"></a>00165         {
-<a name="l00166"></a>00166           <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname = mapIter-&gt;first;
-<a name="l00167"></a>00167           <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00166"></a>00166           std::string bankname = mapIter-&gt;first;
+<a name="l00167"></a>00167           std::string detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
 <a name="l00168"></a>00168           std::vector&lt;TPulseIsland*&gt; thePulses = mapIter-&gt;second;
 <a name="l00169"></a>00169                         
 <a name="l00170"></a>00170           <span class="comment">// Loop over the TPulseIslands and plot the histogram</span>
@@ -213,7 +213,7 @@
 <a name="l00190"></a>00190         <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00191"></a>00191 }
 <a name="l00192"></a>00192 
-<a name="l00193"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#a7b5ba3861145d421264d48d979755f6d">00193</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MDQ__PulseShapes_8cpp.html#a7b5ba3861145d421264d48d979755f6d">MDQ_PulseShapes_eor</a>(<a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#a16695ea2bfd19f294afe066d6007ab36">run_number</a>) <span class="comment">// Make projection</span>
+<a name="l00193"></a><a class="code" href="MDQ__PulseShapes_8cpp.html#a7b5ba3861145d421264d48d979755f6d">00193</a> INT <a class="code" href="MDQ__PulseShapes_8cpp.html#a7b5ba3861145d421264d48d979755f6d">MDQ_PulseShapes_eor</a>(INT <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#a16695ea2bfd19f294afe066d6007ab36">run_number</a>) <span class="comment">// Make projection</span>
 <a name="l00194"></a>00194 {
 <a name="l00195"></a>00195         <span class="keyword">typedef</span> std::map&lt;std::string, std::string&gt;::iterator String2StringMapIter;
 <a name="l00196"></a>00196         std::map&lt;std::string, std::string&gt; Bank2DetMap = gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>;
@@ -221,8 +221,8 @@
 <a name="l00198"></a>00198         <span class="keywordflow">for</span>(String2StringMapIter mapIter = Bank2DetMap.begin(); 
 <a name="l00199"></a>00199                         mapIter != Bank2DetMap.end(); mapIter++) 
 <a name="l00200"></a>00200         { 
-<a name="l00201"></a>00201                 <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> bankname = mapIter-&gt;first;
-<a name="l00202"></a>00202                 <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00201"></a>00201                 std::string bankname = mapIter-&gt;first;
+<a name="l00202"></a>00202                 std::string detname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
 <a name="l00203"></a>00203 
 <a name="l00204"></a>00204                 <span class="keywordflow">if</span> (<a class="code" href="MDQ__PulseShapes_8cpp.html#ae534dd9cbf5664a210ef152c16e415d6">DQ_PulseShapes_histograms_map</a>.find(bankname) !=
 <a name="l00205"></a>00205                                 <a class="code" href="MDQ__PulseShapes_8cpp.html#ae534dd9cbf5664a210ef152c16e415d6">DQ_PulseShapes_histograms_map</a>.end())
@@ -250,7 +250,7 @@
 <a name="l00227"></a>00227                           }
 <a name="l00228"></a>00228                         }
 <a name="l00229"></a>00229 
-<a name="l00230"></a>00230                         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> binlabel = bankname + <span class="stringliteral">&quot; (&quot;</span> + detname + <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00230"></a>00230                         std::string binlabel = bankname + <span class="stringliteral">&quot; (&quot;</span> + detname + <span class="stringliteral">&quot;)&quot;</span>;
 <a name="l00231"></a>00231                         <a class="code" href="MDQ__PulseShapes_8cpp.html#a6ac8cad4b22c0a62b2a68928e9162b02">hDQ_PulseShapes_Pedestals</a>-&gt;Fill(binlabel.c_str(), pedestal);
 <a name="l00232"></a>00232                         <a class="code" href="MDQ__PulseShapes_8cpp.html#a7abd214250609ee6035663a7ec6a30b9">hDQ_PulseShapes_Noises</a>-&gt;Fill(binlabel.c_str(), 2*noise); <span class="comment">// at the moment, noise is just from the peak to the half-way down on one side so multiply by 2</span>
 <a name="l00233"></a>00233                 }

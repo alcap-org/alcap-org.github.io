@@ -88,7 +88,7 @@
 <a name="l00061"></a>00061                   gRandom-&gt;Gaus(0,10));
 <a name="l00062"></a>00062       
 <a name="l00063"></a>00063    Int_t njets = (Int_t)gRandom-&gt;Gaus(jetm,1); <span class="keywordflow">if</span> (njets &lt; 1) njets = 1;
-<a name="l00064"></a>00064    <span class="keywordflow">for</span> (Int_t <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>=0;<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>&lt;njets;<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00064"></a>00064    <span class="keywordflow">for</span> (Int_t j=0;j&lt;njets;j++) {
 <a name="l00065"></a>00065       jet = <a class="code" href="classJetEvent.html#a4c6852aa6f36c6bcc952594245addd4b">AddJet</a>();
 <a name="l00066"></a>00066       jet-&gt;<a class="code" href="classJet.html#ad7409db93b078923a6976f1b213ea58e">fPt</a> = gRandom-&gt;Gaus(0,10);
 <a name="l00067"></a>00067       jet-&gt;<a class="code" href="classJet.html#a932ae80bbfc166a54696c1befd6b76fc">fPhi</a> = 2*TMath::Pi()*gRandom-&gt;Rndm();
@@ -102,17 +102,17 @@
 <a name="l00075"></a>00075          Int_t nhitsA = (Int_t)gRandom-&gt;Gaus(hitam,5);
 <a name="l00076"></a>00076          <span class="keywordflow">for</span> (Int_t ha=0;ha&lt;nhitsA;ha++) {
 <a name="l00077"></a>00077             hit = <a class="code" href="classJetEvent.html#a7ef090d364c02b7a31f382c78e5d618b">AddHitA</a>();
-<a name="l00078"></a>00078             hit-&gt;<a class="code" href="classHit.html#a5ddb096a3a232a76ac824356b8bd61d5">fX</a> = 10000*<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> + 100*t +ha;
-<a name="l00079"></a>00079             hit-&gt;<a class="code" href="classHit.html#a8c416d87d61e54e262553e23dcd23021">fY</a> = 10000*<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> + 100*t +ha+0.1;
-<a name="l00080"></a>00080             hit-&gt;<a class="code" href="classHit.html#a2db66bf6aad7b5643a3ccbd86a3ac549">fZ</a> = 10000*<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> + 100*t +ha+0.2;
+<a name="l00078"></a>00078             hit-&gt;<a class="code" href="classHit.html#a5ddb096a3a232a76ac824356b8bd61d5">fX</a> = 10000*j + 100*t +ha;
+<a name="l00079"></a>00079             hit-&gt;<a class="code" href="classHit.html#a8c416d87d61e54e262553e23dcd23021">fY</a> = 10000*j + 100*t +ha+0.1;
+<a name="l00080"></a>00080             hit-&gt;<a class="code" href="classHit.html#a2db66bf6aad7b5643a3ccbd86a3ac549">fZ</a> = 10000*j + 100*t +ha+0.2;
 <a name="l00081"></a>00081             track-&gt;<a class="code" href="classTrack.html#aee0003f20d9c12b249b8fa400466f4e4">fHits</a>.Add(hit);
 <a name="l00082"></a>00082          }
 <a name="l00083"></a>00083          Int_t nhitsB = (Int_t)gRandom-&gt;Gaus(hitbm,2);
 <a name="l00084"></a>00084          <span class="keywordflow">for</span> (Int_t hb=0;hb&lt;nhitsB;hb++) {
 <a name="l00085"></a>00085             hit = <a class="code" href="classJetEvent.html#a50805a9f2f610953a5638d0c6c9eb448">AddHitB</a>();
-<a name="l00086"></a>00086             hit-&gt;<a class="code" href="classHit.html#a5ddb096a3a232a76ac824356b8bd61d5">fX</a> = 20000*<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> + 100*t +hb+0.3;
-<a name="l00087"></a>00087             hit-&gt;<a class="code" href="classHit.html#a8c416d87d61e54e262553e23dcd23021">fY</a> = 20000*<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> + 100*t +hb+0.4;
-<a name="l00088"></a>00088             hit-&gt;<a class="code" href="classHit.html#a2db66bf6aad7b5643a3ccbd86a3ac549">fZ</a> = 20000*<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> + 100*t +hb+0.5;
+<a name="l00086"></a>00086             hit-&gt;<a class="code" href="classHit.html#a5ddb096a3a232a76ac824356b8bd61d5">fX</a> = 20000*j + 100*t +hb+0.3;
+<a name="l00087"></a>00087             hit-&gt;<a class="code" href="classHit.html#a8c416d87d61e54e262553e23dcd23021">fY</a> = 20000*j + 100*t +hb+0.4;
+<a name="l00088"></a>00088             hit-&gt;<a class="code" href="classHit.html#a2db66bf6aad7b5643a3ccbd86a3ac549">fZ</a> = 20000*j + 100*t +hb+0.5;
 <a name="l00089"></a>00089             track-&gt;<a class="code" href="classTrack.html#aee0003f20d9c12b249b8fa400466f4e4">fHits</a>.Add(hit);
 <a name="l00090"></a>00090          }
 <a name="l00091"></a>00091          track-&gt;<a class="code" href="classTrack.html#ad65f03f601b8ed7dd4bfebbf34cc5d96">fNhit</a> = nhitsA + nhitsB;

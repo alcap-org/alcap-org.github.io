@@ -38,8 +38,8 @@
 <p><a href="MakeAnalysedPulses_8cpp_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">getOneWord</a> (const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;<a class="el" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, size_t start=0, size_t stop=std::string::npos)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">getSeveralWords</a> (const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;<a class="el" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, std::vector&lt; <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &gt; &amp;vect, size_t start=0, size_t stop=std::string::npos)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">getOneWord</a> (const std::string &amp;in, size_t start=0, size_t stop=std::string::npos)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">getSeveralWords</a> (const std::string &amp;in, std::vector&lt; std::string &gt; &amp;vect, size_t start=0, size_t stop=std::string::npos)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#a75fe3fe9981202194ca20790b07cfcb1">ALCAP_REGISTER_MODULE</a> (<a class="el" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>, slow_gen, fast_gen)</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a></td></tr>
@@ -83,9 +83,9 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> getOneWord </td>
+          <td class="memname">static std::string getOneWord </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;&nbsp;</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>in</em>, </td>
         </tr>
         <tr>
@@ -111,13 +111,11 @@
 
 <p>Definition at line <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00015">15</a> of file <a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a>.</p>
 
-<p>References <a class="el" href="scs__310__ql355p_8c_source.html#l00060">string</a>.</p>
-
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00139">MakeAnalysedPulses::ParseGeneratorList()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00015"></a>00015                                                                                            {
-<a name="l00016"></a>00016         std::stringstream ss(<a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>.substr(start,stop));
-<a name="l00017"></a>00017         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> word;
+<a name="l00016"></a>00016         std::stringstream ss(in.substr(start,stop));
+<a name="l00017"></a>00017         std::string word;
 <a name="l00018"></a>00018         ss&gt;&gt;word;
 <a name="l00019"></a>00019         <span class="keywordflow">return</span> word;
 <a name="l00020"></a>00020 }
@@ -132,13 +130,13 @@
         <tr>
           <td class="memname">static void getSeveralWords </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &amp;&nbsp;</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> &gt; &amp;&nbsp;</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>vect</em>, </td>
         </tr>
         <tr>
@@ -166,7 +164,7 @@
 
 <p><div class="fragment"><pre class="fragment"><a name="l00022"></a>00022                                                                                                                        {
 <a name="l00023"></a>00023         <span class="keywordtype">char</span> line[400];
-<a name="l00024"></a>00024         strcpy(line,<a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>.substr(start,stop-start).c_str());
+<a name="l00024"></a>00024         strcpy(line,in.substr(start,stop-start).c_str());
 <a name="l00025"></a>00025         <span class="keywordtype">char</span>* word = strtok(line,<span class="stringliteral">&quot;, &quot;</span>);
 <a name="l00026"></a>00026         <span class="keywordflow">while</span>(word != NULL){ 
 <a name="l00027"></a>00027             vect.push_back(word);

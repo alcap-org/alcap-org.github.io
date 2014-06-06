@@ -27,7 +27,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>analyzer/src/muSC_muPC/common.h File Reference</h1><code>#include &quot;<a class="el" href="midas_8h_source.html">midas.h</a>&quot;</code><br/>
+<h1>analyzer/src/muSC_muPC/common.h File Reference</h1><code>#include &quot;midas.h&quot;</code><br/>
 <code>#include &lt;math.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="TPCcommon_8h_source.html">TPCcommon.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="HITS_8h_source.html">HITS.h</a>&quot;</code><br/>
@@ -62,10 +62,10 @@
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#ac9fecac83325ac03ed6275fcecb577b9">parameter_exists</a> (int par)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a2bd20f6c8f151beb437f0af4cc31aedc">print_TPCstack_interval</a> (void *pevent, long index1, long index2)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#aebfef4d1d2efce6d08a8b728b1eafe24">print_TPCstack_interval_by_time</a> (void *pevent, double time1, double time2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a72e49eff4b186c462c6f6f2e9aa44c8b">print_TPCstack_section</a> (void *pevent, long <a class="el" href="mana__orig_8c.html#a312c2cad451d6bb0536fb9ec2863be59">index</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a05d304ec22d2f9644f9553384eaf1fca">print_TPCstack_section_by_time</a> (void *pevent, double time)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#abd72c273d63b1a5bee91666ae4f8c49c">has_Ehigh_and_strip_hits</a> (<a class="el" href="structEVENT__HEADER.html">EVENT_HEADER</a> *pheader, void *pevent, double time)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#afa44c9ca928a1a0b92c2df7bcbec5078">has_VH_hit</a> (<a class="el" href="structEVENT__HEADER.html">EVENT_HEADER</a> *pheader, void *pevent, double time)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a72e49eff4b186c462c6f6f2e9aa44c8b">print_TPCstack_section</a> (void *pevent, long index)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a05d304ec22d2f9644f9553384eaf1fca">print_TPCstack_section_by_time</a> (void *pevent, double <a class="el" href="TSPK_8h.html#ab2d5aa7fce1a14d8bddfb2c333ea9679">time</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#abd72c273d63b1a5bee91666ae4f8c49c">has_Ehigh_and_strip_hits</a> (EVENT_HEADER *pheader, void *pevent, double <a class="el" href="TSPK_8h.html#ab2d5aa7fce1a14d8bddfb2c333ea9679">time</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#afa44c9ca928a1a0b92c2df7bcbec5078">has_VH_hit</a> (EVENT_HEADER *pheader, void *pevent, double <a class="el" href="TSPK_8h.html#ab2d5aa7fce1a14d8bddfb2c333ea9679">time</a>)</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a8baaa0534b09152672a18ae314cec7d0">kMaxEvents</a> = 31000</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#ade5a694731899bab8f2d53cee94b036f">kMaxCrates</a> = 8</td></tr>
@@ -141,7 +141,7 @@
         <tr>
           <td class="memname">bool has_Ehigh_and_strip_hits </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structEVENT__HEADER.html">EVENT_HEADER</a> *&nbsp;</td>
+          <td class="paramtype">EVENT_HEADER *&nbsp;</td>
           <td class="paramname"> <em>pheader</em>, </td>
         </tr>
         <tr>
@@ -174,7 +174,7 @@
         <tr>
           <td class="memname">bool has_VH_hit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structEVENT__HEADER.html">EVENT_HEADER</a> *&nbsp;</td>
+          <td class="paramtype">EVENT_HEADER *&nbsp;</td>
           <td class="paramname"> <em>pheader</em>, </td>
         </tr>
         <tr>

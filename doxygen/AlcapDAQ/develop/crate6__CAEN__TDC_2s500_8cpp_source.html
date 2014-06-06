@@ -32,15 +32,15 @@
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;sys/time.h&gt;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;time.h&gt;</span>
 <a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2crate_8h.html">crate.h</a>&quot;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="mcstd_8h.html">mcstd.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;mcstd.h&quot;</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2odb__wrapper_8h.html">odb_wrapper.h</a>&quot;</span>
 <a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="crate9_2diag_8h.html">diag.h</a>&quot;</span>
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a11ebe867cccc32dc04e215997d8ad9b2">s500_bor</a>();
-<a name="l00016"></a>00016 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#ae8e1889a2dfd6e5ba426b838878a1366">s500_read</a>(<span class="keywordtype">char</span> *pevent);
+<a name="l00015"></a>00015 INT <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a11ebe867cccc32dc04e215997d8ad9b2">s500_bor</a>();
+<a name="l00016"></a>00016 INT <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#ae8e1889a2dfd6e5ba426b838878a1366">s500_read</a>(<span class="keywordtype">char</span> *pevent);
 <a name="l00017"></a>00017 
 <a name="l00018"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a204c7d7d921f056d7260c72cc26fd43a">00018</a> <span class="keyword">struct </span><a class="code" href="structreadout__module.html">readout_module</a> <a class="code" href="crate3_2crate_8cpp.html#a204c7d7d921f056d7260c72cc26fd43a">s500_module</a> = {
 <a name="l00019"></a>00019   NULL,                 <span class="comment">// init</span>
@@ -58,7 +58,7 @@
 <a name="l00031"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a2daf607611f2ff0b19014687ccafb2d3">00031</a> <span class="preprocessor">#define N_CH_S500 6</span>
 <a name="l00032"></a>00032 <span class="preprocessor"></span>
 <a name="l00033"></a><a class="code" href="structs500.html">00033</a> <span class="keyword">struct </span><a class="code" href="structs500.html">s500</a> {
-<a name="l00034"></a><a class="code" href="structs500.html#ae3701ae221c2feda2b7fabeb1bec3fbd">00034</a>   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="structs500.html#ae3701ae221c2feda2b7fabeb1bec3fbd">enabled</a>;
+<a name="l00034"></a><a class="code" href="structs500.html#ae3701ae221c2feda2b7fabeb1bec3fbd">00034</a>   BOOL <a class="code" href="structs500.html#ae3701ae221c2feda2b7fabeb1bec3fbd">enabled</a>;
 <a name="l00035"></a><a class="code" href="structs500.html#a08c3c8891c7df64d10d8a0cfba9dbe96">00035</a>   <span class="keywordtype">int</span> <a class="code" href="structs500.html#a08c3c8891c7df64d10d8a0cfba9dbe96">crate</a>;
 <a name="l00036"></a><a class="code" href="structs500.html#a9841206cfc24dee92117c89535b696f0">00036</a>   <span class="keywordtype">int</span> <a class="code" href="structs500.html#a9841206cfc24dee92117c89535b696f0">slot</a>;
 <a name="l00037"></a><a class="code" href="structs500.html#a0d10e7659f4cc4737560a76eb51422b9">00037</a>   <span class="keywordtype">char</span> <a class="code" href="structs500.html#a0d10e7659f4cc4737560a76eb51422b9">odb_name</a>[20];
@@ -73,7 +73,7 @@
 <a name="l00046"></a>00046 <span class="comment"> *</span>
 <a name="l00047"></a>00047 <span class="comment"> * Initialize one S500 module.</span>
 <a name="l00048"></a>00048 <span class="comment"> */</span>
-<a name="l00049"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a35ed13d3695e53153af045b50dc15f48">00049</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a35ed13d3695e53153af045b50dc15f48">s500_bor1</a>(<span class="keyword">struct</span> <a class="code" href="structs500.html">s500</a> *<a class="code" href="structs500.html">s500</a>)
+<a name="l00049"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a35ed13d3695e53153af045b50dc15f48">00049</a> INT <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a35ed13d3695e53153af045b50dc15f48">s500_bor1</a>(<span class="keyword">struct</span> <a class="code" href="structs500.html">s500</a> *<a class="code" href="structs500.html">s500</a>)
 <a name="l00050"></a>00050 {
 <a name="l00051"></a>00051   <span class="comment">// Get the VME base address of the module</span>
 <a name="l00052"></a>00052   s500-&gt;<a class="code" href="structs500.html#a08c3c8891c7df64d10d8a0cfba9dbe96">crate</a> = <a class="code" href="crate3_2odb__wrapper_8cpp.html#a447d813e5ba3e8aa9de2c5e0005380a6">odb_get_int</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/%s/Crate&quot;</span>,
@@ -82,13 +82,13 @@
 <a name="l00055"></a>00055                     <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, s500-&gt;<a class="code" href="structs500.html#a0d10e7659f4cc4737560a76eb51422b9">odb_name</a>);
 <a name="l00056"></a>00056 
 <a name="l00057"></a>00057   <span class="comment">// clear all channels</span>
-<a name="l00058"></a>00058   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a2daf607611f2ff0b19014687ccafb2d3">N_CH_S500</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00059"></a>00059     <a class="code" href="group__mcstdfunctionh.html#ga0c0e5e0a19205781825e673e694db77f">camo</a>(s500-&gt;<a class="code" href="structs500.html#a08c3c8891c7df64d10d8a0cfba9dbe96">crate</a>, s500-&gt;<a class="code" href="structs500.html#a9841206cfc24dee92117c89535b696f0">slot</a>, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 9, 0);
+<a name="l00058"></a>00058   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a2daf607611f2ff0b19014687ccafb2d3">N_CH_S500</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00059"></a>00059     <a class="code" href="hyt1331_8c.html#af165c09a300a1833bba922059e6cc8e5">camo</a>(s500-&gt;<a class="code" href="structs500.html#a08c3c8891c7df64d10d8a0cfba9dbe96">crate</a>, s500-&gt;<a class="code" href="structs500.html#a9841206cfc24dee92117c89535b696f0">slot</a>, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 9, 0);
 <a name="l00060"></a>00060   }
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062   <span class="comment">// clear the accumulated values</span>
-<a name="l00063"></a>00063   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; N_CH_S500; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00064"></a>00064     s500-&gt;<a class="code" href="structs500.html#ab953881cf78d8d58d3adf8a37f89a1c0">acum</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 0;
+<a name="l00063"></a>00063   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; N_CH_S500; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00064"></a>00064     s500-&gt;<a class="code" href="structs500.html#ab953881cf78d8d58d3adf8a37f89a1c0">acum</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 0;
 <a name="l00065"></a>00065   }
 <a name="l00066"></a>00066                                                                                 
 <a name="l00067"></a>00067   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
@@ -100,18 +100,18 @@
 <a name="l00073"></a>00073 <span class="comment"> * Called at the beginning of the run to discover S500 modules</span>
 <a name="l00074"></a>00074 <span class="comment"> * and initialize them.</span>
 <a name="l00075"></a>00075 <span class="comment"> */</span>
-<a name="l00076"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a11ebe867cccc32dc04e215997d8ad9b2">00076</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a11ebe867cccc32dc04e215997d8ad9b2">s500_bor</a>()
+<a name="l00076"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a11ebe867cccc32dc04e215997d8ad9b2">00076</a> INT <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a11ebe867cccc32dc04e215997d8ad9b2">s500_bor</a>()
 <a name="l00077"></a>00077 {
 <a name="l00078"></a>00078   <span class="comment">// Use the ODB to find any S500 modules</span>
-<a name="l00079"></a>00079   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a8cabcaea143411b871cb310a29157162">MAX_S500</a>; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00079"></a>00079   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a8cabcaea143411b871cb310a29157162">MAX_S500</a>; j++) {
 <a name="l00080"></a>00080  
 <a name="l00081"></a>00081     <span class="keywordtype">bool</span> <a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a> = <span class="keyword">false</span>;
 <a name="l00082"></a>00082                                                                                 
-<a name="l00083"></a>00083     <span class="keywordflow">if</span> (<a class="code" href="crate3_2odb__wrapper_8cpp.html#a2fbc7a9015bff7c6323e0d8ccd31fecb">odb_find_key</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/S500 %d&quot;</span>, <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>)) {
-<a name="l00084"></a>00084       <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(1, <span class="stringliteral">&quot;ODB says S500 %d is present, &quot;</span>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00083"></a>00083     <span class="keywordflow">if</span> (<a class="code" href="crate3_2odb__wrapper_8cpp.html#a2fbc7a9015bff7c6323e0d8ccd31fecb">odb_find_key</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/S500 %d&quot;</span>, <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, j)) {
+<a name="l00084"></a>00084       <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(1, <span class="stringliteral">&quot;ODB says S500 %d is present, &quot;</span>, j);
 <a name="l00085"></a>00085       enabled =
 <a name="l00086"></a>00086         <a class="code" href="crate3_2odb__wrapper_8cpp.html#ada8dab96b6e370929013e9c170b19f8b">odb_get_bool</a>(<span class="stringliteral">&quot;/Equipment/Crate %d/Settings/S500 %d/enabled status&quot;</span>,
-<a name="l00087"></a>00087             <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00087"></a>00087             <a class="code" href="crate3_2crate_8cpp.html#af11f9f3c46c4eff20e99e8eafbfad774">crate_number</a>, j);
 <a name="l00088"></a>00088       <span class="keywordflow">if</span> (enabled) {
 <a name="l00089"></a>00089         <a class="code" href="crate3_2diag_8h.html#a22c1696ffe5f1b96f4b69227f323dcef">diag_print</a>(1, <span class="stringliteral">&quot;and is enabled.  Initializing...\n&quot;</span>);
 <a name="l00090"></a>00090       } <span class="keywordflow">else</span> {
@@ -119,13 +119,13 @@
 <a name="l00092"></a>00092       }
 <a name="l00093"></a>00093     }
 <a name="l00094"></a>00094                                                                                 
-<a name="l00095"></a>00095     <a class="code" href="structs500.html">s500</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>].enabled = enabled;
+<a name="l00095"></a>00095     <a class="code" href="structs500.html">s500</a>[j].enabled = enabled;
 <a name="l00096"></a>00096                                                                                 
 <a name="l00097"></a>00097     <span class="comment">// Set up the name of the MIDAS bank associated with the module</span>
-<a name="l00098"></a>00098     sprintf(<a class="code" href="structs500.html">s500</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>].<a class="code" href="structs500.html#a0d10e7659f4cc4737560a76eb51422b9">odb_name</a>, <span class="stringliteral">&quot;S500 %d&quot;</span>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>);
+<a name="l00098"></a>00098     sprintf(<a class="code" href="structs500.html">s500</a>[j].<a class="code" href="structs500.html#a0d10e7659f4cc4737560a76eb51422b9">odb_name</a>, <span class="stringliteral">&quot;S500 %d&quot;</span>, j);
 <a name="l00099"></a>00099                                                                                 
 <a name="l00100"></a>00100     <span class="keywordflow">if</span>(enabled) {
-<a name="l00101"></a>00101       <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a35ed13d3695e53153af045b50dc15f48">s500_bor1</a>(&amp;<a class="code" href="structs500.html">s500</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>]);
+<a name="l00101"></a>00101       <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a35ed13d3695e53153af045b50dc15f48">s500_bor1</a>(&amp;<a class="code" href="structs500.html">s500</a>[j]);
 <a name="l00102"></a>00102     }
 <a name="l00103"></a>00103   }
 <a name="l00104"></a>00104 
@@ -138,34 +138,34 @@
 <a name="l00111"></a>00111 <span class="comment"> * Called at the end of a block to assemble data from that block into a </span>
 <a name="l00112"></a>00112 <span class="comment"> * MIDAS event.</span>
 <a name="l00113"></a>00113 <span class="comment"> */</span>
-<a name="l00114"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#ae8e1889a2dfd6e5ba426b838878a1366">00114</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#ae8e1889a2dfd6e5ba426b838878a1366">s500_read</a>(<span class="keywordtype">char</span> *pevent)
+<a name="l00114"></a><a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#ae8e1889a2dfd6e5ba426b838878a1366">00114</a> INT <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#ae8e1889a2dfd6e5ba426b838878a1366">s500_read</a>(<span class="keywordtype">char</span> *pevent)
 <a name="l00115"></a>00115 {
 <a name="l00116"></a>00116   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> *pdata;
 <a name="l00117"></a>00117 
 <a name="l00118"></a>00118   <span class="comment">// first fill in the raw values</span>
-<a name="l00119"></a>00119   <a class="code" href="group__msectionh.html#ga5d60ec9f544f56ab8170380ebe195584">bk_create</a>(pevent, <span class="stringliteral">&quot;S500&quot;</span>, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>, &amp;pdata);
-<a name="l00120"></a>00120   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a8cabcaea143411b871cb310a29157162">MAX_S500</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00121"></a>00121     <span class="keywordflow">if</span>(<a class="code" href="structs500.html">s500</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
-<a name="l00122"></a>00122       <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a2daf607611f2ff0b19014687ccafb2d3">N_CH_S500</a>; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00119"></a>00119   bk_create(pevent, <span class="stringliteral">&quot;S500&quot;</span>, TID_DWORD, &amp;pdata);
+<a name="l00120"></a>00120   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a8cabcaea143411b871cb310a29157162">MAX_S500</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00121"></a>00121     <span class="keywordflow">if</span>(<a class="code" href="structs500.html">s500</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
+<a name="l00122"></a>00122       <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a2daf607611f2ff0b19014687ccafb2d3">N_CH_S500</a>; j++) {
 <a name="l00123"></a>00123         <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> val;
-<a name="l00124"></a>00124         <a class="code" href="group__mcstdfunctionh.html#ga84d45a99ef748664e1eead0a5da4d862">cam24i</a>(<a class="code" href="structs500.html">s500</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#a34050b318407003063590dcf25d36afd">crate</a>, <a class="code" href="structs500.html">s500</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="structs500.html#a9841206cfc24dee92117c89535b696f0">slot</a>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>, 2, &amp;val);
+<a name="l00124"></a>00124         <a class="code" href="hyt1331_8c.html#a56df504e36a74836673d6b86e55d32b1">cam24i</a>(<a class="code" href="structs500.html">s500</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#a34050b318407003063590dcf25d36afd">crate</a>, <a class="code" href="structs500.html">s500</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="structs500.html#a9841206cfc24dee92117c89535b696f0">slot</a>, j, 2, &amp;val);
 <a name="l00125"></a>00125         *pdata++ = val;
-<a name="l00126"></a>00126         <a class="code" href="structs500.html">s500</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].acum[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>] += val; 
+<a name="l00126"></a>00126         <a class="code" href="structs500.html">s500</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].acum[j] += val; 
 <a name="l00127"></a>00127       }
 <a name="l00128"></a>00128     }
 <a name="l00129"></a>00129   }
-<a name="l00130"></a>00130   <a class="code" href="group__msectionh.html#gab0314f08910a3950815d265d090656b7">bk_close</a>(pevent, pdata);
+<a name="l00130"></a>00130   bk_close(pevent, pdata);
 <a name="l00131"></a>00131 
 <a name="l00132"></a>00132   <span class="comment">// now the accumulated values</span>
-<a name="l00133"></a>00133   <a class="code" href="group__msectionh.html#ga5d60ec9f544f56ab8170380ebe195584">bk_create</a>(pevent, <span class="stringliteral">&quot;ACUM&quot;</span>, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>, &amp;pdata);
-<a name="l00134"></a>00134   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; MAX_S500; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00135"></a>00135     <span class="keywordflow">if</span>(<a class="code" href="structs500.html">s500</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
-<a name="l00136"></a>00136       <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a2daf607611f2ff0b19014687ccafb2d3">N_CH_S500</a>; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
-<a name="l00137"></a>00137         *pdata++ = <a class="code" href="structs500.html">s500</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].acum[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>];
+<a name="l00133"></a>00133   bk_create(pevent, <span class="stringliteral">&quot;ACUM&quot;</span>, TID_DWORD, &amp;pdata);
+<a name="l00134"></a>00134   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; MAX_S500; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00135"></a>00135     <span class="keywordflow">if</span>(<a class="code" href="structs500.html">s500</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="crate3_2rpc__master_8cpp.html#ac19b89f25c9dfa8d24866a5c108d6477">enabled</a>) {
+<a name="l00136"></a>00136       <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="crate6__CAEN__TDC_2s500_8cpp.html#a2daf607611f2ff0b19014687ccafb2d3">N_CH_S500</a>; j++) {
+<a name="l00137"></a>00137         *pdata++ = <a class="code" href="structs500.html">s500</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].acum[j];
 <a name="l00138"></a>00138       }
 <a name="l00139"></a>00139     }
 <a name="l00140"></a>00140   }
-<a name="l00141"></a>00141   <a class="code" href="group__msectionh.html#gab0314f08910a3950815d265d090656b7">bk_close</a>(pevent, pdata);
+<a name="l00141"></a>00141   bk_close(pevent, pdata);
 <a name="l00142"></a>00142 
 <a name="l00143"></a>00143   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00144"></a>00144 }

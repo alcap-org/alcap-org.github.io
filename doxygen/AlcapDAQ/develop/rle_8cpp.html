@@ -28,17 +28,17 @@
 </div>
 <div class="contents">
 <h1>analyzer/compress/rle.cpp File Reference</h1><code>#include &lt;stdio.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="midas_8h_source.html">midas.h</a>&quot;</code><br/>
+<code>#include &quot;midas.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="mucap__compress_8h_source.html">mucap_compress.h</a>&quot;</code><br/>
 
 <p><a href="rle_8cpp_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#a465ac808716f5ef21f09138b1c81a7f5">num_leading_bits</a> (unsigned char <a class="el" href="mana__orig_8c.html#a228a29e4d9ddfb6bc4994455a321bdc4">n</a>, int bit_val)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#a465ac808716f5ef21f09138b1c81a7f5">num_leading_bits</a> (unsigned char n, int bit_val)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#ad4f7da3874f62985302aa054ad7395e5">rle_bits_setup</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#a7b2a49e299d8ab4bf7660a2dc15cbb3b">rle_put</a> (unsigned char b, <a class="el" href="structrle__state.html">rle_state</a> *s, <a class="el" href="structio__buffer.html">io_buffer</a> *output)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#a046b47629347b32d4988db528e7ea64a">flush_rle</a> (<a class="el" href="structrle__state.html">rle_state</a> *s, <a class="el" href="structio__buffer.html">io_buffer</a> *output)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#a03a609e68b24e7234190414c2cb95408">rle_get</a> (<a class="el" href="structio__buffer.html">io_buffer</a> *<a class="el" href="scs__600_8c.html#aae49e07acf26da8b10ece67787dc3c91">input</a>, <a class="el" href="structrle__state.html">rle_state</a> *s)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#a03a609e68b24e7234190414c2cb95408">rle_get</a> (<a class="el" href="structio__buffer.html">io_buffer</a> *input, <a class="el" href="structrle__state.html">rle_state</a> *s)</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#a69b097088e165e8ad77f7401dc3d31ec">rle_bits_setup_done</a> = 0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rle_8cpp.html#aa89fe670931d25032f9194327ca6f527">num_leading_0</a> [256]</td></tr>
@@ -120,7 +120,7 @@
 
 <p>Definition at line <a class="el" href="rle_8cpp_source.html#l00018">18</a> of file <a class="el" href="rle_8cpp_source.html">rle.cpp</a>.</p>
 
-<p>References <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p>Referenced by <a class="el" href="rle_8cpp_source.html#l00041">rle_bits_setup()</a>.</p>
 
@@ -134,8 +134,8 @@
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027   <span class="keywordtype">int</span> retval = 0;
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00030"></a>00030     <span class="keywordtype">int</span> bit_i = (<a class="code" href="camac_8c.html#a76f11d9a0a47b94f72c2d0e77fb32240">n</a> &gt;&gt; (7 - <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>)) &amp; 1;
+<a name="l00029"></a>00029   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00030"></a>00030     <span class="keywordtype">int</span> bit_i = (n &gt;&gt; (7 - <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>)) &amp; 1;
 <a name="l00031"></a>00031     <span class="keywordflow">if</span> (bit_i == bit_val) {
 <a name="l00032"></a>00032       retval++;
 <a name="l00033"></a>00033     } <span class="keywordflow">else</span> {
@@ -166,7 +166,7 @@
 
 <p>Definition at line <a class="el" href="rle_8cpp_source.html#l00041">41</a> of file <a class="el" href="rle_8cpp_source.html">rle.cpp</a>.</p>
 
-<p>References <a class="el" href="mdump_8c_source.html#l00115">i</a>, <a class="el" href="rle_8cpp_source.html#l00014">num_leading_0</a>, <a class="el" href="rle_8cpp_source.html#l00015">num_leading_1</a>, <a class="el" href="rle_8cpp_source.html#l00018">num_leading_bits()</a>, <a class="el" href="rle_8cpp_source.html#l00016">ones</a>, and <a class="el" href="rle_8cpp_source.html#l00013">rle_bits_setup_done</a>.</p>
+<p>References <a class="el" href="mzdump_8c_source.html#l00129">i</a>, <a class="el" href="rle_8cpp_source.html#l00014">num_leading_0</a>, <a class="el" href="rle_8cpp_source.html#l00015">num_leading_1</a>, <a class="el" href="rle_8cpp_source.html#l00018">num_leading_bits()</a>, <a class="el" href="rle_8cpp_source.html#l00016">ones</a>, and <a class="el" href="rle_8cpp_source.html#l00013">rle_bits_setup_done</a>.</p>
 
 <p>Referenced by <a class="el" href="caen__compress_8cpp_source.html#l00117">caen_compress()</a>, <a class="el" href="caen__compress_8cpp_source.html#l00219">caen_expand()</a>, <a class="el" href="comp__compress_8cpp_source.html#l00133">cmp_compress()</a>, <a class="el" href="comp__compress_8cpp_source.html#l00243">cmp_expand()</a>, <a class="el" href="fadc__compress_8cpp_source.html#l00092">fadc_compress()</a>, <a class="el" href="fadc__compress_8cpp_source.html#l00165">fadc_expand()</a>, <a class="el" href="hits__compress_8cpp_source.html#l00077">hits_compress()</a>, <a class="el" href="hits__compress_8cpp_source.html#l00148">hits_expand()</a>, <a class="el" href="stck__compress_8cpp_source.html#l00220">stck_compress()</a>, <a class="el" href="stck__compress_8cpp_source.html#l00269">stck_expand()</a>, <a class="el" href="tdc400__compress_8cpp_source.html#l00207">tdc400_compress()</a>, and <a class="el" href="tdc400__compress_8cpp_source.html#l00255">tdc400_expand()</a>.</p>
 
@@ -178,9 +178,9 @@
 <a name="l00047"></a>00047   <span class="comment">// </span>
 <a name="l00048"></a>00048   <span class="comment">// Cache the number of leading 0s and 1s for all 8-bit values.</span>
 <a name="l00049"></a>00049   <span class="comment">// </span>
-<a name="l00050"></a>00050   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 256; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00051"></a>00051     <a class="code" href="rle_8cpp.html#aa89fe670931d25032f9194327ca6f527">num_leading_0</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <a class="code" href="rle_8cpp.html#a465ac808716f5ef21f09138b1c81a7f5">num_leading_bits</a>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 0);
-<a name="l00052"></a>00052     <a class="code" href="rle_8cpp.html#aeabadf4206b4f1443e6e517bbdaea1ea">num_leading_1</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <a class="code" href="rle_8cpp.html#a465ac808716f5ef21f09138b1c81a7f5">num_leading_bits</a>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 1);
+<a name="l00050"></a>00050   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 256; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00051"></a>00051     <a class="code" href="rle_8cpp.html#aa89fe670931d25032f9194327ca6f527">num_leading_0</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <a class="code" href="rle_8cpp.html#a465ac808716f5ef21f09138b1c81a7f5">num_leading_bits</a>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 0);
+<a name="l00052"></a>00052     <a class="code" href="rle_8cpp.html#aeabadf4206b4f1443e6e517bbdaea1ea">num_leading_1</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <a class="code" href="rle_8cpp.html#a465ac808716f5ef21f09138b1c81a7f5">num_leading_bits</a>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 1);
 <a name="l00053"></a>00053   }
 <a name="l00054"></a>00054 
 <a name="l00055"></a>00055   <span class="comment">// </span>
@@ -188,8 +188,8 @@
 <a name="l00057"></a>00057   <span class="comment">// 8.</span>
 <a name="l00058"></a>00058   <span class="comment">// </span>
 <a name="l00059"></a>00059   <span class="keywordtype">short</span> o = 0;
-<a name="l00060"></a>00060   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 9; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00061"></a>00061     <a class="code" href="rle_8cpp.html#a021353416824ab69e2768f6e20dc1130">ones</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = o;
+<a name="l00060"></a>00060   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 9; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00061"></a>00061     <a class="code" href="rle_8cpp.html#a021353416824ab69e2768f6e20dc1130">ones</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = o;
 <a name="l00062"></a>00062     o = (o &lt;&lt; 1) | 1;
 <a name="l00063"></a>00063   }
 <a name="l00064"></a>00064 }

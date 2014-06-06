@@ -41,10 +41,10 @@
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a5140f310a8b0e84ae18b1597724dfbdb">write_log</a> (char *msg)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a322f6ea4539de387623cbdb10520c904">con_getch</a> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#ae244077f8090dac2b400a61d1a31a7a6">con_kbhit</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a222bf5b13746056f1067423ba69498a7">con_scanf</a> (char *<a class="el" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>, void *app)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a71ed14f0eea1ab21bf899157a22f6a00">con_printf</a> (char *<a class="el" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,...)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a222bf5b13746056f1067423ba69498a7">con_scanf</a> (char *fmt, void *app)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a71ed14f0eea1ab21bf899157a22f6a00">con_printf</a> (char *fmt,...)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#ae824443b3f661414ba1f2718e17fe97d">gotoxy</a> (int x, int y)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a43ea66aad384613d618039e974de220c">con_printf_xy</a> (uint xpos, uint ypos, char *<a class="el" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,...)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a43ea66aad384613d618039e974de220c">con_printf_xy</a> (uint xpos, uint ypos, char *fmt,...)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a209453284e1e2ed32261e11e00d53760">clrscr</a> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a6f5140d708fe53fbd835ad40fa7a68bf">clear_line</a> (uint line)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#af9d503d4277d389d8b64f15d3901b94d">delay</a> (int msec)</td></tr>
@@ -53,7 +53,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">static HANDLE&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a17033d53b2a1bb6394eb4e573c4d3a6b">icon</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">FILE *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#ab936051f5aaca44c6c3c41dee0d19c36">log_file</a> = NULL</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#ad2d2a134fae6514e7d60db4cb91bc47e">LOG_FILE_NAME</a> [] = &quot;LOG_FILE&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="odbhist_8c.html#a050c65e107f0c828f856a231f4b4e788">BOOL</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">t_type</a> = TERM_NOT_INIT</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">t_type</a> = TERM_NOT_INIT</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a6f5140d708fe53fbd835ad40fa7a68bf"></a><!-- doxytag: member="console.c::clear_line" ref="a6f5140d708fe53fbd835ad40fa7a68bf" args="(uint line)" -->
@@ -88,7 +88,7 @@
 <a name="l00440"></a>00440 <span class="preprocessor"></span>
 <a name="l00441"></a>00441   COORD coordScreen;
 <a name="l00442"></a>00442   CONSOLE_SCREEN_BUFFER_INFO csbi; <span class="comment">/* to get buffer info */</span>
-<a name="l00443"></a>00443   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> bSuccess;
+<a name="l00443"></a>00443   BOOL bSuccess;
 <a name="l00444"></a>00444   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> cCharsWritten;
 <a name="l00445"></a>00445   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwLineSize; <span class="comment">/* number of character cells in the line to clear */</span>
 <a name="l00446"></a>00446   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwConSize; <span class="comment">/* number of character cells in the current buffer */</span>
@@ -139,7 +139,7 @@
 
 <p>References <a class="el" href="console_8c_source.html#l00059">ocon</a>.</p>
 
-<p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="console_8c_source.html#l00086">con_init()</a>, <a class="el" href="system_8c_source.html#l05238">ss_clear_screen()</a>, and <a class="el" href="CAENVMEDemoVme_8c_source.html#l00542">ViewReadBltData()</a>.</p>
+<p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="console_8c_source.html#l00086">con_init()</a>, and <a class="el" href="CAENVMEDemoVme_8c_source.html#l00542">ViewReadBltData()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00389"></a>00389 {
 <a name="l00390"></a>00390 <span class="preprocessor">#ifdef LINUX</span>
@@ -152,7 +152,7 @@
 <a name="l00397"></a>00397 <span class="preprocessor"></span>
 <a name="l00398"></a>00398   COORD coordScreen = { 0, 0 };    <span class="comment">/* home of the cursor */</span>
 <a name="l00399"></a>00399   CONSOLE_SCREEN_BUFFER_INFO csbi; <span class="comment">/* to get buffer info */</span>
-<a name="l00400"></a>00400   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> bSuccess;
+<a name="l00400"></a>00400   BOOL bSuccess;
 <a name="l00401"></a>00401   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> cCharsWritten;
 <a name="l00402"></a>00402   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwConSize; <span class="comment">/* number of character cells in the current buffer */</span>
 <a name="l00403"></a>00403 
@@ -227,14 +227,14 @@
 
 <p>Definition at line <a class="el" href="console_8c_source.html#l00173">173</a> of file <a class="el" href="console_8c_source.html">console.c</a>.</p>
 
-<p>References <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="console_8c_source.html#l00201">con_kbhit()</a>, and <a class="el" href="CAENVMEDemoVme_8c_source.html#l00542">ViewReadBltData()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00174"></a>00174 {
 <a name="l00175"></a>00175 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00176"></a>00176 <span class="preprocessor"></span>
-<a name="l00177"></a>00177   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00177"></a>00177   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00178"></a>00178   
 <a name="l00179"></a>00179   <span class="keywordflow">while</span>( ( i = getch() ) == ERR );
 <a name="l00180"></a>00180   <span class="keywordflow">return</span> i;
@@ -284,7 +284,7 @@
 <a name="l00097"></a>00097 <span class="preprocessor"></span>
 <a name="l00098"></a>00098   COORD coordScreen = { 0, 0 };    <span class="comment">/* home of the cursor */</span>
 <a name="l00099"></a>00099   CONSOLE_SCREEN_BUFFER_INFO csbi; <span class="comment">/* to get buffer info */</span>  
-<a name="l00100"></a>00100   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> bSuccess;
+<a name="l00100"></a>00100   BOOL bSuccess;
 <a name="l00101"></a>00101   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> cCharsWritten;
 <a name="l00102"></a>00102   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwConSize; <span class="comment">/* number of character cells in the current buffer */</span>
 <a name="l00103"></a>00103 
@@ -328,14 +328,14 @@
 
 <p>Definition at line <a class="el" href="console_8c_source.html#l00201">201</a> of file <a class="el" href="console_8c_source.html">console.c</a>.</p>
 
-<p>References <a class="el" href="patch__mevb_8cpp_source.html#l00003">c</a>, <a class="el" href="console_8c_source.html#l00173">con_getch()</a>, <a class="el" href="p30_8h_source.html#l00042">FALSE</a>, <a class="el" href="mdump_8c_source.html#l00115">i</a>, and <a class="el" href="p30_8h_source.html#l00043">TRUE</a>.</p>
+<p>References <a class="el" href="patch__mevb_8cpp_source.html#l00003">c</a>, <a class="el" href="console_8c_source.html#l00173">con_getch()</a>, <a class="el" href="p30_8h_source.html#l00042">FALSE</a>, <a class="el" href="mzdump_8c_source.html#l00129">i</a>, and <a class="el" href="p30_8h_source.html#l00043">TRUE</a>.</p>
 
 <p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00125">CaenVmeIrqCheck()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00467">CaenVmeRead()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00311">CaenVmeReadBlt()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00397">CaenVmeWrite()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00219">CaenVmeWriteBlt()</a>, and <a class="el" href="console_8c_source.html#l00237">con_scanf()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00202"></a>00202 {
 <a name="l00203"></a>00203 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00204"></a>00204 <span class="preprocessor"></span>
-<a name="l00205"></a>00205   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, g;  
+<a name="l00205"></a>00205   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, g;  
 <a name="l00206"></a>00206   
 <a name="l00207"></a>00207   nodelay(stdscr, <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);
 <a name="l00208"></a>00208   i = ( ( g = getch() ) == ERR ? 0 : g );
@@ -384,7 +384,7 @@
 
 <p>Definition at line <a class="el" href="console_8c_source.html#l00276">276</a> of file <a class="el" href="console_8c_source.html">console.c</a>.</p>
 
-<p>References <a class="el" href="new__fadc0_8cpp_source.html#l00078">buf</a>, and <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="new__fadc0_8cpp_source.html#l00078">buf</a>, and <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00125">CaenVmeIrqCheck()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00467">CaenVmeRead()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00311">CaenVmeReadBlt()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00397">CaenVmeWrite()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00219">CaenVmeWriteBlt()</a>, and <a class="el" href="CAENVMEDemoVme_8c_source.html#l00542">ViewReadBltData()</a>.</p>
 
@@ -392,10 +392,10 @@
 <a name="l00278"></a>00278 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00279"></a>00279 <span class="preprocessor"></span>
 <a name="l00280"></a>00280   va_list marker;
-<a name="l00281"></a>00281   <span class="keywordtype">int</span>     <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00281"></a>00281   <span class="keywordtype">int</span>     <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00282"></a>00282         
-<a name="l00283"></a>00283   va_start(marker,<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>);
-<a name="l00284"></a>00284   i = vwprintw(stdscr,<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,marker);
+<a name="l00283"></a>00283   va_start(marker,fmt);
+<a name="l00284"></a>00284   i = vwprintw(stdscr,fmt,marker);
 <a name="l00285"></a>00285   va_end(marker);
 <a name="l00286"></a>00286   
 <a name="l00287"></a>00287   refresh();
@@ -406,8 +406,8 @@
 <a name="l00292"></a>00292   va_list marker;
 <a name="l00293"></a>00293   <span class="keywordtype">char</span> <a class="code" href="new__fadc0_8cpp.html#a1fe855c208bc17a51a4d34fefdb2d5b1">buf</a>[256];
 <a name="l00294"></a>00294 
-<a name="l00295"></a>00295   va_start(marker, <a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>);       <span class="comment">/* Initialize variable arguments. */</span>
-<a name="l00296"></a>00296   vsprintf(buf,<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,marker);
+<a name="l00295"></a>00295   va_start(marker, fmt);       <span class="comment">/* Initialize variable arguments. */</span>
+<a name="l00296"></a>00296   vsprintf(buf,fmt,marker);
 <a name="l00297"></a>00297   va_end(marker);              <span class="comment">/* Reset variable arguments.      */</span>
 <a name="l00298"></a>00298 
 <a name="l00299"></a>00299   fflush(stdout);              <span class="comment">/* Empty the output buffer */</span>
@@ -459,7 +459,7 @@
 
 <p>Definition at line <a class="el" href="console_8c_source.html#l00346">346</a> of file <a class="el" href="console_8c_source.html">console.c</a>.</p>
 
-<p>References <a class="el" href="new__fadc0_8cpp_source.html#l00078">buf</a>, <a class="el" href="console_8c_source.html#l00315">gotoxy()</a>, and <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="new__fadc0_8cpp_source.html#l00078">buf</a>, <a class="el" href="console_8c_source.html#l00315">gotoxy()</a>, and <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00125">CaenVmeIrqCheck()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00467">CaenVmeRead()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00311">CaenVmeReadBlt()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00397">CaenVmeWrite()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00219">CaenVmeWriteBlt()</a>, and <a class="el" href="CAENVMEDemoVme_8c_source.html#l00542">ViewReadBltData()</a>.</p>
 
@@ -467,13 +467,13 @@
 <a name="l00348"></a>00348 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00349"></a>00349 <span class="preprocessor"></span>
 <a name="l00350"></a>00350   va_list marker;
-<a name="l00351"></a>00351   <span class="keywordtype">int</span>     <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00351"></a>00351   <span class="keywordtype">int</span>     <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00352"></a>00352 
 <a name="l00353"></a>00353   move(ypos-1, xpos-1);     
 <a name="l00354"></a>00354   refresh();
 <a name="l00355"></a>00355         
-<a name="l00356"></a>00356   va_start(marker,<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>);
-<a name="l00357"></a>00357   i = vwprintw(stdscr,<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,marker);
+<a name="l00356"></a>00356   va_start(marker,fmt);
+<a name="l00357"></a>00357   i = vwprintw(stdscr,fmt,marker);
 <a name="l00358"></a>00358   va_end(marker);
 <a name="l00359"></a>00359   
 <a name="l00360"></a>00360   refresh();
@@ -486,8 +486,8 @@
 <a name="l00367"></a>00367 
 <a name="l00368"></a>00368   <a class="code" href="console_8c.html#ae824443b3f661414ba1f2718e17fe97d">gotoxy</a>(xpos, ypos);            <span class="comment">/* Set the cursor position */</span>
 <a name="l00369"></a>00369  
-<a name="l00370"></a>00370   va_start(marker, <a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>);         <span class="comment">/* Initialize variable arguments. */</span>
-<a name="l00371"></a>00371   vsprintf(buf,<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,marker); 
+<a name="l00370"></a>00370   va_start(marker, fmt);         <span class="comment">/* Initialize variable arguments. */</span>
+<a name="l00371"></a>00371   vsprintf(buf,fmt,marker); 
 <a name="l00372"></a>00372   va_end(marker);                <span class="comment">/* Reset variable arguments.      */</span>
 <a name="l00373"></a>00373 
 <a name="l00374"></a>00374   fflush(stdout);                <span class="comment">/* Empty the output buffer */</span>
@@ -527,17 +527,17 @@
 
 <p>Definition at line <a class="el" href="console_8c_source.html#l00237">237</a> of file <a class="el" href="console_8c_source.html">console.c</a>.</p>
 
-<p>References <a class="el" href="console_8c_source.html#l00201">con_kbhit()</a>, and <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="console_8c_source.html#l00201">con_kbhit()</a>, and <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00125">CaenVmeIrqCheck()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00397">CaenVmeWrite()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00219">CaenVmeWriteBlt()</a>, and <a class="el" href="CAENVMEDemoVme_8c_source.html#l00542">ViewReadBltData()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00238"></a>00238 {
 <a name="l00239"></a>00239 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00240"></a>00240 <span class="preprocessor"></span>
-<a name="l00241"></a>00241   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00241"></a>00241   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00242"></a>00242 
 <a name="l00243"></a>00243   echo();
-<a name="l00244"></a>00244   i = scanw(<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,app);    
+<a name="l00244"></a>00244   i = scanw(fmt,app);    
 <a name="l00245"></a>00245   refresh();
 <a name="l00246"></a>00246   noecho();
 <a name="l00247"></a>00247   <span class="keywordflow">return</span> i;
@@ -546,7 +546,7 @@
 <a name="l00250"></a>00250 <span class="preprocessor"></span>
 <a name="l00251"></a>00251   <span class="keywordtype">int</span> res;
 <a name="l00252"></a>00252       
-<a name="l00253"></a>00253   res = _cscanf(<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>, app) ;
+<a name="l00253"></a>00253   res = _cscanf(fmt, app) ;
 <a name="l00254"></a>00254 
 <a name="l00255"></a>00255   <a class="code" href="console_8c.html#ae244077f8090dac2b400a61d1a31a7a6">con_kbhit</a>() ;                 <span class="comment">/* Due to input reading problem */</span>
 <a name="l00256"></a>00256 
@@ -620,7 +620,7 @@
 
 <p>References <a class="el" href="console_8c_source.html#l00059">ocon</a>.</p>
 
-<p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00125">CaenVmeIrqCheck()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00467">CaenVmeRead()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00311">CaenVmeReadBlt()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00397">CaenVmeWrite()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00219">CaenVmeWriteBlt()</a>, <a class="el" href="console_8c_source.html#l00432">clear_line()</a>, <a class="el" href="console_8c_source.html#l00346">con_printf_xy()</a>, and <a class="el" href="system_8c_source.html#l05321">ss_printf()</a>.</p>
+<p>Referenced by <a class="el" href="CAENVMEDemoVme_8c_source.html#l00125">CaenVmeIrqCheck()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00664">CaenVmeManual()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00467">CaenVmeRead()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00311">CaenVmeReadBlt()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00397">CaenVmeWrite()</a>, <a class="el" href="CAENVMEDemoVme_8c_source.html#l00219">CaenVmeWriteBlt()</a>, <a class="el" href="console_8c_source.html#l00432">clear_line()</a>, and <a class="el" href="console_8c_source.html#l00346">con_printf_xy()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00316"></a>00316 {
 <a name="l00317"></a>00317 <span class="preprocessor">#ifdef LINUX</span>
@@ -753,7 +753,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="odbhist_8c.html#a050c65e107f0c828f856a231f4b4e788">BOOL</a> <a class="el" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">t_type</a> = TERM_NOT_INIT</td>
+          <td class="memname">BOOL <a class="el" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">t_type</a> = TERM_NOT_INIT</td>
         </tr>
       </table>
 </div>

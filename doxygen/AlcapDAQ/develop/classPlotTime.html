@@ -58,7 +58,7 @@ Inheritance diagram for PlotTime:</div>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f">ProcessEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="TRawAnalysis_8cpp.html#a0aa23eb032fcbef28f693b94607f104c">gData</a>, <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="MV1724ProcessRaw_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="webpaw_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>&lt; <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>, TH1F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH1F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
@@ -291,7 +291,7 @@ Inheritance diagram for PlotTime:</div>
 
 <p>Definition at line <a class="el" href="PlotTime_8cpp_source.html#l00037">37</a> of file <a class="el" href="PlotTime_8cpp_source.html">PlotTime.cpp</a>.</p>
 
-<p>References <a class="el" href="PlotTime_8h_source.html#l00018">fTimePlots</a>, <a class="el" href="main_8cpp_source.html#l00047">gAnalysedPulseMap</a>, <a class="el" href="FillHistBase_8h_source.html#l00040">FillHistBase::GetName()</a>, <a class="el" href="scs__310__ql355p_8c_source.html#l00060">string</a>, and <a class="el" href="CAET_8h_source.html#l00002">time</a>.</p>
+<p>References <a class="el" href="PlotTime_8h_source.html#l00018">fTimePlots</a>, <a class="el" href="main_8cpp_source.html#l00047">gAnalysedPulseMap</a>, <a class="el" href="FillHistBase_8h_source.html#l00040">FillHistBase::GetName()</a>, and <a class="el" href="CAET_8h_source.html#l00002">time</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037                                                                 {
 <a name="l00038"></a>00038 
@@ -299,15 +299,15 @@ Inheritance diagram for PlotTime:</div>
 <a name="l00040"></a>00040   <span class="comment">//  std::cout &lt;&lt; &quot;Size of gAnalysedPulseMap &quot; &lt;&lt; gAnalysedPulseMap.size() &lt;&lt; std::endl;</span>
 <a name="l00041"></a>00041   <span class="keywordflow">for</span> (StringAnalPulseMap::iterator <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a> = <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin(); <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a> != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>++) {
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detname = <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>-&gt;first;
+<a name="l00043"></a>00043     std::string detname = <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>-&gt;first;
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046     <span class="comment">// Create the histogram if it&apos;s not been created yet</span>
 <a name="l00047"></a>00047     <span class="keywordflow">if</span> ( <a class="code" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a>.find(detname) == <a class="code" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a>.end() ) {
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049       <span class="comment">// hTimeCorrelation</span>
-<a name="l00050"></a>00050       <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322">GetName</a>();
-<a name="l00051"></a>00051       <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histtitle = <span class="stringliteral">&quot;Plot of the time of pulses in the &quot;</span> + detname + <span class="stringliteral">&quot; detector&quot;</span>;
+<a name="l00050"></a>00050       std::string histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322">GetName</a>();
+<a name="l00051"></a>00051       std::string histtitle = <span class="stringliteral">&quot;Plot of the time of pulses in the &quot;</span> + detname + <span class="stringliteral">&quot; detector&quot;</span>;
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053       TH1F* hTimeCorrelation = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), 1e6,0,1e8);
 <a name="l00054"></a>00054       hTimeCorrelation-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time [ns]&quot;</span>);
@@ -413,7 +413,7 @@ Inheritance diagram for PlotTime:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="webpaw_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>&lt;<a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>, TH1F*&gt; <a class="el" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">PlotTime::fTimePlots</a><code> [private]</code></td>
+          <td class="memname">std::map&lt;std::string, TH1F*&gt; <a class="el" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">PlotTime::fTimePlots</a><code> [private]</code></td>
         </tr>
       </table>
 </div>

@@ -37,8 +37,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="X742DecodeRoutines_8h.html#a997ca00dd5d5eb5fd9391ea205080cf5">MAX_X742_CHANNEL_SIZE</a>&nbsp;&nbsp;&nbsp;0x09</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="X742DecodeRoutines_8h.html#adffe47c60299fb2056de6dc3a5451140">X742_FIXED_SIZE</a>&nbsp;&nbsp;&nbsp;0x400</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="X742DecodeRoutines_8h.html#a597c05effdaaa1119a9cb8a368b9e122">GetNumEvents</a> (char *<a class="el" href="mlogger_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>, uint32_t buffsize, uint32_t *numEvents)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="X742DecodeRoutines_8h.html#a44c73f68dd320d0a223a255b2fc58577">GetEventPtr</a> (char *<a class="el" href="mlogger_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>, uint32_t buffsize, int32_t numEvent, char **EventPtr)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="X742DecodeRoutines_8h.html#a597c05effdaaa1119a9cb8a368b9e122">GetNumEvents</a> (char *buffer, uint32_t buffsize, uint32_t *numEvents)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="X742DecodeRoutines_8h.html#a44c73f68dd320d0a223a255b2fc58577">GetEventPtr</a> (char *buffer, uint32_t buffsize, int32_t numEvent, char **EventPtr)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="X742DecodeRoutines_8h.html#a2796e8a7a6c267785c223fff417eec64">X742_DecodeEvent</a> (char *evtPtr, void **Evt)</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
@@ -148,21 +148,21 @@
 
 <p>Definition at line <a class="el" href="X742DecodeRoutines_8c_source.html#l00117">117</a> of file <a class="el" href="X742DecodeRoutines_8c_source.html">X742DecodeRoutines.c</a>.</p>
 
-<p>References <a class="el" href="X742DecodeRoutines_8h_source.html#l00003">EVENT_HEADER_SIZE</a>, and <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="X742DecodeRoutines_8h_source.html#l00003">EVENT_HEADER_SIZE</a>, and <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00117"></a>00117                                                                                         {
-<a name="l00118"></a>00118         uint32_t <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0;
+<a name="l00118"></a>00118         uint32_t <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0;
 <a name="l00119"></a>00119         int32_t counter = -1;
 <a name="l00120"></a>00120         <span class="keywordtype">int</span> ret;
 <a name="l00121"></a>00121         <span class="keywordtype">int</span> evtSize;
 <a name="l00122"></a>00122         
-<a name="l00123"></a>00123         <span class="keywordflow">if</span> ((<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a> == NULL) || (buffsize &lt; <a class="code" href="X742DecodeRoutines_8h.html#a25dcfd2a9dc4782d78765ce0bf18ae9f">EVENT_HEADER_SIZE</a>)) <span class="keywordflow">return</span> -1;
+<a name="l00123"></a>00123         <span class="keywordflow">if</span> ((buffer == NULL) || (buffsize &lt; <a class="code" href="X742DecodeRoutines_8h.html#a25dcfd2a9dc4782d78765ce0bf18ae9f">EVENT_HEADER_SIZE</a>)) <span class="keywordflow">return</span> -1;
 <a name="l00124"></a>00124         <span class="keywordflow">do</span> {
 <a name="l00125"></a>00125                 counter++;
-<a name="l00126"></a>00126                 evtSize = *(<span class="keywordtype">long</span> *)(<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>+i) &amp; 0x0FFFFFFF;
+<a name="l00126"></a>00126                 evtSize = *(<span class="keywordtype">long</span> *)(buffer+i) &amp; 0x0FFFFFFF;
 <a name="l00127"></a>00127                 <span class="keywordflow">if</span> (counter == numEvent) {
 <a name="l00128"></a>00128                         <span class="keywordflow">if</span> ((i + (uint32_t) evtSize) &lt; buffsize) {
-<a name="l00129"></a>00129                                 *EventPtr =(<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>+i);
+<a name="l00129"></a>00129                                 *EventPtr =(buffer+i);
 <a name="l00130"></a>00130                                 <span class="keywordflow">return</span> 0;
 <a name="l00131"></a>00131                         }
 <a name="l00132"></a>00132                         <span class="keywordflow">else</span> <span class="keywordflow">return</span> -1;
@@ -208,20 +208,20 @@
 
 <p>Definition at line <a class="el" href="X742DecodeRoutines_8c_source.html#l00099">99</a> of file <a class="el" href="X742DecodeRoutines_8c_source.html">X742DecodeRoutines.c</a>.</p>
 
-<p>References <a class="el" href="X742DecodeRoutines_8h_source.html#l00003">EVENT_HEADER_SIZE</a>, and <a class="el" href="mdump_8c_source.html#l00115">i</a>.</p>
+<p>References <a class="el" href="X742DecodeRoutines_8h_source.html#l00003">EVENT_HEADER_SIZE</a>, and <a class="el" href="mzdump_8c_source.html#l00129">i</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00099"></a>00099                                                                            {
-<a name="l00100"></a>00100         uint32_t <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0,evtSize;
+<a name="l00100"></a>00100         uint32_t <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0,evtSize;
 <a name="l00101"></a>00101         <span class="keywordtype">int</span> ret;
 <a name="l00102"></a>00102         int32_t counter = -1;
-<a name="l00103"></a>00103     <span class="keywordflow">if</span> ((buffsize == 0) || (<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a> == NULL)){
+<a name="l00103"></a>00103     <span class="keywordflow">if</span> ((buffsize == 0) || (buffer == NULL)){
 <a name="l00104"></a>00104         *numEvents = 0;
 <a name="l00105"></a>00105         <span class="keywordflow">return</span> 0;
 <a name="l00106"></a>00106     }
 <a name="l00107"></a>00107         <span class="keywordflow">if</span> (buffsize &lt; <a class="code" href="X742DecodeRoutines_8h.html#a25dcfd2a9dc4782d78765ce0bf18ae9f">EVENT_HEADER_SIZE</a>) <span class="keywordflow">return</span> -1;
 <a name="l00108"></a>00108         <span class="keywordflow">do</span> {
 <a name="l00109"></a>00109                 counter++;
-<a name="l00110"></a>00110                 evtSize = *(<span class="keywordtype">long</span> *)(<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>+i) &amp; 0x0FFFFFFF;
+<a name="l00110"></a>00110                 evtSize = *(<span class="keywordtype">long</span> *)(buffer+i) &amp; 0x0FFFFFFF;
 <a name="l00111"></a>00111                 i += (uint32_t) (evtSize * 4);
 <a name="l00112"></a>00112         } <span class="keywordflow">while</span> ((i + <a class="code" href="X742DecodeRoutines_8h.html#a25dcfd2a9dc4782d78765ce0bf18ae9f">EVENT_HEADER_SIZE</a>) &lt; buffsize);
 <a name="l00113"></a>00113         *numEvents = counter + 1;
@@ -258,13 +258,13 @@
 
 <p>Definition at line <a class="el" href="X742DecodeRoutines_8c_source.html#l00139">139</a> of file <a class="el" href="X742DecodeRoutines_8c_source.html">X742DecodeRoutines.c</a>.</p>
 
-<p>References <a class="el" href="fal_8c_source.html#l00201">buffer</a>, <a class="el" href="CAENDigitizerType_8h_source.html#l00766">CAEN_DGTZ_X742_GROUP_t::DataChannel</a>, <a class="el" href="CAENDigitizerType_8h_source.html#l00797">CAEN_DGTZ_X742_EVENT_t::DataGroup</a>, <a class="el" href="X742DecodeRoutines_8h_source.html#l00003">EVENT_HEADER_SIZE</a>, <a class="el" href="CAENDigitizerType_8h_source.html#l00796">CAEN_DGTZ_X742_EVENT_t::GrPresent</a>, <a class="el" href="generate-MODULES_8h_source.html#l00006">h</a>, <a class="el" href="odbhist_8c_source.html#l00058">j</a>, <a class="el" href="CAENDigitizerType_8h_source.html#l00071">MAX_X742_CHANNEL_SIZE</a>, <a class="el" href="ybos_8c_source.html#l00373">size</a>, <a class="el" href="X742DecodeRoutines_8c_source.html#l00011">V1742UnpackEventGroup()</a>, <a class="el" href="X742DecodeRoutines_8h_source.html#l00006">X742_FIXED_SIZE</a>, and <a class="el" href="X742DecodeRoutines_8h_source.html#l00004">X742_MAX_GROUPS</a>.</p>
+<p>References <a class="el" href="CAENDigitizerType_8h_source.html#l00766">CAEN_DGTZ_X742_GROUP_t::DataChannel</a>, <a class="el" href="CAENDigitizerType_8h_source.html#l00797">CAEN_DGTZ_X742_EVENT_t::DataGroup</a>, <a class="el" href="X742DecodeRoutines_8h_source.html#l00003">EVENT_HEADER_SIZE</a>, <a class="el" href="CAENDigitizerType_8h_source.html#l00796">CAEN_DGTZ_X742_EVENT_t::GrPresent</a>, <a class="el" href="generate-MODULES_8h_source.html#l00006">h</a>, <a class="el" href="CAENDigitizerType_8h_source.html#l00071">MAX_X742_CHANNEL_SIZE</a>, <a class="el" href="separator_2frontend_8c_source.html#l00072">size</a>, <a class="el" href="X742DecodeRoutines_8c_source.html#l00011">V1742UnpackEventGroup()</a>, <a class="el" href="X742DecodeRoutines_8h_source.html#l00006">X742_FIXED_SIZE</a>, and <a class="el" href="X742DecodeRoutines_8h_source.html#l00004">X742_MAX_GROUPS</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00139"></a>00139                                                    {
 <a name="l00140"></a>00140         <a class="code" href="structCAEN__DGTZ__X742__EVENT__t.html">CAEN_DGTZ_X742_EVENT_t</a> *Event;
-<a name="l00141"></a>00141         uint32_t *<a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>;
+<a name="l00141"></a>00141         uint32_t *buffer;
 <a name="l00142"></a>00142         <span class="keywordtype">char</span> chanMask;
-<a name="l00143"></a>00143         uint32_t <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>,g,<a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a>;
+<a name="l00143"></a>00143         uint32_t j,g,<a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a>;
 <a name="l00144"></a>00144         uint32_t *pbuffer;
 <a name="l00145"></a>00145         uint32_t eventSize;
 <a name="l00146"></a>00146         <span class="keywordtype">int</span> evtSize,<a class="code" href="generate-MODULES_8h.html#a00d5923485ea4382260221681abdb205">h</a>;

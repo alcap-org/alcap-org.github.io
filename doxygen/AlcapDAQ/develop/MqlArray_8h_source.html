@@ -60,7 +60,7 @@
 <a name="l00033"></a>00033     }
 <a name="l00034"></a>00034   }
 <a name="l00035"></a>00035 
-<a name="l00036"></a><a class="code" href="classMqlArray.html#a1d21a060d8d9d1f1664138ce0ee6645e">00036</a>   <span class="keyword">inline</span> T&amp; <a class="code" href="classMqlArray.html#a1d21a060d8d9d1f1664138ce0ee6645e">operator[] </a>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
+<a name="l00036"></a><a class="code" href="classMqlArray.html#a1d21a060d8d9d1f1664138ce0ee6645e">00036</a>   <span class="keyword">inline</span> T&amp; <a class="code" href="classMqlArray.html#a1d21a060d8d9d1f1664138ce0ee6645e">operator[] </a>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
 <a name="l00037"></a>00037     <span class="keywordflow">return</span> <a class="code" href="classMqlArray.html#ae110f604c5c2d50531cc814d139442e5">fArray</a>[i];
 <a name="l00038"></a>00038   }
 <a name="l00039"></a>00039 
@@ -115,10 +115,10 @@
 <a name="l00088"></a>00088   }
 <a name="l00089"></a>00089 
 <a name="l00090"></a><a class="code" href="classMqlArray.html#a71576c1f798630a70f6eac7d6bc75208">00090</a>   <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classMqlArray.html#a71576c1f798630a70f6eac7d6bc75208">checkSort</a>(<span class="keywordtype">int</span> (*compar)(<span class="keyword">const</span> <span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *)) {
-<a name="l00091"></a>00091     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="classMqlArray.html#a724dd9080fc26a96bc352046e8e21871">fSize</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00091"></a>00091     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 1; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; <a class="code" href="classMqlArray.html#a724dd9080fc26a96bc352046e8e21871">fSize</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00092"></a>00092 <span class="comment">//      if(compar(&amp;fArray[i-1], &amp;fArray[i]) &gt; 0) {</span>
-<a name="l00093"></a>00093       <span class="keywordflow">if</span>(compar(&amp;(*<span class="keyword">this</span>)[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-1], &amp;(*<span class="keyword">this</span>)[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]) &gt; 0) {
-<a name="l00094"></a>00094 printf(<span class="stringliteral">&quot;checkSort: problem at element %d\n&quot;</span>, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
+<a name="l00093"></a>00093       <span class="keywordflow">if</span>(compar(&amp;(*<span class="keyword">this</span>)[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-1], &amp;(*<span class="keyword">this</span>)[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]) &gt; 0) {
+<a name="l00094"></a>00094 printf(<span class="stringliteral">&quot;checkSort: problem at element %d\n&quot;</span>, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
 <a name="l00095"></a>00095         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00096"></a>00096       }
 <a name="l00097"></a>00097     }
@@ -151,7 +151,7 @@
 <a name="l00124"></a>00124   }
 <a name="l00125"></a>00125 
 <a name="l00126"></a><a class="code" href="classMqlArray.html#aed8bac5122cbb2c1309954a99626f7e6">00126</a>   <span class="keywordtype">void</span> <a class="code" href="classMqlArray.html#aed8bac5122cbb2c1309954a99626f7e6">fromBank</a>(<span class="keywordtype">void</span> *pevent, <span class="keywordtype">char</span> *bankName) {
-<a name="l00127"></a>00127     <a class="code" href="classMqlArray.html#a724dd9080fc26a96bc352046e8e21871">fSize</a> = <a class="code" href="group__msectionh.html#ga191a8ec88c5ff3512bc22d7fa6d1f5dc">bk_locate</a>(pevent, bankName, (<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>*) &amp;<a class="code" href="classMqlArray.html#ae110f604c5c2d50531cc814d139442e5">fArray</a>)
+<a name="l00127"></a>00127     <a class="code" href="classMqlArray.html#a724dd9080fc26a96bc352046e8e21871">fSize</a> = bk_locate(pevent, bankName, (<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>*) &amp;<a class="code" href="classMqlArray.html#ae110f604c5c2d50531cc814d139442e5">fArray</a>)
 <a name="l00128"></a>00128              * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>) / <span class="keyword">sizeof</span>(T);
 <a name="l00129"></a>00129     <span class="keywordflow">if</span>(fArray == NULL)
 <a name="l00130"></a>00130     {
@@ -162,9 +162,9 @@
 <a name="l00135"></a>00135 
 <a name="l00136"></a><a class="code" href="classMqlArray.html#aae8a8afd01b5ea3ba219d417b73b9d1f">00136</a>   <span class="keywordtype">void</span> <a class="code" href="classMqlArray.html#aae8a8afd01b5ea3ba219d417b73b9d1f">toBank</a>(<span class="keywordtype">void</span> *pevent, <span class="keywordtype">char</span> *bankName) {
 <a name="l00137"></a>00137     T *outputArray;
-<a name="l00138"></a>00138     <a class="code" href="group__msectionh.html#ga5d60ec9f544f56ab8170380ebe195584">bk_create</a>(pevent, bankName, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>, (<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>*) &amp;outputArray);
+<a name="l00138"></a>00138     bk_create(pevent, bankName, TID_DWORD, (<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>*) &amp;outputArray);
 <a name="l00139"></a>00139     memcpy(outputArray, <a class="code" href="classMqlArray.html#ae110f604c5c2d50531cc814d139442e5">fArray</a>, <a class="code" href="classMqlArray.html#a724dd9080fc26a96bc352046e8e21871">fSize</a> * <span class="keyword">sizeof</span>(T));
-<a name="l00140"></a>00140     <a class="code" href="group__msectionh.html#gab0314f08910a3950815d265d090656b7">bk_close</a>(pevent, outputArray + <a class="code" href="classMqlArray.html#a724dd9080fc26a96bc352046e8e21871">fSize</a>);
+<a name="l00140"></a>00140     bk_close(pevent, outputArray + <a class="code" href="classMqlArray.html#a724dd9080fc26a96bc352046e8e21871">fSize</a>);
 <a name="l00141"></a>00141   }
 <a name="l00142"></a>00142 
 <a name="l00143"></a>00143   <span class="keyword">private</span>:

@@ -146,12 +146,12 @@
 <a name="l00119"></a>00119 <span class="comment">  operation, processing another message block, and updating the</span>
 <a name="l00120"></a>00120 <span class="comment">  context.</span>
 <a name="l00121"></a>00121 <span class="comment"> */</span>
-<a name="l00122"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#aa5b3e14ee3b69e0c7e10d69c9e538b3e">00122</a> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#aa5b3e14ee3b69e0c7e10d69c9e538b3e">MD5Update</a> (context, <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, inputLen)
+<a name="l00122"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#aa5b3e14ee3b69e0c7e10d69c9e538b3e">00122</a> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#aa5b3e14ee3b69e0c7e10d69c9e538b3e">MD5Update</a> (context, input, inputLen)
 <a name="l00123"></a>00123 <a class="code" href="structMD5__CTX.html">MD5_CTX</a> *context;                                        <span class="comment">/* context */</span>
-<a name="l00124"></a>00124 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>;                                <span class="comment">/* input block */</span>
+<a name="l00124"></a>00124 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input;                                <span class="comment">/* input block */</span>
 <a name="l00125"></a>00125 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> inputLen;                     <span class="comment">/* length of input block */</span>
 <a name="l00126"></a>00126 {
-<a name="l00127"></a>00127   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, <a class="code" href="mana_8cpp.html#a312c2cad451d6bb0536fb9ec2863be59">index</a>, partLen;
+<a name="l00127"></a>00127   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, index, partLen;
 <a name="l00128"></a>00128 
 <a name="l00129"></a>00129   <span class="comment">/* Compute number of bytes mod 64 */</span>
 <a name="l00130"></a>00130   index = (<span class="keywordtype">unsigned</span> int)((context-&gt;count[0] &gt;&gt; 3) &amp; 0x3F);
@@ -193,7 +193,7 @@
 <a name="l00166"></a>00166 <a class="code" href="structMD5__CTX.html">MD5_CTX</a> *context;                                       <span class="comment">/* context */</span>
 <a name="l00167"></a>00167 {
 <a name="l00168"></a>00168   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> bits[8];
-<a name="l00169"></a>00169   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mana_8cpp.html#a312c2cad451d6bb0536fb9ec2863be59">index</a>, padLen;
+<a name="l00169"></a>00169   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index, padLen;
 <a name="l00170"></a>00170 
 <a name="l00171"></a>00171   <span class="comment">/* Save number of bits */</span>
 <a name="l00172"></a>00172   <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a3b3905decd3db74f3f6b43b295f59953">Encode</a> (bits, context-&gt;<a class="code" href="structMD5__CTX.html#aa578ed7b523e0270f703e797d427e5cb">count</a>, 8);
@@ -221,7 +221,7 @@
 <a name="l00194"></a>00194 <a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a> state[4];
 <a name="l00195"></a>00195 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> block[64];
 <a name="l00196"></a>00196 {
-<a name="l00197"></a>00197   <a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a> a = state[0], b = state[1], <a class="code" href="patch__mevb_8cpp.html#adce6024c3a1b29c5fcede88815f9b152">c</a> = state[2], <a class="code" href="system_8c.html#a873684cefeb665f3d5e6b495de57fc0d">d</a> = state[3], x[16];
+<a name="l00197"></a>00197   <a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a> a = state[0], b = state[1], <a class="code" href="patch__mevb_8cpp.html#adce6024c3a1b29c5fcede88815f9b152">c</a> = state[2], d = state[3], x[16];
 <a name="l00198"></a>00198 
 <a name="l00199"></a>00199   <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a6a1f18df52c587067b5c228312af2742">Decode</a> (x, block, 64);
 <a name="l00200"></a>00200 
@@ -310,12 +310,12 @@
 <a name="l00283"></a>00283 <span class="comment">/* Encodes input (UINT4) into output (unsigned char). Assumes len is</span>
 <a name="l00284"></a>00284 <span class="comment">  a multiple of 4.</span>
 <a name="l00285"></a>00285 <span class="comment"> */</span>
-<a name="l00286"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a3b3905decd3db74f3f6b43b295f59953">00286</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a3b3905decd3db74f3f6b43b295f59953">Encode</a> (<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, len)
-<a name="l00287"></a>00287 unsigned <span class="keywordtype">char</span> *<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>;
-<a name="l00288"></a>00288 <a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a> *<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>;
+<a name="l00286"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a3b3905decd3db74f3f6b43b295f59953">00286</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a3b3905decd3db74f3f6b43b295f59953">Encode</a> (output, input, len)
+<a name="l00287"></a>00287 unsigned <span class="keywordtype">char</span> *output;
+<a name="l00288"></a>00288 <a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a> *input;
 <a name="l00289"></a>00289 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len;
 <a name="l00290"></a>00290 {
-<a name="l00291"></a>00291   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>;
+<a name="l00291"></a>00291   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, j;
 <a name="l00292"></a>00292 
 <a name="l00293"></a>00293   <span class="keywordflow">for</span> (i = 0, j = 0; j &lt; len; i++, j += 4) {
 <a name="l00294"></a>00294  output[j] = (<span class="keywordtype">unsigned</span> char)(input[i] &amp; 0xff);
@@ -328,12 +328,12 @@
 <a name="l00301"></a>00301 <span class="comment">/* Decodes input (unsigned char) into output (UINT4). Assumes len is</span>
 <a name="l00302"></a>00302 <span class="comment">  a multiple of 4.</span>
 <a name="l00303"></a>00303 <span class="comment"> */</span>
-<a name="l00304"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a6a1f18df52c587067b5c228312af2742">00304</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a6a1f18df52c587067b5c228312af2742">Decode</a> (<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, len)
-<a name="l00305"></a>00305 <a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a> *<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>;
-<a name="l00306"></a>00306 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>;
+<a name="l00304"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a6a1f18df52c587067b5c228312af2742">00304</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a6a1f18df52c587067b5c228312af2742">Decode</a> (output, input, len)
+<a name="l00305"></a>00305 <a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a> *output;
+<a name="l00306"></a>00306 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input;
 <a name="l00307"></a>00307 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len;
 <a name="l00308"></a>00308 {
-<a name="l00309"></a>00309   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>;
+<a name="l00309"></a>00309   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, j;
 <a name="l00310"></a>00310 
 <a name="l00311"></a>00311   <span class="keywordflow">for</span> (i = 0, j = 0; j &lt; len; i++, j += 4)
 <a name="l00312"></a>00312  output[i] = ((<a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a>)input[j]) | (((<a class="code" href="analyzer_2md5-lib_2global_8h.html#acbcd3749ac28f52e756e22d22022cae5">UINT4</a>)input[j+1]) &lt;&lt; 8) |
@@ -343,12 +343,12 @@
 <a name="l00316"></a>00316 <span class="comment">/* Note: Replace &quot;for loop&quot; with standard memcpy if possible.</span>
 <a name="l00317"></a>00317 <span class="comment"> */</span>
 <a name="l00318"></a>00318 
-<a name="l00319"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a4fcbd98768fb2adc10e89c8bab8999ac">00319</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a4fcbd98768fb2adc10e89c8bab8999ac">MD5_memcpy</a> (<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, len)
-<a name="l00320"></a>00320 <a class="code" href="analyzer_2md5-lib_2global_8h.html#a73204e40637f83518fb695362ea084a4">POINTER</a> <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>;
-<a name="l00321"></a>00321 <a class="code" href="analyzer_2md5-lib_2global_8h.html#a73204e40637f83518fb695362ea084a4">POINTER</a> <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>;
+<a name="l00319"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a4fcbd98768fb2adc10e89c8bab8999ac">00319</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a4fcbd98768fb2adc10e89c8bab8999ac">MD5_memcpy</a> (output, input, len)
+<a name="l00320"></a>00320 <a class="code" href="analyzer_2md5-lib_2global_8h.html#a73204e40637f83518fb695362ea084a4">POINTER</a> output;
+<a name="l00321"></a>00321 <a class="code" href="analyzer_2md5-lib_2global_8h.html#a73204e40637f83518fb695362ea084a4">POINTER</a> input;
 <a name="l00322"></a>00322 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len;
 <a name="l00323"></a>00323 {
-<a name="l00324"></a>00324   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00324"></a>00324   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00325"></a>00325 
 <a name="l00326"></a>00326   <span class="keywordflow">for</span> (i = 0; i &lt; len; i++)
 <a name="l00327"></a>00327     output[i] = input[i];
@@ -356,12 +356,12 @@
 <a name="l00329"></a>00329 
 <a name="l00330"></a>00330 <span class="comment">/* Note: Replace &quot;for loop&quot; with standard memset if possible.</span>
 <a name="l00331"></a>00331 <span class="comment"> */</span>
-<a name="l00332"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a56cbec819bc957c869d767bc6b743e00">00332</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a56cbec819bc957c869d767bc6b743e00">MD5_memset</a> (<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <a class="code" href="ADCS_8h.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>, len)
-<a name="l00333"></a>00333 <a class="code" href="analyzer_2md5-lib_2global_8h.html#a73204e40637f83518fb695362ea084a4">POINTER</a> <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>;
+<a name="l00332"></a><a class="code" href="analyzer_2md5-lib_2md5_8c.html#a56cbec819bc957c869d767bc6b743e00">00332</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="analyzer_2md5-lib_2md5_8c.html#a56cbec819bc957c869d767bc6b743e00">MD5_memset</a> (output, <a class="code" href="ADCS_8h.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>, len)
+<a name="l00333"></a>00333 <a class="code" href="analyzer_2md5-lib_2global_8h.html#a73204e40637f83518fb695362ea084a4">POINTER</a> output;
 <a name="l00334"></a>00334 <span class="keywordtype">int</span> <a class="code" href="ADCS_8h.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>;
 <a name="l00335"></a>00335 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len;
 <a name="l00336"></a>00336 {
-<a name="l00337"></a>00337   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00337"></a>00337   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00338"></a>00338 
 <a name="l00339"></a>00339   <span class="keywordflow">for</span> (i = 0; i &lt; len; i++)
 <a name="l00340"></a>00340  ((<span class="keywordtype">char</span> *)output)[i] = (char)value;

@@ -49,16 +49,16 @@
 <a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="TGlobalData_8h.html">TGlobalData.h</a>&quot;</span>
 <a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="keyword">using</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>;
-<a name="l00026"></a>00026 <span class="keyword">using</span> <a class="code" href="melog_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>;
+<a name="l00025"></a>00025 <span class="keyword">using</span> std::string;
+<a name="l00026"></a>00026 <span class="keyword">using</span> std::map;
 <a name="l00027"></a>00027 <span class="keyword">using</span> std::vector;
 <a name="l00028"></a>00028 <span class="keyword">using</span> std::pair;
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 <span class="comment">/*-- Module declaration --------------------------------------------*/</span>
-<a name="l00031"></a>00031 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MHitTime_8cpp.html#a65d8a8d32de119233b4d941462bd4ed0">MHitTime_init</a>(<span class="keywordtype">void</span>);
-<a name="l00032"></a>00032 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MHitTime_8cpp.html#a9165adce66a1f2af83879623caf64dbd">MHitTime</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>*, <span class="keywordtype">void</span>*);
+<a name="l00031"></a>00031 INT  <a class="code" href="MHitTime_8cpp.html#a65d8a8d32de119233b4d941462bd4ed0">MHitTime_init</a>(<span class="keywordtype">void</span>);
+<a name="l00032"></a>00032 INT  <a class="code" href="MHitTime_8cpp.html#a9165adce66a1f2af83879623caf64dbd">MHitTime</a>(EVENT_HEADER*, <span class="keywordtype">void</span>*);
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">extern</span> <a class="code" href="group__midasincludecode.html#ga0e1bcf128ad8422667adffd1dea59791">HNDLE</a> <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
+<a name="l00034"></a>00034 <span class="keyword">extern</span> HNDLE <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
 <a name="l00035"></a>00035 <span class="keyword">extern</span> <a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>;
 <a name="l00036"></a>00036 <span class="keyword">extern</span> <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>;
 <a name="l00037"></a>00037 
@@ -69,7 +69,7 @@
 <a name="l00042"></a><a class="code" href="MHitTime_8cpp.html#aab4cf681279753248cb403a597e80b6a">00042</a> <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="MHitTime_8cpp.html#aab4cf681279753248cb403a597e80b6a">BLOCKLENGTH</a> = 10000000.; <span class="comment">// ns</span>
 <a name="l00043"></a><a class="code" href="MHitTime_8cpp.html#af1a379205fcb89fb3f2580f3ef385305">00043</a> <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="MHitTime_8cpp.html#af1a379205fcb89fb3f2580f3ef385305">CUTWINDOW</a> = 10000.; <span class="comment">// ns</span>
 <a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="MHitTime_8cpp.html#a53137c64db956284aa5960e89db3f7c9">00045</a> <a class="code" href="structANA__MODULE.html">ANA_MODULE</a> <a class="code" href="MHitTime_8cpp.html#a53137c64db956284aa5960e89db3f7c9">MHitTime_module</a> =
+<a name="l00045"></a><a class="code" href="MHitTime_8cpp.html#a53137c64db956284aa5960e89db3f7c9">00045</a> ANA_MODULE <a class="code" href="MHitTime_8cpp.html#a53137c64db956284aa5960e89db3f7c9">MHitTime_module</a> =
 <a name="l00046"></a>00046 {
 <a name="l00047"></a>00047   <span class="stringliteral">&quot;MHitTime&quot;</span>,                    <span class="comment">/* module name           */</span>
 <a name="l00048"></a>00048   <span class="stringliteral">&quot;John R Quirk&quot;</span>,              <span class="comment">/* author                */</span>
@@ -84,14 +84,14 @@
 <a name="l00057"></a>00057 };
 <a name="l00058"></a>00058 
 <a name="l00059"></a>00059 
-<a name="l00060"></a><a class="code" href="MHitTime_8cpp.html#a65d8a8d32de119233b4d941462bd4ed0">00060</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MHitTime_8cpp.html#a65d8a8d32de119233b4d941462bd4ed0">MHitTime_init</a>()
+<a name="l00060"></a><a class="code" href="MHitTime_8cpp.html#a65d8a8d32de119233b4d941462bd4ed0">00060</a> INT <a class="code" href="MHitTime_8cpp.html#a65d8a8d32de119233b4d941462bd4ed0">MHitTime_init</a>()
 <a name="l00061"></a>00061 {
 <a name="l00062"></a>00062 
 <a name="l00063"></a>00063   std::map&lt; std::string, std::vector&lt;TPulseIsland*&gt; &gt;&amp; tpis = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>;
 <a name="l00064"></a>00064   std::map&lt; std::string, std::vector&lt;TPulseIsland*&gt; &gt;::iterator iBank;
 <a name="l00065"></a>00065   std::map&lt; std::string, std::string&gt; dets = gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>;
 <a name="l00066"></a>00066   
-<a name="l00067"></a>00067   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> cBank, cDet;
+<a name="l00067"></a>00067   std::string cBank, cDet;
 <a name="l00068"></a>00068   <a class="code" href="MHitTime_8cpp.html#a41360be1bf573d236a51a259205dab15">hBlockTimes</a>.clear();
 <a name="l00069"></a>00069   <a class="code" href="MHitTime_8cpp.html#a12f1005cf8e043577cde20c579b239e1">hEventTimes</a>.clear();
 <a name="l00070"></a>00070   <a class="code" href="MHitTime_8cpp.html#a8a89109a70a2b01ca95aa5661676f2b5">hTime_MuSC</a> = <span class="keyword">new</span> TH1I(<span class="stringliteral">&quot;hTime_MuSC&quot;</span>, <span class="stringliteral">&quot;Hit Times of MuSC;Block Hit Time (ns);Counts&quot;</span>,
@@ -110,7 +110,7 @@
 <a name="l00083"></a>00083 }
 <a name="l00084"></a>00084 
 <a name="l00085"></a>00085 
-<a name="l00086"></a><a class="code" href="MHitTime_8cpp.html#a9165adce66a1f2af83879623caf64dbd">00086</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MHitTime_8cpp.html#a9165adce66a1f2af83879623caf64dbd">MHitTime</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *pheader, <span class="keywordtype">void</span> *pevent)
+<a name="l00086"></a><a class="code" href="MHitTime_8cpp.html#a9165adce66a1f2af83879623caf64dbd">00086</a> INT <a class="code" href="MHitTime_8cpp.html#a9165adce66a1f2af83879623caf64dbd">MHitTime</a>(EVENT_HEADER *pheader, <span class="keywordtype">void</span> *pevent)
 <a name="l00087"></a>00087 {
 <a name="l00088"></a>00088 
 <a name="l00089"></a>00089   <span class="comment">// We assume the existance of all necessary TPI vectors</span>
@@ -131,7 +131,7 @@
 <a name="l00104"></a>00104 
 <a name="l00105"></a>00105   <span class="keywordtype">double</span> t_mu;
 <a name="l00106"></a>00106   <span class="keywordtype">double</span> t[2];
-<a name="l00107"></a>00107   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> cDet, cBank;
+<a name="l00107"></a>00107   std::string cDet, cBank;
 <a name="l00108"></a>00108   <span class="keywordflow">for</span> (cMuon = muons.begin(); cMuon != muons.end(); cMuon++) {
 <a name="l00109"></a>00109     t_mu = (*cMuon)-&gt;GetPulseTime();
 <a name="l00110"></a>00110     <a class="code" href="MHitTime_8cpp.html#a8a89109a70a2b01ca95aa5661676f2b5">hTime_MuSC</a>-&gt;Fill(t_mu);

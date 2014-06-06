@@ -44,7 +44,7 @@
 <a name="l00017"></a>00017 <span class="preprocessor">#include &lt;sstream&gt;</span>
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 <span class="comment">/* MIDAS includes */</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00021"></a>00021 
 <a name="l00022"></a>00022 <span class="comment">/* ROOT includes */</span>
 <a name="l00023"></a>00023 <span class="preprocessor">#include &lt;TH2.h&gt;</span>
@@ -55,20 +55,20 @@
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="TPulseIsland_8h.html">TPulseIsland.h</a>&quot;</span>
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keyword">using</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>;
-<a name="l00032"></a>00032 <span class="keyword">using</span> <a class="code" href="melog_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>;
+<a name="l00031"></a>00031 <span class="keyword">using</span> std::string;
+<a name="l00032"></a>00032 <span class="keyword">using</span> std::map;
 <a name="l00033"></a>00033 <span class="keyword">using</span> std::vector;
 <a name="l00034"></a>00034 <span class="keyword">using</span> std::pair;
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036 <span class="comment">/*-- Module declaration --------------------------------------------*/</span>
-<a name="l00037"></a>00037 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MFastSlowCorrelator_8cpp.html#abedf36b44e7ddabf000f21554ea9f297">MFastSlowCorrelator_init</a>(<span class="keywordtype">void</span>);
-<a name="l00038"></a>00038 <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a>  <a class="code" href="MFastSlowCorrelator_8cpp.html#a69be602c3f3d8d836adc0b846d8271da">MFastSlowCorrelator</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>*, <span class="keywordtype">void</span>*);
+<a name="l00037"></a>00037 INT  <a class="code" href="MFastSlowCorrelator_8cpp.html#abedf36b44e7ddabf000f21554ea9f297">MFastSlowCorrelator_init</a>(<span class="keywordtype">void</span>);
+<a name="l00038"></a>00038 INT  <a class="code" href="MFastSlowCorrelator_8cpp.html#a69be602c3f3d8d836adc0b846d8271da">MFastSlowCorrelator</a>(EVENT_HEADER*, <span class="keywordtype">void</span>*);
 <a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="keyword">extern</span> <a class="code" href="group__midasincludecode.html#ga0e1bcf128ad8422667adffd1dea59791">HNDLE</a> <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
+<a name="l00040"></a>00040 <span class="keyword">extern</span> HNDLE <a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
 <a name="l00041"></a>00041 <span class="keyword">extern</span> <a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>;
 <a name="l00042"></a>00042 <span class="keyword">extern</span> <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="MCAENPulseIslandSortAndStitch_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>;
 <a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a406847031e749da76a3d7d3fbd4322a8">00044</a> <a class="code" href="structANA__MODULE.html">ANA_MODULE</a> <a class="code" href="MFastSlowCorrelator_8cpp.html#a406847031e749da76a3d7d3fbd4322a8">MFastSlowCorrelator_module</a> =
+<a name="l00044"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a406847031e749da76a3d7d3fbd4322a8">00044</a> ANA_MODULE <a class="code" href="MFastSlowCorrelator_8cpp.html#a406847031e749da76a3d7d3fbd4322a8">MFastSlowCorrelator_module</a> =
 <a name="l00045"></a>00045 {
 <a name="l00046"></a>00046         <span class="stringliteral">&quot;MFastSlowCorrelator&quot;</span>,         <span class="comment">/* module name           */</span>
 <a name="l00047"></a>00047         <span class="stringliteral">&quot;Ran Hong&quot;</span>,                    <span class="comment">/* author                */</span>
@@ -82,11 +82,11 @@
 <a name="l00055"></a>00055         NULL,                          <span class="comment">/* initial parameters    */</span>
 <a name="l00056"></a>00056 };
 <a name="l00057"></a>00057 
-<a name="l00058"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">00058</a> <span class="keyword">static</span> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> **<a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>;
-<a name="l00059"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">00059</a> <span class="keyword">static</span> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> **<a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">hAmplitudeCorrelation</a>;
-<a name="l00060"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">00060</a> <span class="keyword">static</span> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> **<a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">hSlowCounts</a>;
-<a name="l00061"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">00061</a> <span class="keyword">static</span> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> **<a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>;
-<a name="l00062"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">00062</a> <span class="keyword">static</span> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> **<a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>;
+<a name="l00058"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">00058</a> <span class="keyword">static</span> TH1 **<a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>;
+<a name="l00059"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">00059</a> <span class="keyword">static</span> TH2 **<a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">hAmplitudeCorrelation</a>;
+<a name="l00060"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">00060</a> <span class="keyword">static</span> TH1 **<a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">hSlowCounts</a>;
+<a name="l00061"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">00061</a> <span class="keyword">static</span> TH1 **<a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>;
+<a name="l00062"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">00062</a> <span class="keyword">static</span> TH2 **<a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>;
 <a name="l00063"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">00063</a> <span class="keyword">static</span> <span class="keywordtype">int</span> *<a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>;
 <a name="l00064"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">00064</a> <span class="keyword">static</span> std::vector&lt;std::string&gt; <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>;
 <a name="l00065"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">00065</a> <span class="keyword">static</span> std::vector&lt;std::string&gt; <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>;
@@ -95,28 +95,28 @@
 <a name="l00068"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">00068</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>;
 <a name="l00069"></a>00069 
 <a name="l00070"></a>00070 <span class="keywordtype">int</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#a9f32c7c332b01ce8022bd9e7e2c147c1">FillCoincidenceTimeHistogram</a>(<span class="keywordtype">double</span> tFast,<span class="keywordtype">double</span> aFast, vector&lt;TPulseIsland*&gt; pulses, 
-<a name="l00071"></a>00071                                  <span class="keywordtype">int</span> start, <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *<a class="code" href="generate-MODULES_8h.html#a00d5923485ea4382260221681abdb205">h</a>, <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *hAmp, <span class="keywordtype">double</span> t_low, <span class="keywordtype">double</span> t_high,
-<a name="l00072"></a>00072                                  <span class="keywordtype">bool</span> <a class="code" href="kcs2926_8c.html#a15c8252e6b507e98f2814383ca4872a1">PP</a>, <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *h_PP, <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *hAmp_PP, <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *hSC);
+<a name="l00071"></a>00071                                  <span class="keywordtype">int</span> start, TH1 *<a class="code" href="generate-MODULES_8h.html#a00d5923485ea4382260221681abdb205">h</a>, TH2 *hAmp, <span class="keywordtype">double</span> t_low, <span class="keywordtype">double</span> t_high,
+<a name="l00072"></a>00072                                  <span class="keywordtype">bool</span> PP, TH1 *h_PP, TH2 *hAmp_PP, TH1 *hSC);
 <a name="l00073"></a>00073 
-<a name="l00074"></a>00074 <span class="keywordtype">bool</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(<span class="keywordtype">double</span> t, std::vector&lt;TPulseIsland*&gt; <a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a>, <span class="keywordtype">double</span> window, <span class="keywordtype">int</span> *lPP);
+<a name="l00074"></a>00074 <span class="keywordtype">bool</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(<span class="keywordtype">double</span> t, std::vector&lt;TPulseIsland*&gt; p, <span class="keywordtype">double</span> window, <span class="keywordtype">int</span> *lPP);
 <a name="l00075"></a>00075 
-<a name="l00078"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#abedf36b44e7ddabf000f21554ea9f297">00078</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MFastSlowCorrelator_8cpp.html#abedf36b44e7ddabf000f21554ea9f297">MFastSlowCorrelator_init</a>()
+<a name="l00078"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#abedf36b44e7ddabf000f21554ea9f297">00078</a> INT <a class="code" href="MFastSlowCorrelator_8cpp.html#abedf36b44e7ddabf000f21554ea9f297">MFastSlowCorrelator_init</a>()
 <a name="l00079"></a>00079 {
 <a name="l00080"></a>00080   gDirectory-&gt;mkdir(<span class="stringliteral">&quot;FastSlowCorrelations&quot;</span>)-&gt;cd();
 <a name="l00081"></a>00081   <span class="comment">// Let&apos;s pair fast and slow channels</span>
 <a name="l00082"></a>00082   <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator it = gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>.begin();
 <a name="l00083"></a>00083       it != gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>.end(); ++it){
-<a name="l00084"></a>00084     <span class="keywordflow">if</span>(it-&gt;first != <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;&quot;</span>) &amp;&amp; it-&gt;first != <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;blank&quot;</span>)){
+<a name="l00084"></a>00084     <span class="keywordflow">if</span>(it-&gt;first != std::string(<span class="stringliteral">&quot;&quot;</span>) &amp;&amp; it-&gt;first != std::string(<span class="stringliteral">&quot;blank&quot;</span>)){
 <a name="l00085"></a>00085       <span class="keywordflow">if</span> (it-&gt;second.compare(<span class="stringliteral">&quot;SiR1-sum-F&quot;</span>)==0) <span class="keywordflow">continue</span>;
 <a name="l00086"></a>00086       <span class="keywordtype">size_t</span> StrPos = it-&gt;second.find(<span class="stringliteral">&quot;-F&quot;</span>);
 <a name="l00087"></a>00087       <span class="keywordflow">if</span>(StrPos!=std::string::npos){
 <a name="l00088"></a>00088         <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>.push_back(it-&gt;second);
 <a name="l00089"></a>00089 <span class="comment">//      printf(&quot;%s\n&quot;,it-&gt;second.c_str());</span>
-<a name="l00090"></a>00090         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> paired_slow = it-&gt;second.substr(0,StrPos);
+<a name="l00090"></a>00090         std::string paired_slow = it-&gt;second.substr(0,StrPos);
 <a name="l00091"></a>00091         paired_slow+=<span class="stringliteral">&quot;-S&quot;</span>;
 <a name="l00092"></a>00092         <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator it_slow = gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>.begin();
 <a name="l00093"></a>00093             it_slow != gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>.end(); ++it_slow){
-<a name="l00094"></a>00094           <span class="keywordflow">if</span>(it_slow-&gt;first != <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;&quot;</span>) &amp;&amp; it_slow-&gt;first != <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;blank&quot;</span>)){
+<a name="l00094"></a>00094           <span class="keywordflow">if</span>(it_slow-&gt;first != std::string(<span class="stringliteral">&quot;&quot;</span>) &amp;&amp; it_slow-&gt;first != std::string(<span class="stringliteral">&quot;blank&quot;</span>)){
 <a name="l00095"></a>00095             <span class="keywordflow">if</span>(it_slow-&gt;second.compare(paired_slow)==0){
 <a name="l00096"></a>00096               <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>.push_back(it_slow-&gt;second);
 <a name="l00097"></a>00097 <span class="comment">//            printf(&quot;%s\n&quot;,it_slow-&gt;second.c_str());</span>
@@ -135,69 +135,69 @@
 <a name="l00110"></a>00110   }
 <a name="l00111"></a>00111   <a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a> = <a class="code" href="MFastSlowCorrelator_8cpp.html#a9d352d5cc6c8a4737ce3b0f737b27b1b">nr_slow_detectors</a>;
 <a name="l00112"></a>00112 
-<a name="l00113"></a>00113   <a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a> = <span class="keyword">new</span> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a>*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
-<a name="l00114"></a>00114   <a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a> = <span class="keyword">new</span> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a>*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
-<a name="l00115"></a>00115   <a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">hAmplitudeCorrelation</a> = <span class="keyword">new</span> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a>*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
-<a name="l00116"></a>00116   <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a> = <span class="keyword">new</span> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a>*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
-<a name="l00117"></a>00117   <a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">hSlowCounts</a> = <span class="keyword">new</span> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a>*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
+<a name="l00113"></a>00113   <a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a> = <span class="keyword">new</span> TH1*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
+<a name="l00114"></a>00114   <a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a> = <span class="keyword">new</span> TH1*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
+<a name="l00115"></a>00115   <a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">hAmplitudeCorrelation</a> = <span class="keyword">new</span> TH2*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
+<a name="l00116"></a>00116   <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a> = <span class="keyword">new</span> TH2*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
+<a name="l00117"></a>00117   <a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">hSlowCounts</a> = <span class="keyword">new</span> TH1*[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
 <a name="l00118"></a>00118   <a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a> = <span class="keyword">new</span> <span class="keywordtype">int</span>[<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
 <a name="l00119"></a>00119   
-<a name="l00120"></a>00120   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> hName;
-<a name="l00121"></a>00121   <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> hTitle;
+<a name="l00120"></a>00120   std::string hName;
+<a name="l00121"></a>00121   std::string hTitle;
 <a name="l00122"></a>00122 
-<a name="l00123"></a>00123   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>){
-<a name="l00124"></a>00124     <a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 0;
+<a name="l00123"></a>00123   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>){
+<a name="l00124"></a>00124     <a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 0;
 <a name="l00125"></a>00125 
-<a name="l00126"></a>00126     hName = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;h_&quot;</span>);
-<a name="l00127"></a>00127     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00126"></a>00126     hName = std::string(<span class="stringliteral">&quot;h_&quot;</span>);
+<a name="l00127"></a>00127     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00128"></a>00128     hName += <span class="stringliteral">&quot;_&quot;</span>; 
-<a name="l00129"></a>00129     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00129"></a>00129     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00130"></a>00130     hName += <span class="stringliteral">&quot;_TDiff&quot;</span>;
-<a name="l00131"></a>00131     hTitle = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;Tdiff for &quot;</span>);
-<a name="l00132"></a>00132     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00131"></a>00131     hTitle = std::string(<span class="stringliteral">&quot;Tdiff for &quot;</span>);
+<a name="l00132"></a>00132     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00133"></a>00133     hTitle += <span class="stringliteral">&quot; - &quot;</span>;
-<a name="l00134"></a>00134     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
-<a name="l00135"></a>00135     <a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH1F(hName.c_str(), hTitle.c_str(), 500, -10000, 10000);
-<a name="l00136"></a>00136     <a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time difference [ns]&quot;</span>);
+<a name="l00134"></a>00134     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00135"></a>00135     <a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH1F(hName.c_str(), hTitle.c_str(), 500, -10000, 10000);
+<a name="l00136"></a>00136     <a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time difference [ns]&quot;</span>);
 <a name="l00137"></a>00137     hName += <span class="stringliteral">&quot;_PP&quot;</span>;
 <a name="l00138"></a>00138     hTitle += <span class="stringliteral">&quot; with PP&quot;</span>;
-<a name="l00139"></a>00139     <a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH1F(hName.c_str(), hTitle.c_str(), 500, -10000, 10000);
-<a name="l00140"></a>00140     <a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time difference [ns]&quot;</span>);
+<a name="l00139"></a>00139     <a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH1F(hName.c_str(), hTitle.c_str(), 500, -10000, 10000);
+<a name="l00140"></a>00140     <a class="code" href="MFastSlowCorrelator_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time difference [ns]&quot;</span>);
 <a name="l00141"></a>00141     
-<a name="l00142"></a>00142     hName = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;h_&quot;</span>);
-<a name="l00143"></a>00143     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00142"></a>00142     hName = std::string(<span class="stringliteral">&quot;h_&quot;</span>);
+<a name="l00143"></a>00143     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00144"></a>00144     hName += <span class="stringliteral">&quot;_&quot;</span>; 
-<a name="l00145"></a>00145     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00145"></a>00145     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00146"></a>00146     hName += <span class="stringliteral">&quot;Amplitude_Correlation&quot;</span>;
-<a name="l00147"></a>00147     hTitle = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;Tdiff for &quot;</span>);
-<a name="l00148"></a>00148     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00147"></a>00147     hTitle = std::string(<span class="stringliteral">&quot;Tdiff for &quot;</span>);
+<a name="l00148"></a>00148     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00149"></a>00149     hTitle += <span class="stringliteral">&quot; - &quot;</span>;
-<a name="l00150"></a>00150     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00150"></a>00150     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00151"></a>00151     printf(<span class="stringliteral">&quot;%s %s\n&quot;</span>,hName.c_str(),hTitle.c_str());
-<a name="l00152"></a>00152     <a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">hAmplitudeCorrelation</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH2F(hName.c_str(), hTitle.c_str(), 250, 0, 1000,
+<a name="l00152"></a>00152     <a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">hAmplitudeCorrelation</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH2F(hName.c_str(), hTitle.c_str(), 250, 0, 1000,
 <a name="l00153"></a>00153                                    250, 0, 1000);
-<a name="l00154"></a>00154     hAmplitudeCorrelation[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Fast Amplitude&quot;</span>);
-<a name="l00155"></a>00155     hAmplitudeCorrelation[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Slow Amplitude&quot;</span>);
+<a name="l00154"></a>00154     hAmplitudeCorrelation[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Fast Amplitude&quot;</span>);
+<a name="l00155"></a>00155     hAmplitudeCorrelation[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Slow Amplitude&quot;</span>);
 <a name="l00156"></a>00156     hName += <span class="stringliteral">&quot;_PP&quot;</span>;
 <a name="l00157"></a>00157     hTitle += <span class="stringliteral">&quot; with PP&quot;</span>;
-<a name="l00158"></a>00158     <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH2F(hName.c_str(), hTitle.c_str(), 250, 0, 1000,
+<a name="l00158"></a>00158     <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH2F(hName.c_str(), hTitle.c_str(), 250, 0, 1000,
 <a name="l00159"></a>00159                                       250, 0, 1000);
-<a name="l00160"></a>00160     <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Fast Amplitude&quot;</span>);
-<a name="l00161"></a>00161     <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Slow Amplitude&quot;</span>);
+<a name="l00160"></a>00160     <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Fast Amplitude&quot;</span>);
+<a name="l00161"></a>00161     <a class="code" href="MFastSlowCorrelator_8cpp.html#aeaa3ab91195195995f828e014d042f88">hAmplitudeCorrelation_PP</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Slow Amplitude&quot;</span>);
 <a name="l00162"></a>00162 
-<a name="l00163"></a>00163     hName = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;h_&quot;</span>);
+<a name="l00163"></a>00163     hName = std::string(<span class="stringliteral">&quot;h_&quot;</span>);
 <a name="l00164"></a>00164     hName += <span class="stringliteral">&quot;SlowCounts_&quot;</span>;
-<a name="l00165"></a>00165     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
-<a name="l00166"></a>00166     hTitle = <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>(<span class="stringliteral">&quot;SlowCounts correspond to &quot;</span>);
-<a name="l00167"></a>00167     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
-<a name="l00168"></a>00168     <a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">hSlowCounts</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH1I(hName.c_str(),hTitle.c_str(),10,0,10);
+<a name="l00165"></a>00165     hName += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00166"></a>00166     hTitle = std::string(<span class="stringliteral">&quot;SlowCounts correspond to &quot;</span>);
+<a name="l00167"></a>00167     hTitle += <a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00168"></a>00168     <a class="code" href="MFastSlowCorrelator_8cpp.html#a3705ad5984d6465f583cf5c1e1e92191">hSlowCounts</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = <span class="keyword">new</span> TH1I(hName.c_str(),hTitle.c_str(),10,0,10);
 <a name="l00169"></a>00169   }
 <a name="l00170"></a>00170   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00171"></a>00171   printf(<span class="stringliteral">&quot;Initialization Complete!\n&quot;</span>);
 <a name="l00172"></a>00172   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00173"></a>00173 }
 <a name="l00174"></a>00174 
-<a name="l00178"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a69be602c3f3d8d836adc0b846d8271da">00178</a> <a class="code" href="lrs1190_8c.html#a6877c9d7ac317ac3415ee1a1f92302a0">INT</a> <a class="code" href="MFastSlowCorrelator_8cpp.html#a69be602c3f3d8d836adc0b846d8271da">MFastSlowCorrelator</a>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *pheader, <span class="keywordtype">void</span> *pevent){
+<a name="l00178"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a69be602c3f3d8d836adc0b846d8271da">00178</a> INT <a class="code" href="MFastSlowCorrelator_8cpp.html#a69be602c3f3d8d836adc0b846d8271da">MFastSlowCorrelator</a>(EVENT_HEADER *pheader, <span class="keywordtype">void</span> *pevent){
 <a name="l00179"></a>00179   <span class="keywordtype">double</span> t_low = -10000;
 <a name="l00180"></a>00180   <span class="keywordtype">double</span> t_high = 10000;
 <a name="l00181"></a>00181 
@@ -212,18 +212,18 @@
 <a name="l00190"></a>00190   <span class="comment">// Let&apos;s loop over fast channel times</span>
 <a name="l00191"></a>00191   <span class="keywordtype">int</span> lPP = 0;
 <a name="l00192"></a>00192 
-<a name="l00193"></a>00193   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) <a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 0;
-<a name="l00194"></a>00194   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;nr_detectors; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>){
-<a name="l00195"></a>00195     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> FastBank = gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
-<a name="l00196"></a>00196     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> SlowBank = gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[i]);
+<a name="l00193"></a>00193   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;<a class="code" href="MFastSlowCorrelator_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) <a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 0;
+<a name="l00194"></a>00194   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;nr_detectors; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>){
+<a name="l00195"></a>00195     std::string FastBank = gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MFastSlowCorrelator_8cpp.html#a191e7832af08c9270df8737f64561ed1">FastDetectors</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00196"></a>00196     std::string SlowBank = gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MFastSlowCorrelator_8cpp.html#a7ac6a4f178bc1f8e450d3f6d9746a7ff">SlowDetectors</a>[i]);
 <a name="l00197"></a>00197     lPP = 0;
-<a name="l00198"></a>00198     <span class="keywordflow">for</span>(std::vector&lt;TPulseIsland*&gt;::iterator it_Fast = pulse_islands_map[FastBank].<a class="code" href="examples_2macro_2midas__macro_8h.html#aa6756696bd68e8b60d37f7c5a68aec3d">begin</a>(); 
+<a name="l00198"></a>00198     <span class="keywordflow">for</span>(std::vector&lt;TPulseIsland*&gt;::iterator it_Fast = pulse_islands_map[FastBank].begin(); 
 <a name="l00199"></a>00199         it_Fast != pulse_islands_map[FastBank].end(); ++it_Fast){
 <a name="l00200"></a>00200 
 <a name="l00201"></a>00201       <span class="keywordtype">double</span> tFast = (*it_Fast)-&gt;GetPulseTime();
 <a name="l00202"></a>00202       <span class="keywordtype">double</span> aFast = (*it_Fast)-&gt;GetPulseHeight();
 <a name="l00203"></a>00203 
-<a name="l00204"></a>00204       <span class="keywordtype">bool</span> <a class="code" href="kcs2926_8c.html#a15c8252e6b507e98f2814383ca4872a1">PP</a> = <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(tFast, pulse_islands_map[FastBank], 10000, &amp;lPP);
+<a name="l00204"></a>00204       <span class="keywordtype">bool</span> PP = <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(tFast, pulse_islands_map[FastBank], 10000, &amp;lPP);
 <a name="l00205"></a>00205 
 <a name="l00206"></a>00206       <a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i] = <a class="code" href="MFastSlowCorrelator_8cpp.html#a9f32c7c332b01ce8022bd9e7e2c147c1">FillCoincidenceTimeHistogram</a>(tFast,aFast,pulse_islands_map[SlowBank], 
 <a name="l00207"></a>00207             <a class="code" href="MFastSlowCorrelator_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i], <a class="code" href="MFastSlowCorrelator_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[i], <a class="code" href="MFastSlowCorrelator_8cpp.html#ab933716a7ffd411e5b461dd3b84aacd0">hAmplitudeCorrelation</a>[i], t_low, t_high,
@@ -236,36 +236,36 @@
 <a name="l00214"></a>00214 }
 <a name="l00215"></a>00215 
 <a name="l00216"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#a9f32c7c332b01ce8022bd9e7e2c147c1">00216</a> <span class="keywordtype">int</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#a9f32c7c332b01ce8022bd9e7e2c147c1">FillCoincidenceTimeHistogram</a>(<span class="keywordtype">double</span> tFast,<span class="keywordtype">double</span> aFast, std::vector&lt;TPulseIsland*&gt; pulses, 
-<a name="l00217"></a>00217                                  <span class="keywordtype">int</span> start, <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *<a class="code" href="generate-MODULES_8h.html#a00d5923485ea4382260221681abdb205">h</a>, <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *hAmp, <span class="keywordtype">double</span> t_low, <span class="keywordtype">double</span> t_high,
-<a name="l00218"></a>00218                                  <span class="keywordtype">bool</span> <a class="code" href="kcs2926_8c.html#a15c8252e6b507e98f2814383ca4872a1">PP</a>, <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *h_PP, <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *hAmp_PP, <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *hSC)
+<a name="l00217"></a>00217                                  <span class="keywordtype">int</span> start, TH1 *<a class="code" href="generate-MODULES_8h.html#a00d5923485ea4382260221681abdb205">h</a>, TH2 *hAmp, <span class="keywordtype">double</span> t_low, <span class="keywordtype">double</span> t_high,
+<a name="l00218"></a>00218                                  <span class="keywordtype">bool</span> PP, TH1 *h_PP, TH2 *hAmp_PP, TH1 *hSC)
 <a name="l00219"></a>00219 {
-<a name="l00220"></a>00220   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;
-<a name="l00221"></a>00221   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a> = start; <a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a> &lt; (int)pulses.size(); ++<a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a>){
+<a name="l00220"></a>00220   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;
+<a name="l00221"></a>00221   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> p = start; p &lt; (int)pulses.size(); ++p){
 <a name="l00222"></a>00222     
-<a name="l00223"></a>00223     <span class="keywordtype">double</span> tDiff = pulses[<a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a>]-&gt;GetPulseTime() - tFast;
+<a name="l00223"></a>00223     <span class="keywordtype">double</span> tDiff = pulses[p]-&gt;GetPulseTime() - tFast;
 <a name="l00224"></a>00224     <span class="keywordflow">if</span>(tDiff &lt; t_low){
-<a name="l00225"></a>00225       start = <a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a>;
+<a name="l00225"></a>00225       start = p;
 <a name="l00226"></a>00226       <span class="keywordflow">continue</span>;
 <a name="l00227"></a>00227     }
 <a name="l00228"></a>00228     <span class="keywordflow">if</span>(tDiff &gt; t_high) <span class="keywordflow">break</span>;
 <a name="l00229"></a>00229     h-&gt;Fill(tDiff);
-<a name="l00230"></a>00230     hAmp-&gt;Fill(aFast, pulses[<a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a>]-&gt;GetPulseHeight());
+<a name="l00230"></a>00230     hAmp-&gt;Fill(aFast, pulses[p]-&gt;GetPulseHeight());
 <a name="l00231"></a>00231     i++;
 <a name="l00232"></a>00232     <span class="keywordflow">if</span>(PP){
 <a name="l00233"></a>00233       h_PP-&gt;Fill(tDiff);
-<a name="l00234"></a>00234       hAmp_PP-&gt;Fill(aFast, pulses[<a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a>]-&gt;GetPulseHeight());
+<a name="l00234"></a>00234       hAmp_PP-&gt;Fill(aFast, pulses[p]-&gt;GetPulseHeight());
 <a name="l00235"></a>00235     }
 <a name="l00236"></a>00236   }
 <a name="l00237"></a>00237   hSC-&gt;Fill(i);
 <a name="l00238"></a>00238   <span class="keywordflow">return</span> start;
 <a name="l00239"></a>00239 }
 <a name="l00240"></a>00240 
-<a name="l00241"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">00241</a> <span class="keywordtype">bool</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(<span class="keywordtype">double</span> t, std::vector&lt;TPulseIsland*&gt; <a class="code" href="sis3803_8c.html#afcb0609a0beab248bb3994a3368bd9ff">p</a>, <span class="keywordtype">double</span> window, <span class="keywordtype">int</span> *lPP){
+<a name="l00241"></a><a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">00241</a> <span class="keywordtype">bool</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(<span class="keywordtype">double</span> t, std::vector&lt;TPulseIsland*&gt; p, <span class="keywordtype">double</span> window, <span class="keywordtype">int</span> *lPP){
 <a name="l00242"></a>00242   <span class="keywordflow">if</span>(t &lt; window || t &gt; 1.12E8-window) <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// very basic bookending</span>
-<a name="l00243"></a>00243   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = *lPP; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; p.size(); ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>){
-<a name="l00244"></a>00244     <span class="keywordtype">double</span> t2 = p[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetPulseTime();
+<a name="l00243"></a>00243   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = *lPP; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; p.size(); ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>){
+<a name="l00244"></a>00244     <span class="keywordtype">double</span> t2 = p[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;GetPulseTime();
 <a name="l00245"></a>00245     <span class="keywordflow">if</span>(t2 &lt; t-window){
-<a name="l00246"></a>00246       *lPP = <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00246"></a>00246       *lPP = <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00247"></a>00247     }
 <a name="l00248"></a>00248     <span class="keywordflow">if</span>(t2 &gt; t+window) <span class="keywordflow">break</span>;
 <a name="l00249"></a>00249     <span class="keywordflow">if</span>(t != t2 &amp;&amp; t2 &gt; t-window &amp;&amp; t2 &lt; t+window) <span class="keywordflow">return</span> <span class="keyword">false</span>;

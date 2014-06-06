@@ -38,7 +38,7 @@
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
 <a name="l00012"></a>00012 
 <a name="l00013"></a>00013 <span class="preprocessor">#ifndef __CINT__</span>
-<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00015"></a>00015 <span class="preprocessor">#include &quot;../../compress/mucap_compress.h&quot;</span>
 <a name="l00016"></a>00016 <span class="preprocessor">#endif</span>
 <a name="l00017"></a>00017 <span class="preprocessor"></span>
@@ -49,49 +49,49 @@
 <a name="l00022"></a>00022 <span class="comment">// #define PRINT_SAMPLES 1</span>
 <a name="l00023"></a>00023 
 <a name="l00024"></a><a class="code" href="res__analysis_8cxx.html#a63b96401309cc0c66ce6c88f1783d7c2">00024</a> TCanvas *<a class="code" href="patch__mevb_8cpp.html#adce6024c3a1b29c5fcede88815f9b152">c</a> = 0;
-<a name="l00025"></a>00025 <span class="keywordtype">void</span> <a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a>(<span class="keywordtype">char</span> *input_filename, <span class="keywordtype">int</span> <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>, <span class="keywordtype">int</span> fadc);
-<a name="l00026"></a>00026 <span class="keywordtype">int</span> <a class="code" href="miniana_8c.html#a681f90cedc0c323da19bfef26d8854b5">process_event</a>(<span class="keywordtype">void</span> *pevent, <span class="keywordtype">int</span> <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>, <span class="keywordtype">int</span> fadc);
+<a name="l00025"></a>00025 <span class="keywordtype">void</span> <a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a>(<span class="keywordtype">char</span> *input_filename, <span class="keywordtype">int</span> addr, <span class="keywordtype">int</span> fadc);
+<a name="l00026"></a>00026 <span class="keywordtype">int</span> <a class="code" href="res__analysis_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">process_event</a>(<span class="keywordtype">void</span> *pevent, <span class="keywordtype">int</span> addr, <span class="keywordtype">int</span> fadc);
 <a name="l00027"></a>00027 
 <a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="res__analysis_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">00029</a> <span class="keywordtype">bool</span> <a class="code" href="res__analysis_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">get_input_event</a>(FILE * <a class="code" href="mlxspeaker_8c.html#aa065f30aa9f5f9a42132c82c787ee70b">fp</a>, <span class="keywordtype">char</span> *pevent, <span class="keywordtype">int</span> <a class="code" href="crate3_2rpc__master_8cpp.html#aa3d005e853cff556eb57f4e3db030b02">event_number</a>)
+<a name="l00029"></a><a class="code" href="res__analysis_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">00029</a> <span class="keywordtype">bool</span> <a class="code" href="res__analysis_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">get_input_event</a>(FILE * fp, <span class="keywordtype">char</span> *pevent, <span class="keywordtype">int</span> <a class="code" href="crate3_2rpc__master_8cpp.html#aa3d005e853cff556eb57f4e3db030b02">event_number</a>)
 <a name="l00030"></a>00030 {
 <a name="l00031"></a>00031     <span class="keywordtype">int</span> event_size, size_read;
-<a name="l00032"></a>00032     <a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *header;
+<a name="l00032"></a>00032     EVENT_HEADER *header;
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034     size_read = fread(pevent, 1, <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>), fp);
-<a name="l00035"></a>00035     <span class="keywordflow">if</span> (size_read != <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>))
+<a name="l00034"></a>00034     size_read = fread(pevent, 1, <span class="keyword">sizeof</span>(EVENT_HEADER), fp);
+<a name="l00035"></a>00035     <span class="keywordflow">if</span> (size_read != <span class="keyword">sizeof</span>(EVENT_HEADER))
 <a name="l00036"></a>00036         <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00037"></a>00037 
-<a name="l00038"></a>00038     header = (<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *) pevent;
+<a name="l00038"></a>00038     header = (EVENT_HEADER *) pevent;
 <a name="l00039"></a>00039 
-<a name="l00040"></a>00040     <span class="keywordflow">if</span> (event_number == 0 &amp;&amp; header-&gt;<a class="code" href="group__midasincludecode.html#ga9b4b94f41521f5c188655b7bb0f1ec1b">trigger_mask</a> != <a class="code" href="group__mbufferh.html#ga028a14f85456b68bf2babd1bdcaa1abb">MIDAS_MAGIC</a>) {
+<a name="l00040"></a>00040     <span class="keywordflow">if</span> (event_number == 0 &amp;&amp; header-&gt;trigger_mask != MIDAS_MAGIC) {
 <a name="l00041"></a>00041         fprintf(stderr, <span class="stringliteral">&quot;Input is not a valid MIDAS file\n&quot;</span>);
 <a name="l00042"></a>00042         exit(1);
 <a name="l00043"></a>00043     }
 <a name="l00044"></a>00044 
-<a name="l00045"></a>00045     event_size = header-&gt;<a class="code" href="group__midasincludecode.html#ga194220c29419e01ef4cab6d3dd8daedb">data_size</a>;
+<a name="l00045"></a>00045     event_size = header-&gt;data_size;
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047     <span class="keywordflow">if</span> ((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) event_size &gt;= <a class="code" href="group__midasincludecode.html#ga05d5acc365e3342523d84bc4540adc09">MAX_EVENT_SIZE</a> - <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>)) {
+<a name="l00047"></a>00047     <span class="keywordflow">if</span> ((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) event_size &gt;= MAX_EVENT_SIZE - <span class="keyword">sizeof</span>(EVENT_HEADER)) {
 <a name="l00048"></a>00048         fprintf(stderr, <span class="stringliteral">&quot;Invalid event size %d\n&quot;</span>, event_size);
 <a name="l00049"></a>00049         exit(1);
 <a name="l00050"></a>00050     }
 <a name="l00051"></a>00051 
-<a name="l00052"></a>00052     size_read = fread(pevent + <span class="keyword">sizeof</span>(<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a>), 1, event_size, fp);
+<a name="l00052"></a>00052     size_read = fread(pevent + <span class="keyword">sizeof</span>(EVENT_HEADER), 1, event_size, fp);
 <a name="l00053"></a>00053     <span class="keywordflow">if</span> (size_read != event_size)
 <a name="l00054"></a>00054         <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056     <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00057"></a>00057 }
 <a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="res__analysis_8cxx.html#a6534db57db90adcfdac8a00771b0314f">00059</a> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *<a class="code" href="res__analysis_8cxx.html#a6534db57db90adcfdac8a00771b0314f">hSamples</a>;
-<a name="l00060"></a><a class="code" href="res__analysis_8cxx.html#aa1215ff6ddc03aae103f6f5f47513c80">00060</a> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *<a class="code" href="res__analysis_8cxx.html#aa1215ff6ddc03aae103f6f5f47513c80">hChannelNSample</a>;
-<a name="l00061"></a><a class="code" href="res__analysis_8cxx.html#a36fdfa58710181059766117543d944d9">00061</a> <a class="code" href="c8051F000_8h.html#a4ae730549ffdf484b18e051fcddbe8ff">TH1</a> *<a class="code" href="res__analysis_8cxx.html#a36fdfa58710181059766117543d944d9">hChannelNIsland</a>;
-<a name="l00062"></a><a class="code" href="res__analysis_8cxx.html#a8e08a3a86023531f8dfa0caf856a94b8">00062</a> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *<a class="code" href="res__analysis_8cxx.html#a8e08a3a86023531f8dfa0caf856a94b8">hMinSample</a>;
-<a name="l00063"></a><a class="code" href="res__analysis_8cxx.html#a931544e10e5b0093ab5cb69e07bfd6ca">00063</a> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *<a class="code" href="res__analysis_8cxx.html#a931544e10e5b0093ab5cb69e07bfd6ca">hMaxSample</a>;
-<a name="l00064"></a><a class="code" href="res__analysis_8cxx.html#ab3e0d851666c49e3ee2ba4f50c1aa034">00064</a> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *<a class="code" href="res__analysis_8cxx.html#ab3e0d851666c49e3ee2ba4f50c1aa034">hPulseEnergy</a>;
-<a name="l00065"></a><a class="code" href="res__analysis_8cxx.html#a3f99fa742e38a020c5afc951162d8b69">00065</a> <a class="code" href="c8051F000_8h.html#a70bc5fa59bf5abbbfcbfc012f134758c">TH2</a> *<a class="code" href="res__analysis_8cxx.html#a3f99fa742e38a020c5afc951162d8b69">hPed0</a>;
+<a name="l00059"></a><a class="code" href="res__analysis_8cxx.html#a6534db57db90adcfdac8a00771b0314f">00059</a> TH2 *<a class="code" href="res__analysis_8cxx.html#a6534db57db90adcfdac8a00771b0314f">hSamples</a>;
+<a name="l00060"></a><a class="code" href="res__analysis_8cxx.html#aa1215ff6ddc03aae103f6f5f47513c80">00060</a> TH1 *<a class="code" href="res__analysis_8cxx.html#aa1215ff6ddc03aae103f6f5f47513c80">hChannelNSample</a>;
+<a name="l00061"></a><a class="code" href="res__analysis_8cxx.html#a36fdfa58710181059766117543d944d9">00061</a> TH1 *<a class="code" href="res__analysis_8cxx.html#a36fdfa58710181059766117543d944d9">hChannelNIsland</a>;
+<a name="l00062"></a><a class="code" href="res__analysis_8cxx.html#a8e08a3a86023531f8dfa0caf856a94b8">00062</a> TH2 *<a class="code" href="res__analysis_8cxx.html#a8e08a3a86023531f8dfa0caf856a94b8">hMinSample</a>;
+<a name="l00063"></a><a class="code" href="res__analysis_8cxx.html#a931544e10e5b0093ab5cb69e07bfd6ca">00063</a> TH2 *<a class="code" href="res__analysis_8cxx.html#a931544e10e5b0093ab5cb69e07bfd6ca">hMaxSample</a>;
+<a name="l00064"></a><a class="code" href="res__analysis_8cxx.html#ab3e0d851666c49e3ee2ba4f50c1aa034">00064</a> TH2 *<a class="code" href="res__analysis_8cxx.html#ab3e0d851666c49e3ee2ba4f50c1aa034">hPulseEnergy</a>;
+<a name="l00065"></a><a class="code" href="res__analysis_8cxx.html#a3f99fa742e38a020c5afc951162d8b69">00065</a> TH2 *<a class="code" href="res__analysis_8cxx.html#a3f99fa742e38a020c5afc951162d8b69">hPed0</a>;
 <a name="l00066"></a>00066 
-<a name="l00067"></a><a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">00067</a> <span class="keywordtype">void</span> <a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a>(<span class="keywordtype">char</span> *input_filename, <span class="keywordtype">int</span> <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>, <span class="keywordtype">int</span> fadc)
+<a name="l00067"></a><a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">00067</a> <span class="keywordtype">void</span> <a class="code" href="res__analysis_8cxx.html#a074b5ca82cc693de01f1b877d8ba1a30">process_file</a>(<span class="keywordtype">char</span> *input_filename, <span class="keywordtype">int</span> addr, <span class="keywordtype">int</span> fadc)
 <a name="l00068"></a>00068 {
 <a name="l00069"></a>00069     FILE *input_fp;
 <a name="l00070"></a>00070     <span class="keywordtype">char</span> *input_event;
@@ -107,8 +107,8 @@
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081   <span class="keywordtype">char</span> <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#af65cc3664520b7cd0817adc7106f9624">host_name</a>[256], <a class="code" href="crate6__CAEN__TDC_2mfe__mucap_8c.html#a11eee1a5e2cef985b90bdfe0bfc8cf76">exp_name</a>[32];
 <a name="l00082"></a>00082   <a class="code" href="patch__mevb_8cpp.html#aa598123f60ccd5496f2421c7bf2fabbf">cm_get_environment</a>(host_name, <span class="keyword">sizeof</span>(host_name), exp_name, <span class="keyword">sizeof</span>(exp_name));
-<a name="l00083"></a>00083   <a class="code" href="group__msectionh.html#gae12b15703f10f41044e599520e665f5a">cm_connect_experiment</a>(host_name, exp_name, <span class="stringliteral">&quot;show_pulses&quot;</span>, NULL);
-<a name="l00084"></a>00084    <a class="code" href="group__msectionh.html#ga1932e7947b0a024a845c5b8c19c3dda0">cm_get_experiment_database</a>(&amp;<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, NULL);
+<a name="l00083"></a>00083   cm_connect_experiment(host_name, exp_name, <span class="stringliteral">&quot;show_pulses&quot;</span>, NULL);
+<a name="l00084"></a>00084    cm_get_experiment_database(&amp;<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, NULL);
 <a name="l00085"></a>00085    <a class="code" href="mucap__compress_8h.html#ab8d3d2d200bab8b6c9cf0bd01787383f">compress_load_all</a>();
 <a name="l00086"></a>00086 
 <a name="l00087"></a>00087     <span class="comment">/* Open input and output files */</span>
@@ -120,17 +120,17 @@
 <a name="l00093"></a>00093     }
 <a name="l00094"></a>00094 
 <a name="l00095"></a>00095     <span class="comment">/* Allocate buffer to hold MIDAS event */</span>
-<a name="l00096"></a>00096     input_event = (<span class="keywordtype">char</span> *) malloc(<a class="code" href="group__midasincludecode.html#ga05d5acc365e3342523d84bc4540adc09">MAX_EVENT_SIZE</a>*2);
+<a name="l00096"></a>00096     input_event = (<span class="keywordtype">char</span> *) malloc(MAX_EVENT_SIZE*2);
 <a name="l00097"></a>00097 
 <a name="l00098"></a>00098     <span class="comment">/* Loop over MIDAS events */</span>
 <a name="l00099"></a>00099     event_number = 0;
 <a name="l00100"></a>00100     <span class="keywordflow">while</span> (<a class="code" href="res__analysis_8cxx.html#a4c652d8c472a4a65b2ff084e90844a0a">get_input_event</a>(input_fp, input_event, event_number) == <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>) {
 <a name="l00101"></a>00101 
-<a name="l00102"></a>00102         <a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *header = (<a class="code" href="structEVENT__HEADER.html">EVENT_HEADER</a> *) input_event;
+<a name="l00102"></a>00102         EVENT_HEADER *header = (EVENT_HEADER *) input_event;
 <a name="l00103"></a>00103 
-<a name="l00104"></a>00104         <span class="keywordflow">if</span>(header-&gt;<a class="code" href="structEVENT__HEADER.html#a107bbb0fbe21582dc0f0e78f60b997b3">event_id</a> == 1) {
+<a name="l00104"></a>00104         <span class="keywordflow">if</span>(header-&gt;event_id == 1) {
 <a name="l00105"></a>00105           <a class="code" href="mucap__compress_8h.html#a862d0f478fee422f0329ac9dfd28b5d7">expand_event</a>(header+1, header+1);
-<a name="l00106"></a>00106           <span class="keywordtype">int</span> stop = <a class="code" href="miniana_8c.html#a681f90cedc0c323da19bfef26d8854b5">process_event</a>(header + 1, addr, fadc);
+<a name="l00106"></a>00106           <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">process_event</a>(header + 1, addr, fadc);
 <a name="l00107"></a>00107           <span class="keywordflow">if</span>(stop) <span class="keywordflow">break</span>;
 <a name="l00108"></a>00108         }
 <a name="l00109"></a>00109 
@@ -168,13 +168,13 @@
 <a name="l00141"></a>00141 
 <a name="l00142"></a>00142   <span class="keywordflow">if</span>(pedSamples &gt; nsamples) <span class="keywordflow">return</span> 0.;
 <a name="l00143"></a>00143 
-<a name="l00144"></a>00144   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; pedSamples; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00145"></a>00145     pedestalOffset += samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00144"></a>00144   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; pedSamples; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00145"></a>00145     pedestalOffset += samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00146"></a>00146   }
 <a name="l00147"></a>00147   pedestalOffset /= pedSamples;
 <a name="l00148"></a>00148 
-<a name="l00149"></a>00149   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; pedSamples; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00150"></a>00150     sumpedestal2 += (pedestalOffset-samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>])*(pedestalOffset-samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00149"></a>00149   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; pedSamples; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00150"></a>00150     sumpedestal2 += (pedestalOffset-samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>])*(pedestalOffset-samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00151"></a>00151   }
 <a name="l00152"></a>00152   pedestalsigma= sqrt(sumpedestal2/pedSamples);
 <a name="l00153"></a>00153 
@@ -186,27 +186,27 @@
 <a name="l00159"></a>00159 
 <a name="l00160"></a>00160   <span class="keyword">const</span> <span class="keywordtype">int</span> kThreshold = 4*pedestalsigma;
 <a name="l00161"></a>00161 
-<a name="l00162"></a>00162   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; nsamples; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00163"></a>00163     <span class="keywordtype">double</span> bin_content = -1.*((double)samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] - pedestalOffset);
+<a name="l00162"></a>00162   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; nsamples; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00163"></a>00163     <span class="keywordtype">double</span> bin_content = -1.*((double)samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] - pedestalOffset);
 <a name="l00164"></a>00164     
 <a name="l00165"></a>00165     <span class="keywordtype">double</span> next_bin_content = 0.;
-<a name="l00166"></a>00166     <span class="keywordflow">if</span>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;nsamples-1) next_bin_content = -1.*((double)samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1] - pedestalOffset);
+<a name="l00166"></a>00166     <span class="keywordflow">if</span>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;nsamples-1) next_bin_content = -1.*((double)samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1] - pedestalOffset);
 <a name="l00167"></a>00167 
 <a name="l00168"></a>00168     <span class="keywordflow">if</span>(bin_content &gt;= kThreshold || next_bin_content &gt;= kThreshold){
 <a name="l00169"></a>00169       sig_length_counter++;
 <a name="l00170"></a>00170       sig_over_thr++;
 <a name="l00171"></a>00171       
 <a name="l00172"></a>00172       <span class="keywordflow">if</span> (sig_length_counter == 1){
-<a name="l00173"></a>00173         sig_first_index = <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00173"></a>00173         sig_first_index = <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00174"></a>00174         <span class="comment">// inspect left shoulder of this pulse</span>
 <a name="l00175"></a>00175         <span class="keywordtype">int</span> back;
-<a name="l00176"></a>00176         <span class="keywordflow">for</span>(back=<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-1; back&gt;=0; back--){
+<a name="l00176"></a>00176         <span class="keywordflow">for</span>(back=<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-1; back&gt;=0; back--){
 <a name="l00177"></a>00177           <span class="keywordtype">double</span> cont = -1.*((double)samples[back] - pedestalOffset);
 <a name="l00178"></a>00178 
 <a name="l00179"></a>00179           <span class="comment">// (Serdar) here i made 2 changes, first, instead of 1/4 of the kThreshold</span>
 <a name="l00180"></a>00180           <span class="comment">// i have 3/4, which equals 3 sigma at the left shoulder</span>
 <a name="l00181"></a>00181 
-<a name="l00182"></a>00182           <span class="keywordflow">if</span>(cont &gt; 3*kThreshold/4 &amp;&amp; (<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-back)&lt;4){ 
+<a name="l00182"></a>00182           <span class="keywordflow">if</span>(cont &gt; 3*kThreshold/4 &amp;&amp; (<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>-back)&lt;4){ 
 <a name="l00183"></a>00183             <span class="comment">// accept it still as part of the left shoulder</span>
 <a name="l00184"></a>00184             sig_length_counter++;
 <a name="l00185"></a>00185             sig_first_index = back;             
@@ -216,26 +216,26 @@
 <a name="l00189"></a>00189       }
 <a name="l00190"></a>00190     }
 <a name="l00191"></a>00191     <span class="keywordflow">else</span>{
-<a name="l00192"></a>00192       <span class="keywordflow">if</span> (((bin_content &lt; kThreshold) || (<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> == nsamples - 1)) &amp;&amp; 
+<a name="l00192"></a>00192       <span class="keywordflow">if</span> (((bin_content &lt; kThreshold) || (<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> == nsamples - 1)) &amp;&amp; 
 <a name="l00193"></a>00193           (sig_over_thr &gt;= kLengthThreshold)){
 <a name="l00194"></a>00194         <span class="comment">// It&apos;s the end of the pulse, so let&apos;s include part of the right </span>
 <a name="l00195"></a>00195         <span class="comment">// shoulder</span>
 <a name="l00196"></a>00196         <span class="keywordtype">int</span> forw;  <span class="comment">// index for samples right of momentary position</span>
-<a name="l00197"></a>00197         <span class="keywordflow">for</span>(forw=<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1;forw&lt;nsamples; forw++){
+<a name="l00197"></a>00197         <span class="keywordflow">for</span>(forw=<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>+1;forw&lt;nsamples; forw++){
 <a name="l00198"></a>00198           <span class="keywordtype">double</span> cont = -1.*((double)samples[forw] - pedestalOffset);
-<a name="l00199"></a>00199           <span class="keywordflow">if</span>(cont &gt; kThreshold/4 &amp;&amp; (forw-<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>)&lt;4){
+<a name="l00199"></a>00199           <span class="keywordflow">if</span>(cont &gt; kThreshold/4 &amp;&amp; (forw-<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>)&lt;4){
 <a name="l00200"></a>00200             <span class="comment">// accept it still as part of the left shoulder</span>
 <a name="l00201"></a>00201             sig_length_counter++;
 <a name="l00202"></a>00202           }
 <a name="l00203"></a>00203           <span class="keywordflow">else</span> <span class="keywordflow">break</span>;  <span class="comment">// probably pedestal so let&apos;s stop</span>
-<a name="l00204"></a>00204           <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = forw;
+<a name="l00204"></a>00204           <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = forw;
 <a name="l00205"></a>00205         }
 <a name="l00206"></a>00206         
 <a name="l00207"></a>00207         sig_integral = 0.;
 <a name="l00208"></a>00208         sig_max_height = 0.;
 <a name="l00209"></a>00209         
-<a name="l00210"></a>00210         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = sig_first_index; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; sig_first_index+sig_length_counter; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
-<a name="l00211"></a>00211           <span class="keywordtype">double</span> bin_content = -1.*((double)samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] - pedestalOffset);
+<a name="l00210"></a>00210         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = sig_first_index; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; sig_first_index+sig_length_counter; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++){
+<a name="l00211"></a>00211           <span class="keywordtype">double</span> bin_content = -1.*((double)samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] - pedestalOffset);
 <a name="l00212"></a>00212           sig_integral += bin_content;
 <a name="l00213"></a>00213           <span class="keywordflow">if</span> (bin_content &gt; sig_max_height){
 <a name="l00214"></a>00214             sig_max_height = bin_content;
@@ -267,8 +267,8 @@
 <a name="l00240"></a>00240 
 <a name="l00241"></a>00241   <span class="keywordtype">double</span> energy = <a class="code" href="res__analysis_8cxx.html#a38a11bd7de02576d9029f47188b3317b">findPulse</a>(nsamples, samples);
 <a name="l00242"></a>00242 
-<a name="l00243"></a>00243   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; nsamples; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00244"></a>00244     <a class="code" href="res__analysis_8cxx.html#a6534db57db90adcfdac8a00771b0314f">hSamples</a>-&gt;Fill(channel, samples[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00243"></a>00243   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; nsamples; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00244"></a>00244     <a class="code" href="res__analysis_8cxx.html#a6534db57db90adcfdac8a00771b0314f">hSamples</a>-&gt;Fill(channel, samples[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00245"></a>00245     <a class="code" href="res__analysis_8cxx.html#aa1215ff6ddc03aae103f6f5f47513c80">hChannelNSample</a>-&gt;Fill(channel);
 <a name="l00246"></a>00246     <span class="keywordflow">if</span>(samples[i] &gt; maxSample) {
 <a name="l00247"></a>00247       maxI = i;
@@ -290,17 +290,17 @@
 <a name="l00263"></a>00263   <span class="keywordflow">return</span> 0;
 <a name="l00264"></a>00264 }
 <a name="l00265"></a>00265 
-<a name="l00266"></a><a class="code" href="res__analysis_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">00266</a> <span class="keywordtype">int</span> <a class="code" href="miniana_8c.html#a681f90cedc0c323da19bfef26d8854b5">process_event</a>(<span class="keywordtype">void</span> *pevent, <span class="keywordtype">int</span> <a class="code" href="lrs1821_8c.html#a83a7514b5202f841d4b7a22b2eaece9c">addr</a>, <span class="keywordtype">int</span> fadc)
+<a name="l00266"></a><a class="code" href="res__analysis_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">00266</a> <span class="keywordtype">int</span> <a class="code" href="res__analysis_8cxx.html#a27f3fa1a8feec1713d578b3e75b17f83">process_event</a>(<span class="keywordtype">void</span> *pevent, <span class="keywordtype">int</span> addr, <span class="keywordtype">int</span> fadc)
 <a name="l00267"></a>00267 {
-<a name="l00268"></a>00268   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00268"></a>00268   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 8; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00269"></a>00269 
-<a name="l00270"></a>00270     <span class="keywordflow">if</span>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != fadc &amp;&amp; fadc &gt;= 0) <span class="keywordflow">continue</span>;
+<a name="l00270"></a>00270     <span class="keywordflow">if</span>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> != fadc &amp;&amp; fadc &gt;= 0) <span class="keywordflow">continue</span>;
 <a name="l00271"></a>00271 
 <a name="l00272"></a>00272     <span class="comment">// get the bank</span>
-<a name="l00273"></a>00273     <span class="keywordtype">char</span> <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>[80];
-<a name="l00274"></a>00274     sprintf(name, <span class="stringliteral">&quot;N%c%02x&quot;</span>, <span class="charliteral">&apos;a&apos;</span> + <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, addr);
+<a name="l00273"></a>00273     <span class="keywordtype">char</span> name[80];
+<a name="l00274"></a>00274     sprintf(name, <span class="stringliteral">&quot;N%c%02x&quot;</span>, <span class="charliteral">&apos;a&apos;</span> + <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, addr);
 <a name="l00275"></a>00275     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *raw;
-<a name="l00276"></a>00276     <span class="keywordtype">int</span> bank_size = <a class="code" href="group__msectionh.html#ga191a8ec88c5ff3512bc22d7fa6d1f5dc">bk_locate</a>(pevent, name, &amp;raw);
+<a name="l00276"></a>00276     <span class="keywordtype">int</span> bank_size = bk_locate(pevent, name, &amp;raw);
 <a name="l00277"></a>00277     bank_size = bank_size / 10;
 <a name="l00278"></a>00278 
 <a name="l00279"></a>00279 <span class="preprocessor">#ifdef PRINT_SAMPLES</span>
@@ -314,7 +314,7 @@
 <a name="l00287"></a>00287  
 <a name="l00288"></a>00288     <span class="comment">// loop through words to build up &quot;islands&quot;</span>
 <a name="l00289"></a>00289     <span class="keywordtype">int</span> lastTimestamp = 0;
-<a name="l00290"></a>00290     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; bank_size; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00290"></a>00290     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; bank_size; j++) {
 <a name="l00291"></a>00291 
 <a name="l00292"></a>00292       <span class="comment">// data format:</span>
 <a name="l00293"></a>00293       <span class="comment">//</span>
@@ -325,26 +325,26 @@
 <a name="l00298"></a>00298       <span class="comment">//  35-24       sampleA0</span>
 <a name="l00299"></a>00299       <span class="comment">//  23-12       sampleB1</span>
 <a name="l00300"></a>00300       <span class="comment">//  11-0        sampleA1</span>
-<a name="l00301"></a>00301       <span class="keywordtype">int</span> timestamp =  (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+0] &lt;&lt; 20) |
-<a name="l00302"></a>00302                        (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+1] &lt;&lt; 12) |
-<a name="l00303"></a>00303                        (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+2] &lt;&lt; 4) |
-<a name="l00304"></a>00304                        (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &gt;&gt; 4);
-<a name="l00305"></a>00305       <span class="keywordtype">bool</span> overflowB0 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x08) != 0);
-<a name="l00306"></a>00306       <span class="keywordtype">bool</span> overflowA0 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x04) != 0);
-<a name="l00307"></a>00307       <span class="keywordtype">bool</span> overflowB1 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x02) != 0);
-<a name="l00308"></a>00308       <span class="keywordtype">bool</span> overflowA1 = ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+3] &amp; 0x01) != 0);
+<a name="l00301"></a>00301       <span class="keywordtype">int</span> timestamp =  (raw[j*10+0] &lt;&lt; 20) |
+<a name="l00302"></a>00302                        (raw[j*10+1] &lt;&lt; 12) |
+<a name="l00303"></a>00303                        (raw[j*10+2] &lt;&lt; 4) |
+<a name="l00304"></a>00304                        (raw[j*10+3] &gt;&gt; 4);
+<a name="l00305"></a>00305       <span class="keywordtype">bool</span> overflowB0 = ((raw[j*10+3] &amp; 0x08) != 0);
+<a name="l00306"></a>00306       <span class="keywordtype">bool</span> overflowA0 = ((raw[j*10+3] &amp; 0x04) != 0);
+<a name="l00307"></a>00307       <span class="keywordtype">bool</span> overflowB1 = ((raw[j*10+3] &amp; 0x02) != 0);
+<a name="l00308"></a>00308       <span class="keywordtype">bool</span> overflowA1 = ((raw[j*10+3] &amp; 0x01) != 0);
 <a name="l00309"></a>00309       <span class="keywordtype">int</span> sampleB0 = (overflowB0 &lt;&lt; 12) |
-<a name="l00310"></a>00310                      (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+4] &lt;&lt; 4) |
-<a name="l00311"></a>00311                      (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+5] &gt;&gt; 4);  
+<a name="l00310"></a>00310                      (raw[j*10+4] &lt;&lt; 4) |
+<a name="l00311"></a>00311                      (raw[j*10+5] &gt;&gt; 4);  
 <a name="l00312"></a>00312       <span class="keywordtype">int</span> sampleA0 = (overflowA0 &lt;&lt; 12) |
-<a name="l00313"></a>00313                      ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+5] &amp; 0xf) &lt;&lt; 8) |
-<a name="l00314"></a>00314                      (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+6]);  
+<a name="l00313"></a>00313                      ((raw[j*10+5] &amp; 0xf) &lt;&lt; 8) |
+<a name="l00314"></a>00314                      (raw[j*10+6]);  
 <a name="l00315"></a>00315       <span class="keywordtype">int</span> sampleB1 = (overflowB1 &lt;&lt; 12) |
-<a name="l00316"></a>00316                      (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+7] &lt;&lt; 4) |
-<a name="l00317"></a>00317                      (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+8] &gt;&gt; 4);  
+<a name="l00316"></a>00316                      (raw[j*10+7] &lt;&lt; 4) |
+<a name="l00317"></a>00317                      (raw[j*10+8] &gt;&gt; 4);  
 <a name="l00318"></a>00318       <span class="keywordtype">int</span> sampleA1 = (overflowA1 &lt;&lt; 12) |
-<a name="l00319"></a>00319                      ((raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+8] &amp; 0xf) &lt;&lt; 8) |
-<a name="l00320"></a>00320                      (raw[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>*10+9]);  
+<a name="l00319"></a>00319                      ((raw[j*10+8] &amp; 0xf) &lt;&lt; 8) |
+<a name="l00320"></a>00320                      (raw[j*10+9]);  
 <a name="l00321"></a>00321 
 <a name="l00322"></a>00322      <span class="keywordflow">if</span>(timestamp &lt; lastTimestamp) {
 <a name="l00323"></a>00323        printf(<span class="stringliteral">&quot;Time ordering error!\n&quot;</span>);
@@ -352,7 +352,7 @@
 <a name="l00325"></a>00325 
 <a name="l00326"></a>00326       <span class="keywordflow">if</span>(timestamp != lastTimestamp + 1) {
 <a name="l00327"></a>00327         <span class="keywordflow">if</span>(!firstIsland) {
-<a name="l00328"></a>00328           <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
+<a name="l00328"></a>00328           <span class="keywordtype">int</span> stop = <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
 <a name="l00329"></a>00329 <span class="preprocessor">#ifdef PRINT_SAMPLES</span>
 <a name="l00330"></a>00330 <span class="preprocessor"></span>          printf(<span class="stringliteral">&quot;*\n&quot;</span>);
 <a name="l00331"></a>00331 <span class="preprocessor">#endif</span>
@@ -368,7 +368,7 @@
 <a name="l00341"></a>00341       lastTimestamp = timestamp;
 <a name="l00342"></a>00342 
 <a name="l00343"></a>00343 <span class="preprocessor">#ifdef PRINT_SAMPLES</span>
-<a name="l00344"></a>00344 <span class="preprocessor"></span>      printf(<span class="stringliteral">&quot;fadc=%d t=%d %d %d %d %d\n&quot;</span>, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, timestamp, 
+<a name="l00344"></a>00344 <span class="preprocessor"></span>      printf(<span class="stringliteral">&quot;fadc=%d t=%d %d %d %d %d\n&quot;</span>, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, timestamp, 
 <a name="l00345"></a>00345              sampleA1, sampleB1, sampleA0,sampleB0);
 <a name="l00346"></a>00346 <span class="preprocessor">#endif</span>
 <a name="l00347"></a>00347 <span class="preprocessor"></span>
@@ -379,7 +379,7 @@
 <a name="l00352"></a>00352     }
 <a name="l00353"></a>00353 
 <a name="l00354"></a>00354     <span class="keywordflow">if</span>(islandNsamples != 0) {
-<a name="l00355"></a>00355       <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
+<a name="l00355"></a>00355       <a class="code" href="res__analysis_8cxx.html#ab37bf0466dbd5ed7a00368678eb769b7">processIsland</a>(islandT0*2, islandNsamples, islandSamples, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>);
 <a name="l00356"></a>00356 <span class="preprocessor">#ifdef PRINT_SAMPLES</span>
 <a name="l00357"></a>00357 <span class="preprocessor"></span>       printf(<span class="stringliteral">&quot;*\n&quot;</span>);
 <a name="l00358"></a>00358 <span class="preprocessor">#endif</span>

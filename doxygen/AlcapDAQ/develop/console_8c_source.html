@@ -100,7 +100,7 @@
 <a name="l00073"></a>00073 <span class="comment">/*------------------------------- console info -----------------------------*/</span>
 <a name="l00074"></a>00074 
 <a name="l00075"></a>00075 <span class="preprocessor">#ifndef LINUX</span>
-<a name="l00076"></a><a class="code" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">00076</a> <span class="preprocessor"></span>        <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">t_type</a> = <a class="code" href="console_8h.html#ae23071be57e26c91448e673ea04e36bc">TERM_NOT_INIT</a>;
+<a name="l00076"></a><a class="code" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">00076</a> <span class="preprocessor"></span>        BOOL <a class="code" href="console_8c.html#a2e299e97eeece11c63a35872e0cae919">t_type</a> = <a class="code" href="console_8h.html#ae23071be57e26c91448e673ea04e36bc">TERM_NOT_INIT</a>;
 <a name="l00077"></a>00077 <span class="preprocessor">#endif</span>
 <a name="l00078"></a>00078 <span class="preprocessor"></span>
 <a name="l00079"></a>00079 
@@ -124,7 +124,7 @@
 <a name="l00097"></a>00097 <span class="preprocessor"></span>
 <a name="l00098"></a>00098   COORD coordScreen = { 0, 0 };    <span class="comment">/* home of the cursor */</span>
 <a name="l00099"></a>00099   CONSOLE_SCREEN_BUFFER_INFO csbi; <span class="comment">/* to get buffer info */</span>  
-<a name="l00100"></a>00100   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> bSuccess;
+<a name="l00100"></a>00100   BOOL bSuccess;
 <a name="l00101"></a>00101   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> cCharsWritten;
 <a name="l00102"></a>00102   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwConSize; <span class="comment">/* number of character cells in the current buffer */</span>
 <a name="l00103"></a>00103 
@@ -201,7 +201,7 @@
 <a name="l00174"></a>00174 {
 <a name="l00175"></a>00175 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00176"></a>00176 <span class="preprocessor"></span>
-<a name="l00177"></a>00177   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00177"></a>00177   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00178"></a>00178   
 <a name="l00179"></a>00179   <span class="keywordflow">while</span>( ( i = getch() ) == ERR );
 <a name="l00180"></a>00180   <span class="keywordflow">return</span> i;
@@ -229,7 +229,7 @@
 <a name="l00202"></a>00202 {
 <a name="l00203"></a>00203 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00204"></a>00204 <span class="preprocessor"></span>
-<a name="l00205"></a>00205   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, g;  
+<a name="l00205"></a>00205   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, g;  
 <a name="l00206"></a>00206   
 <a name="l00207"></a>00207   nodelay(stdscr, <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);
 <a name="l00208"></a>00208   i = ( ( g = getch() ) == ERR ? 0 : g );
@@ -261,11 +261,11 @@
 <a name="l00234"></a>00234 <span class="comment">/* Read formatted data from the console into the locations given by argument  */</span>
 <a name="l00235"></a>00235 <span class="comment">/******************************************************************************/</span>
 <a name="l00236"></a>00236 
-<a name="l00237"></a><a class="code" href="console_8h.html#a8be2cf4fd0781895a77ba503479146e8">00237</a> <span class="keywordtype">int</span> <a class="code" href="console_8c.html#a222bf5b13746056f1067423ba69498a7">con_scanf</a>(<span class="keywordtype">char</span> *<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>, <span class="keywordtype">void</span> *app)
+<a name="l00237"></a><a class="code" href="console_8h.html#a8be2cf4fd0781895a77ba503479146e8">00237</a> <span class="keywordtype">int</span> <a class="code" href="console_8c.html#a222bf5b13746056f1067423ba69498a7">con_scanf</a>(<span class="keywordtype">char</span> *fmt, <span class="keywordtype">void</span> *app)
 <a name="l00238"></a>00238 {
 <a name="l00239"></a>00239 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00240"></a>00240 <span class="preprocessor"></span>
-<a name="l00241"></a>00241   <span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00241"></a>00241   <span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00242"></a>00242 
 <a name="l00243"></a>00243   echo();
 <a name="l00244"></a>00244   i = scanw(fmt,app);    
@@ -300,12 +300,12 @@
 <a name="l00273"></a>00273 <span class="comment">/* Print formatted output to the standard output stream                       */</span> 
 <a name="l00274"></a>00274 <span class="comment">/******************************************************************************/</span>
 <a name="l00275"></a>00275 
-<a name="l00276"></a><a class="code" href="console_8h.html#a14f63b78998c789ca82b42c716cda5fe">00276</a> <span class="keywordtype">int</span> <a class="code" href="console_8c.html#a71ed14f0eea1ab21bf899157a22f6a00">con_printf</a>(<span class="keywordtype">char</span> *<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,...)
+<a name="l00276"></a><a class="code" href="console_8h.html#a14f63b78998c789ca82b42c716cda5fe">00276</a> <span class="keywordtype">int</span> <a class="code" href="console_8c.html#a71ed14f0eea1ab21bf899157a22f6a00">con_printf</a>(<span class="keywordtype">char</span> *fmt,...)
 <a name="l00277"></a>00277 {
 <a name="l00278"></a>00278 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00279"></a>00279 <span class="preprocessor"></span>
 <a name="l00280"></a>00280   va_list marker;
-<a name="l00281"></a>00281   <span class="keywordtype">int</span>     <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00281"></a>00281   <span class="keywordtype">int</span>     <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00282"></a>00282         
 <a name="l00283"></a>00283   va_start(marker,fmt);
 <a name="l00284"></a>00284   i = vwprintw(stdscr,fmt,marker);
@@ -370,12 +370,12 @@
 <a name="l00343"></a>00343 <span class="comment">/* Print formatted output on the X,Y screen position                        */</span>
 <a name="l00344"></a>00344 <span class="comment">/****************************************************************************/</span>
 <a name="l00345"></a>00345 
-<a name="l00346"></a><a class="code" href="console_8h.html#a5e80b919782550a9aab201d3fd37f1b5">00346</a> <span class="keywordtype">int</span> <a class="code" href="console_8c.html#a43ea66aad384613d618039e974de220c">con_printf_xy</a>(<a class="code" href="console_8h.html#ad46b2ebcd4c426b06cda147ddc1001e7">uint</a> xpos, <a class="code" href="console_8h.html#ad46b2ebcd4c426b06cda147ddc1001e7">uint</a> ypos, <span class="keywordtype">char</span> *<a class="code" href="ybos_8c.html#a7ab994c987ffba39688c74f10907429c">fmt</a>,...)
+<a name="l00346"></a><a class="code" href="console_8h.html#a5e80b919782550a9aab201d3fd37f1b5">00346</a> <span class="keywordtype">int</span> <a class="code" href="console_8c.html#a43ea66aad384613d618039e974de220c">con_printf_xy</a>(<a class="code" href="console_8h.html#ad46b2ebcd4c426b06cda147ddc1001e7">uint</a> xpos, <a class="code" href="console_8h.html#ad46b2ebcd4c426b06cda147ddc1001e7">uint</a> ypos, <span class="keywordtype">char</span> *fmt,...)
 <a name="l00347"></a>00347 {
 <a name="l00348"></a>00348 <span class="preprocessor">#ifdef LINUX</span>
 <a name="l00349"></a>00349 <span class="preprocessor"></span>
 <a name="l00350"></a>00350   va_list marker;
-<a name="l00351"></a>00351   <span class="keywordtype">int</span>     <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00351"></a>00351   <span class="keywordtype">int</span>     <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
 <a name="l00352"></a>00352 
 <a name="l00353"></a>00353   move(ypos-1, xpos-1);     
 <a name="l00354"></a>00354   refresh();
@@ -424,7 +424,7 @@
 <a name="l00397"></a>00397 <span class="preprocessor"></span>
 <a name="l00398"></a>00398   COORD coordScreen = { 0, 0 };    <span class="comment">/* home of the cursor */</span>
 <a name="l00399"></a>00399   CONSOLE_SCREEN_BUFFER_INFO csbi; <span class="comment">/* to get buffer info */</span>
-<a name="l00400"></a>00400   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> bSuccess;
+<a name="l00400"></a>00400   BOOL bSuccess;
 <a name="l00401"></a>00401   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> cCharsWritten;
 <a name="l00402"></a>00402   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwConSize; <span class="comment">/* number of character cells in the current buffer */</span>
 <a name="l00403"></a>00403 
@@ -467,7 +467,7 @@
 <a name="l00440"></a>00440 <span class="preprocessor"></span>
 <a name="l00441"></a>00441   COORD coordScreen;
 <a name="l00442"></a>00442   CONSOLE_SCREEN_BUFFER_INFO csbi; <span class="comment">/* to get buffer info */</span>
-<a name="l00443"></a>00443   <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> bSuccess;
+<a name="l00443"></a>00443   BOOL bSuccess;
 <a name="l00444"></a>00444   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> cCharsWritten;
 <a name="l00445"></a>00445   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwLineSize; <span class="comment">/* number of character cells in the line to clear */</span>
 <a name="l00446"></a>00446   <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> dwConSize; <span class="comment">/* number of character cells in the current buffer */</span>

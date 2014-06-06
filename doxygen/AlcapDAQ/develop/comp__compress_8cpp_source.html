@@ -32,14 +32,14 @@
 <a name="l00006"></a>00006 <span class="comment"></span>
 <a name="l00007"></a>00007 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00010"></a>00010 
 <a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="mucap__compress_8h.html">mucap_compress.h</a>&quot;</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="mucap__structures_8h.html">mucap_structures.h</a>&quot;</span>
 <a name="l00013"></a>00013 
 <a name="l00014"></a><a class="code" href="mucap__compress_8h.html#a6a679d50bb1ef8fbbfe7fdaccd641eb0">00014</a> <a class="code" href="structhuffman__table.html">huffman_table</a> <a class="code" href="comp__compress_8cpp.html#a6a679d50bb1ef8fbbfe7fdaccd641eb0">cmp_bits_huffman</a>[2];
 <a name="l00015"></a><a class="code" href="mucap__compress_8h.html#a63610c548aa468e4dfa414dd061e8205">00015</a> <a class="code" href="structhuffman__table.html">huffman_table</a> <a class="code" href="comp__compress_8cpp.html#a63610c548aa468e4dfa414dd061e8205">cmp_channel_huffman</a>;
-<a name="l00016"></a><a class="code" href="mucap__compress_8h.html#a2579964081d7e77b11b77695ea6625e5">00016</a> <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="comp__compress_8cpp.html#a2579964081d7e77b11b77695ea6625e5">should_compress_comp</a> = <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;
+<a name="l00016"></a><a class="code" href="mucap__compress_8h.html#a2579964081d7e77b11b77695ea6625e5">00016</a> BOOL <a class="code" href="comp__compress_8cpp.html#a2579964081d7e77b11b77695ea6625e5">should_compress_comp</a> = <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;
 <a name="l00017"></a>00017 
 <a name="l00018"></a><a class="code" href="mucap__compress_8h.html#a1a89c5fe4a4d1c7bd3ff9a66e65cbb07">00018</a> <span class="keywordtype">void</span> <a class="code" href="comp__compress_8cpp.html#a1a89c5fe4a4d1c7bd3ff9a66e65cbb07">comp_optimize</a>()
 <a name="l00019"></a>00019 {
@@ -62,12 +62,12 @@
 <a name="l00036"></a>00036   <a class="code" href="huffman_8cpp.html#a5e92c1dfa160fcef488964550b48b79e">load_huffman</a>(<span class="stringliteral">&quot;/Compression/Lossless/COMP/Huffman/Bits 0&quot;</span>, &amp;cmp_bits_huffman[0]);
 <a name="l00037"></a>00037   <a class="code" href="huffman_8cpp.html#a5e92c1dfa160fcef488964550b48b79e">load_huffman</a>(<span class="stringliteral">&quot;/Compression/Lossless/COMP/Huffman/Bits 1&quot;</span>, &amp;cmp_bits_huffman[1]);
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039   <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a> = <span class="keyword">sizeof</span>(<a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a>);
-<a name="l00040"></a>00040   <a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, <span class="stringliteral">&quot;/Compression/Lossless/COMP/Enabled&quot;</span>, &amp;<a class="code" href="comp__compress_8cpp.html#a2579964081d7e77b11b77695ea6625e5">should_compress_comp</a>,
-<a name="l00041"></a>00041     &amp;size, <a class="code" href="group__mdefineh.html#ga252eb84661dfaa5959b5cb316117d696">TID_BOOL</a>, <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);
+<a name="l00039"></a>00039   <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a> = <span class="keyword">sizeof</span>(BOOL);
+<a name="l00040"></a>00040   db_get_value(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, <span class="stringliteral">&quot;/Compression/Lossless/COMP/Enabled&quot;</span>, &amp;<a class="code" href="comp__compress_8cpp.html#a2579964081d7e77b11b77695ea6625e5">should_compress_comp</a>,
+<a name="l00041"></a>00041     &amp;size, TID_BOOL, <a class="code" href="p30_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>);
 <a name="l00042"></a>00042 }
 <a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="comp__compress_8cpp.html#a2897bffdb4b29dbd769dee55ab353dcc">00044</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a2897bffdb4b29dbd769dee55ab353dcc">sign_extend</a>(<span class="keywordtype">int</span> <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, <span class="keywordtype">int</span> bits)
+<a name="l00044"></a><a class="code" href="comp__compress_8cpp.html#a2897bffdb4b29dbd769dee55ab353dcc">00044</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a2897bffdb4b29dbd769dee55ab353dcc">sign_extend</a>(<span class="keywordtype">int</span> in, <span class="keywordtype">int</span> bits)
 <a name="l00045"></a>00045 {
 <a name="l00046"></a>00046   <span class="keywordtype">int</span> sign_bit = (1 &lt;&lt; (bits-1));
 <a name="l00047"></a>00047   <span class="keywordflow">if</span>(in &amp; sign_bit) {
@@ -77,7 +77,7 @@
 <a name="l00051"></a>00051   }
 <a name="l00052"></a>00052 }
 <a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="comp__compress_8cpp.html#a9e42e5107c509f0fc3f4ca91a0f78395">00054</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a9e42e5107c509f0fc3f4ca91a0f78395">encode_cmp_bits</a>(<a class="code" href="unioncomp__word.html">comp_word</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>)
+<a name="l00054"></a><a class="code" href="comp__compress_8cpp.html#a9e42e5107c509f0fc3f4ca91a0f78395">00054</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a9e42e5107c509f0fc3f4ca91a0f78395">encode_cmp_bits</a>(<a class="code" href="unioncomp__word.html">comp_word</a> * input, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * output)
 <a name="l00055"></a>00055 {
 <a name="l00056"></a>00056   <span class="comment">// </span>
 <a name="l00057"></a>00057   <span class="comment">// Run-length encode the bits in the compressor data.  See the comment</span>
@@ -87,14 +87,14 @@
 <a name="l00061"></a>00061   <span class="keywordtype">int</span> num_bit_words = 0;
 <a name="l00062"></a>00062   <a class="code" href="structrle__state.html">rle_state</a> s = { 0, 0, {128, 128}, 0, cmp_bits_huffman };
 <a name="l00063"></a>00063 
-<a name="l00064"></a>00064   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00064"></a>00064   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00065"></a>00065     <span class="comment">// This word may be a header/time word:</span>
 <a name="l00066"></a>00066     <span class="keywordflow">if</span> (num_bit_words == 0) {
-<a name="l00067"></a>00067       num_bit_words = input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> + input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a>;
+<a name="l00067"></a>00067       num_bit_words = input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> + input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a>;
 <a name="l00068"></a>00068     } <span class="keywordflow">else</span> {
-<a name="l00069"></a>00069       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; 4; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
+<a name="l00069"></a>00069       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 4; j++) {
 <a name="l00070"></a>00070 
-<a name="l00071"></a>00071         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> b = input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#acec73fb0750895f6522a8a32156516aa">bytes</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>];
+<a name="l00071"></a>00071         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> b = input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#acec73fb0750895f6522a8a32156516aa">bytes</a>[j];
 <a name="l00072"></a>00072         <a class="code" href="mucap__compress_8h.html#a7b2a49e299d8ab4bf7660a2dc15cbb3b">rle_put</a>(b, &amp;s, output);
 <a name="l00073"></a>00073       }
 <a name="l00074"></a>00074       num_bit_words--;
@@ -104,7 +104,7 @@
 <a name="l00078"></a>00078   <span class="keywordflow">return</span> <a class="code" href="mucap__compress_8h.html#a046b47629347b32d4988db528e7ea64a">flush_rle</a>(&amp;s, output);
 <a name="l00079"></a>00079 }
 <a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="comp__compress_8cpp.html#a346632d04fc9816248986de9bc61a45c">00081</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a346632d04fc9816248986de9bc61a45c">encode_cmp_times</a>(<a class="code" href="unioncomp__word.html">comp_word</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>)
+<a name="l00081"></a><a class="code" href="comp__compress_8cpp.html#a346632d04fc9816248986de9bc61a45c">00081</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a346632d04fc9816248986de9bc61a45c">encode_cmp_times</a>(<a class="code" href="unioncomp__word.html">comp_word</a> * input, <span class="keywordtype">int</span> input_size, <a class="code" href="structio__buffer.html">io_buffer</a> * output)
 <a name="l00082"></a>00082 {
 <a name="l00083"></a>00083   <span class="comment">// </span>
 <a name="l00084"></a>00084   <span class="comment">// Encode the FPGA numbers and times in the compressor data.  </span>
@@ -120,19 +120,19 @@
 <a name="l00094"></a>00094   <span class="keywordtype">int</span> num_bit_words = 0;
 <a name="l00095"></a>00095   <span class="keywordtype">int</span> prev_time = 0;
 <a name="l00096"></a>00096 
-<a name="l00097"></a>00097   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00097"></a>00097   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; input_size; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00098"></a>00098     <span class="comment">// This word may be a header/time word:</span>
 <a name="l00099"></a>00099     <span class="keywordflow">if</span> (num_bit_words == 0) {
-<a name="l00100"></a>00100       num_bit_words = input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> + input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a>;
+<a name="l00100"></a>00100       num_bit_words = input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> + input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a>;
 <a name="l00101"></a>00101 
 <a name="l00102"></a>00102       <span class="keywordflow">if</span> (num_bit_words != 1 &amp;&amp; num_bit_words != 2) {
 <a name="l00103"></a>00103         printf(<span class="stringliteral">&quot;Warning: corrupted compressor data.\n&quot;</span>);
 <a name="l00104"></a>00104       }
 <a name="l00105"></a>00105 
-<a name="l00106"></a>00106       <span class="keywordtype">int</span> <a class="code" href="ADCS_8h.html#adf7dff2c57c0da9a4a2b70e3e815be31">channel</a> = input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#ad125c51e374f1f9e589b48b19ffccb2d">fpga</a> | input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> &lt;&lt; 6 | input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a> &lt;&lt; 7;
+<a name="l00106"></a>00106       <span class="keywordtype">int</span> <a class="code" href="ADCS_8h.html#adf7dff2c57c0da9a4a2b70e3e815be31">channel</a> = input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#ad125c51e374f1f9e589b48b19ffccb2d">fpga</a> | input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> &lt;&lt; 6 | input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a> &lt;&lt; 7;
 <a name="l00107"></a>00107       <a class="code" href="huffman_8cpp.html#a81a23f1eabc888ce48ec931fb80b1179">huffman_put_symbol</a>(&amp;cmp_channel_huffman, output, channel);
 <a name="l00108"></a>00108 
-<a name="l00109"></a>00109       <span class="keywordtype">int</span> time_diff = input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#ab70613a79b6cd2757b862ae4a4a3a244">time</a> - prev_time;
+<a name="l00109"></a>00109       <span class="keywordtype">int</span> time_diff = input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#ab70613a79b6cd2757b862ae4a4a3a244">time</a> - prev_time;
 <a name="l00110"></a>00110 
 <a name="l00111"></a>00111       <span class="keywordflow">if</span> (time_diff &lt; 8 &amp;&amp; time_diff &gt;= -8) {
 <a name="l00112"></a>00112         <a class="code" href="io__buffer_8cpp.html#a7050a18b99c505bf329251c5dc435604">io_buffer_put</a>(output, 0, 1);
@@ -145,7 +145,7 @@
 <a name="l00119"></a>00119         <a class="code" href="io__buffer_8cpp.html#a7050a18b99c505bf329251c5dc435604">io_buffer_put</a>(output, time_diff &amp; 0xffffff, 24);
 <a name="l00120"></a>00120       }
 <a name="l00121"></a>00121 
-<a name="l00122"></a>00122       prev_time = input[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#ab70613a79b6cd2757b862ae4a4a3a244">time</a>;
+<a name="l00122"></a>00122       prev_time = input[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#ab70613a79b6cd2757b862ae4a4a3a244">time</a>;
 <a name="l00123"></a>00123     }
 <a name="l00124"></a>00124 
 <a name="l00125"></a>00125     <span class="keywordflow">else</span> {
@@ -156,7 +156,7 @@
 <a name="l00130"></a>00130   <span class="keywordflow">return</span> <a class="code" href="io__buffer_8cpp.html#af53dac5c67e861179d7a37f3cbe75961">flush_output_buffer</a>(output);
 <a name="l00131"></a>00131 }
 <a name="l00132"></a>00132 
-<a name="l00133"></a><a class="code" href="mucap__compress_8h.html#a57fa8a60fa054079752ea0bffb085a3c">00133</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a57fa8a60fa054079752ea0bffb085a3c">cmp_compress</a>(<a class="code" href="unioncomp__word.html">comp_word</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <span class="keywordtype">int</span> userParam)
+<a name="l00133"></a><a class="code" href="mucap__compress_8h.html#a57fa8a60fa054079752ea0bffb085a3c">00133</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a57fa8a60fa054079752ea0bffb085a3c">cmp_compress</a>(<a class="code" href="unioncomp__word.html">comp_word</a> * input, <span class="keywordtype">int</span> input_size, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *output, <span class="keywordtype">int</span> userParam)
 <a name="l00134"></a>00134 {
 <a name="l00135"></a>00135   <span class="comment">// </span>
 <a name="l00136"></a>00136   <span class="comment">// Encode compressor data, which are in the following format:</span>
@@ -206,7 +206,7 @@
 <a name="l00180"></a>00180   <span class="keywordflow">return</span> compressed_time_size + compressed_bits_size + 3 * <span class="keyword">sizeof</span>(int);
 <a name="l00181"></a>00181 }
 <a name="l00182"></a>00182 
-<a name="l00183"></a><a class="code" href="comp__compress_8cpp.html#a7c25f06e6b56f30477bcd3740b1d017e">00183</a> <span class="keywordtype">void</span> <a class="code" href="comp__compress_8cpp.html#a7c25f06e6b56f30477bcd3740b1d017e">decode_cmp_times</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <a class="code" href="unioncomp__word.html">comp_word</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>)
+<a name="l00183"></a><a class="code" href="comp__compress_8cpp.html#a7c25f06e6b56f30477bcd3740b1d017e">00183</a> <span class="keywordtype">void</span> <a class="code" href="comp__compress_8cpp.html#a7c25f06e6b56f30477bcd3740b1d017e">decode_cmp_times</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * input, <a class="code" href="unioncomp__word.html">comp_word</a> * output)
 <a name="l00184"></a>00184 {
 <a name="l00185"></a>00185   <span class="comment">// </span>
 <a name="l00186"></a>00186   <span class="comment">// Reverse the encoding performed by encode_times.</span>
@@ -216,7 +216,7 @@
 <a name="l00190"></a>00190   <span class="keywordtype">int</span> output_size = 0;
 <a name="l00191"></a>00191   <span class="keywordtype">int</span> prev_time = 0;
 <a name="l00192"></a>00192 
-<a name="l00193"></a>00193   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; num_words_in; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00193"></a>00193   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; num_words_in; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00194"></a>00194 
 <a name="l00195"></a>00195     <span class="keywordtype">int</span> <a class="code" href="ADCS_8h.html#adf7dff2c57c0da9a4a2b70e3e815be31">channel</a> = <a class="code" href="huffman_8cpp.html#ad6be44228ca3e1de5375487dc336b73d">huffman_get_symbol</a>(&amp;cmp_channel_huffman, input);
 <a name="l00196"></a>00196     output[output_size].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#ad125c51e374f1f9e589b48b19ffccb2d">fpga</a> = channel &amp; 0x3f;
@@ -248,25 +248,25 @@
 <a name="l00222"></a>00222   }
 <a name="l00223"></a>00223 }
 <a name="l00224"></a>00224 
-<a name="l00225"></a><a class="code" href="comp__compress_8cpp.html#af99359e17a3085dfab9ec729c28a92e8">00225</a> <span class="keywordtype">void</span> <a class="code" href="comp__compress_8cpp.html#af99359e17a3085dfab9ec729c28a92e8">decode_cmp_bits</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <a class="code" href="unioncomp__word.html">comp_word</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <span class="keywordtype">int</span> output_size)
+<a name="l00225"></a><a class="code" href="comp__compress_8cpp.html#af99359e17a3085dfab9ec729c28a92e8">00225</a> <span class="keywordtype">void</span> <a class="code" href="comp__compress_8cpp.html#af99359e17a3085dfab9ec729c28a92e8">decode_cmp_bits</a>(<a class="code" href="structio__buffer.html">io_buffer</a> * input, <a class="code" href="unioncomp__word.html">comp_word</a> * output, <span class="keywordtype">int</span> output_size)
 <a name="l00226"></a>00226 {
 <a name="l00227"></a>00227   <span class="keywordtype">int</span> num_bit_words = 0;
 <a name="l00228"></a>00228 
 <a name="l00229"></a>00229   <a class="code" href="structrle__state.html">rle_state</a> s = { 1, 0, {128, 128}, 0, cmp_bits_huffman };
 <a name="l00230"></a>00230 
-<a name="l00231"></a>00231   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; output_size; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00231"></a>00231   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; output_size; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00232"></a>00232     <span class="keywordflow">if</span> (num_bit_words == 0) {
-<a name="l00233"></a>00233       num_bit_words = output[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> + output[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a>;
+<a name="l00233"></a>00233       num_bit_words = output[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#a2dccd5ad410c2a49bdc81c33185a23b3">a</a> + output[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#a7abe9633f11c2fd465a76b7859fdb3cc">r1</a>.<a class="code" href="unioncomp__word.html#aa8baa6b49ef1ab3b5d2e0f7c421bd3d5">b</a>;
 <a name="l00234"></a>00234     } <span class="keywordflow">else</span> {
-<a name="l00235"></a>00235       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> = 0; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a> &lt; 4; <a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>++) {
-<a name="l00236"></a>00236         output[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#acec73fb0750895f6522a8a32156516aa">bytes</a>[<a class="code" href="odbhist_8c.html#a2df6784bd380a288cf2c3e7e2c43a6b8">j</a>] = <a class="code" href="mucap__compress_8h.html#a03a609e68b24e7234190414c2cb95408">rle_get</a>(input, &amp;s);
+<a name="l00235"></a>00235       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 4; j++) {
+<a name="l00236"></a>00236         output[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>].<a class="code" href="unioncomp__word.html#acec73fb0750895f6522a8a32156516aa">bytes</a>[j] = <a class="code" href="mucap__compress_8h.html#a03a609e68b24e7234190414c2cb95408">rle_get</a>(input, &amp;s);
 <a name="l00237"></a>00237       }
 <a name="l00238"></a>00238       num_bit_words--;
 <a name="l00239"></a>00239     }
 <a name="l00240"></a>00240   }
 <a name="l00241"></a>00241 }
 <a name="l00242"></a>00242 
-<a name="l00243"></a><a class="code" href="mucap__compress_8h.html#a121793e8213834634095e0a3343eaf54">00243</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a121793e8213834634095e0a3343eaf54">cmp_expand</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="scs__210_8c.html#aa61c972cf27836eece635f64c459c512">input</a>, <span class="keywordtype">int</span> input_size, <a class="code" href="unioncomp__word.html">comp_word</a> * <a class="code" href="scs__210_8c.html#a859e9f68c1c035565d6729c59fd894ae">output</a>, <span class="keywordtype">int</span> userParam)
+<a name="l00243"></a><a class="code" href="mucap__compress_8h.html#a121793e8213834634095e0a3343eaf54">00243</a> <span class="keywordtype">int</span> <a class="code" href="comp__compress_8cpp.html#a121793e8213834634095e0a3343eaf54">cmp_expand</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *input, <span class="keywordtype">int</span> input_size, <a class="code" href="unioncomp__word.html">comp_word</a> * output, <span class="keywordtype">int</span> userParam)
 <a name="l00244"></a>00244 {
 <a name="l00245"></a>00245   <span class="comment">// </span>
 <a name="l00246"></a>00246   <span class="comment">// Uncompress the data produced by cmp_compress().</span>

@@ -55,7 +55,7 @@
 <a name="l00028"></a>00028   <span class="comment">// Any value of T will probably be seen as minimized, which it</span>
 <a name="l00029"></a>00029   <span class="comment">// almost certainly will not be.</span>
 <a name="l00030"></a>00030   <span class="keywordtype">double</span> chi2 = 0.;
-<a name="l00031"></a>00031   <span class="keywordtype">double</span> <a class="code" href="c8051F000_8h.html#af189112e4c9ed7a0cb66d92038a3265f">P</a> = par[0];
+<a name="l00031"></a>00031   <span class="keywordtype">double</span> P = par[0];
 <a name="l00032"></a>00032   <span class="keywordtype">double</span> A = par[1];
 <a name="l00033"></a>00033   <span class="keywordtype">int</span> T_i = (int)par[2];            <span class="comment">// Integral part of time shift</span>
 <a name="l00034"></a>00034   <span class="keywordtype">double</span> T_f = par[2] - (double)T_i; <span class="comment">// Floating point offset for linear interpolation</span>
@@ -70,10 +70,10 @@
 <a name="l00043"></a>00043     std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: Fit of two histograms involves shifting one out-of-bounds (no overlap)!&quot;</span> &lt;&lt; std::endl;
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045   <span class="keywordtype">double</span> f;
-<a name="l00046"></a>00046   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = bounds[0]; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt;= bounds[1]; ++<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
-<a name="l00047"></a>00047     f = <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - T_i) + (<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - T_i + 1) - <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - T_i)) * T_f;
+<a name="l00046"></a>00046   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = bounds[0]; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt;= bounds[1]; ++<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) {
+<a name="l00047"></a>00047     f = <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - T_i) + (<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - T_i + 1) - <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> - T_i)) * T_f;
 <a name="l00048"></a>00048     f = A * f + P;
-<a name="l00049"></a>00049     chi2 += std::pow((<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) - f) / <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinError(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>), 2.);
+<a name="l00049"></a>00049     chi2 += std::pow((<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>) - f) / <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinError(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>), 2.);
 <a name="l00050"></a>00050   }
 <a name="l00051"></a>00051 
 <a name="l00052"></a>00052   <span class="keyword">static</span> <span class="keywordtype">bool</span> print_dbg = <span class="keyword">true</span>;

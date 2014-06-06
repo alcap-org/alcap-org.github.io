@@ -58,7 +58,7 @@ Inheritance diagram for PlotAmplitude:</div>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotAmplitude.html#a294bf2dc055241f59ca05264fc1451c1">ProcessEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="TRawAnalysis_8cpp.html#a0aa23eb032fcbef28f693b94607f104c">gData</a>, <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="MV1724ProcessRaw_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="webpaw_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>&lt; <a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>, TH1F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotAmplitude.html#aa76e172c1138fa8838bb8efc461b2009">fAmplitudePlots</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH1F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotAmplitude.html#aa76e172c1138fa8838bb8efc461b2009">fAmplitudePlots</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
@@ -291,7 +291,7 @@ Inheritance diagram for PlotAmplitude:</div>
 
 <p>Definition at line <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">37</a> of file <a class="el" href="PlotAmplitude_8cpp_source.html">PlotAmplitude.cpp</a>.</p>
 
-<p>References <a class="el" href="PlotAmplitude_8h_source.html#l00018">fAmplitudePlots</a>, <a class="el" href="main_8cpp_source.html#l00047">gAnalysedPulseMap</a>, <a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">TSetupData::GetBankName()</a>, <a class="el" href="FillHistBase_8h_source.html#l00040">FillHistBase::GetName()</a>, <a class="el" href="TSetupData_8h_source.html#l00054">TSetupData::GetNBits()</a>, <a class="el" href="mgd_8c_source.html#l01468">n_bits</a>, and <a class="el" href="scs__310__ql355p_8c_source.html#l00060">string</a>.</p>
+<p>References <a class="el" href="PlotAmplitude_8h_source.html#l00018">fAmplitudePlots</a>, <a class="el" href="main_8cpp_source.html#l00047">gAnalysedPulseMap</a>, <a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">TSetupData::GetBankName()</a>, <a class="el" href="FillHistBase_8h_source.html#l00040">FillHistBase::GetName()</a>, and <a class="el" href="TSetupData_8h_source.html#l00054">TSetupData::GetNBits()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037                                                                      {
 <a name="l00038"></a>00038 
@@ -299,16 +299,16 @@ Inheritance diagram for PlotAmplitude:</div>
 <a name="l00040"></a>00040   <span class="comment">//  std::cout &lt;&lt; &quot;Size of gAnalysedPulseMap &quot; &lt;&lt; gAnalysedPulseMap.size() &lt;&lt; std::endl;</span>
 <a name="l00041"></a>00041   <span class="keywordflow">for</span> (StringAnalPulseMap::iterator <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a> = <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin(); <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a> != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>++) {
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> detname = <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>-&gt;first;
-<a name="l00044"></a>00044     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> keyname = <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>-&gt;first + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322">GetName</a>();
+<a name="l00043"></a>00043     std::string detname = <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>-&gt;first;
+<a name="l00044"></a>00044     std::string keyname = <a class="code" href="DetectorMap_8h.html#a44824fb1a1abf0ff3b49ea05b78d7a1a">detIter</a>-&gt;first + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322">GetName</a>();
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046     <span class="comment">// Create the histogram if it&apos;s not been created yet</span>
 <a name="l00047"></a>00047     <span class="keywordflow">if</span> ( <a class="code" href="classPlotAmplitude.html#aa76e172c1138fa8838bb8efc461b2009">fAmplitudePlots</a>.find(keyname) == <a class="code" href="classPlotAmplitude.html#aa76e172c1138fa8838bb8efc461b2009">fAmplitudePlots</a>.end() ) {
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049       <span class="comment">// hAmplitude</span>
-<a name="l00050"></a>00050       <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_Amplitude&quot;</span>;
-<a name="l00051"></a>00051       <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> histtitle = <span class="stringliteral">&quot;Plot of the amplitude of pulses in the &quot;</span> + detname + <span class="stringliteral">&quot; detector&quot;</span>;
-<a name="l00052"></a>00052       <span class="keywordtype">int</span> <a class="code" href="mgd_8c.html#a0afc02d985a2fd8aa308c655eada57ba">n_bits</a> = gSetup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detname));
+<a name="l00050"></a>00050       std::string histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_Amplitude&quot;</span>;
+<a name="l00051"></a>00051       std::string histtitle = <span class="stringliteral">&quot;Plot of the amplitude of pulses in the &quot;</span> + detname + <span class="stringliteral">&quot; detector&quot;</span>;
+<a name="l00052"></a>00052       <span class="keywordtype">int</span> n_bits = gSetup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detname));
 <a name="l00053"></a>00053       <span class="keywordtype">double</span> max_adc_value = std::pow(2, n_bits);
 <a name="l00054"></a>00054       TH1F* hAmplitude = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), max_adc_value,0,max_adc_value);
 <a name="l00055"></a>00055       hAmplitude-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Amplitude [ADC value]&quot;</span>);
@@ -397,7 +397,7 @@ Inheritance diagram for PlotAmplitude:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="webpaw_8c.html#a7b00b1bfd666e26484471bd17a74eaa9">std::map</a>&lt;<a class="el" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>, TH1F*&gt; <a class="el" href="classPlotAmplitude.html#aa76e172c1138fa8838bb8efc461b2009">PlotAmplitude::fAmplitudePlots</a><code> [private]</code></td>
+          <td class="memname">std::map&lt;std::string, TH1F*&gt; <a class="el" href="classPlotAmplitude.html#aa76e172c1138fa8838bb8efc461b2009">PlotAmplitude::fAmplitudePlots</a><code> [private]</code></td>
         </tr>
       </table>
 </div>

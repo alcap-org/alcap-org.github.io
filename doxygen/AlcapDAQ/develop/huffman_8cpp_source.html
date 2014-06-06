@@ -33,7 +33,7 @@
 <a name="l00007"></a>00007 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <a name="l00008"></a>00008 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
 <a name="l00009"></a>00009 
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="midas_8h.html">midas.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;midas.h&quot;</span>
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="mucap__compress_8h.html">mucap_compress.h</a>&quot;</span>
 <a name="l00013"></a>00013 
@@ -51,7 +51,7 @@
 <a name="l00025"></a>00025 } <a class="code" href="structhuffman__node.html">huffman_node</a>;
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027 <span class="keywordtype">void</span>
-<a name="l00028"></a><a class="code" href="mucap__compress_8h.html#a81a23f1eabc888ce48ec931fb80b1179">00028</a> <a class="code" href="huffman_8cpp.html#a81a23f1eabc888ce48ec931fb80b1179">huffman_put_symbol</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table, <a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>, <span class="keywordtype">int</span> <a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a>)
+<a name="l00028"></a><a class="code" href="mucap__compress_8h.html#a81a23f1eabc888ce48ec931fb80b1179">00028</a> <a class="code" href="huffman_8cpp.html#a81a23f1eabc888ce48ec931fb80b1179">huffman_put_symbol</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table, <a class="code" href="structio__buffer.html">io_buffer</a> * buffer, <span class="keywordtype">int</span> <a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a>)
 <a name="l00029"></a>00029 {
 <a name="l00030"></a>00030   <span class="comment">// Huffman encode a single symbol and send it to an output buffer.</span>
 <a name="l00031"></a>00031   <span class="comment">// This function is in an inner loop and therefore</span>
@@ -71,7 +71,7 @@
 <a name="l00045"></a>00045 }
 <a name="l00046"></a>00046 
 <a name="l00047"></a>00047 <span class="preprocessor">#if 0</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="keywordtype">int</span> <a class="code" href="huffman_8cpp.html#ad6be44228ca3e1de5375487dc336b73d">huffman_get_symbol</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table, <a class="code" href="structio__buffer.html">io_buffer</a> * <a class="code" href="fal_8c.html#a368f7094dc38acca20612bbb392552f4">buffer</a>)
+<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="keywordtype">int</span> <a class="code" href="huffman_8cpp.html#ad6be44228ca3e1de5375487dc336b73d">huffman_get_symbol</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table, <a class="code" href="structio__buffer.html">io_buffer</a> * buffer)
 <a name="l00049"></a>00049 {
 <a name="l00050"></a>00050   <span class="comment">// Get the next symbol from a Huffman-coded buffer.  Again, this </span>
 <a name="l00051"></a>00051   <span class="comment">// function is in an inner loop and therefore performance-critical.</span>
@@ -164,8 +164,8 @@
 <a name="l00138"></a>00138 {
 <a name="l00139"></a>00139   table-&gt;<a class="code" href="structhuffman__table.html#adcf6bb1bfc5f919fd21bc3c2daf12b19">decode_symbols</a> = <span class="keyword">new</span> <span class="keywordtype">int</span>[256];
 <a name="l00140"></a>00140 
-<a name="l00141"></a>00141   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 256; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00142"></a>00142     <span class="keywordtype">int</span> w = <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt;&lt; 24;
+<a name="l00141"></a>00141   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; 256; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00142"></a>00142     <span class="keywordtype">int</span> w = <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt;&lt; 24;
 <a name="l00143"></a>00143     <span class="keywordtype">int</span> w_bits = 8;
 <a name="l00144"></a>00144 
 <a name="l00145"></a>00145     <a class="code" href="structhuffman__node.html">huffman_node</a> *node = table-&gt;<a class="code" href="structhuffman__table.html#a912470f90dc4ac4d036f352b08c0b079">tree</a>;
@@ -173,15 +173,15 @@
 <a name="l00147"></a>00147     <span class="keywordflow">while</span> (1) {
 <a name="l00148"></a>00148       <span class="comment">// We may already be there...</span>
 <a name="l00149"></a>00149       <span class="keywordflow">if</span> (node == NULL) {
-<a name="l00150"></a>00150         table-&gt;<a class="code" href="structhuffman__table.html#adcf6bb1bfc5f919fd21bc3c2daf12b19">decode_symbols</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = -1;
+<a name="l00150"></a>00150         table-&gt;<a class="code" href="structhuffman__table.html#adcf6bb1bfc5f919fd21bc3c2daf12b19">decode_symbols</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = -1;
 <a name="l00151"></a>00151         <span class="keywordflow">break</span>;
 <a name="l00152"></a>00152       } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a> != -1) {
-<a name="l00153"></a>00153         table-&gt;<a class="code" href="structhuffman__table.html#adcf6bb1bfc5f919fd21bc3c2daf12b19">decode_symbols</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a>;
+<a name="l00153"></a>00153         table-&gt;<a class="code" href="structhuffman__table.html#adcf6bb1bfc5f919fd21bc3c2daf12b19">decode_symbols</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a>;
 <a name="l00154"></a>00154         <span class="keywordflow">break</span>;
 <a name="l00155"></a>00155       } <span class="keywordflow">else</span> { 
 <a name="l00156"></a>00156         <span class="comment">// If not, consume a bit from the input and follow the tree</span>
 <a name="l00157"></a>00157         <span class="keywordflow">if</span> (w_bits == 0) {
-<a name="l00158"></a>00158           table-&gt;<a class="code" href="structhuffman__table.html#adcf6bb1bfc5f919fd21bc3c2daf12b19">decode_symbols</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = -1;
+<a name="l00158"></a>00158           table-&gt;<a class="code" href="structhuffman__table.html#adcf6bb1bfc5f919fd21bc3c2daf12b19">decode_symbols</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = -1;
 <a name="l00159"></a>00159           <span class="keywordflow">break</span>;
 <a name="l00160"></a>00160         }
 <a name="l00161"></a>00161     
@@ -199,7 +199,7 @@
 <a name="l00173"></a>00173   }
 <a name="l00174"></a>00174 }
 <a name="l00175"></a>00175 
-<a name="l00176"></a><a class="code" href="huffman_8cpp.html#a3883fdf325b315e85b18d3d3d1784d52">00176</a> <span class="keywordtype">int</span> <a class="code" href="huffman_8cpp.html#a3883fdf325b315e85b18d3d3d1784d52">huffman_node_compare</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="mscbuser_8c.html#a987f27df2a5f3c9f3b402784624cfac3">p1</a>, <span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="scs__210__tpg262_8c.html#aee2214de575f7c6752b0c76dcf1b7979">p2</a>)
+<a name="l00176"></a><a class="code" href="huffman_8cpp.html#a3883fdf325b315e85b18d3d3d1784d52">00176</a> <span class="keywordtype">int</span> <a class="code" href="huffman_8cpp.html#a3883fdf325b315e85b18d3d3d1784d52">huffman_node_compare</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *p1, <span class="keyword">const</span> <span class="keywordtype">void</span> *p2)
 <a name="l00177"></a>00177 {
 <a name="l00178"></a>00178   <a class="code" href="structhuffman__node.html">huffman_node</a> **node1 = (<a class="code" href="structhuffman__node.html">huffman_node</a> **) p1;
 <a name="l00179"></a>00179   <a class="code" href="structhuffman__node.html">huffman_node</a> **node2 = (<a class="code" href="structhuffman__node.html">huffman_node</a> **) p2;
@@ -223,18 +223,18 @@
 <a name="l00197"></a>00197 }
 <a name="l00198"></a>00198 
 <a name="l00199"></a>00199 
-<a name="l00200"></a><a class="code" href="mucap__compress_8h.html#a2d64cbf0373bf8d62a5ddbb6aa372170">00200</a> <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="huffman_8cpp.html#a2d64cbf0373bf8d62a5ddbb6aa372170">huffman_optimize_tree</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table)
+<a name="l00200"></a><a class="code" href="mucap__compress_8h.html#a2d64cbf0373bf8d62a5ddbb6aa372170">00200</a> BOOL <a class="code" href="huffman_8cpp.html#a2d64cbf0373bf8d62a5ddbb6aa372170">huffman_optimize_tree</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table)
 <a name="l00201"></a>00201 {
 <a name="l00202"></a>00202   <span class="comment">// Start by allocating terminal nodes for the symbols.</span>
 <a name="l00203"></a>00203   <a class="code" href="structhuffman__node.html">huffman_node</a> *terminals[table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>];
-<a name="l00204"></a>00204   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00204"></a>00204   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
 <a name="l00205"></a>00205     <a class="code" href="structhuffman__node.html">huffman_node</a> *node = <span class="keyword">new</span> <a class="code" href="structhuffman__node.html">huffman_node</a>;
 <a name="l00206"></a>00206     node-&gt;<a class="code" href="structhuffman__node.html#a5aaaf002d5c5fd7c98360bed5cda3c67">branch0</a> = NULL;
 <a name="l00207"></a>00207     node-&gt;<a class="code" href="structhuffman__node.html#a20d1ee510569d1959da33dbe369bad59">branch1</a> = NULL;
 <a name="l00208"></a>00208     node-&gt;<a class="code" href="structhuffman__node.html#a5bd1f58302d9562a082ea2c382281ec0">next</a> = NULL;
-<a name="l00209"></a>00209     node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a> = <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
-<a name="l00210"></a>00210     node-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a> = table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
-<a name="l00211"></a>00211     terminals[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = node;
+<a name="l00209"></a>00209     node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a> = <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00210"></a>00210     node-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a> = table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00211"></a>00211     terminals[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = node;
 <a name="l00212"></a>00212   }
 <a name="l00213"></a>00213 
 <a name="l00214"></a>00214   <span class="comment">// Now sort the array of terminals by frequency.</span>
@@ -242,8 +242,8 @@
 <a name="l00216"></a>00216         <span class="keyword">sizeof</span>(<a class="code" href="structhuffman__node.html">huffman_node</a> *), <a class="code" href="huffman_8cpp.html#a3883fdf325b315e85b18d3d3d1784d52">huffman_node_compare</a>);
 <a name="l00217"></a>00217 
 <a name="l00218"></a>00218   <span class="comment">// Set up the linked list pointers</span>
-<a name="l00219"></a>00219   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> - 1; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00220"></a>00220     terminals[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;<a class="code" href="structhuffman__node.html#a5bd1f58302d9562a082ea2c382281ec0">next</a> = terminals[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 1];
+<a name="l00219"></a>00219   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> - 1; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00220"></a>00220     terminals[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]-&gt;<a class="code" href="structhuffman__node.html#a5bd1f58302d9562a082ea2c382281ec0">next</a> = terminals[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> + 1];
 <a name="l00221"></a>00221   }
 <a name="l00222"></a>00222   <a class="code" href="structhuffman__node.html">huffman_node</a> *root = terminals[0];
 <a name="l00223"></a>00223 
@@ -296,7 +296,7 @@
 <a name="l00270"></a>00270       <span class="keywordtype">int</span> node_count = 0;
 <a name="l00271"></a>00271       <span class="keywordflow">while</span> (pos != NULL) {
 <a name="l00272"></a>00272         <span class="keywordflow">if</span> (prev != NULL &amp;&amp; pos-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a> &lt; prev-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a>) {
-<a name="l00273"></a>00273           <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#ac2d967025ca0f84f611d568f4ede934a">MERROR</a>, <span class="stringliteral">&quot;huffman_optimize_tree&quot;</span>, <span class="stringliteral">&quot;List out of order&quot;</span>);
+<a name="l00273"></a>00273           cm_msg(MERROR, <span class="stringliteral">&quot;huffman_optimize_tree&quot;</span>, <span class="stringliteral">&quot;List out of order&quot;</span>);
 <a name="l00274"></a>00274           <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00275"></a>00275         }
 <a name="l00276"></a>00276         prev = pos;
@@ -314,11 +314,11 @@
 <a name="l00288"></a>00288   <a class="code" href="huffman_8cpp.html#a17420f8ab91e612fccde05b9d88b871b">huffman_visit</a>(table, root, 0, 0);
 <a name="l00289"></a>00289 
 <a name="l00290"></a>00290   <span class="comment">// Check that the number of bits used by each key is less than 32.</span>
-<a name="l00291"></a>00291   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00292"></a>00292     <span class="keywordflow">if</span>(table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] &gt; 32) {
-<a name="l00293"></a>00293       <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#ac2d967025ca0f84f611d568f4ede934a">MERROR</a>, <span class="stringliteral">&quot;huffman_optimize_tree&quot;</span>, 
-<a name="l00294"></a>00294         <span class="stringliteral">&quot;Code length for symbol %d is too long (%d bits)&quot;</span>, <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 
-<a name="l00295"></a>00295         table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00291"></a>00291   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00292"></a>00292     <span class="keywordflow">if</span>(table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] &gt; 32) {
+<a name="l00293"></a>00293       cm_msg(MERROR, <span class="stringliteral">&quot;huffman_optimize_tree&quot;</span>, 
+<a name="l00294"></a>00294         <span class="stringliteral">&quot;Code length for symbol %d is too long (%d bits)&quot;</span>, <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>, 
+<a name="l00295"></a>00295         table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00296"></a>00296       <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00297"></a>00297     }
 <a name="l00298"></a>00298   }
@@ -337,40 +337,40 @@
 <a name="l00311"></a>00311   table-&gt;<a class="code" href="structhuffman__table.html#a912470f90dc4ac4d036f352b08c0b079">tree</a> = NULL;
 <a name="l00312"></a>00312 
 <a name="l00313"></a>00313   <span class="comment">// Assume that all symbols have equal probability </span>
-<a name="l00314"></a>00314   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; num_symbols; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00315"></a>00315     table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 1;
+<a name="l00314"></a>00314   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; num_symbols; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00315"></a>00315     table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 1;
 <a name="l00316"></a>00316   }
 <a name="l00317"></a>00317 
 <a name="l00318"></a>00318   <a class="code" href="huffman_8cpp.html#a2d64cbf0373bf8d62a5ddbb6aa372170">huffman_optimize_tree</a>(table);
 <a name="l00319"></a>00319 }
 <a name="l00320"></a>00320 
-<a name="l00321"></a><a class="code" href="mucap__compress_8h.html#aeeab10e5c7b7a6c2643297477b516a37">00321</a> <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="huffman_8cpp.html#aeeab10e5c7b7a6c2643297477b516a37">save_huffman</a>(<span class="keywordtype">char</span> *key_dir, <a class="code" href="structhuffman__table.html">huffman_table</a> * table)
+<a name="l00321"></a><a class="code" href="mucap__compress_8h.html#aeeab10e5c7b7a6c2643297477b516a37">00321</a> BOOL <a class="code" href="huffman_8cpp.html#aeeab10e5c7b7a6c2643297477b516a37">save_huffman</a>(<span class="keywordtype">char</span> *key_dir, <a class="code" href="structhuffman__table.html">huffman_table</a> * table)
 <a name="l00322"></a>00322 {
-<a name="l00323"></a>00323   <span class="keywordtype">char</span> key_name[<a class="code" href="group__midasincludecode.html#ga78b086c08dd57c930e2997a71a3ae5ee">MAX_ODB_PATH</a>];
-<a name="l00324"></a>00324   <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a>;
+<a name="l00323"></a>00323   <span class="keywordtype">char</span> key_name[MAX_ODB_PATH];
+<a name="l00324"></a>00324   <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a>;
 <a name="l00325"></a>00325 
 <a name="l00326"></a>00326   sprintf(key_name, <span class="stringliteral">&quot;%s/code_bits&quot;</span>, key_dir);
 <a name="l00327"></a>00327   size = table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>);
-<a name="l00328"></a>00328   <span class="keywordtype">int</span> stat = <a class="code" href="group__msectionh.html#gaf83159c12a4e73b2ec3bf6099b3c5544">db_set_value</a>(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a4a10010f66a0d6bf532958c64c163773">code_bits</a>, size, 
-<a name="l00329"></a>00329     table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>); 
-<a name="l00330"></a>00330   <span class="keywordflow">if</span>(stat != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>) {
-<a name="l00331"></a>00331     <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#ac2d967025ca0f84f611d568f4ede934a">MERROR</a>, <span class="stringliteral">&quot;save_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to save ODB key %s&quot;</span>, key_name);
+<a name="l00328"></a>00328   <span class="keywordtype">int</span> stat = db_set_value(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a4a10010f66a0d6bf532958c64c163773">code_bits</a>, size, 
+<a name="l00329"></a>00329     table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>, TID_DWORD); 
+<a name="l00330"></a>00330   <span class="keywordflow">if</span>(stat != DB_SUCCESS) {
+<a name="l00331"></a>00331     cm_msg(MERROR, <span class="stringliteral">&quot;save_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to save ODB key %s&quot;</span>, key_name);
 <a name="l00332"></a>00332     <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00333"></a>00333   }
 <a name="l00334"></a>00334 
 <a name="l00335"></a>00335   sprintf(key_name, <span class="stringliteral">&quot;%s/code_length&quot;</span>, key_dir);
-<a name="l00336"></a>00336   stat = <a class="code" href="group__msectionh.html#gaf83159c12a4e73b2ec3bf6099b3c5544">db_set_value</a>(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>, size, 
-<a name="l00337"></a>00337     table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>); 
-<a name="l00338"></a>00338   <span class="keywordflow">if</span>(stat != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>) {
-<a name="l00339"></a>00339     <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#ac2d967025ca0f84f611d568f4ede934a">MERROR</a>, <span class="stringliteral">&quot;save_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to save ODB key %s&quot;</span>, key_name);
+<a name="l00336"></a>00336   stat = db_set_value(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>, size, 
+<a name="l00337"></a>00337     table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>, TID_DWORD); 
+<a name="l00338"></a>00338   <span class="keywordflow">if</span>(stat != DB_SUCCESS) {
+<a name="l00339"></a>00339     cm_msg(MERROR, <span class="stringliteral">&quot;save_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to save ODB key %s&quot;</span>, key_name);
 <a name="l00340"></a>00340     <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00341"></a>00341   }
 <a name="l00342"></a>00342 
 <a name="l00343"></a>00343   sprintf(key_name, <span class="stringliteral">&quot;%s/frequency&quot;</span>, key_dir);
-<a name="l00344"></a>00344   stat = <a class="code" href="group__msectionh.html#gaf83159c12a4e73b2ec3bf6099b3c5544">db_set_value</a>(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>, size, 
-<a name="l00345"></a>00345     table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>); 
-<a name="l00346"></a>00346   <span class="keywordflow">if</span>(stat != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a>) {
-<a name="l00347"></a>00347     <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#ac2d967025ca0f84f611d568f4ede934a">MERROR</a>, <span class="stringliteral">&quot;save_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to save ODB key %s&quot;</span>, key_name);
+<a name="l00344"></a>00344   stat = db_set_value(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>, size, 
+<a name="l00345"></a>00345     table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>, TID_DWORD); 
+<a name="l00346"></a>00346   <span class="keywordflow">if</span>(stat != DB_SUCCESS) {
+<a name="l00347"></a>00347     cm_msg(MERROR, <span class="stringliteral">&quot;save_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to save ODB key %s&quot;</span>, key_name);
 <a name="l00348"></a>00348     <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00349"></a>00349   }
 <a name="l00350"></a>00350 
@@ -399,7 +399,7 @@
 <a name="l00373"></a>00373   <span class="keyword">delete</span> node;
 <a name="l00374"></a>00374 }
 <a name="l00375"></a>00375 
-<a name="l00376"></a><a class="code" href="huffman_8cpp.html#a0f7359f91e6e236e54aa5e3d8a6d33de">00376</a> <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="huffman_8cpp.html#a0f7359f91e6e236e54aa5e3d8a6d33de">huffman_build_tree</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table) 
+<a name="l00376"></a><a class="code" href="huffman_8cpp.html#a0f7359f91e6e236e54aa5e3d8a6d33de">00376</a> BOOL <a class="code" href="huffman_8cpp.html#a0f7359f91e6e236e54aa5e3d8a6d33de">huffman_build_tree</a>(<a class="code" href="structhuffman__table.html">huffman_table</a> * table) 
 <a name="l00377"></a>00377 {
 <a name="l00378"></a>00378   <span class="comment">// build the Huffman tree corresponding to the bit strings in code_bits </span>
 <a name="l00379"></a>00379   <span class="comment">// and code_length</span>
@@ -409,16 +409,16 @@
 <a name="l00383"></a>00383   table-&gt;<a class="code" href="structhuffman__table.html#a912470f90dc4ac4d036f352b08c0b079">tree</a> = root;
 <a name="l00384"></a>00384   <a class="code" href="huffman_8cpp.html#a58f9eecf6d82606f43b293ba4dd671b0">init_huffman_node</a>(root);
 <a name="l00385"></a>00385 
-<a name="l00386"></a>00386   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00387"></a>00387     <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> code_bits = table-&gt;<a class="code" href="structhuffman__table.html#a4a10010f66a0d6bf532958c64c163773">code_bits</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
-<a name="l00388"></a>00388     <span class="keywordtype">int</span> code_length = table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00386"></a>00386   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00387"></a>00387     <a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a> code_bits = table-&gt;<a class="code" href="structhuffman__table.html#a4a10010f66a0d6bf532958c64c163773">code_bits</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00388"></a>00388     <span class="keywordtype">int</span> code_length = table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00389"></a>00389     code_bits &lt;&lt;= 32-code_length;
 <a name="l00390"></a>00390 
 <a name="l00391"></a>00391     <a class="code" href="structhuffman__node.html">huffman_node</a> *node = root;
 <a name="l00392"></a>00392 
 <a name="l00393"></a>00393     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> bit_number = 0; bit_number &lt; code_length; bit_number++) {
 <a name="l00394"></a>00394 
-<a name="l00395"></a>00395       <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> bit = ((code_bits &amp; (1u &lt;&lt; 31)) != 0); 
+<a name="l00395"></a>00395       BOOL bit = ((code_bits &amp; (1u &lt;&lt; 31)) != 0); 
 <a name="l00396"></a>00396       code_bits &lt;&lt;= 1;
 <a name="l00397"></a>00397 
 <a name="l00398"></a>00398       <span class="keywordflow">if</span>(bit == 0) {
@@ -429,8 +429,8 @@
 <a name="l00403"></a>00403         node = node-&gt;<a class="code" href="structhuffman__node.html#a5aaaf002d5c5fd7c98360bed5cda3c67">branch0</a>;
 <a name="l00404"></a>00404 
 <a name="l00405"></a>00405         <span class="keywordflow">if</span>(bit_number == code_length - 1) {
-<a name="l00406"></a>00406           node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a> = <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
-<a name="l00407"></a>00407           node-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a> = table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00406"></a>00406           node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a> = <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00407"></a>00407           node-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a> = table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00408"></a>00408         }
 <a name="l00409"></a>00409       } <span class="keywordflow">else</span> {
 <a name="l00410"></a>00410         <span class="keywordflow">if</span>(node-&gt;<a class="code" href="structhuffman__node.html#a20d1ee510569d1959da33dbe369bad59">branch1</a> == NULL) {
@@ -440,8 +440,8 @@
 <a name="l00414"></a>00414         node = node-&gt;<a class="code" href="structhuffman__node.html#a20d1ee510569d1959da33dbe369bad59">branch1</a>;
 <a name="l00415"></a>00415 
 <a name="l00416"></a>00416         <span class="keywordflow">if</span>(bit_number == code_length - 1) {
-<a name="l00417"></a>00417           node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a> = <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
-<a name="l00418"></a>00418           node-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a> = table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
+<a name="l00417"></a>00417           node-&gt;<a class="code" href="structhuffman__node.html#a23d802c0a18b9faa5d6a918e8d92df44">symbol</a> = <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>;
+<a name="l00418"></a>00418           node-&gt;<a class="code" href="structhuffman__node.html#a20f5249c926844e584656771f83f0f76">frequency</a> = table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>];
 <a name="l00419"></a>00419         }
 <a name="l00420"></a>00420       }
 <a name="l00421"></a>00421     }
@@ -452,29 +452,29 @@
 <a name="l00426"></a>00426   <span class="keywordflow">return</span> <a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00427"></a>00427 }
 <a name="l00428"></a>00428 
-<a name="l00429"></a><a class="code" href="mucap__compress_8h.html#a5e92c1dfa160fcef488964550b48b79e">00429</a> <a class="code" href="group__midasincludecode.html#ga239c7f0d40651c3e419c5b9651507d14">BOOL</a> <a class="code" href="huffman_8cpp.html#a5e92c1dfa160fcef488964550b48b79e">load_huffman</a>(<span class="keywordtype">char</span> *key_dir, <a class="code" href="structhuffman__table.html">huffman_table</a> * table)
+<a name="l00429"></a><a class="code" href="mucap__compress_8h.html#a5e92c1dfa160fcef488964550b48b79e">00429</a> BOOL <a class="code" href="huffman_8cpp.html#a5e92c1dfa160fcef488964550b48b79e">load_huffman</a>(<span class="keywordtype">char</span> *key_dir, <a class="code" href="structhuffman__table.html">huffman_table</a> * table)
 <a name="l00430"></a>00430 {
-<a name="l00431"></a>00431   <span class="keywordtype">char</span> key_name[<a class="code" href="group__midasincludecode.html#ga78b086c08dd57c930e2997a71a3ae5ee">MAX_ODB_PATH</a>];
-<a name="l00432"></a>00432   <span class="keywordtype">int</span> <a class="code" href="ybos_8c.html#adfdd3a80d1d8ea7918a6d1ebee518102">size</a>;
+<a name="l00431"></a>00431   <span class="keywordtype">char</span> key_name[MAX_ODB_PATH];
+<a name="l00432"></a>00432   <span class="keywordtype">int</span> <a class="code" href="separator_2frontend_8c.html#a439227feff9d7f55384e8780cfc2eb82">size</a>;
 <a name="l00433"></a>00433 
-<a name="l00434"></a>00434   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00435"></a>00435     table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 1;
+<a name="l00434"></a>00434   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> = 0; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a> &lt; table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a>; <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00435"></a>00435     table-&gt;<a class="code" href="structhuffman__table.html#afd9ab6266a0211dce30fdf9246c0a7df">frequency</a>[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>] = 1;
 <a name="l00436"></a>00436   }
 <a name="l00437"></a>00437 
 <a name="l00438"></a>00438   sprintf(key_name, <span class="stringliteral">&quot;%s/code_bits&quot;</span>, key_dir);
 <a name="l00439"></a>00439   size = table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>);
-<a name="l00440"></a>00440   <span class="keywordtype">int</span> stat = <a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a4a10010f66a0d6bf532958c64c163773">code_bits</a>, &amp;size, 
-<a name="l00441"></a>00441     <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>, <a class="code" href="p30_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>); 
-<a name="l00442"></a>00442   <span class="keywordflow">if</span>(stat != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a> || size != table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>)) {
-<a name="l00443"></a>00443     <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#ac2d967025ca0f84f611d568f4ede934a">MERROR</a>, <span class="stringliteral">&quot;load_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to load ODB key %s&quot;</span>, key_name);
+<a name="l00440"></a>00440   <span class="keywordtype">int</span> stat = db_get_value(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a4a10010f66a0d6bf532958c64c163773">code_bits</a>, &amp;size, 
+<a name="l00441"></a>00441     TID_DWORD, <a class="code" href="p30_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>); 
+<a name="l00442"></a>00442   <span class="keywordflow">if</span>(stat != DB_SUCCESS || size != table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>)) {
+<a name="l00443"></a>00443     cm_msg(MERROR, <span class="stringliteral">&quot;load_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to load ODB key %s&quot;</span>, key_name);
 <a name="l00444"></a>00444     <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00445"></a>00445   }
 <a name="l00446"></a>00446 
 <a name="l00447"></a>00447   sprintf(key_name, <span class="stringliteral">&quot;%s/code_length&quot;</span>, key_dir);
 <a name="l00448"></a>00448   size = table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>);
-<a name="l00449"></a>00449   <a class="code" href="group__msectionh.html#ga9fc43f58a995c9f2cf9f734076ddedc2">db_get_value</a>(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>, &amp;size, <a class="code" href="group__mdefineh.html#gafed9e8d519719d7347f9fdb3031201d1">TID_DWORD</a>, <a class="code" href="p30_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>); 
-<a name="l00450"></a>00450   <span class="keywordflow">if</span>(stat != <a class="code" href="group__err23.html#ga4d6ab4d32144d851ddeb7931b81a63e3">DB_SUCCESS</a> || size != table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>)) {
-<a name="l00451"></a>00451     <a class="code" href="lrs1821_8h.html#aa6f8a5999f0a072ce20ab87bae8a9eb5">cm_msg</a>(<a class="code" href="lrs1821_8h.html#ac2d967025ca0f84f611d568f4ede934a">MERROR</a>, <span class="stringliteral">&quot;load_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to load ODB key %s&quot;</span>, key_name);
+<a name="l00449"></a>00449   db_get_value(<a class="code" href="mucap__compress_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, 0, key_name, table-&gt;<a class="code" href="structhuffman__table.html#a7c3ba9d9d06ae04789db8ec7f487d232">code_length</a>, &amp;size, TID_DWORD, <a class="code" href="p30_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>); 
+<a name="l00450"></a>00450   <span class="keywordflow">if</span>(stat != DB_SUCCESS || size != table-&gt;<a class="code" href="structhuffman__table.html#ab9c604fc1423786f1a5b79458fb496b1">num_symbols</a> * <span class="keyword">sizeof</span>(<a class="code" href="group__mvmestdinclude.html#ga798af1e30bc65f319c1a246cecf59e39">DWORD</a>)) {
+<a name="l00451"></a>00451     cm_msg(MERROR, <span class="stringliteral">&quot;load_huffman&quot;</span>, <span class="stringliteral">&quot;Failed to load ODB key %s&quot;</span>, key_name);
 <a name="l00452"></a>00452     <span class="keywordflow">return</span> !<a class="code" href="group__mvmestdinclude.html#gaa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>;
 <a name="l00453"></a>00453   }
 <a name="l00454"></a>00454 

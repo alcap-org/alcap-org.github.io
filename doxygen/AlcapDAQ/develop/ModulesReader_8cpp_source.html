@@ -34,18 +34,18 @@
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classmodules_1_1reader.html#ad1e5fb43f7cb79c90017a335017cc4f6">modules::reader::fGlobalModule</a>=<span class="stringliteral">&quot;global&quot;</span>;
 <a name="l00009"></a>00009 
-<a name="l00010"></a><a class="code" href="ModulesReader_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">00010</a> <span class="keyword">static</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="ModulesReader_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">getOneWord</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
+<a name="l00010"></a><a class="code" href="ModulesReader_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">00010</a> <span class="keyword">static</span> std::string <a class="code" href="ModulesReader_8cpp.html#ab74913a6afa0a65bfea5b8d2ed10a569">getOneWord</a>(<span class="keyword">const</span> std::string&amp; in, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
 <a name="l00011"></a>00011         <span class="comment">//int begin=in.find_first_not_of(&apos; &apos;,start);</span>
 <a name="l00012"></a>00012         <span class="comment">//int end=in.find_last_not_of(&apos; &apos;,stop);</span>
 <a name="l00013"></a>00013         <span class="comment">//int begin=start, end=stop;</span>
 <a name="l00014"></a>00014         <span class="comment">//std::cout&lt;&lt;&quot;trim: &quot;&lt;&lt;in&lt;&lt;&apos;\t&apos;&lt;&lt;in[begin]&lt;&lt;&apos;\t&apos;&lt;&lt;in[end]&lt;&lt;std::endl;</span>
 <a name="l00015"></a>00015         std::stringstream ss(in.substr(start,stop));
-<a name="l00016"></a>00016         <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> word;
+<a name="l00016"></a>00016         std::string word;
 <a name="l00017"></a>00017         ss&gt;&gt;word;
 <a name="l00018"></a>00018         <span class="keywordflow">return</span> word;
 <a name="l00019"></a>00019 }
 <a name="l00020"></a>00020 
-<a name="l00021"></a><a class="code" href="ModulesReader_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">00021</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="ModulesReader_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">getSeveralWords</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">in</a>, std::vector&lt;std::string&gt; &amp;vect, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
+<a name="l00021"></a><a class="code" href="ModulesReader_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">00021</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="ModulesReader_8cpp.html#a6dd661390dadceb8ad1fab15c19609bb">getSeveralWords</a>(<span class="keyword">const</span> std::string&amp; in, std::vector&lt;std::string&gt; &amp;vect, <span class="keywordtype">size_t</span> start=0, <span class="keywordtype">size_t</span> stop=std::string::npos){
 <a name="l00022"></a>00022         <span class="comment">//int begin=in.find_first_not_of(&apos; &apos;,start);</span>
 <a name="l00023"></a>00023         <span class="comment">//int end=in.find_last_not_of(&apos; &apos;,stop);</span>
 <a name="l00024"></a>00024         <span class="comment">//int begin=start, end=stop;</span>
@@ -59,7 +59,7 @@
 <a name="l00032"></a>00032         }
 <a name="l00033"></a>00033 }
 <a name="l00034"></a>00034 
-<a name="l00035"></a><a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">00035</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">modules::reader::ReadFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>){
+<a name="l00035"></a><a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">00035</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">modules::reader::ReadFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name){
 <a name="l00036"></a>00036 
 <a name="l00037"></a>00037     <span class="comment">// Open config file</span>
 <a name="l00038"></a>00038     std::ifstream infile;
@@ -70,8 +70,8 @@
 <a name="l00043"></a>00043     <a class="code" href="classmodules_1_1reader.html#a7ddc3991d69a8d12d7b7907488a0d712">AddSection</a>(<a class="code" href="classmodules_1_1reader.html#ad1e5fb43f7cb79c90017a335017cc4f6">fGlobalModule</a>);
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045     <span class="comment">// Loop over each line</span>
-<a name="l00046"></a>00046     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> full_line;
-<a name="l00047"></a>00047     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> section=<a class="code" href="classmodules_1_1reader.html#ad1e5fb43f7cb79c90017a335017cc4f6">fGlobalModule</a>, new_section;
+<a name="l00046"></a>00046     std::string full_line;
+<a name="l00047"></a>00047     std::string section=<a class="code" href="classmodules_1_1reader.html#ad1e5fb43f7cb79c90017a335017cc4f6">fGlobalModule</a>, new_section;
 <a name="l00048"></a>00048     <a class="code" href="structmodules_1_1reader_1_1Option__t.html">Option_t</a> current_opt;
 <a name="l00049"></a>00049     <a class="code" href="classmodules_1_1reader.html#a56c1370655b285fdeb9adb4eee333486">fLineNumber</a>=0;
 <a name="l00050"></a>00050     <span class="keywordflow">while</span>(std::getline(infile,full_line)){
@@ -114,9 +114,9 @@
 <a name="l00087"></a>00087     <span class="keywordflow">return</span> 0;
 <a name="l00088"></a>00088 }
 <a name="l00089"></a>00089 
-<a name="l00090"></a><a class="code" href="classmodules_1_1reader.html#aca1fb51d27dddb287b8ad805abd89b0a">00090</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1reader.html#aca1fb51d27dddb287b8ad805abd89b0a">modules::reader::OpenFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>, std::ifstream&amp; infile){
+<a name="l00090"></a><a class="code" href="classmodules_1_1reader.html#aca1fb51d27dddb287b8ad805abd89b0a">00090</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1reader.html#aca1fb51d27dddb287b8ad805abd89b0a">modules::reader::OpenFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, std::ifstream&amp; infile){
 <a name="l00091"></a>00091     infile.close();
-<a name="l00092"></a>00092     infile.open(name, <a class="code" href="scs__600__p1_8c.html#af8480819a437c1eaeaa5b28b890613fa">std::ifstream::in</a>);
+<a name="l00092"></a>00092     infile.open(name, std::ifstream::in);
 <a name="l00093"></a>00093     <span class="keywordflow">if</span>(!infile.is_open()) {
 <a name="l00094"></a>00094         std::cout&lt;&lt;<span class="stringliteral">&quot;Problem opening modules file: &quot;</span>&lt;&lt;name&lt;&lt;std::endl;
 <a name="l00095"></a>00095         <span class="keywordflow">return</span> 1;
@@ -137,9 +137,9 @@
 <a name="l00110"></a>00110     <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00111"></a>00111 }
 <a name="l00112"></a>00112 
-<a name="l00113"></a><a class="code" href="classmodules_1_1reader.html#a4753bca4323fc4abbccda29f5459718a">00113</a> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="classmodules_1_1reader.html#a4753bca4323fc4abbccda29f5459718a">modules::reader::findSectionName</a>(std::stringstream&amp; line){
+<a name="l00113"></a><a class="code" href="classmodules_1_1reader.html#a4753bca4323fc4abbccda29f5459718a">00113</a> std::string <a class="code" href="classmodules_1_1reader.html#a4753bca4323fc4abbccda29f5459718a">modules::reader::findSectionName</a>(std::stringstream&amp; line){
 <a name="l00114"></a>00114     <span class="comment">// sections are marked with [] either side of the name</span>
-<a name="l00115"></a>00115     <span class="keyword">static</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> word;
+<a name="l00115"></a>00115     <span class="keyword">static</span> std::string word;
 <a name="l00116"></a>00116     word=<span class="stringliteral">&quot;&quot;</span>;
 <a name="l00117"></a>00117     <span class="keywordtype">char</span> start=0,stop=0;
 <a name="l00118"></a>00118     line&gt;&gt;start&gt;&gt;word&gt;&gt;stop;
@@ -155,8 +155,8 @@
 <a name="l00128"></a>00128     <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;
 <a name="l00129"></a>00129 }
 <a name="l00130"></a>00130 
-<a name="l00131"></a><a class="code" href="classmodules_1_1reader.html#af0f6321b86331b6a19f54bd93764c38a">00131</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1reader.html#af0f6321b86331b6a19f54bd93764c38a">modules::reader::AddModule</a>(<a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> line){
-<a name="l00132"></a>00132     <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a> <a class="code" href="examples_2macro_2midas__macro_8h.html#ab53d3e6e6144dcb27935cc71c57bc508">name</a>, <a class="code" href="mana_8cpp.html#a9a59b4d9fa62abe25a78cc38137ffd8e">type</a>;
+<a name="l00131"></a><a class="code" href="classmodules_1_1reader.html#af0f6321b86331b6a19f54bd93764c38a">00131</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1reader.html#af0f6321b86331b6a19f54bd93764c38a">modules::reader::AddModule</a>(std::string line){
+<a name="l00132"></a>00132     std::string name, type;
 <a name="l00133"></a>00133 
 <a name="l00134"></a>00134     <span class="comment">// How is this module specified ? </span>
 <a name="l00135"></a>00135     <span class="comment">// If  the line contains an equals sign, assume we have a name and a type</span>
@@ -192,8 +192,8 @@
 <a name="l00165"></a>00165         std::cout&lt;&lt;<span class="stringliteral">&quot;Adding module: &apos;&quot;</span>&lt;&lt;type&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;std::endl;
 <a name="l00166"></a>00166         std::cout&lt;&lt;<span class="stringliteral">&quot;   with name: &apos;&quot;</span>&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;std::endl;
 <a name="l00167"></a>00167         std::cout&lt;&lt;<span class="stringliteral">&quot;   and &quot;</span>&lt;&lt;args.size()&lt;&lt;<span class="stringliteral">&quot; arguments:&quot;</span>&lt;&lt;std::endl;
-<a name="l00168"></a>00168         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;args.size() ;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++)
-<a name="l00169"></a>00169                 std::cout&lt;&lt;<span class="stringliteral">&quot;     &quot;</span>&lt;&lt;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;&lt;<span class="charliteral">&apos;\t&apos;</span>&lt;&lt;args[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]&lt;&lt;std::endl;
+<a name="l00168"></a>00168         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;args.size() ;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++)
+<a name="l00169"></a>00169                 std::cout&lt;&lt;<span class="stringliteral">&quot;     &quot;</span>&lt;&lt;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;&lt;<span class="charliteral">&apos;\t&apos;</span>&lt;&lt;args[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]&lt;&lt;std::endl;
 <a name="l00170"></a>00170     }
 <a name="l00171"></a>00171 
 <a name="l00172"></a>00172     <span class="comment">//Add the module to the list of modules</span>
@@ -210,8 +210,8 @@
 <a name="l00183"></a>00183         opts=<a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>[name];
 <a name="l00184"></a>00184     }
 <a name="l00185"></a>00185     <span class="comment">// Add all arguments passed to this module to it&apos;s options</span>
-<a name="l00186"></a>00186     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;args.size();<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
-<a name="l00187"></a>00187         opts-&gt;<a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">AddArgument</a>(<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>,args[<a class="code" href="mdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
+<a name="l00186"></a>00186     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>=0;<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>&lt;args.size();<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>++) {
+<a name="l00187"></a>00187         opts-&gt;<a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">AddArgument</a>(<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>,args[<a class="code" href="mzdump_8c.html#a65a8886d814fb9bf73f9d4f0fd64d162">i</a>]);
 <a name="l00188"></a>00188     }
 <a name="l00189"></a>00189 
 <a name="l00190"></a>00190     <span class="comment">// Stick this module into the list of modules</span>
@@ -223,7 +223,7 @@
 <a name="l00196"></a>00196     <span class="keywordflow">return</span> 0;
 <a name="l00197"></a>00197 }
 <a name="l00198"></a>00198 
-<a name="l00199"></a><a class="code" href="classmodules_1_1reader.html#a0ae59383a1a57bc16d95bde095c7d47d">00199</a> <a class="code" href="structmodules_1_1reader_1_1Option__t.html">modules::reader::Option_t</a> <a class="code" href="classmodules_1_1reader.html#a0ae59383a1a57bc16d95bde095c7d47d">modules::reader::SplitOption</a>( <span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; line){
+<a name="l00199"></a><a class="code" href="classmodules_1_1reader.html#a0ae59383a1a57bc16d95bde095c7d47d">00199</a> <a class="code" href="structmodules_1_1reader_1_1Option__t.html">modules::reader::Option_t</a> <a class="code" href="classmodules_1_1reader.html#a0ae59383a1a57bc16d95bde095c7d47d">modules::reader::SplitOption</a>( <span class="keyword">const</span> std::string&amp; line){
 <a name="l00200"></a>00200     <a class="code" href="structmodules_1_1reader_1_1Option__t.html">Option_t</a> opt;
 <a name="l00201"></a>00201     opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#a518988fdc1f5b6090ea616e5fa66b748">value</a>=<span class="stringliteral">&quot;&quot;</span>;
 <a name="l00202"></a>00202     opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#ab1d4b9a3a799a901ece33edaa4eb82e6">mode</a>=<a class="code" href="classmodules_1_1reader.html#a0f0646ad736bda11fe2868c38fa4e56fa387f4018f877c79dd1c0075468ae440b">kSet</a>;
@@ -264,7 +264,7 @@
 <a name="l00237"></a>00237     }
 <a name="l00238"></a>00238 }
 <a name="l00239"></a>00239 
-<a name="l00240"></a><a class="code" href="classmodules_1_1reader.html#ae2bb45ee692d952bdbafbbdccd843fc0">00240</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#ad44488f3dc869891a42a4e0383ab3198">modules::reader::AddOption</a>(<a class="code" href="classmodules_1_1options.html">modules::options</a>* <a class="code" href="classmodules_1_1options.html">options</a>, <span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="scs__310__ql355p_8c.html#a11764cc96bb263d1f257bcc01205a787">flag</a>){
+<a name="l00240"></a><a class="code" href="classmodules_1_1reader.html#ae2bb45ee692d952bdbafbbdccd843fc0">00240</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#ad44488f3dc869891a42a4e0383ab3198">modules::reader::AddOption</a>(<a class="code" href="classmodules_1_1options.html">modules::options</a>* <a class="code" href="classmodules_1_1options.html">options</a>, <span class="keyword">const</span> std::string&amp; flag){
 <a name="l00241"></a>00241     options-&gt;<a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">SetOption</a>(flag,<span class="stringliteral">&quot;&quot;</span>);
 <a name="l00242"></a>00242 }
 <a name="l00243"></a>00243 
@@ -312,7 +312,7 @@
 <a name="l00285"></a>00285     <a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">AddOptionAll</a>(<span class="stringliteral">&quot;debug&quot;</span>);
 <a name="l00286"></a>00286 }
 <a name="l00287"></a>00287 
-<a name="l00288"></a><a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">00288</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">modules::reader::AddOptionAll</a>(<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="mdump_8c.html#a5cdb181553f9aa7bb182db5c195bb079">key</a>,<span class="keyword">const</span> <a class="code" href="scs__310__ql355p_8c.html#a2fcb7c4c10b2f35fc53f00938f78dcc1">std::string</a>&amp; <a class="code" href="ADCS_8h.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>){
+<a name="l00288"></a><a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">00288</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">modules::reader::AddOptionAll</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="mzdump_8c.html#a5cdb181553f9aa7bb182db5c195bb079">key</a>,<span class="keyword">const</span> std::string&amp; <a class="code" href="ADCS_8h.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>){
 <a name="l00289"></a>00289     <span class="keywordflow">for</span>(SectionsList::iterator it_sec=<a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>.begin(); it_sec != <a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>.end();it_sec++){
 <a name="l00290"></a>00290        <span class="keywordflow">if</span>(it_sec-&gt;first==<a class="code" href="classmodules_1_1reader.html#ad1e5fb43f7cb79c90017a335017cc4f6">fGlobalModule</a>) <span class="keywordflow">continue</span>;
 <a name="l00291"></a>00291        it_sec-&gt;second-&gt;SetOption(key,value);
