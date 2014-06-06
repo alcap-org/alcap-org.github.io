@@ -6,7 +6,6 @@
 # control variables
 ########################################################
 # Hard coded
-ConfigFile=Config.sh
 LogFile=run_doxygen.log
 DoxyConfigName=Doxyfile
 
@@ -20,38 +19,34 @@ DoxyConfigFile="$ScriptDirectory/$DoxyConfigName"
 # Important setup
 ########################################################
 # Stop on an error (non-zero return)
-set -e -x
 
-# If we're not interactive then send everything to the log file
-if ! `tty -s ` || [ -n "$1" ] ;then
+function DirectToLog(){
   exec &> "$ScriptDirectory/$LogFile"
-fi
-
+}
 
 function PrintNowIn(){
 echo "Now in: '`pwd`'"
 }
 
 ########################################################
-# Main processing
+# Options parsing
 ########################################################
-echo Running $0 on $DateString
+# source shell flags script
+. shflags
 
-# Change into the directory containing this file
-cd `dirname $0`
-PrintNowIn
+# Set up possible options
+DEFINE_string PathToSourceCode '' "Path to source code directory" i
+DEFINE_string PathToOutputHtml '' "Path to location for final html" o
+DEFINE_string SourceBranch develop "Branch to use for Source repository" b
+DEFINE_boolean UseLogFile false "Toggle output to log file or stdout" l
 
-# Get all local variable definitions
-[ ! -f "$ConfigFile" ] && \
-echo "Unable to find config file '$ConfigFile' in `pwd`" && exit 1
-source "$ConfigFile"
+# Parse the options
+FLAGS "$@" || exit $?
+eval set -- "${FLAGS_ARGV}"
 
-# Check we have all the necessary variables
-NeededVariables=( $PathToSourceCode $PathToOutputHtml )
-if [ ${#NeededVariables[@]} -ne 2 ];then
-        echo "I'm missing important variables"
-        exit 1
-fi
+PathToSourceCode="$FLAGS_PathToSourceCode"
+PathToOutputHtml="$FLAGS_PathToOutputHtml"
+SourceBranch="$FLAGS_SourceBranch"
 
 # Check the directories we need exist
 if [ ! -d "$PathToSourceCode" ];then
@@ -63,11 +58,31 @@ if [ ! -d "$PathToOutputHtml" ];then
         exit 1
 fi
 
-# In AlcapDAQ, pull the latest version of develop
+########################################################
+# Main processing
+########################################################
+set -e 
+#set -x
+# If we're not interactive then send everything to the log file
+if ! `tty -s `  ;then
+	DirectToLog
+fi
+
+echo Running $0 on $DateString
+
+# Change into the directory containing this file
+cd `dirname $0`
+
+## Get all local variable definitions
+#[ ! -f "$ConfigFile" ] && \
+#echo "Unable to find config file '$ConfigFile' in `pwd`" && exit 1
+#source "$ConfigFile"
+
+# In AlcapDAQ, pull the latest version of SourceBranch
 cd "$PathToSourceCode"
 PrintNowIn
-git checkout -v develop
-git -v pull
+git checkout $SourceBranch
+git pull
 
 # Run doxygen over AlcapDAQ
 ( cat "$DoxyConfigFile" ;
