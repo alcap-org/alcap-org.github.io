@@ -39,6 +39,7 @@ echo "Now in: '`pwd`'"
 DEFINE_string PathToSourceCode '' "Path to source code directory" i
 DEFINE_string PathToOutputHtml '' "Path to location for final html" o
 DEFINE_string SourceBranch develop "Branch to use for Source repository" b
+DEFINE_string SourceProject AlcapDAQ "Project to use for Source.  Should match PathToSourceCode" p
 DEFINE_boolean UseLogFile false "Toggle output to log file or stdout" l
 
 # Parse the options
@@ -48,6 +49,7 @@ eval set -- "${FLAGS_ARGV}"
 PathToSourceCode="$FLAGS_PathToSourceCode"
 PathToOutputHtml="$FLAGS_PathToOutputHtml"
 SourceBranch="$FLAGS_SourceBranch"
+Project="$FLAGS_SourceProject"
 
 if [ -z "$PathToSourceCode" ];then
         echo "ERROR: You must define the PathToSourceCode with option -i"
@@ -94,18 +96,22 @@ git pull
 
 # Run doxygen over AlcapDAQ
 ( cat "$DoxyConfigFile" ;
-echo "OUTPUT_DIRECTORY=$PathToOutputHtml"
-echo "INPUT=$PathToSourceCode"
+cat <<EOF
+OUTPUT_DIRECTORY=$PathToOutputHtml
+INPUT=$PathToSourceCode
+PROJECT_NAME=$Project
+HTML_OUTPUT=$Project/$Branch
+EOF
 ) | doxygen -
 
 # Now add, commit and push everything in the updated output html directory
 cd "$PathToOutputHtml"
-git pull
 PrintNowIn
+git pull
 #git config -l
 git add -A .
 git commit -m "Automatically regenerated doxygen documentation for $DateString"
-echo git push
+git push
 
 # Change back to where we were for interactive mode
 cd "$OriginalWD"
