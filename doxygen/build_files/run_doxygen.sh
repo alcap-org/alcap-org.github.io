@@ -37,26 +37,29 @@ echo "Now in: '`pwd`'"
 
 # Set up possible options
 DEFINE_string PathToSourceCode '' "Path to source code directory" i
-DEFINE_string PathToOutputHtml '' "Path to location for final html" o
+DEFINE_string PathToWebRepo '' "Path to alcap-org.github.io repostory" o
 DEFINE_string SourceBranch develop "Branch to use for Source repository" b
 DEFINE_string SourceProject AlcapDAQ "Project to use for Source.  Should match PathToSourceCode" p
 DEFINE_boolean UseLogFile false "Toggle output to log file or stdout" l
+DEFINE_boolean ForceGitPush false "Commit and push all html output" F
 
 # Parse the options
 FLAGS "$@" || exit $?
 eval set -- "${FLAGS_ARGV}"
 
 PathToSourceCode="$FLAGS_PathToSourceCode"
-PathToOutputHtml="$FLAGS_PathToOutputHtml"
+PathToWebRepo="$FLAGS_PathToWebRepo"
 SourceBranch="$FLAGS_SourceBranch"
 Project="$FLAGS_SourceProject"
+ForceGitPush="$FLAGS_ForceGitPush"
+PathToOutputHtml="$PathToWebRepo/doxygen/$Project/$SourceBranch"
 
 if [ -z "$PathToSourceCode" ];then
         echo "ERROR: You must define the PathToSourceCode with option -i"
         echo
         flags_help
         exit 1
-elif [ -z "$PathToOutputHtml" ];then
+elif [ -z "$PathToWebRepo" ];then
         echo "ERROR: You must define the PathToOutputHtml with option -o"
         echo
         flags_help
@@ -65,13 +68,17 @@ fi
 
 # Check the directories we need exist
 if [ ! -d "$PathToSourceCode" ];then
-        echo "Unable to find PathToSourceCode: $PathToSourceCode"
+        echo "Error: Unable to find PathToSourceCode: $PathToSourceCode"
         exit 1
 fi
-if [ ! -d "$PathToOutputHtml" ];then
-        echo "Unable to find PathToOutputHtml: $PathToOutputHtml"
+if [ ! -d "$PathToWebRepo" ];then
+        echo "Error: Unable to find PathToWebRepo: $PathToWebRepo"
+        exit 1
+elif [ ! -d "$PathToWebRepo/.git" ];then
+        echo "Error: $PathToWebRepo is not a git repository"
         exit 1
 fi
+mkdir -p "$PathToOutputHtml"
 
 ########################################################
 # Main processing
@@ -100,16 +107,23 @@ cat <<EOF
 OUTPUT_DIRECTORY=$PathToOutputHtml
 INPUT=$PathToSourceCode
 PROJECT_NAME=$Project
-HTML_OUTPUT=$Project/$Branch
+HTML_OUTPUT=.
 EOF
 ) | doxygen -
+
+if [ "${ForceGitPush}" -eq 1 ] ;then
+    echo
+    echo "Finishing...."
+    echo "If you want to commit and push the doxygen output you need to set the -F flag."
+    exit 0
+fi
 
 # Now add, commit and push everything in the updated output html directory
 cd "$PathToOutputHtml"
 PrintNowIn
 git pull
 #git config -l
-git add -A .
+git add -A $PathToOutputHtml
 git commit -m "Automatically regenerated doxygen documentation for $DateString"
 git push
 
