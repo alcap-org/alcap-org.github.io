@@ -53,12 +53,21 @@ if [ ${#NeededVariables[@]} -ne 2 ];then
         exit 1
 fi
 
-# Set the GIT_DIR
-#export GIT_DIR="`dirname $PathToOutputHtml/`"
+# Check the directories we need exist
+if [ ! -d "$PathToSourceCode" ];then
+        echo "Unable to find PathToSourceCode: $PathToSourceCode"
+        exit 1
+fi
+if [ ! -d "$PathToOutputHtml" ];then
+        echo "Unable to find PathToOutputHtml: $PathToOutputHtml"
+        exit 1
+fi
 
 # In AlcapDAQ, pull the latest version of develop
 cd "$PathToSourceCode"
 PrintNowIn
+git checkout -v develop
+git -v pull
 
 # Run doxygen over AlcapDAQ
 ( cat "$DoxyConfigFile" ;
