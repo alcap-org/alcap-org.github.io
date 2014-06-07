@@ -93,8 +93,10 @@ fi
 
 echo Running $0 on $DateString
 
-# Change into the directory containing this file
-cd `dirname $0`
+# Change into the directory where the html will go
+cd "$PathToOutputHtml"
+PrintNowIn
+git pull
 
 # In AlcapDAQ, pull the latest version of SourceBranch
 cd "$PathToSourceCode"
@@ -122,8 +124,6 @@ fi
 # Now add, commit and push everything in the updated output html directory
 cd "$PathToOutputHtml"
 PrintNowIn
-git pull
-#git config -l
 git add -A $PathToOutputHtml
 git commit -m "Automatically regenerated doxygen documentation for $DateString"
 git push
