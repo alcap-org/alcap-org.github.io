@@ -53,6 +53,7 @@ SourceBranch="$FLAGS_SourceBranch"
 Project="$FLAGS_SourceProject"
 ForceGitPush="$FLAGS_ForceGitPush"
 PathToOutputHtml="$PathToWebRepo/doxygen/$Project/$SourceBranch"
+InputDirectories=( "$PathToSourceCode/analyzer/"{rootana,src} )
 
 if [ -z "$PathToSourceCode" ];then
         echo "ERROR: You must define the PathToSourceCode with option -i"
@@ -105,7 +106,7 @@ git pull
 ( cat "$DoxyConfigFile" ;
 cat <<EOF
 OUTPUT_DIRECTORY=$PathToOutputHtml
-INPUT=$PathToSourceCode
+INPUT=${InputDirectories[@]}
 PROJECT_NAME=$Project
 HTML_OUTPUT=.
 EOF
