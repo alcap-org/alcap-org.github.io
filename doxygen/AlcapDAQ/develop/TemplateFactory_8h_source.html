@@ -38,7 +38,7 @@
 <a name="l00013"></a><a class="code" href="classTemplateFactory.html">00013</a> <span class="keyword">class </span><a class="code" href="classTemplateFactory.html">TemplateFactory</a>{
 <a name="l00014"></a>00014     <span class="keyword">protected</span>:
 <a name="l00017"></a><a class="code" href="classTemplateFactory.html#afca503033c178bc72890aa024604e59f">00017</a>         <a class="code" href="classTemplateFactory.html#afca503033c178bc72890aa024604e59f">TemplateFactory</a>(){};
-<a name="l00018"></a><a class="code" href="classTemplateFactory.html#ae8baab4a5fa29966c62dca1822c1e461">00018</a>         <a class="code" href="classTemplateFactory.html#ae8baab4a5fa29966c62dca1822c1e461">~TemplateFactory</a>(){
+<a name="l00018"></a><a class="code" href="classTemplateFactory.html#a94be422513b886d6b6593b3ce09c7af6">00018</a>         <span class="keyword">virtual</span> <a class="code" href="classTemplateFactory.html#a94be422513b886d6b6593b3ce09c7af6">~TemplateFactory</a>(){
 <a name="l00019"></a>00019             <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>.clear();
 <a name="l00020"></a>00020             <a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">fModuleOptions</a>.clear();
 <a name="l00021"></a>00021         }
@@ -47,7 +47,7 @@
 <a name="l00024"></a>00024         <span class="comment">// typdef a function pointer for creating a module</span>
 <a name="l00025"></a><a class="code" href="classTemplateFactory.html#ab01df25a7b8fc74d493c8cad339a53f7">00025</a>         <span class="keyword">typedef</span> <a class="code" href="namespacemodules.html#a68db42feebca3ab8c496966d358d014f">BaseModule</a>*(*maker)(OptionsType*);
 <a name="l00027"></a>00027         <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#aa67c27ebcd62f064ba369eeec672d950" title="Add a maker function to the list of makers.">registerModule</a>(<span class="keyword">const</span> std::string&amp;, <a class="code" href="classTemplateFactory.html#ab01df25a7b8fc74d493c8cad339a53f7">maker</a>);
-<a name="l00029"></a>00029         <a class="code" href="namespacemodules.html#a68db42feebca3ab8c496966d358d014f">BaseModule</a>* <a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(<span class="keyword">const</span> std::string&amp;, OptionsType*);
+<a name="l00029"></a>00029         <span class="keyword">virtual</span> <a class="code" href="namespacemodules.html#a68db42feebca3ab8c496966d358d014f">BaseModule</a>* <a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(<span class="keyword">const</span> std::string&amp;, OptionsType*);
 <a name="l00031"></a>00031         <a class="code" href="namespacemodules.html#a68db42feebca3ab8c496966d358d014f">BaseModule</a>* <a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(<span class="keyword">const</span> std::string&amp; name);
 <a name="l00032"></a>00032         <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a0bfa2fe7e4a4a4af46098fe79a82c3ed">addOptions</a>(<span class="keyword">const</span> std::string&amp; name, OptionsType *opts);
 <a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a2876c6b4e885a0bc6a7500539aef11ae">addArguments</a>(<span class="keyword">const</span> std::string&amp; all_args);
@@ -104,7 +104,7 @@
 <a name="l00084"></a>00084 
 <a name="l00085"></a>00085 <span class="preprocessor">#endif //TEMPLATEFACTORY_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

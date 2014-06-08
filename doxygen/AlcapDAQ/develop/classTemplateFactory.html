@@ -35,7 +35,7 @@
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#aa67c27ebcd62f064ba369eeec672d950">registerModule</a> (const std::string &amp;, <a class="el" href="classTemplateFactory.html#ab01df25a7b8fc74d493c8cad339a53f7">maker</a>)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a maker function to the list of makers.  <a href="#aa67c27ebcd62f064ba369eeec672d950"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">BaseModule *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e">createModule</a> (const std::string &amp;, OptionsType *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual BaseModule *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e">createModule</a> (const std::string &amp;, OptionsType *)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a module with options.  <a href="#ae258400de742fcbeb8cc3f208c32219e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BaseModule *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a6e49707e6ed4004dea0feefcfe807a2d">createModule</a> (const std::string &amp;name)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a module and look up its options from the internal list.  <a href="#a6e49707e6ed4004dea0feefcfe807a2d"></a><br/></td></tr>
@@ -47,7 +47,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a957905eb621b32168cb27950fcdbc360">SetDebug</a> (bool debug=true)</td></tr>
 <tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#afca503033c178bc72890aa024604e59f">TemplateFactory</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#ae8baab4a5fa29966c62dca1822c1e461">~TemplateFactory</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a94be422513b886d6b6593b3ce09c7af6">~TemplateFactory</a> ()</td></tr>
 <tr><td colspan="2"><h2>Private Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak"/>
 <a class="el" href="classTemplateFactory.html#ab01df25a7b8fc74d493c8cad339a53f7">maker</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a9646ece1569a47c42dd41902b1752ed7">MakersList</a></td></tr>
@@ -181,18 +181,18 @@ template&lt;typename BaseModule, typename OptionsType&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ae8baab4a5fa29966c62dca1822c1e461"></a><!-- doxytag: member="TemplateFactory::~TemplateFactory" ref="ae8baab4a5fa29966c62dca1822c1e461" args="()" -->
+<a class="anchor" id="a94be422513b886d6b6593b3ce09c7af6"></a><!-- doxytag: member="TemplateFactory::~TemplateFactory" ref="a94be422513b886d6b6593b3ce09c7af6" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename BaseModule, typename OptionsType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classTemplateFactory.html">TemplateFactory</a>&lt; BaseModule, OptionsType &gt;::~<a class="el" href="classTemplateFactory.html">TemplateFactory</a> </td>
+          <td class="memname">virtual <a class="el" href="classTemplateFactory.html">TemplateFactory</a>&lt; BaseModule, OptionsType &gt;::~<a class="el" href="classTemplateFactory.html">TemplateFactory</a> </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline, protected]</code></td>
+          <td><code> [inline, protected, virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -200,7 +200,7 @@ template&lt;typename BaseModule, typename OptionsType&gt; </div>
 
 <p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00018">18</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00018"></a>00018                           {
+<p><div class="fragment"><pre class="fragment"><a name="l00018"></a>00018                                   {
 <a name="l00019"></a>00019             <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>.clear();
 <a name="l00020"></a>00020             <a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">fModuleOptions</a>.clear();
 <a name="l00021"></a>00021         }
@@ -409,7 +409,7 @@ template&lt;typename BaseModule , typename OptionsType&gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [inline]</code></td>
+          <td></td><td></td><td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -417,11 +417,13 @@ template&lt;typename BaseModule , typename OptionsType&gt; </div>
 
 <p>Create a module with options. </p>
 
+<p>Reimplemented in <a class="el" href="classmodules_1_1factory.html#a9ea070d3afec26d1bbec56d40bf8acac">modules::factory</a>.</p>
+
 <p>Definition at line <a class="el" href="TemplateFactory_8tpl_source.html#l00028">28</a> of file <a class="el" href="TemplateFactory_8tpl_source.html">TemplateFactory.tpl</a>.</p>
 
 <p>References <a class="el" href="TemplateFactory_8h_source.html#l00044">TemplateFactory&lt; BaseModule, OptionsType &gt;::fModuleMakers</a>, and <a class="el" href="Template__module_8cpp_source.html#l00012">module()</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00177">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00046">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, <a class="el" href="CommandLine_8cpp_source.html#l00200">load_config_file()</a>, <a class="el" href="ModulesNavigator_8cpp_source.html#l00007">modules::navigator::LoadConfigFile()</a>, and <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00165">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00046">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, and <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                                                {
 <a name="l00030"></a>00030     <span class="comment">// get the maker for the requested module</span>
@@ -473,7 +475,7 @@ template&lt;typename BaseModule , typename OptionsType &gt; </div>
 
 <p>References <a class="el" href="TemplateFactory_8h_source.html#l00053">TemplateFactory&lt; BaseModule, OptionsType &gt;::fModuleArguments</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00067">modules::options::AddArgument()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00074">modules::options::AddArgument()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00017"></a>00017                                                     {
 <a name="l00018"></a>00018     <span class="keywordflow">try</span>{
@@ -549,7 +551,7 @@ template&lt;typename BaseModule, typename OptionsType&gt; </div>
 
 <p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00039">39</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00276">modules::reader::SetDebug()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00242">modules::reader::SetDebug()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00039"></a>00039 {<a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">fDebug</a>=debug;};
 </pre></div></p>
@@ -572,7 +574,7 @@ template&lt;typename BaseModule, typename OptionsType&gt; </div>
 
 <p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00059">59</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFactory_8h_source.html#l00039">TemplateFactory&lt; BaseModule, modules::options &gt;::SetDebug()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFactory_8h_source.html#l00039">TemplateFactory&lt; modules::BaseModule, modules::options &gt;::SetDebug()</a>.</p>
 
 </div>
 </div>
@@ -610,7 +612,7 @@ template&lt;typename BaseModule, typename OptionsType&gt; </div>
 
 <p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00044">44</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFactory_8tpl_source.html#l00028">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00057">TemplateFactory&lt; BaseModule, OptionsType &gt;::registerModule()</a>, and <a class="el" href="TemplateFactory_8h_source.html#l00018">TemplateFactory&lt; BaseModule, modules::options &gt;::~TemplateFactory()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFactory_8tpl_source.html#l00028">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00057">TemplateFactory&lt; BaseModule, OptionsType &gt;::registerModule()</a>, and <a class="el" href="TemplateFactory_8h_source.html#l00018">TemplateFactory&lt; modules::BaseModule, modules::options &gt;::~TemplateFactory()</a>.</p>
 
 </div>
 </div>
@@ -629,7 +631,7 @@ template&lt;typename BaseModule, typename OptionsType&gt; </div>
 
 <p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00048">48</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFactory_8tpl_source.html#l00064">TemplateFactory&lt; BaseModule, OptionsType &gt;::addOptions()</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00046">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, and <a class="el" href="TemplateFactory_8h_source.html#l00018">TemplateFactory&lt; BaseModule, modules::options &gt;::~TemplateFactory()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFactory_8tpl_source.html#l00064">TemplateFactory&lt; BaseModule, OptionsType &gt;::addOptions()</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00046">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, and <a class="el" href="TemplateFactory_8h_source.html#l00018">TemplateFactory&lt; modules::BaseModule, modules::options &gt;::~TemplateFactory()</a>.</p>
 
 </div>
 </div>
@@ -657,7 +659,7 @@ template&lt;typename BaseModule, typename OptionsType&gt; </div>
 <li>analyzer/rootana/src/framework/<a class="el" href="TemplateFactory_8tpl_source.html">TemplateFactory.tpl</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

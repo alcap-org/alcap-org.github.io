@@ -82,7 +82,7 @@
 <a name="l00058"></a>00058        std::vector&lt;std::string&gt; currentList;
 <a name="l00059"></a>00059        std::vector&lt;EventID_t&gt; event_list;
 <a name="l00060"></a>00060        std::vector&lt;PulseID_t&gt; pulse_list;
-<a name="l00061"></a>00061        std::pair&lt;std::string,std::string&gt; event_pulse_request;
+<a name="l00061"></a>00061        <a class="code" href="structmodules_1_1parser_1_1Constructor__t.html">modules::parser::Constructor_t</a> event_pulse_request;
 <a name="l00062"></a>00062        std::string error_type;
 <a name="l00063"></a>00063        <span class="comment">// Loop over all options</span>
 <a name="l00064"></a>00064        <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">modules::options::OptionsList_t::const_iterator</a> i_opt = <a class="code" href="classExportPulse.html#a1c30556d67a0b40990d214b72afd6595">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#a04af4a982d1c3a6d99fe482dbd5c5922">begin</a>();
@@ -100,15 +100,15 @@
 <a name="l00076"></a>00076           <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;std::string&gt;::iterator</a> i_request=currentList.begin();
 <a name="l00077"></a>00077                   i_request!=currentList.end();
 <a name="l00078"></a>00078                   i_request++){
-<a name="l00079"></a>00079               event_pulse_request=<a class="code" href="namespacemodules_1_1parser.html#ab4411944a2981899465ada3d96be880a">modules::parser::ParseConstructor</a>(*i_request,<span class="charliteral">&apos;(&apos;</span>,<span class="charliteral">&apos;)&apos;</span>);
+<a name="l00079"></a>00079               event_pulse_request=<a class="code" href="namespacemodules_1_1parser.html#aee1c4962ea5b97d78e0e01f656488b5e">modules::parser::ParseConstructor</a>(*i_request,<span class="charliteral">&apos;(&apos;</span>,<span class="charliteral">&apos;)&apos;</span>);
 <a name="l00080"></a>00080               <span class="comment">// Check things look healthy</span>
-<a name="l00081"></a>00081               <span class="keywordflow">if</span>(event_pulse_request.first==<span class="stringliteral">&quot;&quot;</span> )error_type=<span class="stringliteral">&quot;event&quot;</span>;
-<a name="l00082"></a>00082               <span class="keywordflow">else</span> <span class="keywordflow">if</span>( event_pulse_request.second==<span class="stringliteral">&quot;&quot;</span>)error_type=<span class="stringliteral">&quot;pulse&quot;</span>;
-<a name="l00083"></a>00083               <span class="keywordflow">else</span> <span class="keywordflow">if</span>( !<a class="code" href="classExportPulse.html#a3f32fad51ae619ba86d2adcd8032e51c">ParseEventRequest</a>(event_pulse_request.first, event_list)) error_type=<span class="stringliteral">&quot;event&quot;</span>;
-<a name="l00084"></a>00084               <span class="keywordflow">else</span> <span class="keywordflow">if</span>( !<a class="code" href="classExportPulse.html#aeae0b97ccbd4fc2718d2c3e603c63c3f">ParsePulseRequest</a>(event_pulse_request.second,pulse_list)) error_type=<span class="stringliteral">&quot;pulse&quot;</span>;
+<a name="l00081"></a>00081               <span class="keywordflow">if</span>(event_pulse_request.<a class="code" href="structmodules_1_1parser_1_1Constructor__t.html#adeeb5a1ade5c492abcc3124fa9d1a1e9">before</a>==<span class="stringliteral">&quot;&quot;</span> )error_type=<span class="stringliteral">&quot;event&quot;</span>;
+<a name="l00082"></a>00082               <span class="keywordflow">else</span> <span class="keywordflow">if</span>( event_pulse_request.<a class="code" href="structmodules_1_1parser_1_1Constructor__t.html#ac0b2a19b3ad0013777c21f03ac8bb89c">inside</a>==<span class="stringliteral">&quot;&quot;</span>)error_type=<span class="stringliteral">&quot;pulse&quot;</span>;
+<a name="l00083"></a>00083               <span class="keywordflow">else</span> <span class="keywordflow">if</span>( !<a class="code" href="classExportPulse.html#a3f32fad51ae619ba86d2adcd8032e51c">ParseEventRequest</a>(event_pulse_request.<a class="code" href="structmodules_1_1parser_1_1Constructor__t.html#adeeb5a1ade5c492abcc3124fa9d1a1e9">before</a>, event_list)) error_type=<span class="stringliteral">&quot;event&quot;</span>;
+<a name="l00084"></a>00084               <span class="keywordflow">else</span> <span class="keywordflow">if</span>( !<a class="code" href="classExportPulse.html#aeae0b97ccbd4fc2718d2c3e603c63c3f">ParsePulseRequest</a>(event_pulse_request.<a class="code" href="structmodules_1_1parser_1_1Constructor__t.html#ac0b2a19b3ad0013777c21f03ac8bb89c">inside</a>,pulse_list)) error_type=<span class="stringliteral">&quot;pulse&quot;</span>;
 <a name="l00085"></a>00085               <span class="keywordflow">if</span>(error_type != <span class="stringliteral">&quot;&quot;</span>){
 <a name="l00086"></a>00086                   cout&lt;&lt;<span class="stringliteral">&quot;Skipping badly formatted &quot;</span>&lt;&lt;error_type&lt;&lt;<span class="stringliteral">&quot; specification: &quot;</span>&lt;&lt;*i_request&lt;&lt;endl;
-<a name="l00087"></a>00087                   cout&lt;&lt;<span class="stringliteral">&quot;event=&quot;</span>&lt;&lt;event_pulse_request.first&lt;&lt;<span class="stringliteral">&quot;, pulse=&quot;</span>&lt;&lt;event_pulse_request.second&lt;&lt;endl;
+<a name="l00087"></a>00087                   cout&lt;&lt;<span class="stringliteral">&quot;event=&quot;</span>&lt;&lt;event_pulse_request.<a class="code" href="structmodules_1_1parser_1_1Constructor__t.html#adeeb5a1ade5c492abcc3124fa9d1a1e9">before</a>&lt;&lt;<span class="stringliteral">&quot;, pulse=&quot;</span>&lt;&lt;event_pulse_request.<a class="code" href="structmodules_1_1parser_1_1Constructor__t.html#ac0b2a19b3ad0013777c21f03ac8bb89c">inside</a>&lt;&lt;endl;
 <a name="l00088"></a>00088                   <a class="code" href="classExportPulse.html#a7b3d0abfdb13c9a66a227f6bb109887b">ShowGuidance</a>();
 <a name="l00089"></a>00089                   <span class="keywordflow">continue</span>;
 <a name="l00090"></a>00090               }
@@ -281,7 +281,7 @@
 <a name="l00257"></a>00257 
 <a name="l00258"></a>00258 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classExportPulse.html">ExportPulse</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
