@@ -44,7 +44,8 @@ Inheritance diagram for FillHistBase:</div>
 <area href="classPlotAmplitude.html" alt="PlotAmplitude" shape="rect" coords="143,392,276,416"/>
 <area href="classPlotAmpVsTDiff.html" alt="PlotAmpVsTDiff" shape="rect" coords="143,448,276,472"/>
 <area href="classPlotTime.html" alt="PlotTime" shape="rect" coords="143,504,276,528"/>
-<area href="classSimpleHistograms.html" alt="SimpleHistograms" shape="rect" coords="143,560,276,584"/>
+<area href="classPulseViewer.html" alt="PulseViewer" shape="rect" coords="143,560,276,584"/>
+<area href="classSimpleHistograms.html" alt="SimpleHistograms" shape="rect" coords="143,616,276,640"/>
 </map>
  </div>
 </div>
@@ -106,12 +107,12 @@ Inheritance diagram for FillHistBase:</div>
 
 <p>Definition at line <a class="el" href="FillHistBase_8cpp_source.html#l00005">5</a> of file <a class="el" href="FillHistBase_8cpp_source.html">FillHistBase.cpp</a>.</p>
 
-<p>References <a class="el" href="FillHistBase_8h_source.html#l00043">dir</a>, <a class="el" href="FillHistBase_8h_source.html#l00052">fDebug</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00071">modules::options::HasOption()</a>.</p>
+<p>References <a class="el" href="FillHistBase_8h_source.html#l00043">dir</a>, <a class="el" href="FillHistBase_8h_source.html#l00052">fDebug</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00039">modules::options::GetBool()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00072">modules::options::HasOption()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00005"></a>00005                                                                                                    :
 <a name="l00006"></a>00006         <a class="code" href="classFillHistBase.html#ac34d36c437ed558640729cdadd9eb726">fSetup</a>(setup),<a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>(<span class="keyword">false</span>){
 <a name="l00007"></a>00007   <span class="keywordflow">if</span>(opts){
-<a name="l00008"></a>00008     <a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>);
+<a name="l00008"></a>00008     <a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>=(opts-&gt;<a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>) &amp;&amp; opts-&gt;<a class="code" href="classmodules_1_1options.html#a2fd1de9fcea34d345bb5d1d8c2446d83">GetBool</a>(<span class="stringliteral">&quot;debug&quot;</span>));
 <a name="l00009"></a>00009     <span class="comment">//std::cout&lt;&lt;&quot;Should we debug module: &quot;&lt;&lt;HistogramDirectoryName&lt;&lt;&quot;: &quot;&lt;&lt;(fDebug?&quot;yes&quot;:&quot;no&quot;)&lt;&lt;std::endl;</span>
 <a name="l00010"></a>00010   }
 <a name="l00011"></a>00011   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a> = gDirectory-&gt;mkdir(HistogramDirectoryName);
@@ -171,6 +172,8 @@ Inheritance diagram for FillHistBase:</div>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="classPulseViewer.html#adcf4437db1c8370b2239b303a8ff11ce">PulseViewer</a>.</p>
+
 <p>Definition at line <a class="el" href="FillHistBase_8h_source.html#l00039">39</a> of file <a class="el" href="FillHistBase_8h_source.html">FillHistBase.h</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00039"></a>00039 {<span class="keywordflow">return</span> 0;};
@@ -203,7 +206,7 @@ Inheritance diagram for FillHistBase:</div>
 </div>
 <div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">ExportPulse</a>, <a class="el" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">MakeAnalysedPulses</a>, <a class="el" href="classMakeDetectorPulses.html#a328f631361974b4fee89c589dcbdd501">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#ac671561967724feba2c02c728f76a66e">MakeMuonEvents</a>.</p>
+<p>Reimplemented in <a class="el" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">ExportPulse</a>, <a class="el" href="classPulseViewer.html#a6e2d212629975cc6edbeb1924e03bea8">PulseViewer</a>, <a class="el" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">MakeAnalysedPulses</a>, <a class="el" href="classMakeDetectorPulses.html#a328f631361974b4fee89c589dcbdd501">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#ac671561967724feba2c02c728f76a66e">MakeMuonEvents</a>.</p>
 
 <p>Definition at line <a class="el" href="FillHistBase_8h_source.html#l00038">38</a> of file <a class="el" href="FillHistBase_8h_source.html">FillHistBase.h</a>.</p>
 
@@ -231,7 +234,7 @@ Inheritance diagram for FillHistBase:</div>
 
 <p>References <a class="el" href="FillHistBase_8h_source.html#l00052">fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00165">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00153">ExportPulse::MakePlot()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00091">MakeAnalysedPulses::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00165">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00101">ExportPulse::AddToExportList()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00197">PulseViewer::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00210">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00091">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00182">PulseViewer::ShouldDraw()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00048"></a>00048 {<span class="keywordflow">return</span> <a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>;};
 </pre></div></p>
@@ -313,7 +316,7 @@ Inheritance diagram for FillHistBase:</div>
 </div>
 <div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a">ExportPulse</a>, <a class="el" href="classPlotAmplitude.html#a294bf2dc055241f59ca05264fc1451c1">PlotAmplitude</a>, <a class="el" href="classPlotAmpVsTDiff.html#afe7fbabe0587ac0f55e66276e22a5892">PlotAmpVsTDiff</a>, <a class="el" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f">PlotTime</a>, <a class="el" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0">MakeAnalysedPulses</a>, <a class="el" href="classMakeTemplate.html#aafa0dbbf9f932fea7af17683a3eeaa72">MakeTemplate</a>, <a class="el" href="classMakeDetectorPulses.html#ac27593f052e75d1c32c8c20c5f83815b">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#aa39ae01cdecb8a60dbaa582c8c26749d">MakeMuonEvents</a>.</p>
+<p>Reimplemented in <a class="el" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a">ExportPulse</a>, <a class="el" href="classPlotAmplitude.html#a294bf2dc055241f59ca05264fc1451c1">PlotAmplitude</a>, <a class="el" href="classPlotAmpVsTDiff.html#afe7fbabe0587ac0f55e66276e22a5892">PlotAmpVsTDiff</a>, <a class="el" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f">PlotTime</a>, <a class="el" href="classPulseViewer.html#aff5c4ac45ec09a9941008f53fdc5ea5d">PulseViewer</a>, <a class="el" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0">MakeAnalysedPulses</a>, <a class="el" href="classMakeTemplate.html#aafa0dbbf9f932fea7af17683a3eeaa72">MakeTemplate</a>, <a class="el" href="classMakeDetectorPulses.html#ac27593f052e75d1c32c8c20c5f83815b">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#aa39ae01cdecb8a60dbaa582c8c26749d">MakeMuonEvents</a>.</p>
 
 <p>Definition at line <a class="el" href="FillHistBase_8cpp_source.html#l00019">19</a> of file <a class="el" href="FillHistBase_8cpp_source.html">FillHistBase.cpp</a>.</p>
 
@@ -411,7 +414,7 @@ Inheritance diagram for FillHistBase:</div>
 
 <p>Definition at line <a class="el" href="FillHistBase_8h_source.html#l00043">43</a> of file <a class="el" href="FillHistBase_8h_source.html">FillHistBase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00034">ExportPulse::ExportPulse()</a>, <a class="el" href="FillHistBase_8cpp_source.html#l00005">FillHistBase()</a>, <a class="el" href="FillHistBase_8h_source.html#l00040">GetName()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00025">PlotAmplitude::PlotAmplitude()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00025">PlotTime::PlotTime()</a>, and <a class="el" href="FillHistBase_8cpp_source.html#l00024">ProcessGenericEntry()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00039">ExportPulse::ExportPulse()</a>, <a class="el" href="FillHistBase_8cpp_source.html#l00005">FillHistBase()</a>, <a class="el" href="FillHistBase_8h_source.html#l00040">GetName()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00025">PlotAmplitude::PlotAmplitude()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00025">PlotTime::PlotTime()</a>, and <a class="el" href="FillHistBase_8cpp_source.html#l00024">ProcessGenericEntry()</a>.</p>
 
 </div>
 </div>
@@ -471,7 +474,7 @@ Inheritance diagram for FillHistBase:</div>
 <li>analyzer/rootana/src/framework/<a class="el" href="FillHistBase_8cpp_source.html">FillHistBase.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

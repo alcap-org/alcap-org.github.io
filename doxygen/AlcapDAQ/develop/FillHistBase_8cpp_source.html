@@ -30,7 +30,7 @@
 <a name="l00005"></a><a class="code" href="classFillHistBase.html#ab1257f1f9b3396cc080391e8286015b7">00005</a> <a class="code" href="classFillHistBase.html#ab1257f1f9b3396cc080391e8286015b7">FillHistBase::FillHistBase</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *HistogramDirectoryName,<a class="code" href="classmodules_1_1options.html">modules::options</a>* opts,<a class="code" href="classTSetupData.html">TSetupData</a>* setup):
 <a name="l00006"></a>00006         fSetup(setup),fDebug(false){
 <a name="l00007"></a>00007   <span class="keywordflow">if</span>(opts){
-<a name="l00008"></a>00008     <a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>);
+<a name="l00008"></a>00008     <a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>=(opts-&gt;<a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>) &amp;&amp; opts-&gt;<a class="code" href="classmodules_1_1options.html#a2fd1de9fcea34d345bb5d1d8c2446d83">GetBool</a>(<span class="stringliteral">&quot;debug&quot;</span>));
 <a name="l00009"></a>00009     <span class="comment">//std::cout&lt;&lt;&quot;Should we debug module: &quot;&lt;&lt;HistogramDirectoryName&lt;&lt;&quot;: &quot;&lt;&lt;(fDebug?&quot;yes&quot;:&quot;no&quot;)&lt;&lt;std::endl;</span>
 <a name="l00010"></a>00010   }
 <a name="l00011"></a>00011   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a> = gDirectory-&gt;mkdir(HistogramDirectoryName);
@@ -57,7 +57,7 @@
 <a name="l00032"></a>00032   <span class="keywordflow">return</span> ret;
 <a name="l00033"></a>00033 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

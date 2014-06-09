@@ -80,7 +80,7 @@
 <a name="l00057"></a><a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f">00057</a>   <span class="keywordtype">double</span> <a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f">GetTimeShift</a>(<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword"> const</span>{ <span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a9cc7fd3b8c98eee8a4b5a791eb4b8c07">fBankToTimeShift</a>,BankName); };
 <a name="l00058"></a><a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45">00058</a>   <span class="keywordtype">int</span> <a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45">GetTriggerPolarity</a>(<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a77bfbe88eb2c2e7bccd34e9cd8a2a8c2">fBankToPolarityMap</a>,BankName);};
 <a name="l00059"></a><a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">00059</a>   <span class="keywordtype">int</span> <a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">GetPedestal</a>(<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a4e5b3809ba2d4841bfa8304e0307c3ed">fBankToPedestalMap</a>,BankName);};
-<a name="l00060"></a><a class="code" href="classTSetupData.html#a0fbe41e17f202f70094e7b5790455ae7">00060</a>         <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#a0fbe41e17f202f70094e7b5790455ae7">GetEnableBit</a>(<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#ac8c09effe637dd8a1498887f847eabd3">fBankToEnableBitMap</a>, BankName);};
+<a name="l00060"></a><a class="code" href="classTSetupData.html#a0fbe41e17f202f70094e7b5790455ae7">00060</a>   <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#a0fbe41e17f202f70094e7b5790455ae7">GetEnableBit</a>(<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#ac8c09effe637dd8a1498887f847eabd3">fBankToEnableBitMap</a>, BankName);};
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062   <span class="comment">// Setters with check, return true if inserted</span>
 <a name="l00063"></a><a class="code" href="classTSetupData.html#ac4789422aeb97609a61f03ba330568de">00063</a>   <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#ac4789422aeb97609a61f03ba330568de">SetDetectorName</a>(std::string BankName, std::string value) {
@@ -106,34 +106,37 @@
 <a name="l00083"></a><a class="code" href="classTSetupData.html#adea06fc18f9c5a7e28d527d149bfb63b">00083</a>   <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#adea06fc18f9c5a7e28d527d149bfb63b">IsSlow</a>(<span class="keyword">const</span> std::string&amp; BankName) { <span class="keywordflow">return</span> (*BankName.end() -1 ) == <span class="charliteral">&apos;S&apos;</span>; } <span class="comment">// if the last letter is S then the bank name is for a Slow pulse</span>
 <a name="l00084"></a><a class="code" href="classTSetupData.html#aef90c2c9b47ceba7f4e1ade81206dbcf">00084</a>   <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#aef90c2c9b47ceba7f4e1ade81206dbcf">IsFast</a>(<span class="keyword">const</span> std::string&amp; BankName) { <span class="keywordflow">return</span> (*(BankName.end() -1)  == <span class="charliteral">&apos;F&apos;</span> || BankName.substr(0,2) == <span class="stringliteral">&quot;Sc&quot;</span> ); } <span class="comment">// if the last letter is F then the bank name is for a Fast pulse</span>
 <a name="l00085"></a>00085 
-<a name="l00086"></a><a class="code" href="classTSetupData.html#aeab91d64c76c968bcd7c005843505e44">00086</a>         <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#aeab91d64c76c968bcd7c005843505e44">IsEnable</a>(<span class="keyword">const</span> std::string&amp; BankName){<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#a0fbe41e17f202f70094e7b5790455ae7">GetEnableBit</a>(BankName);}
+<a name="l00086"></a><a class="code" href="classTSetupData.html#aeab91d64c76c968bcd7c005843505e44">00086</a>   <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#aeab91d64c76c968bcd7c005843505e44">IsEnable</a>(<span class="keyword">const</span> std::string&amp; BankName){<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#a0fbe41e17f202f70094e7b5790455ae7">GetEnableBit</a>(BankName);}
 <a name="l00087"></a>00087 <span class="keyword">private</span>:
-<a name="l00088"></a>00088   <span class="comment">// A small helper function to save us copying this about the place all the time</span>
-<a name="l00089"></a><a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">00089</a>   <span class="keywordtype">double</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<span class="keyword">const</span> std::map&lt;std::string,double&gt;&amp; map,<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{
-<a name="l00090"></a>00090           <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, double&gt;::const_iterator</a> it=map.find(BankName); 
-<a name="l00091"></a>00091           <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
-<a name="l00092"></a>00092           <span class="keywordflow">return</span> 0.;
-<a name="l00093"></a>00093   }
-<a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="classTSetupData.html#aa378d8007ef2025cf41a675a546b6ad9">00095</a>   <span class="keywordtype">int</span> <a class="code" href="classTSetupData.html#aa378d8007ef2025cf41a675a546b6ad9">GetValue</a>(<span class="keyword">const</span> std::map&lt;std::string,int&gt;&amp; map,<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{
-<a name="l00096"></a>00096           <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, int&gt;::const_iterator</a> it=map.find(BankName); 
-<a name="l00097"></a>00097           <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
-<a name="l00098"></a>00098           <span class="keywordflow">return</span> 0;
-<a name="l00099"></a>00099   }
-<a name="l00100"></a>00100 
-<a name="l00101"></a><a class="code" href="classTSetupData.html#abc96e3aaa4ab95fb47e87d89c1323209">00101</a>         <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#abc96e3aaa4ab95fb47e87d89c1323209">GetValue</a>(<span class="keyword">const</span> std::map&lt;std::string,bool&gt;&amp; map,<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{
-<a name="l00102"></a>00102                 <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, bool&gt;::const_iterator</a> it=map.find(BankName); 
-<a name="l00103"></a>00103                 <span class="keywordflow">if</span>(it!=map.end()) 
-<a name="l00104"></a>00104                         <span class="keywordflow">return</span> it-&gt;second;
-<a name="l00105"></a>00105                 <span class="keywordflow">else</span>
-<a name="l00106"></a>00106                         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00107"></a>00107         }
-<a name="l00108"></a>00108   ClassDef(<a class="code" href="classTSetupData.html">TSetupData</a>, 3)
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110 };
-<a name="l00111"></a>00111 <span class="preprocessor">#endif</span>
+<a name="l00088"></a>00088   <span class="comment">// A small helper function to save us copying this about the place</span>
+<a name="l00089"></a>00089   <span class="comment">// all the time</span>
+<a name="l00090"></a><a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">00090</a>   <span class="keywordtype">double</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<span class="keyword">const</span> std::map&lt;std::string,double&gt;&amp; map,<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{
+<a name="l00091"></a>00091     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, double&gt;::const_iterator</a> it=map.find(BankName); 
+<a name="l00092"></a>00092     <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00093"></a>00093     <span class="keywordflow">return</span> 0.;
+<a name="l00094"></a>00094   }
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="classTSetupData.html#aa378d8007ef2025cf41a675a546b6ad9">00096</a>   <span class="keywordtype">int</span> <a class="code" href="classTSetupData.html#aa378d8007ef2025cf41a675a546b6ad9">GetValue</a>(<span class="keyword">const</span> std::map&lt;std::string,int&gt;&amp; map,<span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{
+<a name="l00097"></a>00097     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, int&gt;::const_iterator</a> it=map.find(BankName); 
+<a name="l00098"></a>00098     <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00099"></a>00099     <span class="keywordflow">return</span> 0;
+<a name="l00100"></a>00100   }
+<a name="l00101"></a>00101 
+<a name="l00102"></a><a class="code" href="classTSetupData.html#abc96e3aaa4ab95fb47e87d89c1323209">00102</a>   <span class="keywordtype">bool</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<span class="keyword">const</span> std::map&lt;std::string,bool&gt;&amp; map,
+<a name="l00103"></a>00103                 <span class="keyword">const</span> std::string&amp; BankName)<span class="keyword">const</span>{
+<a name="l00104"></a>00104     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, bool&gt;::const_iterator</a> it=map.find(BankName); 
+<a name="l00105"></a>00105     <span class="keywordflow">if</span>(it!=map.end()) 
+<a name="l00106"></a>00106       <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00107"></a>00107     <span class="keywordflow">else</span>
+<a name="l00108"></a>00108       <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00109"></a>00109   }
+<a name="l00110"></a>00110   
+<a name="l00111"></a>00111   ClassDef(<a class="code" href="classTSetupData.html">TSetupData</a>, 3)
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 };
+<a name="l00114"></a>00114 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
