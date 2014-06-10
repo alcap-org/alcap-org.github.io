@@ -48,12 +48,12 @@
 <a name="l00023"></a>00023 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
 <a name="l00024"></a>00024 
 <a name="l00025"></a><a class="code" href="classPlotTime.html#a7d4e96f8196471323e953609a464bee0">00025</a> <a class="code" href="classPlotTime.html#a7d4e96f8196471323e953609a464bee0">PlotTime::PlotTime</a>(<span class="keywordtype">char</span> *HistogramDirectoryName) :
-<a name="l00026"></a>00026   <a class="code" href="classFillHistBase.html">FillHistBase</a>(HistogramDirectoryName){  
-<a name="l00027"></a>00027   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00026"></a>00026   <a class="code" href="classBaseModule.html">BaseModule</a>(HistogramDirectoryName){  
+<a name="l00027"></a>00027   <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00028"></a>00028 }
 <a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="classPlotTime.html#a5e5c03cc7a0c07cad3337ffb4af74c16">00030</a> <a class="code" href="classPlotTime.html#a7d4e96f8196471323e953609a464bee0">PlotTime::PlotTime</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) : <a class="code" href="classFillHistBase.html">FillHistBase</a>(opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>).c_str()) {
-<a name="l00031"></a>00031   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00030"></a><a class="code" href="classPlotTime.html#a5e5c03cc7a0c07cad3337ffb4af74c16">00030</a> <a class="code" href="classPlotTime.html#a7d4e96f8196471323e953609a464bee0">PlotTime::PlotTime</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) : <a class="code" href="classBaseModule.html">BaseModule</a>(opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>).c_str()) {
+<a name="l00031"></a>00031   <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00032"></a>00032 }
 <a name="l00033"></a>00033 
 <a name="l00034"></a><a class="code" href="classPlotTime.html#a2d043127747bbc73eb92e16efffa0c78">00034</a> <a class="code" href="classPlotTime.html#a2d043127747bbc73eb92e16efffa0c78">PlotTime::~PlotTime</a>(){  
@@ -72,7 +72,7 @@
 <a name="l00047"></a>00047     <span class="keywordflow">if</span> ( <a class="code" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a>.find(detname) == <a class="code" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a>.end() ) {
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049       <span class="comment">// hTimeCorrelation</span>
-<a name="l00050"></a>00050       std::string histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322" title="Get the name of this module as given to the constructor of the base class.">GetName</a>();
+<a name="l00050"></a>00050       std::string histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classBaseModule.html#af30c91fa2a3388325dd20b322de517ca" title="Get the name of this module as given to the constructor of the base class.">GetName</a>();
 <a name="l00051"></a>00051       std::string histtitle = <span class="stringliteral">&quot;Plot of the time of pulses in the &quot;</span> + detname + <span class="stringliteral">&quot; detector&quot;</span>;
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053       TH1F* hTimeCorrelation = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), 1e6,0,1e8);
@@ -95,7 +95,7 @@
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTime.html">PlotTime</a>)
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

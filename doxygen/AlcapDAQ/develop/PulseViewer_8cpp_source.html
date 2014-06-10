@@ -44,7 +44,7 @@
 <a name="l00019"></a>00019 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
 <a name="l00020"></a>00020 
 <a name="l00021"></a><a class="code" href="classPulseViewer.html#a93211f76e4ac3b08d5cd02a9effa2fef">00021</a> <a class="code" href="classPulseViewer.html#a93211f76e4ac3b08d5cd02a9effa2fef">PulseViewer::PulseViewer</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
-<a name="l00022"></a>00022    <a class="code" href="classFillHistBase.html">FillHistBase</a>(<span class="stringliteral">&quot;PulseViewer&quot;</span>,opts){
+<a name="l00022"></a>00022    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PulseViewer&quot;</span>,opts){
 <a name="l00023"></a>00023   <a class="code" href="classPulseViewer.html#a6de59ab0733a056af1dac54bd2c42890">fRequestedChannel</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;channel&quot;</span>); 
 <a name="l00024"></a>00024   <a class="code" href="classPulseViewer.html#adc4c23ede2a1134dcf6ad04634657fda">fChannel</a>=<a class="code" href="classPulseViewer.html#a6de59ab0733a056af1dac54bd2c42890">fRequestedChannel</a>;
 <a name="l00025"></a>00025   <a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;trigger&quot;</span>); 
@@ -147,7 +147,7 @@
 <a name="l00122"></a>00122        cout&lt;&lt;<span class="stringliteral">&quot;Problem getting TAP list for &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#ada2ca9d6229512f4520aedb8604828bd" title="Get the channel as a string.">GetChannel</a>()&lt;&lt;endl;
 <a name="l00123"></a>00123             <span class="keywordflow">return</span> 1;
 <a name="l00124"></a>00124     }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(allTAPs-&gt;empty() ){
-<a name="l00125"></a>00125        <span class="keywordflow">if</span>(<a class="code" href="classFillHistBase.html#accc579028307478382991412a2549258">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;List of TAPS for &apos;&quot;</span>&lt;&lt; <a class="code" href="classPulseViewer.html#ada2ca9d6229512f4520aedb8604828bd" title="Get the channel as a string.">GetChannel</a>()&lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt;endl;
+<a name="l00125"></a>00125        <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;List of TAPS for &apos;&quot;</span>&lt;&lt; <a class="code" href="classPulseViewer.html#ada2ca9d6229512f4520aedb8604828bd" title="Get the channel as a string.">GetChannel</a>()&lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt;endl;
 <a name="l00126"></a>00126        <span class="keywordflow">return</span> 0;
 <a name="l00127"></a>00127     }
 <a name="l00128"></a>00128 
@@ -208,7 +208,7 @@
 <a name="l00183"></a>00183         <span class="comment">// Check pulse passes trigger condition</span>
 <a name="l00184"></a>00184         <span class="keywordtype">double</span> value=<a class="code" href="classPulseViewer.html#a0682d3150544bb76ad5799f223407a3c" title="Get the value of interest from pulse.">GetParameterValue</a>(*pulse);
 <a name="l00185"></a>00185         <span class="keywordflow">if</span>(!<a class="code" href="classPulseViewer.html#aa70601067089e0d204c0e230960fc720" title="Check if value passes the trigger condition.">ValuePassesTrigger</a>(value)) <span class="keywordflow">return</span> 0;
-<a name="l00186"></a>00186         <span class="keywordflow">if</span>(<a class="code" href="classFillHistBase.html#accc579028307478382991412a2549258">Debug</a>()){
+<a name="l00186"></a>00186         <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
 <a name="l00187"></a>00187                 cout&lt;&lt;<a class="code" href="classPulseViewer.html#a9ec3aabe5ec58337282b5aff566a2c6c">fParameterString</a>&lt;&lt;<span class="stringliteral">&quot; = &quot;</span>&lt;&lt;value&lt;&lt;<span class="stringliteral">&quot; which is &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a1b7369d31d7c8084dbb629611c40b5f9">fTypeString</a>&lt;&lt;<span class="stringliteral">&quot; &quot;</span> &lt;&lt;<a class="code" href="classPulseViewer.html#a9ab0eceffaa871dc123bee7c23d3f4ac">fTriggerValue</a>&lt;&lt;endl; 
 <a name="l00188"></a>00188         }
 <a name="l00189"></a>00189 
@@ -222,7 +222,7 @@
 <a name="l00197"></a><a class="code" href="classPulseViewer.html#adcf4437db1c8370b2239b303a8ff11ce">00197</a> <span class="keywordtype">int</span> <a class="code" href="classPulseViewer.html#adcf4437db1c8370b2239b303a8ff11ce">PulseViewer::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>,<a class="code" href="classTSetupData.html">TSetupData</a> *setup){
 <a name="l00198"></a>00198 
 <a name="l00199"></a>00199   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00200"></a>00200   <span class="keywordflow">if</span>(<a class="code" href="classFillHistBase.html#accc579028307478382991412a2549258">Debug</a>()){
+<a name="l00200"></a>00200   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
 <a name="l00201"></a>00201   }
 <a name="l00202"></a>00202 
 <a name="l00203"></a>00203   <span class="keywordflow">return</span> 0;
@@ -230,7 +230,7 @@
 <a name="l00205"></a>00205 
 <a name="l00206"></a>00206 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPulseViewer.html" title="Module to plot pulses meeting a certain criteria.">PulseViewer</a>,channel,trigger,pulse_type);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -54,7 +54,7 @@
 <a name="l00029"></a>00029     <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::factory::Instance</a>();
 <a name="l00030"></a>00030     std::string name;
 <a name="l00031"></a>00031     <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
-<a name="l00032"></a>00032     <a class="code" href="classFillHistBase.html">BaseModule</a>* mod=NULL;
+<a name="l00032"></a>00032     <a class="code" href="classBaseModule.html">BaseModule</a>* mod=NULL;
 <a name="l00033"></a>00033     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;num_modules;i++){
 <a name="l00034"></a>00034             name = modules_file.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
 <a name="l00035"></a>00035             opts =  modules_file.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
@@ -71,12 +71,12 @@
 <a name="l00046"></a>00046     <span class="keywordflow">return</span> 0;
 <a name="l00047"></a>00047 }
 <a name="l00048"></a>00048 
-<a name="l00049"></a><a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">00049</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">modules::navigator::AddModule</a>(<span class="keyword">const</span> std::string&amp; name, <a class="code" href="classFillHistBase.html">BaseModule</a>* mod){
+<a name="l00049"></a><a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">00049</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">modules::navigator::AddModule</a>(<span class="keyword">const</span> std::string&amp; name, <a class="code" href="classBaseModule.html">BaseModule</a>* mod){
 <a name="l00050"></a>00050     <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.push_back(std::make_pair(name,mod));
 <a name="l00051"></a>00051     <a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.insert(std::make_pair(name,mod));
 <a name="l00052"></a>00052 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

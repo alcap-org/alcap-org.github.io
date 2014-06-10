@@ -48,7 +48,7 @@
 <a name="l00023"></a>00023 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
 <a name="l00024"></a>00024 
 <a name="l00025"></a><a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">00025</a> <a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">PlotAmpVsTDiff::PlotAmpVsTDiff</a>(<span class="keywordtype">char</span> *HistogramDirectoryName, std::string det_name_a, std::string det_name_b) :
-<a name="l00026"></a>00026   <a class="code" href="classFillHistBase.html">FillHistBase</a>(HistogramDirectoryName){ 
+<a name="l00026"></a>00026   <a class="code" href="classBaseModule.html">BaseModule</a>(HistogramDirectoryName){ 
 <a name="l00027"></a>00027 
 <a name="l00028"></a>00028   <a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a> = det_name_a;
 <a name="l00029"></a>00029   <a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a> = det_name_b;
@@ -71,10 +71,10 @@
 <a name="l00046"></a>00046   <a class="code" href="classPlotAmpVsTDiff.html#ac0b516b08384d0cfb2d55860cd915df6">amp_vs_tdiff_plot_fine</a>-&gt;GetXaxis()-&gt;SetTitle(x_axis_title.c_str());
 <a name="l00047"></a>00047   <a class="code" href="classPlotAmpVsTDiff.html#ac0b516b08384d0cfb2d55860cd915df6">amp_vs_tdiff_plot_fine</a>-&gt;GetYaxis()-&gt;SetTitle(y_axis_title.c_str());
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00049"></a>00049   <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00050"></a>00050 }
 <a name="l00051"></a>00051 
-<a name="l00052"></a><a class="code" href="classPlotAmpVsTDiff.html#a385051a19c157e4b4085cc920767f0e0">00052</a> <a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">PlotAmpVsTDiff::PlotAmpVsTDiff</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) : <a class="code" href="classFillHistBase.html">FillHistBase</a>( (opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>)).c_str() ) {
+<a name="l00052"></a><a class="code" href="classPlotAmpVsTDiff.html#a385051a19c157e4b4085cc920767f0e0">00052</a> <a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">PlotAmpVsTDiff::PlotAmpVsTDiff</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) : <a class="code" href="classBaseModule.html">BaseModule</a>( (opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>)).c_str() ) {
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054   <a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;1&quot;</span>);
 <a name="l00055"></a>00055   <a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;2&quot;</span>);
@@ -97,7 +97,7 @@
 <a name="l00072"></a>00072   <a class="code" href="classPlotAmpVsTDiff.html#ac0b516b08384d0cfb2d55860cd915df6">amp_vs_tdiff_plot_fine</a>-&gt;GetXaxis()-&gt;SetTitle(x_axis_title.c_str());
 <a name="l00073"></a>00073   <a class="code" href="classPlotAmpVsTDiff.html#ac0b516b08384d0cfb2d55860cd915df6">amp_vs_tdiff_plot_fine</a>-&gt;GetYaxis()-&gt;SetTitle(y_axis_title.c_str());
 <a name="l00074"></a>00074 
-<a name="l00075"></a>00075   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00075"></a>00075   <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00076"></a>00076 }
 <a name="l00077"></a>00077 
 <a name="l00078"></a><a class="code" href="classPlotAmpVsTDiff.html#ab6edb6bf86963e1d05de5ac09428f27a">00078</a> <a class="code" href="classPlotAmpVsTDiff.html#ab6edb6bf86963e1d05de5ac09428f27a">PlotAmpVsTDiff::~PlotAmpVsTDiff</a>(){  
@@ -149,7 +149,7 @@
 <a name="l00124"></a>00124 
 <a name="l00125"></a>00125 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotAmpVsTDiff.html">PlotAmpVsTDiff</a>)
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

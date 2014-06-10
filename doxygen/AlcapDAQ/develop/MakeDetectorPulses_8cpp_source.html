@@ -33,7 +33,7 @@
 <a name="l00008"></a>00008 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a> <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>;
 <a name="l00009"></a>00009 
 <a name="l00010"></a><a class="code" href="classMakeDetectorPulses.html#afe22ebb5adac4b6c1606aff6d138380e">00010</a> <a class="code" href="classMakeDetectorPulses.html#afe22ebb5adac4b6c1606aff6d138380e">MakeDetectorPulses::MakeDetectorPulses</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
-<a name="l00011"></a>00011         <a class="code" href="classFillHistBase.html">FillHistBase</a>(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>,opts),fOptions(opts){
+<a name="l00011"></a>00011         <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>,opts),fOptions(opts){
 <a name="l00012"></a>00012     <span class="comment">// Get the algorithm option from the modules file</span>
 <a name="l00013"></a>00013     <span class="comment">// If nothing was set, use MaxTimeDiff by default</span>
 <a name="l00014"></a>00014     <a class="code" href="classMakeDetectorPulses.html#ae902d5965f3a809bbb399421da0cc23f">fAlgorithm</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;algorithm&quot;</span>,<span class="stringliteral">&quot;MaxTimeDiff&quot;</span>);
@@ -144,13 +144,13 @@
 <a name="l00119"></a>00119         <span class="keywordflow">return</span> NULL;
 <a name="l00120"></a>00120     }
 <a name="l00121"></a>00121     <span class="comment">// setup some options on the generator</span>
-<a name="l00122"></a>00122     generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a>(<a class="code" href="classFillHistBase.html#accc579028307478382991412a2549258">Debug</a>());
+<a name="l00122"></a>00122     generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>());
 <a name="l00123"></a>00123     <span class="keywordflow">return</span> generator;
 <a name="l00124"></a>00124 }
 <a name="l00125"></a>00125 
 <a name="l00126"></a>00126 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>,algorithm);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
