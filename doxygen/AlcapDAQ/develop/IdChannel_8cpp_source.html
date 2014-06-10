@@ -27,13 +27,13 @@
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 <a class="code" href="IdChannel_8cpp.html#ac95d1bc80fabc359a1f9a08d4c2aeaf9">ClassImp</a>(<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>);
 <a name="l00004"></a>00004 
-<a name="l00005"></a><a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9">00005</a> std::string <a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9">IDs::channel::str</a>()<span class="keyword">const</span>{
-<a name="l00006"></a>00006    std::string output=<a class="code" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41">GetDetectorString</a>(this-&gt;<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7">fDetector</a>);
-<a name="l00007"></a>00007    output+=<a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc">GetSlowFastString</a>(this-&gt;<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8">fSlowFast</a>);
+<a name="l00005"></a><a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9">00005</a> std::string <a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">IDs::channel::str</a>()<span class="keyword">const</span>{
+<a name="l00006"></a>00006    std::string output=<a class="code" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41" title="Convert a Detector_t enum into the corresponding string.">GetDetectorString</a>(this-&gt;<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>);
+<a name="l00007"></a>00007    output+=<a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc" title="Convert a SlowFast_t enum into the corresponding string.">GetSlowFastString</a>(this-&gt;<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>);
 <a name="l00008"></a>00008    <span class="keywordflow">return</span> output;
 <a name="l00009"></a>00009 }
 <a name="l00010"></a>00010 
-<a name="l00011"></a><a class="code" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41">00011</a> std::string <a class="code" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41">IDs::channel::GetDetectorString</a>(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a> det){
+<a name="l00011"></a><a class="code" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41">00011</a> std::string <a class="code" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41" title="Convert a Detector_t enum into the corresponding string.">IDs::channel::GetDetectorString</a>(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a> det){
 <a name="l00012"></a>00012         std::string output;
 <a name="l00013"></a>00013         <span class="keywordflow">switch</span>(det){
 <a name="l00014"></a>00014             <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea38728be74fd95e96902f1d545b2b26c7">kErrorDetector</a> : output=<span class="stringliteral">&quot;Unknown&quot;</span>; break ; 
@@ -64,12 +64,12 @@
 <a name="l00039"></a>00039 }
 <a name="l00040"></a>00040 
 <a name="l00041"></a><a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">00041</a> <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">IDs::Detector_t</a> <a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">IDs::channel::GetDetectorEnum</a>(<span class="keyword">const</span> std::string&amp; det){
-<a name="l00042"></a>00042      <span class="keyword">const</span> <span class="keywordtype">char</span>* names[<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba">IDs::num_detector_enums</a>]={ 
+<a name="l00042"></a>00042      <span class="keyword">const</span> <span class="keywordtype">char</span>* names[<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba" title="Used by some algorithms to loop over all Detector_t enum values.">IDs::num_detector_enums</a>]={ 
 <a name="l00043"></a>00043              <span class="stringliteral">&quot;*&quot;</span>, <span class="stringliteral">&quot;Ge&quot;</span>, <span class="stringliteral">&quot;LiquidSc&quot;</span>, <span class="stringliteral">&quot;NDet&quot;</span>, <span class="stringliteral">&quot;NDet2&quot;</span>, <span class="stringliteral">&quot;ScGe&quot;</span>, <span class="stringliteral">&quot;ScL&quot;</span>, <span class="stringliteral">&quot;ScR&quot;</span>, 
 <a name="l00044"></a>00044                 <span class="stringliteral">&quot;ScVe&quot;</span>, <span class="stringliteral">&quot;SiL1_1&quot;</span>, <span class="stringliteral">&quot;SiL1_2&quot;</span>, <span class="stringliteral">&quot;SiL1_3&quot;</span>, <span class="stringliteral">&quot;SiL1_4&quot;</span>, <span class="stringliteral">&quot;SiL2&quot;</span>, 
 <a name="l00045"></a>00045                 <span class="stringliteral">&quot;SiR1_1&quot;</span>, <span class="stringliteral">&quot;SiR1_2&quot;</span>, <span class="stringliteral">&quot;SiR1_3&quot;</span>, <span class="stringliteral">&quot;SiR1_4&quot;</span>, <span class="stringliteral">&quot;SiR1_sum&quot;</span>, <span class="stringliteral">&quot;SiR2&quot;</span>, 
 <a name="l00046"></a>00046                 <span class="stringliteral">&quot;MuSc&quot;</span>, <span class="stringliteral">&quot;MuScA&quot;</span> };
-<a name="l00047"></a>00047      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba">IDs::num_detector_enums</a>;i++){
+<a name="l00047"></a>00047      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba" title="Used by some algorithms to loop over all Detector_t enum values.">IDs::num_detector_enums</a>;i++){
 <a name="l00048"></a>00048         <span class="keywordflow">if</span>(det==names[i]) <span class="keywordflow">return</span> (<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a>)i;
 <a name="l00049"></a>00049      } 
 <a name="l00050"></a>00050      <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea38728be74fd95e96902f1d545b2b26c7">kErrorDetector</a>;
@@ -84,15 +84,15 @@
 <a name="l00059"></a>00059    }
 <a name="l00060"></a>00060    <span class="comment">// Have we found a map</span>
 <a name="l00061"></a>00061    <span class="keywordflow">if</span>(match!=std::string::npos){
-<a name="l00062"></a>00062            <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8">fSlowFast</a>=<a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">GetSlowFastEnum</a>(rhs.substr(match));
+<a name="l00062"></a>00062            <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>=<a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">GetSlowFastEnum</a>(rhs.substr(match));
 <a name="l00063"></a>00063    }
 <a name="l00064"></a>00064    <span class="comment">// Use what&apos;s left to make the channel part</span>
-<a name="l00065"></a>00065    <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7">fDetector</a>=<a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">GetDetectorEnum</a>(rhs.substr(0,match));
+<a name="l00065"></a>00065    <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>=<a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">GetDetectorEnum</a>(rhs.substr(0,match));
 <a name="l00066"></a>00066 
 <a name="l00067"></a>00067    <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00068"></a>00068 }
 <a name="l00069"></a>00069 
-<a name="l00070"></a><a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc">00070</a> std::string <a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc">IDs::channel::GetSlowFastString</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31">SlowFast_t</a> sf){
+<a name="l00070"></a><a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc">00070</a> std::string <a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc" title="Convert a SlowFast_t enum into the corresponding string.">IDs::channel::GetSlowFastString</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31">SlowFast_t</a> sf){
 <a name="l00071"></a>00071  std::string output;
 <a name="l00072"></a>00072  <span class="keywordflow">switch</span>(sf){
 <a name="l00073"></a>00073    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>   : output+=<span class="stringliteral">&quot;-*&quot;</span> ; break ; 

@@ -33,92 +33,96 @@
 <a name="l00008"></a><a class="code" href="ModulesOptions_8cpp.html#a03ae387964696b0b4e3da4e27543b9c0">00008</a> <span class="preprocessor">#define PrintHelp std::cout&lt;&lt;__FILE__&lt;&lt;&quot;:&quot;&lt;&lt;__LINE__&lt;&lt;&quot;: &quot;</span>
 <a name="l00009"></a><a class="code" href="ModulesOptions_8cpp.html#ad90e42903c6513fac036fdeca0549674">00009</a> <span class="preprocessor"></span><span class="preprocessor">#define PrintValue(value) PrintHelp&lt;&lt;#value &quot;= |&quot;&lt;&lt;value&lt;&lt;&quot;|&quot;&lt;&lt;std::endl;</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a><a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">00011</a> std::string <a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">modules::options::GetOption</a>(<span class="keyword">const</span> std::string&amp; key)<span class="keyword">const</span>{
+<a name="l00011"></a><a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e">00011</a> std::string <a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">modules::options::GetOption</a>(<span class="keyword">const</span> std::string&amp; key)<span class="keyword">const</span>{
 <a name="l00012"></a>00012     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsList_t::const_iterator</a> it = <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(key);
 <a name="l00013"></a>00013     std::string value= it!=<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()? it-&gt;second : <span class="stringliteral">&quot;&quot;</span>;
 <a name="l00014"></a>00014     <span class="keywordflow">return</span> value;
 <a name="l00015"></a>00015 }
 <a name="l00016"></a>00016 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00017"></a><a class="code" href="classmodules_1_1options.html#a40021f108854c42ab65c2b4bcd22564e">00017</a> T <a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">modules::options::GetOption</a>(<span class="keyword">const</span> std::string&amp; key,<span class="keyword">const</span> T&amp; defVal)<span class="keyword">const</span>{
-<a name="l00018"></a>00018     std::stringstream ss(<a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(key));
+<a name="l00017"></a><a class="code" href="classmodules_1_1options.html#a41f03adcdc108afb6c1f72f5711eb21b">00017</a> T <a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">modules::options::GetOption</a>(<span class="keyword">const</span> std::string&amp; key,<span class="keyword">const</span> T&amp; defVal)<span class="keyword">const</span>{
+<a name="l00018"></a>00018     std::stringstream ss(<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(key));
 <a name="l00019"></a>00019     T val=defVal;
 <a name="l00020"></a>00020     ss&gt;&gt;val;
 <a name="l00021"></a>00021     <span class="keywordflow">return</span> val;
 <a name="l00022"></a>00022 }
 <a name="l00023"></a>00023 
-<a name="l00024"></a><a class="code" href="classmodules_1_1options.html#a558464d274a848536779fda34a89a58d">00024</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a558464d274a848536779fda34a89a58d">modules::options::GetInt</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">int</span> defVal)<span class="keyword">const</span>{
+<a name="l00024"></a><a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab">00024</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">modules::options::GetInt</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">int</span> defVal)<span class="keyword">const</span>{
 <a name="l00025"></a>00025     <span class="keywordflow">return</span> GetOption&lt;int&gt;(name,defVal);
 <a name="l00026"></a>00026 }
 <a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="classmodules_1_1options.html#a70170bd1f233fe168a3579eb3b068ad5">00028</a> <span class="keywordtype">double</span> <a class="code" href="namespacemodules_1_1parser.html#a0fbddc06cf5ff21fe6aab31f83b088d0">modules::options::GetDouble</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">double</span> defVal)<span class="keyword">const</span>{
+<a name="l00028"></a><a class="code" href="classmodules_1_1options.html#aa26113243f75f844d53ab87b7ce25f27">00028</a> <span class="keywordtype">double</span> <a class="code" href="namespacemodules_1_1parser.html#a0fbddc06cf5ff21fe6aab31f83b088d0">modules::options::GetDouble</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">double</span> defVal)<span class="keyword">const</span>{
 <a name="l00029"></a>00029     <span class="keywordflow">return</span> GetOption&lt;double&gt;(name,defVal);
 <a name="l00030"></a>00030 }
 <a name="l00031"></a>00031 
-<a name="l00032"></a><a class="code" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">00032</a> std::string <a class="code" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">modules::options::GetString</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keyword">const</span> std::string&amp; defVal)<span class="keyword">const</span>{
-<a name="l00033"></a>00033         std::string ret_val=<a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(name);
+<a name="l00032"></a><a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2">00032</a> std::string <a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">modules::options::GetString</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keyword">const</span> std::string&amp; defVal)<span class="keyword">const</span>{
+<a name="l00033"></a>00033         std::string ret_val=<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(name);
 <a name="l00034"></a>00034         <a class="code" href="namespacemodules_1_1parser.html#a0c5059464b2e67313d1e95a5958e8fbe">modules::parser::TrimWhiteSpaceBeforeAfter</a>(ret_val);
 <a name="l00035"></a>00035         <span class="keywordflow">if</span>(ret_val==<span class="stringliteral">&quot;&quot;</span>) ret_val=defVal;
 <a name="l00036"></a>00036      <span class="keywordflow">return</span> ret_val;
 <a name="l00037"></a>00037 }
 <a name="l00038"></a>00038 
-<a name="l00039"></a><a class="code" href="classmodules_1_1options.html#a2fd1de9fcea34d345bb5d1d8c2446d83">00039</a> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a2fd1de9fcea34d345bb5d1d8c2446d83">modules::options::GetBool</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">bool</span> defVal)<span class="keyword">const</span>{
+<a name="l00039"></a><a class="code" href="classmodules_1_1options.html#ae1e1d18085161597bde39d8649b3fb8f">00039</a> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#ae1e1d18085161597bde39d8649b3fb8f" title="Get the named option as a bool.">modules::options::GetBool</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">bool</span> defVal)<span class="keyword">const</span>{
 <a name="l00040"></a>00040     <span class="keywordflow">return</span> GetOption&lt;bool&gt;(name,defVal);
 <a name="l00041"></a>00041 }
 <a name="l00042"></a>00042 
-<a name="l00043"></a><a class="code" href="classmodules_1_1options.html#ab723b4559c41d9574226df5558cf6ef7">00043</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#ab723b4559c41d9574226df5558cf6ef7">modules::options::GetVectorStringsByWhiteSpace</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;&amp; vect)<span class="keyword">const</span>{
-<a name="l00044"></a>00044     std::stringstream ss(<a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(name));
+<a name="l00043"></a><a class="code" href="classmodules_1_1options.html#a9f11dd3ca576849e2f4c500794edd9dc">00043</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a9f11dd3ca576849e2f4c500794edd9dc" title="Fill a vector of strings with whitespace delimited tokens found in the named option...">modules::options::GetVectorStringsByWhiteSpace</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;&amp; vect)<span class="keyword">const</span>{
+<a name="l00044"></a>00044     std::stringstream ss(<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(name));
 <a name="l00045"></a>00045     std::string val;
-<a name="l00046"></a>00046     <span class="keywordflow">while</span>(ss&gt;&gt;val) vect.push_back(val);
-<a name="l00047"></a>00047     <span class="keywordflow">return</span> vect.size();
-<a name="l00048"></a>00048 }
-<a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classmodules_1_1options.html#ad8bbe390e336fde3ed440be0fedd5399">00050</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#ad8bbe390e336fde3ed440be0fedd5399">modules::options::GetVectorStringsByDelimiter</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;&amp; vect, <span class="keyword">const</span> <span class="keywordtype">char</span>* delim)<span class="keyword">const</span>{
-<a name="l00051"></a>00051     <span class="keywordtype">char</span> line[2048];
-<a name="l00052"></a>00052     strcpy(line,<a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(name).c_str());
-<a name="l00053"></a>00053     <span class="keywordtype">char</span>* word = strtok(line,delim);
-<a name="l00054"></a>00054     <span class="keywordflow">while</span>(word != NULL){ 
-<a name="l00055"></a>00055             <span class="comment">//std::cout&lt;&lt;&quot;ModulesOptions:GetVectorStringsByDelimiter() &quot;&lt;&lt;word&lt;&lt;std::endl;</span>
-<a name="l00056"></a>00056         vect.push_back(word);
-<a name="l00057"></a>00057         word = strtok(NULL,delim);
-<a name="l00058"></a>00058     }
-<a name="l00059"></a>00059     <span class="keywordflow">return</span> vect.size();
-<a name="l00060"></a>00060 }
-<a name="l00061"></a>00061 
-<a name="l00062"></a><a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74">00062</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74">modules::options::DumpOptions</a>(<span class="keyword">const</span> std::string&amp; prefix)<span class="keyword">const</span>{
-<a name="l00063"></a>00063     <span class="comment">//std::cout&lt;&lt;&quot;key  &quot;&lt;&lt;&quot; = &quot;&lt;&lt;&quot; value &quot;&lt;&lt;std::endl;</span>
-<a name="l00064"></a>00064     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsOrder_t::const_iterator</a> it;
-<a name="l00065"></a>00065     <span class="keywordflow">for</span>(it=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.begin();it!=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.end();it++){
-<a name="l00066"></a>00066         std::cout&lt;&lt;prefix&lt;&lt;(*it)-&gt;first;
-<a name="l00067"></a>00067         <span class="keywordflow">if</span>((*it)-&gt;second!=<span class="stringliteral">&quot;&quot;</span>){
-<a name="l00068"></a>00068            std::cout&lt;&lt;<span class="stringliteral">&quot; = &quot;</span>&lt;&lt;(*it)-&gt;second;
-<a name="l00069"></a>00069         }
-<a name="l00070"></a>00070         std::cout&lt;&lt;std::endl;
-<a name="l00071"></a>00071     }
-<a name="l00072"></a>00072 }
-<a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">00074</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">modules::options::AddArgument</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; number, <span class="keyword">const</span> std::string&amp; option){
-<a name="l00075"></a>00075     <span class="comment">// Get the name of this argument</span>
-<a name="l00076"></a>00076     std::string name = <a class="code" href="classmodules_1_1factory.html#a43862fa94fc6bd2842816aab607dc907">modules::factory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ab7f4a3590f8e414d317ea0230098fadd">GetArgumentName</a>(<a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>,number);
-<a name="l00077"></a>00077     <span class="comment">// Set the value of the corresponding option</span>
-<a name="l00078"></a>00078     <a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">modules::options::SetOption</a>(name,option);
-<a name="l00079"></a>00079 }
-<a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="classmodules_1_1options.html#a8cb9ded81f541be82d0555e5bf940ad5">00081</a> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a8cb9ded81f541be82d0555e5bf940ad5">modules::options::AppendToOption</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; option){
-<a name="l00082"></a>00082     <span class="comment">// Get the option </span>
-<a name="l00083"></a>00083     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it= <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
+<a name="l00046"></a>00046     <span class="keywordtype">int</span> num_tokens=0;
+<a name="l00047"></a>00047     <span class="keywordflow">for</span>(;ss&gt;&gt;val; num_tokens++) {
+<a name="l00048"></a>00048       vect.push_back(val);
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050     <span class="keywordflow">return</span> num_tokens;
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998">00053</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">modules::options::GetVectorStringsByDelimiter</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;&amp; vect, <span class="keyword">const</span> <span class="keywordtype">char</span>* delim)<span class="keyword">const</span>{
+<a name="l00054"></a>00054     <span class="keywordtype">char</span> line[2048];
+<a name="l00055"></a>00055     strcpy(line,<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(name).c_str());
+<a name="l00056"></a>00056     <span class="keywordtype">char</span>* word = strtok(line,delim);
+<a name="l00057"></a>00057     <span class="keywordtype">int</span> num_tokens=0;
+<a name="l00058"></a>00058     <span class="keywordflow">for</span>(;word != NULL; num_tokens++) {
+<a name="l00059"></a>00059             <span class="comment">//std::cout&lt;&lt;&quot;ModulesOptions:GetVectorStringsByDelimiter() &quot;&lt;&lt;word&lt;&lt;std::endl;</span>
+<a name="l00060"></a>00060         vect.push_back(word);
+<a name="l00061"></a>00061         word = strtok(NULL,delim);
+<a name="l00062"></a>00062     }
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> num_tokens;
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74">00066</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">modules::options::DumpOptions</a>(<span class="keyword">const</span> std::string&amp; prefix)<span class="keyword">const</span>{
+<a name="l00067"></a>00067     <span class="comment">//std::cout&lt;&lt;&quot;key  &quot;&lt;&lt;&quot; = &quot;&lt;&lt;&quot; value &quot;&lt;&lt;std::endl;</span>
+<a name="l00068"></a>00068     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsOrder_t::const_iterator</a> it;
+<a name="l00069"></a>00069     <span class="keywordflow">for</span>(it=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.begin();it!=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.end();it++){
+<a name="l00070"></a>00070         std::cout&lt;&lt;prefix&lt;&lt;(*it)-&gt;first;
+<a name="l00071"></a>00071         <span class="keywordflow">if</span>((*it)-&gt;second!=<span class="stringliteral">&quot;&quot;</span>){
+<a name="l00072"></a>00072            std::cout&lt;&lt;<span class="stringliteral">&quot; = &quot;</span>&lt;&lt;(*it)-&gt;second;
+<a name="l00073"></a>00073         }
+<a name="l00074"></a>00074         std::cout&lt;&lt;std::endl;
+<a name="l00075"></a>00075     }
+<a name="l00076"></a>00076 }
+<a name="l00077"></a>00077 
+<a name="l00078"></a><a class="code" href="classmodules_1_1options.html#a50340919b9cfdd88afac805bee029871">00078</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a50340919b9cfdd88afac805bee029871" title="Set the value of an argument.">modules::options::AddArgument</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; number, <span class="keyword">const</span> std::string&amp; option){
+<a name="l00079"></a>00079     <span class="comment">// Get the name of this argument</span>
+<a name="l00080"></a>00080     std::string name = <a class="code" href="classmodules_1_1factory.html#a43862fa94fc6bd2842816aab607dc907">modules::factory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ab7f4a3590f8e414d317ea0230098fadd">GetArgumentName</a>(<a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>,number);
+<a name="l00081"></a>00081     <span class="comment">// Set the value of the corresponding option</span>
+<a name="l00082"></a>00082     <a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">modules::options::SetOption</a>(name,option);
+<a name="l00083"></a>00083 }
 <a name="l00084"></a>00084 
-<a name="l00085"></a>00085     <span class="comment">// If no option exists return false</span>
-<a name="l00086"></a>00086     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088     <span class="comment">// Add the value to it</span>
-<a name="l00089"></a>00089     it-&gt;second+=<span class="stringliteral">&quot; : &quot;</span>+option;
-<a name="l00090"></a>00090     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00091"></a>00091 }
-<a name="l00092"></a>00092 
-<a name="l00093"></a><a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7">00093</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7">modules::options::MakeIdNumber</a>(){
-<a name="l00094"></a>00094         <span class="keyword">static</span> <span class="keywordtype">int</span> count=0;
-<a name="l00095"></a>00095         <span class="keywordflow">return</span> count++;
-<a name="l00096"></a>00096 }
+<a name="l00085"></a><a class="code" href="classmodules_1_1options.html#a86696053759982b3720bedb3d4c9c7d6">00085</a> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a86696053759982b3720bedb3d4c9c7d6" title="Append a new value to a list.">modules::options::AppendToOption</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; option){
+<a name="l00086"></a>00086     <span class="comment">// Get the option </span>
+<a name="l00087"></a>00087     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it= <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     <span class="comment">// If no option exists return false</span>
+<a name="l00090"></a>00090     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092     <span class="comment">// Add the value to it</span>
+<a name="l00093"></a>00093     it-&gt;second+=<span class="stringliteral">&quot; : &quot;</span>+option;
+<a name="l00094"></a>00094     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00095"></a>00095 }
+<a name="l00096"></a>00096 
+<a name="l00097"></a><a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7">00097</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7" title="Create a unique ID number used for each option.">modules::options::MakeIdNumber</a>(){
+<a name="l00098"></a>00098         <span class="keyword">static</span> <span class="keywordtype">int</span> count=0;
+<a name="l00099"></a>00099         <span class="keywordflow">return</span> count++;
+<a name="l00100"></a>00100 }
 </pre></div></div>
 <hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">

@@ -52,14 +52,14 @@
 <a name="l00027"></a>00027   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00028"></a>00028 }
 <a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="classPlotTime.html#a5e5c03cc7a0c07cad3337ffb4af74c16">00030</a> <a class="code" href="classPlotTime.html#a7d4e96f8196471323e953609a464bee0">PlotTime::PlotTime</a>(<a class="code" href="classmodules_1_1options.html">modules::options</a>* opts) : <a class="code" href="classFillHistBase.html">FillHistBase</a>(opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>).c_str()) {
+<a name="l00030"></a><a class="code" href="classPlotTime.html#a5e5c03cc7a0c07cad3337ffb4af74c16">00030</a> <a class="code" href="classPlotTime.html#a7d4e96f8196471323e953609a464bee0">PlotTime::PlotTime</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) : <a class="code" href="classFillHistBase.html">FillHistBase</a>(opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>).c_str()) {
 <a name="l00031"></a>00031   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00032"></a>00032 }
 <a name="l00033"></a>00033 
 <a name="l00034"></a><a class="code" href="classPlotTime.html#a2d043127747bbc73eb92e16efffa0c78">00034</a> <a class="code" href="classPlotTime.html#a2d043127747bbc73eb92e16efffa0c78">PlotTime::~PlotTime</a>(){  
 <a name="l00035"></a>00035 }
 <a name="l00036"></a>00036 
-<a name="l00037"></a><a class="code" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f">00037</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f">PlotTime::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
+<a name="l00037"></a><a class="code" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f">00037</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f" title="The big kahuna. Overload this in the derived class and it will be called for each...">PlotTime::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039   <span class="comment">// Loop through and find a fast channel</span>
 <a name="l00040"></a>00040   <span class="comment">//  std::cout &lt;&lt; &quot;Size of gAnalysedPulseMap &quot; &lt;&lt; gAnalysedPulseMap.size() &lt;&lt; std::endl;</span>
@@ -72,7 +72,7 @@
 <a name="l00047"></a>00047     <span class="keywordflow">if</span> ( <a class="code" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a>.find(detname) == <a class="code" href="classPlotTime.html#add5c37e16148b9d72ca462f375fcb7e1">fTimePlots</a>.end() ) {
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049       <span class="comment">// hTimeCorrelation</span>
-<a name="l00050"></a>00050       std::string histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322">GetName</a>();
+<a name="l00050"></a>00050       std::string histname = <span class="stringliteral">&quot;h&quot;</span> + detname + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classFillHistBase.html#a1660a5d3c0f6be04ffae180a291b7322" title="Get the name of this module as given to the constructor of the base class.">GetName</a>();
 <a name="l00051"></a>00051       std::string histtitle = <span class="stringliteral">&quot;Plot of the time of pulses in the &quot;</span> + detname + <span class="stringliteral">&quot; detector&quot;</span>;
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053       TH1F* hTimeCorrelation = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), 1e6,0,1e8);

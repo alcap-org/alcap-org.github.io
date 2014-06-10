@@ -43,29 +43,47 @@ Inheritance diagram for TMEGeneratorOptions:</div>
 <tr><td colspan="2"><h2>Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak"/>
 std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#af64673c09d5266e11148057fc9619fab">OptionsList_t</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Helper typedef, intended for the list of key-value pairs for each option.  <a href="#af64673c09d5266e11148057fc9619fab"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::vector<br class="typebreak"/>
 &lt; OptionsList_t::iterator &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#ab739526d7d705911ef36a013342b0552">OptionsOrder_t</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Helper typedef, intended to keep the order of option declaration.  <a href="#ab739526d7d705911ef36a013342b0552"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMEGeneratorOptions.html#ae6c1bc84a49245d634013ab7efcd1c49">TMEGeneratorOptions</a> (const std::string &amp;name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMEGeneratorOptions.html#a7070bf578ed16b9ac77b0f76c07d7822">~TMEGeneratorOptions</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">SetOption</a> (const std::string &amp;name, const std::string &amp;option)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a8cb9ded81f541be82d0555e5bf940ad5">AppendToOption</a> (const std::string &amp;name, const std::string &amp;option)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">AddArgument</a> (const int &amp;number, const std::string &amp;option)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a558464d274a848536779fda34a89a58d">GetInt</a> (const std::string &amp;, int defVal=-1) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a70170bd1f233fe168a3579eb3b068ad5">GetDouble</a> (const std::string &amp;, double defVal=1.) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">GetString</a> (const std::string &amp;, const std::string &amp;defVal=&quot;&quot;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a2fd1de9fcea34d345bb5d1d8c2446d83">GetBool</a> (const std::string &amp;, bool defVal=false) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#ab723b4559c41d9574226df5558cf6ef7">GetVectorStringsByWhiteSpace</a> (const std::string &amp;, std::vector&lt; std::string &gt; &amp;vect) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#ad8bbe390e336fde3ed440be0fedd5399">GetVectorStringsByDelimiter</a> (const std::string &amp;, std::vector&lt; std::string &gt; &amp;vect, const char *delim=&quot;:&quot;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a2ab90d2dccf08d1436bb2b55d7f6eab2">GetVectorStrings</a> (const std::string &amp;name, std::vector&lt; std::string &gt; &amp;vect) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">HasOption</a> (const std::string &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56">SetOption</a> (const std::string &amp;key, const std::string &amp;value)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the value of an option.  <a href="#a038c293514a4441f2d523627eef19b56"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a86696053759982b3720bedb3d4c9c7d6">AppendToOption</a> (const std::string &amp;key, const std::string &amp;value)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Append a new value to a list.  <a href="#a86696053759982b3720bedb3d4c9c7d6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a50340919b9cfdd88afac805bee029871">AddArgument</a> (const int &amp;number, const std::string &amp;value)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the value of an argument.  <a href="#a50340919b9cfdd88afac805bee029871"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab">GetInt</a> (const std::string &amp;name, int defVal=-1) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the named option as an int.  <a href="#a10bf87912c8bae11780be19d5ac7bfab"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#aa26113243f75f844d53ab87b7ce25f27">GetDouble</a> (const std::string &amp;name, double defVal=1.) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the named option as a double.  <a href="#aa26113243f75f844d53ab87b7ce25f27"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2">GetString</a> (const std::string &amp;name, const std::string &amp;defVal=&quot;&quot;) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the named option as a string.  <a href="#acea8e20c0f5017fbe91d15fcc52acea2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#ae1e1d18085161597bde39d8649b3fb8f">GetBool</a> (const std::string &amp;name, bool defVal=false) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the named option as a bool.  <a href="#ae1e1d18085161597bde39d8649b3fb8f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a9f11dd3ca576849e2f4c500794edd9dc">GetVectorStringsByWhiteSpace</a> (const std::string &amp;name, std::vector&lt; std::string &gt; &amp;vect) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Fill a vector of strings with whitespace delimited tokens found in the named option.  <a href="#a9f11dd3ca576849e2f4c500794edd9dc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998">GetVectorStringsByDelimiter</a> (const std::string &amp;name, std::vector&lt; std::string &gt; &amp;vect, const char *delim=&quot;:&quot;) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Fill a vector of strings with tokens found in the named option @ Uses strtok so not suitable for multi-threading (if we ever do something like that).  <a href="#a9feb6f6c4fab9df5b9f2c8fa5edf3998"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb">HasOption</a> (const std::string &amp;name) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Check if a named option has been set.  <a href="#af08184dda8d5bd80865f9380ac3f43fb"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a7025f09d60a8166fada9df7f2186b388">GetNumOptions</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a> (const std::string &amp;) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> managed by this <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> list.  <a href="#a7025f09d60a8166fada9df7f2186b388"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e">GetOption</a> (const std::string &amp;name) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the unprocessed value assigned to name.  <a href="#ac299238808293ea544872eee3b1d4d2e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">OptionsList_t::const_iterator&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a04af4a982d1c3a6d99fe482dbd5c5922">begin</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get a const iterator to the first key-value pair (sorted alphabetically by.  <a href="#a04af4a982d1c3a6d99fe482dbd5c5922"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">OptionsList_t::const_iterator&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#af74185a334cac9fb8d3f0300e7e35260">end</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get a const iterator to the last key-value pair (sorted alphabetically by key).  <a href="#af74185a334cac9fb8d3f0300e7e35260"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74">DumpOptions</a> (const std::string &amp;prefix=&quot;     &quot;) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Print all <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> managed by this list to cout.  <a href="#a50375d69bc7c6d45cb4d6faf3eb38d74"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355">SetAlias</a> (const std::string &amp;alias)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the alias option for this module.  <a href="#a2d08e58ecdd1a72170a6661c862f6355"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a598833c13aded62eeafa407aec9e6dcc">GetAlias</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the alias option for this module.  <a href="#a598833c13aded62eeafa407aec9e6dcc"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Class to handle options for a TME generator Inherite from the options class for <a class="el" href="namespacemodules.html">modules</a> to share the implementation and interface. </p>
@@ -83,7 +101,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00014">14</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Helper typedef, intended for the list of key-value pairs for each option. </p>
+
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00016">16</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
 
 </div>
 </div>
@@ -98,7 +118,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00015">15</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Helper typedef, intended to keep the order of option declaration. </p>
+
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00018">18</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
 
 </div>
 </div>
@@ -122,7 +144,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 <p>Definition at line <a class="el" href="TMEGeneratorOptions_8h_source.html#l00011">11</a> of file <a class="el" href="TMEGeneratorOptions_8h_source.html">TMEGeneratorOptions.h</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00011"></a>00011                                                   :
-<a name="l00012"></a>00012                 <a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6">modules::options</a>(name){};
+<a name="l00012"></a>00012                 <a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">modules::options</a>(name){};
         ~<a class="code" href="classTMEGeneratorOptions.html">TMEGeneratorOptions</a>(){};
 </pre></div></p>
 
@@ -151,7 +173,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a09f63b4f28a4ea8f0b564694a56d11bb"></a><!-- doxytag: member="TMEGeneratorOptions::AddArgument" ref="a09f63b4f28a4ea8f0b564694a56d11bb" args="(const int &amp;number, const std::string &amp;option)" -->
+<a class="anchor" id="a50340919b9cfdd88afac805bee029871"></a><!-- doxytag: member="TMEGeneratorOptions::AddArgument" ref="a50340919b9cfdd88afac805bee029871" args="(const int &amp;number, const std::string &amp;value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -165,7 +187,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>option</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>value</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -176,23 +198,33 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00074">74</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
+<p>Set the value of an argument. </p>
+<p>If the module has not specified a name for this argument, the key for this option is set to number  ALCAP_REGISTER_MODULE </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>number</em>&nbsp;</td><td>The number of the argument to set </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The new value of the argument </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00061">modules::options::fModuleName</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00016">TemplateFactory&lt; BaseModule, OptionsType &gt;::GetArgumentName()</a>, <a class="el" href="ModulesFactory_8h_source.html#l00025">modules::factory::Instance()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00065">modules::options::SetOption()</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00078">78</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
+
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00136">modules::options::fModuleName</a>, <a class="el" href="TemplateFactory_8tpl_source.html#l00016">TemplateFactory&lt; BaseModule, OptionsType &gt;::GetArgumentName()</a>, <a class="el" href="ModulesFactory_8h_source.html#l00025">modules::factory::Instance()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00140">modules::options::SetOption()</a>.</p>
 
 <p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00100">modules::reader::AddModule()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00127">MakeAnalysedPulses::ParseGeneratorList()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074                                                                           {
-<a name="l00075"></a>00075     <span class="comment">// Get the name of this argument</span>
-<a name="l00076"></a>00076     std::string name = <a class="code" href="classmodules_1_1factory.html#a43862fa94fc6bd2842816aab607dc907">modules::factory::Instance</a>()-&gt;GetArgumentName(<a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>,number);
-<a name="l00077"></a>00077     <span class="comment">// Set the value of the corresponding option</span>
-<a name="l00078"></a>00078     <a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">modules::options::SetOption</a>(name,option);
-<a name="l00079"></a>00079 }
+<p><div class="fragment"><pre class="fragment"><a name="l00078"></a>00078                                                                           {
+<a name="l00079"></a>00079     <span class="comment">// Get the name of this argument</span>
+<a name="l00080"></a>00080     std::string name = <a class="code" href="classmodules_1_1factory.html#a43862fa94fc6bd2842816aab607dc907">modules::factory::Instance</a>()-&gt;GetArgumentName(<a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>,number);
+<a name="l00081"></a>00081     <span class="comment">// Set the value of the corresponding option</span>
+<a name="l00082"></a>00082     <a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">modules::options::SetOption</a>(name,option);
+<a name="l00083"></a>00083 }
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a8cb9ded81f541be82d0555e5bf940ad5"></a><!-- doxytag: member="TMEGeneratorOptions::AppendToOption" ref="a8cb9ded81f541be82d0555e5bf940ad5" args="(const std::string &amp;name, const std::string &amp;option)" -->
+<a class="anchor" id="a86696053759982b3720bedb3d4c9c7d6"></a><!-- doxytag: member="TMEGeneratorOptions::AppendToOption" ref="a86696053759982b3720bedb3d4c9c7d6" args="(const std::string &amp;key, const std::string &amp;value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -200,13 +232,13 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
           <td class="memname">bool modules::options::AppendToOption </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>name</em>, </td>
+          <td class="paramname"> <em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>option</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>value</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -217,23 +249,34 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00081">81</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
+<p>Append a new value to a list. </p>
+<p>The new value is separated from the previous one with: " : " </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>key</em>&nbsp;</td><td>The name of the option to add to </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The value to append </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if a value existed already and false if not </dd></dl>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00057">modules::options::fOptions</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00085">85</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
+
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::fOptions</a>.</p>
 
 <p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00188">modules::reader::AddOption()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00081"></a>00081                                                                                  {
-<a name="l00082"></a>00082     <span class="comment">// Get the option </span>
-<a name="l00083"></a>00083     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it= <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085     <span class="comment">// If no option exists return false</span>
-<a name="l00086"></a>00086     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088     <span class="comment">// Add the value to it</span>
-<a name="l00089"></a>00089     it-&gt;second+=<span class="stringliteral">&quot; : &quot;</span>+option;
-<a name="l00090"></a>00090     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00091"></a>00091 }
+<p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085                                                                                  {
+<a name="l00086"></a>00086     <span class="comment">// Get the option </span>
+<a name="l00087"></a>00087     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it= <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     <span class="comment">// If no option exists return false</span>
+<a name="l00090"></a>00090     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092     <span class="comment">// Add the value to it</span>
+<a name="l00093"></a>00093     it-&gt;second+=<span class="stringliteral">&quot; : &quot;</span>+option;
+<a name="l00094"></a>00094     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00095"></a>00095 }
 </pre></div></p>
 
 </div>
@@ -253,13 +296,15 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00042">42</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Get a const iterator to the first key-value pair (sorted alphabetically by. </p>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00057">modules::options::fOptions</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00104">104</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00053">ExportPulse::BeforeFirstEntry()</a>.</p>
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::fOptions</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00042"></a>00042 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.begin();};
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">ExportPulse::BeforeFirstEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00104"></a>00104 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.begin();};
 </pre></div></p>
 
 </div>
@@ -280,23 +325,31 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00062">62</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
+<p>Print all <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> managed by this list to cout. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>prefix</em>&nbsp;</td><td>Appended before each line is printed </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00058">modules::options::fOrder</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00066">66</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
+
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00133">modules::options::fOrder</a>.</p>
 
 <p>Referenced by <a class="el" href="CommandLine_8cpp_source.html#l00200">load_config_file()</a>, and <a class="el" href="ModulesNavigator_8cpp_source.html#l00007">modules::navigator::LoadConfigFile()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00062"></a>00062                                                             {
-<a name="l00063"></a>00063     <span class="comment">//std::cout&lt;&lt;&quot;key  &quot;&lt;&lt;&quot; = &quot;&lt;&lt;&quot; value &quot;&lt;&lt;std::endl;</span>
-<a name="l00064"></a>00064     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsOrder_t::const_iterator</a> it;
-<a name="l00065"></a>00065     <span class="keywordflow">for</span>(it=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.begin();it!=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.end();it++){
-<a name="l00066"></a>00066         std::cout&lt;&lt;prefix&lt;&lt;(*it)-&gt;first;
-<a name="l00067"></a>00067         <span class="keywordflow">if</span>((*it)-&gt;second!=<span class="stringliteral">&quot;&quot;</span>){
-<a name="l00068"></a>00068            std::cout&lt;&lt;<span class="stringliteral">&quot; = &quot;</span>&lt;&lt;(*it)-&gt;second;
-<a name="l00069"></a>00069         }
-<a name="l00070"></a>00070         std::cout&lt;&lt;std::endl;
-<a name="l00071"></a>00071     }
-<a name="l00072"></a>00072 }
+<p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066                                                             {
+<a name="l00067"></a>00067     <span class="comment">//std::cout&lt;&lt;&quot;key  &quot;&lt;&lt;&quot; = &quot;&lt;&lt;&quot; value &quot;&lt;&lt;std::endl;</span>
+<a name="l00068"></a>00068     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsOrder_t::const_iterator</a> it;
+<a name="l00069"></a>00069     <span class="keywordflow">for</span>(it=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.begin();it!=<a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.end();it++){
+<a name="l00070"></a>00070         std::cout&lt;&lt;prefix&lt;&lt;(*it)-&gt;first;
+<a name="l00071"></a>00071         <span class="keywordflow">if</span>((*it)-&gt;second!=<span class="stringliteral">&quot;&quot;</span>){
+<a name="l00072"></a>00072            std::cout&lt;&lt;<span class="stringliteral">&quot; = &quot;</span>&lt;&lt;(*it)-&gt;second;
+<a name="l00073"></a>00073         }
+<a name="l00074"></a>00074         std::cout&lt;&lt;std::endl;
+<a name="l00075"></a>00075     }
+<a name="l00076"></a>00076 }
 </pre></div></p>
 
 </div>
@@ -316,13 +369,15 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00044">44</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Get a const iterator to the last key-value pair (sorted alphabetically by key). </p>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00057">modules::options::fOptions</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00106">106</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00053">ExportPulse::BeforeFirstEntry()</a>.</p>
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::fOptions</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();};
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">ExportPulse::BeforeFirstEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00106"></a>00106 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();};
 </pre></div></p>
 
 </div>
@@ -342,18 +397,20 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00049">49</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Get the alias option for this module. </p>
+
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00118">118</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
 
 <p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00032">modules::options::GetString()</a>.</p>
 
 <p>Referenced by <a class="el" href="ModulesFactory_8cpp_source.html#l00004">modules::factory::createModule()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">GetString</a>(<span class="stringliteral">&quot;alias&quot;</span>);};
+<p><div class="fragment"><pre class="fragment"><a name="l00118"></a>00118 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;alias&quot;</span>);};
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a2fd1de9fcea34d345bb5d1d8c2446d83"></a><!-- doxytag: member="TMEGeneratorOptions::GetBool" ref="a2fd1de9fcea34d345bb5d1d8c2446d83" args="(const std::string &amp;, bool defVal=false) const " -->
+<a class="anchor" id="ae1e1d18085161597bde39d8649b3fb8f"></a><!-- doxytag: member="TMEGeneratorOptions::GetBool" ref="ae1e1d18085161597bde39d8649b3fb8f" args="(const std::string &amp;name, bool defVal=false) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -378,6 +435,15 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
+<p>Get the named option as a bool. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of the option to get </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>defVal</em>&nbsp;</td><td>Value to use if not found </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00039">39</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="FillHistBase_8cpp_source.html#l00005">FillHistBase::FillHistBase()</a>.</p>
@@ -389,7 +455,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a70170bd1f233fe168a3579eb3b068ad5"></a><!-- doxytag: member="TMEGeneratorOptions::GetDouble" ref="a70170bd1f233fe168a3579eb3b068ad5" args="(const std::string &amp;, double defVal=1.) const " -->
+<a class="anchor" id="aa26113243f75f844d53ab87b7ce25f27"></a><!-- doxytag: member="TMEGeneratorOptions::GetDouble" ref="aa26113243f75f844d53ab87b7ce25f27" args="(const std::string &amp;name, double defVal=1.) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -414,6 +480,15 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
+<p>Get the named option as a double. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of the option to get </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>defVal</em>&nbsp;</td><td>Value to use if not found </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00028">28</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00028"></a>00028                                                                         {
@@ -423,7 +498,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a558464d274a848536779fda34a89a58d"></a><!-- doxytag: member="TMEGeneratorOptions::GetInt" ref="a558464d274a848536779fda34a89a58d" args="(const std::string &amp;, int defVal=&#45;1) const " -->
+<a class="anchor" id="a10bf87912c8bae11780be19d5ac7bfab"></a><!-- doxytag: member="TMEGeneratorOptions::GetInt" ref="a10bf87912c8bae11780be19d5ac7bfab" args="(const std::string &amp;name, int defVal=&#45;1) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -447,6 +522,15 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
 </div>
 <div class="memdoc">
+
+<p>Get the named option as an int. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of the option to get </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>defVal</em>&nbsp;</td><td>Value to use if not found </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00024">24</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
 
@@ -472,18 +556,20 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00039">39</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Get the number of <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> managed by this <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> list. </p>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00057">modules::options::fOptions</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00097">97</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::fOptions</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00165">MakeAnalysedPulses::AddGenerator()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00039"></a>00039 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.size();};
+<p><div class="fragment"><pre class="fragment"><a name="l00097"></a>00097 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.size();};
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a4a87d8012eca330ecfb435a3e2210497"></a><!-- doxytag: member="TMEGeneratorOptions::GetOption" ref="a4a87d8012eca330ecfb435a3e2210497" args="(const std::string &amp;) const " -->
+<a class="anchor" id="ac299238808293ea544872eee3b1d4d2e"></a><!-- doxytag: member="TMEGeneratorOptions::GetOption" ref="ac299238808293ea544872eee3b1d4d2e" args="(const std::string &amp;name) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -491,7 +577,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
           <td class="memname">std::string modules::options::GetOption </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>key</em></td>
+          <td class="paramname"> <em>name</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inherited]</code></td>
         </tr>
@@ -499,11 +585,19 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
+<p>Returns the unprocessed value assigned to name. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of the option to get </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00011">11</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00057">modules::options::fOptions</a>.</p>
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::fOptions</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00017">modules::options::GetOption()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00032">modules::options::GetString()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00050">modules::options::GetVectorStringsByDelimiter()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00043">modules::options::GetVectorStringsByWhiteSpace()</a>.</p>
+<p>Referenced by <a class="el" href="FillHistBase_8cpp_source.html#l00005">FillHistBase::FillHistBase()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00017">modules::options::GetOption()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00032">modules::options::GetString()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00053">modules::options::GetVectorStringsByDelimiter()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00043">modules::options::GetVectorStringsByWhiteSpace()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00011"></a>00011                                                             {
 <a name="l00012"></a>00012     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsList_t::const_iterator</a> it = <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(key);
@@ -514,7 +608,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a10b85c07a60d4632af4d1ce8466e865e"></a><!-- doxytag: member="TMEGeneratorOptions::GetString" ref="a10b85c07a60d4632af4d1ce8466e865e" args="(const std::string &amp;, const std::string &amp;defVal=&quot;&quot;) const " -->
+<a class="anchor" id="acea8e20c0f5017fbe91d15fcc52acea2"></a><!-- doxytag: member="TMEGeneratorOptions::GetString" ref="acea8e20c0f5017fbe91d15fcc52acea2" args="(const std::string &amp;name, const std::string &amp;defVal=&quot;&quot;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -539,14 +633,24 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
+<p>Get the named option as a string. </p>
+<p>Trims whitespace from the front and back of the option </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of the option to get </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>defVal</em>&nbsp;</td><td>Value to use if not found </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00032">32</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
 
 <p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00011">modules::options::GetOption()</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00072">modules::parser::TrimWhiteSpaceBeforeAfter()</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesOptions_8h_source.html#l00049">modules::options::GetAlias()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00010">MakeDetectorPulses::MakeDetectorPulses()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00052">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00021">PulseViewer::PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesOptions_8h_source.html#l00118">modules::options::GetAlias()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00010">MakeDetectorPulses::MakeDetectorPulses()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00052">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00021">PulseViewer::PulseViewer()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00032"></a>00032                                                                                      {
-<a name="l00033"></a>00033         std::string ret_val=<a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(name);
+<a name="l00033"></a>00033         std::string ret_val=<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(name);
 <a name="l00034"></a>00034         <a class="code" href="namespacemodules_1_1parser.html#a0c5059464b2e67313d1e95a5958e8fbe">modules::parser::TrimWhiteSpaceBeforeAfter</a>(ret_val);
 <a name="l00035"></a>00035         <span class="keywordflow">if</span>(ret_val==<span class="stringliteral">&quot;&quot;</span>) ret_val=defVal;
 <a name="l00036"></a>00036      <span class="keywordflow">return</span> ret_val;
@@ -555,45 +659,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a2ab90d2dccf08d1436bb2b55d7f6eab2"></a><!-- doxytag: member="TMEGeneratorOptions::GetVectorStrings" ref="a2ab90d2dccf08d1436bb2b55d7f6eab2" args="(const std::string &amp;name, std::vector&lt; std::string &gt; &amp;vect) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int modules::options::GetVectorStrings </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&nbsp;</td>
-          <td class="paramname"> <em>vect</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00034">34</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
-
-<p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00043">modules::options::GetVectorStringsByWhiteSpace()</a>.</p>
-
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034                                                                                      {
-<a name="l00035"></a>00035              <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#ab723b4559c41d9574226df5558cf6ef7">GetVectorStringsByWhiteSpace</a>(name,vect);
-<a name="l00036"></a>00036         };
-</pre></div></p>
-
-</div>
-</div>
-<a class="anchor" id="ad8bbe390e336fde3ed440be0fedd5399"></a><!-- doxytag: member="TMEGeneratorOptions::GetVectorStringsByDelimiter" ref="ad8bbe390e336fde3ed440be0fedd5399" args="(const std::string &amp;, std::vector&lt; std::string &gt; &amp;vect, const char *delim=&quot;:&quot;) const " -->
+<a class="anchor" id="a9feb6f6c4fab9df5b9f2c8fa5edf3998"></a><!-- doxytag: member="TMEGeneratorOptions::GetVectorStringsByDelimiter" ref="a9feb6f6c4fab9df5b9f2c8fa5edf3998" args="(const std::string &amp;name, std::vector&lt; std::string &gt; &amp;vect, const char *delim=&quot;:&quot;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -624,28 +690,40 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00050">50</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
+<p>Fill a vector of strings with tokens found in the named option @ Uses strtok so not suitable for multi-threading (if we ever do something like that). </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of option to use </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>vect</em>&nbsp;</td><td>vector to fill with tokens </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>delim</em>&nbsp;</td><td>c-string of chars to use as delimiter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Number of tokens pushed in to vect </dd></dl>
+
+<p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00053">53</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
 
 <p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00011">modules::options::GetOption()</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00053">ExportPulse::BeforeFirstEntry()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00127">MakeAnalysedPulses::ParseGeneratorList()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">ExportPulse::BeforeFirstEntry()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00127">MakeAnalysedPulses::ParseGeneratorList()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00050"></a>00050                                                                                                                         {
-<a name="l00051"></a>00051     <span class="keywordtype">char</span> line[2048];
-<a name="l00052"></a>00052     strcpy(line,<a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(name).c_str());
-<a name="l00053"></a>00053     <span class="keywordtype">char</span>* word = strtok(line,delim);
-<a name="l00054"></a>00054     <span class="keywordflow">while</span>(word != NULL){ 
-<a name="l00055"></a>00055             <span class="comment">//std::cout&lt;&lt;&quot;ModulesOptions:GetVectorStringsByDelimiter() &quot;&lt;&lt;word&lt;&lt;std::endl;</span>
-<a name="l00056"></a>00056         vect.push_back(word);
-<a name="l00057"></a>00057         word = strtok(NULL,delim);
-<a name="l00058"></a>00058     }
-<a name="l00059"></a>00059     <span class="keywordflow">return</span> vect.size();
-<a name="l00060"></a>00060 }
+<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053                                                                                                                         {
+<a name="l00054"></a>00054     <span class="keywordtype">char</span> line[2048];
+<a name="l00055"></a>00055     strcpy(line,<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(name).c_str());
+<a name="l00056"></a>00056     <span class="keywordtype">char</span>* word = strtok(line,delim);
+<a name="l00057"></a>00057     <span class="keywordtype">int</span> num_tokens=0;
+<a name="l00058"></a>00058     <span class="keywordflow">for</span>(;word != NULL; num_tokens++) {
+<a name="l00059"></a>00059             <span class="comment">//std::cout&lt;&lt;&quot;ModulesOptions:GetVectorStringsByDelimiter() &quot;&lt;&lt;word&lt;&lt;std::endl;</span>
+<a name="l00060"></a>00060         vect.push_back(word);
+<a name="l00061"></a>00061         word = strtok(NULL,delim);
+<a name="l00062"></a>00062     }
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> num_tokens;
+<a name="l00064"></a>00064 }
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="ab723b4559c41d9574226df5558cf6ef7"></a><!-- doxytag: member="TMEGeneratorOptions::GetVectorStringsByWhiteSpace" ref="ab723b4559c41d9574226df5558cf6ef7" args="(const std::string &amp;, std::vector&lt; std::string &gt; &amp;vect) const " -->
+<a class="anchor" id="a9f11dd3ca576849e2f4c500794edd9dc"></a><!-- doxytag: member="TMEGeneratorOptions::GetVectorStringsByWhiteSpace" ref="a9f11dd3ca576849e2f4c500794edd9dc" args="(const std::string &amp;name, std::vector&lt; std::string &gt; &amp;vect) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -670,23 +748,36 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
+<p>Fill a vector of strings with whitespace delimited tokens found in the named option. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of option to use </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>vect</em>&nbsp;</td><td>vector to fill with tokens </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Number of tokens pushed in to vect </dd></dl>
+
 <p>Definition at line <a class="el" href="ModulesOptions_8cpp_source.html#l00043">43</a> of file <a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a>.</p>
 
 <p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00011">modules::options::GetOption()</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesOptions_8h_source.html#l00034">modules::options::GetVectorStrings()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00043"></a>00043                                                                                                       {
-<a name="l00044"></a>00044     std::stringstream ss(<a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(name));
+<a name="l00044"></a>00044     std::stringstream ss(<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(name));
 <a name="l00045"></a>00045     std::string val;
-<a name="l00046"></a>00046     <span class="keywordflow">while</span>(ss&gt;&gt;val) vect.push_back(val);
-<a name="l00047"></a>00047     <span class="keywordflow">return</span> vect.size();
-<a name="l00048"></a>00048 }
+<a name="l00046"></a>00046     <span class="keywordtype">int</span> num_tokens=0;
+<a name="l00047"></a>00047     <span class="keywordflow">for</span>(;ss&gt;&gt;val; num_tokens++) {
+<a name="l00048"></a>00048       vect.push_back(val);
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050     <span class="keywordflow">return</span> num_tokens;
+<a name="l00051"></a>00051 }
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a64da339caaf311cdbc14400200a926fc"></a><!-- doxytag: member="TMEGeneratorOptions::HasOption" ref="a64da339caaf311cdbc14400200a926fc" args="(const std::string &amp;) const " -->
+<a class="anchor" id="af08184dda8d5bd80865f9380ac3f43fb"></a><!-- doxytag: member="TMEGeneratorOptions::HasOption" ref="af08184dda8d5bd80865f9380ac3f43fb" args="(const std::string &amp;name) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -702,15 +793,24 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00072">72</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Check if a named option has been set. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Name of option to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if option was set, false if not </dd></dl>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00057">modules::options::fOptions</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00147">147</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::fOptions</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00031">MakeAnalysedPulses::BeforeFirstEntry()</a>, <a class="el" href="FillHistBase_8cpp_source.html#l00005">FillHistBase::FillHistBase()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00016">TVAnalysedPulseGenerator::TVAnalysedPulseGenerator()</a>, and <a class="el" href="TVMuonEventGenerator_8h_source.html#l00013">TVMuonEventGenerator::TVMuonEventGenerator()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00072"></a>00072                                                                {
-<a name="l00073"></a>00073     <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name)!=<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();
-<a name="l00074"></a>00074 }
+<p><div class="fragment"><pre class="fragment"><a name="l00147"></a>00147                                                                {
+<a name="l00148"></a>00148     <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name)!=<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();
+<a name="l00149"></a>00149 }
 </pre></div></p>
 
 </div>
@@ -731,18 +831,20 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00048">48</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Set the alias option for this module. </p>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00065">modules::options::SetOption()</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00116">116</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00140">modules::options::SetOption()</a>.</p>
 
 <p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00100">modules::reader::AddModule()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00048"></a>00048 {<a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">SetOption</a>(<span class="stringliteral">&quot;alias&quot;</span>,alias);};
+<p><div class="fragment"><pre class="fragment"><a name="l00116"></a>00116 {<a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(<span class="stringliteral">&quot;alias&quot;</span>,alias);};
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="ab4ca7561eabfa70479096c828b03bfdc"></a><!-- doxytag: member="TMEGeneratorOptions::SetOption" ref="ab4ca7561eabfa70479096c828b03bfdc" args="(const std::string &amp;name, const std::string &amp;option)" -->
+<a class="anchor" id="a038c293514a4441f2d523627eef19b56"></a><!-- doxytag: member="TMEGeneratorOptions::SetOption" ref="a038c293514a4441f2d523627eef19b56" args="(const std::string &amp;key, const std::string &amp;value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -750,13 +852,13 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
           <td class="memname">void modules::options::SetOption </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>name</em>, </td>
+          <td class="paramname"> <em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>option</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>value</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -767,18 +869,28 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00065">65</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
+<p>Set the value of an option. </p>
+<p>If a previous value was set, it is replaced by this one </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>key</em>&nbsp;</td><td>The name of the option to set </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The new value </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00057">modules::options::fOptions</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00058">modules::options::fOrder</a>.</p>
+<p>Definition at line <a class="el" href="ModulesOptions_8h_source.html#l00140">140</a> of file <a class="el" href="ModulesOptions_8h_source.html">ModulesOptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00074">modules::options::AddArgument()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00188">modules::reader::AddOption()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00048">modules::options::SetAlias()</a>.</p>
+<p>References <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::fOptions</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00133">modules::options::fOrder</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00065"></a>00065                                                                                    {
-<a name="l00066"></a>00066     <span class="comment">// if a new key was added, store an iterator in the order list</span>
-<a name="l00067"></a>00067     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it = <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
-<a name="l00068"></a>00068     <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>[name]=option;
-<a name="l00069"></a>00069     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.push_back(<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name));
-<a name="l00070"></a>00070 }
+<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00078">modules::options::AddArgument()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00188">modules::reader::AddOption()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00116">modules::options::SetAlias()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00140"></a>00140                                                                                    {
+<a name="l00141"></a>00141     <span class="comment">// if a new key was added, store an iterator in the order list</span>
+<a name="l00142"></a>00142     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it = <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
+<a name="l00143"></a>00143     <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>[name]=option;
+<a name="l00144"></a>00144     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.push_back(<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name));
+<a name="l00145"></a>00145 }
 </pre></div></p>
 
 </div>

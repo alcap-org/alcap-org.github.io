@@ -53,14 +53,14 @@
 <a name="l00028"></a>00028     <span class="comment">// If we have any problems making a module then stop running</span>
 <a name="l00029"></a>00029     <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::factory::Instance</a>();
 <a name="l00030"></a>00030     std::string name;
-<a name="l00031"></a>00031     <a class="code" href="classmodules_1_1options.html">modules::options</a>* opts;
+<a name="l00031"></a>00031     <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
 <a name="l00032"></a>00032     <a class="code" href="classFillHistBase.html">BaseModule</a>* mod=NULL;
 <a name="l00033"></a>00033     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;num_modules;i++){
 <a name="l00034"></a>00034             name = modules_file.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
 <a name="l00035"></a>00035             opts =  modules_file.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
 <a name="l00036"></a>00036             cout&lt;&lt;<span class="stringliteral">&quot;Creating module: &quot;</span>&lt;&lt;name&lt;&lt;endl;
 <a name="l00037"></a>00037             cout&lt;&lt;<span class="stringliteral">&quot;With options:&quot;</span>&lt;&lt;endl;
-<a name="l00038"></a>00038             opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
+<a name="l00038"></a>00038             opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
 <a name="l00039"></a>00039             mod = mgr-&gt;<a class="code" href="classmodules_1_1factory.html#a9ea070d3afec26d1bbec56d40bf8acac" title="Create a module with options.">createModule</a>(name,opts);
 <a name="l00040"></a>00040             <span class="keywordflow">if</span>(mod) <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">AddModule</a>(name, mod);
 <a name="l00041"></a>00041             <span class="keywordflow">else</span> <span class="keywordflow">return</span> 3;

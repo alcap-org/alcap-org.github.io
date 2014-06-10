@@ -160,9 +160,9 @@
 <a name="l00135"></a>00135     }
 <a name="l00136"></a>00136 
 <a name="l00137"></a>00137     <span class="comment">//Add the module to the list of modules</span>
-<a name="l00138"></a>00138     <a class="code" href="classmodules_1_1options.html">modules::options</a>* opts;
+<a name="l00138"></a>00138     <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
 <a name="l00139"></a>00139     <span class="keywordflow">if</span>(alias==<span class="stringliteral">&quot;&quot;</span>){
-<a name="l00140"></a>00140         opts=<span class="keyword">new</span> <a class="code" href="classmodules_1_1options.html">modules::options</a>(type);
+<a name="l00140"></a>00140         opts=<span class="keyword">new</span> <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>(type);
 <a name="l00141"></a>00141     }<span class="keywordflow">else</span>{
 <a name="l00142"></a>00142         <span class="comment">// since the module has been named, create a section to store other</span>
 <a name="l00143"></a>00143         <span class="comment">// options that may be provided subsequently</span>
@@ -171,11 +171,11 @@
 <a name="l00146"></a>00146             <span class="keywordflow">return</span> 1;
 <a name="l00147"></a>00147         }
 <a name="l00148"></a>00148         opts=<a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>[alias];
-<a name="l00149"></a>00149         opts-&gt;<a class="code" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355">SetAlias</a>(alias);
+<a name="l00149"></a>00149         opts-&gt;<a class="code" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355" title="Set the alias option for this module.">SetAlias</a>(alias);
 <a name="l00150"></a>00150     }
 <a name="l00151"></a>00151     <span class="comment">// Add all arguments passed to this module to it&apos;s options</span>
 <a name="l00152"></a>00152     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;args.size();i++) {
-<a name="l00153"></a>00153         opts-&gt;<a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">AddArgument</a>(i,args[i]);
+<a name="l00153"></a>00153         opts-&gt;<a class="code" href="classmodules_1_1options.html#a50340919b9cfdd88afac805bee029871" title="Set the value of an argument.">AddArgument</a>(i,args[i]);
 <a name="l00154"></a>00154     }
 <a name="l00155"></a>00155 
 <a name="l00156"></a>00156     <span class="comment">// Stick this module into the list of modules</span>
@@ -210,14 +210,14 @@
 <a name="l00185"></a>00185     <span class="keywordflow">return</span> opt;
 <a name="l00186"></a>00186 }
 <a name="l00187"></a>00187 
-<a name="l00188"></a><a class="code" href="classmodules_1_1reader.html#a062b09760e8e0d2a213ff3489bdff004">00188</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#ad44488f3dc869891a42a4e0383ab3198">modules::reader::AddOption</a>(<a class="code" href="classmodules_1_1options.html">modules::options</a>* <a class="code" href="classmodules_1_1options.html">options</a>, <span class="keyword">const</span> <a class="code" href="structmodules_1_1reader_1_1Option__t.html">Option_t</a>&amp; opt){
+<a name="l00188"></a><a class="code" href="classmodules_1_1reader.html#a062b09760e8e0d2a213ff3489bdff004">00188</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#ad44488f3dc869891a42a4e0383ab3198">modules::reader::AddOption</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a>, <span class="keyword">const</span> <a class="code" href="structmodules_1_1reader_1_1Option__t.html">Option_t</a>&amp; opt){
 <a name="l00189"></a>00189     <span class="keywordtype">bool</span> exists;
 <a name="l00190"></a>00190     <span class="keywordflow">switch</span> (opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#ab1d4b9a3a799a901ece33edaa4eb82e6">mode</a>){
 <a name="l00191"></a>00191         <span class="keywordflow">case</span> <a class="code" href="classmodules_1_1reader.html#a0f0646ad736bda11fe2868c38fa4e56fa387f4018f877c79dd1c0075468ae440b">kSet</a>:
-<a name="l00192"></a>00192             options-&gt;<a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">SetOption</a>(opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#aa007e968545041864adc88a001142d7d">key</a>,opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#a518988fdc1f5b6090ea616e5fa66b748">value</a>);
+<a name="l00192"></a>00192             options-&gt;<a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#aa007e968545041864adc88a001142d7d">key</a>,opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#a518988fdc1f5b6090ea616e5fa66b748">value</a>);
 <a name="l00193"></a>00193             <span class="keywordflow">break</span>;
 <a name="l00194"></a>00194         <span class="keywordflow">case</span> <a class="code" href="classmodules_1_1reader.html#a0f0646ad736bda11fe2868c38fa4e56fade3d82be5851446a736a7cb12d5ebba1">kAppend</a>:
-<a name="l00195"></a>00195             exists= options-&gt;<a class="code" href="classmodules_1_1options.html#a8cb9ded81f541be82d0555e5bf940ad5">AppendToOption</a>(opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#aa007e968545041864adc88a001142d7d">key</a>,opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#a518988fdc1f5b6090ea616e5fa66b748">value</a>);
+<a name="l00195"></a>00195             exists= options-&gt;<a class="code" href="classmodules_1_1options.html#a86696053759982b3720bedb3d4c9c7d6" title="Append a new value to a list.">AppendToOption</a>(opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#aa007e968545041864adc88a001142d7d">key</a>,opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#a518988fdc1f5b6090ea616e5fa66b748">value</a>);
 <a name="l00196"></a>00196             <span class="keywordflow">if</span>(!exists &amp;&amp;<a class="code" href="classmodules_1_1reader.html#a769477c2c6ae89b2f0d8b282bf2a8f76">fShouldPrint</a>){
 <a name="l00197"></a>00197                     std::cout&lt;&lt;<span class="stringliteral">&quot;Cannot append to &apos;&quot;</span>&lt;&lt;opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#aa007e968545041864adc88a001142d7d">key</a>&lt;&lt;<span class="stringliteral">&quot;&apos; as it doesn&apos;t already exist&quot;</span>&lt;&lt;std::endl;
 <a name="l00198"></a>00198             }
@@ -228,8 +228,8 @@
 <a name="l00203"></a>00203     }
 <a name="l00204"></a>00204 }
 <a name="l00205"></a>00205 
-<a name="l00206"></a><a class="code" href="classmodules_1_1reader.html#ae2bb45ee692d952bdbafbbdccd843fc0">00206</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#ad44488f3dc869891a42a4e0383ab3198">modules::reader::AddOption</a>(<a class="code" href="classmodules_1_1options.html">modules::options</a>* <a class="code" href="classmodules_1_1options.html">options</a>, <span class="keyword">const</span> std::string&amp; flag){
-<a name="l00207"></a>00207     options-&gt;<a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">SetOption</a>(flag,<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00206"></a><a class="code" href="classmodules_1_1reader.html#ae2bb45ee692d952bdbafbbdccd843fc0">00206</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#ad44488f3dc869891a42a4e0383ab3198">modules::reader::AddOption</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a>, <span class="keyword">const</span> std::string&amp; flag){
+<a name="l00207"></a>00207     options-&gt;<a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(flag,<span class="stringliteral">&quot;&quot;</span>);
 <a name="l00208"></a>00208 }
 <a name="l00209"></a>00209 
 <a name="l00210"></a><a class="code" href="classmodules_1_1reader.html#a63eddaec1dc7bb964244ac0d11b1187e">00210</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#a63eddaec1dc7bb964244ac0d11b1187e">modules::reader::PrintAllOptions</a>()<span class="keyword">const</span>{

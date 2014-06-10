@@ -27,10 +27,10 @@
 <a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="ModulesOptions_8h.html">ModulesOptions.h</a>&quot;</span>
 <a name="l00003"></a>00003 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00004"></a>00004 
-<a name="l00005"></a><a class="code" href="classFillHistBase.html#ab1257f1f9b3396cc080391e8286015b7">00005</a> <a class="code" href="classFillHistBase.html#ab1257f1f9b3396cc080391e8286015b7">FillHistBase::FillHistBase</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *HistogramDirectoryName,<a class="code" href="classmodules_1_1options.html">modules::options</a>* opts,<a class="code" href="classTSetupData.html">TSetupData</a>* setup):
+<a name="l00005"></a><a class="code" href="classFillHistBase.html#a5137fdac24c80abc092c7f12a0cb46e1">00005</a> <a class="code" href="classFillHistBase.html#a5137fdac24c80abc092c7f12a0cb46e1" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">FillHistBase::FillHistBase</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *HistogramDirectoryName,<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts,<a class="code" href="classTSetupData.html">TSetupData</a>* setup):
 <a name="l00006"></a>00006         fSetup(setup),fDebug(false){
 <a name="l00007"></a>00007   <span class="keywordflow">if</span>(opts){
-<a name="l00008"></a>00008     <a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>=(opts-&gt;<a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>) &amp;&amp; opts-&gt;<a class="code" href="classmodules_1_1options.html#a2fd1de9fcea34d345bb5d1d8c2446d83">GetBool</a>(<span class="stringliteral">&quot;debug&quot;</span>));
+<a name="l00008"></a>00008     <a class="code" href="classFillHistBase.html#a6bfc7eb377168dab9553f02fc8ece0df">fDebug</a>=(opts-&gt;<a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>) &amp;&amp; (opts-&gt;<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(<span class="stringliteral">&quot;debug&quot;</span>).empty() || opts-&gt;<a class="code" href="classmodules_1_1options.html#ae1e1d18085161597bde39d8649b3fb8f" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;debug&quot;</span>)));
 <a name="l00009"></a>00009     <span class="comment">//std::cout&lt;&lt;&quot;Should we debug module: &quot;&lt;&lt;HistogramDirectoryName&lt;&lt;&quot;: &quot;&lt;&lt;(fDebug?&quot;yes&quot;:&quot;no&quot;)&lt;&lt;std::endl;</span>
 <a name="l00010"></a>00010   }
 <a name="l00011"></a>00011   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a> = gDirectory-&gt;mkdir(HistogramDirectoryName);
@@ -41,7 +41,7 @@
 <a name="l00016"></a>00016 {
 <a name="l00017"></a>00017 }
 <a name="l00018"></a>00018 
-<a name="l00019"></a><a class="code" href="classFillHistBase.html#a6396609318804766b523d21bf6ecbcce">00019</a> <span class="keywordtype">int</span> <a class="code" href="classFillHistBase.html#a6396609318804766b523d21bf6ecbcce">FillHistBase::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
+<a name="l00019"></a><a class="code" href="classFillHistBase.html#a6396609318804766b523d21bf6ecbcce">00019</a> <span class="keywordtype">int</span> <a class="code" href="classFillHistBase.html#a6396609318804766b523d21bf6ecbcce" title="The big kahuna. Overload this in the derived class and it will be called for each...">FillHistBase::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
 <a name="l00020"></a>00020   <span class="comment">// This is a virtual function and should be overwritten by the deriving analysis module!</span>
 <a name="l00021"></a>00021   <span class="keywordflow">return</span> 0;
 <a name="l00022"></a>00022 }
@@ -51,7 +51,7 @@
 <a name="l00026"></a>00026   <span class="comment">// process routines if we have more than one Tree and hence different tpyes of data input.</span>
 <a name="l00027"></a>00027 
 <a name="l00028"></a>00028   <span class="keywordflow">if</span>(<a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>) <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd();
-<a name="l00029"></a>00029   <span class="keywordtype">int</span> ret = <a class="code" href="classFillHistBase.html#a6396609318804766b523d21bf6ecbcce">ProcessEntry</a>(gData, gSetup);
+<a name="l00029"></a>00029   <span class="keywordtype">int</span> ret = <a class="code" href="classFillHistBase.html#a6396609318804766b523d21bf6ecbcce" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(gData, gSetup);
 <a name="l00030"></a>00030   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00031"></a>00031 
 <a name="l00032"></a>00032   <span class="keywordflow">return</span> ret;

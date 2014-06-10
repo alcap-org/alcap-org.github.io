@@ -39,11 +39,11 @@
 <a name="l00014"></a>00014 <span class="keyword">using</span> std::pair;
 <a name="l00015"></a>00015 
 <a name="l00016"></a><a class="code" href="MyModule_8cpp.html#a435e920e5997ef461e60c737deda7da6">00016</a> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="MyModule_8cpp.html#a435e920e5997ef461e60c737deda7da6">NCHAN</a> = 8;
-<a name="l00017"></a><a class="code" href="MyModule_8cpp.html#ab3f078684998b83967d507d0f453f454">00017</a> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="MyModule_8cpp.html#ab3f078684998b83967d507d0f453f454">verbose</a> = <span class="keyword">true</span>;
+<a name="l00017"></a>00017 <span class="comment">//static bool verbose = true;</span>
 <a name="l00018"></a><a class="code" href="MyModule_8cpp.html#a25844eacf7db0fd3618e9ced58629ffd">00018</a> <span class="keyword">static</span> TH1 *<a class="code" href="MyModule_8cpp.html#a25844eacf7db0fd3618e9ced58629ffd">hSamples1</a> = 0;
 <a name="l00019"></a><a class="code" href="MyModule_8cpp.html#ab4edf560fab71c15e2b84000abc6dad4">00019</a> <span class="keyword">static</span> TH1 *<a class="code" href="MyModule_8cpp.html#ab4edf560fab71c15e2b84000abc6dad4">hSamples2</a> = 0;
 <a name="l00020"></a><a class="code" href="MyModule_8cpp.html#a585750c8ef51b479b7a18517cfd1cd52">00020</a> <span class="keyword">static</span> TH1 *<a class="code" href="MyModule_8cpp.html#a585750c8ef51b479b7a18517cfd1cd52">hSamples3</a> = 0;
-<a name="l00021"></a><a class="code" href="MyModule_8cpp.html#af1a45587cd4e686109bc0dab03c0a994">00021</a> <span class="keyword">static</span> TH2 *<a class="code" href="MyModule_8cpp.html#af1a45587cd4e686109bc0dab03c0a994">hBankSize</a> = 0;
+<a name="l00021"></a>00021 <span class="comment">//static TH2 *hBankSize = 0;</span>
 <a name="l00022"></a><a class="code" href="MyModule_8cpp.html#ad01842124dbd00e84a13faf798fbf00c">00022</a> <span class="keyword">static</span> TH1 *<a class="code" href="MyModule_8cpp.html#ad01842124dbd00e84a13faf798fbf00c">bankHists</a>[<a class="code" href="MyModule_8cpp.html#a435e920e5997ef461e60c737deda7da6">NCHAN</a>];
 <a name="l00023"></a><a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">00023</a> <span class="keyword">static</span> vector&lt;string&gt; <a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a>;
 <a name="l00024"></a>00024 
@@ -97,8 +97,8 @@
 <a name="l00072"></a>00072 
 <a name="l00073"></a>00073   vector&lt;int&gt; samples[<a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a>.size()][maxTPIsize];
 <a name="l00074"></a>00074 
-<a name="l00075"></a>00075   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> b1=0; b1&lt;<a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a>.size(); b1++){
-<a name="l00076"></a>00076     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;islands[b1].size(); i++){
+<a name="l00075"></a>00075   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b1=0; b1&lt;<a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a>.size(); b1++){
+<a name="l00076"></a>00076     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;islands[b1].size(); i++){
 <a name="l00077"></a>00077       samples[b1][i] = islands[b1][i]-&gt;GetSamples();
 <a name="l00078"></a>00078     }
 <a name="l00079"></a>00079   }
@@ -111,7 +111,7 @@
 <a name="l00086"></a>00086   
 <a name="l00087"></a>00087     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; islands[b1].size(); ++i){
 <a name="l00088"></a>00088       <span class="comment">//printf(&quot; bank %d, island %d timestamp %d clock tick %d\n&quot;,b1,i,islands[b1][i]-&gt;GetTimeStamp(),islands[b1][i]-&gt;GetClockTickInNs());</span>
-<a name="l00089"></a>00089       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;samples[b1][i].size(); j++){
+<a name="l00089"></a>00089       <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;samples[b1][i].size(); j++){
 <a name="l00090"></a>00090         <a class="code" href="MyModule_8cpp.html#ad01842124dbd00e84a13faf798fbf00c">bankHists</a>[b1]-&gt;Fill(samples[b1][i][j]);
 <a name="l00091"></a>00091         <span class="keywordflow">if</span> (i==0) <a class="code" href="MyModule_8cpp.html#a25844eacf7db0fd3618e9ced58629ffd">hSamples1</a>-&gt;Fill(samples[b1][i][j]);
 <a name="l00092"></a>00092         <span class="keywordflow">if</span> (i==1) <a class="code" href="MyModule_8cpp.html#ab4edf560fab71c15e2b84000abc6dad4">hSamples2</a>-&gt;Fill(samples[b1][i][j]);

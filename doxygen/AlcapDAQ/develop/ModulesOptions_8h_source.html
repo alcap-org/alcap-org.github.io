@@ -34,71 +34,84 @@
 <a name="l00009"></a>00009     <span class="keyword">class </span>options;
 <a name="l00010"></a>00010 }
 <a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="classmodules_1_1options.html">00012</a> <span class="keyword">class </span><a class="code" href="classmodules_1_1options.html">modules::options</a>{
-<a name="l00013"></a>00013     <span class="keyword">public</span>:
-<a name="l00014"></a><a class="code" href="classmodules_1_1options.html#af64673c09d5266e11148057fc9619fab">00014</a>         <span class="keyword">typedef</span> std::map&lt;std::string,std::string&gt; <a class="code" href="classmodules_1_1options.html#af64673c09d5266e11148057fc9619fab">OptionsList_t</a>;
-<a name="l00015"></a><a class="code" href="classmodules_1_1options.html#ab739526d7d705911ef36a013342b0552">00015</a>         <span class="keyword">typedef</span> std::vector&lt;OptionsList_t::iterator&gt; <a class="code" href="classmodules_1_1options.html#ab739526d7d705911ef36a013342b0552">OptionsOrder_t</a>;
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017     <span class="keyword">public</span>:
-<a name="l00018"></a><a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6">00018</a>         <a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6">options</a>(<span class="keyword">const</span> std::string&amp; name):<a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>(name){
-<a name="l00019"></a>00019                 <a class="code" href="classmodules_1_1options.html#a1c5ed8c31f458023986ea41ce23b3288">fIdNumber</a>=<a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7">MakeIdNumber</a>();
-<a name="l00020"></a>00020         };
-<a name="l00021"></a><a class="code" href="classmodules_1_1options.html#ab20ac30c110400222d558e5975cec9b0">00021</a>         <span class="keyword">virtual</span> <a class="code" href="classmodules_1_1options.html#ab20ac30c110400222d558e5975cec9b0">~options</a>(){};
+<a name="l00013"></a><a class="code" href="classmodules_1_1options.html">00013</a> <span class="keyword">class </span><a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>{
+<a name="l00014"></a>00014   <span class="keyword">public</span>:
+<a name="l00016"></a><a class="code" href="classmodules_1_1options.html#af64673c09d5266e11148057fc9619fab">00016</a>         <span class="keyword">typedef</span> std::map&lt;std::string,std::string&gt; <a class="code" href="classmodules_1_1options.html#af64673c09d5266e11148057fc9619fab" title="Helper typedef, intended for the list of key-value pairs for each option.">OptionsList_t</a>;
+<a name="l00018"></a><a class="code" href="classmodules_1_1options.html#ab739526d7d705911ef36a013342b0552">00018</a>         <span class="keyword">typedef</span> std::vector&lt;OptionsList_t::iterator&gt; <a class="code" href="classmodules_1_1options.html#ab739526d7d705911ef36a013342b0552" title="Helper typedef, intended to keep the order of option declaration.">OptionsOrder_t</a>;
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020   <span class="keyword">public</span>:
+<a name="l00021"></a>00021   <span class="comment">/*-------------  Used by modules::reader -------------*/</span>
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023         <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">SetOption</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; option);
-<a name="l00024"></a>00024         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a8cb9ded81f541be82d0555e5bf940ad5">AppendToOption</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; option);
-<a name="l00025"></a>00025         <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a09f63b4f28a4ea8f0b564694a56d11bb">AddArgument</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; number, <span class="keyword">const</span> std::string&amp; option);
-<a name="l00026"></a>00026     <span class="keyword">public</span>:
-<a name="l00027"></a>00027         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a558464d274a848536779fda34a89a58d">GetInt</a>(<span class="keyword">const</span> std::string&amp;,<span class="keywordtype">int</span> defVal=-1)<span class="keyword">const</span>;
-<a name="l00028"></a>00028         <span class="keywordtype">double</span> <a class="code" href="classmodules_1_1options.html#a70170bd1f233fe168a3579eb3b068ad5">GetDouble</a>(<span class="keyword">const</span> std::string&amp;,<span class="keywordtype">double</span> defVal=1.)<span class="keyword">const</span>;
-<a name="l00029"></a>00029         std::string <a class="code" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">GetString</a>(<span class="keyword">const</span> std::string&amp;,<span class="keyword">const</span> std::string&amp; defVal=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
-<a name="l00030"></a>00030         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a2fd1de9fcea34d345bb5d1d8c2446d83">GetBool</a>(<span class="keyword">const</span> std::string&amp;,<span class="keywordtype">bool</span> defVal=<span class="keyword">false</span>)<span class="keyword">const</span>;
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#ab723b4559c41d9574226df5558cf6ef7">GetVectorStringsByWhiteSpace</a>(<span class="keyword">const</span> std::string&amp;, std::vector&lt;std::string&gt;&amp; vect)<span class="keyword">const</span>;
-<a name="l00033"></a>00033         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#ad8bbe390e336fde3ed440be0fedd5399">GetVectorStringsByDelimiter</a>(<span class="keyword">const</span> std::string&amp;, std::vector&lt;std::string&gt;&amp; vect,<span class="keyword">const</span> <span class="keywordtype">char</span>* delim=<span class="stringliteral">&quot;:&quot;</span>)<span class="keyword">const</span>;
-<a name="l00034"></a><a class="code" href="classmodules_1_1options.html#a2ab90d2dccf08d1436bb2b55d7f6eab2">00034</a>         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a2ab90d2dccf08d1436bb2b55d7f6eab2">GetVectorStrings</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;&amp; vect)<span class="keyword">const </span>{
-<a name="l00035"></a>00035              <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#ab723b4559c41d9574226df5558cf6ef7">GetVectorStringsByWhiteSpace</a>(name,vect);
-<a name="l00036"></a>00036         };
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">HasOption</a>(<span class="keyword">const</span> std::string&amp;)<span class="keyword">const</span>;
-<a name="l00039"></a><a class="code" href="classmodules_1_1options.html#a7025f09d60a8166fada9df7f2186b388">00039</a>         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a7025f09d60a8166fada9df7f2186b388">GetNumOptions</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.size();};
-<a name="l00040"></a>00040         std::string <a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(<span class="keyword">const</span> std::string&amp;)<span class="keyword">const</span>;
-<a name="l00041"></a>00041         <span class="comment">//OptionsList_t::iterator begin(){return fOptions.begin();};</span>
-<a name="l00042"></a><a class="code" href="classmodules_1_1options.html#a04af4a982d1c3a6d99fe482dbd5c5922">00042</a>         <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsList_t::const_iterator</a> <a class="code" href="classmodules_1_1options.html#a04af4a982d1c3a6d99fe482dbd5c5922">begin</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.begin();};
-<a name="l00043"></a>00043         <span class="comment">//OptionsList_t::iterator end(){return fOptions.end();};</span>
-<a name="l00044"></a><a class="code" href="classmodules_1_1options.html#af74185a334cac9fb8d3f0300e7e35260">00044</a>         <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsList_t::const_iterator</a> <a class="code" href="classmodules_1_1options.html#af74185a334cac9fb8d3f0300e7e35260">end</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();};
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74">DumpOptions</a>(<span class="keyword">const</span> std::string&amp; prefix=<span class="stringliteral">&quot;     &quot;</span>)<span class="keyword">const</span>;
-<a name="l00047"></a>00047 
-<a name="l00048"></a><a class="code" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355">00048</a>         <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355">SetAlias</a>(<span class="keyword">const</span> std::string&amp; alias){<a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">SetOption</a>(<span class="stringliteral">&quot;alias&quot;</span>,alias);};
-<a name="l00049"></a><a class="code" href="classmodules_1_1options.html#a598833c13aded62eeafa407aec9e6dcc">00049</a>         std::string <a class="code" href="classmodules_1_1options.html#a598833c13aded62eeafa407aec9e6dcc">GetAlias</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">GetString</a>(<span class="stringliteral">&quot;alias&quot;</span>);};
-<a name="l00050"></a>00050  
-<a name="l00051"></a>00051     <span class="keyword">private</span>:
-<a name="l00052"></a>00052         <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00053"></a>00053             T <a class="code" href="classmodules_1_1options.html#a4a87d8012eca330ecfb435a3e2210497">GetOption</a>(<span class="keyword">const</span> std::string&amp;,<span class="keyword">const</span> T&amp; defVal)<span class="keyword">const</span>;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055         <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7">MakeIdNumber</a>();
-<a name="l00056"></a>00056     <span class="keyword">private</span>:
-<a name="l00057"></a><a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">00057</a>         <a class="code" href="classmodules_1_1options.html#af64673c09d5266e11148057fc9619fab">OptionsList_t</a> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>;
-<a name="l00058"></a><a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">00058</a>         <a class="code" href="classmodules_1_1options.html#ab739526d7d705911ef36a013342b0552">OptionsOrder_t</a> <a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>;
-<a name="l00059"></a><a class="code" href="classmodules_1_1options.html#a1c5ed8c31f458023986ea41ce23b3288">00059</a>         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a1c5ed8c31f458023986ea41ce23b3288">fIdNumber</a>;
-<a name="l00060"></a>00060 
-<a name="l00061"></a><a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">00061</a>         std::string <a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>;
+<a name="l00024"></a>00024   <span class="comment">//receive these options should be passed in</span>
+<a name="l00025"></a><a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6">00025</a>         <a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">options</a>(<span class="keyword">const</span> std::string&amp; name):<a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>(name){
+<a name="l00026"></a>00026                 <a class="code" href="classmodules_1_1options.html#a1c5ed8c31f458023986ea41ce23b3288">fIdNumber</a>=<a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7" title="Create a unique ID number used for each option.">MakeIdNumber</a>();
+<a name="l00027"></a>00027         };
+<a name="l00028"></a><a class="code" href="classmodules_1_1options.html#ab20ac30c110400222d558e5975cec9b0">00028</a>         <span class="keyword">virtual</span> <a class="code" href="classmodules_1_1options.html#ab20ac30c110400222d558e5975cec9b0">~options</a>(){};
+<a name="l00029"></a>00029 
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; value);
+<a name="l00035"></a>00035 
+<a name="l00041"></a>00041         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a86696053759982b3720bedb3d4c9c7d6" title="Append a new value to a list.">AppendToOption</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; value);
+<a name="l00042"></a>00042 
+<a name="l00049"></a>00049         <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a50340919b9cfdd88afac805bee029871" title="Set the value of an argument.">AddArgument</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; number, <span class="keyword">const</span> std::string&amp; value);
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051   <span class="comment">/*-------------  Used to retrieve values -------------*/</span>
+<a name="l00052"></a>00052 
+<a name="l00056"></a>00056         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">int</span> defVal=-1)<span class="keyword">const</span>;
+<a name="l00057"></a>00057 
+<a name="l00061"></a>00061         <span class="keywordtype">double</span> <a class="code" href="classmodules_1_1options.html#aa26113243f75f844d53ab87b7ce25f27" title="Get the named option as a double.">GetDouble</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">double</span> defVal=1.)<span class="keyword">const</span>;
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063 };
-<a name="l00064"></a>00064 
-<a name="l00065"></a><a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">00065</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#ab4ca7561eabfa70479096c828b03bfdc">modules::options::SetOption</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; option){
-<a name="l00066"></a>00066     <span class="comment">// if a new key was added, store an iterator in the order list</span>
-<a name="l00067"></a>00067     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it = <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
-<a name="l00068"></a>00068     <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>[name]=option;
-<a name="l00069"></a>00069     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.push_back(<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name));
-<a name="l00070"></a>00070 }
-<a name="l00071"></a>00071 
-<a name="l00072"></a><a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">00072</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a64da339caaf311cdbc14400200a926fc">modules::options::HasOption</a>(<span class="keyword">const</span> std::string&amp; name)<span class="keyword">const</span>{
-<a name="l00073"></a>00073     <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name)!=<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();
-<a name="l00074"></a>00074 }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="preprocessor">#endif  //MODULESOPTIONS__HH_</span>
+<a name="l00067"></a>00067         std::string <a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keyword">const</span> std::string&amp; defVal=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
+<a name="l00068"></a>00068 
+<a name="l00072"></a>00072         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#ae1e1d18085161597bde39d8649b3fb8f" title="Get the named option as a bool.">GetBool</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keywordtype">bool</span> defVal=<span class="keyword">false</span>)<span class="keyword">const</span>;
+<a name="l00073"></a>00073 
+<a name="l00079"></a>00079         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a9f11dd3ca576849e2f4c500794edd9dc" title="Fill a vector of strings with whitespace delimited tokens found in the named option...">GetVectorStringsByWhiteSpace</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;&amp; vect)<span class="keyword">const</span>;
+<a name="l00080"></a>00080 
+<a name="l00089"></a>00089         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;&amp; vect,<span class="keyword">const</span> <span class="keywordtype">char</span>* delim=<span class="stringliteral">&quot;:&quot;</span>)<span class="keyword">const</span>;
+<a name="l00090"></a>00090 
+<a name="l00094"></a>00094         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(<span class="keyword">const</span> std::string&amp; name)<span class="keyword">const</span>;
+<a name="l00095"></a>00095 
+<a name="l00097"></a><a class="code" href="classmodules_1_1options.html#a7025f09d60a8166fada9df7f2186b388">00097</a>         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#a7025f09d60a8166fada9df7f2186b388" title="Get the number of options managed by this options list.">GetNumOptions</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.size();};
+<a name="l00098"></a>00098 
+<a name="l00101"></a>00101         std::string <a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(<span class="keyword">const</span> std::string&amp; name)<span class="keyword">const</span>;
+<a name="l00102"></a>00102 
+<a name="l00104"></a><a class="code" href="classmodules_1_1options.html#a04af4a982d1c3a6d99fe482dbd5c5922">00104</a>         <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsList_t::const_iterator</a> <a class="code" href="classmodules_1_1options.html#a04af4a982d1c3a6d99fe482dbd5c5922" title="Get a const iterator to the first key-value pair (sorted alphabetically by.">begin</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.begin();};
+<a name="l00106"></a><a class="code" href="classmodules_1_1options.html#af74185a334cac9fb8d3f0300e7e35260">00106</a>         <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">OptionsList_t::const_iterator</a> <a class="code" href="classmodules_1_1options.html#af74185a334cac9fb8d3f0300e7e35260" title="Get a const iterator to the last key-value pair (sorted alphabetically by key).">end</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();};
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108         <span class="comment">//OptionsList_t::iterator begin(){return fOptions.begin();};</span>
+<a name="l00109"></a>00109         <span class="comment">//OptionsList_t::iterator end(){return fOptions.end();};</span>
+<a name="l00110"></a>00110 
+<a name="l00113"></a>00113         <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="keyword">const</span> std::string&amp; prefix=<span class="stringliteral">&quot;     &quot;</span>)<span class="keyword">const</span>;
+<a name="l00114"></a>00114 
+<a name="l00116"></a><a class="code" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355">00116</a>   <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355" title="Set the alias option for this module.">SetAlias</a>(<span class="keyword">const</span> std::string&amp; alias){<a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(<span class="stringliteral">&quot;alias&quot;</span>,alias);};
+<a name="l00118"></a><a class="code" href="classmodules_1_1options.html#a598833c13aded62eeafa407aec9e6dcc">00118</a>   std::string <a class="code" href="classmodules_1_1options.html#a598833c13aded62eeafa407aec9e6dcc" title="Get the alias option for this module.">GetAlias</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;alias&quot;</span>);};
+<a name="l00119"></a>00119  
+<a name="l00120"></a>00120   <span class="keyword">private</span>:
+<a name="l00125"></a>00125         <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+<a name="l00126"></a>00126             T <a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keyword">const</span> T&amp; defVal)<span class="keyword">const</span>;
+<a name="l00127"></a>00127 
+<a name="l00129"></a>00129         <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a4118e3c755ba3b7c261bb83d302f25b7" title="Create a unique ID number used for each option.">MakeIdNumber</a>();
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131   <span class="keyword">private</span>:
+<a name="l00132"></a><a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">00132</a>         <a class="code" href="classmodules_1_1options.html#af64673c09d5266e11148057fc9619fab" title="Helper typedef, intended for the list of key-value pairs for each option.">OptionsList_t</a> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>;
+<a name="l00133"></a><a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">00133</a>         <a class="code" href="classmodules_1_1options.html#ab739526d7d705911ef36a013342b0552" title="Helper typedef, intended to keep the order of option declaration.">OptionsOrder_t</a> <a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>;
+<a name="l00134"></a><a class="code" href="classmodules_1_1options.html#a1c5ed8c31f458023986ea41ce23b3288">00134</a>         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1options.html#a1c5ed8c31f458023986ea41ce23b3288">fIdNumber</a>;
+<a name="l00135"></a>00135 
+<a name="l00136"></a><a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">00136</a>         std::string <a class="code" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a>;
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138 };
+<a name="l00139"></a>00139 
+<a name="l00140"></a><a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56">00140</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">modules::options::SetOption</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; option){
+<a name="l00141"></a>00141     <span class="comment">// if a new key was added, store an iterator in the order list</span>
+<a name="l00142"></a>00142     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList_t::iterator</a> it = <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name);
+<a name="l00143"></a>00143     <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>[name]=option;
+<a name="l00144"></a>00144     <span class="keywordflow">if</span>(it==<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end()) <a class="code" href="classmodules_1_1options.html#aeabcdfa9d1fc1c36bc20975a85d3e98b">fOrder</a>.push_back(<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name));
+<a name="l00145"></a>00145 }
+<a name="l00146"></a>00146 
+<a name="l00147"></a><a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb">00147</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">modules::options::HasOption</a>(<span class="keyword">const</span> std::string&amp; name)<span class="keyword">const</span>{
+<a name="l00148"></a>00148     <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.find(name)!=<a class="code" href="classmodules_1_1options.html#a314695465c51dc6ff53aa5e816552159">fOptions</a>.end();
+<a name="l00149"></a>00149 }
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151 <span class="preprocessor">#endif  //MODULESOPTIONS__HH_</span>
 </pre></div></div>
 <hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">

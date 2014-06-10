@@ -74,10 +74,10 @@
 <a name="l00049"></a>00049   <a class="code" href="classFillHistBase.html#ae12d93cb94919a083078981c7631cf88">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
 <a name="l00050"></a>00050 }
 <a name="l00051"></a>00051 
-<a name="l00052"></a><a class="code" href="classPlotAmpVsTDiff.html#a385051a19c157e4b4085cc920767f0e0">00052</a> <a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">PlotAmpVsTDiff::PlotAmpVsTDiff</a>(<a class="code" href="classmodules_1_1options.html">modules::options</a>* opts) : <a class="code" href="classFillHistBase.html">FillHistBase</a>( (opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>)).c_str() ) {
+<a name="l00052"></a><a class="code" href="classPlotAmpVsTDiff.html#a385051a19c157e4b4085cc920767f0e0">00052</a> <a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">PlotAmpVsTDiff::PlotAmpVsTDiff</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) : <a class="code" href="classFillHistBase.html">FillHistBase</a>( (opts-&gt;GetString(<span class="stringliteral">&quot;0&quot;</span>)).c_str() ) {
 <a name="l00053"></a>00053 
-<a name="l00054"></a>00054   <a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">GetString</a>(<span class="stringliteral">&quot;1&quot;</span>);
-<a name="l00055"></a>00055   <a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10b85c07a60d4632af4d1ce8466e865e">GetString</a>(<span class="stringliteral">&quot;2&quot;</span>);
+<a name="l00054"></a>00054   <a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;1&quot;</span>);
+<a name="l00055"></a>00055   <a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;2&quot;</span>);
 <a name="l00056"></a>00056 
 <a name="l00057"></a>00057   <span class="comment">// hAmpVsTDiff</span>
 <a name="l00058"></a>00058   std::string histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a> + <span class="stringliteral">&quot;-&quot;</span> + <a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a> + <span class="stringliteral">&quot;_AmpVsTDiff_Coarse&quot;</span>;
@@ -103,7 +103,7 @@
 <a name="l00078"></a><a class="code" href="classPlotAmpVsTDiff.html#ab6edb6bf86963e1d05de5ac09428f27a">00078</a> <a class="code" href="classPlotAmpVsTDiff.html#ab6edb6bf86963e1d05de5ac09428f27a">PlotAmpVsTDiff::~PlotAmpVsTDiff</a>(){  
 <a name="l00079"></a>00079 }
 <a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="classPlotAmpVsTDiff.html#afe7fbabe0587ac0f55e66276e22a5892">00081</a> <span class="keywordtype">int</span> <a class="code" href="classPlotAmpVsTDiff.html#afe7fbabe0587ac0f55e66276e22a5892">PlotAmpVsTDiff::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
+<a name="l00081"></a><a class="code" href="classPlotAmpVsTDiff.html#afe7fbabe0587ac0f55e66276e22a5892">00081</a> <span class="keywordtype">int</span> <a class="code" href="classPlotAmpVsTDiff.html#afe7fbabe0587ac0f55e66276e22a5892" title="The big kahuna. Overload this in the derived class and it will be called for each...">PlotAmpVsTDiff::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
 <a name="l00082"></a>00082 
 <a name="l00083"></a>00083   <span class="comment">// Get the detA and detB pulses ready but make sure they exist first</span>
 <a name="l00084"></a>00084   <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> detA_pulses;
@@ -130,7 +130,7 @@
 <a name="l00105"></a>00105   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">AnalysedPulseList::iterator</a> detBPulseIter = detB_pulses.begin(); detBPulseIter != detB_pulses.end(); ++detBPulseIter) {
 <a name="l00106"></a>00106 
 <a name="l00107"></a>00107     <span class="comment">// Loop through the detA pulses</span>
-<a name="l00108"></a>00108     <span class="keywordtype">bool</span> coinc_found = <span class="keyword">false</span>;
+<a name="l00108"></a>00108     <span class="comment">//bool coinc_found = false;</span>
 <a name="l00109"></a>00109     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">AnalysedPulseList::iterator</a> detAPulseIter = currentDetAPulse; detAPulseIter != detA_pulses.end(); ++detAPulseIter) {
 <a name="l00110"></a>00110 
 <a name="l00111"></a>00111       <span class="keywordtype">double</span> detB_time = (*detBPulseIter)-&gt;GetTime();
