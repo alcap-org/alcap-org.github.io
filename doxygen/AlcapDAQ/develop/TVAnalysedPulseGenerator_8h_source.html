@@ -26,43 +26,57 @@
 <h1>analyzer/rootana/src/TAP_generators/TVAnalysedPulseGenerator.h</h1><a href="TVAnalysedPulseGenerator_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef TVANALYSEDPULSEGENERATOR_H__</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define TVANALYSEDPULSEGENERATOR_H__</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
 <a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="definitions_8h.html">definitions.h</a>&quot;</span>
 <a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="TAPGeneratorOptions_8h.html">TAPGeneratorOptions.h</a>&quot;</span>
-<a name="l00009"></a>00009 
-<a name="l00010"></a>00010 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html">TPulseIsland</a>;
-<a name="l00011"></a>00011 <span class="keyword">class </span><a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>;
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html">TPulseIsland</a>;
 <a name="l00012"></a>00012 
 <a name="l00013"></a><a class="code" href="classTVAnalysedPulseGenerator.html">00013</a> <span class="keyword">class </span><a class="code" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a> {
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015  <span class="keyword">public</span>:
-<a name="l00016"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a8fc9f3713e96c6176130741a49f810c3">00016</a>   <a class="code" href="classTVAnalysedPulseGenerator.html#a8fc9f3713e96c6176130741a49f810c3">TVAnalysedPulseGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts){
+<a name="l00016"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a5a325342073385877a496219778acde4">00016</a>   <a class="code" href="classTVAnalysedPulseGenerator.html#a5a325342073385877a496219778acde4">TVAnalysedPulseGenerator</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts){
 <a name="l00017"></a>00017     <span class="keywordflow">if</span>(opts){
 <a name="l00018"></a>00018       <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d">fDebug</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>);
 <a name="l00019"></a>00019     }
-<a name="l00020"></a>00020   };
-<a name="l00021"></a>00021 
+<a name="l00020"></a>00020     <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69">fSource</a>.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for a generator.">IDs::generator</a>(name);<span class="comment">//,opts-&gt;ToOneString());</span>
+<a name="l00021"></a>00021   };
 <a name="l00022"></a><a class="code" href="classTVAnalysedPulseGenerator.html#ad25372c9dc4eaee8a7caf57fa6baa374">00022</a>   <span class="keyword">virtual</span> <a class="code" href="classTVAnalysedPulseGenerator.html#ad25372c9dc4eaee8a7caf57fa6baa374">~TVAnalysedPulseGenerator</a>(){};
 <a name="l00023"></a>00023 
 <a name="l00024"></a>00024  <span class="keyword">public</span>:
 <a name="l00025"></a>00025   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a7cf402eb7cc6e6cb811e1b2a941a4810">ProcessPulses</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;, <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;)=0;
 <a name="l00026"></a>00026   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a44b71be7412768b797f268de1551e9b7">MayDivideTPIs</a>()=0;
 <a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="classTVAnalysedPulseGenerator.html#af5f2fd8d001812064972899d0657f2bc">00028</a>   <span class="keywordtype">void</span> <a class="code" href="classTVAnalysedPulseGenerator.html#af5f2fd8d001812064972899d0657f2bc">SetChannel</a>(<span class="keyword">const</span> std::string&amp; det){<a class="code" href="classTVAnalysedPulseGenerator.html#addf1451bbef92b2b1990772ad9758bb1">fDetector</a>=det;};
-<a name="l00029"></a><a class="code" href="classTVAnalysedPulseGenerator.html#ad3300e90459043189631f0bc723f5b65">00029</a>   <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classTVAnalysedPulseGenerator.html#ad3300e90459043189631f0bc723f5b65">GetChannel</a>(){<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#addf1451bbef92b2b1990772ad9758bb1">fDetector</a>.c_str();};
-<a name="l00030"></a><a class="code" href="classTVAnalysedPulseGenerator.html#addf1451bbef92b2b1990772ad9758bb1">00030</a>   <span class="keywordtype">bool</span> <a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">Debug</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d">fDebug</a>;};
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032  <span class="keyword">private</span>:
-<a name="l00033"></a>00033   std::string <a class="code" href="classTVAnalysedPulseGenerator.html#addf1451bbef92b2b1990772ad9758bb1">fDetector</a>;
-<a name="l00034"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d">00034</a>   <span class="keywordtype">bool</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d">fDebug</a>;
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 };
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="preprocessor">#endif // TVANALYSEDPULSEGENERATOR_H__</span>
+<a name="l00028"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a52fbd858d4ea72d672d8ef6a91b1310f">00028</a>   <span class="keywordtype">void</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a52fbd858d4ea72d672d8ef6a91b1310f">SetPulseList</a>(<a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* <a class="code" href="namespacemodules.html#ad4b4c82a2af83370510aa8b5006283f3">list</a>){<a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9">fPulseList</a>=list;};
+<a name="l00029"></a>00029   <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* <a class="code" href="classTVAnalysedPulseGenerator.html#a609f6e1223fafee20c4589f0c1609db5">MakeNewTAP</a>(<span class="keywordtype">int</span> parent_index)<span class="keyword">const</span>;
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">00031</a>   <span class="keywordtype">bool</span> <a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">Debug</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d">fDebug</a>;};
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="classTVAnalysedPulseGenerator.html#af5f2fd8d001812064972899d0657f2bc">00033</a>   <span class="keywordtype">void</span> <a class="code" href="classTVAnalysedPulseGenerator.html#af5f2fd8d001812064972899d0657f2bc">SetChannel</a>(<span class="keyword">const</span> std::string&amp; det){<a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=det;};
+<a name="l00034"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">00034</a>   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
+<a name="l00035"></a><a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a">00035</a>   <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> <a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a">GetSource</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69">fSource</a>;};
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037  <span class="keyword">private</span>:
+<a name="l00038"></a>00038   <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69">fSource</a>;
+<a name="l00039"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d">00039</a>   <span class="keywordtype">bool</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d">fDebug</a>;
+<a name="l00040"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9">00040</a>   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9">fPulseList</a>;
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a609f6e1223fafee20c4589f0c1609db5">00043</a> <span class="keyword">inline</span> <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* <a class="code" href="classTVAnalysedPulseGenerator.html#a609f6e1223fafee20c4589f0c1609db5">TVAnalysedPulseGenerator::MakeNewTAP</a>(<span class="keywordtype">int</span> parent_index)<span class="keyword">const</span>{
+<a name="l00044"></a>00044   <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* pulse=NULL;
+<a name="l00045"></a>00045   <span class="keywordflow">try</span>{
+<a name="l00046"></a>00046       <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9">fPulseList</a>-&gt;at(parent_index);
+<a name="l00047"></a>00047       pulse=<span class="keyword">new</span> <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a">GetSource</a>(),parent_index,parent);
+<a name="l00048"></a>00048   } <span class="keywordflow">catch</span> (std::out_of_range){}
+<a name="l00049"></a>00049   <span class="keywordflow">return</span> pulse;
+<a name="l00050"></a>00050 }
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="preprocessor">#endif // TVANALYSEDPULSEGENERATOR_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 13 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

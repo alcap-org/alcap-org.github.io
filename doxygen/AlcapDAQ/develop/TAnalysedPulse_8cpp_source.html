@@ -24,72 +24,99 @@
     </ul>
   </div>
 <h1>analyzer/rootana/src/TAP_generators/TAnalysedPulse.cpp</h1><a href="TAnalysedPulse_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;TH1F.h&gt;</span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;cmath&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;sstream&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="keyword">using</span> std::vector;
-<a name="l00010"></a>00010 <span class="keyword">using</span> std::string;
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="TAnalysedPulse_8cpp.html#a03ae387964696b0b4e3da4e27543b9c0">00012</a> <span class="preprocessor">#define PrintHelp std::cout&lt;&lt;__FILE__&lt;&lt;&quot;:&quot;&lt;&lt;__LINE__&lt;&lt;&quot;: &quot;</span>
-<a name="l00013"></a><a class="code" href="TAnalysedPulse_8cpp.html#ad90e42903c6513fac036fdeca0549674">00013</a> <span class="preprocessor"></span><span class="preprocessor">#define PrintValue(value) PrintHelp&lt;&lt;#value &quot;= |&quot;&lt;&lt;value&lt;&lt;&quot;|&quot;&lt;&lt;std::endl;</span>
-<a name="l00014"></a>00014 <span class="preprocessor"></span>
-<a name="l00015"></a><a class="code" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">00015</a> <a class="code" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">TAnalysedPulse::TAnalysedPulse</a>()
-<a name="l00016"></a>00016 {
-<a name="l00017"></a>00017   <a class="code" href="classTAnalysedPulse.html#a3a4af323ae1d2f6491a49d4ffabaad58">Reset</a>();
-<a name="l00018"></a>00018 }
-<a name="l00019"></a>00019 
-<a name="l00020"></a><a class="code" href="classTAnalysedPulse.html#ab4ab5f15bdfe005da324e674b73c472b">00020</a> <a class="code" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">TAnalysedPulse::TAnalysedPulse</a>(<span class="keywordtype">double</span> amplitude, <span class="keywordtype">double</span> time, <span class="keywordtype">double</span> integral, <span class="keywordtype">double</span> energy, std::string det_name)
-<a name="l00021"></a>00021 {
-<a name="l00022"></a>00022   <a class="code" href="classTAnalysedPulse.html#a3a4af323ae1d2f6491a49d4ffabaad58">Reset</a>();
-<a name="l00023"></a>00023   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a> = amplitude;
-<a name="l00024"></a>00024   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a> = time;
-<a name="l00025"></a>00025   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a> = integral;
-<a name="l00026"></a>00026   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a> = energy;
-<a name="l00027"></a>00027   <a class="code" href="classTAnalysedPulse.html#a9e632ae3c6b399f34b223a01c94d4044">fDetName</a> = det_name;
-<a name="l00028"></a>00028   <a class="code" href="classTAnalysedPulse.html#adde04a8f33bfce69b072fd4e2f1a5d24">fAlgo</a> = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00029"></a>00029 }
-<a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="classTAnalysedPulse.html#a4b4bdd29efd541fa7d56e4c02728b33c">00031</a> <a class="code" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">TAnalysedPulse::TAnalysedPulse</a>(<span class="keywordtype">double</span> amplitude, <span class="keywordtype">double</span> time, <span class="keywordtype">double</span> integral, 
-<a name="l00032"></a>00032                 <span class="keywordtype">double</span> energy, std::string det_name, std::string algo)
-<a name="l00033"></a>00033 {
-<a name="l00034"></a>00034   <a class="code" href="classTAnalysedPulse.html#a3a4af323ae1d2f6491a49d4ffabaad58">Reset</a>();
-<a name="l00035"></a>00035   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a> = amplitude;
-<a name="l00036"></a>00036   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a> = time;
-<a name="l00037"></a>00037   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a> = integral;
-<a name="l00038"></a>00038   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a> = energy;
-<a name="l00039"></a>00039   <a class="code" href="classTAnalysedPulse.html#a9e632ae3c6b399f34b223a01c94d4044">fDetName</a> = det_name;
-<a name="l00040"></a>00040   <a class="code" href="classTAnalysedPulse.html#adde04a8f33bfce69b072fd4e2f1a5d24">fAlgo</a> = algo;
-<a name="l00041"></a>00041 }
-<a name="l00042"></a>00042 
-<a name="l00043"></a><a class="code" href="classTAnalysedPulse.html#a3a4af323ae1d2f6491a49d4ffabaad58">00043</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulse.html#a3a4af323ae1d2f6491a49d4ffabaad58">TAnalysedPulse::Reset</a>(Option_t* o)
-<a name="l00044"></a>00044 {
-<a name="l00045"></a>00045   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a> = 0;
-<a name="l00046"></a>00046   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a> = 0;
-<a name="l00047"></a>00047   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a> = 0;
-<a name="l00048"></a>00048   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a> = 0.;
-<a name="l00049"></a>00049   <a class="code" href="classTAnalysedPulse.html#a9e632ae3c6b399f34b223a01c94d4044">fDetName</a> = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00050"></a>00050   <a class="code" href="classTAnalysedPulse.html#adde04a8f33bfce69b072fd4e2f1a5d24">fAlgo</a> = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00051"></a>00051 }
-<a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="classTAnalysedPulse.html#aafa112e990077ab1d996b95cdf75618f">00053</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulse.html#aafa112e990077ab1d996b95cdf75618f">TAnalysedPulse::Draw</a>(<span class="keyword">const</span> TH1F* tpi_pulse)<span class="keyword">const</span>{
-<a name="l00054"></a>00054         <span class="keywordflow">if</span>(tpi_pulse) {
-<a name="l00055"></a>00055           std::string name=tpi_pulse-&gt;GetName();
-<a name="l00056"></a>00056           <span class="keywordtype">int</span> n_bins=tpi_pulse-&gt;GetXaxis()-&gt;GetNbins();
-<a name="l00057"></a>00057           <span class="keywordtype">double</span> x_max=tpi_pulse-&gt;GetXaxis()-&gt;GetXmax();
-<a name="l00058"></a>00058           <span class="keywordtype">double</span> x_min=tpi_pulse-&gt;GetXaxis()-&gt;GetXmin();
-<a name="l00059"></a>00059           TH1F* tap_pulse=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_AP&quot;</span>).c_str(),(<span class="stringliteral">&quot;MaxBin TAP for &quot;</span>+name).c_str(),n_bins,x_min,x_max);
-<a name="l00060"></a>00060           <span class="keywordtype">int</span> bin=tap_pulse-&gt;FindBin(<a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>);
-<a name="l00061"></a>00061           tap_pulse-&gt;SetBinContent(bin,<a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>);
-<a name="l00062"></a>00062         }
-<a name="l00063"></a>00063         <span class="comment">//name+=&quot;_Ana</span>
-<a name="l00064"></a>00064         <span class="comment">//TH1F* tap_pulse=new TH1F(tpi</span>
-<a name="l00065"></a>00065 }
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="TPulseIsland_8h.html">TPulseIsland.h</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;TH1F.h&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;cmath&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">using</span> std::vector;
+<a name="l00011"></a>00011 <span class="keyword">using</span> std::string;
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="TAnalysedPulse_8cpp.html#a03ae387964696b0b4e3da4e27543b9c0">00013</a> <span class="preprocessor">#define PrintHelp std::cout&lt;&lt;__FILE__&lt;&lt;&quot;:&quot;&lt;&lt;__LINE__&lt;&lt;&quot;: &quot;</span>
+<a name="l00014"></a><a class="code" href="TAnalysedPulse_8cpp.html#ad90e42903c6513fac036fdeca0549674">00014</a> <span class="preprocessor"></span><span class="preprocessor">#define PrintValue(value) PrintHelp&lt;&lt;#value &quot;= |&quot;&lt;&lt;value&lt;&lt;&quot;|&quot;&lt;&lt;std::endl;</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00016"></a>00016 <a class="code" href="classTAnalysedPulse.html#a4f9cc70b2adda52cc7543670a70093c5">TAnalysedPulse::ProxyToSourceMap</a> <a class="code" href="classTAnalysedPulse.html#aef45c8cc38cda418645e1ca9601af50b">TAnalysedPulse::sProxyToSources</a>;
+<a name="l00017"></a>00017 <a class="code" href="classTAnalysedPulse.html#affdac6523eb50f4ad7bdaf52def35f82">TAnalysedPulse::SourceToProxyMap</a> <a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb">TAnalysedPulse::sSourceToProxies</a>;
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="classTAnalysedPulse.html#a8414fc33a0a8e6a51661ce7b42dd6223">00019</a> <a class="code" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">TAnalysedPulse::TAnalysedPulse</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; sourceID,
+<a name="l00020"></a>00020              <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a177aa032b00e764197f1a9c6ad49a98f">TPulseIslandID</a>&amp; parentID, <span class="keyword">const</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* parentTPI):
+<a name="l00021"></a>00021   fParentID(fDefaultValue),
+<a name="l00022"></a>00022   fSource(fDefaultValue),
+<a name="l00023"></a>00023   fTPILength(fDefaultValue),
+<a name="l00024"></a>00024   fAmplitude(fDefaultValue),
+<a name="l00025"></a>00025   fTime(fDefaultValue),
+<a name="l00026"></a>00026   fIntegral(fDefaultValue),
+<a name="l00027"></a>00027   fEnergy(fDefaultValue),
+<a name="l00028"></a>00028   fPedestal(fDefaultValue),
+<a name="l00029"></a>00029   fTriggerTime(fDefaultValue){
+<a name="l00030"></a>00030     <a class="code" href="classTAnalysedPulse.html#a38526142329244a415dc1c03149e11d6">SetSource</a>(sourceID);
+<a name="l00031"></a>00031     <a class="code" href="classTAnalysedPulse.html#ad591734c66ce50d04f74d21ad1e0c37e">SetParentTPIProperties</a>(parentID, parentTPI);
+<a name="l00032"></a>00032 }
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">00034</a> <a class="code" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">TAnalysedPulse::TAnalysedPulse</a>():
+<a name="l00035"></a>00035   fParentID(fDefaultValue),
+<a name="l00036"></a>00036   fSource(fDefaultValue),
+<a name="l00037"></a>00037   fTPILength(fDefaultValue),
+<a name="l00038"></a>00038   fAmplitude(fDefaultValue),
+<a name="l00039"></a>00039   fTime(fDefaultValue),
+<a name="l00040"></a>00040   fIntegral(fDefaultValue),
+<a name="l00041"></a>00041   fEnergy(fDefaultValue),
+<a name="l00042"></a>00042   fPedestal(fDefaultValue),
+<a name="l00043"></a>00043   fTriggerTime(fDefaultValue){
+<a name="l00044"></a>00044     <span class="comment">//Reset();</span>
+<a name="l00045"></a>00045 }
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="classTAnalysedPulse.html#a3a4af323ae1d2f6491a49d4ffabaad58">00047</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulse.html#a3a4af323ae1d2f6491a49d4ffabaad58">TAnalysedPulse::Reset</a>(Option_t* o) {
+<a name="l00048"></a>00048   <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00049"></a>00049   <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00050"></a>00050   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00051"></a>00051   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00052"></a>00052   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00053"></a>00053   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00054"></a>00054   <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00055"></a>00055   <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a>;
+<a name="l00056"></a>00056 }
+<a name="l00057"></a>00057 
+<a name="l00058"></a><a class="code" href="classTAnalysedPulse.html#aafa112e990077ab1d996b95cdf75618f">00058</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulse.html#aafa112e990077ab1d996b95cdf75618f">TAnalysedPulse::Draw</a>(<span class="keyword">const</span> TH1F* tpi_pulse)<span class="keyword">const</span>{
+<a name="l00059"></a>00059         <span class="keywordflow">if</span>(tpi_pulse) {
+<a name="l00060"></a>00060           std::string name=tpi_pulse-&gt;GetName();
+<a name="l00061"></a>00061           <span class="keywordtype">int</span> n_bins=tpi_pulse-&gt;GetXaxis()-&gt;GetNbins();
+<a name="l00062"></a>00062           <span class="keywordtype">double</span> x_max=tpi_pulse-&gt;GetXaxis()-&gt;GetXmax();
+<a name="l00063"></a>00063           <span class="keywordtype">double</span> x_min=tpi_pulse-&gt;GetXaxis()-&gt;GetXmin();
+<a name="l00064"></a>00064           TH1F* tap_pulse=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_AP&quot;</span>).c_str(),(<span class="stringliteral">&quot;TAP for &quot;</span>+name).c_str(),n_bins,x_min,x_max);
+<a name="l00065"></a>00065           <span class="keywordtype">int</span> bin=tap_pulse-&gt;FindBin(<a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>);
+<a name="l00066"></a>00066           tap_pulse-&gt;SetBinContent(bin,<a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>);
+<a name="l00067"></a>00067         }
+<a name="l00068"></a>00068 }
+<a name="l00069"></a>00069 
+<a name="l00070"></a><a class="code" href="classTAnalysedPulse.html#ad591734c66ce50d04f74d21ad1e0c37e">00070</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulse.html#ad591734c66ce50d04f74d21ad1e0c37e">TAnalysedPulse::SetParentTPIProperties</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a177aa032b00e764197f1a9c6ad49a98f">TPulseIslandID</a>&amp; <span class="keywordtype">id</span>,
+<a name="l00071"></a>00071                                             <span class="keyword">const</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse){
+<a name="l00072"></a>00072   <a class="code" href="classTAnalysedPulse.html#a4366bcb35e16aa04e466fa51d03e5540">SetParentID</a>(<span class="keywordtype">id</span>);
+<a name="l00073"></a>00073   <span class="keywordflow">if</span>(!pulse) {
+<a name="l00074"></a>00074     std::cerr&lt;&lt;<span class="stringliteral">&quot;NULL pointer to TPulseIsland passed as parent for TAnalysedPulse.&quot;</span>&lt;&lt;std::endl;
+<a name="l00075"></a>00075     <span class="keywordflow">return</span>;
+<a name="l00076"></a>00076   }
+<a name="l00077"></a>00077   <a class="code" href="classTAnalysedPulse.html#a66d5626837fbaf230e43b1b35d7ca61e">SetTPILength</a>(pulse-&gt;<a class="code" href="classTPulseIsland.html#aee1a1477b501fa28a158e56fdfa45164">GetPulseLength</a>());
+<a name="l00078"></a>00078   <a class="code" href="classTAnalysedPulse.html#a298641fb1cff7f7377591bb5833d84fc">SetTriggerTime</a>(pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>()*pulse-&gt;<a class="code" href="classTPulseIsland.html#ac25a5ccabf8d3bf07c32c422741c8234">GetClockTickInNs</a>());
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="classTAnalysedPulse.html#a38526142329244a415dc1c03149e11d6">00081</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulse.html#a38526142329244a415dc1c03149e11d6">TAnalysedPulse::SetSource</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; sourceID){
+<a name="l00082"></a>00082     <span class="comment">// Is this proxy already contained in the maps</span>
+<a name="l00083"></a>00083     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceToProxyMap::const_iterator</a> it=<a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb">sSourceToProxies</a>.find(sourceID);
+<a name="l00084"></a>00084     <span class="keywordflow">if</span>(it!=<a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb">sSourceToProxies</a>.end()){
+<a name="l00085"></a>00085       <a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>=it-&gt;second;
+<a name="l00086"></a>00086     } <span class="keywordflow">else</span> {
+<a name="l00087"></a>00087       <span class="comment">// if it&apos;s a new kind, add the source to the hash table</span>
+<a name="l00088"></a>00088       <a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>=<a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb">sSourceToProxies</a>.size();
+<a name="l00089"></a>00089       <a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb">sSourceToProxies</a>[sourceID]=<a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>;
+<a name="l00090"></a>00090       <a class="code" href="classTAnalysedPulse.html#aef45c8cc38cda418645e1ca9601af50b">sProxyToSources</a>.push_back(sourceID);
+<a name="l00091"></a>00091     }
+<a name="l00092"></a>00092 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 13 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
