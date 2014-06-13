@@ -33,6 +33,13 @@ function CommitMessage(){
 echo "Automatically regenerated doxygen documentation for branch '$SourceBranch' of '$Project' on $DateString"
 }
 
+function OptionsError(){
+echo -e $@
+echo
+flags_help
+exit 1
+}
+
 ########################################################
 # Options parsing
 ########################################################
@@ -42,8 +49,8 @@ echo "Automatically regenerated doxygen documentation for branch '$SourceBranch'
 # Set up possible options
 DEFINE_string PathToSourceCode '' "Path to source code directory" i
 DEFINE_string PathToWebRepo '' "Path to alcap-org.github.io repostory" o
-DEFINE_string SourceBranch develop "Branch to use for Source repository" b
-DEFINE_string SourceProject AlcapDAQ "Project to use for Source.  Should match PathToSourceCode" p
+DEFINE_string SourceBranch '' "Branch to use for Source repository" b
+DEFINE_string SourceProject '' "Project to use for Source.  Should match PathToSourceCode" p
 DEFINE_string SourceDirectories "" "A space separated list of directories to look for source code.  Will be appended to PathToSourceCode" d
 DEFINE_boolean UseLogFile false "Toggle output to log file or stdout" l
 DEFINE_boolean ForceGitPush false "Commit and push all html output" F
@@ -61,16 +68,27 @@ ForceGitPush="$FLAGS_ForceGitPush"
 PathToOutputHtml="$PathToWebRepo/doxygen/$Project/$SourceBranch"
 InputDirectories=( ${SourceDirectories[@]/#/${PathToSourceCode}} )
 
+echo PathToSourceCode=${PathToSourceCode[@]}
+echo SourceDirectories=${SourceDirectories[@]}
+echo PathToWebRepo=${PathToWebRepo[@]}
+echo SourceBranch=${SourceBranch[@]}
+echo Project=${Project[@]}
+echo ForceGitPush=${ForceGitPush[@]}
+echo PathToOutputHtml=${PathToOutputHtml[@]}
+echo InputDirectories=${InputDirectories[@]}
+
 if [ -z "$PathToSourceCode" ];then
-        echo "ERROR: You must define the PathToSourceCode with option -i"
-        echo
-        flags_help
-        exit 1
+        OptionsError "ERROR: You must define the PathToSourceCode with option -i"
 elif [ -z "$PathToWebRepo" ];then
-        echo "ERROR: You must define the PathToOutputHtml with option -o"
-        echo
-        flags_help
+        OptionsError "ERROR: You must define the PathToOutputHtml with option -o"
+elif [ -z "$Project" ];then
+        OptionsError "ERROR: You must define the project to build with option -p"
+elif [[ "$PathToSourceCode" != *$Project* ]];then
+        OptionsError " ERROR: This script is very cautious.  
+        The project name, '$Project' doesn't appear in the PathToSourceCode '$PathToSourceCode'"
         exit 1
+elif [ -z "$SourceBranch" ];then
+        OptionsError "ERROR: You must define the branch of $Project with option -b"
 fi
 
 # Check the directories we need exist
