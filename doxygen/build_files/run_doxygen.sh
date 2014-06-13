@@ -142,6 +142,9 @@ if [ "${ForceGitPush}" -eq 1 ] ;then
     echo
     echo "Finishing...."
     echo "If you want to commit and push the doxygen output you need to set the -F flag."
+    echo
+    echo "Commit message would be:"
+    echo "`CommitMessage`"
     exit 0
 fi
 
