@@ -24,20 +24,22 @@
     </ul>
   </div>
 <h1>rootana/src/framework/IdGenerator.cpp</h1><a href="IdGenerator_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="IdGenerator_8h.html">IdGenerator.h</a>&quot;</span>
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 <a class="code" href="IdChannel_8cpp.html#ac95d1bc80fabc359a1f9a08d4c2aeaf9">ClassImp</a>(<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for a generator.">IDs::generator</a>);
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;ostream&gt;</span>
+<a name="l00003"></a>00003 
 <a name="l00004"></a>00004 
-<a name="l00005"></a><a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19">00005</a> std::string <a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19" title="Get this ID as a string.">IDs::generator::str</a>()<span class="keyword">const</span>{
-<a name="l00006"></a>00006   <span class="keywordflow">if</span>( <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==<a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">kAnyConfig</a>) <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>;
-<a name="l00007"></a>00007   <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>+<span class="stringliteral">&quot;::&quot;</span>+<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>;
-<a name="l00008"></a>00008 }
-<a name="l00009"></a>00009 
-<a name="l00010"></a><a class="code" href="IdGenerator_8h.html#ae4f0745fdb912e9223d2b75a8d2e2264">00010</a> ostream&amp; <a class="code" href="IdChannel_8cpp.html#a61853ca511d7eead799882b489f07c3b">operator&lt;&lt; </a>(ostream&amp; os , <a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for a generator.">IDs::generator</a>&amp; <span class="keywordtype">id</span>) {
-<a name="l00011"></a>00011   os&lt;&lt;<span class="keywordtype">id</span>.str();
-<a name="l00012"></a>00012   <span class="keywordflow">return</span> os;
-<a name="l00013"></a>00013 }
+<a name="l00005"></a>00005 <a class="code" href="TGlobalData_8cpp.html#ac999af46ecbed64cdd6850e43119a957">ClassImp</a>(<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for a generator.">IDs::generator</a>);
+<a name="l00006"></a>00006 
+<a name="l00007"></a><a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19">00007</a> std::string <a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19" title="Get this ID as a string.">IDs::generator::str</a>()<span class="keyword">const</span>{
+<a name="l00008"></a>00008   <span class="keywordflow">if</span>( <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==<a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">kAnyConfig</a>) <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>;
+<a name="l00009"></a>00009   <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>+<span class="stringliteral">&quot;::&quot;</span>+<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>;
+<a name="l00010"></a>00010 }
+<a name="l00011"></a>00011 
+<a name="l00012"></a><a class="code" href="IdGenerator_8h.html#ae4f0745fdb912e9223d2b75a8d2e2264">00012</a> ostream&amp; <a class="code" href="IdChannel_8cpp.html#a61853ca511d7eead799882b489f07c3b">operator&lt;&lt; </a>(ostream&amp; os , <a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for a generator.">IDs::generator</a>&amp; <span class="keywordtype">id</span>) {
+<a name="l00013"></a>00013   os&lt;&lt;<span class="keywordtype">id</span>.str();
+<a name="l00014"></a>00014   <span class="keywordflow">return</span> os;
+<a name="l00015"></a>00015 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 13 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 14 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

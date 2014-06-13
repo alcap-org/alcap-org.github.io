@@ -538,32 +538,13 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="main_8cpp_source.html#l00274">274</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-
-<p>References <a class="el" href="main_8cpp_source.html#l00262">GetTree()</a>, and <a class="el" href="main_8cpp_source.html#l00034">gInFile</a>.</p>
+<p>Definition at line <a class="el" href="analyzer_8cpp_source.html#l00058">58</a> of file <a class="el" href="analyzer_8cpp_source.html">analyzer.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="TPulseIsland_8cpp_source.html#l00038">TPulseIsland::GetAmplitude()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00036">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00154">TPulseIsland::GetPedestal()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00038">TPulseIsland::GetTriggerPolarity()</a>, <a class="el" href="main_8cpp_source.html#l00126">Main_event_loop()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, and <a class="el" href="main_8cpp_source.html#l00335">PrepareSingletonObjects()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00275"></a>00275 {
-<a name="l00276"></a>00276   <span class="keyword">static</span> <a class="code" href="classTSetupData.html">TSetupData</a> *s_data=NULL;
-<a name="l00277"></a>00277 
-<a name="l00278"></a>00278   <span class="comment">// if s_data is already setup then we can just return it immediately</span>
-<a name="l00279"></a>00279   <span class="keywordflow">if</span>(s_data) <span class="keywordflow">return</span> s_data;
-<a name="l00280"></a>00280 
-<a name="l00281"></a>00281   <span class="comment">// Check we have a valid tree for the setup data</span>
-<a name="l00282"></a>00282   TTree* setupTree= <a class="code" href="main_8cpp.html#a90f38ad2f2819e9aa960ce71eed760a0">GetTree</a>(<a class="code" href="main_8cpp.html#a3a235b23b9be4ba266d7455c63a2945b">gInFile</a>, <span class="stringliteral">&quot;SetupTree&quot;</span>);
-<a name="l00283"></a>00283   <span class="keywordflow">if</span>(!setupTree) <span class="keywordflow">return</span> NULL;
-<a name="l00284"></a>00284 
-<a name="l00285"></a>00285   <span class="comment">// Hook up the branch in the file to s_data and load in the data</span>
-<a name="l00286"></a>00286   setupTree-&gt;SetBranchAddress(<span class="stringliteral">&quot;Setup&quot;</span>,&amp;s_data);
-<a name="l00287"></a>00287   <span class="keywordflow">if</span>(!s_data) {
-<a name="l00288"></a>00288      printf(<span class="stringliteral">&quot;Unable to find TSetupData branch &apos;Setup&apos; in the file&quot;</span>);
-<a name="l00289"></a>00289      <span class="keywordflow">return</span> NULL;
-<a name="l00290"></a>00290   }
-<a name="l00291"></a>00291   setupTree-&gt;GetEntry(0);
-<a name="l00292"></a>00292 
-<a name="l00293"></a>00293   <span class="keywordflow">return</span> s_data;
-<a name="l00294"></a>00294 }
+<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 {
+<a name="l00060"></a>00060         <span class="keywordflow">return</span> <a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>;
+<a name="l00061"></a>00061 }
 </pre></div></p>
 
 </div>
@@ -1203,12 +1184,12 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/common/<a class="el" href="TSetupData_8h_source.html">TSetupData.h</a></li>
-<li>rootana/src/<a class="el" href="main_8cpp_source.html">main.cpp</a></li>
 <li>src/common/<a class="el" href="analyzer_8cpp_source.html">analyzer.cpp</a></li>
 <li>src/common/<a class="el" href="TSetupData_8cpp_source.html">TSetupData.cpp</a></li>
+<li>rootana/src/<a class="el" href="main_8cpp_source.html">main.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 13 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 14 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
