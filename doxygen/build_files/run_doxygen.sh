@@ -59,7 +59,7 @@ DEFINE_boolean ForceGitPush false "Commit and push all html output" F
 FLAGS "$@" || exit $?
 eval set -- "${FLAGS_ARGV}"
 
-PathToSourceCode="${FLAGS_PathToSourceCode}"
+PathToSourceCode="${FLAGS_PathToSourceCode}/"
 SourceDirectories=( ${FLAGS_SourceDirectories[@]} ) 
 PathToWebRepo="$FLAGS_PathToWebRepo"
 SourceBranch="$FLAGS_SourceBranch"
