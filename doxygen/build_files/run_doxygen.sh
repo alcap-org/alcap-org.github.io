@@ -7,7 +7,7 @@
 # control variables
 ########################################################
 # Hard coded
-LogFile=run_doxygen.log
+LogFile=run_doxygen
 DoxyConfigName=Doxyfile
 
 # Calculated
@@ -22,11 +22,15 @@ DoxyConfigFile="$ScriptDirectory/$DoxyConfigName"
 # Stop on an error (non-zero return)
 
 function DirectToLog(){
-  exec &> "$ScriptDirectory/$LogFile"
+  exec &> "$ScriptDirectory/$LogFile_$Project.log"
 }
 
 function PrintNowIn(){
 echo "Now in: '`pwd`'"
+}
+
+function CommitMessage(){
+echo "Automatically regenerated doxygen documentation for branch '$SourceBranch' of '$Project' on $DateString"
 }
 
 ########################################################
@@ -40,6 +44,7 @@ DEFINE_string PathToSourceCode '' "Path to source code directory" i
 DEFINE_string PathToWebRepo '' "Path to alcap-org.github.io repostory" o
 DEFINE_string SourceBranch develop "Branch to use for Source repository" b
 DEFINE_string SourceProject AlcapDAQ "Project to use for Source.  Should match PathToSourceCode" p
+DEFINE_string SourceDirectories "" "A space separated list of directories to look for source code.  Will be appended to PathToSourceCode" d
 DEFINE_boolean UseLogFile false "Toggle output to log file or stdout" l
 DEFINE_boolean ForceGitPush false "Commit and push all html output" F
 
@@ -47,13 +52,14 @@ DEFINE_boolean ForceGitPush false "Commit and push all html output" F
 FLAGS "$@" || exit $?
 eval set -- "${FLAGS_ARGV}"
 
-PathToSourceCode="$FLAGS_PathToSourceCode"
+PathToSourceCode="${FLAGS_PathToSourceCode}"
+SourceDirectories=( ${FLAGS_SourceDirectories[@]} ) 
 PathToWebRepo="$FLAGS_PathToWebRepo"
 SourceBranch="$FLAGS_SourceBranch"
 Project="$FLAGS_SourceProject"
 ForceGitPush="$FLAGS_ForceGitPush"
 PathToOutputHtml="$PathToWebRepo/doxygen/$Project/$SourceBranch"
-InputDirectories=( "$PathToSourceCode/analyzer/"{rootana,src} )
+InputDirectories=( ${SourceDirectories[@]/#/${PathToSourceCode}} )
 
 if [ -z "$PathToSourceCode" ];then
         echo "ERROR: You must define the PathToSourceCode with option -i"
@@ -125,7 +131,7 @@ fi
 cd "$PathToOutputHtml"
 PrintNowIn
 git add -A $PathToOutputHtml
-git commit -m "Automatically regenerated doxygen documentation for $DateString"
+git commit -m "`CommitMessage`"
 git push
 
 # Change back to where we were for interactive mode
