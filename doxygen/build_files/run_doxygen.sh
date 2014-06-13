@@ -68,15 +68,6 @@ ForceGitPush="$FLAGS_ForceGitPush"
 PathToOutputHtml="$PathToWebRepo/doxygen/$Project/$SourceBranch"
 InputDirectories=( ${SourceDirectories[@]/#/${PathToSourceCode}} )
 
-echo PathToSourceCode=${PathToSourceCode[@]}
-echo SourceDirectories=${SourceDirectories[@]}
-echo PathToWebRepo=${PathToWebRepo[@]}
-echo SourceBranch=${SourceBranch[@]}
-echo Project=${Project[@]}
-echo ForceGitPush=${ForceGitPush[@]}
-echo PathToOutputHtml=${PathToOutputHtml[@]}
-echo InputDirectories=${InputDirectories[@]}
-
 if [ -z "$PathToSourceCode" ];then
         OptionsError "ERROR: You must define the PathToSourceCode with option -i"
 elif [ -z "$PathToWebRepo" ];then
@@ -115,7 +106,15 @@ if ! `tty -s `  ;then
 	DirectToLog
 fi
 
-echo Running $0 on $DateString
+echo === Running $0 on $DateString
+echo PathToSourceCode=${PathToSourceCode[@]}
+echo SourceDirectories=${SourceDirectories[@]}
+echo PathToWebRepo=${PathToWebRepo[@]}
+echo SourceBranch=${SourceBranch[@]}
+echo Project=${Project[@]}
+echo ForceGitPush=${ForceGitPush[@]}
+echo PathToOutputHtml=${PathToOutputHtml[@]}
+echo InputDirectories=${InputDirectories[@]}
 
 # Change into the directory where the html will go
 cd "$PathToOutputHtml"
