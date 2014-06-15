@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -53,7 +54,7 @@
 <a name="l00028"></a><a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">00028</a> <a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">MakeAnalysedPulses::~MakeAnalysedPulses</a>(){
 <a name="l00029"></a>00029 }
 <a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">00031</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">MakeAnalysedPulses::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>,<a class="code" href="classTSetupData.html">TSetupData</a> *setup){
+<a name="l00031"></a><a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">00031</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">MakeAnalysedPulses::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
 <a name="l00032"></a>00032     <span class="comment">// Loop over every named detector channel in TSetupData</span>
 <a name="l00033"></a>00033     std::vector&lt;std::string&gt; <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>;
 <a name="l00034"></a>00034     setup-&gt;<a class="code" href="classTSetupData.html#ac3d446e50498906f011af9ac8a62367c">GetAllDetectors</a>(detectors);
@@ -113,7 +114,7 @@
 <a name="l00088"></a>00088     <span class="keywordflow">return</span> 0;
 <a name="l00089"></a>00089 }
 <a name="l00090"></a>00090 
-<a name="l00091"></a><a class="code" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0">00091</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0" title="The big kahuna. Overload this in the derived class and it will be called for each...">MakeAnalysedPulses::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
+<a name="l00091"></a><a class="code" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0">00091</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0" title="The big kahuna. Overload this in the derived class and it will be called for each...">MakeAnalysedPulses::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
 <a name="l00092"></a>00092   <span class="comment">// Generator just receives a bunch of TPIs and must return a list of TAPs</span>
 <a name="l00093"></a>00093 
 <a name="l00094"></a>00094   <span class="comment">// Loop over each generator</span>
@@ -128,7 +129,7 @@
 <a name="l00103"></a>00103     bankname = gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detname);
 <a name="l00104"></a>00104 
 <a name="l00105"></a>00105     <span class="comment">// Get the TPIs</span>
-<a name="l00106"></a>00106     thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>[bankname];
+<a name="l00106"></a>00106     thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[bankname];
 <a name="l00107"></a>00107     <span class="keywordflow">if</span>(thePulseIslands-&gt;empty() ){
 <a name="l00108"></a>00108        <span class="keywordflow">if</span>( <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;List of TPIs for &apos;&quot;</span>&lt;&lt; detname&lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt;endl;
 <a name="l00109"></a>00109        <span class="keywordflow">continue</span>;
@@ -223,7 +224,7 @@
 <a name="l00198"></a>00198 
 <a name="l00199"></a>00199 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>,slow_gen,fast_gen);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

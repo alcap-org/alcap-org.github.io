@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -38,7 +39,7 @@
 <a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="definitions_8h.html">definitions.h</a>&quot;</span>
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015 <span class="keyword">class </span><a class="code" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a>;
-<a name="l00016"></a>00016 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html">TPulseIsland</a>;
+<a name="l00016"></a>00016 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>;
 <a name="l00017"></a>00017 <span class="keyword">class </span><a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>;
 <a name="l00018"></a>00018 
 <a name="l00019"></a><a class="code" href="classMakeAnalysedPulses.html">00019</a> <span class="keyword">class </span><a class="code" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
@@ -53,8 +54,8 @@
 <a name="l00028"></a>00028 
 <a name="l00029"></a><a class="code" href="classMakeAnalysedPulses.html#a5e1764192c851739bd33913bb2200420">00029</a>   <span class="keywordtype">void</span> <a class="code" href="classMakeAnalysedPulses.html#a5e1764192c851739bd33913bb2200420">SetAnalysedPulseMap</a>(<a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a>&amp; aMap){<a class="code" href="classMakeAnalysedPulses.html#a98740be2d604ee099516a01e5aff4f3a">fAnalysedPulseMap</a>=&amp;aMap;}
 <a name="l00030"></a>00030  <span class="keyword">private</span>:
-<a name="l00031"></a>00031   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>);
-<a name="l00032"></a>00032   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>,<a class="code" href="classTSetupData.html">TSetupData</a> *setup);
+<a name="l00031"></a>00031   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#ace4aee56af017ae2e99ed2f3a2999ce0" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
+<a name="l00032"></a>00032   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a41a4027892cce37b684c93488c3e6378">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
 <a name="l00033"></a>00033   <span class="comment">//virtual int AfterLastEntry(TGlobalData* gData){return 0;};</span>
 <a name="l00034"></a>00034 
 <a name="l00035"></a><a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">00035</a>   <a class="code" href="classMakeAnalysedPulses.html#a3d0fdb34ee4dd7ab8d5c025b4d6159a7">ChannelGenerators_t</a> <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>;
@@ -68,7 +69,7 @@
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 <span class="preprocessor">#endif // MAKEANALYSEDPULSES_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

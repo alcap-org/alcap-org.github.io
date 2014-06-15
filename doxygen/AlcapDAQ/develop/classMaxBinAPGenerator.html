@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -87,7 +88,7 @@ Inheritance diagram for MaxBinAPGenerator:</div>
 <p>Definition at line <a class="el" href="MaxBinAPGenerator_8h_source.html#l00015">15</a> of file <a class="el" href="MaxBinAPGenerator_8h_source.html">MaxBinAPGenerator.h</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00015"></a>00015                                               :
-<a name="l00016"></a>00016           <a class="code" href="classTVAnalysedPulseGenerator.html#a5a325342073385877a496219778acde4">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;MaxBinAPGenerator&quot;</span>, opts),<a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>(<a class="code" href="classTSetupData.html#a96d8c48f8693f69adda6aac005d17589">TSetupData::Instance</a>()){};
+<a name="l00016"></a>00016           <a class="code" href="classTVAnalysedPulseGenerator.html#a5a325342073385877a496219778acde4">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;MaxBinAPGenerator&quot;</span>, opts),<a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()){};
 
 </pre></div></p>
 
@@ -185,7 +186,7 @@ Inheritance diagram for MaxBinAPGenerator:</div>
 
 <p>Definition at line <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00044">44</a> of file <a class="el" href="MaxBinAPGenerator_8cpp_source.html">MaxBinAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="MaxBinAPGenerator_8h_source.html#l00046">fClockTick</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00045">fECalibOffset</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00044">fECalibSlope</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00042">fPedestal</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00047">fTimeShift</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00043">fTriggerPolarity</a>, <a class="el" href="TPulseIsland_8h_source.html#l00032">TPulseIsland::GetSamples()</a>, and <a class="el" href="TPulseIsland_8h_source.html#l00033">TPulseIsland::GetTimeStamp()</a>.</p>
+<p>References <a class="el" href="MaxBinAPGenerator_8h_source.html#l00046">fClockTick</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00045">fECalibOffset</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00044">fECalibSlope</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00042">fPedestal</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00047">fTimeShift</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00043">fTriggerPolarity</a>, <a class="el" href="TPulseIsland_8h_source.html#l00050">TPulseIsland::GetSamples()</a>, and <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00016">ProcessPulses()</a>.</p>
 
@@ -193,25 +194,19 @@ Inheritance diagram for MaxBinAPGenerator:</div>
 <a name="l00046"></a>00046 
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048   <span class="comment">// First find the position of the peak</span>
-<a name="l00049"></a>00049   std::vector&lt;int&gt; pulseSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00050"></a>00050   <span class="keywordtype">int</span> peak_sample_value = 0;
-<a name="l00051"></a>00051   <span class="keywordtype">int</span> peak_sample_pos = 0;
-<a name="l00052"></a>00052   <span class="keywordtype">int</span> this_height =0;
-<a name="l00053"></a>00053   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> sampleIter = pulseSamples.begin(); sampleIter != pulseSamples.end(); sampleIter++) {
-<a name="l00054"></a>00054     
-<a name="l00055"></a>00055     this_height = <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>*(*(sampleIter) - <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>);
-<a name="l00056"></a>00056     <span class="keywordflow">if</span> ( this_height &gt; peak_sample_value ) {
-<a name="l00057"></a>00057       peak_sample_value = this_height;
-<a name="l00058"></a>00058       peak_sample_pos = sampleIter - pulseSamples.begin();
-<a name="l00059"></a>00059     }
-<a name="l00060"></a>00060   }
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062   <span class="comment">// Now assign the parameters</span>
-<a name="l00063"></a>00063   amplitude = peak_sample_value;
-<a name="l00064"></a>00064   time = ((pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + peak_sample_pos) * <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>) - <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>;
-<a name="l00065"></a>00065   integral = 0;
-<a name="l00066"></a>00066   energy = <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> * amplitude + <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
-<a name="l00067"></a>00067 }
+<a name="l00049"></a>00049   std::vector&lt;int&gt; pulseSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();  
+<a name="l00050"></a>00050   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
+<a name="l00051"></a>00051   <span class="keywordflow">if</span> (<a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> == 1)
+<a name="l00052"></a>00052     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00053"></a>00053   <span class="keywordflow">else</span>
+<a name="l00054"></a>00054     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056   <span class="comment">// Now assign the parameters</span>
+<a name="l00057"></a>00057   amplitude = <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>*(*peak_sample_pos - <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>);
+<a name="l00058"></a>00058   time = ((pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>) - <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>;
+<a name="l00059"></a>00059   integral = 0;
+<a name="l00060"></a>00060   energy = <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> * amplitude + <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
+<a name="l00061"></a>00061 }
 </pre></div></p>
 
 </div>
@@ -291,7 +286,7 @@ Inheritance diagram for MaxBinAPGenerator:</div>
 <p><div class="fragment"><pre class="fragment"><a name="l00043"></a>00043                                                                                 {
 <a name="l00044"></a>00044   <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* pulse=NULL;
 <a name="l00045"></a>00045   <span class="keywordflow">try</span>{
-<a name="l00046"></a>00046       <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9">fPulseList</a>-&gt;at(parent_index);
+<a name="l00046"></a>00046       <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9">fPulseList</a>-&gt;at(parent_index);
 <a name="l00047"></a>00047       pulse=<span class="keyword">new</span> <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a">GetSource</a>(),parent_index,parent);
 <a name="l00048"></a>00048   } <span class="keywordflow">catch</span> (std::out_of_range){}
 <a name="l00049"></a>00049   <span class="keywordflow">return</span> pulse;
@@ -403,18 +398,18 @@ Inheritance diagram for MaxBinAPGenerator:</div>
 
 <p>Definition at line <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">19</a> of file <a class="el" href="MaxBinAPGenerator_8h_source.html">MaxBinAPGenerator.h</a>.</p>
 
-<p>References <a class="el" href="MaxBinAPGenerator_8h_source.html#l00040">fBankname</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00046">fClockTick</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00041">fDetName</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00045">fECalibOffset</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00044">fECalibSlope</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00042">fPedestal</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00048">fSetup</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00047">fTimeShift</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00043">fTriggerPolarity</a>, <a class="el" href="TSetupData_8h_source.html#l00056">TSetupData::GetADCOffsetCalib()</a>, <a class="el" href="TSetupData_8h_source.html#l00055">TSetupData::GetADCSlopeCalib()</a>, <a class="el" href="TSetupData_8h_source.html#l00053">TSetupData::GetClockTick()</a>, <a class="el" href="TSetupData_8h_source.html#l00041">TSetupData::GetDetectorName()</a>, <a class="el" href="TSetupData_8h_source.html#l00059">TSetupData::GetPedestal()</a>, <a class="el" href="TSetupData_8h_source.html#l00057">TSetupData::GetTimeShift()</a>, and <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetTriggerPolarity()</a>.</p>
+<p>References <a class="el" href="MaxBinAPGenerator_8h_source.html#l00040">fBankname</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00046">fClockTick</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00041">fDetName</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00045">fECalibOffset</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00044">fECalibSlope</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00042">fPedestal</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00048">fSetup</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00047">fTimeShift</a>, <a class="el" href="MaxBinAPGenerator_8h_source.html#l00043">fTriggerPolarity</a>, <a class="el" href="TSetupData_8h_source.html#l00079">TSetupData::GetADCOffsetCalib()</a>, <a class="el" href="TSetupData_8h_source.html#l00077">TSetupData::GetADCSlopeCalib()</a>, <a class="el" href="TSetupData_8h_source.html#l00074">TSetupData::GetClockTick()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="TSetupData_8h_source.html#l00084">TSetupData::GetPedestal()</a>, <a class="el" href="TSetupData_8h_source.html#l00081">TSetupData::GetTimeShift()</a>, and <a class="el" href="TSetupData_8h_source.html#l00083">TSetupData::GetTriggerPolarity()</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00016">ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019                                       {
 <a name="l00020"></a>00020       <a class="code" href="classMaxBinAPGenerator.html#ad623b92da441dcf613a9ed57d277b0dc">fBankname</a>=bankname;
 <a name="l00021"></a>00021       <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">GetPedestal</a>(bankname);
-<a name="l00022"></a>00022       <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45">GetTriggerPolarity</a>(bankname);
-<a name="l00023"></a>00023       <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a049d3a5de5fb19c304a9ffc7be6edae0">GetADCSlopeCalib</a>(bankname);
-<a name="l00024"></a>00024       <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a68b99bddb9e8c88e5c99b0317c8e4708">GetADCOffsetCalib</a>(bankname);
+<a name="l00022"></a>00022       <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
+<a name="l00023"></a>00023       <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a049d3a5de5fb19c304a9ffc7be6edae0" title="Deprecated.">GetADCSlopeCalib</a>(bankname);
+<a name="l00024"></a>00024       <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a68b99bddb9e8c88e5c99b0317c8e4708" title="Deprecated.">GetADCOffsetCalib</a>(bankname);
 <a name="l00025"></a>00025       <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a1cee3192841101548524aae1cdd73069">GetClockTick</a>(bankname);
-<a name="l00026"></a>00026       <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f">GetTimeShift</a>(bankname);
+<a name="l00026"></a>00026       <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bankname);
 <a name="l00027"></a>00027       <a class="code" href="classMaxBinAPGenerator.html#ab0946926727b5692905ccfd97632a06c">fDetName</a>=<a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
 <a name="l00028"></a>00028    }
 </pre></div></p>
@@ -632,7 +627,7 @@ Inheritance diagram for MaxBinAPGenerator:</div>
 <li>rootana/src/TAP_generators/<a class="el" href="MaxBinAPGenerator_8cpp_source.html">MaxBinAPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

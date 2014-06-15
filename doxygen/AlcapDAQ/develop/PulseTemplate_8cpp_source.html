@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -52,7 +53,7 @@
 <a name="l00027"></a>00027   <span class="keyword">delete</span> <a class="code" href="classPulseTemplate.html#a88005b8dad5e12c451f4315d489c9217">fFitter</a>; <span class="comment">// Fitter should own HistogramFitFCN and destroy it according to documentation</span>
 <a name="l00028"></a>00028 }
 <a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="classPulseTemplate.html#a3ad106ed7077f14259c0bf51abda0903">00030</a> <span class="keywordtype">void</span> <a class="code" href="classPulseTemplate.html#a3ad106ed7077f14259c0bf51abda0903">PulseTemplate::AddPulse</a>(<a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse, <span class="keywordtype">double</span> shift) {
+<a name="l00030"></a><a class="code" href="classPulseTemplate.html#a3ad106ed7077f14259c0bf51abda0903">00030</a> <span class="keywordtype">void</span> <a class="code" href="classPulseTemplate.html#a3ad106ed7077f14259c0bf51abda0903">PulseTemplate::AddPulse</a>(<a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keywordtype">double</span> shift) {
 <a name="l00031"></a>00031   <span class="comment">// Function to average in pulse with template</span>
 <a name="l00032"></a>00032   <span class="comment">// Input--</span>
 <a name="l00033"></a>00033   <span class="comment">// pulse:     Pulse to average in</span>
@@ -179,7 +180,7 @@
 <a name="l00154"></a>00154   ++<a class="code" href="classPulseTemplate.html#aa669faf05f09fe1153513a9981775691">fNPulses</a>;
 <a name="l00155"></a>00155 }
 <a name="l00156"></a>00156 
-<a name="l00157"></a><a class="code" href="classPulseTemplate.html#a4b27cfbd5241dc8da9ec91d6b5fac728">00157</a> <span class="keywordtype">double</span> <a class="code" href="classPulseTemplate.html#a4b27cfbd5241dc8da9ec91d6b5fac728">PulseTemplate::Correlation</a>(<a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse, <span class="keywordtype">double</span>&amp; ped, <span class="keywordtype">double</span>&amp; amp, <span class="keywordtype">double</span>&amp; time) {
+<a name="l00157"></a><a class="code" href="classPulseTemplate.html#a4b27cfbd5241dc8da9ec91d6b5fac728">00157</a> <span class="keywordtype">double</span> <a class="code" href="classPulseTemplate.html#a4b27cfbd5241dc8da9ec91d6b5fac728">PulseTemplate::Correlation</a>(<a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keywordtype">double</span>&amp; ped, <span class="keywordtype">double</span>&amp; amp, <span class="keywordtype">double</span>&amp; time) {
 <a name="l00158"></a>00158   <span class="comment">// Fits by finding the maximum correlation coefficient of template with pulse</span>
 <a name="l00159"></a>00159   <span class="comment">// Input--</span>
 <a name="l00160"></a>00160   <span class="comment">// pulse:    Pulse to fit</span>
@@ -189,7 +190,7 @@
 <a name="l00164"></a>00164   <span class="keywordflow">return</span> 0.;
 <a name="l00165"></a>00165 }
 <a name="l00166"></a>00166 
-<a name="l00167"></a><a class="code" href="classPulseTemplate.html#a917600ed7062c3971d3131e2be4d281f">00167</a> <span class="keywordtype">double</span> <a class="code" href="classPulseTemplate.html#a917600ed7062c3971d3131e2be4d281f">PulseTemplate::Chi2Fit</a>(<a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse, <span class="keywordtype">double</span>&amp; ped, <span class="keywordtype">double</span>&amp; amp, <span class="keywordtype">double</span>&amp; time) {
+<a name="l00167"></a><a class="code" href="classPulseTemplate.html#a917600ed7062c3971d3131e2be4d281f">00167</a> <span class="keywordtype">double</span> <a class="code" href="classPulseTemplate.html#a917600ed7062c3971d3131e2be4d281f">PulseTemplate::Chi2Fit</a>(<a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keywordtype">double</span>&amp; ped, <span class="keywordtype">double</span>&amp; amp, <span class="keywordtype">double</span>&amp; time) {
 <a name="l00168"></a>00168   <span class="comment">// First make a histogram out of the pulse with the same bin width as the template,</span>
 <a name="l00169"></a>00169   <span class="comment">// Then pass to fitter.</span>
 <a name="l00170"></a>00170   <span class="comment">// Returns ped in units of ADC counts, amp in... scale units(?), and time in units</span>
@@ -271,7 +272,7 @@
 <a name="l00246"></a>00246   <span class="keywordflow">return</span> <a class="code" href="classPulseTemplate.html#aa669faf05f09fe1153513a9981775691">fNPulses</a>;
 <a name="l00247"></a>00247 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -73,7 +74,7 @@
 <a name="l00048"></a><a class="code" href="classMyModule.html#aca57337afae7290ca20fe378d330107e">00048</a> <a class="code" href="classMyModule.html#aca57337afae7290ca20fe378d330107e">MyModule::~MyModule</a>(){
 <a name="l00049"></a>00049 }
 <a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="classMyModule.html#a0e5c3083b5d4260741cd1ac48a9e69ad">00051</a> <span class="keywordtype">int</span> <a class="code" href="classMyModule.html#a0e5c3083b5d4260741cd1ac48a9e69ad">MyModule::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>){
+<a name="l00051"></a><a class="code" href="classMyModule.html#a0e5c3083b5d4260741cd1ac48a9e69ad">00051</a> <span class="keywordtype">int</span> <a class="code" href="classMyModule.html#a0e5c3083b5d4260741cd1ac48a9e69ad">MyModule::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>){
 <a name="l00052"></a>00052   <span class="keyword">typedef</span> <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringPulseIslandMap::iterator</a> map_iterator;
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054   <span class="comment">//printf(&quot; bank size %d\n &quot;,banks.size());</span>
@@ -82,7 +83,7 @@
 <a name="l00057"></a>00057 
 <a name="l00058"></a>00058   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b1 = 0; b1 &lt; <a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a>.size(); ++b1){
 <a name="l00059"></a>00059     <span class="keywordtype">string</span> bank = <a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a>.at(b1);
-<a name="l00060"></a>00060     <span class="keywordflow">for</span>(map_iterator iter = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>.begin(); iter != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>.end(); iter++){
+<a name="l00060"></a>00060     <span class="keywordflow">for</span>(map_iterator iter = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); iter != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); iter++){
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062       <span class="keywordflow">if</span>(strcmp((iter-&gt;first).data(), bank.data()) == 0){
 <a name="l00063"></a>00063             islands[b1] = iter-&gt;second;
@@ -124,7 +125,7 @@
 <a name="l00099"></a>00099   <span class="keywordflow">return</span> 0;
 <a name="l00100"></a>00100 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -72,7 +73,7 @@
 <a name="l00047"></a><a class="code" href="classExportPulse.html#a9fd56e3f5b63a3d579e65d25b74336a8">00047</a> <a class="code" href="classExportPulse.html#a9fd56e3f5b63a3d579e65d25b74336a8">ExportPulse::~ExportPulse</a>(){
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">00050</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">ExportPulse::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>,<a class="code" href="classTSetupData.html">TSetupData</a> *setup){
+<a name="l00050"></a><a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">00050</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">ExportPulse::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
 <a name="l00051"></a>00051    <a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>=setup;
 <a name="l00052"></a>00052    <span class="keywordflow">if</span>(!<a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>){
 <a name="l00053"></a>00053       cout&lt;&lt;<span class="stringliteral">&quot;Error: TSetupData passed to ExportPulse is NULL...&quot;</span>&lt;&lt;endl;
@@ -130,7 +131,7 @@
 <a name="l00106"></a>00106    <span class="keywordflow">return</span> 0;
 <a name="l00107"></a>00107 }
 <a name="l00108"></a>00108 
-<a name="l00109"></a><a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a">00109</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a" title="Plot all pulses that we were asked to draw for this event.">ExportPulse::ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>){
+<a name="l00109"></a><a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a">00109</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a" title="Plot all pulses that we were asked to draw for this event.">ExportPulse::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
 <a name="l00110"></a>00110   <span class="comment">// To be corrected once Phill finishes the event navigator</span>
 <a name="l00111"></a>00111   <a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">fGlobalData</a>=gData; 
 <a name="l00112"></a>00112   <a class="code" href="classExportPulse.html#a841403fe90bbad6442416f4a9e60c778">SetCurrentEventNumber</a>(*<a class="code" href="main_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a>);
@@ -178,7 +179,7 @@
 <a name="l00154"></a>00154 
 <a name="l00155"></a><a class="code" href="classExportPulse.html#a3c8348a10d8640ac8f36bc6af9caca0e">00155</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a3c8348a10d8640ac8f36bc6af9caca0e" title="Draw all TPIs requested for this event.">ExportPulse::DrawTPIs</a>(){
 <a name="l00156"></a>00156   <span class="comment">// Initialise variables that would be used in the loops</span>
-<a name="l00157"></a>00157   <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse;
+<a name="l00157"></a>00157   <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse;
 <a name="l00158"></a>00158   <span class="keyword">const</span> <a class="code" href="classExportPulse.html#a6763e506beb72df03edd833e851219c8">PulseIDList_t</a>* requestedPulses;
 <a name="l00159"></a>00159   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* pulseList;
 <a name="l00160"></a>00160 
@@ -227,7 +228,7 @@
 <a name="l00203"></a>00203    <span class="keywordflow">return</span> hist;
 <a name="l00204"></a>00204 }
 <a name="l00205"></a>00205 
-<a name="l00206"></a><a class="code" href="classExportPulse.html#aa9ed6c7e6161f569bd843cf8ce426237">00206</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#aa9ed6c7e6161f569bd843cf8ce426237" title="Plot a single TPI.">ExportPulse::PlotTPI</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>{
+<a name="l00206"></a><a class="code" href="classExportPulse.html#aa9ed6c7e6161f569bd843cf8ce426237">00206</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#aa9ed6c7e6161f569bd843cf8ce426237" title="Plot a single TPI.">ExportPulse::PlotTPI</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>{
 <a name="l00207"></a>00207    
 <a name="l00208"></a>00208    std::string hist=info.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a05ef3a553af6756ac94ba06ba27e5841">MakeTPIName</a>();
 <a name="l00209"></a>00209         
@@ -264,7 +265,7 @@
 <a name="l00240"></a>00240 
 <a name="l00241"></a><a class="code" href="classExportPulse.html#a028e846c63821414332740df175670c9">00241</a> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* <a class="code" href="classExportPulse.html#a028e846c63821414332740df175670c9" title="Get a pointer to the list of TPIs for a given detector.">ExportPulse::GetTPIsFromDetector</a>(std::string bank){
 <a name="l00242"></a>00242    <span class="keywordflow">if</span>(bank==<span class="stringliteral">&quot;&quot;</span>) bank=this-&gt;<a class="code" href="classExportPulse.html#a60b34c0f740aea86b2970e94a38686c2">GetCurrentBankName</a>();
-<a name="l00243"></a>00243    <span class="keywordflow">return</span> &amp;<a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">fGlobalData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>[bank];
+<a name="l00243"></a>00243    <span class="keywordflow">return</span> &amp;<a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">fGlobalData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[bank];
 <a name="l00244"></a>00244 }
 <a name="l00245"></a>00245 
 <a name="l00246"></a><a class="code" href="classExportPulse.html#a7b3d0abfdb13c9a66a227f6bb109887b">00246</a> <span class="keywordtype">void</span> <a class="code" href="classExportPulse.html#a7b3d0abfdb13c9a66a227f6bb109887b">ExportPulse::ShowGuidance</a>(){
@@ -336,7 +337,7 @@
 <a name="l00312"></a>00312 
 <a name="l00313"></a>00313 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classExportPulse.html">ExportPulse</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

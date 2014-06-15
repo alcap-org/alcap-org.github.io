@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -47,8 +48,10 @@
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MNumberIslands_8cpp.html#accdc566755cbedad2df27bcfc1119983">GetClockTickForChannel</a> (string bank_name)</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">HNDLE&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MNumberIslands_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTGlobalData.html">TGlobalData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MNumberIslands_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MNumberIslands_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTGlobalData.html">TGlobalData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Object to hold data used and produced by <a class="el" href="namespacemodules.html">modules</a> throughout alcapana stage of analysis.  <a href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Hardware information about digitizers and detectors to be used during alcapana stage of analysis.  <a href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static vector<br class="typebreak"/>
 &lt; TOctalFADCBankReader * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MNumberIslands_8cpp.html#a3ec83d2690f8026b5caebc9f8b796eeb">fadc_bank_readers</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static TH2I *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MNumberIslands_8cpp.html#a37cfdef44b8cd5760b6dfb657bbb3e7d">hNumberOfIslands</a></td></tr>
@@ -101,7 +104,7 @@
 
 <p>Definition at line <a class="el" href="MNumberIslands_8cpp_source.html#l00081">81</a> of file <a class="el" href="MNumberIslands_8cpp_source.html">MNumberIslands.cpp</a>.</p>
 
-<p>References <a class="el" href="TGlobalData_8h_source.html#l00026">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="MNumberIslands_8cpp_source.html#l00046">hNumberOfIslands</a>.</p>
+<p>References <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="MNumberIslands_8cpp_source.html#l00046">hNumberOfIslands</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00082"></a>00082 {
 <a name="l00083"></a>00083         <span class="comment">// Get the event number</span>
@@ -115,7 +118,7 @@
 <a name="l00091"></a>00091         <span class="comment">// Fetch a reference to the gData structure that stores a map</span>
 <a name="l00092"></a>00092         <span class="comment">// of (bank_name, vector&lt;TPulseIsland*&gt;) pairs</span>
 <a name="l00093"></a>00093         TStringPulseIslandMap&amp; pulse_islands_map =
-<a name="l00094"></a>00094                 <a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>;
+<a name="l00094"></a>00094                 <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
 <a name="l00095"></a>00095 
 <a name="l00096"></a>00096         <span class="comment">// Loop over the map and get each bankname, vector pair</span>
 <a name="l00097"></a>00097         <span class="keywordflow">for</span> (map_iterator theMapIter = pulse_islands_map.begin(); theMapIter != pulse_islands_map.end(); theMapIter++) 
@@ -184,36 +187,6 @@
 
 </div>
 </div>
-<a class="anchor" id="a69cb952a194ddefc6004dd96e70ccd62"></a><!-- doxytag: member="MNumberIslands.cpp::gData" ref="a69cb952a194ddefc6004dd96e70ccd62" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classTGlobalData.html">TGlobalData</a>* <a class="el" href="MTreeOutput_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="analyzer_8cpp_source.html#l00054">54</a> of file <a class="el" href="analyzer_8cpp_source.html">analyzer.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aad8aa5d5fe566b2f8f6ca3000b09f0e9"></a><!-- doxytag: member="MNumberIslands.cpp::gSetup" ref="aad8aa5d5fe566b2f8f6ca3000b09f0e9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classTSetupData.html">TSetupData</a>* <a class="el" href="MTreeOutput_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="analyzer_8cpp_source.html#l00055">55</a> of file <a class="el" href="analyzer_8cpp_source.html">analyzer.cpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ab1f60c53f74e806a3b9f687af38d7421"></a><!-- doxytag: member="MNumberIslands.cpp::hDB" ref="ab1f60c53f74e806a3b9f687af38d7421" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +246,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

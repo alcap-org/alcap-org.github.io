@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -66,34 +67,28 @@
 <a name="l00041"></a>00041       <span class="keywordflow">return</span> 0;
 <a name="l00042"></a>00042 }
 <a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">00044</a> <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">MaxBinAPGenerator::GetAllParameters_MaxBin</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse,
+<a name="l00044"></a><a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">00044</a> <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">MaxBinAPGenerator::GetAllParameters_MaxBin</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse,
 <a name="l00045"></a>00045                                                  <span class="keywordtype">double</span>&amp; amplitude, <span class="keywordtype">double</span>&amp; time, <span class="keywordtype">double</span>&amp; integral, <span class="keywordtype">double</span>&amp; energy) {
 <a name="l00046"></a>00046 
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048   <span class="comment">// First find the position of the peak</span>
-<a name="l00049"></a>00049   std::vector&lt;int&gt; pulseSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00050"></a>00050   <span class="keywordtype">int</span> peak_sample_value = 0;
-<a name="l00051"></a>00051   <span class="keywordtype">int</span> peak_sample_pos = 0;
-<a name="l00052"></a>00052   <span class="keywordtype">int</span> this_height =0;
-<a name="l00053"></a>00053   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> sampleIter = pulseSamples.begin(); sampleIter != pulseSamples.end(); sampleIter++) {
-<a name="l00054"></a>00054     
-<a name="l00055"></a>00055     this_height = <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>*(*(sampleIter) - <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>);
-<a name="l00056"></a>00056     <span class="keywordflow">if</span> ( this_height &gt; peak_sample_value ) {
-<a name="l00057"></a>00057       peak_sample_value = this_height;
-<a name="l00058"></a>00058       peak_sample_pos = sampleIter - pulseSamples.begin();
-<a name="l00059"></a>00059     }
-<a name="l00060"></a>00060   }
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062   <span class="comment">// Now assign the parameters</span>
-<a name="l00063"></a>00063   amplitude = peak_sample_value;
-<a name="l00064"></a>00064   time = ((pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + peak_sample_pos) * <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>) - <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>;
-<a name="l00065"></a>00065   integral = 0;
-<a name="l00066"></a>00066   energy = <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> * amplitude + <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(MaxBin);
+<a name="l00049"></a>00049   std::vector&lt;int&gt; pulseSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();  
+<a name="l00050"></a>00050   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
+<a name="l00051"></a>00051   <span class="keywordflow">if</span> (<a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> == 1)
+<a name="l00052"></a>00052     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00053"></a>00053   <span class="keywordflow">else</span>
+<a name="l00054"></a>00054     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056   <span class="comment">// Now assign the parameters</span>
+<a name="l00057"></a>00057   amplitude = <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>*(*peak_sample_pos - <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>);
+<a name="l00058"></a>00058   time = ((pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>) - <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>;
+<a name="l00059"></a>00059   integral = 0;
+<a name="l00060"></a>00060   energy = <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> * amplitude + <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(MaxBin);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

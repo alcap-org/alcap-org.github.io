@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -64,8 +65,8 @@
 <a name="l00039"></a>00039 INT  <a class="code" href="MMuSCTimeDifferences_8cpp.html#aeb0abe0b264cc87a590e7a244b085867">MMuSCTimeDifferences</a>(EVENT_HEADER*, <span class="keywordtype">void</span>*);
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 <span class="keyword">extern</span> HNDLE <a class="code" href="MExpectedIslands_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>;
-<a name="l00042"></a>00042 <span class="keyword">extern</span> <a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>;
-<a name="l00043"></a>00043 <span class="keyword">extern</span> <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>;
+<a name="l00042"></a>00042 <span class="keyword">extern</span> <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>;
+<a name="l00043"></a>00043 <span class="keyword">extern</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>;
 <a name="l00044"></a>00044 
 <a name="l00045"></a><a class="code" href="MMuSCTimeDifferences_8cpp.html#ac9cb05b9ae98c07603ed6548a141f25c">00045</a> ANA_MODULE <a class="code" href="MMuSCTimeDifferences_8cpp.html#ac9cb05b9ae98c07603ed6548a141f25c">MMuSCTimeDifferences_module</a> =
 <a name="l00046"></a>00046 {
@@ -94,21 +95,21 @@
 <a name="l00069"></a>00069                                  <span class="keywordtype">bool</span> PP, TH1 *h_PP, TH2 *hAmp_PP, <span class="keyword">const</span> std::string&amp; bank_name);
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <span class="keywordtype">bool</span> <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(<span class="keywordtype">double</span> t,<span class="keyword">const</span> std::vector&lt;TPulseIsland*&gt;&amp; p, <span class="keywordtype">double</span> window, <span class="keywordtype">int</span> *lPP, <span class="keyword">const</span> std::string&amp; bank_name);
-<a name="l00072"></a>00072 <span class="keywordtype">double</span> <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* p, <span class="keyword">const</span> <a class="code" href="classTSetupData.html">TSetupData</a>* setup, <span class="keyword">const</span> std::string&amp; bank_name);
+<a name="l00072"></a>00072 <span class="keywordtype">double</span> <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* p, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup, <span class="keyword">const</span> std::string&amp; bank_name);
 <a name="l00073"></a>00073 
 <a name="l00076"></a><a class="code" href="MMuSCTimeDifferences_8cpp.html#ade3e699e99c8b224cc24ee7cfcc94463">00076</a> INT <a class="code" href="MMuSCTimeDifferences_8cpp.html#ade3e699e99c8b224cc24ee7cfcc94463">MMuSCTimeDifferences_init</a>()
 <a name="l00077"></a>00077 {
 <a name="l00078"></a>00078   gDirectory-&gt;mkdir(<span class="stringliteral">&quot;MuSC_TimingCorrelations&quot;</span>)-&gt;cd();
 <a name="l00079"></a>00079   <span class="comment">// Let&apos;s find all detector names other than muSC</span>
-<a name="l00080"></a>00080   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>.begin();
-<a name="l00081"></a>00081       it != gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>.end(); ++it){
+<a name="l00080"></a>00080   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin();
+<a name="l00081"></a>00081       it != gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end(); ++it){
 <a name="l00082"></a>00082     <span class="keywordflow">if</span>(it-&gt;first != std::string(<span class="stringliteral">&quot;&quot;</span>) &amp;&amp; it-&gt;first != std::string(<span class="stringliteral">&quot;blank&quot;</span>)){
 <a name="l00083"></a>00083       <span class="keywordflow">if</span>(it-&gt;second != std::string(<span class="stringliteral">&quot;muSc&quot;</span>)) <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>.push_back(it-&gt;second);
 <a name="l00084"></a>00084     }
 <a name="l00085"></a>00085   }
 <a name="l00086"></a>00086   std::cout &lt;&lt; <span class="stringliteral">&quot;Number of detectors fo Time Correlations: &quot;</span> &lt;&lt; <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>.size() &lt;&lt; std::endl;
-<a name="l00087"></a>00087   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of Bank to Detector map: &quot;</span> &lt;&lt; gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36">fBankToDetectorMap</a>.size() &lt;&lt; std::endl;
-<a name="l00088"></a>00088   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of TPI map: &quot;</span> &lt;&lt; gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>.size() &lt;&lt; std::endl;
+<a name="l00087"></a>00087   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of Bank to Detector map: &quot;</span> &lt;&lt; gSetup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.size() &lt;&lt; std::endl;
+<a name="l00088"></a>00088   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of TPI map: &quot;</span> &lt;&lt; gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.size() &lt;&lt; std::endl;
 <a name="l00089"></a>00089 
 <a name="l00090"></a>00090   <a class="code" href="MMuSCTimeDifferences_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a> = <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>.size();
 <a name="l00091"></a>00091   <a class="code" href="MMuSCTimeDifferences_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a> = <span class="keyword">new</span> TH1*[<a class="code" href="MMuSCTimeDifferences_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
@@ -165,7 +166,7 @@
 <a name="l00145"></a>00145   <span class="comment">// Fetch a reference to the gData structure that stores a map</span>
 <a name="l00146"></a>00146   <span class="comment">// of (bank_name, vector&lt;TPulseIsland*&gt;) pairs</span>
 <a name="l00147"></a>00147   TStringPulseIslandMap&amp; pulse_islands_map =
-<a name="l00148"></a>00148     gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>;
+<a name="l00148"></a>00148     gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
 <a name="l00149"></a>00149   
 <a name="l00150"></a>00150   <span class="comment">// Let&apos;s loop over the muSC times</span>
 <a name="l00151"></a>00151   std::string str_MuSC = gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<span class="stringliteral">&quot;muSc&quot;</span>);
@@ -227,11 +228,11 @@
 <a name="l00207"></a>00207   <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00208"></a>00208 }
 <a name="l00209"></a>00209 
-<a name="l00210"></a><a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">00210</a> <span class="keywordtype">double</span> <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* p, <span class="keyword">const</span> <a class="code" href="classTSetupData.html">TSetupData</a>* setup, <span class="keyword">const</span> std::string&amp; bank_name){
-<a name="l00211"></a>00211    <span class="keywordflow">return</span> p-&gt;<a class="code" href="classTPulseIsland.html#a53a8591e34a14f2ef6d061f50a760cf8">GetPulseTime</a>() - setup-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f">GetTimeShift</a>(bank_name);
+<a name="l00210"></a><a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">00210</a> <span class="keywordtype">double</span> <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* p, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup, <span class="keyword">const</span> std::string&amp; bank_name){
+<a name="l00211"></a>00211    <span class="keywordflow">return</span> p-&gt;<a class="code" href="classTPulseIsland.html#a53a8591e34a14f2ef6d061f50a760cf8">GetPulseTime</a>() - setup-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bank_name);
 <a name="l00212"></a>00212 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

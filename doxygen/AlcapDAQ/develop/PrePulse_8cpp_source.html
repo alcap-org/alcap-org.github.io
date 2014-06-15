@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -30,7 +31,7 @@
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00007"></a>00007 
-<a name="l00008"></a><a class="code" href="classPrePulse.html#a74ec8ebd6c3c452e4efad5ec553daa3f">00008</a> <a class="code" href="classPrePulse.html#a74ec8ebd6c3c452e4efad5ec553daa3f">PrePulse::PrePulse</a>(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> stop, <span class="keywordtype">int</span> loc, <span class="keywordtype">int</span> height, <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse) :
+<a name="l00008"></a><a class="code" href="classPrePulse.html#a74ec8ebd6c3c452e4efad5ec553daa3f">00008</a> <a class="code" href="classPrePulse.html#a74ec8ebd6c3c452e4efad5ec553daa3f">PrePulse::PrePulse</a>(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> stop, <span class="keywordtype">int</span> loc, <span class="keywordtype">int</span> height, <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse) :
 <a name="l00009"></a>00009   fStart(start), fStop(stop), fLocation(loc), fHeight(height), fPulse(pulse) {}
 <a name="l00010"></a>00010 
 <a name="l00011"></a><a class="code" href="classPrePulse.html#aa6cd22b79eea3ac436d2f84b3af04f1a">00011</a> <a class="code" href="classPrePulse.html#aa6cd22b79eea3ac436d2f84b3af04f1a">PrePulse::~PrePulse</a>() {}
@@ -51,7 +52,7 @@
 <a name="l00026"></a>00026   <span class="keywordflow">return</span> <a class="code" href="classPrePulse.html#a8df184debb7f336b27dd707e6bdf9b5a">fHeight</a>;
 <a name="l00027"></a>00027 }
 <a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="classPrePulse.html#a3b35b535a0e82a1d0f00ce6dc71d6a87">00029</a> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* <a class="code" href="classPrePulse.html#a3b35b535a0e82a1d0f00ce6dc71d6a87">PrePulse::GetPulse</a>()<span class="keyword"> const </span>{
+<a name="l00029"></a><a class="code" href="classPrePulse.html#a3b35b535a0e82a1d0f00ce6dc71d6a87">00029</a> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* <a class="code" href="classPrePulse.html#a3b35b535a0e82a1d0f00ce6dc71d6a87">PrePulse::GetPulse</a>()<span class="keyword"> const </span>{
 <a name="l00030"></a>00030   <span class="keywordflow">return</span> <a class="code" href="classPrePulse.html#a787202c00468427035612fe212a1c210">fPulse</a>;
 <a name="l00031"></a>00031 }
 <a name="l00032"></a>00032 
@@ -66,7 +67,7 @@
 <a name="l00041"></a>00041             &lt;&lt; std::endl;
 <a name="l00042"></a>00042 }
 <a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="classPrePulse.html#a8b47838396f8847f224de52d579470aa">00044</a> std::vector&lt;PrePulse&gt; <a class="code" href="classPrePulse.html#a8b47838396f8847f224de52d579470aa">PrePulse::FindPrePulses</a>(<a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse, <span class="keywordtype">int</span> rise, <span class="keywordtype">int</span> fall) {
+<a name="l00044"></a><a class="code" href="classPrePulse.html#a8b47838396f8847f224de52d579470aa">00044</a> std::vector&lt;PrePulse&gt; <a class="code" href="classPrePulse.html#a8b47838396f8847f224de52d579470aa">PrePulse::FindPrePulses</a>(<a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keywordtype">int</span> rise, <span class="keywordtype">int</span> fall) {
 <a name="l00045"></a>00045   <span class="comment">// Looks through pulse to look for samples that go rise as fast as rise between two samples</span>
 <a name="l00046"></a>00046   <span class="comment">// and then fall </span>
 <a name="l00047"></a>00047   std::vector&lt;int&gt; samples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
@@ -106,7 +107,7 @@
 <a name="l00081"></a>00081   <span class="keywordflow">return</span> prepulses;
 <a name="l00082"></a>00082 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

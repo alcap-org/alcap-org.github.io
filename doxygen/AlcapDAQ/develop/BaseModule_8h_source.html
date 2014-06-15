@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -38,14 +39,14 @@
 <a name="l00017"></a><a class="code" href="classBaseModule.html">00017</a> <span class="keyword">class </span><a class="code" href="classBaseModule.html">BaseModule</a>
 <a name="l00018"></a>00018 {
 <a name="l00019"></a>00019  <span class="keyword">public</span>:
-<a name="l00028"></a>00028   <a class="code" href="classBaseModule.html#a960d236abd301acabcfec8c788e1848c" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* module_name, <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts=NULL, <a class="code" href="classTSetupData.html">TSetupData</a>* setup=NULL);
+<a name="l00028"></a>00028   <a class="code" href="classBaseModule.html#a960d236abd301acabcfec8c788e1848c" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* module_name, <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts=NULL, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup=NULL);
 <a name="l00029"></a>00029   <span class="keyword">virtual</span> <a class="code" href="classBaseModule.html#a3227c93689598fc23ca808a216222d80">~BaseModule</a>();
 <a name="l00030"></a>00030 
-<a name="l00034"></a>00034   <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a23d25cb188ccdf4f0130aff109313f46">ProcessGenericEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>);
+<a name="l00034"></a>00034   <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a23d25cb188ccdf4f0130aff109313f46">ProcessGenericEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
 <a name="l00035"></a>00035 
-<a name="l00039"></a><a class="code" href="classBaseModule.html#a5b1253266e0bd9fff017581107c0e3ac">00039</a>   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a5b1253266e0bd9fff017581107c0e3ac">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html">TSetupData</a> *setup){<span class="keywordflow">return</span> 0;};
+<a name="l00039"></a><a class="code" href="classBaseModule.html#a5b1253266e0bd9fff017581107c0e3ac">00039</a>   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a5b1253266e0bd9fff017581107c0e3ac">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){<span class="keywordflow">return</span> 0;};
 <a name="l00040"></a>00040 
-<a name="l00044"></a><a class="code" href="classBaseModule.html#a3d5448acee19f58a84e121683ff9f232">00044</a>   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a3d5448acee19f58a84e121683ff9f232">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html">TSetupData</a> *setup){<span class="keywordflow">return</span> 0;};
+<a name="l00044"></a><a class="code" href="classBaseModule.html#a3d5448acee19f58a84e121683ff9f232">00044</a>   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a3d5448acee19f58a84e121683ff9f232">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){<span class="keywordflow">return</span> 0;};
 <a name="l00045"></a>00045           
 <a name="l00048"></a><a class="code" href="classBaseModule.html#aab50673c8ec954675da2664677abfab1">00048</a>   <span class="keywordtype">void</span> <a class="code" href="classBaseModule.html#aab50673c8ec954675da2664677abfab1">SetAlias</a>(<span class="keyword">const</span> std::string&amp; alias){<a class="code" href="classBaseModule.html#ae19cdbdf544a783be4cdd4505ae31fb9">fAlias</a>=alias;};
 <a name="l00049"></a>00049 
@@ -57,11 +58,11 @@
 <a name="l00060"></a><a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">00060</a>   <span class="keywordtype">bool</span> <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062  <span class="keyword">private</span>:
-<a name="l00070"></a>00070    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a77027581152c1ecd1b320b8cd36f1114" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *gData, <a class="code" href="classTSetupData.html">TSetupData</a> *gSetup);
+<a name="l00070"></a>00070    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a77027581152c1ecd1b320b8cd36f1114" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *gSetup);
 <a name="l00071"></a>00071 
 <a name="l00072"></a>00072  <span class="keyword">protected</span>:
 <a name="l00073"></a><a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">00073</a>   TDirectory *<a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>;
-<a name="l00074"></a><a class="code" href="classBaseModule.html#ac5a639ae355fcb1d403b785a183ece8a">00074</a>   <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="classBaseModule.html#ac5a639ae355fcb1d403b785a183ece8a">fSetup</a>;
+<a name="l00074"></a><a class="code" href="classBaseModule.html#ac5a639ae355fcb1d403b785a183ece8a">00074</a>   <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classBaseModule.html#ac5a639ae355fcb1d403b785a183ece8a">fSetup</a>;
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076  <span class="keyword">private</span>:
 <a name="l00077"></a><a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">00077</a>    <span class="keywordtype">bool</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;
@@ -70,7 +71,7 @@
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081 <span class="preprocessor">#endif // BASEMODULE_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

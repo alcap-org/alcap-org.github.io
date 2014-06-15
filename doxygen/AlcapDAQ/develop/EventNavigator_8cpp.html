@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -40,6 +41,9 @@
 <p><a href="EventNavigator_8cpp_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p><a class="anchor" id="amgrpd41d8cd98f00b204e9800998ecf8427e"></a> </p>
+<br/><br/></div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="EventNavigator_8cpp.html#ae12fe750176b13f48eb21cb6ffc11971">ClearGlobalData</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *data)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
@@ -59,62 +63,62 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="main_8cpp_source.html#l00216">216</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00227">227</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>References <a class="el" href="TGlobalData_8h_source.html#l00026">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="main_8cpp_source.html#l00046">gAnalysedPulseMap</a>, and <a class="el" href="main_8cpp_source.html#l00047">gDetectorPulseMap</a>.</p>
+<p>References <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="main_8cpp_source.html#l00057">gAnalysedPulseMap</a>, and <a class="el" href="main_8cpp_source.html#l00058">gDetectorPulseMap</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp_source.html#l00126">Main_event_loop()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp_source.html#l00137">Main_event_loop()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00217"></a>00217 {
-<a name="l00218"></a>00218   <span class="comment">// We could put this into TGlobalData::Clear(), but we need</span>
-<a name="l00219"></a>00219   <span class="comment">// to be sure that&apos;s okay at the alcapana level. That is, if</span>
-<a name="l00220"></a>00220   <span class="comment">// Clear() deletes the TPulseIsland objects, but g_event doesn&apos;t</span>
-<a name="l00221"></a>00221   <span class="comment">// own the pulses, they would be deleted later. A solution is to</span>
-<a name="l00222"></a>00222   <span class="comment">// be sure that TGlobalData isn&apos;t called in alcapana, or ensure</span>
-<a name="l00223"></a>00223   <span class="comment">// that g_event owns the pulse islands at that level.</span>
-<a name="l00224"></a>00224   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringPulseIslandMap::iterator</a> mapIter;
-<a name="l00225"></a>00225   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringPulseIslandMap::iterator</a> mapEnd = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>.end();
-<a name="l00226"></a>00226   <span class="keywordflow">for</span>(mapIter = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8">fPulseIslandToChannelMap</a>.begin(); mapIter != mapEnd; mapIter++) {
-<a name="l00227"></a>00227     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00228"></a>00228     std::vector&lt;TPulseIsland*&gt; pulse_vector= mapIter-&gt;second;
-<a name="l00229"></a>00229     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
-<a name="l00230"></a>00230       <span class="keyword">delete</span> pulse_vector[i];
-<a name="l00231"></a>00231       pulse_vector[i] = NULL;
-<a name="l00232"></a>00232     }
-<a name="l00233"></a>00233     pulse_vector.clear();
-<a name="l00234"></a>00234   }
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236 
-<a name="l00237"></a>00237   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> mapIter=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
-<a name="l00238"></a>00238      mapIter != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); mapIter++) {
-<a name="l00239"></a>00239 
-<a name="l00240"></a>00240     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00241"></a>00241     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> pulse_vector= mapIter-&gt;second;
-<a name="l00242"></a>00242     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
-<a name="l00243"></a>00243       <span class="keyword">delete</span> pulse_vector[i];
-<a name="l00244"></a>00244       pulse_vector[i] = NULL;
-<a name="l00245"></a>00245     }
-<a name="l00246"></a>00246     pulse_vector.clear();
-<a name="l00247"></a>00247   }
-<a name="l00248"></a>00248   <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.clear();
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.end(); mapIter++) {
+<p><div class="fragment"><pre class="fragment"><a name="l00228"></a>00228 {
+<a name="l00229"></a>00229   <span class="comment">// We could put this into TGlobalData::Clear(), but we need</span>
+<a name="l00230"></a>00230   <span class="comment">// to be sure that&apos;s okay at the alcapana level. That is, if</span>
+<a name="l00231"></a>00231   <span class="comment">// Clear() deletes the TPulseIsland objects, but g_event doesn&apos;t</span>
+<a name="l00232"></a>00232   <span class="comment">// own the pulses, they would be deleted later. A solution is to</span>
+<a name="l00233"></a>00233   <span class="comment">// be sure that TGlobalData isn&apos;t called in alcapana, or ensure</span>
+<a name="l00234"></a>00234   <span class="comment">// that g_event owns the pulse islands at that level.</span>
+<a name="l00235"></a>00235   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringPulseIslandMap::iterator</a> mapIter;
+<a name="l00236"></a>00236   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringPulseIslandMap::iterator</a> mapEnd = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end();
+<a name="l00237"></a>00237   <span class="keywordflow">for</span>(mapIter = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); mapIter != mapEnd; mapIter++) {
+<a name="l00238"></a>00238     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
+<a name="l00239"></a>00239     std::vector&lt;TPulseIsland*&gt; pulse_vector= mapIter-&gt;second;
+<a name="l00240"></a>00240     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
+<a name="l00241"></a>00241       <span class="keyword">delete</span> pulse_vector[i];
+<a name="l00242"></a>00242       pulse_vector[i] = NULL;
+<a name="l00243"></a>00243     }
+<a name="l00244"></a>00244     pulse_vector.clear();
+<a name="l00245"></a>00245   }
+<a name="l00246"></a>00246 
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> mapIter=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
+<a name="l00249"></a>00249      mapIter != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); mapIter++) {
+<a name="l00250"></a>00250 
 <a name="l00251"></a>00251     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00252"></a>00252     std::vector&lt;TDetectorPulse*&gt; pulse_vector= mapIter-&gt;second;
+<a name="l00252"></a>00252     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> pulse_vector= mapIter-&gt;second;
 <a name="l00253"></a>00253     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
 <a name="l00254"></a>00254       <span class="keyword">delete</span> pulse_vector[i];
 <a name="l00255"></a>00255       pulse_vector[i] = NULL;
 <a name="l00256"></a>00256     }
 <a name="l00257"></a>00257     pulse_vector.clear();
 <a name="l00258"></a>00258   }
-<a name="l00259"></a>00259   <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.clear();
-<a name="l00260"></a>00260 }
+<a name="l00259"></a>00259   <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.clear();
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.end(); mapIter++) {
+<a name="l00262"></a>00262     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
+<a name="l00263"></a>00263     std::vector&lt;TDetectorPulse*&gt; pulse_vector= mapIter-&gt;second;
+<a name="l00264"></a>00264     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
+<a name="l00265"></a>00265       <span class="keyword">delete</span> pulse_vector[i];
+<a name="l00266"></a>00266       pulse_vector[i] = NULL;
+<a name="l00267"></a>00267     }
+<a name="l00268"></a>00268     pulse_vector.clear();
+<a name="l00269"></a>00269   }
+<a name="l00270"></a>00270   <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.clear();
+<a name="l00271"></a>00271 }
 </pre></div></p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

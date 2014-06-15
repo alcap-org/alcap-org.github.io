@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -39,7 +40,7 @@
 <a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="ModulesNavigator_8h.html">ModulesNavigator.h</a>&quot;</span>
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016 <span class="keyword">class </span><a class="code" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a>;
-<a name="l00017"></a>00017 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html">TPulseIsland</a>;
+<a name="l00017"></a>00017 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>;
 <a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
 <a name="l00019"></a>00019 
 <a name="l00022"></a><a class="code" href="classExportPulse.html">00022</a> <span class="keyword">class </span><a class="code" href="classExportPulse.html">ExportPulse</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
@@ -70,16 +71,16 @@
 <a name="l00069"></a>00069 <span class="comment"></span>  <span class="keyword">static</span> <a class="code" href="classExportPulse.html">ExportPulse</a>* <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">Instance</a>();
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071  <span class="keyword">private</span>:
-<a name="l00074"></a>00074   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>,<a class="code" href="classTSetupData.html">TSetupData</a> *setup);
+<a name="l00074"></a>00074   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
 <a name="l00075"></a>00075 
-<a name="l00079"></a>00079   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a" title="Plot all pulses that we were asked to draw for this event.">ProcessEntry</a>(<a class="code" href="classTGlobalData.html">TGlobalData</a> *<a class="code" href="analyzer_8cpp.html#a69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="code" href="classTSetupData.html">TSetupData</a> *<a class="code" href="analyzer_8cpp.html#aad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>);
+<a name="l00079"></a>00079   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a" title="Plot all pulses that we were asked to draw for this event.">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
 <a name="l00080"></a>00080   <span class="comment">//virtual int AfterLastEntry(TGlobalData* gData){return 0;};</span>
 <a name="l00081"></a>00081 
 <a name="l00083"></a>00083   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a3c8348a10d8640ac8f36bc6af9caca0e" title="Draw all TPIs requested for this event.">DrawTPIs</a>();
 <a name="l00084"></a>00084 
 <a name="l00086"></a>00086   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#af5e54e3adbe2fbb2e609e2bac7c3fb88" title="Draw all TAPs requested for this event.">DrawTAPs</a>();
 <a name="l00087"></a>00087 
-<a name="l00089"></a>00089   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#aa9ed6c7e6161f569bd843cf8ce426237" title="Plot a single TPI.">PlotTPI</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html">TPulseIsland</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>;
+<a name="l00089"></a>00089   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#aa9ed6c7e6161f569bd843cf8ce426237" title="Plot a single TPI.">PlotTPI</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>;
 <a name="l00091"></a>00091   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a4b5476f83c47b00425dff2bd8d17fcf7" title="Plot a single TAP.">PlotTAP</a>(<span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>;
 <a name="l00093"></a>00093   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* <a class="code" href="classExportPulse.html#a028e846c63821414332740df175670c9" title="Get a pointer to the list of TPIs for a given detector.">GetTPIsFromDetector</a>(std::string bank=<span class="stringliteral">&quot;&quot;</span>);
 <a name="l00094"></a>00094 
@@ -110,10 +111,10 @@
 <a name="l00119"></a><a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">00119</a>   <a class="code" href="definitions_8h.html#a130f2f003a654b5ed2395396a616d009">StringConstAnalPulseMap</a> <a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>;
 <a name="l00120"></a><a class="code" href="classExportPulse.html#a0a29ca7442e0577b107ddda547561971">00120</a>   <a class="code" href="classExportPulse.html#a02348484fe1875bca137ae370ac53e1f">EventChannelPulseIDs_t</a> <a class="code" href="classExportPulse.html#a0a29ca7442e0577b107ddda547561971">fRequestedByConfig</a>;
 <a name="l00121"></a><a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">00121</a>   <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a> <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>;
-<a name="l00122"></a><a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">00122</a>   <a class="code" href="classTSetupData.html">TSetupData</a>* <a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>;
+<a name="l00122"></a><a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">00122</a>   <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>;
 <a name="l00123"></a><a class="code" href="classExportPulse.html#a1c30556d67a0b40990d214b72afd6595">00123</a>   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classExportPulse.html#a1c30556d67a0b40990d214b72afd6595">fOptions</a>;
 <a name="l00124"></a>00124 
-<a name="l00125"></a><a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">00125</a>   <a class="code" href="classTGlobalData.html">TGlobalData</a>* <a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">fGlobalData</a>; <span class="comment">// To be removed once Phill finishes the event navigator</span>
+<a name="l00125"></a><a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">00125</a>   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">fGlobalData</a>; <span class="comment">// To be removed once Phill finishes the event navigator</span>
 <a name="l00126"></a>00126 
 <a name="l00127"></a>00127 };
 <a name="l00128"></a>00128 
@@ -145,7 +146,7 @@
 <a name="l00154"></a>00154 
 <a name="l00155"></a>00155 <span class="preprocessor">#endif // ExportPulse_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
