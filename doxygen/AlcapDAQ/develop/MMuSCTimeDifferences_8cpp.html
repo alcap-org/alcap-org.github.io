@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
@@ -150,7 +151,7 @@
 <p><div class="fragment"><pre class="fragment"><a name="l00177"></a>00177 {
 <a name="l00178"></a>00178   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> p = start; p &lt; (int)pulses.size(); ++p){
 <a name="l00179"></a>00179     
-<a name="l00180"></a>00180     <span class="keywordtype">double</span> tDiff = <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(pulses[p],<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>, bank_name) - tMusc;
+<a name="l00180"></a>00180     <span class="keywordtype">double</span> tDiff = <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(pulses[p],<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>, bank_name) - tMusc;
 <a name="l00181"></a>00181     <span class="keywordflow">if</span>(tDiff &lt; t_low){
 <a name="l00182"></a>00182       start = p;
 <a name="l00183"></a>00183       <span class="keywordflow">continue</span>;
@@ -264,7 +265,7 @@
 <p><div class="fragment"><pre class="fragment"><a name="l00197"></a>00197                                                                                                                        {
 <a name="l00198"></a>00198   <span class="keywordflow">if</span>(t &lt; window || t &gt; 1.12E8-window) <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// very basic bookending</span>
 <a name="l00199"></a>00199   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = *lPP; i &lt; p.size(); ++i){
-<a name="l00200"></a>00200     <span class="keywordtype">double</span> t2 = <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(p[i],<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>,bank_name);
+<a name="l00200"></a>00200     <span class="keywordtype">double</span> t2 = <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(p[i],<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>,bank_name);
 <a name="l00201"></a>00201     <span class="keywordflow">if</span>(t2 &lt; t-window){
 <a name="l00202"></a>00202       *lPP = i;
 <a name="l00203"></a>00203     }
@@ -317,23 +318,23 @@
 <a name="l00145"></a>00145   <span class="comment">// Fetch a reference to the gData structure that stores a map</span>
 <a name="l00146"></a>00146   <span class="comment">// of (bank_name, vector&lt;TPulseIsland*&gt;) pairs</span>
 <a name="l00147"></a>00147   TStringPulseIslandMap&amp; pulse_islands_map =
-<a name="l00148"></a>00148     <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
+<a name="l00148"></a>00148     <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
 <a name="l00149"></a>00149   
 <a name="l00150"></a>00150   <span class="comment">// Let&apos;s loop over the muSC times</span>
-<a name="l00151"></a>00151   std::string str_MuSC = <a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<span class="stringliteral">&quot;muSc&quot;</span>);
+<a name="l00151"></a>00151   std::string str_MuSC = <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<span class="stringliteral">&quot;muSc&quot;</span>);
 <a name="l00152"></a>00152   <span class="keywordtype">int</span> lPP = 0;
 <a name="l00153"></a>00153   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="MMuSCTimeDifferences_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>; ++i) <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i] = 0;
 <a name="l00154"></a>00154   
 <a name="l00155"></a>00155   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;TPulseIsland*&gt;::iterator</a> it_Musc = pulse_islands_map[str_MuSC].begin(); 
 <a name="l00156"></a>00156       it_Musc != pulse_islands_map[str_MuSC].end(); ++it_Musc){
 <a name="l00157"></a>00157     
-<a name="l00158"></a>00158     <span class="keywordtype">double</span> tMusc = <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(*it_Musc,<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>,str_MuSC);
+<a name="l00158"></a>00158     <span class="keywordtype">double</span> tMusc = <a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>(*it_Musc,<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>,str_MuSC);
 <a name="l00159"></a>00159     
 <a name="l00160"></a>00160     <span class="keywordtype">bool</span> PP = <a class="code" href="MFastSlowCorrelator_8cpp.html#aeb8304c5ec97b22f64f37018b92bb0e2">IsPileupProtected</a>(tMusc, pulse_islands_map[str_MuSC], 10000, &amp;lPP,str_MuSC);
 <a name="l00161"></a>00161     
 <a name="l00162"></a>00162     std::string bank_name;
 <a name="l00163"></a>00163     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;nr_detectors; ++i){
-<a name="l00164"></a>00164       bank_name=<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>[i]);
+<a name="l00164"></a>00164       bank_name=<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>[i]);
 <a name="l00165"></a>00165       <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i] = <a class="code" href="MFastSlowCorrelator_8cpp.html#a9f32c7c332b01ce8022bd9e7e2c147c1">FillCoincidenceTimeHistogram</a>(tMusc, pulse_islands_map[bank_name], 
 <a name="l00166"></a>00166                                              <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#a12b055fd4ad8a675b39fcd6d5e2a6f04">hAmplitudeVsTime</a>[i], t_low, t_high,
 <a name="l00167"></a>00167                                              PP, <a class="code" href="MMuSCTimeDifferences_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#ae163d5fd93c8330dfa5f793022f91f3c">hAmplitudeVsTime_PP</a>[i], bank_name);
@@ -369,15 +370,15 @@
 <p><div class="fragment"><pre class="fragment"><a name="l00077"></a>00077 {
 <a name="l00078"></a>00078   gDirectory-&gt;mkdir(<span class="stringliteral">&quot;MuSC_TimingCorrelations&quot;</span>)-&gt;cd();
 <a name="l00079"></a>00079   <span class="comment">// Let&apos;s find all detector names other than muSC</span>
-<a name="l00080"></a>00080   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = <a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin();
-<a name="l00081"></a>00081       it != <a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end(); ++it){
+<a name="l00080"></a>00080   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin();
+<a name="l00081"></a>00081       it != <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end(); ++it){
 <a name="l00082"></a>00082     <span class="keywordflow">if</span>(it-&gt;first != std::string(<span class="stringliteral">&quot;&quot;</span>) &amp;&amp; it-&gt;first != std::string(<span class="stringliteral">&quot;blank&quot;</span>)){
 <a name="l00083"></a>00083       <span class="keywordflow">if</span>(it-&gt;second != std::string(<span class="stringliteral">&quot;muSc&quot;</span>)) <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>.push_back(it-&gt;second);
 <a name="l00084"></a>00084     }
 <a name="l00085"></a>00085   }
 <a name="l00086"></a>00086   std::cout &lt;&lt; <span class="stringliteral">&quot;Number of detectors fo Time Correlations: &quot;</span> &lt;&lt; <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>.size() &lt;&lt; std::endl;
-<a name="l00087"></a>00087   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of Bank to Detector map: &quot;</span> &lt;&lt; <a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.size() &lt;&lt; std::endl;
-<a name="l00088"></a>00088   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of TPI map: &quot;</span> &lt;&lt; <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.size() &lt;&lt; std::endl;
+<a name="l00087"></a>00087   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of Bank to Detector map: &quot;</span> &lt;&lt; <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.size() &lt;&lt; std::endl;
+<a name="l00088"></a>00088   std::cout &lt;&lt; <span class="stringliteral">&quot;Size of TPI map: &quot;</span> &lt;&lt; <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.size() &lt;&lt; std::endl;
 <a name="l00089"></a>00089 
 <a name="l00090"></a>00090   <a class="code" href="MMuSCTimeDifferences_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a> = <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>.size();
 <a name="l00091"></a>00091   <a class="code" href="MMuSCTimeDifferences_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a> = <span class="keyword">new</span> TH1*[<a class="code" href="MMuSCTimeDifferences_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>];
@@ -484,7 +485,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">HNDLE <a class="el" href="MUnCompressRawData_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a></td>
+          <td class="memname">HNDLE <a class="el" href="group__MV1724ProcessRaw.html#gab1f60c53f74e806a3b9f687af38d7421">hDB</a></td>
         </tr>
       </table>
 </div>

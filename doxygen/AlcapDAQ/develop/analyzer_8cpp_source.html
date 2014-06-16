@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
@@ -74,16 +75,16 @@
 <a name="l00070"></a>00070 <span class="comment">/* default ODB size */</span>
 <a name="l00071"></a><a class="code" href="group__alcapana__main.html#ga7503268889a084b74a968787ffc025b7">00071</a> INT  <a class="code" href="group__alcapana__main.html#ga7503268889a084b74a968787ffc025b7">odb_size</a> = DEFAULT_ODB_SIZE;
 <a name="l00072"></a>00072 
-<a name="l00076"></a><a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62">00076</a> <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>;
-<a name="l00080"></a><a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">00080</a> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>;
+<a name="l00076"></a><a class="code" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">00076</a> <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>;
+<a name="l00080"></a><a class="code" href="group__MV1724ProcessRaw.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">00080</a> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>;
 <a name="l00083"></a><a class="code" href="group__alcapana__main.html#gae5d613fcc5d7b3c8290e5be515df17f5">00083</a> <a class="code" href="classTVacuumData.html">TVacuumData</a>* <a class="code" href="group__alcapana__main.html#gae5d613fcc5d7b3c8290e5be515df17f5" title="Vacuum data slow control.">gVacuum</a>;
 <a name="l00084"></a>00084 
-<a name="l00085"></a><a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589">00085</a> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()
+<a name="l00085"></a>00085 <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()
 <a name="l00086"></a>00086 {
 <a name="l00087"></a>00087         <span class="keywordflow">return</span> gSetup;
 <a name="l00088"></a>00088 }
 <a name="l00089"></a>00089 
-<a name="l00090"></a><a class="code" href="group__alcapana__main.html#ga1c4c3f00cd502a89de4657c11a1a1c4b">00090</a> <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga1c4c3f00cd502a89de4657c11a1a1c4b">TGlobalData::Instance</a>()
+<a name="l00090"></a>00090 <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga1c4c3f00cd502a89de4657c11a1a1c4b">TGlobalData::Instance</a>()
 <a name="l00091"></a>00091 {
 <a name="l00092"></a>00092         <span class="keywordflow">return</span> gData;
 <a name="l00093"></a>00093 }
@@ -267,7 +268,7 @@
 <a name="l00271"></a><a class="code" href="group__alcapana__main.html#ga2863bc10925723cab7743b567bb31905">00271</a> <span class="keywordtype">bool</span> <a class="code" href="group__alcapana__main.html#ga2863bc10925723cab7743b567bb31905">UpdateDetectorBankNameMap</a>(<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *gSetup){
 <a name="l00272"></a>00272         <span class="comment">// Want to go through the /Analyzer/WireMap and map bank names and detector names </span>
 <a name="l00273"></a>00273         <span class="keywordtype">bool</span> ret = <span class="keyword">true</span>;
-<a name="l00274"></a>00274         HNDLE <a class="code" href="MExpectedIslands_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a>, hKey;
+<a name="l00274"></a>00274         HNDLE <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gab1f60c53f74e806a3b9f687af38d7421">hDB</a>, hKey;
 <a name="l00275"></a>00275         <span class="keywordtype">char</span> keyName[200];
 <a name="l00276"></a>00276 
 <a name="l00277"></a>00277         <span class="keywordflow">if</span>(cm_get_experiment_database(&amp;hDB, NULL) != CM_SUCCESS){

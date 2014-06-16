@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
@@ -73,7 +74,7 @@
 <a name="l00047"></a><a class="code" href="classExportPulse.html#a9fd56e3f5b63a3d579e65d25b74336a8">00047</a> <a class="code" href="classExportPulse.html#a9fd56e3f5b63a3d579e65d25b74336a8">ExportPulse::~ExportPulse</a>(){
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">00050</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">ExportPulse::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00050"></a><a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">00050</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">ExportPulse::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
 <a name="l00051"></a>00051    <a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>=setup;
 <a name="l00052"></a>00052    <span class="keywordflow">if</span>(!<a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>){
 <a name="l00053"></a>00053       cout&lt;&lt;<span class="stringliteral">&quot;Error: TSetupData passed to ExportPulse is NULL...&quot;</span>&lt;&lt;endl;
@@ -131,7 +132,7 @@
 <a name="l00106"></a>00106    <span class="keywordflow">return</span> 0;
 <a name="l00107"></a>00107 }
 <a name="l00108"></a>00108 
-<a name="l00109"></a><a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a">00109</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a" title="Plot all pulses that we were asked to draw for this event.">ExportPulse::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
+<a name="l00109"></a><a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a">00109</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a" title="Plot all pulses that we were asked to draw for this event.">ExportPulse::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
 <a name="l00110"></a>00110   <span class="comment">// To be corrected once Phill finishes the event navigator</span>
 <a name="l00111"></a>00111   <a class="code" href="classExportPulse.html#a2f9e1ce7d5789234a235a726d3bc147a">fGlobalData</a>=gData; 
 <a name="l00112"></a>00112   <a class="code" href="classExportPulse.html#a841403fe90bbad6442416f4a9e60c778">SetCurrentEventNumber</a>(*<a class="code" href="main_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a>);

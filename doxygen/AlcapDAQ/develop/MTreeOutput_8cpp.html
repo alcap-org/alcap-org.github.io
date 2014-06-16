@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
@@ -183,7 +184,7 @@
 <a name="l00093"></a>00093   <span class="keywordflow">if</span> (split &lt; 0) {branchstyle = 0; split = -1-split;}
 <a name="l00094"></a>00094   TTree::SetBranchStyle(branchstyle);
 <a name="l00095"></a>00095 
-<a name="l00096"></a>00096   <a class="code" href="MTreeOutput_8cpp.html#a6e4265c1da704b36cf9887367a1066b1">fEventBranch</a> = <a class="code" href="MTreeOutput_8cpp.html#a11ebb9a4801f4d7cf184b7a635c02e80">fEventTree</a>-&gt;Branch(<span class="stringliteral">&quot;Event&quot;</span>, <span class="stringliteral">&quot;TGlobalData&quot;</span>, &amp;<a class="code" href="group__alcapana__main.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, bufsize, split);
+<a name="l00096"></a>00096   <a class="code" href="MTreeOutput_8cpp.html#a6e4265c1da704b36cf9887367a1066b1">fEventBranch</a> = <a class="code" href="MTreeOutput_8cpp.html#a11ebb9a4801f4d7cf184b7a635c02e80">fEventTree</a>-&gt;Branch(<span class="stringliteral">&quot;Event&quot;</span>, <span class="stringliteral">&quot;TGlobalData&quot;</span>, &amp;<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, bufsize, split);
 <a name="l00097"></a>00097   <a class="code" href="MTreeOutput_8cpp.html#a6e4265c1da704b36cf9887367a1066b1">fEventBranch</a>-&gt;SetAutoDelete(kFALSE);
 <a name="l00098"></a>00098 
 <a name="l00099"></a>00099   <span class="comment">// The TTree with the setup information</span>
@@ -191,7 +192,7 @@
 <a name="l00101"></a>00101   <a class="code" href="MTreeOutput_8cpp.html#a683b3662daa29a06159ed1ee7ec3832e">fSetupTree</a>-&gt;SetAutoSave(300000000); <span class="comment">// autosave when 300 Mbyte written.</span>
 <a name="l00102"></a>00102   <a class="code" href="MTreeOutput_8cpp.html#a683b3662daa29a06159ed1ee7ec3832e">fSetupTree</a>-&gt;SetMaxVirtualSize(300000000); <span class="comment">// 300 Mbyte</span>
 <a name="l00103"></a>00103 
-<a name="l00104"></a>00104   <a class="code" href="MTreeOutput_8cpp.html#aeae28db3671fa94baa0ab081b5bd6cd9">fSetupBranch</a> = <a class="code" href="MTreeOutput_8cpp.html#a683b3662daa29a06159ed1ee7ec3832e">fSetupTree</a>-&gt;Branch(<span class="stringliteral">&quot;Setup&quot;</span>, <span class="stringliteral">&quot;TSetupData&quot;</span>, &amp;<a class="code" href="group__alcapana__main.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>, bufsize, split);
+<a name="l00104"></a>00104   <a class="code" href="MTreeOutput_8cpp.html#aeae28db3671fa94baa0ab081b5bd6cd9">fSetupBranch</a> = <a class="code" href="MTreeOutput_8cpp.html#a683b3662daa29a06159ed1ee7ec3832e">fSetupTree</a>-&gt;Branch(<span class="stringliteral">&quot;Setup&quot;</span>, <span class="stringliteral">&quot;TSetupData&quot;</span>, &amp;<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>, bufsize, split);
 <a name="l00105"></a>00105   <a class="code" href="MTreeOutput_8cpp.html#aeae28db3671fa94baa0ab081b5bd6cd9">fSetupBranch</a>-&gt;SetAutoDelete(kFALSE);
 <a name="l00106"></a>00106   
 <a name="l00107"></a>00107   <a class="code" href="MTreeOutput_8cpp.html#a683b3662daa29a06159ed1ee7ec3832e">fSetupTree</a>-&gt;Fill();
@@ -350,13 +351,13 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">TROOT* <a class="el" href="MTreeOutput_8cpp.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a></td>
+          <td class="memname">TROOT* <a class="el" href="odb__check_8cc.html#aa3e77a8c365861e656f07ad0fb999f49">gROOT</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Referenced by <a class="el" href="MTreeOutput_8cpp_source.html#l00069">MTreeOutput_init()</a>.</p>
+<p>Referenced by <a class="el" href="odb__check_8cc_source.html#l00135">main()</a>, and <a class="el" href="MTreeOutput_8cpp_source.html#l00069">MTreeOutput_init()</a>.</p>
 
 </div>
 </div>
@@ -365,7 +366,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">HNDLE <a class="el" href="MUnCompressRawData_8cpp.html#ab1f60c53f74e806a3b9f687af38d7421">hDB</a></td>
+          <td class="memname">HNDLE <a class="el" href="group__MV1724ProcessRaw.html#gab1f60c53f74e806a3b9f687af38d7421">hDB</a></td>
         </tr>
       </table>
 </div>
