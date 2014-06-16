@@ -120,50 +120,50 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="HistogramFitFCN_8cpp_source.html#l00024">24</a> of file <a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a>.</p>
+<p>Definition at line <a class="el" href="HistogramFitFCN_8cpp_source.html#l00020">20</a> of file <a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a>.</p>
 
 <p>References <a class="el" href="HistogramFitFCN_8h_source.html#l00012">fH1</a>, and <a class="el" href="HistogramFitFCN_8h_source.html#l00013">fH2</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024                                                                       {
-<a name="l00025"></a>00025   <span class="comment">// Chi2 fit with pedestal P, amplitude A, and timing T</span>
-<a name="l00026"></a>00026   <span class="comment">// Warning: The time is truncated to an int, so if there&apos;s</span>
-<a name="l00027"></a>00027   <span class="comment">// so if the step size in MINUIT is smalled than 1,</span>
-<a name="l00028"></a>00028   <span class="comment">// Any value of T will probably be seen as minimized, which it</span>
-<a name="l00029"></a>00029   <span class="comment">// almost certainly will not be.</span>
-<a name="l00030"></a>00030   <span class="keywordtype">double</span> chi2 = 0.;
-<a name="l00031"></a>00031   <span class="keywordtype">double</span> P = par[0];
-<a name="l00032"></a>00032   <span class="keywordtype">double</span> A = par[1];
-<a name="l00033"></a>00033   <span class="keywordtype">int</span> T_i = (int)par[2];            <span class="comment">// Integral part of time shift</span>
-<a name="l00034"></a>00034   <span class="keywordtype">double</span> T_f = par[2] - (double)T_i; <span class="comment">// Floating point offset for linear interpolation</span>
-<a name="l00035"></a>00035   
+<p><div class="fragment"><pre class="fragment"><a name="l00020"></a>00020                                                                       {
+<a name="l00021"></a>00021   <span class="comment">// Chi2 fit with pedestal P, amplitude A, and timing T</span>
+<a name="l00022"></a>00022   <span class="comment">// Warning: The time is truncated to an int, so if there&apos;s</span>
+<a name="l00023"></a>00023   <span class="comment">// so if the step size in MINUIT is smalled than 1,</span>
+<a name="l00024"></a>00024   <span class="comment">// Any value of T will probably be seen as minimized, which it</span>
+<a name="l00025"></a>00025   <span class="comment">// almost certainly will not be.</span>
+<a name="l00026"></a>00026   <span class="keywordtype">double</span> chi2 = 0.;
+<a name="l00027"></a>00027   <span class="keywordtype">double</span> P = par[0];
+<a name="l00028"></a>00028   <span class="keywordtype">double</span> A = par[1];
+<a name="l00029"></a>00029   <span class="keywordtype">int</span> T_i = (int)par[2];            <span class="comment">// Integral part of time shift</span>
+<a name="l00030"></a>00030   <span class="keywordtype">double</span> T_f = par[2] - (double)T_i; <span class="comment">// Floating point offset for linear interpolation</span>
+<a name="l00031"></a>00031   
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033   <span class="keywordtype">int</span> bounds[2];
+<a name="l00034"></a>00034   bounds[0] = std::max(T_i - <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetNbinsX() / 2, 1);
+<a name="l00035"></a>00035   bounds[1] = std::min(T_i + <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetNbinsX() / 2 - 1, <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a>-&gt;GetNbinsX());
 <a name="l00036"></a>00036 
-<a name="l00037"></a>00037   <span class="keywordtype">int</span> bounds[2];
-<a name="l00038"></a>00038   bounds[0] = std::max(T_i - <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetNbinsX() / 2, 1);
-<a name="l00039"></a>00039   bounds[1] = std::min(T_i + <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetNbinsX() / 2 - 1, <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a>-&gt;GetNbinsX());
+<a name="l00037"></a>00037   <span class="comment">// Chi2 will be zero if shift is too high</span>
+<a name="l00038"></a>00038   <span class="keywordflow">if</span> (bounds[1] &lt;= bounds[0])
+<a name="l00039"></a>00039     std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: Fit of two histograms involves shifting one out-of-bounds (no overlap)!&quot;</span> &lt;&lt; std::endl;
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041   <span class="comment">// Chi2 will be zero if shift is too high</span>
-<a name="l00042"></a>00042   <span class="keywordflow">if</span> (bounds[1] &lt;= bounds[0])
-<a name="l00043"></a>00043     std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: Fit of two histograms involves shifting one out-of-bounds (no overlap)!&quot;</span> &lt;&lt; std::endl;
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045   <span class="keywordtype">double</span> f;
-<a name="l00046"></a>00046   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = bounds[0]; i &lt;= bounds[1]; ++i) {
-<a name="l00047"></a>00047     f = <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i - T_i) + (<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i - T_i + 1) - <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i - T_i)) * T_f;
-<a name="l00048"></a>00048     f = A * f + P;
-<a name="l00049"></a>00049     chi2 += std::pow((<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i) - f) / <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinError(i), 2.);
-<a name="l00050"></a>00050   }
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052   <span class="keyword">static</span> <span class="keywordtype">bool</span> print_dbg = <span class="keyword">true</span>;
-<a name="l00053"></a>00053   <span class="keywordflow">if</span> (print_dbg) {
-<a name="l00054"></a>00054     std::cout &lt;&lt; <span class="stringliteral">&quot;Fit:\tChi2 &quot;</span> &lt;&lt; chi2 &lt;&lt; <span class="stringliteral">&quot;\tP &quot;</span>
-<a name="l00055"></a>00055               &lt;&lt; P &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; par[0] &lt;&lt; <span class="stringliteral">&quot;)\tA &quot;</span> &lt;&lt; A &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; par[1] &lt;&lt; <span class="stringliteral">&quot;)\tT &quot;</span> &lt;&lt; T_i &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; T_f &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; par[2] &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; 0.02345
-<a name="l00056"></a>00056               &lt;&lt; std::endl;
-<a name="l00057"></a>00057     std::cout &lt;&lt; <span class="stringliteral">&quot;Bounds &quot;</span> &lt;&lt; bounds[0] &lt;&lt; <span class="stringliteral">&quot;-&quot;</span> &lt;&lt; bounds[1]
-<a name="l00058"></a>00058               &lt;&lt; <span class="stringliteral">&quot;\tH1NX &quot;</span> &lt;&lt; <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetNbinsX()
-<a name="l00059"></a>00059               &lt;&lt; <span class="stringliteral">&quot;\tH2NX &quot;</span> &lt;&lt; <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a>-&gt;GetNbinsX()
-<a name="l00060"></a>00060               &lt;&lt; std::endl; 
-<a name="l00061"></a>00061   }
-<a name="l00062"></a>00062   <span class="keywordflow">return</span> chi2;
-<a name="l00063"></a>00063 }
+<a name="l00041"></a>00041   <span class="keywordtype">double</span> f;
+<a name="l00042"></a>00042   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = bounds[0]; i &lt;= bounds[1]; ++i) {
+<a name="l00043"></a>00043     f = <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i - T_i) + (<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i - T_i + 1) - <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i - T_i)) * T_f;
+<a name="l00044"></a>00044     f = A * f + P;
+<a name="l00045"></a>00045     chi2 += std::pow((<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinContent(i) - f) / <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetBinError(i), 2.);
+<a name="l00046"></a>00046   }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048   <span class="keyword">static</span> <span class="keywordtype">bool</span> print_dbg = <span class="keyword">false</span>;
+<a name="l00049"></a>00049   <span class="keywordflow">if</span> (print_dbg) {
+<a name="l00050"></a>00050     std::cout &lt;&lt; <span class="stringliteral">&quot;Fit:\tChi2 &quot;</span> &lt;&lt; chi2 &lt;&lt; <span class="stringliteral">&quot;\tP &quot;</span>
+<a name="l00051"></a>00051               &lt;&lt; P &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; par[0] &lt;&lt; <span class="stringliteral">&quot;)\tA &quot;</span> &lt;&lt; A &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; par[1] &lt;&lt; <span class="stringliteral">&quot;)\tT &quot;</span> &lt;&lt; T_i &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; T_f &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; par[2] &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; 0.02345
+<a name="l00052"></a>00052               &lt;&lt; std::endl;
+<a name="l00053"></a>00053     std::cout &lt;&lt; <span class="stringliteral">&quot;Bounds &quot;</span> &lt;&lt; bounds[0] &lt;&lt; <span class="stringliteral">&quot;-&quot;</span> &lt;&lt; bounds[1]
+<a name="l00054"></a>00054               &lt;&lt; <span class="stringliteral">&quot;\tH1NX &quot;</span> &lt;&lt; <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>-&gt;GetNbinsX()
+<a name="l00055"></a>00055               &lt;&lt; <span class="stringliteral">&quot;\tH2NX &quot;</span> &lt;&lt; <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a>-&gt;GetNbinsX()
+<a name="l00056"></a>00056               &lt;&lt; std::endl; 
+<a name="l00057"></a>00057   }
+<a name="l00058"></a>00058   <span class="keywordflow">return</span> chi2;
+<a name="l00059"></a>00059 }
 </pre></div></p>
 
 </div>
@@ -188,13 +188,11 @@
 
 <p>References <a class="el" href="HistogramFitFCN_8h_source.html#l00012">fH1</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseTemplate_8cpp_source.html#l00167">PulseTemplate::Chi2Fit()</a>.</p>
+<p>Referenced by <a class="el" href="PulseTemplate_8cpp_source.html#l00167">PulseTemplate::Chi2Fit()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00016">TemplateFitter::FitPulseToTemplate()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00012"></a>00012                                     {
-<a name="l00013"></a>00013   <span class="keywordflow">if</span> (<a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a> &amp;&amp; <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a> != h1)
-<a name="l00014"></a>00014     <span class="keyword">delete</span> <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a>;
-<a name="l00015"></a>00015   <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a> = h1;
-<a name="l00016"></a>00016 }
+<a name="l00013"></a>00013   <a class="code" href="classHistogramFitFCN.html#a07c9857600f519325657263c894585a5">fH1</a> = h1;
+<a name="l00014"></a>00014 }
 </pre></div></p>
 
 </div>
@@ -215,17 +213,15 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="HistogramFitFCN_8cpp_source.html#l00018">18</a> of file <a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a>.</p>
+<p>Definition at line <a class="el" href="HistogramFitFCN_8cpp_source.html#l00016">16</a> of file <a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a>.</p>
 
 <p>References <a class="el" href="HistogramFitFCN_8h_source.html#l00013">fH2</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseTemplate_8cpp_source.html#l00167">PulseTemplate::Chi2Fit()</a>.</p>
+<p>Referenced by <a class="el" href="PulseTemplate_8cpp_source.html#l00167">PulseTemplate::Chi2Fit()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00016">TemplateFitter::FitPulseToTemplate()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00018"></a>00018                                     {
-<a name="l00019"></a>00019   <span class="keywordflow">if</span> (<a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a> &amp;&amp; <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a> != h2)
-<a name="l00020"></a>00020     <span class="keyword">delete</span> <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a>;
-<a name="l00021"></a>00021   <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a> = h2;
-<a name="l00022"></a>00022 }
+<p><div class="fragment"><pre class="fragment"><a name="l00016"></a>00016                                     {
+<a name="l00017"></a>00017   <a class="code" href="classHistogramFitFCN.html#a56f72af2ff0cf15518335797bba2ad96">fH2</a> = h2;
+<a name="l00018"></a>00018 }
 </pre></div></p>
 
 </div>
@@ -245,11 +241,11 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="HistogramFitFCN_8cpp_source.html#l00065">65</a> of file <a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a>.</p>
+<p>Definition at line <a class="el" href="HistogramFitFCN_8cpp_source.html#l00061">61</a> of file <a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00065"></a>00065                                  {
-<a name="l00066"></a>00066   <span class="keywordflow">return</span> 1.;
-<a name="l00067"></a>00067 }
+<p><div class="fragment"><pre class="fragment"><a name="l00061"></a>00061                                  {
+<a name="l00062"></a>00062   <span class="keywordflow">return</span> 1.;
+<a name="l00063"></a>00063 }
 </pre></div></p>
 
 </div>
@@ -268,7 +264,7 @@
 
 <p>Definition at line <a class="el" href="HistogramFitFCN_8h_source.html#l00012">12</a> of file <a class="el" href="HistogramFitFCN_8h_source.html">HistogramFitFCN.h</a>.</p>
 
-<p>Referenced by <a class="el" href="HistogramFitFCN_8cpp_source.html#l00024">operator()()</a>, and <a class="el" href="HistogramFitFCN_8cpp_source.html#l00012">SetH1()</a>.</p>
+<p>Referenced by <a class="el" href="HistogramFitFCN_8cpp_source.html#l00020">operator()()</a>, and <a class="el" href="HistogramFitFCN_8cpp_source.html#l00012">SetH1()</a>.</p>
 
 </div>
 </div>
@@ -285,16 +281,16 @@
 
 <p>Definition at line <a class="el" href="HistogramFitFCN_8h_source.html#l00013">13</a> of file <a class="el" href="HistogramFitFCN_8h_source.html">HistogramFitFCN.h</a>.</p>
 
-<p>Referenced by <a class="el" href="HistogramFitFCN_8cpp_source.html#l00024">operator()()</a>, and <a class="el" href="HistogramFitFCN_8cpp_source.html#l00018">SetH2()</a>.</p>
+<p>Referenced by <a class="el" href="HistogramFitFCN_8cpp_source.html#l00020">operator()()</a>, and <a class="el" href="HistogramFitFCN_8cpp_source.html#l00016">SetH2()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>rootana/src/TAP_generators/<a class="el" href="HistogramFitFCN_8h_source.html">HistogramFitFCN.h</a></li>
-<li>rootana/src/TAP_generators/<a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a></li>
+<li>rootana/src/TAP_generators/utils/<a class="el" href="HistogramFitFCN_8h_source.html">HistogramFitFCN.h</a></li>
+<li>rootana/src/TAP_generators/utils/<a class="el" href="HistogramFitFCN_8cpp_source.html">HistogramFitFCN.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 17 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

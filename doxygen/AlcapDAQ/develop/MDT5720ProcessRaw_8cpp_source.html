@@ -73,7 +73,7 @@
 <a name="l00046"></a>00046 
 <a name="l00049"></a><a class="code" href="group__MDT5720ProcessRaw.html#ga6b72349fb684832f5fad8818858d55b1">00049</a> <span class="keyword">static</span> vector&lt;string&gt; <a class="code" href="group__MDT5720ProcessRaw.html#ga6b72349fb684832f5fad8818858d55b1" title="List of BU CAEN bank names for the event loop.">caen_boston_bank_names</a>;
 <a name="l00059"></a><a class="code" href="group__MDT5720ProcessRaw.html#ga210df22660aaed8c1e817bf79a50a67f">00059</a> <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="group__MDT5720ProcessRaw.html#ga210df22660aaed8c1e817bf79a50a67f" title="Number of samples to record before a trigger.">nPreSamples</a>;
-<a name="l00062"></a><a class="code" href="group__MDT5720ProcessRaw.html#ga435e920e5997ef461e60c737deda7da6">00062</a> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="MyModule_8cpp.html#a435e920e5997ef461e60c737deda7da6">NCHAN</a> = 4;
+<a name="l00062"></a><a class="code" href="group__MDT5720ProcessRaw.html#ga435e920e5997ef461e60c737deda7da6">00062</a> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="group__MDT5720ProcessRaw.html#ga435e920e5997ef461e60c737deda7da6" title="Number of channels in DT5720.">NCHAN</a> = 4;
 <a name="l00063"></a>00063 
 <a name="l00064"></a><a class="code" href="group__MDT5720ProcessRaw.html#ga99a3bb6fe32f97241072c7059cb4adcb">00064</a> ANA_MODULE <a class="code" href="group__MDT5720ProcessRaw.html#ga99a3bb6fe32f97241072c7059cb4adcb">MDT5720ProcessRaw_module</a> =
 <a name="l00065"></a>00065 {
@@ -198,7 +198,7 @@
 <a name="l00184"></a>00184       uint32_t caen_channel_mask = p32[1] &amp; 0x000000FF;
 <a name="l00185"></a>00185       <span class="comment">// count the number of channels in the event</span>
 <a name="l00186"></a>00186       <span class="keywordtype">int</span> nchannels = 0;
-<a name="l00187"></a>00187       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ichannel=0; ichannel&lt;<a class="code" href="MyModule_8cpp.html#a435e920e5997ef461e60c737deda7da6">NCHAN</a>; ichannel++ )
+<a name="l00187"></a>00187       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ichannel=0; ichannel&lt;<a class="code" href="group__MDT5720ProcessRaw.html#ga435e920e5997ef461e60c737deda7da6" title="Number of channels in DT5720.">NCHAN</a>; ichannel++ )
 <a name="l00188"></a>00188         {
 <a name="l00189"></a>00189           <span class="keywordflow">if</span> ( caen_channel_mask &amp; (1&lt;&lt;ichannel) ) nchannels++; 
 <a name="l00190"></a>00190         }
@@ -282,7 +282,7 @@
 <a name="l00268"></a>00268 }
 <a name="l00269"></a>00269 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 17 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
