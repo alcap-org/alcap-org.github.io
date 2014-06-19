@@ -34,26 +34,28 @@
 <a name="l00007"></a>00007 <span class="keyword">class </span>gModulesOptions;
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="TemplateArchive_8h.html">utils/TemplateArchive.h</a>&quot;</span>
-<a name="l00010"></a>00010 
-<a name="l00011"></a><a class="code" href="classTemplateCreator.html">00011</a> <span class="keyword">class </span><a class="code" href="classTemplateCreator.html">TemplateCreator</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013  <span class="keyword">public</span>:
-<a name="l00014"></a>00014   <a class="code" href="classTemplateCreator.html#a14f9890eadec9e00bb37a97b7c4f4c13">TemplateCreator</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
-<a name="l00015"></a>00015   <a class="code" href="classTemplateCreator.html#a50828894e8aa3da51f3c543cd955a4ab">~TemplateCreator</a>();
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017  <span class="keyword">private</span>:
-<a name="l00018"></a>00018   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#a18857d2baa6a3efe0eb5e296931d12f4" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
-<a name="l00019"></a>00019   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#ab91ef6e16073900c994c128526872c6f">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
-<a name="l00020"></a>00020   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#a46be404795ee899f49b8570e7126ebe6">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
-<a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">00022</a>   <a class="code" href="classTemplateArchive.html">TemplateArchive</a>* <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>;
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024   <span class="keywordtype">void</span> <a class="code" href="classTemplateCreator.html#a1cadc4c94ac4a72163b4984382058b33">AddPulseToTemplate</a>(TH1D* &amp; hTemplate, <span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse);
-<a name="l00025"></a>00025 };
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="preprocessor">#endif //TEMPLATECREATOR_H_</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="PulseCandidateFinder_8h.html">utils/PulseCandidateFinder.h</a>&quot;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a><a class="code" href="classTemplateCreator.html">00012</a> <span class="keyword">class </span><a class="code" href="classTemplateCreator.html">TemplateCreator</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014  <span class="keyword">public</span>:
+<a name="l00015"></a>00015   <a class="code" href="classTemplateCreator.html#a14f9890eadec9e00bb37a97b7c4f4c13">TemplateCreator</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
+<a name="l00016"></a>00016   <a class="code" href="classTemplateCreator.html#a50828894e8aa3da51f3c543cd955a4ab">~TemplateCreator</a>();
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018  <span class="keyword">private</span>:
+<a name="l00019"></a>00019   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#a18857d2baa6a3efe0eb5e296931d12f4" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
+<a name="l00020"></a>00020   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#ab91ef6e16073900c994c128526872c6f">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
+<a name="l00021"></a>00021   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#a46be404795ee899f49b8570e7126ebe6">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">00023</a>   <a class="code" href="classTemplateArchive.html">TemplateArchive</a>* <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>;
+<a name="l00024"></a><a class="code" href="classTemplateCreator.html#a20155820021ad7681299510b216bc201">00024</a>   <a class="code" href="classPulseCandidateFinder.html">PulseCandidateFinder</a>* <a class="code" href="classTemplateCreator.html#a20155820021ad7681299510b216bc201">fPulseCandidateFinder</a>;
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026   <span class="keywordtype">void</span> <a class="code" href="classTemplateCreator.html#a1cadc4c94ac4a72163b4984382058b33">AddPulseToTemplate</a>(TH1D* &amp; hTemplate, <span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse);
+<a name="l00027"></a>00027 };
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#endif //TEMPLATECREATOR_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

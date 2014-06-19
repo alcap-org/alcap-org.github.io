@@ -61,11 +61,12 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a79ebb379bce4037a6caddc6a726dacc8">BeforeFirstEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#ac1dcbd80f553e46c7d4b413a47fb2c6f">AfterLastEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPulseCandidateFinder.html">PulseCandidateFinder</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a6cb1862c057a3d44b17c97759c910e88">fPulseCandidateFinder</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH1D * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00009">9</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html">PulseCandidateFinder_InvestigateParameters.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00011">11</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html">PulseCandidateFinder_InvestigateParameters.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a15441d5ced842a39b1384e2ea372e4e3"></a><!-- doxytag: member="PulseCandidateFinder_InvestigateParameters::PulseCandidateFinder_InvestigateParameters" ref="a15441d5ced842a39b1384e2ea372e4e3" args="(modules::options *opts)" -->
 <div class="memitem">
@@ -85,10 +86,14 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00016">16</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
 
+<p>References <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00023">fPulseCandidateFinder</a>.</p>
+
 <p><div class="fragment"><pre class="fragment"><a name="l00016"></a>00016                                                                                                           :
 <a name="l00017"></a>00017    <a class="code" href="classBaseModule.html#a960d236abd301acabcfec8c788e1848c" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;PulseCandidateFinder_InvestigateParameters&quot;</span>,opts){
 <a name="l00018"></a>00018   
-<a name="l00019"></a>00019 }
+<a name="l00019"></a>00019   <span class="comment">// Create the pulse candidate finder here and pass it the options so that it can configure the parameter values</span>
+<a name="l00020"></a>00020   <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a6cb1862c057a3d44b17c97759c910e88">fPulseCandidateFinder</a> = <span class="keyword">new</span> <a class="code" href="classPulseCandidateFinder.html">PulseCandidateFinder</a>(opts);  
+<a name="l00021"></a>00021 }
 
 </pre></div></p>
 
@@ -109,10 +114,10 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00021">21</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00023">23</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                                                                                        {
-<a name="l00022"></a>00022 }
+<p><div class="fragment"><pre class="fragment"><a name="l00023"></a>00023                                                                                        {
+<a name="l00024"></a>00024 }
 </pre></div></p>
 
 </div>
@@ -147,19 +152,19 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>Reimplemented from <a class="el" href="classBaseModule.html#a3d5448acee19f58a84e121683ff9f232">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00081">81</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00095">95</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00060">BaseModule::Debug()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00081"></a>00081                                                                                                   {
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00084"></a>00084   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00085"></a>00085      cout&lt;&lt;<span class="stringliteral">&quot;-----PulseCandidateFinder_InvestigateParameters::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00086"></a>00086   }
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088   <span class="keywordflow">return</span> 0;
-<a name="l00089"></a>00089 }
+<p><div class="fragment"><pre class="fragment"><a name="l00095"></a>00095                                                                                                   {
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00098"></a>00098   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00099"></a>00099      cout&lt;&lt;<span class="stringliteral">&quot;-----PulseCandidateFinder_InvestigateParameters::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
+<a name="l00100"></a>00100   }
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102   <span class="keywordflow">return</span> 0;
+<a name="l00103"></a>00103 }
 </pre></div></p>
 
 </div>
@@ -193,18 +198,18 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>Reimplemented from <a class="el" href="classBaseModule.html#a5b1253266e0bd9fff017581107c0e3ac">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">27</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00029">29</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00060">BaseModule::Debug()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027                                                                                                     {
-<a name="l00028"></a>00028   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00029"></a>00029   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00030"></a>00030      cout&lt;&lt;<span class="stringliteral">&quot;-----PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00031"></a>00031   }
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033   <span class="keywordflow">return</span> 0;
-<a name="l00034"></a>00034 }
+<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                                                                                                     {
+<a name="l00030"></a>00030   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00031"></a>00031   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00032"></a>00032      cout&lt;&lt;<span class="stringliteral">&quot;-----PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
+<a name="l00033"></a>00033   }
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035   <span class="keywordflow">return</span> 0;
+<a name="l00036"></a>00036 }
 </pre></div></p>
 
 </div>
@@ -230,7 +235,7 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00077">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00166">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00137">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00111">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00081">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00220">PulseViewer::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00031">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00205">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00045">TemplateCreator::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00091">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00130">PulseViewer::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00166">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00137">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00108">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00095">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00220">PulseViewer::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00032">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00029">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00205">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00040">ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00091">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00130">PulseViewer::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -327,49 +332,61 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>Reimplemented from <a class="el" href="classBaseModule.html#a77027581152c1ecd1b320b8cd36f1114">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">38</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00040">40</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
 
-<p>References <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00148">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00021">fParameterHistograms</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00133">ExportPulse::AddToExportList()</a>, <a class="el" href="BaseModule_8h_source.html#l00060">BaseModule::Debug()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00203">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00063">PulseCandidateFinder::FindPulseCandidates()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00024">fParameterHistograms</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00023">fPulseCandidateFinder</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="PulseCandidateFinder_8h_source.html#l00029">PulseCandidateFinder::GetNPulseCandidates()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00129">ExportPulse::Instance()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038                                                                                                 {
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040   <span class="comment">// Prepare a few variables</span>
-<a name="l00041"></a>00041   std::string bankname, detname;
-<a name="l00042"></a>00042   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a> thePulseIslands;
-<a name="l00043"></a>00043   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045   <span class="comment">// Loop over each detector</span>
-<a name="l00046"></a>00046   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
-<a name="l00047"></a>00047     
-<a name="l00048"></a>00048     <span class="comment">// Get the bank and detector names for this detector</span>
-<a name="l00049"></a>00049     bankname = it-&gt;first;
-<a name="l00050"></a>00050     detname = setup-&gt;GetDetectorName(bankname);
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052     <span class="comment">// Get the TPIs</span>
-<a name="l00053"></a>00053     thePulseIslands = it-&gt;second;
-<a name="l00054"></a>00054     <span class="keywordflow">if</span> (thePulseIslands.size() == 0) <span class="keywordflow">continue</span>; <span class="comment">// no pulses here..</span>
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056     <span class="comment">// Create the histogram that will store all the parameter values that we will look at to determine the best values</span>
-<a name="l00057"></a>00057     <span class="keywordflow">if</span> (<a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>.find(detname) == <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>.end()) {
-<a name="l00058"></a>00058       <span class="keywordtype">int</span> max_value = 10000;
-<a name="l00059"></a>00059       std::string histname = <span class="stringliteral">&quot;fParameterHistogram_&quot;</span> + detname;
-<a name="l00060"></a>00060       TH1D* histogram = <span class="keyword">new</span> TH1D(histname.c_str(), histname.c_str(), max_value, 0, max_value);
-<a name="l00061"></a>00061       <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>[detname] = histogram;
-<a name="l00062"></a>00062     }
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <span class="comment">// Loop through all the pulses</span>
-<a name="l00065"></a>00065     TH1D* parameter_histogram = <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>[detname];
-<a name="l00066"></a>00066     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068       <span class="comment">// Create the pulse candidate finder and histogram to store the parameters in</span>
-<a name="l00069"></a>00069       <a class="code" href="classPulseCandidateFinder.html">PulseCandidateFinder</a>* pulse_candidate_finder = <span class="keyword">new</span> <a class="code" href="classPulseCandidateFinder.html">PulseCandidateFinder</a>(*pulseIter);
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">FillParameterHistogram</a>(parameter_histogram);
-<a name="l00072"></a>00072     }
-<a name="l00073"></a>00073   }
+<p><div class="fragment"><pre class="fragment"><a name="l00040"></a>00040                                                                                                 {
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042   <span class="comment">// Prepare a few variables</span>
+<a name="l00043"></a>00043   std::string bankname, detname;
+<a name="l00044"></a>00044   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a> thePulseIslands;
+<a name="l00045"></a>00045   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047   <span class="comment">// Loop over each detector</span>
+<a name="l00048"></a>00048   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
+<a name="l00049"></a>00049     
+<a name="l00050"></a>00050     <span class="comment">// Get the bank and detector names for this detector</span>
+<a name="l00051"></a>00051     bankname = it-&gt;first;
+<a name="l00052"></a>00052     detname = setup-&gt;GetDetectorName(bankname);
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054     <span class="comment">// Get the TPIs</span>
+<a name="l00055"></a>00055     thePulseIslands = it-&gt;second;
+<a name="l00056"></a>00056     <span class="keywordflow">if</span> (thePulseIslands.size() == 0) <span class="keywordflow">continue</span>; <span class="comment">// no pulses here..</span>
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058     <span class="comment">// Create the histogram that will store all the parameter values that we will look at to determine the best values</span>
+<a name="l00059"></a>00059     <span class="keywordflow">if</span> (<a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>.find(detname) == <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>.end()) {
+<a name="l00060"></a>00060       <span class="keywordtype">int</span> max_value = 10000;
+<a name="l00061"></a>00061       std::string histname = <span class="stringliteral">&quot;fParameterHistogram_&quot;</span> + detname;
+<a name="l00062"></a>00062       TH1D* histogram = <span class="keyword">new</span> TH1D(histname.c_str(), histname.c_str(), max_value, 0, max_value);
+<a name="l00063"></a>00063       <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>[detname] = histogram;
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066     <span class="comment">// Create the histogram to store the parameters in</span>
+<a name="l00067"></a>00067     TH1D* parameter_histogram = <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a>[detname];
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <span class="comment">// Loop through all the pulses</span>
+<a name="l00070"></a>00070     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072       <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a6cb1862c057a3d44b17c97759c910e88">fPulseCandidateFinder</a>-&gt;<a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48">FindPulseCandidates</a>(*pulseIter);
+<a name="l00073"></a>00073       <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a6cb1862c057a3d44b17c97759c910e88">fPulseCandidateFinder</a>-&gt;<a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">FillParameterHistogram</a>(parameter_histogram);
 <a name="l00074"></a>00074 
-<a name="l00075"></a>00075   <span class="keywordflow">return</span> 0;
-<a name="l00076"></a>00076 }
+<a name="l00075"></a>00075       <span class="comment">// Use to export pulses (NB you will only want to run rootana on a few events to stop the output being large)</span>
+<a name="l00076"></a>00076       <span class="keywordtype">int</span> n_pulse_candidates = <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a6cb1862c057a3d44b17c97759c910e88">fPulseCandidateFinder</a>-&gt;<a class="code" href="classPulseCandidateFinder.html#a705d5fe0bff87dffdc9f465180362f02">GetNPulseCandidates</a>();
+<a name="l00077"></a>00077       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00078"></a>00078         <span class="keywordflow">if</span> (n_pulse_candidates &gt; 0) {
+<a name="l00079"></a>00079           <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">ExportPulse::Instance</a>()-&gt;<a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(detname, pulseIter - thePulseIslands.begin());
+<a name="l00080"></a>00080           <span class="keywordflow">if</span> (n_pulse_candidates &gt; 1) {
+<a name="l00081"></a>00081             std::cout &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;): Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; has &quot;</span> &lt;&lt; n_pulse_candidates &lt;&lt; <span class="stringliteral">&quot; pulse candidates\n&quot;</span>; 
+<a name="l00082"></a>00082           }
+<a name="l00083"></a>00083         }
+<a name="l00084"></a>00084       }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087   }
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089   <span class="keywordflow">return</span> 0;
+<a name="l00090"></a>00090 }
 </pre></div></p>
 
 </div>
@@ -476,9 +493,26 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00021">21</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html">PulseCandidateFinder_InvestigateParameters.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00024">24</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html">PulseCandidateFinder_InvestigateParameters.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00040">ProcessEntry()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6cb1862c057a3d44b17c97759c910e88"></a><!-- doxytag: member="PulseCandidateFinder_InvestigateParameters::fPulseCandidateFinder" ref="a6cb1862c057a3d44b17c97759c910e88" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPulseCandidateFinder.html">PulseCandidateFinder</a>* <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a6cb1862c057a3d44b17c97759c910e88">PulseCandidateFinder_InvestigateParameters::fPulseCandidateFinder</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00023">23</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html">PulseCandidateFinder_InvestigateParameters.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00040">ProcessEntry()</a>, and <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00016">PulseCandidateFinder_InvestigateParameters()</a>.</p>
 
 </div>
 </div>
@@ -504,7 +538,7 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 <li>rootana/src/TAP_generators/<a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

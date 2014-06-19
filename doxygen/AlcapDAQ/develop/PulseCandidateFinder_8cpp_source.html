@@ -32,196 +32,249 @@
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;sstream&gt;</span>
 <a name="l00007"></a>00007 
-<a name="l00010"></a><a class="code" href="classPulseCandidateFinder.html#afb429b77486184091cdfdc254ee8f610">00010</a> <a class="code" href="classPulseCandidateFinder.html#afb429b77486184091cdfdc254ee8f610">PulseCandidateFinder::PulseCandidateFinder</a>(<a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse): fPulseIsland(pulse) {
+<a name="l00010"></a><a class="code" href="classPulseCandidateFinder.html#afdb50739c2e8e7a8eb62421f16c670ee">00010</a> <a class="code" href="classPulseCandidateFinder.html#afdb50739c2e8e7a8eb62421f16c670ee">PulseCandidateFinder::PulseCandidateFinder</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) {
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(<a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
-<a name="l00013"></a>00013   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> theChannel = detname;
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015   <span class="comment">// We have a different algorithm for fast and slow pulses</span>
-<a name="l00016"></a>00016   <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a79421c775f45bd62f96145708e4a380e">IDs::Fast</a>) {
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018     <span class="keywordtype">int</span> rise = 0; <span class="comment">// the parameter for this algorithm</span>
-<a name="l00019"></a>00019     <span class="keywordflow">switch</span>(theChannel.<a class="code" href="classIDs_1_1channel.html#a8b64e911d6648636fa8b267728397d35" title="Get the detector enum for this channel.">Detector</a>()) {
-<a name="l00020"></a>00020     <span class="keywordflow">default</span>:
-<a name="l00021"></a>00021       rise = 100; <span class="comment">// TODO: pick a better default and hopefully parameters for all channels</span>
-<a name="l00022"></a>00022       <span class="keywordflow">break</span>;
-<a name="l00023"></a>00023     }
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025     <a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">FindCandidatePulses_Fast</a>(rise);
-<a name="l00026"></a>00026   }
-<a name="l00027"></a>00027   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a7e410e84ad1586032f7fa77f78baaf13">IDs::Slow</a>) {
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029     <span class="keywordtype">int</span> threshold = 0; <span class="comment">// the parameter for this algorithm</span>
-<a name="l00030"></a>00030     <span class="keywordflow">switch</span>(theChannel.<a class="code" href="classIDs_1_1channel.html#a8b64e911d6648636fa8b267728397d35" title="Get the detector enum for this channel.">Detector</a>()) {
-<a name="l00031"></a>00031     <span class="keywordflow">default</span>:
-<a name="l00032"></a>00032       threshold = 0; <span class="comment">// TODO: pick a better default and hopefully parameters for all channels</span>
-<a name="l00033"></a>00033       <span class="keywordflow">break</span>;
-<a name="l00034"></a>00034     }
+<a name="l00012"></a>00012   <span class="comment">// Set all the rise parameter values</span>
+<a name="l00013"></a>00013   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea9f7d7f2c53d9b647950010051d538a01">IDs::kMuSc</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;muSc&quot;</span>, 300);
+<a name="l00014"></a>00014   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aead274dee58337b075106483dc7b8ab385">IDs::kMuScA</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;muScA&quot;</span>, 100);
+<a name="l00015"></a>00015   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea39785895daf440c3e681a8b6739c9a97">IDs::kNDet</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;NDet&quot;</span>, 100);
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeaad48db5e2c1c76f822373199710cc65e">IDs::kGe</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;Ge-F&quot;</span>, 40);
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea31180eafbd03810cedba9ef67d186677">IDs::kScL</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;ScL&quot;</span>, 20);
+<a name="l00020"></a>00020   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea4f31ccc03dda85776711edc4cf1b012b">IDs::kScR</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;ScR&quot;</span>, 20);
+<a name="l00021"></a>00021   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea977d35c03e5878c14c9ae5f030baad3a">IDs::kScGe</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;ScGe&quot;</span>, 20);
+<a name="l00022"></a>00022   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeade198b5fa995cb880696557e8167f193">IDs::kScVe</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;ScVe&quot;</span>, 40);
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea741ae425b6d8db89553519390bf75364">IDs::kSiL2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL2-F&quot;</span>, 80);
+<a name="l00025"></a>00025   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeab4bf47bb95c266701af0b10922b9ffa1">IDs::kSiL1_1</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-1-F&quot;</span>, 40);
+<a name="l00026"></a>00026   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea0de27edc262de6fe94842ca099fe5507">IDs::kSiL1_2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-2-F&quot;</span>, 20);
+<a name="l00027"></a>00027   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeafc9284af6bdcbd1b0eca5844558fb015">IDs::kSiL1_3</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-3-F&quot;</span>, 20);
+<a name="l00028"></a>00028   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeae05a6c1c7eff204aadd9fa00e7456aac">IDs::kSiL1_4</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-4-F&quot;</span>, 80);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea8aefb1b904c351650ef44763e9682f43">IDs::kSiR2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR2-F&quot;</span>, 20);
+<a name="l00031"></a>00031   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea4928932217bf8c7175626391c9038c56">IDs::kSiR1_1</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-1-F&quot;</span>, 40);
+<a name="l00032"></a>00032   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeab430bf7715b94d16db45f7b0cc6c9acf">IDs::kSiR1_2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-2-F&quot;</span>, 60);
+<a name="l00033"></a>00033   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea9c3393184d6322f6760f2de15892724a">IDs::kSiR1_3</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-3-F&quot;</span>, 80);
+<a name="l00034"></a>00034   <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea0ed8ca876ac640e5b1926d62524092ca">IDs::kSiR1_4</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-4-F&quot;</span>, 40);
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036     <a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">FindCandidatePulses_Slow</a>(threshold);
-<a name="l00037"></a>00037   }
-<a name="l00038"></a>00038 }
-<a name="l00039"></a>00039 
-<a name="l00040"></a><a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42">00040</a> <a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42">PulseCandidateFinder::~PulseCandidateFinder</a>() {
-<a name="l00041"></a>00041 }
-<a name="l00042"></a>00042 
-<a name="l00045"></a><a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae">00045</a> std::vector&lt;TPulseIsland*&gt; <a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae">PulseCandidateFinder::GetPulseCandidates</a>() {
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047   <span class="comment">// Get the output ready</span>
-<a name="l00048"></a>00048   std::vector&lt;TPulseIsland*&gt; pulse_candidates;
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050   <span class="comment">// Loop through the pulse candidate locations</span>
-<a name="l00051"></a>00051   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;Location&gt;::iterator</a> locationIter = <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.begin(); locationIter != <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.end(); ++locationIter) {
-<a name="l00052"></a>00052     
-<a name="l00053"></a>00053     <span class="comment">// Get the start and stop locations</span>
-<a name="l00054"></a>00054     <span class="keywordtype">int</span> start_location = (*locationIter).start;
-<a name="l00055"></a>00055     <span class="keywordtype">int</span> stop_location = (*locationIter).stop;
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057     <span class="comment">// Get the bank name and work out what the new timestamp will be</span>
-<a name="l00058"></a>00058     std::string bankname = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
-<a name="l00059"></a>00059     <span class="keywordtype">int</span> new_timestamp = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + start_location;
+<a name="l00036"></a>00036   <span class="comment">// Set all the threshold parameter values</span>
+<a name="l00037"></a>00037   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeaad48db5e2c1c76f822373199710cc65e">IDs::kGe</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;Ge-S&quot;</span>, 500);
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea741ae425b6d8db89553519390bf75364">IDs::kSiL2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL2-S&quot;</span>, 20);
+<a name="l00040"></a>00040   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeab4bf47bb95c266701af0b10922b9ffa1">IDs::kSiL1_1</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-1-S&quot;</span>, 20);
+<a name="l00041"></a>00041   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea0de27edc262de6fe94842ca099fe5507">IDs::kSiL1_2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-2-S&quot;</span>, 150);
+<a name="l00042"></a>00042   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeafc9284af6bdcbd1b0eca5844558fb015">IDs::kSiL1_3</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-3-S&quot;</span>, 20);
+<a name="l00043"></a>00043   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeae05a6c1c7eff204aadd9fa00e7456aac">IDs::kSiL1_4</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiL1-4-S&quot;</span>, 40);
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea8aefb1b904c351650ef44763e9682f43">IDs::kSiR2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR2-S&quot;</span>, 50);
+<a name="l00046"></a>00046   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea4928932217bf8c7175626391c9038c56">IDs::kSiR1_1</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-1-S&quot;</span>, 50);
+<a name="l00047"></a>00047   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeab430bf7715b94d16db45f7b0cc6c9acf">IDs::kSiR1_2</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-2-S&quot;</span>, 30);
+<a name="l00048"></a>00048   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea9c3393184d6322f6760f2de15892724a">IDs::kSiR1_3</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-3-S&quot;</span>, 40);
+<a name="l00049"></a>00049   <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea0ed8ca876ac640e5b1926d62524092ca">IDs::kSiR1_4</a>] = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;SiR1-4-S&quot;</span>, 40);
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051   <span class="keywordflow">if</span> (opts-&gt;<a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>) &amp;&amp; (opts-&gt;<a class="code" href="classmodules_1_1options.html#ac299238808293ea544872eee3b1d4d2e" title="Returns the unprocessed value assigned to name.">GetOption</a>(<span class="stringliteral">&quot;debug&quot;</span>).empty() || opts-&gt;<a class="code" href="classmodules_1_1options.html#ae1e1d18085161597bde39d8649b3fb8f" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;debug&quot;</span>))) {
+<a name="l00052"></a>00052     std::cout &lt;&lt; <span class="stringliteral">&quot;Parameter Values for PulseCandidateFinder&quot;</span> &lt;&lt; std::endl; <span class="comment">// would be nice to know which module this is for</span>
+<a name="l00053"></a>00053     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iDet = <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aeaad48db5e2c1c76f822373199710cc65e">IDs::kGe</a>; iDet != <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aead274dee58337b075106483dc7b8ab385">IDs::kMuScA</a>; ++iDet) {
+<a name="l00054"></a>00054       std::cout &lt;&lt; IDs::channel::GetDetectorString(static_cast&lt;IDs::Detector_t&gt;(iDet)) &lt;&lt; std::endl;
+<a name="l00055"></a>00055       std::cout &lt;&lt; <span class="stringliteral">&quot;\tThreshold = &quot;</span> &lt;&lt; <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[iDet] &lt;&lt; std::endl;
+<a name="l00056"></a>00056       std::cout &lt;&lt; <span class="stringliteral">&quot;\tRise = &quot;</span> &lt;&lt; <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[iDet] &lt;&lt; std::endl;
+<a name="l00057"></a>00057     }
+<a name="l00058"></a>00058   }
+<a name="l00059"></a>00059 }
 <a name="l00060"></a>00060 
-<a name="l00061"></a>00061     <span class="comment">// Get the samples from the original TPI and have a new one ready for the pulse candidate</span>
-<a name="l00062"></a>00062     <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00063"></a>00063     std::vector&lt;int&gt; theNewSamples;
+<a name="l00063"></a><a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48">00063</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48">PulseCandidateFinder::FindPulseCandidates</a>(<a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse) {
 <a name="l00064"></a>00064 
-<a name="l00065"></a>00065     <span class="comment">// Loop through the samples between the start and stop locations and add them to the new samples vector</span>
-<a name="l00066"></a>00066     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = start_location; iSample &lt;= stop_location; ++iSample) {
-<a name="l00067"></a>00067       theNewSamples.push_back(theSamples.at(iSample));
-<a name="l00068"></a>00068     }
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse_island = <span class="keyword">new</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>(new_timestamp, theNewSamples, bankname);
-<a name="l00071"></a>00071     pulse_candidates.push_back(pulse_island);
-<a name="l00072"></a>00072   }
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074   <span class="keywordflow">return</span> pulse_candidates;
-<a name="l00075"></a>00075 }
-<a name="l00076"></a>00076 
-<a name="l00079"></a><a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">00079</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">PulseCandidateFinder::FindCandidatePulses_Fast</a>(<span class="keywordtype">int</span> rise) {
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00082"></a>00082   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00083"></a>00083   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00084"></a>00084   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
-<a name="l00087"></a>00087   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
-<a name="l00088"></a>00088   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090   <span class="comment">// Loop through the samples</span>
-<a name="l00091"></a>00091   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
-<a name="l00092"></a>00092     s1 = polarity * (samples[i-1] - pedestal);
-<a name="l00093"></a>00093     s2 = polarity * (samples[i] - pedestal);
-<a name="l00094"></a>00094     ds = s2 - s1;
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096     <span class="keywordflow">if</span> (found) {
-<a name="l00097"></a>00097       <span class="keywordflow">if</span> (s2 &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
-<a name="l00098"></a>00098         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
-<a name="l00099"></a>00099         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.push_back(location);
-<a name="l00100"></a>00100         found = <span class="keyword">false</span>;
-<a name="l00101"></a>00101       }
-<a name="l00102"></a>00102     } <span class="keywordflow">else</span> {
-<a name="l00103"></a>00103       <span class="keywordflow">if</span> (ds &gt; rise) {
-<a name="l00104"></a>00104         found = <span class="keyword">true</span>;
-<a name="l00105"></a>00105         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i - 1);
-<a name="l00106"></a>00106       }
-<a name="l00107"></a>00107     }
-<a name="l00108"></a>00108   }
-<a name="l00109"></a>00109 }
-<a name="l00110"></a>00110 
-<a name="l00113"></a><a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">00113</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">PulseCandidateFinder::FindCandidatePulses_Slow</a>(<span class="keywordtype">int</span> threshold) {
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00116"></a>00116   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00117"></a>00117   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00118"></a>00118   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00065"></a>00065   <span class="comment">// Clear the vector of pulse candidate locations first since it will still contain them from previous pulses</span>
+<a name="l00066"></a>00066   <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.clear();
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068   <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a> = pulse;
+<a name="l00069"></a>00069   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(<a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
+<a name="l00070"></a>00070   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> theChannel = detname;
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072   <span class="comment">// We have a different algorithm for fast and slow pulses</span>
+<a name="l00073"></a>00073   <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a79421c775f45bd62f96145708e4a380e">IDs::Fast</a>) {
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075     <span class="keywordtype">int</span> rise = <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[theChannel.<a class="code" href="classIDs_1_1channel.html#a8b64e911d6648636fa8b267728397d35" title="Get the detector enum for this channel.">Detector</a>()]; <span class="comment">// the parameter for this algorithm</span>
+<a name="l00076"></a>00076     <span class="keywordflow">if</span> (rise == 0) {
+<a name="l00077"></a>00077       std::cout &lt;&lt; <span class="stringliteral">&quot;Error: PulseCandidateFinder currently does not have a rise parameter for &quot;</span> &lt;&lt; detname &lt;&lt; std::endl;
+<a name="l00078"></a>00078     }
+<a name="l00079"></a>00079     <span class="keywordflow">else</span> {
+<a name="l00080"></a>00080       <a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">FindCandidatePulses_Fast</a>(rise);
+<a name="l00081"></a>00081     }
+<a name="l00082"></a>00082   }
+<a name="l00083"></a>00083   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a7e410e84ad1586032f7fa77f78baaf13">IDs::Slow</a>) {
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085     <span class="keywordtype">int</span> threshold = <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[theChannel.<a class="code" href="classIDs_1_1channel.html#a8b64e911d6648636fa8b267728397d35" title="Get the detector enum for this channel.">Detector</a>()]; <span class="comment">// the parameter for this algorithm</span>
+<a name="l00086"></a>00086     <span class="keywordflow">if</span> (threshold == 0) {
+<a name="l00087"></a>00087       std::cout &lt;&lt; <span class="stringliteral">&quot;Error: PulseCandidateFinder currently does not have a threshold parameter for &quot;</span> &lt;&lt; detname &lt;&lt; std::endl;
+<a name="l00088"></a>00088     }
+<a name="l00089"></a>00089     <span class="keywordflow">else</span> {
+<a name="l00090"></a>00090       <a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">FindCandidatePulses_Slow</a>(threshold);
+<a name="l00091"></a>00091     }
+<a name="l00092"></a>00092   }
+<a name="l00093"></a>00093 }
+<a name="l00094"></a>00094 
+<a name="l00095"></a><a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42">00095</a> <a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42">PulseCandidateFinder::~PulseCandidateFinder</a>() {
+<a name="l00096"></a>00096 }
+<a name="l00097"></a>00097 
+<a name="l00100"></a><a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae">00100</a> std::vector&lt;TPulseIsland*&gt; <a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae">PulseCandidateFinder::GetPulseCandidates</a>() {
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102   <span class="comment">// Get the output ready</span>
+<a name="l00103"></a>00103   std::vector&lt;TPulseIsland*&gt; pulse_candidates;
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105   <span class="comment">// Loop through the pulse candidate locations</span>
+<a name="l00106"></a>00106   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;Location&gt;::iterator</a> locationIter = <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.begin(); locationIter != <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.end(); ++locationIter) {
+<a name="l00107"></a>00107     
+<a name="l00108"></a>00108     <span class="comment">// Get the start and stop locations</span>
+<a name="l00109"></a>00109     <span class="keywordtype">int</span> start_location = (*locationIter).start;
+<a name="l00110"></a>00110     <span class="keywordtype">int</span> stop_location = (*locationIter).stop;
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112     <span class="comment">// Get the bank name and work out what the new timestamp will be</span>
+<a name="l00113"></a>00113     std::string bankname = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
+<a name="l00114"></a>00114     <span class="keywordtype">int</span> new_timestamp = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + start_location;
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116     <span class="comment">// Get the samples from the original TPI and have a new one ready for the pulse candidate</span>
+<a name="l00117"></a>00117     <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00118"></a>00118     std::vector&lt;int&gt; theNewSamples;
 <a name="l00119"></a>00119 
-<a name="l00120"></a>00120   <span class="keywordtype">int</span> sample_height; <span class="comment">// the sample&apos;s height above pedestal</span>
-<a name="l00121"></a>00121   <span class="keywordtype">int</span> start, stop; <span class="comment">// the start and stop location</span>
-<a name="l00122"></a>00122   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
-<a name="l00123"></a>00123   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
+<a name="l00120"></a>00120     <span class="comment">// Loop through the samples between the start and stop locations and add them to the new samples vector</span>
+<a name="l00121"></a>00121     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = start_location; iSample &lt;= stop_location; ++iSample) {
+<a name="l00122"></a>00122       theNewSamples.push_back(theSamples.at(iSample));
+<a name="l00123"></a>00123     }
 <a name="l00124"></a>00124 
-<a name="l00125"></a>00125   <span class="comment">// Loop through the samples</span>
-<a name="l00126"></a>00126   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
-<a name="l00127"></a>00127     sample_height = polarity * (samples[i] - pedestal);
+<a name="l00125"></a>00125     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse_island = <span class="keyword">new</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>(new_timestamp, theNewSamples, bankname);
+<a name="l00126"></a>00126     pulse_candidates.push_back(pulse_island);
+<a name="l00127"></a>00127   }
 <a name="l00128"></a>00128 
-<a name="l00129"></a>00129     <span class="keywordflow">if</span> (found) {
-<a name="l00130"></a>00130       <span class="keywordflow">if</span> (sample_height &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
-<a name="l00131"></a>00131         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
-<a name="l00132"></a>00132         start = stop = 0;
-<a name="l00133"></a>00133         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.push_back(location);
-<a name="l00134"></a>00134         found = <span class="keyword">false</span>;
-<a name="l00135"></a>00135       }
-<a name="l00136"></a>00136     } <span class="keywordflow">else</span> {
-<a name="l00137"></a>00137       <span class="keywordflow">if</span> (sample_height &gt; threshold) {
-<a name="l00138"></a>00138         found = <span class="keyword">true</span>;
-<a name="l00139"></a>00139         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i);
-<a name="l00140"></a>00140       }
-<a name="l00141"></a>00141     }
-<a name="l00142"></a>00142   }
-<a name="l00143"></a>00143 }
+<a name="l00129"></a>00129   <span class="keywordflow">return</span> pulse_candidates;
+<a name="l00130"></a>00130 }
+<a name="l00131"></a>00131 
+<a name="l00134"></a><a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">00134</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">PulseCandidateFinder::FindCandidatePulses_Fast</a>(<span class="keywordtype">int</span> rise) {
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00137"></a>00137   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00138"></a>00138   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00139"></a>00139   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
+<a name="l00142"></a>00142   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
+<a name="l00143"></a>00143   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
 <a name="l00144"></a>00144 
-<a name="l00145"></a>00145 
-<a name="l00148"></a><a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">00148</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">PulseCandidateFinder::FillParameterHistogram</a>(TH1D* histogram) {
-<a name="l00149"></a>00149 
-<a name="l00150"></a>00150   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(<a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
-<a name="l00151"></a>00151   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> theChannel = detname;
-<a name="l00152"></a>00152 
-<a name="l00153"></a>00153   std::string parameter_name = <span class="stringliteral">&quot;Unknown&quot;</span>;
-<a name="l00154"></a>00154 
-<a name="l00155"></a>00155   <span class="comment">// We have a different algorithm for fast and slow pulses</span>
-<a name="l00156"></a>00156   <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a79421c775f45bd62f96145708e4a380e">IDs::Fast</a>) {
-<a name="l00157"></a>00157     parameter_name = <span class="stringliteral">&quot;SampleDifference&quot;</span>;
-<a name="l00158"></a>00158     <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">FillSampleDifferencesHistogram</a>(histogram);
-<a name="l00159"></a>00159   }
-<a name="l00160"></a>00160   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a7e410e84ad1586032f7fa77f78baaf13">IDs::Slow</a>) {
-<a name="l00161"></a>00161     parameter_name = <span class="stringliteral">&quot;SampleHeight&quot;</span>;
-<a name="l00162"></a>00162     <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">FillSampleHeightsHistogram</a>(histogram);
+<a name="l00145"></a>00145   <span class="comment">// Loop through the samples</span>
+<a name="l00146"></a>00146   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
+<a name="l00147"></a>00147     s1 = polarity * (samples[i-1] - pedestal);
+<a name="l00148"></a>00148     s2 = polarity * (samples[i] - pedestal);
+<a name="l00149"></a>00149     ds = s2 - s1;
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151     <span class="keywordflow">if</span> (found) {
+<a name="l00152"></a>00152       <span class="keywordflow">if</span> (s2 &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
+<a name="l00153"></a>00153         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
+<a name="l00154"></a>00154         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.push_back(location);
+<a name="l00155"></a>00155         found = <span class="keyword">false</span>;
+<a name="l00156"></a>00156       }
+<a name="l00157"></a>00157     } <span class="keywordflow">else</span> {
+<a name="l00158"></a>00158       <span class="keywordflow">if</span> (ds &gt; rise) {
+<a name="l00159"></a>00159         found = <span class="keyword">true</span>;
+<a name="l00160"></a>00160         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i - 1);
+<a name="l00161"></a>00161       }
+<a name="l00162"></a>00162     }
 <a name="l00163"></a>00163   }
-<a name="l00164"></a>00164 
-<a name="l00165"></a>00165   std::string histtitle = <span class="stringliteral">&quot;Plot of &quot;</span> + parameter_name + <span class="stringliteral">&quot; for &quot;</span> + detname + <span class="stringliteral">&quot; for Run 2808&quot;</span>;
-<a name="l00166"></a>00166   histogram-&gt;SetTitle(histtitle.c_str());
-<a name="l00167"></a>00167   histogram-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00168"></a>00168   histogram-&gt;GetXaxis()-&gt;SetTitle(parameter_name.c_str());
-<a name="l00169"></a>00169 }
-<a name="l00170"></a>00170 
-<a name="l00173"></a><a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">00173</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">PulseCandidateFinder::FillSampleDifferencesHistogram</a>(TH1D* histogram) {
+<a name="l00164"></a>00164 }
+<a name="l00165"></a>00165 
+<a name="l00168"></a><a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">00168</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">PulseCandidateFinder::FindCandidatePulses_Slow</a>(<span class="keywordtype">int</span> threshold) {
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00171"></a>00171   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00172"></a>00172   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00173"></a>00173   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
 <a name="l00174"></a>00174 
-<a name="l00175"></a>00175   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00176"></a>00176   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00177"></a>00177   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00178"></a>00178   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00175"></a>00175   <span class="keywordtype">int</span> sample_height; <span class="comment">// the sample&apos;s height above pedestal</span>
+<a name="l00176"></a>00176   <span class="keywordtype">int</span> start, stop; <span class="comment">// the start and stop location</span>
+<a name="l00177"></a>00177   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
+<a name="l00178"></a>00178   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
 <a name="l00179"></a>00179 
-<a name="l00180"></a>00180   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
-<a name="l00181"></a>00181 
-<a name="l00182"></a>00182   <span class="comment">// Loop through the samples</span>
-<a name="l00183"></a>00183   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
-<a name="l00184"></a>00184     s1 = polarity * (samples[i-1] - pedestal);
-<a name="l00185"></a>00185     s2 = polarity * (samples[i] - pedestal);
-<a name="l00186"></a>00186     ds = s2 - s1;
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188     histogram-&gt;Fill(ds);
-<a name="l00189"></a>00189   }
-<a name="l00190"></a>00190 }
-<a name="l00191"></a>00191 
-<a name="l00194"></a><a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">00194</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">PulseCandidateFinder::FillSampleHeightsHistogram</a>(TH1D* histogram) {
-<a name="l00195"></a>00195 
-<a name="l00196"></a>00196   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00197"></a>00197   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00198"></a>00198   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00199"></a>00199   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00180"></a>00180   <span class="comment">// Loop through the samples</span>
+<a name="l00181"></a>00181   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
+<a name="l00182"></a>00182     sample_height = polarity * (samples[i] - pedestal);
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184     <span class="keywordflow">if</span> (found) {
+<a name="l00185"></a>00185       <span class="keywordflow">if</span> (sample_height &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
+<a name="l00186"></a>00186         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
+<a name="l00187"></a>00187         start = stop = 0;
+<a name="l00188"></a>00188         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d">fPulseCandidateLocations</a>.push_back(location);
+<a name="l00189"></a>00189         found = <span class="keyword">false</span>;
+<a name="l00190"></a>00190       }
+<a name="l00191"></a>00191     } <span class="keywordflow">else</span> {
+<a name="l00192"></a>00192       <span class="keywordflow">if</span> (sample_height &gt; threshold) {
+<a name="l00193"></a>00193         found = <span class="keyword">true</span>;
+<a name="l00194"></a>00194         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i);
+<a name="l00195"></a>00195       }
+<a name="l00196"></a>00196     }
+<a name="l00197"></a>00197   }
+<a name="l00198"></a>00198 }
+<a name="l00199"></a>00199 
 <a name="l00200"></a>00200 
-<a name="l00201"></a>00201   <span class="keywordtype">int</span> sample_height; <span class="comment">// the height of this sample above pedestal</span>
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203   <span class="comment">// Loop through the samples</span>
-<a name="l00204"></a>00204   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
-<a name="l00205"></a>00205     sample_height = polarity * (samples[i] - pedestal);
-<a name="l00206"></a>00206 
-<a name="l00207"></a>00207     histogram-&gt;Fill(sample_height);
-<a name="l00208"></a>00208   }
-<a name="l00209"></a>00209 }
+<a name="l00203"></a><a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">00203</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">PulseCandidateFinder::FillParameterHistogram</a>(TH1D* histogram) {
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(<a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
+<a name="l00206"></a>00206   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> theChannel = detname;
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208   std::string parameter_name = <span class="stringliteral">&quot;Unknown&quot;</span>;
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210   <span class="comment">// We have a different algorithm for fast and slow pulses</span>
+<a name="l00211"></a>00211   <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a79421c775f45bd62f96145708e4a380e">IDs::Fast</a>) {
+<a name="l00212"></a>00212     parameter_name = <span class="stringliteral">&quot;SampleDifference&quot;</span>;
+<a name="l00213"></a>00213     <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">FillSampleDifferencesHistogram</a>(histogram);
+<a name="l00214"></a>00214   }
+<a name="l00215"></a>00215   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (theChannel == <a class="code" href="namespaceIDs.html#a7e410e84ad1586032f7fa77f78baaf13">IDs::Slow</a>) {
+<a name="l00216"></a>00216     parameter_name = <span class="stringliteral">&quot;SampleHeight&quot;</span>;
+<a name="l00217"></a>00217     <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">FillSampleHeightsHistogram</a>(histogram);
+<a name="l00218"></a>00218   }
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220   std::string histtitle = <span class="stringliteral">&quot;Plot of &quot;</span> + parameter_name + <span class="stringliteral">&quot; for &quot;</span> + detname + <span class="stringliteral">&quot; for Run 2808&quot;</span>;
+<a name="l00221"></a>00221   histogram-&gt;SetTitle(histtitle.c_str());
+<a name="l00222"></a>00222   histogram-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00223"></a>00223   histogram-&gt;GetXaxis()-&gt;SetTitle(parameter_name.c_str());
+<a name="l00224"></a>00224 }
+<a name="l00225"></a>00225 
+<a name="l00228"></a><a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">00228</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">PulseCandidateFinder::FillSampleDifferencesHistogram</a>(TH1D* histogram) {
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00231"></a>00231   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00232"></a>00232   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00233"></a>00233   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237   <span class="comment">// Loop through the samples</span>
+<a name="l00238"></a>00238   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
+<a name="l00239"></a>00239     s1 = polarity * (samples[i-1] - pedestal);
+<a name="l00240"></a>00240     s2 = polarity * (samples[i] - pedestal);
+<a name="l00241"></a>00241     ds = s2 - s1;
+<a name="l00242"></a>00242 
+<a name="l00243"></a>00243     histogram-&gt;Fill(ds);
+<a name="l00244"></a>00244   }
+<a name="l00245"></a>00245 }
+<a name="l00246"></a>00246 
+<a name="l00249"></a><a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">00249</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">PulseCandidateFinder::FillSampleHeightsHistogram</a>(TH1D* histogram) {
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00252"></a>00252   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00253"></a>00253   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00254"></a>00254   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="Store the TPulseIsland and pulse candidate locations for one pulse at a time.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256   <span class="keywordtype">int</span> sample_height; <span class="comment">// the height of this sample above pedestal</span>
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258   <span class="comment">// Loop through the samples</span>
+<a name="l00259"></a>00259   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
+<a name="l00260"></a>00260     sample_height = polarity * (samples[i] - pedestal);
+<a name="l00261"></a>00261 
+<a name="l00262"></a>00262     histogram-&gt;Fill(sample_height);
+<a name="l00263"></a>00263   }
+<a name="l00264"></a>00264 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
