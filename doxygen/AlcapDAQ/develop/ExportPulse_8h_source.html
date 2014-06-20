@@ -40,7 +40,7 @@
 <a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="ModulesOptions_8h.html">ModulesOptions.h</a>&quot;</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="ModulesNavigator_8h.html">ModulesNavigator.h</a>&quot;</span>
 <a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="keyword">class </span><a class="code" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a>;
+<a name="l00016"></a>00016 <span class="keyword">class </span><a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>;
 <a name="l00017"></a>00017 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>;
 <a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
 <a name="l00019"></a>00019 
@@ -66,7 +66,7 @@
 <a name="l00045"></a>00045 
 <a name="l00050"></a>00050   <span class="keywordtype">void</span> <a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(<span class="keyword">const</span> std::string&amp; channel,<a class="code" href="classExportPulse.html#a42a60224e4dc343493be904b3bc9344e">TPulseIslandID</a> pulse_id);
 <a name="l00051"></a>00051 
-<a name="l00056"></a>00056   <span class="keywordtype">void</span> <a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(<span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* pulse);
+<a name="l00056"></a>00056   <span class="keywordtype">void</span> <a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(<span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* pulse);
 <a name="l00057"></a>00057 
 <a name="l00065"></a>00065   <span class="comment">//     ExportPulse::Instance()-&gt;AddToExportList(channel,0);</span>
 <a name="l00069"></a>00069 <span class="comment"></span>  <span class="keyword">static</span> <a class="code" href="classExportPulse.html">ExportPulse</a>* <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">Instance</a>();
@@ -82,7 +82,7 @@
 <a name="l00086"></a>00086   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#af5e54e3adbe2fbb2e609e2bac7c3fb88" title="Draw all TAPs requested for this event.">DrawTAPs</a>();
 <a name="l00087"></a>00087 
 <a name="l00089"></a>00089   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#aa9ed6c7e6161f569bd843cf8ce426237" title="Plot a single TPI.">PlotTPI</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>;
-<a name="l00091"></a>00091   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a4b5476f83c47b00425dff2bd8d17fcf7" title="Plot a single TAP.">PlotTAP</a>(<span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>;
+<a name="l00091"></a>00091   <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#a4b5476f83c47b00425dff2bd8d17fcf7" title="Plot a single TAP.">PlotTAP</a>(<span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* pulse, <span class="keyword">const</span> <a class="code" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&amp; info)<span class="keyword">const</span>;
 <a name="l00093"></a>00093   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* <a class="code" href="classExportPulse.html#a028e846c63821414332740df175670c9" title="Get a pointer to the list of TPIs for a given detector.">GetTPIsFromDetector</a>(std::string bank=<span class="stringliteral">&quot;&quot;</span>);
 <a name="l00094"></a>00094 
 <a name="l00095"></a><a class="code" href="classExportPulse.html#a184fa6a1f52d6086cfe2d9ec4b65a727">00095</a>   <span class="keywordtype">void</span> <a class="code" href="classExportPulse.html#a184fa6a1f52d6086cfe2d9ec4b65a727">SetCurrentPulseID</a>(<span class="keyword">const</span> <a class="code" href="classExportPulse.html#a42a60224e4dc343493be904b3bc9344e">TPulseIslandID</a>&amp; <span class="keywordtype">id</span>){<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a194a5aedc57c5c4ff621c30ef6994658">pulseID</a>=id;};
@@ -127,7 +127,7 @@
 <a name="l00134"></a>00134   <a class="code" href="classExportPulse.html#afc7bd08952c8f320c6b13fa7b0443f27">fTPIsToPlot</a>[detector].insert(pulse_id);
 <a name="l00135"></a>00135 }
 <a name="l00136"></a>00136 
-<a name="l00137"></a><a class="code" href="classExportPulse.html#af022d6dc13d27476c605368aea3e0d62">00137</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">ExportPulse::AddToExportList</a>(<span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* pulse){
+<a name="l00137"></a><a class="code" href="classExportPulse.html#af022d6dc13d27476c605368aea3e0d62">00137</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">ExportPulse::AddToExportList</a>(<span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* pulse){
 <a name="l00138"></a>00138   std::string channel=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str();
 <a name="l00139"></a>00139   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) std::cout&lt;&lt;<span class="stringliteral">&quot;ExportPulse: Asked to draw a TAP for &quot;</span>&lt;&lt;channel&lt;&lt;std::endl;
 <a name="l00140"></a>00140   <a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>[channel].push_back(pulse);
@@ -147,7 +147,7 @@
 <a name="l00154"></a>00154 
 <a name="l00155"></a>00155 <span class="preprocessor">#endif // ExportPulse_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

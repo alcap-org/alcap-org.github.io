@@ -41,7 +41,7 @@
 <a name="l00015"></a>00015   };
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017  <span class="keyword">public</span>:
-<a name="l00018"></a>00018   <a class="code" href="classPulseCandidateFinder.html#afdb50739c2e8e7a8eb62421f16c670ee">PulseCandidateFinder</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
+<a name="l00018"></a>00018   <a class="code" href="classPulseCandidateFinder.html#a8e92421d5fc5c6856295db34022c9702">PulseCandidateFinder</a>(std::string detname, <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
 <a name="l00019"></a>00019   <a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42">~PulseCandidateFinder</a>();
 <a name="l00020"></a>00020 
 <a name="l00021"></a>00021  <span class="keyword">private</span>:
@@ -68,16 +68,16 @@
 <a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">FillSampleHeightsHistogram</a>(TH1D* histogram);
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045  <span class="keyword">private</span>:
-<a name="l00047"></a><a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0">00047</a>   <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder.html#a5e82748ae7041bf071c0c220a6a899c0" title="The parameter values for each channel.">fThresholdValues</a>[<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba" title="Used by some algorithms to loop over all Detector_t enum values.">IDs::num_detector_enums</a>];
-<a name="l00048"></a><a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">00048</a>   <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder.html#ae83895c30bd171fab0816b9829f75c09">fRiseValues</a>[<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba" title="Used by some algorithms to loop over all Detector_t enum values.">IDs::num_detector_enums</a>];
+<a name="l00047"></a><a class="code" href="classPulseCandidateFinder.html#ae70628aad4452fa0cc414a56b090cd9a">00047</a>   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> <a class="code" href="classPulseCandidateFinder.html#ae70628aad4452fa0cc414a56b090cd9a" title="The channel and parameter value to use.">fChannel</a>;
+<a name="l00048"></a><a class="code" href="classPulseCandidateFinder.html#a3933e9ac253ffe62ffd5e32f05997bd7">00048</a>   <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder.html#a3933e9ac253ffe62ffd5e32f05997bd7">fParameterValue</a>;
 <a name="l00049"></a>00049 
-<a name="l00050"></a>00050  <span class="keyword">public</span>:
-<a name="l00051"></a>00051   
+<a name="l00050"></a><a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d">00050</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, int&gt; <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="Need to declare this outside of any method.">fDefaultParameterValues</a>;
+<a name="l00051"></a>00051   <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a860548ff5a2ced2024d376ecce77b07e">SetDefaultParameterValues</a>();
 <a name="l00052"></a>00052 };
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

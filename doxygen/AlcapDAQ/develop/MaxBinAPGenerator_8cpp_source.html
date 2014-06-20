@@ -35,18 +35,18 @@
 <a name="l00008"></a>00008 <span class="comment">// -- Returns tru of the first pulse is before the second</span>
 <a name="l00009"></a>00009 <span class="comment">// Static so that only this file sees it</span>
 <a name="l00010"></a>00010 <span class="comment">// Useful for sorting the pulses</span>
-<a name="l00011"></a><a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">00011</a> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">IsTimeOrdered</a>(<a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* a, <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* b) {
+<a name="l00011"></a><a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">00011</a> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">IsTimeOrdered</a>(<a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* a, <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* b) {
 <a name="l00012"></a>00012   <span class="comment">// Want a to be before b</span>
 <a name="l00013"></a>00013   <span class="keywordflow">return</span> ( a-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() &lt; b-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() );
 <a name="l00014"></a>00014 }
 <a name="l00015"></a>00015 
-<a name="l00016"></a><a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b">00016</a> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b">MaxBinAPGenerator::ProcessPulses</a>(
+<a name="l00016"></a><a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b">00016</a> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b" title="This method is called on each vector of pulses from a MIDAS event.">MaxBinAPGenerator::ProcessPulses</a>(
 <a name="l00017"></a>00017       <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; pulseList, <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; analysedList){
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019       <a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">SetBankInfo</a>(pulseList.at(0)-&gt;GetBankName());
 <a name="l00020"></a>00020 
 <a name="l00021"></a>00021       <span class="keywordtype">double</span> amplitude, time, integral, energy;
-<a name="l00022"></a>00022       <a class="code" href="classTAnalysedPulse.html">TAnalysedPulse</a>* outPulse;
+<a name="l00022"></a>00022       <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* outPulse;
 <a name="l00023"></a>00023       <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> pulseIter = pulseList.begin(); pulseIter != pulseList.end(); pulseIter++) {
 <a name="l00024"></a>00024          amplitude = 0;
 <a name="l00025"></a>00025          time = 0;
@@ -56,7 +56,7 @@
 <a name="l00029"></a>00029          <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">GetAllParameters_MaxBin</a>(*pulseIter,amplitude,time,integral,energy);
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031          <span class="comment">// Make the TAnalysedPulse pulse</span>
-<a name="l00032"></a>00032          outPulse=<a class="code" href="classTVAnalysedPulseGenerator.html#a609f6e1223fafee20c4589f0c1609db5">MakeNewTAP</a>(pulseIter-pulseList.begin());
+<a name="l00032"></a>00032          outPulse=<a class="code" href="classTVAnalysedPulseGenerator.html#a609f6e1223fafee20c4589f0c1609db5" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(pulseIter-pulseList.begin());
 <a name="l00033"></a>00033          outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(amplitude);
 <a name="l00034"></a>00034          outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
 <a name="l00035"></a>00035          outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a3cb1acc3d1ad46fd0a69e0bbde8cf272">SetEnergy</a>(energy);
@@ -89,7 +89,7 @@
 <a name="l00062"></a>00062 
 <a name="l00063"></a>00063 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(MaxBin);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
