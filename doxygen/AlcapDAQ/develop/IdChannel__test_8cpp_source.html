@@ -65,12 +65,26 @@
 <a name="l00038"></a>00038     ensure(<span class="stringliteral">&quot;Doublely wild is wild&quot;</span>, all_wild.isWildCard());    
 <a name="l00039"></a>00039     ensure(<span class="stringliteral">&quot;Doublely wild is wild det&quot;</span>, all_wild.isWildCardDetector());    
 <a name="l00040"></a>00040     ensure(<span class="stringliteral">&quot;Doublely wild is wild S/F&quot;</span>, all_wild.isWildCardSlowFast());    
-<a name="l00041"></a>00041   }
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042     std::string string_ch0(<span class="stringliteral">&quot;Ge-F&quot;</span>);
+<a name="l00043"></a>00043     std::string string_ch1(<span class="stringliteral">&quot;ge-f&quot;</span>);
+<a name="l00044"></a>00044     std::string string_ch2(<span class="stringliteral">&quot;ge_f&quot;</span>);
+<a name="l00045"></a>00045     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> ch0(string_ch0);
+<a name="l00046"></a>00046     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> ch1(string_ch1);
+<a name="l00047"></a>00047     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> ch2(string_ch2);
+<a name="l00048"></a>00048     ensure_equals(<span class="stringliteral">&quot;Ge-F == ge-f&quot;</span>, ch0,ch1);    
+<a name="l00049"></a>00049     ensure_equals(<span class="stringliteral">&quot;Ge-F == ge_f&quot;</span>, ch0,ch2);    
+<a name="l00050"></a>00050     ensure_equals(<span class="stringliteral">&quot;ge_f == ge-f&quot;</span>, ch2,ch1);    
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052     ensure_equals(<span class="stringliteral">&quot;IDs::channel(\&quot;Ge-F\&quot;).str() should give Ge-F&quot;</span>, ch0.str(),string_ch0);    
+<a name="l00053"></a>00053     ensure_equals(<span class="stringliteral">&quot;IDs::channel(\&quot;ge-f\&quot;).str() should give Ge-F&quot;</span>, ch1.str(),string_ch0);    
+<a name="l00054"></a>00054     ensure_equals(<span class="stringliteral">&quot;IDs::channel(\&quot;ge_f\&quot;).str() should give Ge-F&quot;</span>, ch2.str(),string_ch0);    
+<a name="l00055"></a>00055   }
+<a name="l00056"></a>00056 }
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

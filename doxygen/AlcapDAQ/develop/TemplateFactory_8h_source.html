@@ -60,53 +60,55 @@
 <a name="l00038"></a>00038         <span class="comment">// Set the factory to output debugging commands</span>
 <a name="l00039"></a><a class="code" href="classTemplateFactory.html#a957905eb621b32168cb27950fcdbc360">00039</a>         <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a957905eb621b32168cb27950fcdbc360">SetDebug</a>(<span class="keywordtype">bool</span> debug=<span class="keyword">true</span>){<a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">fDebug</a>=debug;};
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041     <span class="keyword">private</span>:
-<a name="l00042"></a>00042         <span class="comment">// the list of makers for all modules</span>
-<a name="l00043"></a>00043         <span class="keyword">typedef</span> std::map&lt;std::string, maker&gt; <a class="code" href="classTemplateFactory.html#a9646ece1569a47c42dd41902b1752ed7">MakersList</a>; 
-<a name="l00044"></a><a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">00044</a>         <a class="code" href="classTemplateFactory.html#a9646ece1569a47c42dd41902b1752ed7">MakersList</a> <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <span class="comment">// the list of given options for all modules</span>
-<a name="l00047"></a><a class="code" href="classTemplateFactory.html#a08ea50c9cb2f403c4f1b6e84b82e3765">00047</a>         <span class="keyword">typedef</span> std::map&lt;std::string, OptionsType*&gt; <a class="code" href="classTemplateFactory.html#a08ea50c9cb2f403c4f1b6e84b82e3765">OptionsList</a>; 
-<a name="l00048"></a><a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">00048</a>         <a class="code" href="classTemplateFactory.html#a08ea50c9cb2f403c4f1b6e84b82e3765">OptionsList</a> <a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">fModuleOptions</a>;
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         <span class="comment">// the list of expected arguments for all modules</span>
-<a name="l00051"></a><a class="code" href="classTemplateFactory.html#aba3ece5f2fdab7f8d2232fdc1bb3db35">00051</a>         <span class="keyword">typedef</span> std::vector&lt;std::string&gt; <a class="code" href="classTemplateFactory.html#aba3ece5f2fdab7f8d2232fdc1bb3db35">ArgumentsVector</a>;
-<a name="l00052"></a><a class="code" href="classTemplateFactory.html#a887bb54848cac2811f26eb40651acb89">00052</a>         <span class="keyword">typedef</span> std::map&lt;std::string, ArgumentsVector&gt; <a class="code" href="classTemplateFactory.html#a887bb54848cac2811f26eb40651acb89">ArgsList</a>; 
-<a name="l00053"></a><a class="code" href="classTemplateFactory.html#a07ad22f65f6f6eb3b0e8e3a4eab3b874">00053</a>         <a class="code" href="classTemplateFactory.html#a887bb54848cac2811f26eb40651acb89">ArgsList</a> <a class="code" href="classTemplateFactory.html#a07ad22f65f6f6eb3b0e8e3a4eab3b874">fModuleArguments</a>;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055         <span class="comment">// the most recent module to have been registered</span>
-<a name="l00056"></a><a class="code" href="classTemplateFactory.html#adb1680a268b42ae5c441a9451a1e935d">00056</a>         std::string <a class="code" href="classTemplateFactory.html#adb1680a268b42ae5c441a9451a1e935d">fMostRecentRegister</a>;
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058         <span class="comment">// flag to control verbosity</span>
-<a name="l00059"></a><a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">00059</a>         <span class="keywordtype">bool</span> <a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">fDebug</a>;
-<a name="l00060"></a>00060 };
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062 <span class="preprocessor">#include &quot;<a class="code" href="TemplateFactory_8tpl.html">TemplateFactory.tpl</a>&quot;</span>
+<a name="l00041"></a>00041   <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a56ecd5ec5c7a9cfdf3b5804a922aebee">PrintPossibleModules</a>()<span class="keyword">const</span>;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043     <span class="keyword">private</span>:
+<a name="l00044"></a>00044         <span class="comment">// the list of makers for all modules</span>
+<a name="l00045"></a><a class="code" href="classTemplateFactory.html#a9646ece1569a47c42dd41902b1752ed7">00045</a>         <span class="keyword">typedef</span> std::map&lt;std::string, maker&gt; <a class="code" href="classTemplateFactory.html#a9646ece1569a47c42dd41902b1752ed7">MakersList</a>; 
+<a name="l00046"></a><a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">00046</a>         <a class="code" href="classTemplateFactory.html#a9646ece1569a47c42dd41902b1752ed7">MakersList</a> <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         <span class="comment">// the list of given options for all modules</span>
+<a name="l00049"></a><a class="code" href="classTemplateFactory.html#a08ea50c9cb2f403c4f1b6e84b82e3765">00049</a>         <span class="keyword">typedef</span> std::map&lt;std::string, OptionsType*&gt; <a class="code" href="classTemplateFactory.html#a08ea50c9cb2f403c4f1b6e84b82e3765">OptionsList</a>; 
+<a name="l00050"></a><a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">00050</a>         <a class="code" href="classTemplateFactory.html#a08ea50c9cb2f403c4f1b6e84b82e3765">OptionsList</a> <a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">fModuleOptions</a>;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052         <span class="comment">// the list of expected arguments for all modules</span>
+<a name="l00053"></a><a class="code" href="classTemplateFactory.html#aba3ece5f2fdab7f8d2232fdc1bb3db35">00053</a>         <span class="keyword">typedef</span> std::vector&lt;std::string&gt; <a class="code" href="classTemplateFactory.html#aba3ece5f2fdab7f8d2232fdc1bb3db35">ArgumentsVector</a>;
+<a name="l00054"></a><a class="code" href="classTemplateFactory.html#a887bb54848cac2811f26eb40651acb89">00054</a>         <span class="keyword">typedef</span> std::map&lt;std::string, ArgumentsVector&gt; <a class="code" href="classTemplateFactory.html#a887bb54848cac2811f26eb40651acb89">ArgsList</a>; 
+<a name="l00055"></a><a class="code" href="classTemplateFactory.html#a07ad22f65f6f6eb3b0e8e3a4eab3b874">00055</a>         <a class="code" href="classTemplateFactory.html#a887bb54848cac2811f26eb40651acb89">ArgsList</a> <a class="code" href="classTemplateFactory.html#a07ad22f65f6f6eb3b0e8e3a4eab3b874">fModuleArguments</a>;
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057         <span class="comment">// the most recent module to have been registered</span>
+<a name="l00058"></a><a class="code" href="classTemplateFactory.html#adb1680a268b42ae5c441a9451a1e935d">00058</a>         std::string <a class="code" href="classTemplateFactory.html#adb1680a268b42ae5c441a9451a1e935d">fMostRecentRegister</a>;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060         <span class="comment">// flag to control verbosity</span>
+<a name="l00061"></a><a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">00061</a>         <span class="keywordtype">bool</span> <a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">fDebug</a>;
+<a name="l00062"></a>00062 };
 <a name="l00063"></a>00063 
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ConcreteClass,
-<a name="l00066"></a>00066          <span class="keyword">typename</span> BaseClass,
-<a name="l00067"></a>00067          <span class="keyword">typename</span> Options&gt;
-<a name="l00068"></a><a class="code" href="TemplateFactory_8h.html#a84bc4c528c1f01932b341303717d2c1f">00068</a>  BaseClass* <a class="code" href="TemplateFactory_8h.html#a84bc4c528c1f01932b341303717d2c1f">RegistryProxyMaker</a>(Options* opts){<span class="keywordflow">return</span> <span class="keyword">new</span> ConcreteClass(opts);};
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ConcreteClass,
-<a name="l00071"></a>00071          <span class="keyword">typename</span> BaseClass,
-<a name="l00072"></a>00072          <span class="keyword">typename</span> Options,
-<a name="l00073"></a>00073          <span class="keyword">typename</span> Factory&gt; 
-<a name="l00074"></a><a class="code" href="classRegistryProxy.html">00074</a> <span class="keyword">class </span><a class="code" href="classRegistryProxy.html">RegistryProxy</a>{
-<a name="l00075"></a>00075   <span class="keyword">public</span>: 
-<a name="l00076"></a><a class="code" href="classRegistryProxy.html#ae2325a2c46a6a6b6614eb6bdf1d916f3">00076</a>     <a class="code" href="classRegistryProxy.html#ae2325a2c46a6a6b6614eb6bdf1d916f3">RegistryProxy</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* Name, <span class="keyword">const</span> <span class="keywordtype">char</span>* ArgumentNames) 
-<a name="l00077"></a>00077     { 
-<a name="l00078"></a>00078       Factory *f = Factory::Instance(); 
-<a name="l00079"></a>00079       f-&gt;registerModule( Name , &amp;RegistryProxyMaker&lt;ConcreteClass,BaseClass,Options&gt;); 
-<a name="l00080"></a>00080       <span class="comment">/* Add all the arguments to the manager */</span>
-<a name="l00081"></a>00081       f-&gt;addArguments( ArgumentNames);
-<a name="l00082"></a>00082     }
-<a name="l00083"></a>00083 };
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085 <span class="preprocessor">#endif //TEMPLATEFACTORY_H_</span>
+<a name="l00064"></a>00064 <span class="preprocessor">#include &quot;<a class="code" href="TemplateFactory_8tpl.html">TemplateFactory.tpl</a>&quot;</span>
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ConcreteClass,
+<a name="l00068"></a>00068          <span class="keyword">typename</span> BaseClass,
+<a name="l00069"></a>00069          <span class="keyword">typename</span> Options&gt;
+<a name="l00070"></a><a class="code" href="TemplateFactory_8h.html#a84bc4c528c1f01932b341303717d2c1f">00070</a>  BaseClass* <a class="code" href="TemplateFactory_8h.html#a84bc4c528c1f01932b341303717d2c1f">RegistryProxyMaker</a>(Options* opts){<span class="keywordflow">return</span> <span class="keyword">new</span> ConcreteClass(opts);};
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ConcreteClass,
+<a name="l00073"></a>00073          <span class="keyword">typename</span> BaseClass,
+<a name="l00074"></a>00074          <span class="keyword">typename</span> Options,
+<a name="l00075"></a>00075          <span class="keyword">typename</span> Factory&gt; 
+<a name="l00076"></a><a class="code" href="classRegistryProxy.html">00076</a> <span class="keyword">class </span><a class="code" href="classRegistryProxy.html">RegistryProxy</a>{
+<a name="l00077"></a>00077   <span class="keyword">public</span>: 
+<a name="l00078"></a><a class="code" href="classRegistryProxy.html#ae2325a2c46a6a6b6614eb6bdf1d916f3">00078</a>     <a class="code" href="classRegistryProxy.html#ae2325a2c46a6a6b6614eb6bdf1d916f3">RegistryProxy</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* Name, <span class="keyword">const</span> <span class="keywordtype">char</span>* ArgumentNames) 
+<a name="l00079"></a>00079     { 
+<a name="l00080"></a>00080       Factory *f = Factory::Instance(); 
+<a name="l00081"></a>00081       f-&gt;registerModule( Name , &amp;RegistryProxyMaker&lt;ConcreteClass,BaseClass,Options&gt;); 
+<a name="l00082"></a>00082       <span class="comment">/* Add all the arguments to the manager */</span>
+<a name="l00083"></a>00083       f-&gt;addArguments( ArgumentNames);
+<a name="l00084"></a>00084     }
+<a name="l00085"></a>00085 };
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="preprocessor">#endif //TEMPLATEFACTORY_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

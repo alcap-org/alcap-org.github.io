@@ -73,10 +73,10 @@
 <a name="l00046"></a>00046               <span class="keywordtype">double</span> pulse_time = pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() * 1e-6; <span class="comment">// convert to ms</span>
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048               <span class="keywordflow">if</span> (std::fabs(pulse_time - min_time) &lt; time_difference) {
-<a name="l00049"></a>00049                 <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>()==<a class="code" href="namespaceIDs.html#a79421c775f45bd62f96145708e4a380e">IDs::Fast</a>) {
+<a name="l00049"></a>00049                 <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a8a766d3c8073644ef3d2c2b786ae4100" title="Check if the Channel is fast.">isFast</a>()) {
 <a name="l00050"></a>00050                   <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Fast? &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() &lt;&lt; std::endl;
 <a name="l00051"></a>00051                   fast_pulse = pulse;
-<a name="l00052"></a>00052                 } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>()==<a class="code" href="namespaceIDs.html#a7e410e84ad1586032f7fa77f78baaf13">IDs::Slow</a>) {
+<a name="l00052"></a>00052                 } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a90b55391c17517ce711be06b76fd14b4" title="Check if the Channel is slow.">isSlow</a>()) {
 <a name="l00053"></a>00053                   <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Slow? &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() &lt;&lt; std::endl;
 <a name="l00054"></a>00054                   slow_pulse = pulse;
 <a name="l00055"></a>00055                 }
@@ -106,7 +106,7 @@
 <a name="l00079"></a>00079 
 <a name="l00080"></a>00080 <a class="code" href="TDPGeneratorFactory_8h.html#abe704df49fe6660f7cfb9c3a1d3b4bac">ALCAP_TDP_GENERATOR</a>(MaxTimeDiff);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

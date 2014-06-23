@@ -39,19 +39,21 @@
 <tr><td colspan="2"><h2>Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDEBUG.html">DEBUG</a></td></tr>
 <tr><td colspan="2"><h2>Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#ad5aeca1a1a793c8ba18f85cbac89e768">DEBUG_PRINT</a>&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; &quot;@ &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__ &lt;&lt; std::endl;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a1c9d15f8ccd4a52a7f0bf4f24db139bd">DEBUG_PREFIX</a>&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; &quot;@ &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#ad5aeca1a1a793c8ba18f85cbac89e768">DEBUG_PRINT</a>&nbsp;&nbsp;&nbsp;DEBUG_PREFIX &lt;&lt; std::endl;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a345a1b3cf334669b8de7e7e3bd891aca">DEBUG_VALUE</a>(value)&nbsp;&nbsp;&nbsp;DEBUG_PREFIX &lt;&lt;std::boolalpha&lt;&lt;&quot; &quot; #value &quot;= |&quot;&lt;&lt;value&lt;&lt;&quot;|&quot;&lt;&lt;std::endl;</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;int I&gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const time_log&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceDEBUG.html#a8f7cb826726df16b7cedc4142ca14798">DEBUG::check_clock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const mem_log&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDEBUG.html#a44ab6c9c37d5651e588a9a98943908f1">DEBUG::check_mem</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const mem_log&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDEBUG.html#a60406d2633a01859a75a95fa95943672">DEBUG::check_mem</a> ()</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
-<a class="anchor" id="ad5aeca1a1a793c8ba18f85cbac89e768"></a><!-- doxytag: member="debug_tools.h::DEBUG_PRINT" ref="ad5aeca1a1a793c8ba18f85cbac89e768" args="" -->
+<a class="anchor" id="a1c9d15f8ccd4a52a7f0bf4f24db139bd"></a><!-- doxytag: member="debug_tools.h::DEBUG_PREFIX" ref="a1c9d15f8ccd4a52a7f0bf4f24db139bd" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEBUG_PRINT&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; &quot;@ &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__ &lt;&lt; std::endl;</td>
+          <td class="memname">#define DEBUG_PREFIX&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; &quot;@ &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__</td>
         </tr>
       </table>
 </div>
@@ -61,8 +63,43 @@
 
 </div>
 </div>
+<a class="anchor" id="ad5aeca1a1a793c8ba18f85cbac89e768"></a><!-- doxytag: member="debug_tools.h::DEBUG_PRINT" ref="ad5aeca1a1a793c8ba18f85cbac89e768" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_PRINT&nbsp;&nbsp;&nbsp;DEBUG_PREFIX &lt;&lt; std::endl;</td>
+        </tr>
+      </table>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jun 2014 for AlcapDAQ by&nbsp;
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00012">12</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a345a1b3cf334669b8de7e7e3bd891aca"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE" ref="a345a1b3cf334669b8de7e7e3bd891aca" args="(value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE</td>
+          <td>(</td>
+          <td class="paramtype">value&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_PREFIX &lt;&lt;std::boolalpha&lt;&lt;&quot; &quot; #value &quot;= |&quot;&lt;&lt;value&lt;&lt;&quot;|&quot;&lt;&lt;std::endl;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00013">13</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
