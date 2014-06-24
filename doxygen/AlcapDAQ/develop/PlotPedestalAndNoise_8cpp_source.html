@@ -39,130 +39,174 @@
 <a name="l00012"></a>00012 <span class="keyword">using</span> std::cout;
 <a name="l00013"></a>00013 <span class="keyword">using</span> std::endl;
 <a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="classPlotPedestalAndNoise.html#a8eb8620a3435eb54bbec2bbcfe5eb6c9">00015</a> <a class="code" href="classPlotPedestalAndNoise.html#a8eb8620a3435eb54bbec2bbcfe5eb6c9" title="The constructor.">PlotPedestalAndNoise::PlotPedestalAndNoise</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
-<a name="l00016"></a>00016    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotPedestalAndNoise&quot;</span>,opts){
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018   <span class="comment">// Do something with opts here.  Has the user specified any</span>
-<a name="l00019"></a>00019   <span class="comment">// particular configuration that you want to know?</span>
-<a name="l00020"></a>00020   <span class="comment">// For example, perhaps this module wants an axis range:</span>
-<a name="l00021"></a>00021   <a class="code" href="classPlotPedestalAndNoise.html#ab173e9f07de6f2bf95fbc04c8c707092" title="The number of samples we will look at in the TPulseIsland to calculate the mean and...">fNSamples</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;n_samples&quot;</span>, 5);
-<a name="l00022"></a>00022 }
-<a name="l00023"></a>00023 
-<a name="l00024"></a><a class="code" href="classPlotPedestalAndNoise.html#a54cb67b99bbc00be082ac484a2438738">00024</a> <a class="code" href="classPlotPedestalAndNoise.html#a54cb67b99bbc00be082ac484a2438738" title="Empty destructor.">PlotPedestalAndNoise::~PlotPedestalAndNoise</a>(){
-<a name="l00025"></a>00025 }
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="comment">// Called before the main event loop</span>
-<a name="l00028"></a>00028 <span class="comment">// Can be used to set things up, like histograms etc</span>
-<a name="l00029"></a>00029 <span class="comment">// Return non-zero to indicate a problem</span>
-<a name="l00030"></a><a class="code" href="classPlotPedestalAndNoise.html#a1524e50b2f06d0c4280bd7ad78b7bf6a">00030</a> <span class="keywordtype">int</span> <a class="code" href="classPlotPedestalAndNoise.html#a1524e50b2f06d0c4280bd7ad78b7bf6a" title="Nothing is done before each run.">PlotPedestalAndNoise::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00031"></a>00031   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00032"></a>00032   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00033"></a>00033      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotPedestalAndNoise::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00034"></a>00034   }
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036   <span class="keywordflow">return</span> 0;
-<a name="l00037"></a>00037 }
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="comment">// Called once for each event in the main event loop</span>
-<a name="l00040"></a>00040 <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
-<a name="l00041"></a><a class="code" href="classPlotPedestalAndNoise.html#abb43984692ed4dabcca6c1a3a9cb7288">00041</a> <span class="keywordtype">int</span> <a class="code" href="classPlotPedestalAndNoise.html#abb43984692ed4dabcca6c1a3a9cb7288" title="In every event, we loop over all the detectors and all the TPulseIslands and calculate...">PlotPedestalAndNoise::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043   <span class="comment">// Prepare a few variables</span>
-<a name="l00044"></a>00044   std::string bankname, detname;
-<a name="l00045"></a>00045   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a> thePulseIslands;
-<a name="l00046"></a>00046   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;TSQLiteServer.h&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;TSQLiteResult.h&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;TSQLiteRow.h&gt;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="classPlotPedestalAndNoise.html#a8eb8620a3435eb54bbec2bbcfe5eb6c9">00019</a> <a class="code" href="classPlotPedestalAndNoise.html#a8eb8620a3435eb54bbec2bbcfe5eb6c9" title="The constructor.">PlotPedestalAndNoise::PlotPedestalAndNoise</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
+<a name="l00020"></a>00020    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotPedestalAndNoise&quot;</span>,opts){
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022   <span class="comment">// Do something with opts here.  Has the user specified any</span>
+<a name="l00023"></a>00023   <span class="comment">// particular configuration that you want to know?</span>
+<a name="l00024"></a>00024   <span class="comment">// For example, perhaps this module wants an axis range:</span>
+<a name="l00025"></a>00025   <a class="code" href="classPlotPedestalAndNoise.html#ab173e9f07de6f2bf95fbc04c8c707092" title="The number of samples we will look at in the TPulseIsland to calculate the mean and...">fNSamples</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#a10bf87912c8bae11780be19d5ac7bfab" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;n_samples&quot;</span>, 5);
+<a name="l00026"></a>00026   <a class="code" href="classPlotPedestalAndNoise.html#adb4d9a74ba9d1cae7ed1ce32d7281a2b" title="A bool to decide whether we export the pedestal and noise to the SQLite database...">fExportSQL</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#ae1e1d18085161597bde39d8649b3fb8f" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;export_sql&quot;</span>, <span class="keyword">false</span>);
+<a name="l00027"></a>00027 }
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="classPlotPedestalAndNoise.html#a54cb67b99bbc00be082ac484a2438738">00029</a> <a class="code" href="classPlotPedestalAndNoise.html#a54cb67b99bbc00be082ac484a2438738" title="Empty destructor.">PlotPedestalAndNoise::~PlotPedestalAndNoise</a>(){
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="comment">// Called before the main event loop</span>
+<a name="l00033"></a>00033 <span class="comment">// Can be used to set things up, like histograms etc</span>
+<a name="l00034"></a>00034 <span class="comment">// Return non-zero to indicate a problem</span>
+<a name="l00035"></a><a class="code" href="classPlotPedestalAndNoise.html#a1524e50b2f06d0c4280bd7ad78b7bf6a">00035</a> <span class="keywordtype">int</span> <a class="code" href="classPlotPedestalAndNoise.html#a1524e50b2f06d0c4280bd7ad78b7bf6a" title="Nothing is done before each run.">PlotPedestalAndNoise::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00036"></a>00036   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00037"></a>00037   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00038"></a>00038      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotPedestalAndNoise::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
+<a name="l00039"></a>00039   }
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041   <span class="keywordflow">return</span> 0;
+<a name="l00042"></a>00042 }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="comment">// Called once for each event in the main event loop</span>
+<a name="l00045"></a>00045 <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
+<a name="l00046"></a><a class="code" href="classPlotPedestalAndNoise.html#abb43984692ed4dabcca6c1a3a9cb7288">00046</a> <span class="keywordtype">int</span> <a class="code" href="classPlotPedestalAndNoise.html#abb43984692ed4dabcca6c1a3a9cb7288" title="In every event, we loop over all the detectors and all the TPulseIslands and calculate...">PlotPedestalAndNoise::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
 <a name="l00047"></a>00047 
-<a name="l00048"></a>00048   <span class="comment">// Loop over each detector</span>
-<a name="l00049"></a>00049   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
-<a name="l00050"></a>00050     
-<a name="l00051"></a>00051     <span class="comment">// Get the bank and detector names for this detector</span>
-<a name="l00052"></a>00052     bankname = it-&gt;first;
-<a name="l00053"></a>00053     detname = setup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055     <span class="comment">// Get the TPIs</span>
-<a name="l00056"></a>00056     thePulseIslands = it-&gt;second;
-<a name="l00057"></a>00057     <span class="keywordflow">if</span> (thePulseIslands.size() == 0) <span class="keywordflow">continue</span>; <span class="comment">// no pulses here..</span>
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059     <span class="comment">// Create the histogram that will store all the average RMS noises from each event</span>
-<a name="l00060"></a>00060     <span class="keywordflow">if</span> (<a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.find(detname) == <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.end()) {
-<a name="l00061"></a>00061       <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
-<a name="l00062"></a>00062       <span class="keywordtype">int</span> x_min = 0;
-<a name="l00063"></a>00063       <span class="keywordtype">int</span> x_max = std::pow(2, n_bits);
-<a name="l00064"></a>00064       <span class="keywordtype">int</span> n_bins_x = (x_max - x_min)/10;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066       <span class="keywordtype">int</span> y_min = 0;
-<a name="l00067"></a>00067       <span class="keywordtype">int</span> y_max = 200;
-<a name="l00068"></a>00068       <span class="keywordtype">int</span> n_bins_y = (y_max - y_min)*10;
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070       std::string histname = <span class="stringliteral">&quot;fPedestalVsNoiseHistogram_&quot;</span> + detname;
-<a name="l00071"></a>00071       std::stringstream histtitle;
-<a name="l00072"></a>00072       histtitle &lt;&lt; <span class="stringliteral">&quot;Plot of the Pedestal vs Noise (mean and RMS of first &quot;</span> &lt;&lt; <a class="code" href="classPlotPedestalAndNoise.html#ab173e9f07de6f2bf95fbc04c8c707092" title="The number of samples we will look at in the TPulseIsland to calculate the mean and...">fNSamples</a> &lt;&lt; <span class="stringliteral">&quot; samples) in &quot;</span> &lt;&lt; detname;
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074       TH2D* histogram = <span class="keyword">new</span> TH2D(histname.c_str(), histtitle.str().c_str(), n_bins_x,x_min,x_max, n_bins_y,y_min,y_max);
-<a name="l00075"></a>00075       histogram-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Pedestal [ADC]&quot;</span>);
-<a name="l00076"></a>00076       histogram-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Noise [ADC]&quot;</span>);
-<a name="l00077"></a>00077       <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>[detname] = histogram;
-<a name="l00078"></a>00078     }
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080     TH2D* pedestal_vs_noise_histogram = <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>[detname];
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082     <span class="comment">// Loop through all the pulses</span>
-<a name="l00083"></a>00083     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
+<a name="l00048"></a>00048   <span class="comment">// Prepare a few variables</span>
+<a name="l00049"></a>00049   std::string bankname, detname;
+<a name="l00050"></a>00050   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a> thePulseIslands;
+<a name="l00051"></a>00051   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053   <span class="comment">// Loop over each detector</span>
+<a name="l00054"></a>00054   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
+<a name="l00055"></a>00055     
+<a name="l00056"></a>00056     <span class="comment">// Get the bank and detector names for this detector</span>
+<a name="l00057"></a>00057     bankname = it-&gt;first;
+<a name="l00058"></a>00058     detname = setup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <span class="comment">// Get the TPIs</span>
+<a name="l00061"></a>00061     thePulseIslands = it-&gt;second;
+<a name="l00062"></a>00062     <span class="keywordflow">if</span> (thePulseIslands.size() == 0) <span class="keywordflow">continue</span>; <span class="comment">// no pulses here..</span>
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064     <span class="comment">// Create the histogram that will store all the average RMS noises from each event</span>
+<a name="l00065"></a>00065     <span class="keywordflow">if</span> (<a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.find(detname) == <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.end()) {
+<a name="l00066"></a>00066       <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
+<a name="l00067"></a>00067       <span class="keywordtype">int</span> x_min = 0;
+<a name="l00068"></a>00068       <span class="keywordtype">int</span> x_max = std::pow(2, n_bits);
+<a name="l00069"></a>00069       <span class="keywordtype">int</span> n_bins_x = (x_max - x_min)/10;
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071       <span class="keywordtype">int</span> y_min = 0;
+<a name="l00072"></a>00072       <span class="keywordtype">int</span> y_max = 200;
+<a name="l00073"></a>00073       <span class="keywordtype">int</span> n_bins_y = (y_max - y_min)*10;
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075       std::string histname = <span class="stringliteral">&quot;fPedestalVsNoiseHistogram_&quot;</span> + detname;
+<a name="l00076"></a>00076       std::stringstream histtitle;
+<a name="l00077"></a>00077       histtitle &lt;&lt; <span class="stringliteral">&quot;Plot of the Pedestal vs Noise (mean and RMS of first &quot;</span> &lt;&lt; <a class="code" href="classPlotPedestalAndNoise.html#ab173e9f07de6f2bf95fbc04c8c707092" title="The number of samples we will look at in the TPulseIsland to calculate the mean and...">fNSamples</a> &lt;&lt; <span class="stringliteral">&quot; samples) in &quot;</span> &lt;&lt; detname;
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079       TH2D* histogram = <span class="keyword">new</span> TH2D(histname.c_str(), histtitle.str().c_str(), n_bins_x,x_min,x_max, n_bins_y,y_min,y_max);
+<a name="l00080"></a>00080       histogram-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Pedestal [ADC]&quot;</span>);
+<a name="l00081"></a>00081       histogram-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Noise [ADC]&quot;</span>);
+<a name="l00082"></a>00082       <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>[detname] = histogram;
+<a name="l00083"></a>00083     }
 <a name="l00084"></a>00084 
-<a name="l00085"></a>00085       <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = (*pulseIter)-&gt;GetSamples();
+<a name="l00085"></a>00085     TH2D* pedestal_vs_noise_histogram = <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>[detname];
 <a name="l00086"></a>00086 
-<a name="l00087"></a>00087       <span class="keywordtype">double</span> sum = 0;
-<a name="l00088"></a>00088       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = 0; iSample &lt; <a class="code" href="classPlotPedestalAndNoise.html#ab173e9f07de6f2bf95fbc04c8c707092" title="The number of samples we will look at in the TPulseIsland to calculate the mean and...">fNSamples</a>; ++iSample) {
-<a name="l00089"></a>00089         sum += theSamples.at(iSample);
-<a name="l00090"></a>00090       }
-<a name="l00091"></a>00091       <span class="keywordtype">double</span> mean = sum / fNSamples;
-<a name="l00092"></a>00092       
-<a name="l00093"></a>00093       <span class="keywordtype">double</span> sum_of_deviations_squared = 0;
-<a name="l00094"></a>00094       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = 0; iSample &lt; fNSamples; ++iSample) {
-<a name="l00095"></a>00095         sum_of_deviations_squared += (theSamples.at(iSample) - mean)*(theSamples.at(iSample) - mean);
-<a name="l00096"></a>00096       }
-<a name="l00097"></a>00097       <span class="keywordtype">double</span> RMS = std::sqrt(sum_of_deviations_squared);
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099       pedestal_vs_noise_histogram-&gt;Fill(mean, RMS);
-<a name="l00100"></a>00100     } <span class="comment">// end loop through pulses</span>
-<a name="l00101"></a>00101   } <span class="comment">// end loop through detectors</span>
-<a name="l00102"></a>00102 
-<a name="l00103"></a>00103   <span class="keywordflow">return</span> 0;
-<a name="l00104"></a>00104 }
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106 <span class="comment">// Called just after the main event loop</span>
-<a name="l00107"></a>00107 <span class="comment">// Can be used to write things out, dump a summary etc</span>
-<a name="l00108"></a>00108 <span class="comment">// Return non-zero to indicate a problem</span>
-<a name="l00109"></a><a class="code" href="classPlotPedestalAndNoise.html#a681a9d8bff4fb872ad7307ac6e016502">00109</a> <span class="keywordtype">int</span> <a class="code" href="classPlotPedestalAndNoise.html#a681a9d8bff4fb872ad7307ac6e016502" title="After each run, we write the mean and RMS of the first fNSamples to a text file.">PlotPedestalAndNoise::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00087"></a>00087     <span class="comment">// Loop through all the pulses</span>
+<a name="l00088"></a>00088     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090       <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = (*pulseIter)-&gt;GetSamples();
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092       <span class="keywordtype">double</span> sum = 0;
+<a name="l00093"></a>00093       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = 0; iSample &lt; <a class="code" href="classPlotPedestalAndNoise.html#ab173e9f07de6f2bf95fbc04c8c707092" title="The number of samples we will look at in the TPulseIsland to calculate the mean and...">fNSamples</a>; ++iSample) {
+<a name="l00094"></a>00094         sum += theSamples.at(iSample);
+<a name="l00095"></a>00095       }
+<a name="l00096"></a>00096       <span class="keywordtype">double</span> mean = sum / fNSamples;
+<a name="l00097"></a>00097       
+<a name="l00098"></a>00098       <span class="keywordtype">double</span> sum_of_deviations_squared = 0;
+<a name="l00099"></a>00099       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = 0; iSample &lt; fNSamples; ++iSample) {
+<a name="l00100"></a>00100         sum_of_deviations_squared += (theSamples.at(iSample) - mean)*(theSamples.at(iSample) - mean);
+<a name="l00101"></a>00101       }
+<a name="l00102"></a>00102       <span class="keywordtype">double</span> RMS = std::sqrt(sum_of_deviations_squared);
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104       pedestal_vs_noise_histogram-&gt;Fill(mean, RMS);
+<a name="l00105"></a>00105     } <span class="comment">// end loop through pulses</span>
+<a name="l00106"></a>00106   } <span class="comment">// end loop through detectors</span>
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108   <span class="keywordflow">return</span> 0;
+<a name="l00109"></a>00109 }
 <a name="l00110"></a>00110 
-<a name="l00111"></a>00111   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00112"></a>00112   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00113"></a>00113      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotPedestalAndNoise::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00114"></a>00114   }
+<a name="l00111"></a>00111 <span class="comment">// Called just after the main event loop</span>
+<a name="l00112"></a>00112 <span class="comment">// Can be used to write things out, dump a summary etc</span>
+<a name="l00113"></a>00113 <span class="comment">// Return non-zero to indicate a problem</span>
+<a name="l00114"></a><a class="code" href="classPlotPedestalAndNoise.html#a681a9d8bff4fb872ad7307ac6e016502">00114</a> <span class="keywordtype">int</span> <a class="code" href="classPlotPedestalAndNoise.html#a681a9d8bff4fb872ad7307ac6e016502" title="After each run, we write the mean and RMS of the first fNSamples to an SQLite database...">PlotPedestalAndNoise::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
 <a name="l00115"></a>00115 
-<a name="l00116"></a>00116   <span class="comment">// Print the channel, bank and mean and RMS of first fNSamples to a text file</span>
-<a name="l00117"></a>00117   std::ofstream out_file(<span class="stringliteral">&quot;pedestal-and-noise.txt&quot;</span>, std::ofstream::out);
-<a name="l00118"></a>00118   out_file &lt;&lt; <span class="stringliteral">&quot;Channel\tBank\tPedestal\tNoise&quot;</span> &lt;&lt; std::endl;
-<a name="l00119"></a>00119   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, TH2D*&gt;::iterator</a> histIter = <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.begin(); histIter != <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.end(); ++histIter) {
-<a name="l00120"></a>00120     std::string detname = histIter-&gt;first;
-<a name="l00121"></a>00121     std::string bankname = setup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detname);
-<a name="l00122"></a>00122     TH2D* pedestal_vs_noise_histogram = histIter-&gt;second;
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124     <span class="keywordtype">double</span> pedestal = pedestal_vs_noise_histogram-&gt;GetMean(1);
-<a name="l00125"></a>00125     <span class="keywordtype">double</span> noise = pedestal_vs_noise_histogram-&gt;GetMean(2);
-<a name="l00126"></a>00126     out_file &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; pedestal &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; noise &lt;&lt; std::endl;
-<a name="l00127"></a>00127   }
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129   <span class="keywordflow">return</span> 0;
-<a name="l00130"></a>00130 }
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132 <span class="comment">// The following macro registers this module to be useable in the config file.</span>
-<a name="l00133"></a>00133 <span class="comment">// The first argument is compulsory and gives the name of this module</span>
-<a name="l00134"></a>00134 <span class="comment">// All subsequent arguments will be used as names for arguments given directly </span>
-<a name="l00135"></a>00135 <span class="comment">// within the modules file.  See the github wiki for more.</span>
-<a name="l00136"></a>00136 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotPedestalAndNoise.html" title="Plots the pedestal and noise of each TPulseIsland and writes these to a text file...">PlotPedestalAndNoise</a>,x_max);
+<a name="l00116"></a>00116   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00117"></a>00117   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00118"></a>00118      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotPedestalAndNoise::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
+<a name="l00119"></a>00119   }
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121   <span class="keywordflow">if</span> (<a class="code" href="classPlotPedestalAndNoise.html#adb4d9a74ba9d1cae7ed1ce32d7281a2b" title="A bool to decide whether we export the pedestal and noise to the SQLite database...">fExportSQL</a>) {
+<a name="l00122"></a>00122     <span class="comment">// Get the SQLite database file</span>
+<a name="l00123"></a>00123     TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125     std::stringstream query; 
+<a name="l00126"></a>00126     std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
+<a name="l00127"></a>00127     <span class="keywordflow">if</span> (server) {
+<a name="l00128"></a>00128       <span class="comment">// Create the pedestals_and_noises table if it doesn&apos;t already exist</span>
+<a name="l00129"></a>00129       query &lt;&lt; <span class="stringliteral">&quot;CREATE TABLE IF NOT EXISTS &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; (channel STRING PRIMARY KEY, bank STRING, pedestal FLOAT, noise FLOAT)&quot;</span>;
+<a name="l00130"></a>00130       server-&gt;Exec(query.str().c_str());
+<a name="l00131"></a>00131       query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133       <span class="comment">// Now loop through the histograms and record the channel, bank and mean and RMS of first fNSamples to the SQLite table</span>
+<a name="l00134"></a>00134       <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, TH2D*&gt;::iterator</a> histIter = <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.begin(); histIter != <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.end(); ++histIter) {
+<a name="l00135"></a>00135         std::string detname = histIter-&gt;first;
+<a name="l00136"></a>00136         std::string bankname = setup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detname);
+<a name="l00137"></a>00137         TH2D* pedestal_vs_noise_histogram = histIter-&gt;second;
+<a name="l00138"></a>00138       
+<a name="l00139"></a>00139         <span class="keywordtype">double</span> pedestal = pedestal_vs_noise_histogram-&gt;GetMean(1);
+<a name="l00140"></a>00140         <span class="keywordtype">double</span> noise = pedestal_vs_noise_histogram-&gt;GetMean(2);
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142         <span class="comment">// See if this row already exists (result will equal 1 if it does)</span>
+<a name="l00143"></a>00143         query &lt;&lt; <span class="stringliteral">&quot;SELECT COUNT(*) FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; WHERE channel=\&apos;&quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;\&apos;&quot;</span>;
+<a name="l00144"></a>00144         TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
+<a name="l00145"></a>00145         TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
+<a name="l00146"></a>00146         query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00147"></a>00147       
+<a name="l00148"></a>00148         std::string n_table_entries = row-&gt;GetField(0);
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150         <span class="keywordflow">if</span> (n_table_entries == <span class="stringliteral">&quot;0&quot;</span>) {
+<a name="l00151"></a>00151           <span class="comment">// insert a new set of values</span>
+<a name="l00152"></a>00152           query &lt;&lt; <span class="stringliteral">&quot;INSERT INTO &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; VALUES (\&quot;&quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;\&quot;, \&quot;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&quot;, &quot;</span> &lt;&lt; pedestal &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; noise &lt;&lt; <span class="stringliteral">&quot;);&quot;</span>; <span class="comment">// insert the values</span>
+<a name="l00153"></a>00153           server-&gt;Exec(query.str().c_str());
+<a name="l00154"></a>00154           query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00155"></a>00155         }
+<a name="l00156"></a>00156         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (n_table_entries == <span class="stringliteral">&quot;1&quot;</span>) {
+<a name="l00157"></a>00157           <span class="comment">// just update the values that are already there</span>
+<a name="l00158"></a>00158           query &lt;&lt; <span class="stringliteral">&quot;UPDATE &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; SET bank=\&apos;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&apos;, pedestal=&quot;</span> &lt;&lt; pedestal &lt;&lt; <span class="stringliteral">&quot;, noise=&quot;</span> &lt;&lt; noise &lt;&lt; <span class="stringliteral">&quot; WHERE channel=\&apos;&quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;\&apos;;&quot;</span>;
+<a name="l00159"></a>00159           server-&gt;Exec(query.str().c_str());
+<a name="l00160"></a>00160           query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00161"></a>00161         }
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163         <span class="comment">// Need to delete the TSQLiteResult and TSQLiteRow like the ROOT documentation says so</span>
+<a name="l00164"></a>00164         <span class="keyword">delete</span> result;
+<a name="l00165"></a>00165         <span class="keyword">delete</span> row;
+<a name="l00166"></a>00166       }
+<a name="l00167"></a>00167     }
+<a name="l00168"></a>00168     <span class="keywordflow">else</span> {
+<a name="l00169"></a>00169       std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
+<a name="l00170"></a>00170     }
+<a name="l00171"></a>00171   }
+<a name="l00172"></a>00172   
+<a name="l00173"></a>00173   <span class="keywordflow">return</span> 0;
+<a name="l00174"></a>00174 }
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 <span class="comment">// The following macro registers this module to be useable in the config file.</span>
+<a name="l00177"></a>00177 <span class="comment">// The first argument is compulsory and gives the name of this module</span>
+<a name="l00178"></a>00178 <span class="comment">// All subsequent arguments will be used as names for arguments given directly </span>
+<a name="l00179"></a>00179 <span class="comment">// within the modules file.  See the github wiki for more.</span>
+<a name="l00180"></a>00180 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotPedestalAndNoise.html" title="Plots the pedestal and noise of each TPulseIsland and writes these to an SQLite database...">PlotPedestalAndNoise</a>,x_max);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

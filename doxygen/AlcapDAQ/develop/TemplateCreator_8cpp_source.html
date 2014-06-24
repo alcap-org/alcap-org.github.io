@@ -61,7 +61,7 @@
 <a name="l00034"></a>00034   }
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036   <span class="comment">// Prepare the template archive</span>
-<a name="l00037"></a>00037   <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a> = <span class="keyword">new</span> <a class="code" href="classTemplateArchive.html">TemplateArchive</a>(<span class="stringliteral">&quot;templates.root&quot;</span>, <span class="stringliteral">&quot;RECREATE&quot;</span>);
+<a name="l00037"></a>00037   <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a> = <span class="keyword">new</span> <a class="code" href="classTemplateArchive.html" title="Utility class that manages reading and writing template histograms to a ROOT file...">TemplateArchive</a>(<span class="stringliteral">&quot;templates.root&quot;</span>, <span class="stringliteral">&quot;RECREATE&quot;</span>);
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039   <span class="keywordflow">return</span> 0;
 <a name="l00040"></a>00040 }
@@ -86,7 +86,7 @@
 <a name="l00059"></a>00059     detname = setup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
 <a name="l00060"></a>00060 
 <a name="l00061"></a>00061     <span class="comment">// Create the pulse candidate finder for this detector</span>
-<a name="l00062"></a>00062     <a class="code" href="classPulseCandidateFinder.html">PulseCandidateFinder</a>* pulse_candidate_finder = <span class="keyword">new</span> <a class="code" href="classPulseCandidateFinder.html">PulseCandidateFinder</a>(detname, <a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>);
+<a name="l00062"></a>00062     <a class="code" href="classPulseCandidateFinder.html" title="Utility class to find pulse candidates on a TPulseIsland.">PulseCandidateFinder</a>* pulse_candidate_finder = <span class="keyword">new</span> <a class="code" href="classPulseCandidateFinder.html" title="Utility class to find pulse candidates on a TPulseIsland.">PulseCandidateFinder</a>(detname, <a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>);
 <a name="l00063"></a>00063 
 <a name="l00064"></a>00064     <span class="comment">// Get the TPIs</span>
 <a name="l00065"></a>00065     thePulseIslands = it-&gt;second;
@@ -94,16 +94,16 @@
 <a name="l00067"></a>00067 
 <a name="l00068"></a>00068     <span class="comment">// Try and get the template (it may have been created in a previous event)</span>
 <a name="l00069"></a>00069     std::string template_name = <span class="stringliteral">&quot;hTemplate_&quot;</span> + detname;
-<a name="l00070"></a>00070     TH1D* hTemplate = <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>-&gt;<a class="code" href="classTemplateArchive.html#af9572b41c36a9fe0370c03f4a0e477d5">GetTemplate</a>(template_name.c_str());
+<a name="l00070"></a>00070     TH1D* hTemplate = <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>-&gt;<a class="code" href="classTemplateArchive.html#af9572b41c36a9fe0370c03f4a0e477d5" title="Gets the template histogram of the given name and returns it.">GetTemplate</a>(template_name.c_str());
 <a name="l00071"></a>00071 
 <a name="l00072"></a>00072     <span class="comment">// Loop through all the pulses</span>
 <a name="l00073"></a>00073     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
 <a name="l00074"></a>00074 
 <a name="l00075"></a>00075       <span class="comment">// First we will see how many candidate pulses there are on the TPI</span>
-<a name="l00076"></a>00076       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48">FindPulseCandidates</a>(*pulseIter);
-<a name="l00077"></a>00077       <span class="keywordtype">int</span> n_pulse_candidates = pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a705d5fe0bff87dffdc9f465180362f02">GetNPulseCandidates</a>();
+<a name="l00076"></a>00076       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48" title="Find the pulse candidates on the given TPulseIsland.">FindPulseCandidates</a>(*pulseIter);
+<a name="l00077"></a>00077       <span class="keywordtype">int</span> n_pulse_candidates = pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a705d5fe0bff87dffdc9f465180362f02" title="Returns the number of pulse candidates that were found.">GetNPulseCandidates</a>();
 <a name="l00078"></a>00078 
-<a name="l00079"></a>00079       std::vector&lt;TPulseIsland*&gt; pulse_candidates = pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae">GetPulseCandidates</a>();
+<a name="l00079"></a>00079       std::vector&lt;TPulseIsland*&gt; pulse_candidates = pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae" title="Returns the actual TPulseIsland of each candidate.">GetPulseCandidates</a>();
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081       <span class="comment">// we only continue if there is more than one pulse candidate on the TPI</span>
 <a name="l00082"></a>00082       <span class="comment">/*      if (n_pulse_candidates == 1) {</span>
@@ -124,7 +124,7 @@
 <a name="l00097"></a>00097 <span class="comment">        }*/</span>
 <a name="l00098"></a>00098     }
 <a name="l00099"></a>00099     <span class="comment">// Save the template to the file</span>
-<a name="l00100"></a>00100     <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>-&gt;<a class="code" href="classTemplateArchive.html#ad96d5464324433d3c00aa1481227b815">SaveTemplate</a>(hTemplate);
+<a name="l00100"></a>00100     <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>-&gt;<a class="code" href="classTemplateArchive.html#ad96d5464324433d3c00aa1481227b815" title="Takes the given histogram and saves it to the ROOT file.">SaveTemplate</a>(hTemplate);
 <a name="l00101"></a>00101   }
 <a name="l00102"></a>00102 
 <a name="l00103"></a>00103   <span class="keywordflow">return</span> 0;
@@ -176,7 +176,7 @@
 <a name="l00151"></a>00151 <span class="comment">//ALCAP_REGISTER_MODULE(TemplateCreator ,slow_gen,fast_gen);</span>
 <a name="l00152"></a>00152 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classTemplateCreator.html">TemplateCreator</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

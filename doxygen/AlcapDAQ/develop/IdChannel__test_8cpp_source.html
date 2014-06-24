@@ -79,12 +79,21 @@
 <a name="l00052"></a>00052     ensure_equals(<span class="stringliteral">&quot;IDs::channel(\&quot;Ge-F\&quot;).str() should give Ge-F&quot;</span>, ch0.str(),string_ch0);    
 <a name="l00053"></a>00053     ensure_equals(<span class="stringliteral">&quot;IDs::channel(\&quot;ge-f\&quot;).str() should give Ge-F&quot;</span>, ch1.str(),string_ch0);    
 <a name="l00054"></a>00054     ensure_equals(<span class="stringliteral">&quot;IDs::channel(\&quot;ge_f\&quot;).str() should give Ge-F&quot;</span>, ch2.str(),string_ch0);    
-<a name="l00055"></a>00055   }
-<a name="l00056"></a>00056 }
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> muSc_string(<span class="stringliteral">&quot;muSc&quot;</span>);
+<a name="l00057"></a>00057     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> SiR1_S_string(<span class="stringliteral">&quot;SiR1-S&quot;</span>);
+<a name="l00058"></a>00058     ensure(<span class="stringliteral">&quot;Ge-F should be fast&quot;</span>, ch0.isFast());    
+<a name="l00059"></a>00059     ensure_equals(<span class="stringliteral">&quot;muSc should be neither fast or slow&quot;</span>, muSc_string.SlowFast(),<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">IDs::kNotApplicable</a>);    
+<a name="l00060"></a>00060     ensure(<span class="stringliteral">&quot;SiR1-S should be slow&quot;</span>, SiR1_S_string.isSlow());    
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> rubbish(<span class="stringliteral">&quot;ohsbfpsihbf-f&quot;</span>);
+<a name="l00063"></a>00063     ensure(<span class="stringliteral">&quot;ohsbfpsihbf-f should be invalid&quot;</span>, !rubbish.isValid());    
+<a name="l00064"></a>00064   }
+<a name="l00065"></a>00065 }
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

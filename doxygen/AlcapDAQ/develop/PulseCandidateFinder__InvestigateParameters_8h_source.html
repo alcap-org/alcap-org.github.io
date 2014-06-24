@@ -35,26 +35,29 @@
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="PulseCandidateFinder_8h.html">utils/PulseCandidateFinder.h</a>&quot;</span>
 <a name="l00010"></a>00010 
-<a name="l00011"></a><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html">00011</a> <span class="keyword">class </span><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html">PulseCandidateFinder_InvestigateParameters</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013  <span class="keyword">public</span>:
-<a name="l00014"></a>00014   <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a15441d5ced842a39b1384e2ea372e4e3">PulseCandidateFinder_InvestigateParameters</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
-<a name="l00015"></a>00015   <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a28be6e9d92e2087af076e8d12c0ad5c1">~PulseCandidateFinder_InvestigateParameters</a>();
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017  <span class="keyword">private</span>:
-<a name="l00018"></a>00018   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a8aa208b5664f24449bfa82b6d0744ef7" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
-<a name="l00019"></a>00019   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a79ebb379bce4037a6caddc6a726dacc8">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
-<a name="l00020"></a>00020   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#ac1dcbd80f553e46c7d4b413a47fb2c6f">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022  <span class="keyword">private</span>:
-<a name="l00024"></a><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">00024</a>   std::map&lt;std::string, TH1D*&gt; <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e" title="Where we will store the parameter histograms for each channel.">fParameterHistograms</a>;
-<a name="l00025"></a>00025 
-<a name="l00027"></a><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#aee474660939c2d138a7138632f80fae2">00027</a>   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#aee474660939c2d138a7138632f80fae2" title="Store the module options so that they can be used in ProcessEntry.">fOpts</a>;
-<a name="l00028"></a>00028 };
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="preprocessor">#endif //PULSECANDIDATEFINDER_INVESTIGATEPARAMETERS_H_</span>
+<a name="l00026"></a><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html">00026</a> <span class="keyword">class </span><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html" title="Produces plots either the sample heights or the sample differences for each TPulseIsland...">PulseCandidateFinder_InvestigateParameters</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028  <span class="keyword">public</span>:
+<a name="l00033"></a>00033   <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a15441d5ced842a39b1384e2ea372e4e3" title="The constructor.">PulseCandidateFinder_InvestigateParameters</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
+<a name="l00034"></a>00034 
+<a name="l00037"></a>00037   <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a28be6e9d92e2087af076e8d12c0ad5c1" title="Empty destructor.">~PulseCandidateFinder_InvestigateParameters</a>();
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039  <span class="keyword">private</span>:
+<a name="l00048"></a>00048   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a8aa208b5664f24449bfa82b6d0744ef7" title="In every event, we loop over all the detectors and create a ParameterHistogram, then...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
+<a name="l00049"></a>00049 
+<a name="l00056"></a>00056   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a79ebb379bce4037a6caddc6a726dacc8" title="Nothing is done before each run.">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
+<a name="l00057"></a>00057 
+<a name="l00064"></a>00064   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#ac1dcbd80f553e46c7d4b413a47fb2c6f" title="Nothing done at the end of each run.">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066  <span class="keyword">private</span>:
+<a name="l00069"></a><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">00069</a>   std::map&lt;std::string, TH1D*&gt; <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>;
+<a name="l00070"></a>00070 
+<a name="l00073"></a><a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#aee474660939c2d138a7138632f80fae2">00073</a>   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#aee474660939c2d138a7138632f80fae2" title="Store the module options so that they can be passed to the PulseCandidateFinder.">fOpts</a>;
+<a name="l00074"></a>00074 };
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="preprocessor">#endif //PULSECANDIDATEFINDER_INVESTIGATEPARAMETERS_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
