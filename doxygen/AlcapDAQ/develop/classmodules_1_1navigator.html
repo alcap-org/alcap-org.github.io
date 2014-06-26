@@ -36,6 +36,7 @@
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">LoadConfigFile</a> (const char *filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#ac041604bec24ffa32b94a5fec3469055">MakeModules</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBaseModule.html">BaseModule</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#a437ee5a15869f2e548873c2e1f6190c6">GetModule</a> (const std::string &amp;module) const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get a named module.  <a href="#a437ee5a15869f2e548873c2e1f6190c6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBaseModule.html">BaseModule</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#a3ab37f0118266f4caeb2a2137727c694">GetModule</a> (const int &amp;i) const </td></tr>
@@ -53,6 +54,8 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return the number of <a class="el" href="namespacemodules.html">modules</a> in the list.  <a href="#a29427d44467ecb7d66adef3bebbb0a2e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#aa634f29698fd1d5614e9ea9497cb7975">GetNumModules</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return the number of <a class="el" href="namespacemodules.html">modules</a> in the list.  <a href="#aa634f29698fd1d5614e9ea9497cb7975"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#ac71f1c5235cce38dd43807125926f259">SetDebug</a> (bool d=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#abf0e22d7f6b51cf3f2eadac79c313aca">Debug</a> () const </td></tr>
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classmodules_1_1navigator.html">navigator</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d">Instance</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Static method to obtain the singleton instance of the <a class="el" href="classmodules_1_1navigator.html">navigator</a>.  <a href="#a7b9cc64f2131df1cb305c6e9c2256d5d"></a><br/></td></tr>
@@ -62,8 +65,10 @@
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">AddModule</a> (const std::string &amp;, <a class="el" href="classBaseModule.html">BaseModule</a> *)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#aa3c71faf8fd7a1013149ef9ec616e33a">fDebug</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemodules.html#a691934d06604972be69cbb9e537c0736">modules::ordered_list</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemodules.html#ad4b4c82a2af83370510aa8b5006283f3">modules::list</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodules_1_1reader.html">modules::reader</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Singleton class tasked with:</p>
@@ -73,7 +78,7 @@
 <li>Providing an iterable list of <a class="el" href="namespacemodules.html">modules</a> for the main event loop </li>
 </ul>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00023">23</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00025">25</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a517ceb71375b4325050309de8b3e030b"></a><!-- doxytag: member="modules::navigator::navigator" ref="a517ceb71375b4325050309de8b3e030b" args="()" -->
 <div class="memitem">
@@ -90,11 +95,11 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00025">25</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00027">27</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesNavigator_8h_source.html#l00074">Instance()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesNavigator_8h_source.html#l00086">Instance()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00025"></a>00025 :<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>(<span class="keyword">false</span>){};
+<p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027 :<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>(<span class="keyword">false</span>),<a class="code" href="classmodules_1_1navigator.html#aa3c71faf8fd7a1013149ef9ec616e33a">fDebug</a>(<span class="keyword">false</span>){};
 </pre></div></p>
 
 </div>
@@ -114,9 +119,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00026">26</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00028">28</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00026"></a>00026 {};
+<p><div class="fragment"><pre class="fragment"><a name="l00028"></a>00028 {};
 </pre></div></p>
 
 </div>
@@ -147,16 +152,16 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8cpp_source.html#l00049">49</a> of file <a class="el" href="ModulesNavigator_8cpp_source.html">ModulesNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8cpp_source.html#l00060">60</a> of file <a class="el" href="ModulesNavigator_8cpp_source.html">ModulesNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00071">fModulesSearch</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00082">fModulesSearch</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00007">LoadConfigFile()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00029">MakeModules()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049                                                                       {
-<a name="l00050"></a>00050     <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.push_back(std::make_pair(name,mod));
-<a name="l00051"></a>00051     <a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.insert(std::make_pair(name,mod));
-<a name="l00052"></a>00052 }
+<p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060                                                                       {
+<a name="l00061"></a>00061     <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.push_back(std::make_pair(name,mod));
+<a name="l00062"></a>00062     <a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.insert(std::make_pair(name,mod));
+<a name="l00063"></a>00063 }
 </pre></div></p>
 
 </div>
@@ -178,11 +183,11 @@
 
 <p>Return a const iterator to the first module in the list. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00055">55</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00061">61</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00055"></a>00055 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin();};
+<p><div class="fragment"><pre class="fragment"><a name="l00061"></a>00061 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin();};
 </pre></div></p>
 
 </div>
@@ -204,11 +209,37 @@
 
 <p>Return an iterator to the first module in the list. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00053">53</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00059">59</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin();};
+<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin();};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="abf0e22d7f6b51cf3f2eadac79c313aca"></a><!-- doxytag: member="modules::navigator::Debug" ref="abf0e22d7f6b51cf3f2eadac79c313aca" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool modules::navigator::Debug </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00073">73</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00080">fDebug</a>.</p>
+
+<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00029">MakeModules()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00073"></a>00073 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#aa3c71faf8fd7a1013149ef9ec616e33a">fDebug</a>;}
 </pre></div></p>
 
 </div>
@@ -230,11 +261,11 @@
 
 <p>Return a const iterator to the last module in the list. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00059">59</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00065">65</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end();};
+<p><div class="fragment"><pre class="fragment"><a name="l00065"></a>00065 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end();};
 </pre></div></p>
 
 </div>
@@ -256,11 +287,11 @@
 
 <p>Return an iterator to the last module in the list. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00057">57</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00063">63</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00057"></a>00057 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end();};
+<p><div class="fragment"><pre class="fragment"><a name="l00063"></a>00063 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end();};
 </pre></div></p>
 
 </div>
@@ -304,13 +335,13 @@ template&lt;typename T &gt; </div>
 <p>Get a module by its position in the <a class="el" href="namespacemodules.html">modules</a> list as specified by the MODULES file. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>NULL if the module doesn't exist </dd></dl>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00102">102</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00114">114</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102                                                                       {
-<a name="l00103"></a>00103         <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>[i].second;
-<a name="l00104"></a>00104 }
+<p><div class="fragment"><pre class="fragment"><a name="l00114"></a>00114                                                                       {
+<a name="l00115"></a>00115         <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>[i].second;
+<a name="l00116"></a>00116 }
 </pre></div></p>
 
 </div>
@@ -333,15 +364,15 @@ template&lt;typename T &gt; </div>
 
 <p>Get a named module. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00079">79</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00091">91</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00071">fModulesSearch</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00082">fModulesSearch</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00079"></a>00079                                                                                  {
-<a name="l00080"></a>00080     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">modules::list::const_iterator</a> mod=<a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.find(<a class="code" href="Template__module_8cpp.html#ae0c09ec33102122f67514a5f5e50f22f">module</a>.c_str());
-<a name="l00081"></a>00081     <span class="keywordflow">if</span>(mod==<a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.end()) <span class="keywordflow">return</span> NULL;
-<a name="l00082"></a>00082     <span class="keywordflow">return</span> mod-&gt;second;
-<a name="l00083"></a>00083 }
+<p><div class="fragment"><pre class="fragment"><a name="l00091"></a>00091                                                                                  {
+<a name="l00092"></a>00092     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">modules::list::const_iterator</a> mod=<a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.find(<a class="code" href="Template__module_8cpp.html#ae0c09ec33102122f67514a5f5e50f22f">module</a>.c_str());
+<a name="l00093"></a>00093     <span class="keywordflow">if</span>(mod==<a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.end()) <span class="keywordflow">return</span> NULL;
+<a name="l00094"></a>00094     <span class="keywordflow">return</span> mod-&gt;second;
+<a name="l00095"></a>00095 }
 </pre></div></p>
 
 </div>
@@ -363,11 +394,11 @@ template&lt;typename T &gt; </div>
 
 <p>Return the number of <a class="el" href="namespacemodules.html">modules</a> in the list. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00063">63</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00069">69</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00063"></a>00063 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.size();};
+<p><div class="fragment"><pre class="fragment"><a name="l00069"></a>00069 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.size();};
 </pre></div></p>
 
 </div>
@@ -389,16 +420,16 @@ template&lt;typename T &gt; </div>
 
 <p>Static method to obtain the singleton instance of the <a class="el" href="classmodules_1_1navigator.html">navigator</a>. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00074">74</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00086">86</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00025">navigator()</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00027">navigator()</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00007">LoadConfigFile()</a>, <a class="el" href="main_8cpp_source.html#l00081">main()</a>, <a class="el" href="main_8cpp_source.html#l00154">Main_event_loop()</a>, and <a class="el" href="main_8cpp_source.html#l00363">PrepareSingletonObjects()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp_source.html#l00083">main()</a>, <a class="el" href="main_8cpp_source.html#l00164">Main_event_loop()</a>, <a class="el" href="ModulesNavigator_8cpp_source.html#l00029">MakeModules()</a>, <a class="el" href="main_8cpp_source.html#l00373">PrepareSingletonObjects()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00264">modules::reader::ProcessGlobalOption()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074                                                    {
-<a name="l00075"></a>00075     <span class="keyword">static</span> <a class="code" href="classmodules_1_1navigator.html">modules::navigator</a>* instance=<span class="keyword">new</span> <a class="code" href="classmodules_1_1navigator.html#a517ceb71375b4325050309de8b3e030b">navigator</a>();
-<a name="l00076"></a>00076     <span class="keywordflow">return</span> instance;
-<a name="l00077"></a>00077 }
+<p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086                                                    {
+<a name="l00087"></a>00087     <span class="keyword">static</span> <a class="code" href="classmodules_1_1navigator.html">modules::navigator</a>* instance=<span class="keyword">new</span> <a class="code" href="classmodules_1_1navigator.html#a517ceb71375b4325050309de8b3e030b">navigator</a>();
+<a name="l00088"></a>00088     <span class="keywordflow">return</span> instance;
+<a name="l00089"></a>00089 }
 </pre></div></p>
 
 </div>
@@ -420,51 +451,113 @@ template&lt;typename T &gt; </div>
 <div class="memdoc">
 <p>read in a <a class="el" href="namespacemodules.html">modules</a> file, constructing each module and adding it to the list returns 0 on success and non-zero on failure </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8cpp_source.html#l00007">7</a> of file <a class="el" href="ModulesNavigator_8cpp_source.html">ModulesNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8cpp_source.html#l00006">6</a> of file <a class="el" href="ModulesNavigator_8cpp_source.html">ModulesNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8cpp_source.html#l00049">AddModule()</a>, <a class="el" href="ModulesFactory_8cpp_source.html#l00004">modules::factory::createModule()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00066">modules::options::DumpOptions()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00069">fModulesLoaded</a>, <a class="el" href="ModulesReader_8h_source.html#l00040">modules::reader::GetModule()</a>, <a class="el" href="ModulesReader_8h_source.html#l00039">modules::reader::GetNumModules()</a>, <a class="el" href="ModulesReader_8h_source.html#l00041">modules::reader::GetOptions()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00074">Instance()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00210">modules::reader::PrintAllOptions()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00016">modules::reader::ReadFile()</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00083">fModulesFile</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00079">fModulesLoaded</a>, <a class="el" href="ModulesReader_8h_source.html#l00039">modules::reader::GetNumModules()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00016">modules::reader::ReadFile()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00007"></a>00007                                                         {
-<a name="l00008"></a>00008     <span class="comment">// Check we haven&apos;t already opened a modules file</span>
-<a name="l00009"></a>00009     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a> ==<span class="keyword">true</span>) {
-<a name="l00010"></a>00010             cout&lt;&lt;<span class="stringliteral">&quot;Error: Loading a new modules file, when one was already loaded&quot;</span>&lt;&lt;endl;
-<a name="l00011"></a>00011             <span class="keywordflow">return</span> 1;
-<a name="l00012"></a>00012     }
-<a name="l00013"></a>00013     <span class="comment">// Read in the file and dump the processed options</span>
-<a name="l00014"></a>00014     <a class="code" href="classmodules_1_1reader.html">modules::reader</a> modules_file;
-<a name="l00015"></a>00015     <span class="keywordtype">int</span> retVal=modules_file.<a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">ReadFile</a>(filename);
-<a name="l00016"></a>00016     <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
-<a name="l00017"></a>00017     modules_file.<a class="code" href="classmodules_1_1reader.html#a63eddaec1dc7bb964244ac0d11b1187e">PrintAllOptions</a>();
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019     <span class="comment">// Check the file contained at least one module</span>
-<a name="l00020"></a>00020     <span class="keywordtype">size_t</span> num_modules=modules_file.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
-<a name="l00021"></a>00021     <span class="keywordflow">if</span>(num_modules==0){
-<a name="l00022"></a>00022             cout&lt;&lt;<span class="stringliteral">&quot;Warning: No modules were requested for use, so there&apos;s nothing to be done!&quot;</span>&lt;&lt;endl;
-<a name="l00023"></a>00023             <span class="keywordflow">return</span> 2;
-<a name="l00024"></a>00024     }
-<a name="l00025"></a>00025     cout&lt;&lt;<span class="stringliteral">&quot;Number of modules requested: &quot;</span>&lt;&lt;num_modules&lt;&lt;endl;
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027     <span class="comment">// Loop over each requested module and build it</span>
-<a name="l00028"></a>00028     <span class="comment">// If we have any problems making a module then stop running</span>
-<a name="l00029"></a>00029     <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::factory::Instance</a>();
-<a name="l00030"></a>00030     std::string name;
-<a name="l00031"></a>00031     <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
-<a name="l00032"></a>00032     <a class="code" href="classBaseModule.html">BaseModule</a>* mod=NULL;
-<a name="l00033"></a>00033     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;num_modules;i++){
-<a name="l00034"></a>00034             name = modules_file.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
-<a name="l00035"></a>00035             opts =  modules_file.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
-<a name="l00036"></a>00036             cout&lt;&lt;<span class="stringliteral">&quot;Creating module: &quot;</span>&lt;&lt;name&lt;&lt;endl;
-<a name="l00037"></a>00037             cout&lt;&lt;<span class="stringliteral">&quot;With options:&quot;</span>&lt;&lt;endl;
-<a name="l00038"></a>00038             opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
-<a name="l00039"></a>00039             mod = mgr-&gt;<a class="code" href="classmodules_1_1factory.html#a9ea070d3afec26d1bbec56d40bf8acac" title="Create a module with options.">createModule</a>(name,opts);
-<a name="l00040"></a>00040             <span class="keywordflow">if</span>(mod) <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">AddModule</a>(name, mod);
-<a name="l00041"></a>00041             <span class="keywordflow">else</span> <span class="keywordflow">return</span> 3;
-<a name="l00042"></a>00042     }
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044     <span class="comment">// Everything finished ok</span>
-<a name="l00045"></a>00045     <a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>=<span class="keyword">true</span>;
-<a name="l00046"></a>00046     <span class="keywordflow">return</span> 0;
-<a name="l00047"></a>00047 }
+<p><div class="fragment"><pre class="fragment"><a name="l00006"></a>00006                                                         {
+<a name="l00007"></a>00007     <span class="comment">// Check we haven&apos;t already opened a modules file</span>
+<a name="l00008"></a>00008     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a> ) {
+<a name="l00009"></a>00009             cout&lt;&lt;<span class="stringliteral">&quot;Error: Loading a new modules file, when one was already loaded&quot;</span>&lt;&lt;endl;
+<a name="l00010"></a>00010             <span class="keywordflow">return</span> 1;
+<a name="l00011"></a>00011     }
+<a name="l00012"></a>00012     <span class="comment">// Read in the file and dump the processed options</span>
+<a name="l00013"></a>00013     <span class="keywordtype">int</span> retVal=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">ReadFile</a>(filename);
+<a name="l00014"></a>00014     <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016     <span class="comment">// Check the file contained at least one module</span>
+<a name="l00017"></a>00017     <span class="keywordtype">size_t</span> num_modules=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
+<a name="l00018"></a>00018     <span class="keywordflow">if</span>(num_modules==0){
+<a name="l00019"></a>00019             cout&lt;&lt;<span class="stringliteral">&quot;Warning: No modules were requested for use, so there&apos;s nothing to be done!&quot;</span>&lt;&lt;endl;
+<a name="l00020"></a>00020             <span class="keywordflow">return</span> 2;
+<a name="l00021"></a>00021     }
+<a name="l00022"></a>00022     cout&lt;&lt;<span class="stringliteral">&quot;Number of modules requested: &quot;</span>&lt;&lt;num_modules&lt;&lt;endl;
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024     <span class="comment">// Everything finished ok</span>
+<a name="l00025"></a>00025     <a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>=<span class="keyword">true</span>;
+<a name="l00026"></a>00026     <span class="keywordflow">return</span> 0;
+<a name="l00027"></a>00027 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ac041604bec24ffa32b94a5fec3469055"></a><!-- doxytag: member="modules::navigator::MakeModules" ref="ac041604bec24ffa32b94a5fec3469055" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int modules::navigator::MakeModules </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Make all <a class="el" href="namespacemodules.html">modules</a> that were requested through the <a class="el" href="namespacemodules.html">modules</a> file Requires that LoadConfigFile has already been called successfully </p>
+
+<p>Definition at line <a class="el" href="ModulesNavigator_8cpp_source.html#l00029">29</a> of file <a class="el" href="ModulesNavigator_8cpp_source.html">ModulesNavigator.cpp</a>.</p>
+
+<p>References <a class="el" href="ModulesNavigator_8cpp_source.html#l00060">AddModule()</a>, <a class="el" href="ModulesFactory_8cpp_source.html#l00004">modules::factory::createModule()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00073">Debug()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00066">modules::options::DumpOptions()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00083">fModulesFile</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00079">fModulesLoaded</a>, <a class="el" href="ModulesReader_8h_source.html#l00040">modules::reader::GetModule()</a>, <a class="el" href="ModulesReader_8h_source.html#l00039">modules::reader::GetNumModules()</a>, <a class="el" href="ModulesReader_8h_source.html#l00041">modules::reader::GetOptions()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00086">Instance()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                                  {
+<a name="l00030"></a>00030     <span class="comment">// Check that we&apos;ve already opened a modules file</span>
+<a name="l00031"></a>00031     <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>) {
+<a name="l00032"></a>00032             cout&lt;&lt;<span class="stringliteral">&quot;Error: MakeModules(): Cannot make modules until you load a Modules file.&quot;</span>&lt;&lt;endl;
+<a name="l00033"></a>00033             <span class="keywordflow">return</span> 1;
+<a name="l00034"></a>00034     }
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036     <span class="comment">// Loop over each requested module and build it</span>
+<a name="l00037"></a>00037     <span class="comment">// If we have any problems making a module then stop running</span>
+<a name="l00038"></a>00038     <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::factory::Instance</a>();
+<a name="l00039"></a>00039     std::string name;
+<a name="l00040"></a>00040     <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
+<a name="l00041"></a>00041     <a class="code" href="classBaseModule.html">BaseModule</a>* mod=NULL;
+<a name="l00042"></a>00042     <span class="keywordtype">size_t</span> num_modules=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
+<a name="l00043"></a>00043     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;num_modules;i++){
+<a name="l00044"></a>00044             name = <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
+<a name="l00045"></a>00045             opts =  <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
+<a name="l00046"></a>00046       <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#abf0e22d7f6b51cf3f2eadac79c313aca">Debug</a>()){
+<a name="l00047"></a>00047               cout&lt;&lt;<span class="stringliteral">&quot;Creating module: &quot;</span>&lt;&lt;name&lt;&lt;endl;
+<a name="l00048"></a>00048               cout&lt;&lt;<span class="stringliteral">&quot;With options:&quot;</span>&lt;&lt;endl;
+<a name="l00049"></a>00049               opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
+<a name="l00050"></a>00050       }
+<a name="l00051"></a>00051             mod = mgr-&gt;<a class="code" href="classmodules_1_1factory.html#a9ea070d3afec26d1bbec56d40bf8acac" title="Create a module with options.">createModule</a>(name,opts);
+<a name="l00052"></a>00052             <span class="keywordflow">if</span>(mod) <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">AddModule</a>(name, mod);
+<a name="l00053"></a>00053             <span class="keywordflow">else</span> <span class="keywordflow">return</span> 3;
+<a name="l00054"></a>00054     }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <span class="comment">// Everything finished ok</span>
+<a name="l00057"></a>00057     <span class="keywordflow">return</span> 0;
+<a name="l00058"></a>00058 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ac71f1c5235cce38dd43807125926f259"></a><!-- doxytag: member="modules::navigator::SetDebug" ref="ac71f1c5235cce38dd43807125926f259" args="(bool d=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modules::navigator::SetDebug </td>
+          <td>(</td>
+          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramname"> <em>d</em> = <code>true</code></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00072">72</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00080">fDebug</a>.</p>
+
+<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00264">modules::reader::ProcessGlobalOption()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00072"></a>00072 {<a class="code" href="classmodules_1_1navigator.html#aa3c71faf8fd7a1013149ef9ec616e33a">fDebug</a>=d;}
 </pre></div></p>
 
 </div>
@@ -486,16 +579,33 @@ template&lt;typename T &gt; </div>
 
 <p>Return the number of <a class="el" href="namespacemodules.html">modules</a> in the list. </p>
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00061">61</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00067">67</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00070">fModules</a>.</p>
+<p>References <a class="el" href="ModulesNavigator_8h_source.html#l00081">fModules</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00061"></a>00061 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.size();};
+<p><div class="fragment"><pre class="fragment"><a name="l00067"></a>00067 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.size();};
 </pre></div></p>
 
 </div>
 </div>
 <hr/><h2>Field Documentation</h2>
+<a class="anchor" id="aa3c71faf8fd7a1013149ef9ec616e33a"></a><!-- doxytag: member="modules::navigator::fDebug" ref="aa3c71faf8fd7a1013149ef9ec616e33a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmodules_1_1navigator.html#aa3c71faf8fd7a1013149ef9ec616e33a">modules::navigator::fDebug</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00080">80</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="ModulesNavigator_8h_source.html#l00073">Debug()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00072">SetDebug()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a416a618300a107d30c3326c773757b8a"></a><!-- doxytag: member="modules::navigator::fModules" ref="a416a618300a107d30c3326c773757b8a" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -507,9 +617,26 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00070">70</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00081">81</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00049">AddModule()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00053">Begin()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00057">End()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00102">GetModule()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00063">GetNumModules()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00061">Size()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00060">AddModule()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00059">Begin()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00063">End()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00114">GetModule()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00069">GetNumModules()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00067">Size()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4cfee1bb010550947dad534db0b08e5f"></a><!-- doxytag: member="modules::navigator::fModulesFile" ref="a4cfee1bb010550947dad534db0b08e5f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmodules_1_1reader.html">modules::reader</a> <a class="el" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">modules::navigator::fModulesFile</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00083">83</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00006">LoadConfigFile()</a>, and <a class="el" href="ModulesNavigator_8cpp_source.html#l00029">MakeModules()</a>.</p>
 
 </div>
 </div>
@@ -524,9 +651,9 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00069">69</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00079">79</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00007">LoadConfigFile()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00006">LoadConfigFile()</a>, and <a class="el" href="ModulesNavigator_8cpp_source.html#l00029">MakeModules()</a>.</p>
 
 </div>
 </div>
@@ -541,9 +668,9 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00071">71</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesNavigator_8h_source.html#l00082">82</a> of file <a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00049">AddModule()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00079">GetModule()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesNavigator_8cpp_source.html#l00060">AddModule()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00091">GetModule()</a>.</p>
 
 </div>
 </div>
@@ -552,7 +679,7 @@ template&lt;typename T &gt; </div>
 <li>rootana/src/framework/<a class="el" href="ModulesNavigator_8cpp_source.html">ModulesNavigator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

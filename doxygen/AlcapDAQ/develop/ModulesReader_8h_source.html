@@ -54,7 +54,7 @@
 <a name="l00027"></a>00027 
 <a name="l00028"></a>00028     <span class="keyword">public</span>:
 <a name="l00029"></a>00029         <span class="comment">// default constructor</span>
-<a name="l00030"></a><a class="code" href="classmodules_1_1reader.html#abbd32ff82005c6678bc518df7ab866c0">00030</a>         <a class="code" href="classmodules_1_1reader.html#abbd32ff82005c6678bc518df7ab866c0">reader</a>():<a class="code" href="classmodules_1_1reader.html#a769477c2c6ae89b2f0d8b282bf2a8f76">fShouldPrint</a>(false),<a class="code" href="classmodules_1_1reader.html#a9d905a80c9d94f976cb9c8acf8a39bb6">fDebugAll</a>(false){};
+<a name="l00030"></a><a class="code" href="classmodules_1_1reader.html#abbd32ff82005c6678bc518df7ab866c0">00030</a>         <a class="code" href="classmodules_1_1reader.html#abbd32ff82005c6678bc518df7ab866c0">reader</a>():<a class="code" href="classmodules_1_1reader.html#a769477c2c6ae89b2f0d8b282bf2a8f76">fShouldPrint</a>(false),<a class="code" href="classmodules_1_1reader.html#a9d905a80c9d94f976cb9c8acf8a39bb6">fDebugAll</a>(false),<a class="code" href="classmodules_1_1reader.html#a93e4819216a8e14217248cdf84bc8566">fDumpContents</a>(false){};
 <a name="l00031"></a>00031         <span class="comment">// destructor.  Virtual in case someone ever decides to overload this</span>
 <a name="l00032"></a>00032         <span class="comment">// class</span>
 <a name="l00033"></a><a class="code" href="classmodules_1_1reader.html#a91f9dcf19b9fbdb55da27aa18482db0f">00033</a>         <span class="keyword">virtual</span> <a class="code" href="classmodules_1_1reader.html#a91f9dcf19b9fbdb55da27aa18482db0f">~reader</a>(){};
@@ -94,23 +94,24 @@
 <a name="l00067"></a><a class="code" href="classmodules_1_1reader.html#a56c1370655b285fdeb9adb4eee333486">00067</a>         <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1reader.html#a56c1370655b285fdeb9adb4eee333486">fLineNumber</a>;
 <a name="l00068"></a><a class="code" href="classmodules_1_1reader.html#a769477c2c6ae89b2f0d8b282bf2a8f76">00068</a>         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1reader.html#a769477c2c6ae89b2f0d8b282bf2a8f76">fShouldPrint</a>;
 <a name="l00069"></a><a class="code" href="classmodules_1_1reader.html#a9d905a80c9d94f976cb9c8acf8a39bb6">00069</a>         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1reader.html#a9d905a80c9d94f976cb9c8acf8a39bb6">fDebugAll</a>;
-<a name="l00070"></a>00070 };
-<a name="l00071"></a>00071 
-<a name="l00072"></a><a class="code" href="classmodules_1_1reader.html#a7ddc3991d69a8d12d7b7907488a0d712">00072</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1reader.html#a7ddc3991d69a8d12d7b7907488a0d712">modules::reader::AddSection</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keyword">const</span> std::string&amp; type){
-<a name="l00073"></a>00073     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>.find(name)==<a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>.end()){
-<a name="l00074"></a>00074         <a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>[name] =<span class="keyword">new</span> <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>(type);
-<a name="l00075"></a>00075         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00076"></a>00076     }
-<a name="l00077"></a>00077     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00078"></a>00078 }
-<a name="l00079"></a>00079 
-<a name="l00080"></a><a class="code" href="classmodules_1_1reader.html#a76aa60bf912d5f15312bf6debbf8e115">00080</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">modules::reader::AddOptionAll</a>(<span class="keyword">const</span> <a class="code" href="structmodules_1_1reader_1_1Option__t.html">Option_t</a>&amp; opt){
-<a name="l00081"></a>00081         <a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">AddOptionAll</a>(opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#aa007e968545041864adc88a001142d7d">key</a>,opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#a518988fdc1f5b6090ea616e5fa66b748">value</a>);
-<a name="l00082"></a>00082 }
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084 <span class="preprocessor">#endif // MODULESREADER__HH_</span>
+<a name="l00070"></a><a class="code" href="classmodules_1_1reader.html#a93e4819216a8e14217248cdf84bc8566">00070</a>         <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1reader.html#a93e4819216a8e14217248cdf84bc8566">fDumpContents</a>;
+<a name="l00071"></a>00071 };
+<a name="l00072"></a>00072 
+<a name="l00073"></a><a class="code" href="classmodules_1_1reader.html#a7ddc3991d69a8d12d7b7907488a0d712">00073</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1reader.html#a7ddc3991d69a8d12d7b7907488a0d712">modules::reader::AddSection</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keyword">const</span> std::string&amp; type){
+<a name="l00074"></a>00074     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>.find(name)==<a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>.end()){
+<a name="l00075"></a>00075         <a class="code" href="classmodules_1_1reader.html#a23439b405f0489aabcdf2a3586339056">fAllOptions</a>[name] =<span class="keyword">new</span> <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>(type);
+<a name="l00076"></a>00076         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00077"></a>00077     }
+<a name="l00078"></a>00078     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="classmodules_1_1reader.html#a76aa60bf912d5f15312bf6debbf8e115">00081</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">modules::reader::AddOptionAll</a>(<span class="keyword">const</span> <a class="code" href="structmodules_1_1reader_1_1Option__t.html">Option_t</a>&amp; opt){
+<a name="l00082"></a>00082         <a class="code" href="classmodules_1_1reader.html#a60a9bd1a01c090d737a9510ca05c9076">AddOptionAll</a>(opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#aa007e968545041864adc88a001142d7d">key</a>,opt.<a class="code" href="structmodules_1_1reader_1_1Option__t.html#a518988fdc1f5b6090ea616e5fa66b748">value</a>);
+<a name="l00083"></a>00083 }
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="preprocessor">#endif // MODULESREADER__HH_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
