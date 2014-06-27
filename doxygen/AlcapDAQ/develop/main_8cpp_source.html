@@ -73,8 +73,8 @@
 <a name="l00064"></a>00064 <span class="comment">// Temporary botch to let ExportPulse module know what the current entry</span>
 <a name="l00065"></a>00065 <span class="comment">// number is.  I&apos;m assuming Phill&apos;s Event Navigator will provide this</span>
 <a name="l00066"></a>00066 <span class="comment">// functionality, so I&apos;ll remove this at that point.</span>
-<a name="l00067"></a><a class="code" href="ExportPulse_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">00067</a> Long64_t* <a class="code" href="main_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a>;
-<a name="l00068"></a><a class="code" href="ExportPulse_8cpp.html#a20d2d589778e4f17e762fd9e5130381a">00068</a> Long64_t* <a class="code" href="main_8cpp.html#a20d2d589778e4f17e762fd9e5130381a">gTotalEntries</a>;
+<a name="l00067"></a><a class="code" href="PulseViewer_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">00067</a> Long64_t* <a class="code" href="main_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a>;
+<a name="l00068"></a><a class="code" href="PulseViewer_8cpp.html#a20d2d589778e4f17e762fd9e5130381a">00068</a> Long64_t* <a class="code" href="main_8cpp.html#a20d2d589778e4f17e762fd9e5130381a">gTotalEntries</a>;
 <a name="l00069"></a>00069 
 <a name="l00070"></a><a class="code" href="main_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">00070</a> <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a> *<a class="code" href="main_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">gAnalysedPulseMapWrapper</a>=NULL;
 <a name="l00071"></a><a class="code" href="main_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">00071</a> <span class="keyword">static</span> TTree *<a class="code" href="main_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a> = NULL;
@@ -138,7 +138,7 @@
 <a name="l00129"></a>00129               &lt;&lt; arguments.<a class="code" href="structARGUMENTS.html#aa9279635bc83c50955d0310b4999e0ad">outfile</a> &lt;&lt; std::endl;
 <a name="l00130"></a>00130     <span class="keywordflow">return</span> 1;
 <a name="l00131"></a>00131   }
-<a name="l00132"></a>00132   fileOut-&gt;cd();
+<a name="l00132"></a>00132   <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;SetOutFile(fileOut);
 <a name="l00133"></a>00133 
 <a name="l00134"></a>00134   <span class="comment">// Now let&apos;s setup all the analysis modules we want</span>
 <a name="l00135"></a>00135   <span class="comment">// NOTE: This has to be done after the output file was opened else the</span>
@@ -392,7 +392,7 @@
 <a name="l00383"></a>00383 }
 <a name="l00384"></a>00384 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

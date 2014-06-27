@@ -207,7 +207,7 @@
 
 <p>Definition at line <a class="el" href="main_8cpp_source.html#l00083">83</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>References <a class="el" href="CommandLine_8cpp_source.html#l00114">analyze_command_line()</a>, <a class="el" href="main_8cpp_source.html#l00071">gAnalysedPulseTree</a>, <a class="el" href="main_8cpp_source.html#l00300">GetTree()</a>, <a class="el" href="main_8cpp_source.html#l00062">gInFile</a>, <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::infile</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00086">modules::navigator::Instance()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00021">SetupNavigator::Instance()</a>, <a class="el" href="main_8cpp_source.html#l00164">Main_event_loop()</a>, <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::outfile</a>, <a class="el" href="main_8cpp_source.html#l00353">PrepareAnalysedPulseMap()</a>, <a class="el" href="main_8cpp_source.html#l00373">PrepareSingletonObjects()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00012">SetupNavigator::SetCommandLineArgs()</a>.</p>
+<p>References <a class="el" href="CommandLine_8cpp_source.html#l00114">analyze_command_line()</a>, <a class="el" href="main_8cpp_source.html#l00071">gAnalysedPulseTree</a>, <a class="el" href="main_8cpp_source.html#l00300">GetTree()</a>, <a class="el" href="main_8cpp_source.html#l00062">gInFile</a>, <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::infile</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00094">modules::navigator::Instance()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00021">SetupNavigator::Instance()</a>, <a class="el" href="main_8cpp_source.html#l00164">Main_event_loop()</a>, <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::outfile</a>, <a class="el" href="main_8cpp_source.html#l00353">PrepareAnalysedPulseMap()</a>, <a class="el" href="main_8cpp_source.html#l00373">PrepareSingletonObjects()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00012">SetupNavigator::SetCommandLineArgs()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00083"></a>00083                                {
 <a name="l00084"></a>00084 <span class="comment">//load_config_file(&quot;MODULES.txt&quot;);</span>
@@ -258,7 +258,7 @@
 <a name="l00129"></a>00129               &lt;&lt; arguments.<a class="code" href="structARGUMENTS.html#aa9279635bc83c50955d0310b4999e0ad">outfile</a> &lt;&lt; std::endl;
 <a name="l00130"></a>00130     <span class="keywordflow">return</span> 1;
 <a name="l00131"></a>00131   }
-<a name="l00132"></a>00132   fileOut-&gt;cd();
+<a name="l00132"></a>00132   <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;SetOutFile(fileOut);
 <a name="l00133"></a>00133 
 <a name="l00134"></a>00134   <span class="comment">// Now let&apos;s setup all the analysis modules we want</span>
 <a name="l00135"></a>00135   <span class="comment">// NOTE: This has to be done after the output file was opened else the</span>
@@ -356,7 +356,7 @@
 
 <p>Definition at line <a class="el" href="main_8cpp_source.html#l00373">373</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>References <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00086">modules::navigator::Instance()</a>.</p>
+<p>References <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00094">modules::navigator::Instance()</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00083">main()</a>.</p>
 
@@ -463,7 +463,7 @@
 
 <p>Definition at line <a class="el" href="main_8cpp_source.html#l00074">74</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="main_8cpp_source.html#l00254">ClearGlobalData()</a>, <a class="el" href="main_8cpp_source.html#l00164">Main_event_loop()</a>, <a class="el" href="main_8cpp_source.html#l00353">PrepareAnalysedPulseMap()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00020">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00091">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00130">PulseViewer::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00037">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00081">PlotAmpVsTDiff::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="main_8cpp_source.html#l00254">ClearGlobalData()</a>, <a class="el" href="main_8cpp_source.html#l00164">Main_event_loop()</a>, <a class="el" href="main_8cpp_source.html#l00353">PrepareAnalysedPulseMap()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00020">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00090">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00137">PulseViewer::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00037">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00081">PlotAmpVsTDiff::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -585,7 +585,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

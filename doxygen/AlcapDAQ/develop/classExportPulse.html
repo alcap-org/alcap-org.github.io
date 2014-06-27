@@ -61,6 +61,8 @@ Inheritance diagram for ExportPulse:</div>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classExportPulse.html">ExportPulse</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">Instance</a> ()</td></tr>
 <tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b">GetDirectory</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the TDirectory for this module.  <a href="#ae753140da9952cb8caea03082294ce5b"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a></td></tr>
 <tr><td colspan="2"><h2>Private Types</h2></td></tr>
@@ -73,6 +75,10 @@ Inheritance diagram for ExportPulse:</div>
 <a class="el" href="classExportPulse.html#a6763e506beb72df03edd833e851219c8">PulseIDList_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#aa5a51342980212630bfa2eda655c05d5">EventPulseIDList_t</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak"/>
 <a class="el" href="classExportPulse.html#aa5a51342980212630bfa2eda655c05d5">EventPulseIDList_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a02348484fe1875bca137ae370ac53e1f">EventChannelPulseIDs_t</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::set&lt; const <br class="typebreak"/>
+<a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a91e308e4ea55065e1809be746a9671a1">TAPList_t</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak"/>
+<a class="el" href="classExportPulse.html#a91e308e4ea55065e1809be746a9671a1">TAPList_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a5b04ec3fa8bb6698067304c2da407e41">ChannelTAPs_t</a></td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#acdccd3c975e204316594530f4192e27c">BeforeFirstEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a12182a18c102c1fc956f745c5d68787a">ProcessEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="group__MV1724ProcessRaw.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)</td></tr>
@@ -106,7 +112,7 @@ Inheritance diagram for ExportPulse:</div>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a7f88130e84c6b375a241c83918114fdd">fClockTick</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a4a8d5760c9b6abdb9cbd9cc05de09fbd">fTimeShift</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classExportPulse.html#ab6abf76a80578aa7bc7c6f801dfb8d57">ChannelPulseIDs_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#afc7bd08952c8f320c6b13fa7b0443f27">fTPIsToPlot</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#a130f2f003a654b5ed2395396a616d009">StringConstAnalPulseMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classExportPulse.html#a5b04ec3fa8bb6698067304c2da407e41">ChannelTAPs_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classExportPulse.html#a02348484fe1875bca137ae370ac53e1f">EventChannelPulseIDs_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a0a29ca7442e0577b107ddda547561971">fRequestedByConfig</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExportPulse_1_1PulseInfo__t.html">PulseInfo_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a></td></tr>
@@ -131,6 +137,21 @@ Inheritance diagram for ExportPulse:</div>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00026">26</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5b04ec3fa8bb6698067304c2da407e41"></a><!-- doxytag: member="ExportPulse::ChannelTAPs_t" ref="a5b04ec3fa8bb6698067304c2da407e41" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string,<a class="el" href="classExportPulse.html#a91e308e4ea55065e1809be746a9671a1">TAPList_t</a>&gt; <a class="el" href="classExportPulse.html#a5b04ec3fa8bb6698067304c2da407e41">ExportPulse::ChannelTAPs_t</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00030">30</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
 </div>
 </div>
@@ -194,6 +215,21 @@ Inheritance diagram for ExportPulse:</div>
 
 </div>
 </div>
+<a class="anchor" id="a91e308e4ea55065e1809be746a9671a1"></a><!-- doxytag: member="ExportPulse::TAPList_t" ref="a91e308e4ea55065e1809be746a9671a1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::set&lt;const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a>*&gt; <a class="el" href="classExportPulse.html#a91e308e4ea55065e1809be746a9671a1">ExportPulse::TAPList_t</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00029">29</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a42a60224e4dc343493be904b3bc9344e"></a><!-- doxytag: member="ExportPulse::TPulseIslandID" ref="a42a60224e4dc343493be904b3bc9344e" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -228,10 +264,10 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00036">36</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00035">ExportPulse::PulseInfo_t::bankname</a>, <a class="el" href="ExportPulse_8h_source.html#l00036">ExportPulse::PulseInfo_t::detname</a>, <a class="el" href="BaseModule_8h_source.html#l00073">BaseModule::dir</a>, <a class="el" href="ExportPulse_8h_source.html#l00034">ExportPulse::PulseInfo_t::event</a>, <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>, and <a class="el" href="ExportPulse_8h_source.html#l00033">ExportPulse::PulseInfo_t::pulseID</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00037">ExportPulse::PulseInfo_t::bankname</a>, <a class="el" href="ExportPulse_8h_source.html#l00038">ExportPulse::PulseInfo_t::detname</a>, <a class="el" href="BaseModule_8h_source.html#l00085">BaseModule::dir</a>, <a class="el" href="ExportPulse_8h_source.html#l00036">ExportPulse::PulseInfo_t::event</a>, <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>, and <a class="el" href="ExportPulse_8h_source.html#l00035">ExportPulse::PulseInfo_t::pulseID</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00036"></a>00036                                             :
-<a name="l00037"></a>00037    <a class="code" href="classBaseModule.html#a960d236abd301acabcfec8c788e1848c" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;ExportPulse&quot;</span>,opts),<a class="code" href="classExportPulse.html#aa9c3d0876e3ded105c46ae4431c58cd9">fGuidanceShown</a>(<span class="keyword">false</span>),
+<a name="l00037"></a>00037    <a class="code" href="classBaseModule.html#a828d4e27c72536894e03b3cf330ba8c6" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;ExportPulse&quot;</span>,opts),<a class="code" href="classExportPulse.html#aa9c3d0876e3ded105c46ae4431c58cd9">fGuidanceShown</a>(<span class="keyword">false</span>),
 <a name="l00038"></a>00038         <a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>(NULL),<a class="code" href="classExportPulse.html#a1c30556d67a0b40990d214b72afd6595">fOptions</a>(opts)
 <a name="l00039"></a>00039         {
 <a name="l00040"></a>00040   <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
@@ -300,15 +336,15 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00144">144</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00146">146</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00120">fRequestedByConfig</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00122">fRequestedByConfig</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00144"></a>00144                                                                                                                      {
-<a name="l00145"></a>00145   <a class="code" href="classExportPulse.html#a0a29ca7442e0577b107ddda547561971">fRequestedByConfig</a>[detector][event_id].insert(pulse_id);
-<a name="l00146"></a>00146 }
+<p><div class="fragment"><pre class="fragment"><a name="l00146"></a>00146                                                                                                                      {
+<a name="l00147"></a>00147   <a class="code" href="classExportPulse.html#a0a29ca7442e0577b107ddda547561971">fRequestedByConfig</a>[detector][event_id].insert(pulse_id);
+<a name="l00148"></a>00148 }
 </pre></div></p>
 
 </div>
@@ -338,16 +374,16 @@ Inheritance diagram for ExportPulse:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00137">137</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00139">139</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00133">AddToExportList()</a>, <a class="el" href="IdSource_8h_source.html#l00080">IDs::source::Channel()</a>, <a class="el" href="BaseModule_8h_source.html#l00060">BaseModule::Debug()</a>, <a class="el" href="ExportPulse_8h_source.html#l00119">fTAPsToPlot</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00101">TAnalysedPulse::GetParentID()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00109">TAnalysedPulse::GetSource()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00135">AddToExportList()</a>, <a class="el" href="IdSource_8h_source.html#l00080">IDs::source::Channel()</a>, <a class="el" href="BaseModule_8h_source.html#l00059">BaseModule::Debug()</a>, <a class="el" href="ExportPulse_8h_source.html#l00121">fTAPsToPlot</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00101">TAnalysedPulse::GetParentID()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00109">TAnalysedPulse::GetSource()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00137"></a>00137                                                                    {
-<a name="l00138"></a>00138   std::string channel=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str();
-<a name="l00139"></a>00139   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) std::cout&lt;&lt;<span class="stringliteral">&quot;ExportPulse: Asked to draw a TAP for &quot;</span>&lt;&lt;channel&lt;&lt;std::endl;
-<a name="l00140"></a>00140   <a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>[channel].push_back(pulse);
-<a name="l00141"></a>00141   <a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(channel,pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a99eab9689d6e76d5e5171539dc7279ee">GetParentID</a>());
-<a name="l00142"></a>00142 }
+<p><div class="fragment"><pre class="fragment"><a name="l00139"></a>00139                                                                    {
+<a name="l00140"></a>00140   std::string channel=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str();
+<a name="l00141"></a>00141   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) std::cout&lt;&lt;<span class="stringliteral">&quot;ExportPulse: Asked to draw a TAP for &quot;</span>&lt;&lt;channel&lt;&lt;std::endl;
+<a name="l00142"></a>00142   <a class="code" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a>[channel].insert(pulse);
+<a name="l00143"></a>00143   <a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(channel,pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a99eab9689d6e76d5e5171539dc7279ee">GetParentID</a>());
+<a name="l00144"></a>00144 }
 </pre></div></p>
 
 </div>
@@ -386,15 +422,15 @@ Inheritance diagram for ExportPulse:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00133">133</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00135">135</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00118">fTPIsToPlot</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00120">fTPIsToPlot</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00137">AddToExportList()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00205">PulseViewer::ConsiderDrawing()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00286">LoadPulsesRequestedByConfig()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00139">AddToExportList()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00212">PulseViewer::ConsiderDrawing()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00286">LoadPulsesRequestedByConfig()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00133"></a>00133                                                                                           {
-<a name="l00134"></a>00134   <a class="code" href="classExportPulse.html#afc7bd08952c8f320c6b13fa7b0443f27">fTPIsToPlot</a>[detector].insert(pulse_id);
-<a name="l00135"></a>00135 }
+<p><div class="fragment"><pre class="fragment"><a name="l00135"></a>00135                                                                                           {
+<a name="l00136"></a>00136   <a class="code" href="classExportPulse.html#afc7bd08952c8f320c6b13fa7b0443f27">fTPIsToPlot</a>[detector].insert(pulse_id);
+<a name="l00137"></a>00137 }
 </pre></div></p>
 
 </div>
@@ -428,9 +464,9 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Reimplemented in <a class="el" href="classPlotPedestalAndNoise.html#a681a9d8bff4fb872ad7307ac6e016502">PlotPedestalAndNoise</a>, <a class="el" href="classPulseViewer.html#adcf4437db1c8370b2239b303a8ff11ce">PulseViewer</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#ac1dcbd80f553e46c7d4b413a47fb2c6f">PulseCandidateFinder_InvestigateParameters</a>, and <a class="el" href="classTemplateCreator.html#a46be404795ee899f49b8570e7126ebe6">TemplateCreator</a>.</p>
 
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00044">44</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00043">43</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044 {<span class="keywordflow">return</span> 0;};
+<p><div class="fragment"><pre class="fragment"><a name="l00043"></a>00043 {<span class="keywordflow">return</span> 0;};
 </pre></div></p>
 
 </div>
@@ -465,7 +501,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00050">50</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00144">AddToConfigRequestList()</a>, <a class="el" href="ModulesParser_8h_source.html#l00015">modules::parser::Constructor_t::before</a>, <a class="el" href="ModulesOptions_8h_source.html#l00104">modules::options::begin()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00106">modules::options::end()</a>, <a class="el" href="ExportPulse_8h_source.html#l00123">fOptions</a>, <a class="el" href="ExportPulse_8h_source.html#l00122">fSetup</a>, <a class="el" href="ExportPulse_8h_source.html#l00115">fTotalEvents</a>, <a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">TSetupData::GetBankName()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00053">modules::options::GetVectorStringsByDelimiter()</a>, <a class="el" href="main_8cpp_source.html#l00068">gTotalEntries</a>, <a class="el" href="ModulesParser_8h_source.html#l00016">modules::parser::Constructor_t::inside</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00041">modules::parser::ParseConstructor()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00256">ParseEventRequest()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00260">ParsePulseRequest()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00246">ShowGuidance()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00146">AddToConfigRequestList()</a>, <a class="el" href="ModulesParser_8h_source.html#l00015">modules::parser::Constructor_t::before</a>, <a class="el" href="ModulesOptions_8h_source.html#l00118">modules::options::begin()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00120">modules::options::end()</a>, <a class="el" href="ExportPulse_8h_source.html#l00125">fOptions</a>, <a class="el" href="ExportPulse_8h_source.html#l00124">fSetup</a>, <a class="el" href="ExportPulse_8h_source.html#l00117">fTotalEvents</a>, <a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">TSetupData::GetBankName()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00055">modules::options::GetVectorStringsByDelimiter()</a>, <a class="el" href="main_8cpp_source.html#l00068">gTotalEntries</a>, <a class="el" href="ModulesParser_8h_source.html#l00016">modules::parser::Constructor_t::inside</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00041">modules::parser::ParseConstructor()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00256">ParseEventRequest()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00260">ParsePulseRequest()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00246">ShowGuidance()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00050"></a>00050                                                                      {
 <a name="l00051"></a>00051    <a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>=setup;
@@ -545,7 +581,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00304">304</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00119">fTAPsToPlot</a>, and <a class="el" href="ExportPulse_8h_source.html#l00118">fTPIsToPlot</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00121">fTAPsToPlot</a>, and <a class="el" href="ExportPulse_8h_source.html#l00120">fTPIsToPlot</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
@@ -555,7 +591,7 @@ Inheritance diagram for ExportPulse:</div>
 <a name="l00307"></a>00307                   i_channel-&gt;second.clear();
 <a name="l00308"></a>00308   }
 <a name="l00309"></a>00309   <a class="code" href="classExportPulse.html#afc7bd08952c8f320c6b13fa7b0443f27">fTPIsToPlot</a>.clear();
-<a name="l00310"></a>00310   <a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>.clear();
+<a name="l00310"></a>00310   <a class="code" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a>.clear();
 <a name="l00311"></a>00311 }
 </pre></div></p>
 
@@ -578,13 +614,13 @@ Inheritance diagram for ExportPulse:</div>
 <p>Check whether this module was asked to print extra debug information </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>true if 'debug' was given in the <a class="el" href="namespacemodules.html">modules</a> file, false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00060">60</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00059">59</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00077">BaseModule::fDebug</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00076">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00166">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00137">AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00109">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00220">PulseViewer::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00114">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00030">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00035">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00205">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00091">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00130">PulseViewer::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00165">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00109">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00114">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00030">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00035">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00212">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00090">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00137">PulseViewer::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
 
 </div>
@@ -608,17 +644,17 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00127">127</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>, <a class="el" href="ExportPulse_8h_source.html#l00119">fTAPsToPlot</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00233">PlotTAP()</a>, <a class="el" href="ExportPulse_8h_source.html#l00148">SetCurrentDetectorName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00095">SetCurrentPulseID()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>, <a class="el" href="ExportPulse_8h_source.html#l00121">fTAPsToPlot</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00233">PlotTAP()</a>, <a class="el" href="ExportPulse_8h_source.html#l00150">SetCurrentDetectorName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00097">SetCurrentPulseID()</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00127"></a>00127                          {
 <a name="l00128"></a>00128   <span class="comment">// Initialise variables that would be used in the loops</span>
-<a name="l00129"></a>00129   <span class="keyword">const</span> <a class="code" href="definitions_8h.html#abe5d73ea5d0c738668153a27add08473">ConstAnalysedPulseList</a>* requestedPulses;
+<a name="l00129"></a>00129   <span class="keyword">const</span> <a class="code" href="classExportPulse.html#a91e308e4ea55065e1809be746a9671a1">TAPList_t</a>* requestedPulses;
 <a name="l00130"></a>00130 
 <a name="l00131"></a>00131   <span class="comment">// Loop over channel that we&apos;ve been requested to draw a pulse from</span>
-<a name="l00132"></a>00132   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringConstAnalPulseMap::const_iterator</a> i_detector=<a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>.begin();
-<a name="l00133"></a>00133                   i_detector!=<a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>.end();
+<a name="l00132"></a>00132   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ChannelTAPs_t::const_iterator</a> i_detector=<a class="code" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a>.begin();
+<a name="l00133"></a>00133                   i_detector!=<a class="code" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a>.end();
 <a name="l00134"></a>00134                   i_detector++){
 <a name="l00135"></a>00135      <a class="code" href="classExportPulse.html#abd765ef155c0284af9f2fb86b23464c4">SetCurrentDetectorName</a>(i_detector-&gt;first);
 <a name="l00136"></a>00136 
@@ -626,7 +662,7 @@ Inheritance diagram for ExportPulse:</div>
 <a name="l00138"></a>00138      requestedPulses=&amp;(i_detector-&gt;second);
 <a name="l00139"></a>00139 
 <a name="l00140"></a>00140      <span class="comment">// Loop over every requested pulse for that channel</span>
-<a name="l00141"></a>00141      <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ConstAnalysedPulseList::const_iterator</a> i_pulse=requestedPulses-&gt;begin();
+<a name="l00141"></a>00141      <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">TAPList_t::const_iterator</a> i_pulse=requestedPulses-&gt;begin();
 <a name="l00142"></a>00142                      i_pulse!=requestedPulses-&gt;end();
 <a name="l00143"></a>00143                      i_pulse++){
 <a name="l00144"></a>00144 
@@ -661,7 +697,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00155">155</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>, <a class="el" href="ExportPulse_8h_source.html#l00118">fTPIsToPlot</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00241">GetTPIsFromDetector()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, <a class="el" href="ExportPulse_8h_source.html#l00148">SetCurrentDetectorName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00095">SetCurrentPulseID()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>, <a class="el" href="ExportPulse_8h_source.html#l00120">fTPIsToPlot</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00241">GetTPIsFromDetector()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, <a class="el" href="ExportPulse_8h_source.html#l00150">SetCurrentDetectorName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00097">SetCurrentPulseID()</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
@@ -722,11 +758,13 @@ Inheritance diagram for ExportPulse:</div>
 <div class="memdoc">
 <p>Returns a string for the alias of this module. May be empty if no alias was given in the <a class="el" href="namespacemodules.html">modules</a> file. </p>
 
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00052">52</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00051">51</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00078">BaseModule::fAlias</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00079">BaseModule::fAlias</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00052"></a>00052 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#ae19cdbdf544a783be4cdd4505ae31fb9">fAlias</a>;};
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00051"></a>00051 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#ae19cdbdf544a783be4cdd4505ae31fb9">fAlias</a>;};
 </pre></div></p>
 
 </div>
@@ -746,13 +784,13 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00100">100</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00102">102</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00035">ExportPulse::PulseInfo_t::bankname</a>, and <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00037">ExportPulse::PulseInfo_t::bankname</a>, and <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00241">GetTPIsFromDetector()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00100"></a>00100 {<span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102 {<span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>;};
 </pre></div></p>
 
 </div>
@@ -772,13 +810,39 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00099">99</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00101">101</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00034">ExportPulse::PulseInfo_t::event</a>, and <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00036">ExportPulse::PulseInfo_t::event</a>, and <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00286">LoadPulsesRequestedByConfig()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00099"></a>00099 {<span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac1ad443dd9a7910ed934a62213bec745">event</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00101"></a>00101 {<span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac1ad443dd9a7910ed934a62213bec745">event</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ae753140da9952cb8caea03082294ce5b"></a><!-- doxytag: member="ExportPulse::GetDirectory" ref="ae753140da9952cb8caea03082294ce5b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TDirectory* BaseModule::GetDirectory </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the TDirectory for this module. </p>
+
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00062">62</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+
+<p>References <a class="el" href="BaseModule_8h_source.html#l00078">BaseModule::fDirectory</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00062"></a>00062 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>;}
 </pre></div></p>
 
 </div>
@@ -800,13 +864,13 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Get the name of this module as given to the constructor of the base class. </p>
 
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00055">55</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00054">54</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00073">BaseModule::dir</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00077">BaseModule::fName</a>.</p>
 
 <p>Referenced by <a class="el" href="PlotTime_8cpp_source.html#l00037">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00055"></a>00055 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>-&gt;GetName();};
+<p><div class="fragment"><pre class="fragment"><a name="l00054"></a>00054 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a743cac6481efcd5dea914e1d28813dfe">fName</a>.c_str();};
 </pre></div></p>
 
 </div>
@@ -826,13 +890,13 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00101">101</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00103">103</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00115">fTotalEvents</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00117">fTotalEvents</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00256">ParseEventRequest()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00260">ParsePulseRequest()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00101"></a>00101 {<span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#affc9c831a99016dffec5bc17bcecedb9">fTotalEvents</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00103"></a>00103 {<span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#affc9c831a99016dffec5bc17bcecedb9">fTotalEvents</a>;};
 </pre></div></p>
 
 </div>
@@ -857,7 +921,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00241">241</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00125">fGlobalData</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="ExportPulse_8h_source.html#l00100">GetCurrentBankName()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00127">fGlobalData</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="ExportPulse_8h_source.html#l00102">GetCurrentBankName()</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>.</p>
 
@@ -891,13 +955,13 @@ Inheritance diagram for ExportPulse:</div>
 </pre></div> </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>NULL if the module was not requested in the <a class="el" href="namespacemodules.html">modules</a> file </dd></dl>
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00129">129</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00131">131</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00032">PulseViewer::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00205">PulseViewer::ConsiderDrawing()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00148">SetCurrentDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00039">PulseViewer::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00212">PulseViewer::ConsiderDrawing()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">SetCurrentDetectorName()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00129"></a>00129                                           {
-<a name="l00130"></a>00130   <span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">modules::navigator::Instance</a>()-&gt;GetModule&lt;<a class="code" href="classExportPulse.html">ExportPulse</a>&gt;(<span class="stringliteral">&quot;ExportPulse&quot;</span>);
-<a name="l00131"></a>00131 }
+<p><div class="fragment"><pre class="fragment"><a name="l00131"></a>00131                                           {
+<a name="l00132"></a>00132   <span class="keywordflow">return</span> <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">modules::navigator::Instance</a>()-&gt;GetModule&lt;<a class="code" href="classExportPulse.html">ExportPulse</a>&gt;(<span class="stringliteral">&quot;ExportPulse&quot;</span>);
+<a name="l00133"></a>00133 }
 </pre></div></p>
 
 </div>
@@ -919,7 +983,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00286">286</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00133">AddToExportList()</a>, <a class="el" href="ExportPulse_8h_source.html#l00120">fRequestedByConfig</a>, and <a class="el" href="ExportPulse_8h_source.html#l00099">GetCurrentEventNumber()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00135">AddToExportList()</a>, <a class="el" href="ExportPulse_8h_source.html#l00122">fRequestedByConfig</a>, and <a class="el" href="ExportPulse_8h_source.html#l00101">GetCurrentEventNumber()</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
@@ -971,7 +1035,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00256">256</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00101">GetTotalNumberOfEvents()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00264">ParseRequest()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00103">GetTotalNumberOfEvents()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00264">ParseRequest()</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>.</p>
 
@@ -1009,7 +1073,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00260">260</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00101">GetTotalNumberOfEvents()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00264">ParseRequest()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00103">GetTotalNumberOfEvents()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00264">ParseRequest()</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>.</p>
 
@@ -1167,7 +1231,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00206">206</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00035">ExportPulse::PulseInfo_t::bankname</a>, <a class="el" href="BaseModule_8h_source.html#l00060">BaseModule::Debug()</a>, <a class="el" href="ExportPulse_8h_source.html#l00036">ExportPulse::PulseInfo_t::detname</a>, <a class="el" href="ExportPulse_8h_source.html#l00034">ExportPulse::PulseInfo_t::event</a>, <a class="el" href="ExportPulse_8h_source.html#l00116">fClockTick</a>, <a class="el" href="ExportPulse_8h_source.html#l00117">fTimeShift</a>, <a class="el" href="TPulseIsland_8h_source.html#l00070">TPulseIsland::GetPulseLength()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00050">TPulseIsland::GetSamples()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00193">ExportPulse::PulseInfo_t::MakeTPIName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00033">ExportPulse::PulseInfo_t::pulseID</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00037">ExportPulse::PulseInfo_t::bankname</a>, <a class="el" href="BaseModule_8h_source.html#l00059">BaseModule::Debug()</a>, <a class="el" href="ExportPulse_8h_source.html#l00038">ExportPulse::PulseInfo_t::detname</a>, <a class="el" href="ExportPulse_8h_source.html#l00036">ExportPulse::PulseInfo_t::event</a>, <a class="el" href="ExportPulse_8h_source.html#l00118">fClockTick</a>, <a class="el" href="ExportPulse_8h_source.html#l00119">fTimeShift</a>, <a class="el" href="TPulseIsland_8h_source.html#l00070">TPulseIsland::GetPulseLength()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00050">TPulseIsland::GetSamples()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00193">ExportPulse::PulseInfo_t::MakeTPIName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00035">ExportPulse::PulseInfo_t::pulseID</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>.</p>
 
@@ -1233,7 +1297,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00109">109</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8cpp_source.html#l00304">ClearPulsesToExport()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>, <a class="el" href="ExportPulse_8h_source.html#l00125">fGlobalData</a>, <a class="el" href="main_8cpp_source.html#l00067">gEntryNumber</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00286">LoadPulsesRequestedByConfig()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00096">SetCurrentEventNumber()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8cpp_source.html#l00304">ClearPulsesToExport()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>, <a class="el" href="ExportPulse_8h_source.html#l00127">fGlobalData</a>, <a class="el" href="main_8cpp_source.html#l00067">gEntryNumber</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00286">LoadPulsesRequestedByConfig()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00098">SetCurrentEventNumber()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00109"></a>00109                                                                    {
 <a name="l00110"></a>00110   <span class="comment">// To be corrected once Phill finishes the event navigator</span>
@@ -1283,20 +1347,20 @@ Inheritance diagram for ExportPulse:</div>
 <p>Method called by the main event loop for each entry in the input root tree. Does some simple work, then hooks into the derived class through ProcessEntry. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on sucess and non-zero if a problem occurred </dd></dl>
 
-<p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00025">25</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00049">49</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00073">BaseModule::dir</a>, and <a class="el" href="BaseModule_8cpp_source.html#l00020">BaseModule::ProcessEntry()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00078">BaseModule::fDirectory</a>, and <a class="el" href="BaseModule_8cpp_source.html#l00044">BaseModule::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00025"></a>00025                                                                          {
-<a name="l00026"></a>00026   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
-<a name="l00027"></a>00027   <span class="comment">// process routines if we have more than one Tree and hence different tpyes of data input.</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>) <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>-&gt;cd();
-<a name="l00030"></a>00030   <span class="keywordtype">int</span> ret = <a class="code" href="classBaseModule.html#a77027581152c1ecd1b320b8cd36f1114" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(gData, gSetup);
-<a name="l00031"></a>00031   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033   <span class="keywordflow">return</span> ret;
-<a name="l00034"></a>00034 }
+<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049                                                                          {
+<a name="l00050"></a>00050   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
+<a name="l00051"></a>00051   <span class="comment">// process routines if we have more than one Tree and hence different tpyes of data input.</span>
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>) <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>-&gt;cd();
+<a name="l00054"></a>00054   <span class="keywordtype">int</span> ret = <a class="code" href="classBaseModule.html#a77027581152c1ecd1b320b8cd36f1114" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(gData, gSetup);
+<a name="l00055"></a>00055   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057   <span class="keywordflow">return</span> ret;
+<a name="l00058"></a>00058 }
 </pre></div></p>
 
 </div>
@@ -1318,13 +1382,13 @@ Inheritance diagram for ExportPulse:</div>
 <div class="memdoc">
 <p>Sets the alias for this module, which should be provided in the <a class="el" href="namespacemodules.html">modules</a> file </p>
 
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00048">48</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00047">47</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00078">BaseModule::fAlias</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00079">BaseModule::fAlias</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesFactory_8cpp_source.html#l00004">modules::factory::createModule()</a>.</p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00048"></a>00048 {<a class="code" href="classBaseModule.html#ae19cdbdf544a783be4cdd4505ae31fb9">fAlias</a>=alias;};
+<p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047 {<a class="code" href="classBaseModule.html#ae19cdbdf544a783be4cdd4505ae31fb9">fAlias</a>=alias;};
 </pre></div></p>
 
 </div>
@@ -1345,18 +1409,18 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00148">148</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00150">150</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00035">ExportPulse::PulseInfo_t::bankname</a>, <a class="el" href="ExportPulse_8h_source.html#l00036">ExportPulse::PulseInfo_t::detname</a>, <a class="el" href="ExportPulse_8h_source.html#l00116">fClockTick</a>, <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>, <a class="el" href="ExportPulse_8h_source.html#l00122">fSetup</a>, <a class="el" href="ExportPulse_8h_source.html#l00117">fTimeShift</a>, <a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">TSetupData::GetBankName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00129">Instance()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00037">ExportPulse::PulseInfo_t::bankname</a>, <a class="el" href="ExportPulse_8h_source.html#l00038">ExportPulse::PulseInfo_t::detname</a>, <a class="el" href="ExportPulse_8h_source.html#l00118">fClockTick</a>, <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>, <a class="el" href="ExportPulse_8h_source.html#l00124">fSetup</a>, <a class="el" href="ExportPulse_8h_source.html#l00119">fTimeShift</a>, <a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">TSetupData::GetBankName()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00131">Instance()</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00148"></a>00148                                                                         {
-<a name="l00149"></a>00149   <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac21c371a0076ed6ef9f7e8319562d388">detname</a>=detector;
-<a name="l00150"></a>00150   <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>=<a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detector);
-<a name="l00151"></a>00151   <a class="code" href="classExportPulse.html#a7f88130e84c6b375a241c83918114fdd">fClockTick</a> = <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">TSetupData::Instance</a>()-&gt;GetClockTick(<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>);
-<a name="l00152"></a>00152   <a class="code" href="classExportPulse.html#a4a8d5760c9b6abdb9cbd9cc05de09fbd">fTimeShift</a> = <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">TSetupData::Instance</a>()-&gt;GetTimeShift(<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>);
-<a name="l00153"></a>00153 }
+<p><div class="fragment"><pre class="fragment"><a name="l00150"></a>00150                                                                         {
+<a name="l00151"></a>00151   <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac21c371a0076ed6ef9f7e8319562d388">detname</a>=detector;
+<a name="l00152"></a>00152   <a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>=<a class="code" href="classExportPulse.html#a5901216fa58858127a2b72be55661c4d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detector);
+<a name="l00153"></a>00153   <a class="code" href="classExportPulse.html#a7f88130e84c6b375a241c83918114fdd">fClockTick</a> = <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">TSetupData::Instance</a>()-&gt;GetClockTick(<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>);
+<a name="l00154"></a>00154   <a class="code" href="classExportPulse.html#a4a8d5760c9b6abdb9cbd9cc05de09fbd">fTimeShift</a> = <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">TSetupData::Instance</a>()-&gt;GetTimeShift(<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>);
+<a name="l00155"></a>00155 }
 </pre></div></p>
 
 </div>
@@ -1377,13 +1441,13 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00096">96</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00098">98</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00034">ExportPulse::PulseInfo_t::event</a>, and <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00036">ExportPulse::PulseInfo_t::event</a>, and <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00096"></a>00096 {<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac1ad443dd9a7910ed934a62213bec745">event</a>=num;};
+<p><div class="fragment"><pre class="fragment"><a name="l00098"></a>00098 {<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac1ad443dd9a7910ed934a62213bec745">event</a>=num;};
 </pre></div></p>
 
 </div>
@@ -1404,13 +1468,13 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00095">95</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00097">97</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00121">fPulseInfo</a>, and <a class="el" href="ExportPulse_8h_source.html#l00033">ExportPulse::PulseInfo_t::pulseID</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00123">fPulseInfo</a>, and <a class="el" href="ExportPulse_8h_source.html#l00035">ExportPulse::PulseInfo_t::pulseID</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00095"></a>00095 {<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a194a5aedc57c5c4ff621c30ef6994658">pulseID</a>=id;};
+<p><div class="fragment"><pre class="fragment"><a name="l00097"></a>00097 {<a class="code" href="classExportPulse.html#a3d225be1343871e1d678f1ce0735dfa8">fPulseInfo</a>.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a194a5aedc57c5c4ff621c30ef6994658">pulseID</a>=id;};
 </pre></div></p>
 
 </div>
@@ -1432,7 +1496,7 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00246">246</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00114">fGuidanceShown</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00116">fGuidanceShown</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>.</p>
 
@@ -1460,10 +1524,11 @@ Inheritance diagram for ExportPulse:</div>
       </table>
 </div>
 <div class="memdoc">
+<p>Many <a class="el" href="namespacemodules.html">modules</a> use 'dir' still which was the old protected pointer to the <a class="el" href="namespacemodules.html">modules</a> directory. To prevent things being broken so soon, we keep this pointer available, but be warned that it will be removed shortly... </p>
 
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00073">73</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00085">85</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00006">BaseModule::BaseModule()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse()</a>, <a class="el" href="BaseModule_8h_source.html#l00055">BaseModule::GetName()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00025">PlotAmplitude::PlotAmplitude()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00025">PlotTime::PlotTime()</a>, and <a class="el" href="BaseModule_8cpp_source.html#l00025">BaseModule::ProcessGenericEntry()</a>.</p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00025">PlotAmplitude::PlotAmplitude()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, and <a class="el" href="PlotTime_8cpp_source.html#l00025">PlotTime::PlotTime()</a>.</p>
 
 </div>
 </div>
@@ -1478,9 +1543,9 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00116">116</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00118">118</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00148">SetCurrentDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">SetCurrentDetectorName()</a>.</p>
 
 </div>
 </div>
@@ -1495,7 +1560,7 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00125">125</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00127">127</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00241">GetTPIsFromDetector()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
@@ -1512,7 +1577,7 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00114">114</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00116">116</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00246">ShowGuidance()</a>.</p>
 
@@ -1529,7 +1594,7 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00123">123</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00125">125</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>.</p>
 
@@ -1546,9 +1611,9 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00121">121</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00123">123</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse()</a>, <a class="el" href="ExportPulse_8h_source.html#l00100">GetCurrentBankName()</a>, <a class="el" href="ExportPulse_8h_source.html#l00099">GetCurrentEventNumber()</a>, <a class="el" href="ExportPulse_8h_source.html#l00148">SetCurrentDetectorName()</a>, <a class="el" href="ExportPulse_8h_source.html#l00096">SetCurrentEventNumber()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00095">SetCurrentPulseID()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse()</a>, <a class="el" href="ExportPulse_8h_source.html#l00102">GetCurrentBankName()</a>, <a class="el" href="ExportPulse_8h_source.html#l00101">GetCurrentEventNumber()</a>, <a class="el" href="ExportPulse_8h_source.html#l00150">SetCurrentDetectorName()</a>, <a class="el" href="ExportPulse_8h_source.html#l00098">SetCurrentEventNumber()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00097">SetCurrentPulseID()</a>.</p>
 
 </div>
 </div>
@@ -1563,9 +1628,9 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00120">120</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00122">122</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00144">AddToConfigRequestList()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00286">LoadPulsesRequestedByConfig()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00146">AddToConfigRequestList()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00286">LoadPulsesRequestedByConfig()</a>.</p>
 
 </div>
 </div>
@@ -1582,26 +1647,26 @@ Inheritance diagram for ExportPulse:</div>
 
 <p>Reimplemented from <a class="el" href="classBaseModule.html#ac5a639ae355fcb1d403b785a183ece8a">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00122">122</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00124">124</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00148">SetCurrentDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">SetCurrentDetectorName()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a27fbe721b142333da4b9efe84b9499b3"></a><!-- doxytag: member="ExportPulse::fTAPsToPlot" ref="a27fbe721b142333da4b9efe84b9499b3" args="" -->
+<a class="anchor" id="a58cfa2464af754f464fe0e8d85f106bf"></a><!-- doxytag: member="ExportPulse::fTAPsToPlot" ref="a58cfa2464af754f464fe0e8d85f106bf" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="definitions_8h.html#a130f2f003a654b5ed2395396a616d009">StringConstAnalPulseMap</a> <a class="el" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">ExportPulse::fTAPsToPlot</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="classExportPulse.html#a5b04ec3fa8bb6698067304c2da407e41">ChannelTAPs_t</a> <a class="el" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">ExportPulse::fTAPsToPlot</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00119">119</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00121">121</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00137">AddToExportList()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00304">ClearPulsesToExport()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00139">AddToExportList()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00304">ClearPulsesToExport()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00127">DrawTAPs()</a>.</p>
 
 </div>
 </div>
@@ -1616,9 +1681,9 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00117">117</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00119">119</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00148">SetCurrentDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00206">PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">SetCurrentDetectorName()</a>.</p>
 
 </div>
 </div>
@@ -1633,9 +1698,9 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00115">115</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00117">117</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00101">GetTotalNumberOfEvents()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00050">BeforeFirstEntry()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00103">GetTotalNumberOfEvents()</a>.</p>
 
 </div>
 </div>
@@ -1650,9 +1715,9 @@ Inheritance diagram for ExportPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00118">118</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00120">120</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00133">AddToExportList()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00304">ClearPulsesToExport()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00135">AddToExportList()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00304">ClearPulsesToExport()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00155">DrawTPIs()</a>.</p>
 
 </div>
 </div>
@@ -1661,7 +1726,7 @@ Inheritance diagram for ExportPulse:</div>
 <li>rootana/src/plotters/<a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

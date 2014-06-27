@@ -47,12 +47,14 @@ Inheritance diagram for modules::factory:</div>
 <tr><td colspan="2"><h2>Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classBaseModule.html">modules::BaseModule</a> *(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#ab01df25a7b8fc74d493c8cad339a53f7">maker</a> )(<a class="el" href="classmodules_1_1options.html">modules::options</a> *)</td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classBaseModule.html">modules::BaseModule</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1factory.html#a9ea070d3afec26d1bbec56d40bf8acac">createModule</a> (const std::string &amp;name, <a class="el" href="classmodules_1_1options.html">modules::options</a> *opts)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a module with <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a>.  <a href="#a9ea070d3afec26d1bbec56d40bf8acac"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#aa67c27ebcd62f064ba369eeec672d950">registerModule</a> (const std::string &amp;, <a class="el" href="classTemplateFactory.html#ab01df25a7b8fc74d493c8cad339a53f7">maker</a>)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a maker function to the list of makers.  <a href="#aa67c27ebcd62f064ba369eeec672d950"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classBaseModule.html">modules::BaseModule</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e">createModule</a> (const std::string &amp;, <a class="el" href="classmodules_1_1options.html">modules::options</a> *)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a module with options.  <a href="#ae258400de742fcbeb8cc3f208c32219e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBaseModule.html">modules::BaseModule</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a6e49707e6ed4004dea0feefcfe807a2d">createModule</a> (const std::string &amp;name)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a module and look up its options from the internal list.  <a href="#a6e49707e6ed4004dea0feefcfe807a2d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a209702d4c41a4dc49299df4d9aca04c3">canCreate</a> (const std::string &amp;name) const</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Check if a module with this name has been registered.  <a href="#a209702d4c41a4dc49299df4d9aca04c3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a0bfa2fe7e4a4a4af46098fe79a82c3ed">addOptions</a> (const std::string &amp;name, <a class="el" href="classmodules_1_1options.html">modules::options</a> *opts)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a2876c6b4e885a0bc6a7500539aef11ae">addArguments</a> (const std::string &amp;all_args)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFactory.html#a953dbc0185c3b09275d890eb0a7346a9">addArgument</a> (const std::string &amp;module, const std::string &amp;argument)</td></tr>
@@ -103,7 +105,7 @@ Inheritance diagram for modules::factory:</div>
 
 <p>Definition at line <a class="el" href="ModulesFactory_8h_source.html#l00016">16</a> of file <a class="el" href="ModulesFactory_8h_source.html">ModulesFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesFactory_8h_source.html#l00025">Instance()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesFactory_8h_source.html#l00024">Instance()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00016"></a>00016 :<a class="code" href="classTemplateFactory.html">TemplateFactory&lt;modules::BaseModule,modules::options&gt;</a>(){};
 </pre></div></p>
@@ -223,6 +225,33 @@ Inheritance diagram for modules::factory:</div>
 
 </div>
 </div>
+<a class="anchor" id="a209702d4c41a4dc49299df4d9aca04c3"></a><!-- doxytag: member="modules::factory::canCreate" ref="a209702d4c41a4dc49299df4d9aca04c3" args="(const std::string &amp;name) const" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classTemplateFactory.html">TemplateFactory</a>&lt; <a class="el" href="classBaseModule.html">modules::BaseModule</a> , <a class="el" href="classmodules_1_1options.html">modules::options</a>  &gt;::canCreate </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Check if a module with this name has been registered. </p>
+
+<p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00031">31</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
+
+<p>References <a class="el" href="TemplateFactory_8h_source.html#l00048">TemplateFactory&lt; BaseModule, OptionsType &gt;::fModuleMakers</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00031"></a>00031 {<span class="keywordflow">return</span> (<span class="keywordtype">bool</span>) <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>.count(name);};
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a6e49707e6ed4004dea0feefcfe807a2d"></a><!-- doxytag: member="modules::factory::createModule" ref="a6e49707e6ed4004dea0feefcfe807a2d" args="(const std::string &amp;name)" -->
 <div class="memitem">
 <div class="memproto">
@@ -243,12 +272,12 @@ Inheritance diagram for modules::factory:</div>
 
 </div>
 </div>
-<a class="anchor" id="a9ea070d3afec26d1bbec56d40bf8acac"></a><!-- doxytag: member="modules::factory::createModule" ref="a9ea070d3afec26d1bbec56d40bf8acac" args="(const std::string &amp;name, modules::options *opts)" -->
+<a class="anchor" id="ae258400de742fcbeb8cc3f208c32219e"></a><!-- doxytag: member="modules::factory::createModule" ref="ae258400de742fcbeb8cc3f208c32219e" args="(const std::string &amp;, modules::options *)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classBaseModule.html">modules::BaseModule</a> * modules::factory::createModule </td>
+          <td class="memname">virtual <a class="el" href="classBaseModule.html">modules::BaseModule</a> * <a class="el" href="classTemplateFactory.html">TemplateFactory</a>&lt; <a class="el" href="classBaseModule.html">modules::BaseModule</a> , <a class="el" href="classmodules_1_1options.html">modules::options</a>  &gt;::createModule </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname">, </td>
@@ -256,36 +285,19 @@ Inheritance diagram for modules::factory:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classmodules_1_1options.html">modules::options</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="classmodules_1_1options.html">modules::options</a>  *&nbsp;</td>
           <td class="paramname"></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [virtual]</code></td>
+          <td></td><td></td><td><code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Create a module with <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a>. </p>
-
-<p>Reimplemented from <a class="el" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e">TemplateFactory&lt; modules::BaseModule, modules::options &gt;</a>.</p>
-
-<p>Definition at line <a class="el" href="ModulesFactory_8cpp_source.html#l00004">4</a> of file <a class="el" href="ModulesFactory_8cpp_source.html">ModulesFactory.cpp</a>.</p>
-
-<p>References <a class="el" href="ModulesOptions_8h_source.html#l00118">modules::options::GetAlias()</a>, <a class="el" href="Template__module_8cpp_source.html#l00012">module()</a>, and <a class="el" href="BaseModule_8h_source.html#l00048">BaseModule::SetAlias()</a>.</p>
-
-<p>Referenced by <a class="el" href="CommandLine_8cpp_source.html#l00254">load_config_file()</a>, and <a class="el" href="ModulesNavigator_8cpp_source.html#l00029">modules::navigator::MakeModules()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00004"></a>00004                                                                                           {
-<a name="l00005"></a>00005         <a class="code" href="classBaseModule.html">BaseModule</a>* <a class="code" href="Template__module_8cpp.html#ae0c09ec33102122f67514a5f5e50f22f">module</a>=<a class="code" href="classmodules_1_1factory.html#a9ea070d3afec26d1bbec56d40bf8acac" title="Create a module with options.">TemplateFactory&lt;BaseModule,modules::options&gt;::createModule</a>(name,opts);
-<a name="l00006"></a>00006         <span class="keywordflow">if</span>(module){
-<a name="l00007"></a>00007            module-&gt;<a class="code" href="classBaseModule.html#aab50673c8ec954675da2664677abfab1">SetAlias</a>(opts-&gt;GetAlias());
-<a name="l00008"></a>00008         }
-<a name="l00009"></a>00009         <span class="keywordflow">return</span> module;
-<a name="l00010"></a>00010 }
-</pre></div></p>
+<p>Create a module with options. </p>
 
 </div>
 </div>
@@ -331,19 +343,19 @@ Inheritance diagram for modules::factory:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ModulesFactory_8h_source.html#l00025">25</a> of file <a class="el" href="ModulesFactory_8h_source.html">ModulesFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ModulesFactory_8h_source.html#l00024">24</a> of file <a class="el" href="ModulesFactory_8h_source.html">ModulesFactory.h</a>.</p>
 
 <p>References <a class="el" href="ModulesFactory_8h_source.html#l00016">factory()</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00078">modules::options::AddArgument()</a>, <a class="el" href="CommandLine_8cpp_source.html#l00254">load_config_file()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00264">modules::reader::ProcessGlobalOption()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00245">modules::reader::SetDebug()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00080">modules::options::AddArgument()</a>, <a class="el" href="CommandLine_8cpp_source.html#l00254">load_config_file()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00265">modules::reader::ProcessGlobalOption()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00246">modules::reader::SetDebug()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00025"></a>00025                                                {
-<a name="l00026"></a>00026     <span class="keyword">static</span> <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* instance=NULL;
-<a name="l00027"></a>00027     <span class="keywordflow">if</span>(!instance) {
-<a name="l00028"></a>00028         instance=<span class="keyword">new</span> <a class="code" href="classmodules_1_1factory.html#a66df2e5ad92139d9831db4edd65c0a08">factory</a>();
-<a name="l00029"></a>00029     }
-<a name="l00030"></a>00030     <span class="keywordflow">return</span> instance;
-<a name="l00031"></a>00031 }
+<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024                                                {
+<a name="l00025"></a>00025     <span class="keyword">static</span> <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* instance=NULL;
+<a name="l00026"></a>00026     <span class="keywordflow">if</span>(!instance) {
+<a name="l00027"></a>00027         instance=<span class="keyword">new</span> <a class="code" href="classmodules_1_1factory.html#a66df2e5ad92139d9831db4edd65c0a08">factory</a>();
+<a name="l00028"></a>00028     }
+<a name="l00029"></a>00029     <span class="keywordflow">return</span> instance;
+<a name="l00030"></a>00030 }
 </pre></div></p>
 
 </div>
@@ -410,21 +422,20 @@ Inheritance diagram for modules::factory:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00039">39</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00041">41</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 
-<p>References <a class="el" href="TemplateFactory_8h_source.html#l00061">TemplateFactory&lt; BaseModule, OptionsType &gt;::fDebug</a>.</p>
+<p>References <a class="el" href="TemplateFactory_8h_source.html#l00063">TemplateFactory&lt; BaseModule, OptionsType &gt;::fDebug</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00039"></a>00039 {<a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">fDebug</a>=debug;};
+<p><div class="fragment"><pre class="fragment"><a name="l00041"></a>00041 {<a class="code" href="classTemplateFactory.html#a1a85d5a6279eabad271cbcfa2184e579">fDebug</a>=debug;};
 </pre></div></p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>rootana/src/framework/<a class="el" href="ModulesFactory_8h_source.html">ModulesFactory.h</a></li>
-<li>rootana/src/framework/<a class="el" href="ModulesFactory_8cpp_source.html">ModulesFactory.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

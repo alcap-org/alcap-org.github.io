@@ -152,11 +152,11 @@
 <a name="l00126"></a>00126 
 <a name="l00127"></a><a class="code" href="classExportPulse.html#af5e54e3adbe2fbb2e609e2bac7c3fb88">00127</a> <span class="keywordtype">int</span> <a class="code" href="classExportPulse.html#af5e54e3adbe2fbb2e609e2bac7c3fb88" title="Draw all TAPs requested for this event.">ExportPulse::DrawTAPs</a>(){
 <a name="l00128"></a>00128   <span class="comment">// Initialise variables that would be used in the loops</span>
-<a name="l00129"></a>00129   <span class="keyword">const</span> <a class="code" href="definitions_8h.html#abe5d73ea5d0c738668153a27add08473">ConstAnalysedPulseList</a>* requestedPulses;
+<a name="l00129"></a>00129   <span class="keyword">const</span> <a class="code" href="classExportPulse.html#a91e308e4ea55065e1809be746a9671a1">TAPList_t</a>* requestedPulses;
 <a name="l00130"></a>00130 
 <a name="l00131"></a>00131   <span class="comment">// Loop over channel that we&apos;ve been requested to draw a pulse from</span>
-<a name="l00132"></a>00132   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringConstAnalPulseMap::const_iterator</a> i_detector=<a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>.begin();
-<a name="l00133"></a>00133                   i_detector!=<a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>.end();
+<a name="l00132"></a>00132   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ChannelTAPs_t::const_iterator</a> i_detector=<a class="code" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a>.begin();
+<a name="l00133"></a>00133                   i_detector!=<a class="code" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a>.end();
 <a name="l00134"></a>00134                   i_detector++){
 <a name="l00135"></a>00135      <a class="code" href="classExportPulse.html#abd765ef155c0284af9f2fb86b23464c4">SetCurrentDetectorName</a>(i_detector-&gt;first);
 <a name="l00136"></a>00136 
@@ -164,7 +164,7 @@
 <a name="l00138"></a>00138      requestedPulses=&amp;(i_detector-&gt;second);
 <a name="l00139"></a>00139 
 <a name="l00140"></a>00140      <span class="comment">// Loop over every requested pulse for that channel</span>
-<a name="l00141"></a>00141      <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ConstAnalysedPulseList::const_iterator</a> i_pulse=requestedPulses-&gt;begin();
+<a name="l00141"></a>00141      <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">TAPList_t::const_iterator</a> i_pulse=requestedPulses-&gt;begin();
 <a name="l00142"></a>00142                      i_pulse!=requestedPulses-&gt;end();
 <a name="l00143"></a>00143                      i_pulse++){
 <a name="l00144"></a>00144 
@@ -333,12 +333,12 @@
 <a name="l00307"></a>00307                   i_channel-&gt;second.clear();
 <a name="l00308"></a>00308   }
 <a name="l00309"></a>00309   <a class="code" href="classExportPulse.html#afc7bd08952c8f320c6b13fa7b0443f27">fTPIsToPlot</a>.clear();
-<a name="l00310"></a>00310   <a class="code" href="classExportPulse.html#a27fbe721b142333da4b9efe84b9499b3">fTAPsToPlot</a>.clear();
+<a name="l00310"></a>00310   <a class="code" href="classExportPulse.html#a58cfa2464af754f464fe0e8d85f106bf">fTAPsToPlot</a>.clear();
 <a name="l00311"></a>00311 }
 <a name="l00312"></a>00312 
 <a name="l00313"></a>00313 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classExportPulse.html">ExportPulse</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Jun 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
