@@ -74,254 +74,263 @@
 <a name="l00051"></a>00051   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classPulseCandidateFinder.html#ae70628aad4452fa0cc414a56b090cd9a" title="The channel that this PulseCandidateFinder works on.">fChannel</a>.<a class="code" href="classIDs_1_1channel.html#ade305587a0289eead0064cc65b6ee7c5" title="Check if this channel ID is for a slow channel.">isSlow</a>()) {
 <a name="l00052"></a>00052     <a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2" title="The algorithm for finding slow pulses.">FindCandidatePulses_Slow</a>(<a class="code" href="classPulseCandidateFinder.html#a7ebff08daeae8812608e5078c1b7cc68" title="The value of the parameter to start a candidate pulse.">fParameterValue</a>);
 <a name="l00053"></a>00053   }
-<a name="l00054"></a>00054 }
-<a name="l00055"></a>00055 
-<a name="l00056"></a><a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42">00056</a> <a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42" title="Empty destructor.">PulseCandidateFinder::~PulseCandidateFinder</a>() {
-<a name="l00057"></a>00057 }
-<a name="l00058"></a>00058 
-<a name="l00061"></a><a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae">00061</a> std::vector&lt;TPulseIsland*&gt; <a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae" title="Returns the actual TPulseIsland of each candidate.">PulseCandidateFinder::GetPulseCandidates</a>() {
+<a name="l00054"></a>00054   <span class="keywordflow">else</span> {
+<a name="l00055"></a>00055     <span class="comment">// this is a scintillator so do the fast pulse analysis</span>
+<a name="l00056"></a>00056     <a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028" title="The algorithm for finding fast pulses.">FindCandidatePulses_Fast</a>(<a class="code" href="classPulseCandidateFinder.html#a7ebff08daeae8812608e5078c1b7cc68" title="The value of the parameter to start a candidate pulse.">fParameterValue</a>);
+<a name="l00057"></a>00057   }
+<a name="l00058"></a>00058 }
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42">00060</a> <a class="code" href="classPulseCandidateFinder.html#adc6e0da26d2d2e6f2383c44f195ecc42" title="Empty destructor.">PulseCandidateFinder::~PulseCandidateFinder</a>() {
+<a name="l00061"></a>00061 }
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063   <span class="comment">// Get the output ready</span>
-<a name="l00064"></a>00064   std::vector&lt;TPulseIsland*&gt; pulse_candidates;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066   <span class="comment">// Loop through the pulse candidate locations</span>
-<a name="l00067"></a>00067   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;Location&gt;::iterator</a> locationIter = <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.begin(); locationIter != <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.end(); ++locationIter) {
-<a name="l00068"></a>00068     
-<a name="l00069"></a>00069     <span class="comment">// Get the start and stop locations</span>
-<a name="l00070"></a>00070     <span class="keywordtype">int</span> start_location = (*locationIter).start;
-<a name="l00071"></a>00071     <span class="keywordtype">int</span> stop_location = (*locationIter).stop;
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073     <span class="comment">// Get the bank name and work out what the new timestamp will be</span>
-<a name="l00074"></a>00074     std::string bankname = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
-<a name="l00075"></a>00075     <span class="keywordtype">int</span> new_timestamp = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + start_location;
+<a name="l00065"></a><a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae">00065</a> std::vector&lt;TPulseIsland*&gt; <a class="code" href="classPulseCandidateFinder.html#aa265d36f4c53def39019da0783604aae" title="Returns the actual TPulseIsland of each candidate.">PulseCandidateFinder::GetPulseCandidates</a>() {
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067   <span class="comment">// Get the output ready</span>
+<a name="l00068"></a>00068   std::vector&lt;TPulseIsland*&gt; pulse_candidates;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070   <span class="comment">// Loop through the pulse candidate locations</span>
+<a name="l00071"></a>00071   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;Location&gt;::iterator</a> locationIter = <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.begin(); locationIter != <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.end(); ++locationIter) {
+<a name="l00072"></a>00072     
+<a name="l00073"></a>00073     <span class="comment">// Get the start and stop locations</span>
+<a name="l00074"></a>00074     <span class="keywordtype">int</span> start_location = (*locationIter).start;
+<a name="l00075"></a>00075     <span class="keywordtype">int</span> stop_location = (*locationIter).stop;
 <a name="l00076"></a>00076 
-<a name="l00077"></a>00077     <span class="comment">// Get the samples from the original TPI and have a new one ready for the pulse candidate</span>
-<a name="l00078"></a>00078     <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00079"></a>00079     std::vector&lt;int&gt; theNewSamples;
+<a name="l00077"></a>00077     <span class="comment">// Get the bank name and work out what the new timestamp will be</span>
+<a name="l00078"></a>00078     std::string bankname = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
+<a name="l00079"></a>00079     <span class="keywordtype">int</span> new_timestamp = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + start_location;
 <a name="l00080"></a>00080 
-<a name="l00081"></a>00081     <span class="comment">// Loop through the samples between the start and stop locations and add them to the new samples vector</span>
-<a name="l00082"></a>00082     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = start_location; iSample &lt;= stop_location; ++iSample) {
-<a name="l00083"></a>00083       theNewSamples.push_back(theSamples.at(iSample));
-<a name="l00084"></a>00084     }
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse_island = <span class="keyword">new</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>(new_timestamp, theNewSamples, bankname);
-<a name="l00087"></a>00087     pulse_candidates.push_back(pulse_island);
-<a name="l00088"></a>00088   }
+<a name="l00081"></a>00081     <span class="comment">// Get the samples from the original TPI and have a new one ready for the pulse candidate</span>
+<a name="l00082"></a>00082     <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00083"></a>00083     std::vector&lt;int&gt; theNewSamples;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085     <span class="comment">// Loop through the samples between the start and stop locations and add them to the new samples vector</span>
+<a name="l00086"></a>00086     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSample = start_location; iSample &lt;= stop_location; ++iSample) {
+<a name="l00087"></a>00087       theNewSamples.push_back(theSamples.at(iSample));
+<a name="l00088"></a>00088     }
 <a name="l00089"></a>00089 
-<a name="l00090"></a>00090   <span class="keywordflow">return</span> pulse_candidates;
-<a name="l00091"></a>00091 }
-<a name="l00092"></a>00092 
-<a name="l00095"></a><a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">00095</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028" title="The algorithm for finding fast pulses.">PulseCandidateFinder::FindCandidatePulses_Fast</a>(<span class="keywordtype">int</span> rise) {
+<a name="l00090"></a>00090     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse_island = <span class="keyword">new</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>(new_timestamp, theNewSamples, bankname);
+<a name="l00091"></a>00091     pulse_candidates.push_back(pulse_island);
+<a name="l00092"></a>00092   }
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094   <span class="keywordflow">return</span> pulse_candidates;
+<a name="l00095"></a>00095 }
 <a name="l00096"></a>00096 
-<a name="l00097"></a>00097   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00098"></a>00098   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00099"></a>00099   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00100"></a>00100   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
-<a name="l00103"></a>00103   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
-<a name="l00104"></a>00104   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
+<a name="l00099"></a><a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028">00099</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ac37fdcdb8f41aaaceda7495b22d9b028" title="The algorithm for finding fast pulses.">PulseCandidateFinder::FindCandidatePulses_Fast</a>(<span class="keywordtype">int</span> rise) {
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00102"></a>00102   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00103"></a>00103   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00104"></a>00104   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
 <a name="l00105"></a>00105 
-<a name="l00106"></a>00106   <span class="comment">// Loop through the samples</span>
-<a name="l00107"></a>00107   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
-<a name="l00108"></a>00108     s1 = polarity * (samples[i-1] - pedestal);
-<a name="l00109"></a>00109     s2 = polarity * (samples[i] - pedestal);
-<a name="l00110"></a>00110     ds = s2 - s1;
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112     <span class="keywordflow">if</span> (found) {
-<a name="l00113"></a>00113       <span class="keywordflow">if</span> (s2 &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
-<a name="l00114"></a>00114         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
-<a name="l00115"></a>00115         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.push_back(location);
-<a name="l00116"></a>00116         found = <span class="keyword">false</span>;
-<a name="l00117"></a>00117       }
-<a name="l00118"></a>00118     } <span class="keywordflow">else</span> {
-<a name="l00119"></a>00119       <span class="keywordflow">if</span> (ds &gt; rise) {
-<a name="l00120"></a>00120         found = <span class="keyword">true</span>;
-<a name="l00121"></a>00121         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i - 1);
-<a name="l00122"></a>00122       }
-<a name="l00123"></a>00123     }
-<a name="l00124"></a>00124   }
-<a name="l00125"></a>00125 }
-<a name="l00126"></a>00126 
-<a name="l00129"></a><a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">00129</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2" title="The algorithm for finding slow pulses.">PulseCandidateFinder::FindCandidatePulses_Slow</a>(<span class="keywordtype">int</span> threshold) {
+<a name="l00106"></a>00106   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
+<a name="l00107"></a>00107   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
+<a name="l00108"></a>00108   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110   <span class="comment">// Loop through the samples</span>
+<a name="l00111"></a>00111   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
+<a name="l00112"></a>00112     s1 = polarity * (samples[i-1] - pedestal);
+<a name="l00113"></a>00113     s2 = polarity * (samples[i] - pedestal);
+<a name="l00114"></a>00114     ds = s2 - s1;
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116     <span class="keywordflow">if</span> (found) {
+<a name="l00117"></a>00117       <span class="keywordflow">if</span> (s2 &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
+<a name="l00118"></a>00118         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
+<a name="l00119"></a>00119         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.push_back(location);
+<a name="l00120"></a>00120         found = <span class="keyword">false</span>;
+<a name="l00121"></a>00121       }
+<a name="l00122"></a>00122     } <span class="keywordflow">else</span> {
+<a name="l00123"></a>00123       <span class="keywordflow">if</span> (ds &gt; rise) {
+<a name="l00124"></a>00124         found = <span class="keyword">true</span>;
+<a name="l00125"></a>00125         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i - 1);
+<a name="l00126"></a>00126       }
+<a name="l00127"></a>00127     }
+<a name="l00128"></a>00128   }
+<a name="l00129"></a>00129 }
 <a name="l00130"></a>00130 
-<a name="l00131"></a>00131   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00132"></a>00132   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00133"></a>00133   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00134"></a>00134   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136   <span class="keywordtype">int</span> sample_height; <span class="comment">// the sample&apos;s height above pedestal</span>
-<a name="l00137"></a>00137   <span class="keywordtype">int</span> start, stop; <span class="comment">// the start and stop location</span>
-<a name="l00138"></a>00138   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
-<a name="l00139"></a>00139   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141   <span class="comment">// Loop through the samples</span>
-<a name="l00142"></a>00142   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
-<a name="l00143"></a>00143     sample_height = polarity * (samples[i] - pedestal);
+<a name="l00133"></a><a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2">00133</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#ae22a11230fa51ede1e09b9c410b206e2" title="The algorithm for finding slow pulses.">PulseCandidateFinder::FindCandidatePulses_Slow</a>(<span class="keywordtype">int</span> threshold) {
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00136"></a>00136   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00137"></a>00137   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00138"></a>00138   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140   <span class="keywordtype">int</span> sample_height; <span class="comment">// the sample&apos;s height above pedestal</span>
+<a name="l00141"></a>00141   <span class="keywordtype">int</span> start, stop; <span class="comment">// the start and stop location</span>
+<a name="l00142"></a>00142   <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
+<a name="l00143"></a>00143   <a class="code" href="structPulseCandidateFinder_1_1Location.html" title="Location is a struct containing the start and stop location (in terms of sample number)...">Location</a> location;
 <a name="l00144"></a>00144 
-<a name="l00145"></a>00145     <span class="keywordflow">if</span> (found) {
-<a name="l00146"></a>00146       <span class="keywordflow">if</span> (sample_height &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
-<a name="l00147"></a>00147         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
-<a name="l00148"></a>00148         start = stop = 0;
-<a name="l00149"></a>00149         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.push_back(location);
-<a name="l00150"></a>00150         found = <span class="keyword">false</span>;
-<a name="l00151"></a>00151       }
-<a name="l00152"></a>00152     } <span class="keywordflow">else</span> {
-<a name="l00153"></a>00153       <span class="keywordflow">if</span> (sample_height &gt; threshold) {
-<a name="l00154"></a>00154         found = <span class="keyword">true</span>;
-<a name="l00155"></a>00155         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i);
-<a name="l00156"></a>00156       }
-<a name="l00157"></a>00157     }
-<a name="l00158"></a>00158   }
-<a name="l00159"></a>00159 }
-<a name="l00160"></a>00160 
-<a name="l00161"></a>00161 
-<a name="l00164"></a><a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">00164</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968" title="Takes a histogram and fills it with the parameters (either sample height above pedestals...">PulseCandidateFinder::FillParameterHistogram</a>(TH1D* histogram) {
+<a name="l00145"></a>00145   <span class="comment">// Loop through the samples</span>
+<a name="l00146"></a>00146   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
+<a name="l00147"></a>00147     sample_height = polarity * (samples[i] - pedestal);
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149     <span class="keywordflow">if</span> (found) {
+<a name="l00150"></a>00150       <span class="keywordflow">if</span> (sample_height &lt; 0) { <span class="comment">// stop if the sample goes below pedestal</span>
+<a name="l00151"></a>00151         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a3596defdf6d49b7150bf541a355b8fde">stop</a> = (int)i;
+<a name="l00152"></a>00152         start = stop = 0;
+<a name="l00153"></a>00153         <a class="code" href="classPulseCandidateFinder.html#a590ffc275178ca5da45fe090f779f90d" title="The vector that we store the pulse candidate locations in.">fPulseCandidateLocations</a>.push_back(location);
+<a name="l00154"></a>00154         found = <span class="keyword">false</span>;
+<a name="l00155"></a>00155       }
+<a name="l00156"></a>00156     } <span class="keywordflow">else</span> {
+<a name="l00157"></a>00157       <span class="keywordflow">if</span> (sample_height &gt; threshold) {
+<a name="l00158"></a>00158         found = <span class="keyword">true</span>;
+<a name="l00159"></a>00159         location.<a class="code" href="structPulseCandidateFinder_1_1Location.html#a943b9adb912939df16bc42dbdf3af1aa">start</a> = (int)(i);
+<a name="l00160"></a>00160       }
+<a name="l00161"></a>00161     }
+<a name="l00162"></a>00162   }
+<a name="l00163"></a>00163 }
+<a name="l00164"></a>00164 
 <a name="l00165"></a>00165 
-<a name="l00166"></a>00166   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(<a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
-<a name="l00167"></a>00167   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> theChannel = detname;
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169   std::string parameter_name = <span class="stringliteral">&quot;Unknown&quot;</span>;
-<a name="l00170"></a>00170 
-<a name="l00171"></a>00171   <span class="comment">// We have a different algorithm for fast and slow pulses</span>
-<a name="l00172"></a>00172   <span class="keywordflow">if</span> (theChannel.<a class="code" href="classIDs_1_1channel.html#a42a3ac122222a5ff54dc421da9401912" title="Check if this channel ID is for a fast channel.">isFast</a>()) {
-<a name="l00173"></a>00173     parameter_name = <span class="stringliteral">&quot;SampleDifference&quot;</span>;
-<a name="l00174"></a>00174     <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e" title="Fills the given histogram with the sample differences between consecutive pulses...">FillSampleDifferencesHistogram</a>(histogram);
-<a name="l00175"></a>00175   }
-<a name="l00176"></a>00176   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (theChannel.<a class="code" href="classIDs_1_1channel.html#ade305587a0289eead0064cc65b6ee7c5" title="Check if this channel ID is for a slow channel.">isSlow</a>()) {
-<a name="l00177"></a>00177     parameter_name = <span class="stringliteral">&quot;SampleHeight&quot;</span>;
-<a name="l00178"></a>00178     <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba" title="Fills the given histogram with the sample&amp;#39;s height above pedestal.">FillSampleHeightsHistogram</a>(histogram);
+<a name="l00168"></a><a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968">00168</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968" title="Takes a histogram and fills it with the parameters (either sample height above pedestals...">PulseCandidateFinder::FillParameterHistogram</a>(TH1D* histogram) {
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(<a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
+<a name="l00171"></a>00171   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> theChannel = detname;
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173   std::string parameter_name = <span class="stringliteral">&quot;Unknown&quot;</span>;
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175   <span class="comment">// We have a different algorithm for fast and slow pulses</span>
+<a name="l00176"></a>00176   <span class="keywordflow">if</span> (theChannel.<a class="code" href="classIDs_1_1channel.html#a42a3ac122222a5ff54dc421da9401912" title="Check if this channel ID is for a fast channel.">isFast</a>()) {
+<a name="l00177"></a>00177     parameter_name = <span class="stringliteral">&quot;SampleDifference&quot;</span>;
+<a name="l00178"></a>00178     <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e" title="Fills the given histogram with the sample differences between consecutive pulses...">FillSampleDifferencesHistogram</a>(histogram);
 <a name="l00179"></a>00179   }
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181   std::string histtitle = <span class="stringliteral">&quot;Plot of &quot;</span> + parameter_name + <span class="stringliteral">&quot; for &quot;</span> + detname + <span class="stringliteral">&quot; for Run 2808&quot;</span>;
-<a name="l00182"></a>00182   histogram-&gt;SetTitle(histtitle.c_str());
-<a name="l00183"></a>00183   histogram-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00184"></a>00184   histogram-&gt;GetXaxis()-&gt;SetTitle(parameter_name.c_str());
-<a name="l00185"></a>00185 }
-<a name="l00186"></a>00186 
-<a name="l00189"></a><a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">00189</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e" title="Fills the given histogram with the sample differences between consecutive pulses...">PulseCandidateFinder::FillSampleDifferencesHistogram</a>(TH1D* histogram) {
-<a name="l00190"></a>00190 
-<a name="l00191"></a>00191   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00192"></a>00192   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00193"></a>00193   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00194"></a>00194   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00180"></a>00180   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (theChannel.<a class="code" href="classIDs_1_1channel.html#ade305587a0289eead0064cc65b6ee7c5" title="Check if this channel ID is for a slow channel.">isSlow</a>()) {
+<a name="l00181"></a>00181     parameter_name = <span class="stringliteral">&quot;SampleHeight&quot;</span>;
+<a name="l00182"></a>00182     <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba" title="Fills the given histogram with the sample&amp;#39;s height above pedestal.">FillSampleHeightsHistogram</a>(histogram);
+<a name="l00183"></a>00183   }
+<a name="l00184"></a>00184   <span class="keywordflow">else</span> {
+<a name="l00185"></a>00185     <span class="comment">// it&apos;s a scintillator so plot the fast parameters</span>
+<a name="l00186"></a>00186     parameter_name = <span class="stringliteral">&quot;SampleDifference&quot;</span>;
+<a name="l00187"></a>00187     <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e" title="Fills the given histogram with the sample differences between consecutive pulses...">FillSampleDifferencesHistogram</a>(histogram);
+<a name="l00188"></a>00188   }
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190   std::string histtitle = <span class="stringliteral">&quot;Plot of &quot;</span> + parameter_name + <span class="stringliteral">&quot; for &quot;</span> + detname + <span class="stringliteral">&quot; for Run 2808&quot;</span>;
+<a name="l00191"></a>00191   histogram-&gt;SetTitle(histtitle.c_str());
+<a name="l00192"></a>00192   histogram-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00193"></a>00193   histogram-&gt;GetXaxis()-&gt;SetTitle(parameter_name.c_str());
+<a name="l00194"></a>00194 }
 <a name="l00195"></a>00195 
-<a name="l00196"></a>00196   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
-<a name="l00197"></a>00197 
-<a name="l00198"></a>00198   <span class="comment">// Loop through the samples</span>
-<a name="l00199"></a>00199   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
-<a name="l00200"></a>00200     s1 = polarity * (samples[i-1] - pedestal);
-<a name="l00201"></a>00201     s2 = polarity * (samples[i] - pedestal);
-<a name="l00202"></a>00202     ds = s2 - s1;
-<a name="l00203"></a>00203 
-<a name="l00204"></a>00204     histogram-&gt;Fill(ds);
-<a name="l00205"></a>00205   }
-<a name="l00206"></a>00206 }
-<a name="l00207"></a>00207 
-<a name="l00210"></a><a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">00210</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba" title="Fills the given histogram with the sample&amp;#39;s height above pedestal.">PulseCandidateFinder::FillSampleHeightsHistogram</a>(TH1D* histogram) {
-<a name="l00211"></a>00211 
-<a name="l00212"></a>00212   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
-<a name="l00213"></a>00213   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
-<a name="l00214"></a>00214   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00215"></a>00215   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00198"></a><a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e">00198</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a9a2a94dfebbdec971ec22431e9c62b8e" title="Fills the given histogram with the sample differences between consecutive pulses...">PulseCandidateFinder::FillSampleDifferencesHistogram</a>(TH1D* histogram) {
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00201"></a>00201   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00202"></a>00202   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00203"></a>00203   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205   <span class="keywordtype">int</span> s1, s2, ds; <span class="comment">// this sample value, the previous sample value and the change in the sample value</span>
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207   <span class="comment">// Loop through the samples</span>
+<a name="l00208"></a>00208   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; n_samples; ++i) {
+<a name="l00209"></a>00209     s1 = polarity * (samples[i-1] - pedestal);
+<a name="l00210"></a>00210     s2 = polarity * (samples[i] - pedestal);
+<a name="l00211"></a>00211     ds = s2 - s1;
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213     histogram-&gt;Fill(ds);
+<a name="l00214"></a>00214   }
+<a name="l00215"></a>00215 }
 <a name="l00216"></a>00216 
-<a name="l00217"></a>00217   <span class="keywordtype">int</span> sample_height; <span class="comment">// the height of this sample above pedestal</span>
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219   <span class="comment">// Loop through the samples</span>
-<a name="l00220"></a>00220   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
-<a name="l00221"></a>00221     sample_height = polarity * (samples[i] - pedestal);
-<a name="l00222"></a>00222 
-<a name="l00223"></a>00223     histogram-&gt;Fill(sample_height);
-<a name="l00224"></a>00224   }
-<a name="l00225"></a>00225 }
-<a name="l00226"></a>00226 
-<a name="l00228"></a>00228 std::map&lt;IDs::channel, int&gt; <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">PulseCandidateFinder::fDefaultParameterValues</a>;
-<a name="l00229"></a>00229 
-<a name="l00232"></a><a class="code" href="classPulseCandidateFinder.html#a860548ff5a2ced2024d376ecce77b07e">00232</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a860548ff5a2ced2024d376ecce77b07e" title="Called in the constructor if fDefaultParameterValues is empty, so that it can be...">PulseCandidateFinder::SetDefaultParameterValues</a>() {
-<a name="l00233"></a>00233 
-<a name="l00234"></a>00234   <span class="comment">// Set all the default values for the fast channels</span>
-<a name="l00235"></a>00235   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muSc&quot;</span>)] = 300;
-<a name="l00236"></a>00236   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muScA&quot;</span>)] = 100;
-<a name="l00237"></a>00237   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;NDet&quot;</span>)] = 100;
+<a name="l00219"></a><a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba">00219</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a0e0ed5bd19fc4b1d9d06726974dc2aba" title="Fills the given histogram with the sample&amp;#39;s height above pedestal.">PulseCandidateFinder::FillSampleHeightsHistogram</a>(TH1D* histogram) {
+<a name="l00220"></a>00220 
+<a name="l00221"></a>00221   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00222"></a>00222   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_samples = samples.size();
+<a name="l00223"></a>00223   <span class="keywordtype">int</span> pedestal = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
+<a name="l00224"></a>00224   <span class="keywordtype">int</span> polarity = <a class="code" href="classPulseCandidateFinder.html#abe45334f7fdc8985348cc651a7b52b03" title="The TPulseIsland that we are looking for candidates on.">fPulseIsland</a>-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226   <span class="keywordtype">int</span> sample_height; <span class="comment">// the height of this sample above pedestal</span>
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228   <span class="comment">// Loop through the samples</span>
+<a name="l00229"></a>00229   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
+<a name="l00230"></a>00230     sample_height = polarity * (samples[i] - pedestal);
+<a name="l00231"></a>00231 
+<a name="l00232"></a>00232     histogram-&gt;Fill(sample_height);
+<a name="l00233"></a>00233   }
+<a name="l00234"></a>00234 }
+<a name="l00235"></a>00235 
+<a name="l00237"></a>00237 std::map&lt;IDs::channel, int&gt; <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">PulseCandidateFinder::fDefaultParameterValues</a>;
 <a name="l00238"></a>00238 
-<a name="l00239"></a>00239   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;Ge-F&quot;</span>)] = 40;
-<a name="l00240"></a>00240 
-<a name="l00241"></a>00241   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScL&quot;</span>)] = 20;
-<a name="l00242"></a>00242   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScR&quot;</span>)] = 20;
-<a name="l00243"></a>00243   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScGe&quot;</span>)] = 20;
-<a name="l00244"></a>00244   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScVe&quot;</span>)] = 40;
-<a name="l00245"></a>00245 
-<a name="l00246"></a>00246   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL2-F&quot;</span>)] = 80;
-<a name="l00247"></a>00247   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-1-F&quot;</span>)] = 40;
-<a name="l00248"></a>00248   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-2-F&quot;</span>)] = 20;
-<a name="l00249"></a>00249   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-3-F&quot;</span>)] = 20;
-<a name="l00250"></a>00250   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-4-F&quot;</span>)] = 80;
-<a name="l00251"></a>00251 
-<a name="l00252"></a>00252   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR2-F&quot;</span>)] = 20;
-<a name="l00253"></a>00253   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-1-F&quot;</span>)] = 40;
-<a name="l00254"></a>00254   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-2-F&quot;</span>)] = 60;
-<a name="l00255"></a>00255   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-3-F&quot;</span>)] = 80;
-<a name="l00256"></a>00256   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-4-F&quot;</span>)] = 40;
-<a name="l00257"></a>00257 
-<a name="l00258"></a>00258   <span class="comment">// Set all the default values for the slow parameters</span>
-<a name="l00259"></a>00259   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;Ge-S&quot;</span>)] = 500;
+<a name="l00241"></a><a class="code" href="classPulseCandidateFinder.html#a860548ff5a2ced2024d376ecce77b07e">00241</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a860548ff5a2ced2024d376ecce77b07e" title="Called in the constructor if fDefaultParameterValues is empty, so that it can be...">PulseCandidateFinder::SetDefaultParameterValues</a>() {
+<a name="l00242"></a>00242 
+<a name="l00243"></a>00243   <span class="comment">// Set all the default values for the fast channels</span>
+<a name="l00244"></a>00244   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muSc&quot;</span>)] = 300;
+<a name="l00245"></a>00245   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muScA&quot;</span>)] = 100;
+<a name="l00246"></a>00246   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;NDet&quot;</span>)] = 100;
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;Ge-F&quot;</span>)] = 40;
+<a name="l00249"></a>00249 
+<a name="l00250"></a>00250   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScL&quot;</span>)] = 20;
+<a name="l00251"></a>00251   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScR&quot;</span>)] = 20;
+<a name="l00252"></a>00252   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScGe&quot;</span>)] = 20;
+<a name="l00253"></a>00253   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;ScVe&quot;</span>)] = 40;
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL2-F&quot;</span>)] = 80;
+<a name="l00256"></a>00256   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-1-F&quot;</span>)] = 40;
+<a name="l00257"></a>00257   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-2-F&quot;</span>)] = 20;
+<a name="l00258"></a>00258   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-3-F&quot;</span>)] = 20;
+<a name="l00259"></a>00259   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-4-F&quot;</span>)] = 80;
 <a name="l00260"></a>00260 
-<a name="l00261"></a>00261   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL2-S&quot;</span>)] = 20;
-<a name="l00262"></a>00262   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-1-S&quot;</span>)] = 20;
-<a name="l00263"></a>00263   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-2-S&quot;</span>)] = 150;
-<a name="l00264"></a>00264   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-3-S&quot;</span>)] = 20;
-<a name="l00265"></a>00265   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-4-S&quot;</span>)] = 40;
+<a name="l00261"></a>00261   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR2-F&quot;</span>)] = 20;
+<a name="l00262"></a>00262   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-1-F&quot;</span>)] = 40;
+<a name="l00263"></a>00263   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-2-F&quot;</span>)] = 60;
+<a name="l00264"></a>00264   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-3-F&quot;</span>)] = 80;
+<a name="l00265"></a>00265   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-4-F&quot;</span>)] = 40;
 <a name="l00266"></a>00266 
-<a name="l00267"></a>00267   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR2-S&quot;</span>)] = 50;
-<a name="l00268"></a>00268   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-1-S&quot;</span>)] = 50;
-<a name="l00269"></a>00269   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-2-S&quot;</span>)] = 30;
-<a name="l00270"></a>00270   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-3-S&quot;</span>)] = 40;
-<a name="l00271"></a>00271   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-4-S&quot;</span>)] = 40;
-<a name="l00272"></a>00272 }
-<a name="l00273"></a>00273 
-<a name="l00275"></a>00275 std::map&lt;IDs::channel, double&gt; <a class="code" href="classPulseCandidateFinder.html#aab074f09cd8b573d912de7c7b46cf039" title="The map that stores the one sigma values that we get from the SQLite database.">PulseCandidateFinder::fOneSigmaValues</a>;
-<a name="l00276"></a>00276 
-<a name="l00279"></a><a class="code" href="classPulseCandidateFinder.html#af1f4ab4a6643383d45c77c20b1e4a04e">00279</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#af1f4ab4a6643383d45c77c20b1e4a04e" title="Called if &amp;quot;n_sigma&amp;quot; is specified as an option in the modules file and if...">PulseCandidateFinder::SetOneSigmaValues</a>() {
-<a name="l00280"></a>00280 
-<a name="l00281"></a>00281   <span class="comment">// Open the text file</span>
-<a name="l00282"></a>00282   std::ifstream file_in(<span class="stringliteral">&quot;pedestal-and-noise.txt&quot;</span>, std::ifstream::in);
-<a name="l00283"></a>00283 
-<a name="l00284"></a>00284   <span class="comment">// The values that we will read in</span>
-<a name="l00285"></a>00285   std::string detname, bankname;
-<a name="l00286"></a>00286   std::string pedestal, noise;
-<a name="l00287"></a>00287 
-<a name="l00288"></a>00288   <span class="comment">// Get the SQLite database file</span>
-<a name="l00289"></a>00289   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
-<a name="l00290"></a>00290 
-<a name="l00291"></a>00291   std::stringstream query; 
-<a name="l00292"></a>00292   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
-<a name="l00293"></a>00293   <span class="keywordflow">if</span> (server) {
-<a name="l00294"></a>00294 
-<a name="l00295"></a>00295     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
-<a name="l00296"></a>00296     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
-<a name="l00297"></a>00297     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
-<a name="l00298"></a>00298 
-<a name="l00299"></a>00299     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
-<a name="l00300"></a>00300     <span class="keywordflow">while</span> (row != NULL) {
-<a name="l00301"></a>00301       <span class="comment">//      std::cout &lt;&lt; row-&gt;GetField(0) &lt;&lt; &quot; &quot; &lt;&lt; row-&gt;GetField(1) &lt;&lt; &quot; &quot; &lt;&lt; row-&gt;GetField(2) &lt;&lt; &quot; &quot; &lt;&lt; row-&gt;GetField(3) &lt;&lt; std::endl;</span>
-<a name="l00302"></a>00302       detname = row-&gt;GetField(0);
-<a name="l00303"></a>00303       bankname = row-&gt;GetField(1);
-<a name="l00304"></a>00304       pedestal = row-&gt;GetField(2);
-<a name="l00305"></a>00305       noise = row-&gt;GetField(3);
-<a name="l00306"></a>00306 
-<a name="l00307"></a>00307       <a class="code" href="classPulseCandidateFinder.html#aab074f09cd8b573d912de7c7b46cf039" title="The map that stores the one sigma values that we get from the SQLite database.">fOneSigmaValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(detname)] = atof(noise.c_str());
-<a name="l00308"></a>00308       
-<a name="l00309"></a>00309       <span class="keyword">delete</span> row;
-<a name="l00310"></a>00310       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
-<a name="l00311"></a>00311     }
-<a name="l00312"></a>00312     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
-<a name="l00313"></a>00313   }
-<a name="l00314"></a>00314   <span class="keywordflow">else</span> {
-<a name="l00315"></a>00315     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
-<a name="l00316"></a>00316   }
-<a name="l00317"></a>00317 }
+<a name="l00267"></a>00267   <span class="comment">// Set all the default values for the slow parameters</span>
+<a name="l00268"></a>00268   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;Ge-S&quot;</span>)] = 500;
+<a name="l00269"></a>00269 
+<a name="l00270"></a>00270   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL2-S&quot;</span>)] = 20;
+<a name="l00271"></a>00271   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-1-S&quot;</span>)] = 20;
+<a name="l00272"></a>00272   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-2-S&quot;</span>)] = 150;
+<a name="l00273"></a>00273   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-3-S&quot;</span>)] = 20;
+<a name="l00274"></a>00274   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiL1-4-S&quot;</span>)] = 40;
+<a name="l00275"></a>00275 
+<a name="l00276"></a>00276   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR2-S&quot;</span>)] = 50;
+<a name="l00277"></a>00277   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-1-S&quot;</span>)] = 50;
+<a name="l00278"></a>00278   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-2-S&quot;</span>)] = 30;
+<a name="l00279"></a>00279   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-3-S&quot;</span>)] = 40;
+<a name="l00280"></a>00280   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-4-S&quot;</span>)] = 40;
+<a name="l00281"></a>00281 }
+<a name="l00282"></a>00282 
+<a name="l00284"></a>00284 std::map&lt;IDs::channel, double&gt; <a class="code" href="classPulseCandidateFinder.html#aab074f09cd8b573d912de7c7b46cf039" title="The map that stores the one sigma values that we get from the SQLite database.">PulseCandidateFinder::fOneSigmaValues</a>;
+<a name="l00285"></a>00285 
+<a name="l00288"></a><a class="code" href="classPulseCandidateFinder.html#af1f4ab4a6643383d45c77c20b1e4a04e">00288</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#af1f4ab4a6643383d45c77c20b1e4a04e" title="Called if &amp;quot;n_sigma&amp;quot; is specified as an option in the modules file and if...">PulseCandidateFinder::SetOneSigmaValues</a>() {
+<a name="l00289"></a>00289 
+<a name="l00290"></a>00290   <span class="comment">// Open the text file</span>
+<a name="l00291"></a>00291   std::ifstream file_in(<span class="stringliteral">&quot;pedestal-and-noise.txt&quot;</span>, std::ifstream::in);
+<a name="l00292"></a>00292 
+<a name="l00293"></a>00293   <span class="comment">// The values that we will read in</span>
+<a name="l00294"></a>00294   std::string detname, bankname;
+<a name="l00295"></a>00295   std::string pedestal, noise;
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297   <span class="comment">// Get the SQLite database file</span>
+<a name="l00298"></a>00298   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
+<a name="l00299"></a>00299 
+<a name="l00300"></a>00300   std::stringstream query; 
+<a name="l00301"></a>00301   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
+<a name="l00302"></a>00302   <span class="keywordflow">if</span> (server) {
+<a name="l00303"></a>00303 
+<a name="l00304"></a>00304     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
+<a name="l00305"></a>00305     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
+<a name="l00306"></a>00306     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00307"></a>00307 
+<a name="l00308"></a>00308     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
+<a name="l00309"></a>00309     <span class="keywordflow">while</span> (row != NULL) {
+<a name="l00310"></a>00310       <span class="comment">//      std::cout &lt;&lt; row-&gt;GetField(0) &lt;&lt; &quot; &quot; &lt;&lt; row-&gt;GetField(1) &lt;&lt; &quot; &quot; &lt;&lt; row-&gt;GetField(2) &lt;&lt; &quot; &quot; &lt;&lt; row-&gt;GetField(3) &lt;&lt; std::endl;</span>
+<a name="l00311"></a>00311       detname = row-&gt;GetField(0);
+<a name="l00312"></a>00312       bankname = row-&gt;GetField(1);
+<a name="l00313"></a>00313       pedestal = row-&gt;GetField(2);
+<a name="l00314"></a>00314       noise = row-&gt;GetField(3);
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316       <a class="code" href="classPulseCandidateFinder.html#aab074f09cd8b573d912de7c7b46cf039" title="The map that stores the one sigma values that we get from the SQLite database.">fOneSigmaValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(detname)] = atof(noise.c_str());
+<a name="l00317"></a>00317       
+<a name="l00318"></a>00318       <span class="keyword">delete</span> row;
+<a name="l00319"></a>00319       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
+<a name="l00320"></a>00320     }
+<a name="l00321"></a>00321     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
+<a name="l00322"></a>00322   }
+<a name="l00323"></a>00323   <span class="keywordflow">else</span> {
+<a name="l00324"></a>00324     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
+<a name="l00325"></a>00325   }
+<a name="l00326"></a>00326 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
