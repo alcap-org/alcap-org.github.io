@@ -1251,8 +1251,8 @@ Inheritance diagram for ExportPulse:</div>
 <a name="l00219"></a>00219    }
 <a name="l00220"></a>00220 
 <a name="l00221"></a>00221    <span class="keywordtype">size_t</span> num_samples = pulse-&gt;<a class="code" href="classTPulseIsland.html#aee1a1477b501fa28a158e56fdfa45164">GetPulseLength</a>();
-<a name="l00222"></a>00222    <span class="keywordtype">double</span> max= ((pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + num_samples) * <a class="code" href="classExportPulse.html#a7f88130e84c6b375a241c83918114fdd">fClockTick</a>) - <a class="code" href="classExportPulse.html#a4a8d5760c9b6abdb9cbd9cc05de09fbd">fTimeShift</a>;
-<a name="l00223"></a>00223    <span class="keywordtype">double</span> min= -<a class="code" href="classExportPulse.html#a4a8d5760c9b6abdb9cbd9cc05de09fbd">fTimeShift</a>;
+<a name="l00222"></a>00222    <span class="keywordtype">double</span> min= (pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() * <a class="code" href="classExportPulse.html#a7f88130e84c6b375a241c83918114fdd">fClockTick</a>) - <a class="code" href="classExportPulse.html#a4a8d5760c9b6abdb9cbd9cc05de09fbd">fTimeShift</a>;
+<a name="l00223"></a>00223    <span class="keywordtype">double</span> max= min + num_samples * <a class="code" href="classExportPulse.html#a7f88130e84c6b375a241c83918114fdd">fClockTick</a>;
 <a name="l00224"></a>00224    TH1F* hPulse = <span class="keyword">new</span> TH1F(hist.c_str(), title.str().c_str(), num_samples,min,max);
 <a name="l00225"></a>00225    
 <a name="l00226"></a>00226    <span class="keywordflow">for</span> ( <span class="keywordtype">size_t</span> i=0;i &lt;num_samples; ++i) {
@@ -1726,7 +1726,7 @@ Inheritance diagram for ExportPulse:</div>
 <li>rootana/src/plotters/<a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
