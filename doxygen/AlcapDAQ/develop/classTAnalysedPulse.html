@@ -37,6 +37,16 @@
 <a href="#_details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for TAnalysedPulse:</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="classTAnalysedPulse.gif" usemap="#TAnalysedPulse_map" alt=""/>
+  <map id="TAnalysedPulse_map" name="TAnalysedPulse_map">
+<area href="classTGaussFitAnalysedPulse.html" alt="TGaussFitAnalysedPulse" shape="rect" coords="0,56,152,80"/>
+</map>
+ </div>
+</div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">TAnalysedPulse</a> ()</td></tr>
@@ -233,7 +243,7 @@
 <div class="memdoc">
 
 <p>The constructor one should use if we need use one. </p>
-<p>This constructor, which is the only constructor the user should use, takes all the information neessary to identify the genesis of this TAP. Generally a user would not use this constructor, but would instead call <a class="el" href="classTVAnalysedPulseGenerator.html#a609f6e1223fafee20c4589f0c1609db5" title="The suggested method for constructing a new TAP.">TVAnalysedPulseGenerator::MakeNewTAP</a> which determines the source and TPI from the TPulseIslandID and where in the code it's being called.</p>
+<p>This constructor, which is the only constructor the user should use, takes all the information neessary to identify the genesis of this TAP. Generally a user would not use this constructor, but would instead call <a class="el" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">TVAnalysedPulseGenerator::MakeNewTAP</a> which determines the source and TPI from the TPulseIslandID and where in the code it's being called.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>sourceID</em>&nbsp;</td><td>The source identifying the detector the TPI is from and what generator processed it. </td></tr>
@@ -341,6 +351,8 @@
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="classTGaussFitAnalysedPulse.html#a8d1c57e2ef786e8a68abb6c2245acd26">TGaussFitAnalysedPulse</a>.</p>
+
 <p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00058">58</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
 
 <p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00154">fAmplitude</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00155">fTime</a>.</p>
@@ -381,7 +393,7 @@
 
 <p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00154">fAmplitude</a>.</p>
 
-<p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00023">TDetectorPulse::GetFastPulseAmplitude()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00162">PulseViewer::GetParameterValue()</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00024">TDetectorPulse::GetSlowPulseAmplitude()</a>.</p>
+<p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00023">TDetectorPulse::GetFastPulseAmplitude()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00162">PulseViewer::GetParameterValue()</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00024">TDetectorPulse::GetSlowPulseAmplitude()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00103"></a>00103 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>;};
 </pre></div></p>
@@ -485,7 +497,7 @@
 
 <p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00158">fPedestal</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00162">PulseViewer::GetParameterValue()</a>.</p>
+<p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00162">PulseViewer::GetParameterValue()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>;};
 </pre></div></p>
@@ -537,7 +549,7 @@
 
 <p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00155">fTime</a>.</p>
 
-<p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00026">TDetectorPulse::GetFastPulseTime()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00162">PulseViewer::GetParameterValue()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00027">TDetectorPulse::GetSlowPulseTime()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00011">IsTimeOrdered()</a>, and <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00009">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00026">TDetectorPulse::GetFastPulseTime()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00162">PulseViewer::GetParameterValue()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00027">TDetectorPulse::GetSlowPulseTime()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00011">IsTimeOrdered()</a>, and <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00009">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00104"></a>00104 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>;};
 </pre></div></p>
@@ -1335,7 +1347,7 @@
 <li>rootana/src/TAP_generators/<a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
