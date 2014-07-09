@@ -179,7 +179,7 @@ std::string &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a clas
 <p>Optional method which is called once after the main event loop Can be used to dump a summary or finalise a histogram </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on sucess and non-zero if a problem occurred </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classIslandLength.html#a58361063b859515d3e5194a7156b34e2">IslandLength</a>, <a class="el" href="classPlotPedestalAndNoise.html#a681a9d8bff4fb872ad7307ac6e016502">PlotPedestalAndNoise</a>, <a class="el" href="classPulseViewer.html#adcf4437db1c8370b2239b303a8ff11ce">PulseViewer</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#ac1dcbd80f553e46c7d4b413a47fb2c6f">PulseCandidateFinder_InvestigateParameters</a>, and <a class="el" href="classTemplateCreator.html#a46be404795ee899f49b8570e7126ebe6">TemplateCreator</a>.</p>
+<p>Reimplemented in <a class="el" href="classIslandAmplitude.html#aad629ecbea9346ace648d898323ba809">IslandAmplitude</a>, <a class="el" href="classIslandLength.html#a58361063b859515d3e5194a7156b34e2">IslandLength</a>, <a class="el" href="classPlotPedestalAndNoise.html#a681a9d8bff4fb872ad7307ac6e016502">PlotPedestalAndNoise</a>, <a class="el" href="classPulseViewer.html#adcf4437db1c8370b2239b303a8ff11ce">PulseViewer</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#ac1dcbd80f553e46c7d4b413a47fb2c6f">PulseCandidateFinder_InvestigateParameters</a>, and <a class="el" href="classTemplateCreator.html#a46be404795ee899f49b8570e7126ebe6">TemplateCreator</a>.</p>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00043">43</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
@@ -232,8 +232,8 @@ std::string &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a clas
 <a name="l00086"></a>00086   <span class="comment">//bool det_b_isSlow;</span>
 <a name="l00087"></a>00087 
 <a name="l00088"></a>00088   <span class="comment">// Find all fast detectors</span>
-<a name="l00089"></a>00089   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> channel = <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
-<a name="l00090"></a>00090                   channel != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); channel++) {
+<a name="l00089"></a>00089   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> channel = <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
+<a name="l00090"></a>00090                   channel != <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); channel++) {
 <a name="l00091"></a>00091       <span class="comment">// get the detector name which is the common part of the fast and slow channel names</span>
 <a name="l00092"></a>00092       det_name_a=channel-&gt;first;
 <a name="l00093"></a>00093       det_name=<a class="code" href="classMakeDetectorPulses.html#a8cc15c01fa5a17d4d8536b22a7820334">GetDetectorName</a>(det_name);
@@ -281,7 +281,7 @@ std::string &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a clas
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00076">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00167">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00109">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00087">IslandLength::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00030">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00037">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00033">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00212">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00092">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00137">PulseViewer::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00167">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00109">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00087">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00147">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00030">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00037">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00033">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00212">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00020">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00092">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00137">PulseViewer::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -536,8 +536,8 @@ std::string &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a clas
 <a name="l00030"></a>00030                   it_det != <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.end(); it_det++) {
 <a name="l00031"></a>00031     <span class="comment">// find the list of analyzed pulses for this channel</span>
 <a name="l00032"></a>00032     <span class="keywordflow">if</span>(it_det-&gt;second.first!=<span class="stringliteral">&quot;&quot;</span>) {
-<a name="l00033"></a>00033       current=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.first);
-<a name="l00034"></a>00034       <span class="keywordflow">if</span>(current==<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
+<a name="l00033"></a>00033       current=<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.first);
+<a name="l00034"></a>00034       <span class="keywordflow">if</span>(current==<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
 <a name="l00035"></a>00035         std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find channel for detector: &quot;</span>&lt;&lt;it_det-&gt;second.first&lt;&lt;std::endl;
 <a name="l00036"></a>00036         <span class="keywordflow">return</span> 1;
 <a name="l00037"></a>00037       }
@@ -547,8 +547,8 @@ std::string &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a clas
 <a name="l00041"></a>00041     }
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043     <span class="keywordflow">if</span>(it_det-&gt;second.second!=<span class="stringliteral">&quot;&quot;</span>) {
-<a name="l00044"></a>00044       current=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.second);
-<a name="l00045"></a>00045       <span class="keywordflow">if</span>(current==<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
+<a name="l00044"></a>00044       current=<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.second);
+<a name="l00045"></a>00045       <span class="keywordflow">if</span>(current==<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
 <a name="l00046"></a>00046         std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find channel for detector: &quot;</span>&lt;&lt;it_det-&gt;second.second&lt;&lt;std::endl;
 <a name="l00047"></a>00047         <span class="keywordflow">return</span> 2;
 <a name="l00048"></a>00048       }
@@ -795,7 +795,7 @@ std::string &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a clas
 <li>rootana/src/TDP_generators/<a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

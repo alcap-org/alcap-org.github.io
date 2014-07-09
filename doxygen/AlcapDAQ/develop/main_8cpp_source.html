@@ -80,7 +80,7 @@
 <a name="l00071"></a><a class="code" href="main_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">00071</a> <span class="keyword">static</span> TTree *<a class="code" href="main_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a> = NULL;
 <a name="l00072"></a><a class="code" href="main_8cpp.html#a52ff8a263597f111e6d57f5dd6925e70">00072</a> TBranch *<a class="code" href="main_8cpp.html#a52ff8a263597f111e6d57f5dd6925e70">gAnalysedPulseBranch</a> = NULL;
 <a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="MakeDetectorPulses_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">00074</a> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
+<a name="l00074"></a><a class="code" href="MakeDetectorPulses_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">00074</a> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
 <a name="l00075"></a><a class="code" href="MakeMuonEvents_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">00075</a> <a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a> <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>;
 <a name="l00076"></a><a class="code" href="MakeMuonEvents_8cpp.html#ad027f941b8aac123df6d914593784b61">00076</a> <a class="code" href="definitions_8h.html#ad44ba723ef2502e4b89ad5d164f0376d">MuonEventList</a> <a class="code" href="main_8cpp.html#ad027f941b8aac123df6d914593784b61">gMuonEvents</a>;
 <a name="l00077"></a>00077 
@@ -241,7 +241,7 @@
 <a name="l00232"></a>00232       <span class="keywordflow">break</span>;
 <a name="l00233"></a>00233     }
 <a name="l00234"></a>00234 
-<a name="l00235"></a>00235     gAnalysedPulseMapWrapper-&gt;<a class="code" href="classTAnalysedPulseMapWrapper.html#aef282ffdfa668ec48ef51889ab27e733">SetMap</a>(<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>);
+<a name="l00235"></a>00235     gAnalysedPulseMapWrapper-&gt;<a class="code" href="classTAnalysedPulseMapWrapper.html#aef282ffdfa668ec48ef51889ab27e733">SetMap</a>(<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>);
 <a name="l00236"></a>00236     <span class="comment">//gAnalysedPulseMapWrapper-&gt;ShowInfo();</span>
 <a name="l00237"></a>00237     <a class="code" href="main_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a>-&gt;Fill();
 <a name="l00238"></a>00238   }
@@ -281,8 +281,8 @@
 <a name="l00272"></a>00272   }
 <a name="l00273"></a>00273 
 <a name="l00274"></a>00274 
-<a name="l00275"></a>00275   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> mapIter=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
-<a name="l00276"></a>00276      mapIter != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); mapIter++) {
+<a name="l00275"></a>00275   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> mapIter=<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
+<a name="l00276"></a>00276      mapIter != <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); mapIter++) {
 <a name="l00277"></a>00277 
 <a name="l00278"></a>00278     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
 <a name="l00279"></a>00279     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
@@ -292,7 +292,7 @@
 <a name="l00283"></a>00283     }
 <a name="l00284"></a>00284     pulse_vector.clear();
 <a name="l00285"></a>00285   }
-<a name="l00286"></a>00286   <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.clear();
+<a name="l00286"></a>00286   <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.clear();
 <a name="l00287"></a>00287 
 <a name="l00288"></a>00288   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.end(); mapIter++) {
 <a name="l00289"></a>00289     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
@@ -361,7 +361,7 @@
 <a name="l00352"></a>00352 
 <a name="l00353"></a><a class="code" href="main_8cpp.html#a01c84c0dac0bd263aefe62e312e094fb">00353</a> Int_t <a class="code" href="main_8cpp.html#a01c84c0dac0bd263aefe62e312e094fb">PrepareAnalysedPulseMap</a>(TFile* fileOut){
 <a name="l00354"></a>00354         <span class="comment">// TAnalysedMapWrapper</span>
-<a name="l00355"></a>00355    gAnalysedPulseMapWrapper = <span class="keyword">new</span> <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>(<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>);
+<a name="l00355"></a>00355    gAnalysedPulseMapWrapper = <span class="keyword">new</span> <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>(<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>);
 <a name="l00356"></a>00356 
 <a name="l00357"></a>00357    <span class="keywordtype">int</span> split = 1;
 <a name="l00358"></a>00358    <span class="keywordtype">int</span> bufsize = 64000;
@@ -392,7 +392,7 @@
 <a name="l00383"></a>00383 }
 <a name="l00384"></a>00384 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

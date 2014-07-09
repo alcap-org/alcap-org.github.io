@@ -109,8 +109,8 @@
 <a name="l00272"></a>00272   }
 <a name="l00273"></a>00273 
 <a name="l00274"></a>00274 
-<a name="l00275"></a>00275   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> mapIter=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
-<a name="l00276"></a>00276      mapIter != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); mapIter++) {
+<a name="l00275"></a>00275   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> mapIter=<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
+<a name="l00276"></a>00276      mapIter != <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); mapIter++) {
 <a name="l00277"></a>00277 
 <a name="l00278"></a>00278     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
 <a name="l00279"></a>00279     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
@@ -120,7 +120,7 @@
 <a name="l00283"></a>00283     }
 <a name="l00284"></a>00284     pulse_vector.clear();
 <a name="l00285"></a>00285   }
-<a name="l00286"></a>00286   <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.clear();
+<a name="l00286"></a>00286   <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.clear();
 <a name="l00287"></a>00287 
 <a name="l00288"></a>00288   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.end(); mapIter++) {
 <a name="l00289"></a>00289     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
@@ -317,7 +317,7 @@
 
 <p><div class="fragment"><pre class="fragment"><a name="l00353"></a>00353                                              {
 <a name="l00354"></a>00354         <span class="comment">// TAnalysedMapWrapper</span>
-<a name="l00355"></a>00355    <a class="code" href="main_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">gAnalysedPulseMapWrapper</a> = <span class="keyword">new</span> <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>(<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>);
+<a name="l00355"></a>00355    <a class="code" href="main_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">gAnalysedPulseMapWrapper</a> = <span class="keyword">new</span> <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>(<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>);
 <a name="l00356"></a>00356 
 <a name="l00357"></a>00357    <span class="keywordtype">int</span> split = 1;
 <a name="l00358"></a>00358    <span class="keywordtype">int</span> bufsize = 64000;
@@ -463,8 +463,6 @@
 
 <p>Definition at line <a class="el" href="main_8cpp_source.html#l00074">74</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="main_8cpp_source.html#l00254">ClearGlobalData()</a>, <a class="el" href="main_8cpp_source.html#l00164">Main_event_loop()</a>, <a class="el" href="main_8cpp_source.html#l00353">PrepareAnalysedPulseMap()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00020">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00092">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00137">PulseViewer::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00037">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00081">PlotAmpVsTDiff::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="adb5d6e458a1f896bbeceb8ab3ef5ff0c"></a><!-- doxytag: member="main.cpp::gAnalysedPulseMapWrapper" ref="adb5d6e458a1f896bbeceb8ab3ef5ff0c" args="" -->
@@ -585,7 +583,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

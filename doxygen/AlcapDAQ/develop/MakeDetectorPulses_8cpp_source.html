@@ -31,7 +31,7 @@
 <a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="MaxTimeDiffDPGenerator_8h.html">MaxTimeDiffDPGenerator.h</a>&quot;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="TDPGeneratorFactory_8h.html">TDPGeneratorFactory.h</a>&quot;</span>
 <a name="l00006"></a>00006 
-<a name="l00007"></a>00007 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
+<a name="l00007"></a>00007 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
 <a name="l00008"></a>00008 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a> <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>;
 <a name="l00009"></a>00009 
 <a name="l00010"></a><a class="code" href="classMakeDetectorPulses.html#afe22ebb5adac4b6c1606aff6d138380e">00010</a> <a class="code" href="classMakeDetectorPulses.html#afe22ebb5adac4b6c1606aff6d138380e">MakeDetectorPulses::MakeDetectorPulses</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
@@ -57,8 +57,8 @@
 <a name="l00030"></a>00030                   it_det != <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.end(); it_det++) {
 <a name="l00031"></a>00031     <span class="comment">// find the list of analyzed pulses for this channel</span>
 <a name="l00032"></a>00032     <span class="keywordflow">if</span>(it_det-&gt;second.first!=<span class="stringliteral">&quot;&quot;</span>) {
-<a name="l00033"></a>00033       current=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.first);
-<a name="l00034"></a>00034       <span class="keywordflow">if</span>(current==<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
+<a name="l00033"></a>00033       current=<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.first);
+<a name="l00034"></a>00034       <span class="keywordflow">if</span>(current==<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
 <a name="l00035"></a>00035         std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find channel for detector: &quot;</span>&lt;&lt;it_det-&gt;second.first&lt;&lt;std::endl;
 <a name="l00036"></a>00036         <span class="keywordflow">return</span> 1;
 <a name="l00037"></a>00037       }
@@ -68,8 +68,8 @@
 <a name="l00041"></a>00041     }
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043     <span class="keywordflow">if</span>(it_det-&gt;second.second!=<span class="stringliteral">&quot;&quot;</span>) {
-<a name="l00044"></a>00044       current=<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.second);
-<a name="l00045"></a>00045       <span class="keywordflow">if</span>(current==<a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
+<a name="l00044"></a>00044       current=<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(it_det-&gt;second.second);
+<a name="l00045"></a>00045       <span class="keywordflow">if</span>(current==<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()){
 <a name="l00046"></a>00046         std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find channel for detector: &quot;</span>&lt;&lt;it_det-&gt;second.second&lt;&lt;std::endl;
 <a name="l00047"></a>00047         <span class="keywordflow">return</span> 2;
 <a name="l00048"></a>00048       }
@@ -113,8 +113,8 @@
 <a name="l00086"></a>00086   <span class="comment">//bool det_b_isSlow;</span>
 <a name="l00087"></a>00087 
 <a name="l00088"></a>00088   <span class="comment">// Find all fast detectors</span>
-<a name="l00089"></a>00089   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> channel = <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
-<a name="l00090"></a>00090                   channel != <a class="code" href="main_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); channel++) {
+<a name="l00089"></a>00089   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> channel = <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.begin();
+<a name="l00090"></a>00090                   channel != <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end(); channel++) {
 <a name="l00091"></a>00091       <span class="comment">// get the detector name which is the common part of the fast and slow channel names</span>
 <a name="l00092"></a>00092       det_name_a=channel-&gt;first;
 <a name="l00093"></a>00093       det_name=<a class="code" href="classMakeDetectorPulses.html#a8cc15c01fa5a17d4d8536b22a7820334">GetDetectorName</a>(det_name);
@@ -152,7 +152,7 @@
 <a name="l00125"></a>00125 
 <a name="l00126"></a>00126 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>,algorithm);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
