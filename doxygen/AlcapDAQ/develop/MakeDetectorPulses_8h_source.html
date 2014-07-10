@@ -29,48 +29,47 @@
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define MAKEDETECTORPULSES_H__</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="BaseModule_8h.html">BaseModule.h</a>&quot;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="definitions_8h.html">definitions.h</a>&quot;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="TGlobalData_8h.html">TGlobalData.h</a>&quot;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="ModulesOptions_8h.html">ModulesOptions.h</a>&quot;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="TDetectorPulse_8h.html">TDetectorPulse.h</a>&quot;</span>
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="keyword">class </span><a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>;
-<a name="l00017"></a>00017 
-<a name="l00018"></a><a class="code" href="classMakeDetectorPulses.html">00018</a> <span class="keyword">class </span><a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020  <span class="keyword">public</span>:
-<a name="l00021"></a>00021   <a class="code" href="classMakeDetectorPulses.html#afe22ebb5adac4b6c1606aff6d138380e">MakeDetectorPulses</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
-<a name="l00022"></a>00022   <a class="code" href="classMakeDetectorPulses.html#a1537b3c54b7651d5e981c8ccc165ce40">~MakeDetectorPulses</a>();
-<a name="l00023"></a>00023 
-<a name="l00024"></a><a class="code" href="classMakeDetectorPulses.html#a5121f9587bb0f7670c7447d4b7e78e20">00024</a>   <span class="keywordtype">void</span> <a class="code" href="classMakeDetectorPulses.html#a5121f9587bb0f7670c7447d4b7e78e20">SetAlgorithm</a>(<span class="keyword">const</span> TString&amp; algorithm){<a class="code" href="classMakeDetectorPulses.html#ae902d5965f3a809bbb399421da0cc23f">fAlgorithm</a>=algorithm;};
-<a name="l00025"></a>00025 
-<a name="l00026"></a><a class="code" href="classMakeDetectorPulses.html#a47e5ac07d320e9b0358f5cb373815c3e">00026</a>   <span class="keywordtype">void</span> <a class="code" href="classMakeDetectorPulses.html#a47e5ac07d320e9b0358f5cb373815c3e">SetDetectorPulseMap</a>(<a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a>&amp; aMap){<a class="code" href="classMakeDetectorPulses.html#a01f2faedc656c4ab6d92f92a1a2eb7bc">fDetectorPulseMap</a>=&amp;aMap;}
-<a name="l00027"></a>00027  <span class="keyword">private</span>:
-<a name="l00028"></a>00028   <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* <a class="code" href="classMakeDetectorPulses.html#af9f7bc8f7f22ddce26842dd280657be6">MakeGenerator</a>(<span class="keyword">const</span> std::string&amp; generatorType);
-<a name="l00029"></a>00029   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeDetectorPulses.html#ac27593f052e75d1c32c8c20c5f83815b" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
-<a name="l00030"></a>00030   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeDetectorPulses.html#a328f631361974b4fee89c589dcbdd501">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
-<a name="l00031"></a>00031   std::string <a class="code" href="classMakeDetectorPulses.html#a48a9ae3391832e15dd31810255bf0f15">GetOtherChannelName</a>(std::string in_name,std::string det_name);
-<a name="l00032"></a>00032   std::string <a class="code" href="classMakeDetectorPulses.html#a8cc15c01fa5a17d4d8536b22a7820334">GetDetectorName</a>(std::string in_name);
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034  <span class="keyword">private</span>:
-<a name="l00035"></a><a class="code" href="classMakeDetectorPulses.html#a13f94ae1e1f7dac6db98330cb9911193">00035</a>   <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* <a class="code" href="classMakeDetectorPulses.html#a13f94ae1e1f7dac6db98330cb9911193">fGenerator</a>; 
-<a name="l00036"></a><a class="code" href="classMakeDetectorPulses.html#a01f2faedc656c4ab6d92f92a1a2eb7bc">00036</a>   <a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a>* <a class="code" href="classMakeDetectorPulses.html#a01f2faedc656c4ab6d92f92a1a2eb7bc">fDetectorPulseMap</a>;
-<a name="l00037"></a><a class="code" href="classMakeDetectorPulses.html#a7f7aa0698f4190e4d93c3d082b0730cb">00037</a>   <span class="keyword">typedef</span> std::map&lt;std::string,std::pair&lt;std::string,std::string&gt; &gt; <a class="code" href="classMakeDetectorPulses.html#a7f7aa0698f4190e4d93c3d082b0730cb">ChannelPairing_t</a>;
-<a name="l00038"></a><a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">00038</a>   <a class="code" href="classMakeDetectorPulses.html#a7f7aa0698f4190e4d93c3d082b0730cb">ChannelPairing_t</a> <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>;
-<a name="l00039"></a><a class="code" href="classMakeDetectorPulses.html#ab77317ec9ed4dc8109ad778ecfc3ec51">00039</a>   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classMakeDetectorPulses.html#ab77317ec9ed4dc8109ad778ecfc3ec51">fOptions</a>;
-<a name="l00040"></a><a class="code" href="classMakeDetectorPulses.html#ae902d5965f3a809bbb399421da0cc23f">00040</a>   std::string <a class="code" href="classMakeDetectorPulses.html#ae902d5965f3a809bbb399421da0cc23f">fAlgorithm</a>;
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 };
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="preprocessor">#endif // MAKEDETECTORPULSES_H__</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;set&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="BaseModule_8h.html">BaseModule.h</a>&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="definitions_8h.html">definitions.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="TGlobalData_8h.html">TGlobalData.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="ModulesOptions_8h.html">ModulesOptions.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="TDetectorPulse_8h.html">TDetectorPulse.h</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">class </span><a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>;
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="classMakeDetectorPulses.html">00017</a> <span class="keyword">class </span><a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019  <span class="keyword">public</span>:
+<a name="l00020"></a>00020   <a class="code" href="classMakeDetectorPulses.html#afe22ebb5adac4b6c1606aff6d138380e">MakeDetectorPulses</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
+<a name="l00021"></a>00021   <a class="code" href="classMakeDetectorPulses.html#a1537b3c54b7651d5e981c8ccc165ce40">~MakeDetectorPulses</a>();
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="classMakeDetectorPulses.html#a5121f9587bb0f7670c7447d4b7e78e20">00023</a>   <span class="keywordtype">void</span> <a class="code" href="classMakeDetectorPulses.html#a5121f9587bb0f7670c7447d4b7e78e20">SetAlgorithm</a>(<span class="keyword">const</span> TString&amp; algorithm){<a class="code" href="classMakeDetectorPulses.html#ae902d5965f3a809bbb399421da0cc23f">fAlgorithm</a>=algorithm;};
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="classMakeDetectorPulses.html#a47e5ac07d320e9b0358f5cb373815c3e">00025</a>   <span class="keywordtype">void</span> <a class="code" href="classMakeDetectorPulses.html#a47e5ac07d320e9b0358f5cb373815c3e">SetDetectorPulseMap</a>(<a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a>&amp; aMap){<a class="code" href="classMakeDetectorPulses.html#a01f2faedc656c4ab6d92f92a1a2eb7bc">fDetectorPulseMap</a>=&amp;aMap;}
+<a name="l00026"></a>00026  <span class="keyword">private</span>:
+<a name="l00027"></a>00027   <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* <a class="code" href="classMakeDetectorPulses.html#af9f7bc8f7f22ddce26842dd280657be6">MakeGenerator</a>(<span class="keyword">const</span> std::string&amp; generatorType);
+<a name="l00028"></a>00028   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeDetectorPulses.html#ac27593f052e75d1c32c8c20c5f83815b" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
+<a name="l00029"></a>00029   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMakeDetectorPulses.html#a328f631361974b4fee89c589dcbdd501">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keywordtype">void</span> <a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">DumpgAnalysedPulseMap</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a>&amp; aMap);
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033  <span class="keyword">private</span>:
+<a name="l00034"></a><a class="code" href="classMakeDetectorPulses.html#a13f94ae1e1f7dac6db98330cb9911193">00034</a>   <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* <a class="code" href="classMakeDetectorPulses.html#a13f94ae1e1f7dac6db98330cb9911193">fGenerator</a>; 
+<a name="l00035"></a><a class="code" href="classMakeDetectorPulses.html#a01f2faedc656c4ab6d92f92a1a2eb7bc">00035</a>   <a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a>* <a class="code" href="classMakeDetectorPulses.html#a01f2faedc656c4ab6d92f92a1a2eb7bc">fDetectorPulseMap</a>;
+<a name="l00036"></a><a class="code" href="classMakeDetectorPulses.html#ad559b695231d5f8949609f10355e4836">00036</a>   <span class="keyword">typedef</span> std::set&lt;std::pair&lt;IDs::source,IDs::source&gt; &gt; <a class="code" href="classMakeDetectorPulses.html#ad559b695231d5f8949609f10355e4836">ChannelPairing_t</a>;
+<a name="l00037"></a><a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">00037</a>   <a class="code" href="classMakeDetectorPulses.html#ad559b695231d5f8949609f10355e4836">ChannelPairing_t</a> <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>;
+<a name="l00038"></a><a class="code" href="classMakeDetectorPulses.html#ab77317ec9ed4dc8109ad778ecfc3ec51">00038</a>   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classMakeDetectorPulses.html#ab77317ec9ed4dc8109ad778ecfc3ec51">fOptions</a>;
+<a name="l00039"></a><a class="code" href="classMakeDetectorPulses.html#ae902d5965f3a809bbb399421da0cc23f">00039</a>   std::string <a class="code" href="classMakeDetectorPulses.html#ae902d5965f3a809bbb399421da0cc23f">fAlgorithm</a>;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="preprocessor">#endif // MAKEDETECTORPULSES_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

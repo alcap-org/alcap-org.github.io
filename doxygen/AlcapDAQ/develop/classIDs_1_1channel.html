@@ -71,6 +71,7 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Check if this <a class="el" href="classIDs_1_1channel.html">channel</a> ID is for a fast <a class="el" href="classIDs_1_1channel.html">channel</a>.  <a href="#a42a3ac122222a5ff54dc421da9401912"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1channel.html#ade305587a0289eead0064cc65b6ee7c5">isSlow</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Check if this <a class="el" href="classIDs_1_1channel.html">channel</a> ID is for a slow <a class="el" href="classIDs_1_1channel.html">channel</a>.  <a href="#ade305587a0289eead0064cc65b6ee7c5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1channel.html">channel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">GetCorrespondingFastSlow</a> () const </td></tr>
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41">GetDetectorString</a> (<a class="el" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a> det)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Convert a Detector_t enum into the corresponding string.  <a href="#adbad92828b366334f67b3de3a6341e41"></a><br/></td></tr>
@@ -125,10 +126,12 @@
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00162">162</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00169">169</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00162"></a>00162                                                          :<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>(det),<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>(type){
-<a name="l00163"></a>00163 }
+<p>Referenced by <a class="el" href="IdChannel_8cpp_source.html#l00107">GetCorrespondingFastSlow()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00169"></a>00169                                                          :<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>(det),<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>(type){
+<a name="l00170"></a>00170 }
 </pre></div></p>
 
 </div>
@@ -167,14 +170,14 @@
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00165">165</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00172">172</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, <a class="el" href="IdChannel_8cpp_source.html#l00045">GetDetectorEnum()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00100">GetSlowFastEnum()</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, <a class="el" href="IdChannel_8cpp_source.html#l00045">GetDetectorEnum()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00100">GetSlowFastEnum()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00165"></a>00165                                                                            :<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>(),<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>){
-<a name="l00166"></a>00166         <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>=<a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">GetDetectorEnum</a>(detector);
-<a name="l00167"></a>00167         <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>=<a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">GetSlowFastEnum</a>(type);
-<a name="l00168"></a>00168 }
+<p><div class="fragment"><pre class="fragment"><a name="l00172"></a>00172                                                                            :<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>(),<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>){
+<a name="l00173"></a>00173         <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>=<a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">GetDetectorEnum</a>(detector);
+<a name="l00174"></a>00174         <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>=<a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">GetSlowFastEnum</a>(type);
+<a name="l00175"></a>00175 }
 </pre></div></p>
 
 </div>
@@ -205,11 +208,11 @@
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00170">170</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00177">177</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00170"></a>00170                                                    :<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>(),<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>){
-<a name="l00171"></a>00171   *<span class="keyword">this</span>=<a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">channel</a>;
-<a name="l00172"></a>00172 }
+<p><div class="fragment"><pre class="fragment"><a name="l00177"></a>00177                                                    :<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>(),<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>){
+<a name="l00178"></a>00178   *<span class="keyword">this</span>=<a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">channel</a>;
+<a name="l00179"></a>00179 }
 </pre></div></p>
 
 </div>
@@ -283,9 +286,45 @@
 
 <p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00068">68</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00068"></a>00068 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a63317dcc2c399021a518166357196bbb"></a><!-- doxytag: member="IDs::channel::GetCorrespondingFastSlow" ref="a63317dcc2c399021a518166357196bbb" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1channel.html">IDs::channel</a> IDs::channel::GetCorrespondingFastSlow </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>If this is a fast <a class="el" href="classIDs_1_1channel.html">channel</a> return the corresponding slow one else if it's a slow <a class="el" href="classIDs_1_1channel.html">channel</a> return the corresponding fast one else return the same ID </p>
+
+<p>Definition at line <a class="el" href="IdChannel_8cpp_source.html#l00107">107</a> of file <a class="el" href="IdChannel_8cpp_source.html">IdChannel.cpp</a>.</p>
+
+<p>References <a class="el" href="IdChannel_8h_source.html#l00169">channel()</a>, <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00033">IDs::kAnySlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00032">IDs::kErrorSlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00034">IDs::kFast</a>, <a class="el" href="IdChannel_8h_source.html#l00036">IDs::kNotApplicable</a>, and <a class="el" href="IdChannel_8h_source.html#l00035">IDs::kSlow</a>.</p>
+
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00074">MakeDetectorPulses::BeforeFirstEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107                                                     {
+<a name="l00108"></a>00108     <span class="keywordflow">switch</span>(<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>){
+<a name="l00109"></a>00109         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>: <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">IDs::channel</a>(<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>); <span class="keywordflow">break</span>;
+<a name="l00110"></a>00110         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>: <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">IDs::channel</a>(<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>); <span class="keywordflow">break</span>;
+<a name="l00111"></a>00111         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a>: 
+<a name="l00112"></a>00112         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>: 
+<a name="l00113"></a>00113         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a2d0e9c74661a8bf3cf894fe56314846d">kErrorSlowFast</a>:<span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="keywordflow">break</span>;
+<a name="l00114"></a>00114     }
+<a name="l00115"></a>00115     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00116"></a>00116 }
 </pre></div></p>
 
 </div>
@@ -311,7 +350,7 @@
 
 <p>References <a class="el" href="ModulesParser_8cpp_source.html#l00139">modules::parser::iequals()</a>, <a class="el" href="IdChannel_8h_source.html#l00016">IDs::kErrorDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00024">IDs::num_detector_enums</a>.</p>
 
-<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00165">channel()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>.</p>
+<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00172">channel()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00045"></a>00045                                                              {
 <a name="l00046"></a>00046      <span class="keyword">const</span> <span class="keywordtype">char</span>* names[1+<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba" title="Used by some algorithms to loop over all Detector_t enum values.">IDs::num_detector_enums</a>]={ 
@@ -408,7 +447,7 @@
 
 <p>References <a class="el" href="ModulesParser_8cpp_source.html#l00139">modules::parser::iequals()</a>, <a class="el" href="IdChannel_8h_source.html#l00033">IDs::kAnySlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00034">IDs::kFast</a>, <a class="el" href="IdChannel_8h_source.html#l00036">IDs::kNotApplicable</a>, and <a class="el" href="IdChannel_8h_source.html#l00035">IDs::kSlow</a>.</p>
 
-<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00165">channel()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>.</p>
+<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00172">channel()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00100"></a>00100                                                               {
 <a name="l00101"></a>00101         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(type,<span class="stringliteral">&quot;-S&quot;</span>) || type==<span class="stringliteral">&quot;slow&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>;
@@ -476,13 +515,13 @@
 
 <p>Check if this <a class="el" href="classIDs_1_1channel.html">channel</a> ID is for a fast <a class="el" href="classIDs_1_1channel.html">channel</a>. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00118">118</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00120">120</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, and <a class="el" href="IdChannel_8h_source.html#l00034">IDs::kFast</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, and <a class="el" href="IdChannel_8h_source.html#l00034">IDs::kFast</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00168">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00040">PulseCandidateFinder::FindPulseCandidates()</a>, and <a class="el" href="IdSource_8h_source.html#l00104">IDs::source::isFast()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00074">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00168">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00040">PulseCandidateFinder::FindPulseCandidates()</a>, and <a class="el" href="IdSource_8h_source.html#l00104">IDs::source::isFast()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00118"></a>00118 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00120"></a>00120 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>;};
 </pre></div></p>
 
 </div>
@@ -504,13 +543,13 @@
 
 <p>Check if this <a class="el" href="classIDs_1_1channel.html">channel</a> ID is for a slow <a class="el" href="classIDs_1_1channel.html">channel</a>. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00120">120</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00122">122</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, and <a class="el" href="IdChannel_8h_source.html#l00035">IDs::kSlow</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, and <a class="el" href="IdChannel_8h_source.html#l00035">IDs::kSlow</a>.</p>
 
 <p>Referenced by <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00168">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00040">PulseCandidateFinder::FindPulseCandidates()</a>, and <a class="el" href="IdSource_8h_source.html#l00107">IDs::source::isSlow()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00120"></a>00120 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00122"></a>00122 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>;};
 </pre></div></p>
 
 </div>
@@ -532,13 +571,11 @@
 
 <p>Check there there have been no errors creating this <a class="el" href="classIDs_1_1channel.html">channel</a> ID. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00104">104</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00106">106</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00016">IDs::kErrorDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00032">IDs::kErrorSlowFast</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00016">IDs::kErrorDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00032">IDs::kErrorSlowFast</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00039">PulseViewer::BeforeFirstEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00104"></a>00104 {<span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>!=<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea38728be74fd95e96902f1d545b2b26c7">kErrorDetector</a>) &amp;&amp; (<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a> != <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a2d0e9c74661a8bf3cf894fe56314846d">kErrorSlowFast</a>);};
+<p><div class="fragment"><pre class="fragment"><a name="l00106"></a>00106 {<span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>!=<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea38728be74fd95e96902f1d545b2b26c7">kErrorDetector</a>) &amp;&amp; (<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a> != <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a2d0e9c74661a8bf3cf894fe56314846d">kErrorSlowFast</a>);};
 </pre></div></p>
 
 </div>
@@ -559,13 +596,13 @@
 <div class="memdoc">
 <p>Check if this <a class="el" href="classIDs_1_1channel.html">channel</a> ID is a wildcard (either Detector_t or SlowFast_t is kAny...). User must interrogate further to find out which. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00115">115</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00117">117</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00107">isWildCardDetector()</a>, and <a class="el" href="IdChannel_8h_source.html#l00110">isWildCardSlowFast()</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00109">isWildCardDetector()</a>, and <a class="el" href="IdChannel_8h_source.html#l00112">isWildCardSlowFast()</a>.</p>
 
 <p>Referenced by <a class="el" href="IdSource_8h_source.html#l00092">IDs::source::isWildCardChannel()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00115"></a>00115 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#ac612564604da089bdeeb13cfa5fb1c7e" title="Check if the Detector_t is a wildcard.">isWildCardDetector</a>() || <a class="code" href="classIDs_1_1channel.html#a308a2d5cb5d4ae489a2edee8dc52d214" title="Check if the SlowFast_t is a wildcard.">isWildCardSlowFast</a>();}
+<p><div class="fragment"><pre class="fragment"><a name="l00117"></a>00117 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#ac612564604da089bdeeb13cfa5fb1c7e" title="Check if the Detector_t is a wildcard.">isWildCardDetector</a>() || <a class="code" href="classIDs_1_1channel.html#a308a2d5cb5d4ae489a2edee8dc52d214" title="Check if the SlowFast_t is a wildcard.">isWildCardSlowFast</a>();}
 </pre></div></p>
 
 </div>
@@ -587,13 +624,13 @@
 
 <p>Check if the Detector_t is a wildcard. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00107">107</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00109">109</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00017">IDs::kAnyDetector</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00017">IDs::kAnyDetector</a>.</p>
 
-<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00115">isWildCard()</a>, and <a class="el" href="IdChannel_8h_source.html#l00149">matches()</a>.</p>
+<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00117">isWildCard()</a>, and <a class="el" href="IdChannel_8h_source.html#l00156">matches()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea33981dd0a0c16b3cc64c6680e15225de">kAnyDetector</a>;}
+<p><div class="fragment"><pre class="fragment"><a name="l00109"></a>00109 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea33981dd0a0c16b3cc64c6680e15225de">kAnyDetector</a>;}
 </pre></div></p>
 
 </div>
@@ -615,13 +652,13 @@
 
 <p>Check if the SlowFast_t is a wildcard. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00110">110</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00112">112</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, and <a class="el" href="IdChannel_8h_source.html#l00033">IDs::kAnySlowFast</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, and <a class="el" href="IdChannel_8h_source.html#l00033">IDs::kAnySlowFast</a>.</p>
 
-<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00115">isWildCard()</a>, and <a class="el" href="IdChannel_8h_source.html#l00149">matches()</a>.</p>
+<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00117">isWildCard()</a>, and <a class="el" href="IdChannel_8h_source.html#l00156">matches()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00110"></a>00110 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a> == <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>;}
+<p><div class="fragment"><pre class="fragment"><a name="l00112"></a>00112 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a> == <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>;}
 </pre></div></p>
 
 </div>
@@ -645,16 +682,16 @@
 <p>Check if this <a class="el" href="classIDs_1_1channel.html">channel</a> is the same as another or has it's fields set to 'any'. </p>
 <p>Return true if for both the Detector and SlowFast parts, either the rhs is the same as this one, or if either this or rhs has a corresponding Any flag set </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00149">149</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00156">156</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00107">isWildCardDetector()</a>, and <a class="el" href="IdChannel_8h_source.html#l00110">isWildCardSlowFast()</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, <a class="el" href="IdChannel_8h_source.html#l00109">isWildCardDetector()</a>, and <a class="el" href="IdChannel_8h_source.html#l00112">isWildCardSlowFast()</a>.</p>
 
 <p>Referenced by <a class="el" href="IdSource_8h_source.html#l00069">IDs::source::matches()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00149"></a>00149                                                       {
-<a name="l00150"></a>00150         <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1channel.html#ac612564604da089bdeeb13cfa5fb1c7e" title="Check if the Detector_t is a wildcard.">isWildCardDetector</a>() || rhs.isWildCardDetector() || <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>==rhs.fDetector) 
-<a name="l00151"></a>00151         &amp;&amp; (<a class="code" href="classIDs_1_1channel.html#a308a2d5cb5d4ae489a2edee8dc52d214" title="Check if the SlowFast_t is a wildcard.">isWildCardSlowFast</a>() || rhs.isWildCardSlowFast() || <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>==rhs.fSlowFast) ;
-<a name="l00152"></a>00152 }
+<p><div class="fragment"><pre class="fragment"><a name="l00156"></a>00156                                                       {
+<a name="l00157"></a>00157         <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1channel.html#ac612564604da089bdeeb13cfa5fb1c7e" title="Check if the Detector_t is a wildcard.">isWildCardDetector</a>() || rhs.isWildCardDetector() || <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>==rhs.fDetector) 
+<a name="l00158"></a>00158         &amp;&amp; (<a class="code" href="classIDs_1_1channel.html#a308a2d5cb5d4ae489a2edee8dc52d214" title="Check if the SlowFast_t is a wildcard.">isWildCardSlowFast</a>() || rhs.isWildCardSlowFast() || <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>==rhs.fSlowFast) ;
+<a name="l00159"></a>00159 }
 </pre></div></p>
 
 </div>
@@ -677,11 +714,11 @@
 
 <p>Returns true if this <a class="el" href="classIDs_1_1channel.html">channel</a> is not the same as another. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00088">88</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00089">89</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00145">operator==()</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00152">operator==()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00088"></a>00088 {<span class="keywordflow">return</span> !(this-&gt;<a class="code" href="classIDs_1_1channel.html#a8c5f2d3b121f71dae66c8b08404b0e3c" title="Returns true if this channel is the same as another.">operator==</a>(rhs));};
+<p><div class="fragment"><pre class="fragment"><a name="l00089"></a>00089 {<span class="keywordflow">return</span> !(this-&gt;<a class="code" href="classIDs_1_1channel.html#a8c5f2d3b121f71dae66c8b08404b0e3c" title="Returns true if this channel is the same as another.">operator==</a>(rhs));};
 </pre></div></p>
 
 </div>
@@ -704,13 +741,13 @@
 
 <p>not intuitively meaningful but maybe useful for sorting </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00158">158</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00165">165</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00158"></a>00158                                                            {
-<a name="l00159"></a>00159         <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>&lt;rhs.fDetector || ( <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == rhs.fDetector &amp;&amp; <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>&lt;rhs.fSlowFast );
-<a name="l00160"></a>00160 }
+<p><div class="fragment"><pre class="fragment"><a name="l00165"></a>00165                                                            {
+<a name="l00166"></a>00166         <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>&lt;rhs.fDetector || ( <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == rhs.fDetector &amp;&amp; <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>&lt;rhs.fSlowFast );
+<a name="l00167"></a>00167 }
 </pre></div></p>
 
 </div>
@@ -758,7 +795,7 @@
 
 <p>Definition at line <a class="el" href="IdChannel_8cpp_source.html#l00059">59</a> of file <a class="el" href="IdChannel_8cpp_source.html">IdChannel.cpp</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, <a class="el" href="IdChannel_8cpp_source.html#l00045">GetDetectorEnum()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00100">GetSlowFastEnum()</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00139">modules::parser::iequals()</a>, and <a class="el" href="IdChannel_8h_source.html#l00036">IDs::kNotApplicable</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, <a class="el" href="IdChannel_8cpp_source.html#l00045">GetDetectorEnum()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00100">GetSlowFastEnum()</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00139">modules::parser::iequals()</a>, and <a class="el" href="IdChannel_8h_source.html#l00036">IDs::kNotApplicable</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059                                                      {
 <a name="l00060"></a>00060    <span class="comment">// Search for a fast slow string at the end of the end of the string</span>
@@ -810,15 +847,15 @@
 
 <p>Returns true if this <a class="el" href="classIDs_1_1channel.html">channel</a> is the same as another. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00145">145</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00152">152</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>.</p>
 
-<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00088">operator!=()</a>.</p>
+<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00089">operator!=()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00145"></a>00145                                                             {
-<a name="l00146"></a>00146     <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == rhs.fDetector) &amp;&amp; (<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>== rhs.fSlowFast);
-<a name="l00147"></a>00147 }
+<p><div class="fragment"><pre class="fragment"><a name="l00152"></a>00152                                                             {
+<a name="l00153"></a>00153     <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == rhs.fDetector) &amp;&amp; (<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>== rhs.fSlowFast);
+<a name="l00154"></a>00154 }
 </pre></div></p>
 
 </div>
@@ -841,13 +878,13 @@
 
 <p>not intuitively meaningful but maybe useful for sorting </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00154">154</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00161">161</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, and <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00154"></a>00154                                                            {
-<a name="l00155"></a>00155         <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>&gt;rhs.fDetector || (<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == rhs.fDetector &amp;&amp; <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>&gt;rhs.fSlowFast);
-<a name="l00156"></a>00156 }
+<p><div class="fragment"><pre class="fragment"><a name="l00161"></a>00161                                                            {
+<a name="l00162"></a>00162         <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>&gt;rhs.fDetector || (<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a> == rhs.fDetector &amp;&amp; <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>&gt;rhs.fSlowFast);
+<a name="l00163"></a>00163 }
 </pre></div></p>
 
 </div>
@@ -871,7 +908,7 @@
 
 <p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00071">71</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>;};
 </pre></div></p>
@@ -897,9 +934,9 @@
 
 <p>Definition at line <a class="el" href="IdChannel_8cpp_source.html#l00009">9</a> of file <a class="el" href="IdChannel_8cpp_source.html">IdChannel.cpp</a>.</p>
 
-<p>References <a class="el" href="IdChannel_8h_source.html#l00138">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00140">fSlowFast</a>, <a class="el" href="IdChannel_8cpp_source.html#l00015">GetDetectorString()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00088">GetSlowFastString()</a>.</p>
+<p>References <a class="el" href="IdChannel_8h_source.html#l00145">fDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00147">fSlowFast</a>, <a class="el" href="IdChannel_8cpp_source.html#l00015">GetDetectorString()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00088">GetSlowFastString()</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8h_source.html#l00042">PulseViewer::GetChannel()</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00007">SetupNavigator::GetBank()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00022">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00009"></a>00009                               {
 <a name="l00010"></a>00010    std::string output=<a class="code" href="classIDs_1_1channel.html#adbad92828b366334f67b3de3a6341e41" title="Convert a Detector_t enum into the corresponding string.">GetDetectorString</a>(this-&gt;<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>);
@@ -924,9 +961,9 @@
 
 <p>The detector that produced this <a class="el" href="classIDs_1_1channel.html">channel</a>. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00138">138</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00145">145</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00165">channel()</a>, <a class="el" href="IdChannel_8h_source.html#l00068">Detector()</a>, <a class="el" href="IdChannel_8h_source.html#l00104">isValid()</a>, <a class="el" href="IdChannel_8h_source.html#l00107">isWildCardDetector()</a>, <a class="el" href="IdChannel_8h_source.html#l00149">matches()</a>, <a class="el" href="IdChannel_8h_source.html#l00158">operator&lt;()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>, <a class="el" href="IdChannel_8h_source.html#l00145">operator==()</a>, <a class="el" href="IdChannel_8h_source.html#l00154">operator&gt;()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">str()</a>.</p>
+<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00172">channel()</a>, <a class="el" href="IdChannel_8h_source.html#l00068">Detector()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00107">GetCorrespondingFastSlow()</a>, <a class="el" href="IdChannel_8h_source.html#l00106">isValid()</a>, <a class="el" href="IdChannel_8h_source.html#l00109">isWildCardDetector()</a>, <a class="el" href="IdChannel_8h_source.html#l00156">matches()</a>, <a class="el" href="IdChannel_8h_source.html#l00165">operator&lt;()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>, <a class="el" href="IdChannel_8h_source.html#l00152">operator==()</a>, <a class="el" href="IdChannel_8h_source.html#l00161">operator&gt;()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">str()</a>.</p>
 
 </div>
 </div>
@@ -943,9 +980,9 @@
 
 <p>The type of timing filter used, if any, on this <a class="el" href="classIDs_1_1channel.html">channel</a>. </p>
 
-<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00140">140</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
+<p>Definition at line <a class="el" href="IdChannel_8h_source.html#l00147">147</a> of file <a class="el" href="IdChannel_8h_source.html">IdChannel.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00165">channel()</a>, <a class="el" href="IdChannel_8h_source.html#l00118">isFast()</a>, <a class="el" href="IdChannel_8h_source.html#l00120">isSlow()</a>, <a class="el" href="IdChannel_8h_source.html#l00104">isValid()</a>, <a class="el" href="IdChannel_8h_source.html#l00110">isWildCardSlowFast()</a>, <a class="el" href="IdChannel_8h_source.html#l00149">matches()</a>, <a class="el" href="IdChannel_8h_source.html#l00158">operator&lt;()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>, <a class="el" href="IdChannel_8h_source.html#l00145">operator==()</a>, <a class="el" href="IdChannel_8h_source.html#l00154">operator&gt;()</a>, <a class="el" href="IdChannel_8h_source.html#l00071">SlowFast()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">str()</a>.</p>
+<p>Referenced by <a class="el" href="IdChannel_8h_source.html#l00172">channel()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00107">GetCorrespondingFastSlow()</a>, <a class="el" href="IdChannel_8h_source.html#l00120">isFast()</a>, <a class="el" href="IdChannel_8h_source.html#l00122">isSlow()</a>, <a class="el" href="IdChannel_8h_source.html#l00106">isValid()</a>, <a class="el" href="IdChannel_8h_source.html#l00112">isWildCardSlowFast()</a>, <a class="el" href="IdChannel_8h_source.html#l00156">matches()</a>, <a class="el" href="IdChannel_8h_source.html#l00165">operator&lt;()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00059">operator=()</a>, <a class="el" href="IdChannel_8h_source.html#l00152">operator==()</a>, <a class="el" href="IdChannel_8h_source.html#l00161">operator&gt;()</a>, <a class="el" href="IdChannel_8h_source.html#l00071">SlowFast()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">str()</a>.</p>
 
 </div>
 </div>
@@ -954,7 +991,7 @@
 <li>rootana/src/framework/<a class="el" href="IdChannel_8cpp_source.html">IdChannel.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

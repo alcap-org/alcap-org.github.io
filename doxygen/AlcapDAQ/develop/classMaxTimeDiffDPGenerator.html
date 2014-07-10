@@ -46,7 +46,8 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a2768ee367d63ee1e2c39eeea0878ee03">MaxTimeDiffDPGenerator</a> (<a class="el" href="classTDPGeneratorOptions.html">TDPGeneratorOptions</a> *opts)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#abd22edef4cf246ab9a423fc7e91db574">~MaxTimeDiffDPGenerator</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a1bad794f97db82d1312b77a3c3884abb">ChecksForPileUp</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a41bd22b57ce0b05f03e476e9e526e001">ProcessPulses</a> (const <a class="el" href="classTSetupData.html">TSetupData</a> *setup, const std::string &amp;detector, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *fast, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow, <a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;output)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#a9a5513060ebf6f1056bde2c4c4a35a16">ProcessPulses</a> (const <a class="el" href="classTSetupData.html">TSetupData</a> *setup, const std::string &amp;detector, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *fast, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow, <a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;output)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMaxTimeDiffDPGenerator.html#afa22426cb640341136aab242eb828ab3">CopyAnalToDet</a> (const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *fast_pulses, const std::string &amp;, <a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;output)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a> (const bool &amp;val=true)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a> ()</td></tr>
 </table>
@@ -124,6 +125,58 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 
 </div>
 </div>
+<a class="anchor" id="afa22426cb640341136aab242eb828ab3"></a><!-- doxytag: member="MaxTimeDiffDPGenerator::CopyAnalToDet" ref="afa22426cb640341136aab242eb828ab3" args="(const AnalysedPulseList *fast_pulses, const std::string &amp;, DetectorPulseList &amp;output)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MaxTimeDiffDPGenerator::CopyAnalToDet </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td>
+          <td class="paramname"> <em>fast_pulses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>detector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>output</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00084">84</a> of file <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html">MaxTimeDiffDPGenerator.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00010">ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086                                   {
+<a name="l00087"></a>00087     <span class="keywordflow">if</span>(!fast_pulses){
+<a name="l00088"></a>00088         cout&lt;&lt;<span class="stringliteral">&quot;NULL TAP list passed to MaxTimeDiffDPGenerator for both fast and slow pulses&quot;</span>&lt;&lt;endl;
+<a name="l00089"></a>00089         <span class="keywordflow">return</span> 1;
+<a name="l00090"></a>00090     }
+<a name="l00091"></a>00091     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> i_pulse=fast_pulses-&gt;begin();
+<a name="l00092"></a>00092             i_pulse!=fast_pulses-&gt;end(); i_pulse++){
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094         <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* det_pulse = <span class="keyword">new</span> <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>(*i_pulse, NULL, detector); <span class="comment">// Create the TDetectorPulse</span>
+<a name="l00095"></a>00095         output.push_back(det_pulse);
+<a name="l00096"></a>00096     }
+<a name="l00097"></a>00097     <span class="keywordflow">return</span> 0;
+<a name="l00098"></a>00098 }
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a564dfb47e1759f20eac3082a397dd210"></a><!-- doxytag: member="MaxTimeDiffDPGenerator::Debug" ref="a564dfb47e1759f20eac3082a397dd210" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -141,19 +194,19 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 
 <p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">24</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00009">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00010">ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>;};
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a41bd22b57ce0b05f03e476e9e526e001"></a><!-- doxytag: member="MaxTimeDiffDPGenerator::ProcessPulses" ref="a41bd22b57ce0b05f03e476e9e526e001" args="(const TSetupData *setup, const std::string &amp;detector, const AnalysedPulseList *fast, const AnalysedPulseList *slow, DetectorPulseList &amp;output)" -->
+<a class="anchor" id="a9a5513060ebf6f1056bde2c4c4a35a16"></a><!-- doxytag: member="MaxTimeDiffDPGenerator::ProcessPulses" ref="a9a5513060ebf6f1056bde2c4c4a35a16" args="(const TSetupData *setup, const std::string &amp;detector, const AnalysedPulseList *fast, const AnalysedPulseList *slow, DetectorPulseList &amp;output)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MaxTimeDiffDPGenerator::ProcessPulses </td>
+          <td class="memname">int MaxTimeDiffDPGenerator::ProcessPulses </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td>
           <td class="paramname"> <em>setup</em>, </td>
@@ -191,80 +244,83 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="classTVDetectorPulseGenerator.html#aa396d64cea1fee616d4e72827aad138b">TVDetectorPulseGenerator</a>.</p>
+<p>Implements <a class="el" href="classTVDetectorPulseGenerator.html#a1f47143a65b937aed5862256b52c2a7c">TVDetectorPulseGenerator</a>.</p>
 
-<p>Definition at line <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00009">9</a> of file <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html">MaxTimeDiffDPGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00010">10</a> of file <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html">MaxTimeDiffDPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">TVDetectorPulseGenerator::Debug()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00026">TDetectorPulse::GetFastPulseTime()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00027">TDetectorPulse::GetSlowPulseTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00109">TAnalysedPulse::GetSource()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00104">TAnalysedPulse::GetTime()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00210">GetTime()</a>, <a class="el" href="IdSource_8h_source.html#l00104">IDs::source::isFast()</a>, <a class="el" href="IdSource_8h_source.html#l00107">IDs::source::isSlow()</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
+<p>References <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00084">CopyAnalToDet()</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">TVDetectorPulseGenerator::Debug()</a>, <a class="el" href="debug__tools_8h_source.html#l00013">DEBUG_VALUE</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00026">TDetectorPulse::GetFastPulseTime()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00027">TDetectorPulse::GetSlowPulseTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00109">TAnalysedPulse::GetSource()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00104">TAnalysedPulse::GetTime()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00210">GetTime()</a>, <a class="el" href="IdSource_8h_source.html#l00104">IDs::source::isFast()</a>, <a class="el" href="IdSource_8h_source.html#l00107">IDs::source::isSlow()</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00011"></a>00011                                             {
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013           <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> fastPulseIter = fast_pulses-&gt;begin();
-<a name="l00014"></a>00014           <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> slowPulseIter = slow_pulses-&gt;begin();
-<a name="l00015"></a>00015           <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> finalFastPulseIter = fast_pulses-&gt;end();
-<a name="l00016"></a>00016           <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> finalSlowPulseIter = slow_pulses-&gt;end();
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018           std::vector&lt;AnalysedPulseList::const_iterator&gt; pulseIters;
-<a name="l00019"></a>00019           pulseIters.push_back(fastPulseIter);
-<a name="l00020"></a>00020           pulseIters.push_back(slowPulseIter);
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022           std::vector&lt;AnalysedPulseList::const_iterator&gt; finalIters;
-<a name="l00023"></a>00023           finalIters.push_back(finalFastPulseIter);
-<a name="l00024"></a>00024           finalIters.push_back(finalSlowPulseIter);
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026           <span class="comment">// Loop through both TAnalysedPulse vectors until they are both finished</span>
-<a name="l00027"></a>00027           <span class="comment">// NB with this alogirthm this can be extended to more than 2</span>
-<a name="l00028"></a>00028           <span class="keywordtype">double</span> min_time = 999999; <span class="comment">// something large</span>
-<a name="l00029"></a>00029           <span class="keywordtype">double</span> pulse_time;
-<a name="l00030"></a>00030           <span class="keywordflow">while</span> (pulseIters.size() &gt; 0) {
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032             <span class="comment">// Find out which of the next fast or slow pulsees happened next</span>
-<a name="l00033"></a>00033             <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = 0; b &lt; pulseIters.size(); ++b) {
-<a name="l00034"></a>00034               pulse_time = (*pulseIters[b])-&gt;<a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>() * 1e-6; <span class="comment">// convert to ms       </span>
-<a name="l00035"></a>00035               min_time = std::min(min_time, pulse_time);
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037             }
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039             <span class="comment">// Now go through and find all the pulses that are within a certain time of this</span>
-<a name="l00040"></a>00040             <span class="keywordtype">double</span> time_difference = 0.1; <span class="comment">// 0.1 ms</span>
-<a name="l00041"></a>00041             <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* fast_pulse = NULL;
-<a name="l00042"></a>00042             <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* slow_pulse = NULL;
-<a name="l00043"></a>00043             <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = 0; b &lt; pulseIters.size(); ++b) {
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045               <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* pulse = *(pulseIters[b]);
-<a name="l00046"></a>00046               <span class="keywordtype">double</span> pulse_time = pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() * 1e-6; <span class="comment">// convert to ms</span>
+<p><div class="fragment"><pre class="fragment"><a name="l00012"></a>00012                                   {
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014     <span class="keywordflow">if</span>(!slow_pulses) <span class="keywordflow">return</span> <a class="code" href="classMaxTimeDiffDPGenerator.html#afa22426cb640341136aab242eb828ab3">CopyAnalToDet</a>(fast_pulses,detector,output);
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> fastPulseIter = fast_pulses-&gt;begin();
+<a name="l00017"></a>00017     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> slowPulseIter = slow_pulses-&gt;begin();
+<a name="l00018"></a>00018     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> finalFastPulseIter = fast_pulses-&gt;end();
+<a name="l00019"></a>00019     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> finalSlowPulseIter = slow_pulses-&gt;end();
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021     std::vector&lt; std::pair&lt;
+<a name="l00022"></a>00022         <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a>,
+<a name="l00023"></a>00023         AnalysedPulseList::const_iterator&gt; &gt; pulseIters;
+<a name="l00024"></a>00024     pulseIters.push_back(std::make_pair(fastPulseIter,finalFastPulseIter));
+<a name="l00025"></a>00025     pulseIters.push_back(std::make_pair(slowPulseIter,finalSlowPulseIter));
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027     <span class="comment">// Loop through both TAnalysedPulse vectors until they are both finished</span>
+<a name="l00028"></a>00028     <span class="comment">// NB with this alogirthm this can be extended to more than 2</span>
+<a name="l00029"></a>00029     <span class="keywordtype">double</span> min_time = 999999; <span class="comment">// something large</span>
+<a name="l00030"></a>00030     <span class="keywordtype">double</span> pulse_time;
+<a name="l00031"></a>00031     <span class="keywordtype">int</span> count=0;
+<a name="l00032"></a>00032     <span class="keywordflow">while</span> (pulseIters.size() &gt; 0) {
+<a name="l00033"></a>00033         <a class="code" href="debug__tools_8h.html#a345a1b3cf334669b8de7e7e3bd891aca">DEBUG_VALUE</a>(count++);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         <span class="comment">// Find out which of the next fast or slow pulsees happened next</span>
+<a name="l00036"></a>00036         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = 0; b &lt; pulseIters.size(); ++b) {
+<a name="l00037"></a>00037             pulse_time = (*pulseIters.at(b).first)-&gt;<a class="code" href="MMuSCTimeDifferences_8cpp.html#ad2ee445d7ec3f769a87712b845906015">GetTime</a>() * 1e-6; <span class="comment">// convert to ms        </span>
+<a name="l00038"></a>00038             min_time = std::min(min_time, pulse_time);
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040         }
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042         <span class="comment">// Now go through and find all the pulses that are within a certain time of this</span>
+<a name="l00043"></a>00043         <span class="keywordtype">double</span> time_difference = 0.1; <span class="comment">// 0.1 ms</span>
+<a name="l00044"></a>00044         <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* fast_pulse = NULL;
+<a name="l00045"></a>00045         <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* slow_pulse = NULL;
+<a name="l00046"></a>00046         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = 0; b &lt; pulseIters.size(); ++b) {
 <a name="l00047"></a>00047 
-<a name="l00048"></a>00048               <span class="keywordflow">if</span> (std::fabs(pulse_time - min_time) &lt; time_difference) {
-<a name="l00049"></a>00049                 <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a8a766d3c8073644ef3d2c2b786ae4100" title="Check if the Channel is fast.">isFast</a>()) {
-<a name="l00050"></a>00050                   <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Fast? &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() &lt;&lt; std::endl;
-<a name="l00051"></a>00051                   fast_pulse = pulse;
-<a name="l00052"></a>00052                 } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a90b55391c17517ce711be06b76fd14b4" title="Check if the Channel is slow.">isSlow</a>()) {
-<a name="l00053"></a>00053                   <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Slow? &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() &lt;&lt; std::endl;
-<a name="l00054"></a>00054                   slow_pulse = pulse;
-<a name="l00055"></a>00055                 }
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057                 ++(pulseIters[b]); <span class="comment">// increment the iterator because we used the pulse</span>
-<a name="l00058"></a>00058               }
-<a name="l00059"></a>00059             }
-<a name="l00060"></a>00060             <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* det_pulse = <span class="keyword">new</span> <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>(fast_pulse, slow_pulse, detector); <span class="comment">// Create the TDetectorPulse</span>
-<a name="l00061"></a>00061             output.push_back(det_pulse);
-<a name="l00062"></a>00062             <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()){
-<a name="l00063"></a>00063                 cout&lt;&lt;<span class="stringliteral">&quot;Created a TDetectorPulse with:\n&quot;</span>;
-<a name="l00064"></a>00064                 cout&lt;&lt;<span class="stringliteral">&quot;Fast Pulse: &quot;</span> &lt;&lt; det_pulse-&gt;<a class="code" href="classTDetectorPulse.html#aec96d2ead9b48ee302d91622389ee9ec">GetFastPulseTime</a>() * 1e-6 &lt;&lt; std::endl;
-<a name="l00065"></a>00065                 cout&lt;&lt; <span class="stringliteral">&quot;Slow Pulse: &quot;</span> &lt;&lt; det_pulse-&gt;<a class="code" href="classTDetectorPulse.html#a52713362ad78c53854b5363495b1d983">GetSlowPulseTime</a>() * 1e-6 &lt;&lt; std::endl;
-<a name="l00066"></a>00066                 cout&lt;&lt; std::endl;
-<a name="l00067"></a>00067             }
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069             <span class="comment">//Delete the iterators to finished banks. Go through in reverse to</span>
-<a name="l00070"></a>00070             <span class="comment">//avoid invalidation problems</span>
-<a name="l00071"></a>00071             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> b = pulseIters.size()-1; b &gt;= 0; --b) {
-<a name="l00072"></a>00072               <span class="keywordflow">if</span> (pulseIters[b] == finalIters[b]){
-<a name="l00073"></a>00073                 pulseIters.erase(pulseIters.begin() + b);
-<a name="l00074"></a>00074                 finalIters.erase(finalIters.begin() + b);
-<a name="l00075"></a>00075               }  
-<a name="l00076"></a>00076             } <span class="comment">// for (int b -reversed)        </span>
-<a name="l00077"></a>00077           } <span class="comment">// end for</span>
-<a name="l00078"></a>00078 }
+<a name="l00048"></a>00048             <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* pulse = *(pulseIters[b].first);
+<a name="l00049"></a>00049             <span class="keywordtype">double</span> pulse_time = pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() * 1e-6; <span class="comment">// convert to ms</span>
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051             <span class="keywordflow">if</span> (std::fabs(pulse_time - min_time) &lt; time_difference) {
+<a name="l00052"></a>00052                 <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a8a766d3c8073644ef3d2c2b786ae4100" title="Check if the Channel is fast.">isFast</a>()) {
+<a name="l00053"></a>00053                     <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Fast? &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() &lt;&lt; std::endl;
+<a name="l00054"></a>00054                     fast_pulse = pulse;
+<a name="l00055"></a>00055                 } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a90b55391c17517ce711be06b76fd14b4" title="Check if the Channel is slow.">isSlow</a>()) {
+<a name="l00056"></a>00056                     <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Slow? &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() &lt;&lt; std::endl;
+<a name="l00057"></a>00057                     slow_pulse = pulse;
+<a name="l00058"></a>00058                 }
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060                 ++(pulseIters[b].first); <span class="comment">// increment the iterator because we used the pulse</span>
+<a name="l00061"></a>00061             }
+<a name="l00062"></a>00062         }
+<a name="l00063"></a>00063         <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* det_pulse = <span class="keyword">new</span> <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>(fast_pulse, slow_pulse, detector); <span class="comment">// Create the TDetectorPulse</span>
+<a name="l00064"></a>00064         output.push_back(det_pulse);
+<a name="l00065"></a>00065         <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a>()){
+<a name="l00066"></a>00066             cout&lt;&lt;<span class="stringliteral">&quot;Created a TDetectorPulse with:\n&quot;</span>;
+<a name="l00067"></a>00067             cout&lt;&lt;<span class="stringliteral">&quot;Fast Pulse: &quot;</span> &lt;&lt; det_pulse-&gt;<a class="code" href="classTDetectorPulse.html#aec96d2ead9b48ee302d91622389ee9ec">GetFastPulseTime</a>() * 1e-6 &lt;&lt; std::endl;
+<a name="l00068"></a>00068             cout&lt;&lt; <span class="stringliteral">&quot;Slow Pulse: &quot;</span> &lt;&lt; det_pulse-&gt;<a class="code" href="classTDetectorPulse.html#a52713362ad78c53854b5363495b1d983">GetSlowPulseTime</a>() * 1e-6 &lt;&lt; std::endl;
+<a name="l00069"></a>00069             cout&lt;&lt; std::endl;
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         <span class="comment">//Delete the iterators to finished banks. Go through in reverse to</span>
+<a name="l00073"></a>00073         <span class="comment">//avoid invalidation problems</span>
+<a name="l00074"></a>00074         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> b = pulseIters.size()-1; b &gt;= 0; --b) {
+<a name="l00075"></a>00075             <a class="code" href="debug__tools_8h.html#a345a1b3cf334669b8de7e7e3bd891aca">DEBUG_VALUE</a>((*pulseIters[b].first)-&gt;GetParentID());
+<a name="l00076"></a>00076             <span class="keywordflow">if</span> (pulseIters[b].first == pulseIters[b].second){
+<a name="l00077"></a>00077                 pulseIters.erase(pulseIters.begin() + b);
+<a name="l00078"></a>00078             }  
+<a name="l00079"></a>00079         } <span class="comment">// for (int b -reversed)            </span>
+<a name="l00080"></a>00080     } <span class="comment">// end for</span>
+<a name="l00081"></a>00081     <span class="keywordflow">return</span> 0;
+<a name="l00082"></a>00082 }
 </pre></div></p>
 
 </div>
@@ -289,7 +345,7 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 
 <p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">TVDetectorPulseGenerator::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00114">MakeDetectorPulses::MakeGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00110">MakeDetectorPulses::MakeGenerator()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00023"></a>00023 {<a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>=val;};
 </pre></div></p>
@@ -301,7 +357,7 @@ Inheritance diagram for MaxTimeDiffDPGenerator:</div>
 <li>rootana/src/TDP_generators/<a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html">MaxTimeDiffDPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

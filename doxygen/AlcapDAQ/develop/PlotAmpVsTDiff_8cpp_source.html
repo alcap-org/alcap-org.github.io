@@ -47,7 +47,7 @@
 <a name="l00020"></a>00020 <span class="keyword">using</span> std::vector;
 <a name="l00021"></a>00021 <span class="keyword">using</span> std::pair;
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>;
+<a name="l00023"></a>00023 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
 <a name="l00024"></a>00024 
 <a name="l00025"></a><a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">00025</a> <a class="code" href="classPlotAmpVsTDiff.html#ab08aaf0e4ff5bb84b3241d9ed40ff4dc">PlotAmpVsTDiff::PlotAmpVsTDiff</a>(<span class="keywordtype">char</span> *HistogramDirectoryName, std::string det_name_a, std::string det_name_b) :
 <a name="l00026"></a>00026   <a class="code" href="classBaseModule.html">BaseModule</a>(HistogramDirectoryName){ 
@@ -111,18 +111,18 @@
 <a name="l00084"></a>00084   <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> detA_pulses;
 <a name="l00085"></a>00085   <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> detB_pulses;
 <a name="l00086"></a>00086 
-<a name="l00087"></a>00087   <span class="keywordflow">if</span> (<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(<a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a>) == <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()) {
+<a name="l00087"></a>00087   <span class="keywordflow">if</span> (<a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find(<a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a>) == <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()) {
 <a name="l00088"></a>00088     std::cout &lt;&lt; <a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a> &lt;&lt; <span class="stringliteral">&quot; pulses not found&quot;</span> &lt;&lt; std::endl;
 <a name="l00089"></a>00089   }
 <a name="l00090"></a>00090   <span class="keywordflow">else</span> {
-<a name="l00091"></a>00091       detA_pulses = <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>[<a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a>];
+<a name="l00091"></a>00091       detA_pulses = <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[<a class="code" href="classPlotAmpVsTDiff.html#af062c442c5f2a24d44aa0385b4860d5f">fDetNameA</a>];
 <a name="l00092"></a>00092   }
 <a name="l00093"></a>00093 
-<a name="l00094"></a>00094   <span class="keywordflow">if</span> (<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.find(<a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a>) == <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>.end()) {
+<a name="l00094"></a>00094   <span class="keywordflow">if</span> (<a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find(<a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a>) == <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()) {
 <a name="l00095"></a>00095     std::cout &lt;&lt; <a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a> &lt;&lt; <span class="stringliteral">&quot; pulses not found&quot;</span> &lt;&lt; std::endl;
 <a name="l00096"></a>00096   }
 <a name="l00097"></a>00097   <span class="keywordflow">else</span> {
-<a name="l00098"></a>00098       detB_pulses = <a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>[<a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a>];
+<a name="l00098"></a>00098       detB_pulses = <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[<a class="code" href="classPlotAmpVsTDiff.html#ac11b870450c8c0f9bead16d0dfa4ea5c">fDetNameB</a>];
 <a name="l00099"></a>00099   }
 <a name="l00100"></a>00100   
 <a name="l00101"></a>00101 
@@ -151,7 +151,7 @@
 <a name="l00124"></a>00124 
 <a name="l00125"></a>00125 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotAmpVsTDiff.html">PlotAmpVsTDiff</a>)
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

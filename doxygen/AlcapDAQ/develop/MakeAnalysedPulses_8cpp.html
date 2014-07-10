@@ -29,59 +29,23 @@
 <div class="contents">
 <h1>rootana/src/TAP_generators/MakeAnalysedPulses.cpp File Reference</h1><code>#include &quot;<a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="ModulesParser_8h_source.html">ModulesParser.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="TAPGeneratorFactory_8h_source.html">TAPGeneratorFactory.h</a>&quot;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;utility&gt;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
 <code>#include &quot;RegisterModule.inc&quot;</code><br/>
+<code>#include &quot;<a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>&quot;</code><br/>
 
 <p><a href="MakeAnalysedPulses_8cpp_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
-<tr><td colspan="2"><h2>Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#a03ae387964696b0b4e3da4e27543b9c0">PrintHelp</a>&nbsp;&nbsp;&nbsp;std::cout&lt;&lt;__FILE__&lt;&lt;&quot;:&quot;&lt;&lt;__LINE__&lt;&lt;&quot;: &quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#ad90e42903c6513fac036fdeca0549674">PrintValue</a>(value)&nbsp;&nbsp;&nbsp;PrintHelp&lt;&lt;#value &quot;= |&quot;&lt;&lt;value&lt;&lt;&quot;|&quot;&lt;&lt;endl;</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#a75fe3fe9981202194ca20790b07cfcb1">ALCAP_REGISTER_MODULE</a> (<a class="el" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>, slow_gen, fast_gen)</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Long64_t *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MakeAnalysedPulses_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a></td></tr>
 </table>
-<hr/><h2>Define Documentation</h2>
-<a class="anchor" id="a03ae387964696b0b4e3da4e27543b9c0"></a><!-- doxytag: member="MakeAnalysedPulses.cpp::PrintHelp" ref="a03ae387964696b0b4e3da4e27543b9c0" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PrintHelp&nbsp;&nbsp;&nbsp;std::cout&lt;&lt;__FILE__&lt;&lt;&quot;:&quot;&lt;&lt;__LINE__&lt;&lt;&quot;: &quot;</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00010">10</a> of file <a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad90e42903c6513fac036fdeca0549674"></a><!-- doxytag: member="MakeAnalysedPulses.cpp::PrintValue" ref="ad90e42903c6513fac036fdeca0549674" args="(value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PrintValue</td>
-          <td>(</td>
-          <td class="paramtype">value&nbsp;</td>
-          <td class="paramname"></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;PrintHelp&lt;&lt;#value &quot;= |&quot;&lt;&lt;value&lt;&lt;&quot;|&quot;&lt;&lt;endl;</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00011">11</a> of file <a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a>.</p>
-
-</div>
-</div>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a75fe3fe9981202194ca20790b07cfcb1"></a><!-- doxytag: member="MakeAnalysedPulses.cpp::ALCAP_REGISTER_MODULE" ref="a75fe3fe9981202194ca20790b07cfcb1" args="(MakeAnalysedPulses, slow_gen, fast_gen)" -->
 <div class="memitem">
@@ -117,23 +81,40 @@
 </div>
 </div>
 <hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="afac9e7a91d4a0f20cde9500610882d3a"></a><!-- doxytag: member="MakeAnalysedPulses.cpp::gAnalysedPulseMap" ref="afac9e7a91d4a0f20cde9500610882d3a" args="" -->
+<a class="anchor" id="a193ee69eb428748e7cc88b2b14bc1138"></a><!-- doxytag: member="MakeAnalysedPulses.cpp::gAnalysedPulseMap" ref="a193ee69eb428748e7cc88b2b14bc1138" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> <a class="el" href="tut__externals_8h.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a></td>
+          <td class="memname"><a class="el" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="el" href="tut__externals_8h.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="main_8cpp_source.html#l00074">74</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00075">75</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e94975f51e212eb2f57e9d37cf07eb2"></a><!-- doxytag: member="MakeAnalysedPulses.cpp::gEntryNumber" ref="a2e94975f51e212eb2f57e9d37cf07eb2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Long64_t* <a class="el" href="tut__externals_8h.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00068">68</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="main_8cpp_source.html#l00165">Main_event_loop()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00109">ExportPulse::ProcessEntry()</a>.</p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

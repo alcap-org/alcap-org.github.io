@@ -63,7 +63,7 @@
 <a name="l00038"></a>00038   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classPulseViewer.html#adcf4437db1c8370b2239b303a8ff11ce">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040   <span class="comment">/* ------------ Methods called by ProcessEntry ---------*/</span>
-<a name="l00042"></a><a class="code" href="classPulseViewer.html#ada2ca9d6229512f4520aedb8604828bd">00042</a>   std::string <a class="code" href="classPulseViewer.html#ada2ca9d6229512f4520aedb8604828bd" title="Get the channel as a string.">GetChannel</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#adc4c23ede2a1134dcf6ad04634657fda">fChannel</a>.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>();};
+<a name="l00042"></a><a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43">00042</a>   <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> <a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43" title="Get the channel as a string.">GetSource</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>;};
 <a name="l00043"></a>00043 
 <a name="l00046"></a>00046   <span class="keywordtype">int</span> <a class="code" href="classPulseViewer.html#a4333085549d7bc43ee8ad0543f463e48">ConsiderDrawing</a>(<span class="keyword">const</span> <a class="code" href="classPulseViewer.html#a5292c12666e20b47318b7b8d528374f2">TAnalysedPulseID</a>&amp; <span class="keywordtype">id</span>, <span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* i_pulse);
 <a name="l00047"></a>00047 
@@ -82,9 +82,9 @@
 <a name="l00070"></a>00070 
 <a name="l00071"></a><a class="code" href="classPulseViewer.html#aa68d4fa41145adf6cc3b11127fc23a7a">00071</a>   <span class="keywordtype">bool</span> <a class="code" href="classPulseViewer.html#aa68d4fa41145adf6cc3b11127fc23a7a">SummarisePlots</a>(){<span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a095262ff0ce3cbfbb192e8f5f3756c4c">fSummarize</a>;};
 <a name="l00072"></a>00072  <span class="keyword">private</span>:
-<a name="l00073"></a>00073   <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> <a class="code" href="classPulseViewer.html#adc4c23ede2a1134dcf6ad04634657fda">fChannel</a>;
+<a name="l00073"></a>00073   <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> <a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>;
 <a name="l00074"></a><a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">00074</a>   std::string <a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>;
-<a name="l00075"></a><a class="code" href="classPulseViewer.html#a6de59ab0733a056af1dac54bd2c42890">00075</a>   std::string <a class="code" href="classPulseViewer.html#a6de59ab0733a056af1dac54bd2c42890">fRequestedChannel</a>;
+<a name="l00075"></a><a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">00075</a>   std::string <a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a>;
 <a name="l00076"></a><a class="code" href="classPulseViewer.html#a9ab0eceffaa871dc123bee7c23d3f4ac">00076</a>   <span class="keywordtype">double</span> <a class="code" href="classPulseViewer.html#a9ab0eceffaa871dc123bee7c23d3f4ac">fTriggerValue</a>;
 <a name="l00077"></a><a class="code" href="classPulseViewer.html#a278fe2faedba2c9128ddbf88cc10a3cd">00077</a>   <a class="code" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520">TriggerType</a> <a class="code" href="classPulseViewer.html#a278fe2faedba2c9128ddbf88cc10a3cd">fTriggerType</a>;
 <a name="l00078"></a><a class="code" href="classPulseViewer.html#a5afc1bb3e823957a73697676bae95b54">00078</a>   <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fe">ParameterType</a> <a class="code" href="classPulseViewer.html#a5afc1bb3e823957a73697676bae95b54">fTriggerParameter</a>;
@@ -97,7 +97,7 @@
 <a name="l00085"></a>00085 
 <a name="l00086"></a>00086 <span class="preprocessor">#endif //PULSEVIEWER_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

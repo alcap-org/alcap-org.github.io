@@ -86,84 +86,83 @@
 <div class="memdoc">
 <p>rootana_main </p>
 
-<p>Definition at line <a class="el" href="main_8cpp_source.html#l00164">164</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00165">165</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>References <a class="el" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">TGlobalData::Clear()</a>, <a class="el" href="main_8cpp_source.html#l00074">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00071">gAnalysedPulseTree</a>, <a class="el" href="main_8cpp_source.html#l00067">gEntryNumber</a>, <a class="el" href="main_8cpp_source.html#l00068">gTotalEntries</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00094">modules::navigator::Instance()</a>, <a class="el" href="TAnalysedPulseMapWrapper_8h_source.html#l00040">TAnalysedPulseMapWrapper::SetMap()</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00014">ARGUMENTS::stop</a>.</p>
+<p>References <a class="el" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">TGlobalData::Clear()</a>, <a class="el" href="main_8cpp_source.html#l00075">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseTree</a>, <a class="el" href="main_8cpp_source.html#l00068">gEntryNumber</a>, <a class="el" href="main_8cpp_source.html#l00069">gTotalEntries</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00094">modules::navigator::Instance()</a>, <a class="el" href="TAnalysedPulseMapWrapper_8h_source.html#l00040">TAnalysedPulseMapWrapper::SetMap()</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00014">ARGUMENTS::stop</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp_source.html#l00083">main()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp_source.html#l00084">main()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00164"></a>00164                                                            {
-<a name="l00165"></a>00165 <span class="comment">/*************************************************************************\</span>
-<a name="l00166"></a>00166 <span class="comment">| Loop over tree entries and call histogramming modules.                  |</span>
-<a name="l00167"></a>00167 <span class="comment">\*************************************************************************/</span>
-<a name="l00168"></a>00168   Long64_t nentries = dataTree-&gt;GetEntriesFast();
-<a name="l00169"></a>00169   printf(<span class="stringliteral">&quot;There are %d entries\n&quot;</span>,(<span class="keywordtype">int</span>)nentries);
-<a name="l00170"></a>00170   std::cout&lt;&lt;<span class="stringliteral">&quot;Processing file, which may take a while. &quot;</span>
-<a name="l00171"></a>00171      <span class="stringliteral">&quot;Have patience young padawan..&quot;</span>&lt;&lt;std::endl;
-<a name="l00172"></a>00172 
-<a name="l00173"></a>00173   <span class="comment">//set up the input data</span>
-<a name="l00174"></a>00174   <span class="keywordflow">if</span> (<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>){
-<a name="l00175"></a>00175     <a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>(<span class="stringliteral">&quot;C&quot;</span>);
-<a name="l00176"></a>00176     dataTree-&gt;SetBranchAddress(<span class="stringliteral">&quot;Event&quot;</span>,&amp;<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>);
-<a name="l00177"></a>00177   }
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179   <span class="comment">// How many entries should we loop over?</span>
-<a name="l00180"></a>00180   Long64_t start = 0;
-<a name="l00181"></a>00181   Long64_t stop = nentries;
-<a name="l00182"></a>00182   <span class="keywordflow">if</span>(arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a>&gt;0){
-<a name="l00183"></a>00183     <span class="keywordflow">if</span>(arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>&gt;0)
-<a name="l00184"></a>00184       start = (Long64_t)(arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>-1);
-<a name="l00185"></a>00185     <span class="keywordflow">if</span>((Long64_t)arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a> &lt; nentries)
-<a name="l00186"></a>00186       stop = (Long64_t)arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a>;
-<a name="l00187"></a>00187   }
-<a name="l00188"></a>00188   <span class="keywordflow">else</span> <span class="keywordflow">if</span>((Long64_t)arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a> &lt; nentries &amp;&amp; arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a> &gt; 0){
-<a name="l00189"></a>00189     stop = (Long64_t)arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>;
-<a name="l00190"></a>00190   }
-<a name="l00191"></a>00191   <a class="code" href="main_8cpp.html#a20d2d589778e4f17e762fd9e5130381a">gTotalEntries</a>=&amp;stop;
-<a name="l00192"></a>00192   <span class="comment">// wind the file on to the first event</span>
-<a name="l00193"></a>00193   dataTree-&gt;GetEntry(start);
-<a name="l00194"></a>00194 
-<a name="l00195"></a>00195   <span class="comment">// Get the first and last module to run with</span>
-<a name="l00196"></a>00196   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">modules::iterator</a> first_module = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;Begin();
-<a name="l00197"></a>00197   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">modules::iterator</a> last_module = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;End();
-<a name="l00198"></a>00198   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">modules::iterator</a> it_mod;
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200   <span class="keywordtype">int</span> q = 0;
-<a name="l00201"></a>00201   <span class="keywordflow">for</span> (it_mod=first_module; it_mod != last_module; it_mod++) {
-<a name="l00202"></a>00202     q |= it_mod-&gt;second-&gt;BeforeFirstEntry(<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>, <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>());
-<a name="l00203"></a>00203   }
-<a name="l00204"></a>00204   <span class="keywordflow">if</span>(q) {
-<a name="l00205"></a>00205     printf(<span class="stringliteral">&quot;Error while preprocessing first entry (%d)\n&quot;</span>,(Int_t)start);
-<a name="l00206"></a>00206     <span class="keywordflow">return</span> q;
-<a name="l00207"></a>00207   }
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209   q = 0;
-<a name="l00210"></a>00210   <span class="comment">//process entries</span>
-<a name="l00211"></a>00211   Long64_t jentry;
-<a name="l00212"></a>00212   <a class="code" href="main_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a>=&amp;jentry;
-<a name="l00213"></a>00213   <span class="keywordflow">for</span> ( jentry=start; jentry&lt;stop;jentry++) {
-<a name="l00214"></a>00214     <span class="keywordflow">if</span>(<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>){
-<a name="l00215"></a>00215       <a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>(<span class="stringliteral">&quot;C&quot;</span>);
-<a name="l00216"></a>00216       <span class="comment">//ClearGlobalData(g_event);</span>
-<a name="l00217"></a>00217       dataTree-&gt;SetBranchAddress(<span class="stringliteral">&quot;Event&quot;</span>,&amp;<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>);
-<a name="l00218"></a>00218     }
-<a name="l00219"></a>00219     
-<a name="l00220"></a>00220     <span class="keywordflow">if</span> (jentry%100 == 0) {
-<a name="l00221"></a>00221       printf(<span class="stringliteral">&quot;Completed %lld events out of %lld\n&quot;</span>, jentry, stop);
-<a name="l00222"></a>00222     }
-<a name="l00223"></a>00223     <span class="comment">// Let&apos;s get the next event</span>
-<a name="l00224"></a>00224     dataTree-&gt;GetEntry(jentry);
-<a name="l00225"></a>00225 
-<a name="l00226"></a>00226     <span class="keywordflow">for</span> (it_mod=first_module; it_mod != last_module; it_mod++) {
-<a name="l00227"></a>00227       q |= it_mod-&gt;second-&gt;ProcessGenericEntry(<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>,<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>());
-<a name="l00228"></a>00228       <span class="comment">//if(q) break;</span>
-<a name="l00229"></a>00229     }
-<a name="l00230"></a>00230     <span class="keywordflow">if</span>(q){
-<a name="l00231"></a>00231       printf(<span class="stringliteral">&quot;q was non-zero when jentry was %lld\n&quot;</span>,jentry);
-<a name="l00232"></a>00232       <span class="keywordflow">break</span>;
+<p><div class="fragment"><pre class="fragment"><a name="l00165"></a>00165                                                            {
+<a name="l00166"></a>00166 <span class="comment">/*************************************************************************\</span>
+<a name="l00167"></a>00167 <span class="comment">| Loop over tree entries and call histogramming modules.                  |</span>
+<a name="l00168"></a>00168 <span class="comment">\*************************************************************************/</span>
+<a name="l00169"></a>00169   Long64_t nentries = dataTree-&gt;GetEntriesFast();
+<a name="l00170"></a>00170   printf(<span class="stringliteral">&quot;There are %d entries\n&quot;</span>,(<span class="keywordtype">int</span>)nentries);
+<a name="l00171"></a>00171   std::cout&lt;&lt;<span class="stringliteral">&quot;Processing file, which may take a while. &quot;</span>
+<a name="l00172"></a>00172      <span class="stringliteral">&quot;Have patience young padawan..&quot;</span>&lt;&lt;std::endl;
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174   <span class="comment">//set up the input data</span>
+<a name="l00175"></a>00175   <span class="keywordflow">if</span> (<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>){
+<a name="l00176"></a>00176     <a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>(<span class="stringliteral">&quot;C&quot;</span>);
+<a name="l00177"></a>00177     dataTree-&gt;SetBranchAddress(<span class="stringliteral">&quot;Event&quot;</span>,&amp;<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>);
+<a name="l00178"></a>00178   }
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180   <span class="comment">// How many entries should we loop over?</span>
+<a name="l00181"></a>00181   Long64_t start = 0;
+<a name="l00182"></a>00182   Long64_t stop = nentries;
+<a name="l00183"></a>00183   <span class="keywordflow">if</span>(arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a>&gt;0){
+<a name="l00184"></a>00184     <span class="keywordflow">if</span>(arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>&gt;0)
+<a name="l00185"></a>00185       start = (Long64_t)(arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>-1);
+<a name="l00186"></a>00186     <span class="keywordflow">if</span>((Long64_t)arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a> &lt; nentries)
+<a name="l00187"></a>00187       stop = (Long64_t)arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a>;
+<a name="l00188"></a>00188   }
+<a name="l00189"></a>00189   <span class="keywordflow">else</span> <span class="keywordflow">if</span>((Long64_t)arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a> &lt; nentries &amp;&amp; arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a> &gt; 0){
+<a name="l00190"></a>00190     stop = (Long64_t)arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>;
+<a name="l00191"></a>00191   }
+<a name="l00192"></a>00192   <a class="code" href="main_8cpp.html#a20d2d589778e4f17e762fd9e5130381a">gTotalEntries</a>=&amp;stop;
+<a name="l00193"></a>00193   <span class="comment">// wind the file on to the first event</span>
+<a name="l00194"></a>00194   dataTree-&gt;GetEntry(start);
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196   <span class="comment">// Get the first and last module to run with</span>
+<a name="l00197"></a>00197   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">modules::iterator</a> first_module = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;Begin();
+<a name="l00198"></a>00198   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">modules::iterator</a> last_module = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;End();
+<a name="l00199"></a>00199   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">modules::iterator</a> it_mod;
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201   <span class="keywordtype">int</span> q = 0;
+<a name="l00202"></a>00202   <span class="keywordflow">for</span> (it_mod=first_module; it_mod != last_module; it_mod++) {
+<a name="l00203"></a>00203       q |= it_mod-&gt;second-&gt;BeforeFirstEntry(<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>, <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>());
+<a name="l00204"></a>00204       <span class="keywordflow">if</span>(q){
+<a name="l00205"></a>00205           printf(<span class="stringliteral">&quot;Error during pre-processing for module %s\n&quot;</span>,it_mod-&gt;first.c_str());
+<a name="l00206"></a>00206           <span class="keywordflow">return</span> q;
+<a name="l00207"></a>00207       }
+<a name="l00208"></a>00208   }
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210   q = 0;
+<a name="l00211"></a>00211   <span class="comment">//process entries</span>
+<a name="l00212"></a>00212   Long64_t jentry;
+<a name="l00213"></a>00213   <a class="code" href="main_8cpp.html#a2e94975f51e212eb2f57e9d37cf07eb2">gEntryNumber</a>=&amp;jentry;
+<a name="l00214"></a>00214   <span class="keywordflow">for</span> ( jentry=start; jentry&lt;stop;jentry++) {
+<a name="l00215"></a>00215     <span class="keywordflow">if</span>(<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>){
+<a name="l00216"></a>00216       <a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>(<span class="stringliteral">&quot;C&quot;</span>);
+<a name="l00217"></a>00217       <span class="comment">//ClearGlobalData(g_event);</span>
+<a name="l00218"></a>00218       dataTree-&gt;SetBranchAddress(<span class="stringliteral">&quot;Event&quot;</span>,&amp;<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>);
+<a name="l00219"></a>00219     }
+<a name="l00220"></a>00220     
+<a name="l00221"></a>00221     <span class="keywordflow">if</span> (jentry%100 == 0) {
+<a name="l00222"></a>00222       printf(<span class="stringliteral">&quot;Completed %lld events out of %lld\n&quot;</span>, jentry, stop);
+<a name="l00223"></a>00223     }
+<a name="l00224"></a>00224     <span class="comment">// Let&apos;s get the next event</span>
+<a name="l00225"></a>00225     dataTree-&gt;GetEntry(jentry);
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227     <span class="keywordflow">for</span> (it_mod=first_module; it_mod != last_module; it_mod++) {
+<a name="l00228"></a>00228         q |= it_mod-&gt;second-&gt;ProcessGenericEntry(<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>,<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>());
+<a name="l00229"></a>00229         <span class="keywordflow">if</span>(q){
+<a name="l00230"></a>00230             printf(<span class="stringliteral">&quot;q was non-zero for module %s when jentry was %lld\n&quot;</span>,it_mod-&gt;first.c_str(), jentry);
+<a name="l00231"></a>00231             <span class="keywordflow">return</span> q;
+<a name="l00232"></a>00232         }
 <a name="l00233"></a>00233     }
 <a name="l00234"></a>00234 
-<a name="l00235"></a>00235     <a class="code" href="main_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">gAnalysedPulseMapWrapper</a>-&gt;<a class="code" href="classTAnalysedPulseMapWrapper.html#aef282ffdfa668ec48ef51889ab27e733">SetMap</a>(<a class="code" href="IslandAmplitude_8cpp.html#afac9e7a91d4a0f20cde9500610882d3a">gAnalysedPulseMap</a>);
+<a name="l00235"></a>00235     <a class="code" href="main_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">gAnalysedPulseMapWrapper</a>-&gt;<a class="code" href="classTAnalysedPulseMapWrapper.html#ac5ab9c1fc82641007f001b5856511fae">SetMap</a>(<a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>);
 <a name="l00236"></a>00236     <span class="comment">//gAnalysedPulseMapWrapper-&gt;ShowInfo();</span>
 <a name="l00237"></a>00237     <a class="code" href="main_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a>-&gt;Fill();
 <a name="l00238"></a>00238   }
@@ -172,21 +171,25 @@
 <a name="l00241"></a>00241   q = 0;
 <a name="l00242"></a>00242   <span class="keywordflow">for</span> (it_mod=first_module; it_mod != last_module; it_mod++) {
 <a name="l00243"></a>00243     q |= it_mod-&gt;second-&gt;AfterLastEntry(<a class="code" href="main_8cpp.html#aa663f5de5daf2b639ad8d307f4ffc562">g_event</a>,<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>());
-<a name="l00244"></a>00244   }
-<a name="l00245"></a>00245   <span class="keywordflow">if</span> (q) {
-<a name="l00246"></a>00246      printf(<span class="stringliteral">&quot;Error during post-processing last entry (%lld)\n&quot;</span>,(stop-1));
-<a name="l00247"></a>00247       <span class="keywordflow">return</span> q;
+<a name="l00244"></a>00244         <span class="keywordflow">if</span>(q){
+<a name="l00245"></a>00245             printf(<span class="stringliteral">&quot;Error during post-processing for module %s\n&quot;</span>,it_mod-&gt;first.c_str());
+<a name="l00246"></a>00246             <span class="keywordflow">return</span> q;
+<a name="l00247"></a>00247         }
 <a name="l00248"></a>00248   }
-<a name="l00249"></a>00249   
-<a name="l00250"></a>00250   printf(<span class="stringliteral">&quot;Finished processing data normally\n&quot;</span>);
-<a name="l00251"></a>00251   <span class="keywordflow">return</span> 0;
-<a name="l00252"></a>00252 }
+<a name="l00249"></a>00249   <span class="keywordflow">if</span> (q) {
+<a name="l00250"></a>00250      printf(<span class="stringliteral">&quot;Error during post-processing last entry (%lld)\n&quot;</span>,(stop-1));
+<a name="l00251"></a>00251       <span class="keywordflow">return</span> q;
+<a name="l00252"></a>00252   }
+<a name="l00253"></a>00253   
+<a name="l00254"></a>00254   printf(<span class="stringliteral">&quot;Finished processing data normally\n&quot;</span>);
+<a name="l00255"></a>00255   <span class="keywordflow">return</span> 0;
+<a name="l00256"></a>00256 }
 </pre></div></p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

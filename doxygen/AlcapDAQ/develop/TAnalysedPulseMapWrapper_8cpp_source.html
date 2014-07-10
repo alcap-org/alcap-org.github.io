@@ -26,52 +26,52 @@
     </ul>
   </div>
 <h1>rootana/src/TAP_generators/TAnalysedPulseMapWrapper.cpp</h1><a href="TAnalysedPulseMapWrapper_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulseMapWrapper_8h.html">TAnalysedPulseMapWrapper.h</a>&quot;</span>
-<a name="l00002"></a>00002 
-<a name="l00003"></a><a class="code" href="TAnalysedPulseMapWrapper_8cpp.html#a465538eaa85dfe5fbca903cc5d8e6c12">00003</a> <a class="code" href="TGlobalData_8cpp.html#ac999af46ecbed64cdd6850e43119a957">ClassImp</a>(<a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>)
-<a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>::<a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>()
-<a name="l00006"></a>00006 {
-<a name="l00007"></a>00007         Reset();
-<a name="l00008"></a>00008 }
-<a name="l00009"></a>00009 
-<a name="l00010"></a>00010 <a class="code" href="classTAnalysedPulseMapWrapper.html#a400bf0796d43698f8f2ebc869e417bc4">TAnalysedPulseMapWrapper::TAnalysedPulseMapWrapper</a> 
-<a name="l00011"></a><a class="code" href="classTAnalysedPulseMapWrapper.html#a425fff55770f654b2746d2f39bbe8191">00011</a> (<a class="code" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> aMap)
-<a name="l00012"></a>00012 {
-<a name="l00013"></a>00013         Reset();
-<a name="l00014"></a>00014         fChn2PulseMap = aMap;
-<a name="l00015"></a>00015 }
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="classTAnalysedPulseMapWrapper.html#a299401044765d18f01d342cf6835f208">00017</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulseMapWrapper.html#a299401044765d18f01d342cf6835f208">TAnalysedPulseMapWrapper::Reset</a>()
-<a name="l00018"></a>00018 {
-<a name="l00019"></a>00019         <a class="code" href="classTAnalysedPulseMapWrapper.html#abaf44afd4e6f9ff0c6e441e85b15e040">fChn2PulseMap</a>.clear();
-<a name="l00020"></a>00020 }
-<a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="classTAnalysedPulseMapWrapper.html#a1dcfe003e725434ca54ef31011afb420">00022</a> <a class="code" href="classTAnalysedPulseMapWrapper.html#a1dcfe003e725434ca54ef31011afb420">TAnalysedPulseMapWrapper::~TAnalysedPulseMapWrapper</a>()
-<a name="l00023"></a>00023 {
-<a name="l00024"></a>00024         ;
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00003"></a>00003 <span class="keyword">using</span> std::cout;
+<a name="l00004"></a>00004 <span class="keyword">using</span> std::endl;
+<a name="l00005"></a>00005 
+<a name="l00006"></a><a class="code" href="TAnalysedPulseMapWrapper_8cpp.html#a465538eaa85dfe5fbca903cc5d8e6c12">00006</a> <a class="code" href="TGlobalData_8cpp.html#ac999af46ecbed64cdd6850e43119a957">ClassImp</a>(<a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>)
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>::<a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>()
+<a name="l00009"></a>00009 {
+<a name="l00010"></a>00010     Reset();
+<a name="l00011"></a>00011 }
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="classTAnalysedPulseMapWrapper.html#a3dcaccf4def09537431b457194bbcf56">00013</a> <a class="code" href="classTAnalysedPulseMapWrapper.html#a400bf0796d43698f8f2ebc869e417bc4">TAnalysedPulseMapWrapper::TAnalysedPulseMapWrapper</a>(
+<a name="l00014"></a>00014         <span class="keyword">const</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a>&amp; aMap):fChn2PulseMap(aMap)
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="classTAnalysedPulseMapWrapper.html#a299401044765d18f01d342cf6835f208">00018</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulseMapWrapper.html#a299401044765d18f01d342cf6835f208">TAnalysedPulseMapWrapper::Reset</a>()
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020     <a class="code" href="classTAnalysedPulseMapWrapper.html#aa1de8f626e6276532a31d8aafd9d4b46">fChn2PulseMap</a>.clear();
+<a name="l00021"></a>00021 }
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="classTAnalysedPulseMapWrapper.html#a1dcfe003e725434ca54ef31011afb420">00023</a> <a class="code" href="classTAnalysedPulseMapWrapper.html#a1dcfe003e725434ca54ef31011afb420">TAnalysedPulseMapWrapper::~TAnalysedPulseMapWrapper</a>()
+<a name="l00024"></a>00024 {
 <a name="l00025"></a>00025 }
 <a name="l00026"></a>00026 
 <a name="l00027"></a><a class="code" href="classTAnalysedPulseMapWrapper.html#aff913fa3f2093ddd1cdc9a624130003a">00027</a> <span class="keywordtype">void</span> <a class="code" href="classTAnalysedPulseMapWrapper.html#aff913fa3f2093ddd1cdc9a624130003a">TAnalysedPulseMapWrapper::ShowInfo</a>()
 <a name="l00028"></a>00028 {
-<a name="l00029"></a>00029         printf(<span class="stringliteral">&quot;map size: %lu\n&quot;</span>, <a class="code" href="classTAnalysedPulseMapWrapper.html#abaf44afd4e6f9ff0c6e441e85b15e040">fChn2PulseMap</a>.size());
-<a name="l00030"></a>00030         <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringAnalPulseMap::iterator</a> mapIter;
-<a name="l00031"></a>00031         
-<a name="l00032"></a>00032         <span class="keywordflow">for</span> (mapIter = <a class="code" href="classTAnalysedPulseMapWrapper.html#abaf44afd4e6f9ff0c6e441e85b15e040">fChn2PulseMap</a>.begin(); 
-<a name="l00033"></a>00033                         mapIter != <a class="code" href="classTAnalysedPulseMapWrapper.html#abaf44afd4e6f9ff0c6e441e85b15e040">fChn2PulseMap</a>.end(); ++mapIter)
-<a name="l00034"></a>00034         {
-<a name="l00035"></a>00035                 printf(<span class="stringliteral">&quot;%s\n&quot;</span>, mapIter-&gt;first.c_str());
-<a name="l00036"></a>00036                 <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> pulseVector = mapIter-&gt;second;
-<a name="l00037"></a>00037                 <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">AnalysedPulseList::iterator</a> pulseIter;
-<a name="l00038"></a>00038                 <span class="keywordflow">for</span> (pulseIter = pulseVector.begin(); 
-<a name="l00039"></a>00039                                 pulseIter != pulseVector.end(); ++pulseIter)
-<a name="l00040"></a>00040                 {
-<a name="l00041"></a>00041                         printf(<span class="stringliteral">&quot;height: %.2f\n&quot;</span>, (*pulseIter)-&gt;GetAmplitude());
-<a name="l00042"></a>00042                 }
+<a name="l00029"></a>00029     cout&lt;&lt;<span class="stringliteral">&quot;map size: &quot;</span>&lt;&lt;<a class="code" href="classTAnalysedPulseMapWrapper.html#aa1de8f626e6276532a31d8aafd9d4b46">fChn2PulseMap</a>.size()&lt;&lt;endl;
+<a name="l00030"></a>00030     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> mapIter;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032     <span class="keywordflow">for</span> (mapIter = <a class="code" href="classTAnalysedPulseMapWrapper.html#aa1de8f626e6276532a31d8aafd9d4b46">fChn2PulseMap</a>.begin(); 
+<a name="l00033"></a>00033             mapIter != <a class="code" href="classTAnalysedPulseMapWrapper.html#aa1de8f626e6276532a31d8aafd9d4b46">fChn2PulseMap</a>.end(); ++mapIter)
+<a name="l00034"></a>00034     {
+<a name="l00035"></a>00035         cout&lt;&lt;<span class="stringliteral">&quot;map size: &quot;</span>&lt;&lt;mapIter-&gt;second.size()&lt;&lt;endl;
+<a name="l00036"></a>00036         <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* pulseVector = &amp;mapIter-&gt;second;
+<a name="l00037"></a>00037         <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIter;
+<a name="l00038"></a>00038         <span class="keywordflow">for</span> (pulseIter = pulseVector-&gt;begin(); 
+<a name="l00039"></a>00039                 pulseIter != pulseVector-&gt;end(); ++pulseIter)
+<a name="l00040"></a>00040         {
+<a name="l00041"></a>00041             printf(<span class="stringliteral">&quot;height: %.2f\n&quot;</span>, (*pulseIter)-&gt;GetAmplitude());
+<a name="l00042"></a>00042         }
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044         }
+<a name="l00044"></a>00044     }
 <a name="l00045"></a>00045 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
