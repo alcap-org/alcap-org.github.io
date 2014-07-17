@@ -84,337 +84,341 @@
 <a name="l00060"></a>00060         <a class="code" href="classMcTruthSvc.html#a7d5efa92f59a550efd08f370c8b0bbe1">m_py</a>.clear();
 <a name="l00061"></a>00061         <a class="code" href="classMcTruthSvc.html#acdc84a1f37744b22376aa9cb8eca6344">m_pz</a>.clear();
 <a name="l00062"></a>00062         <a class="code" href="classMcTruthSvc.html#a562ea0a98cf298b6e9460d99bb65e76a">m_e</a>.clear();
-<a name="l00063"></a>00063         <a class="code" href="classMcTruthSvc.html#a00160ed02f1903640adeaba14622b6e2">m_x</a>.clear();
-<a name="l00064"></a>00064         <a class="code" href="classMcTruthSvc.html#aed01142ba889ebe4c479f974276225bb">m_y</a>.clear();
-<a name="l00065"></a>00065         <a class="code" href="classMcTruthSvc.html#a2d67a5d9b817d14991804cfe70c90faf">m_z</a>.clear();
-<a name="l00066"></a>00066         <a class="code" href="classMcTruthSvc.html#a849c86b9054dbcfc673464d9fda58af2">m_particleName</a>.clear();
-<a name="l00067"></a>00067         <a class="code" href="classMcTruthSvc.html#ae86701505c127dadd98346a68ec1ffd0">m_charge</a>.clear();
-<a name="l00068"></a>00068         <a class="code" href="classMcTruthSvc.html#ae3c486b58d42a229a10c609b778f74e9">m_process</a>.clear();
-<a name="l00069"></a>00069         <a class="code" href="classMcTruthSvc.html#ae23140ef15e17e9b34afc989394adc7b">m_volume</a>.clear();
-<a name="l00070"></a>00070 }
-<a name="l00071"></a>00071 
-<a name="l00072"></a><a class="code" href="classMcTruthSvc.html#a3f4c5aff06cb1c959505353b9b92033d">00072</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#a3f4c5aff06cb1c959505353b9b92033d">McTruthSvc::SetBranch</a>(){
-<a name="l00073"></a>00073         <span class="keywordflow">if</span> (!<a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a>) <span class="keywordflow">return</span>;
-<a name="l00074"></a>00074         <a class="code" href="classMyRoot.html">MyRoot</a>* myRoot = <a class="code" href="classMyRoot.html#a1a6720785a853c92342dd72bd4bd7cfa">MyRoot::GetMyRoot</a>();
-<a name="l00075"></a>00075         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_nTracks&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a15d280f877d46896c6936fe37c5abdf3">m_nTracks</a>);
-<a name="l00076"></a>00076         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_pid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a69d1b5d553f26af03c8750d83c8322b3">m_pid</a>);
-<a name="l00077"></a>00077         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_tid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ab3964bd847fd8e279e0afe66669e8fc4">m_tid</a>);
-<a name="l00078"></a>00078         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_ptid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a68235da0860f9b5a0d38828b173e84a7">m_ptid</a>);
-<a name="l00079"></a>00079         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_ppid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a4953654654985205e9dc1de6abaca9d7">m_ppid</a>);
-<a name="l00080"></a>00080         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_time&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#aaeb48db046bcc05dd1a8669a2f039710">m_time</a>);
-<a name="l00081"></a>00081         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_px&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#af2b0abc2ac8ccca17695502a569c8bc1">m_px</a>);
-<a name="l00082"></a>00082         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_py&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a7d5efa92f59a550efd08f370c8b0bbe1">m_py</a>);
-<a name="l00083"></a>00083         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_pz&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#acdc84a1f37744b22376aa9cb8eca6344">m_pz</a>);
-<a name="l00084"></a>00084         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_e&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a562ea0a98cf298b6e9460d99bb65e76a">m_e</a>);
-<a name="l00085"></a>00085         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_x&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a00160ed02f1903640adeaba14622b6e2">m_x</a>);
-<a name="l00086"></a>00086         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_y&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#aed01142ba889ebe4c479f974276225bb">m_y</a>);
-<a name="l00087"></a>00087         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_z&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a2d67a5d9b817d14991804cfe70c90faf">m_z</a>);
-<a name="l00088"></a>00088         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_charge&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ae86701505c127dadd98346a68ec1ffd0">m_charge</a>);
-<a name="l00089"></a>00089         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_particleName&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a849c86b9054dbcfc673464d9fda58af2">m_particleName</a>);
-<a name="l00090"></a>00090         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_process&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ae3c486b58d42a229a10c609b778f74e9">m_process</a>);
-<a name="l00091"></a>00091         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_volume&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ae23140ef15e17e9b34afc989394adc7b">m_volume</a>);
-<a name="l00092"></a>00092 }
-<a name="l00093"></a>00093 
-<a name="l00094"></a><a class="code" href="classMcTruthSvc.html#aa323dbfa0480dfc689138ca977465e50">00094</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#aa323dbfa0480dfc689138ca977465e50">McTruthSvc::ReadOutputCard</a>(G4String filename){
-<a name="l00095"></a>00095         <a class="code" href="classMcTruthSvc.html#af7fb0a2920bb5d255d7c3074f0cdcc21">ReSet</a>();
-<a name="l00096"></a>00096         std::ifstream fin_card(filename);
-<a name="l00097"></a>00097         <span class="keywordflow">if</span>(!fin_card){
-<a name="l00098"></a>00098                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, cannot open &quot;</span>&lt;&lt;filename&lt;&lt;<span class="stringliteral">&quot;!!!&quot;</span>&lt;&lt;std::endl;
-<a name="l00099"></a>00099                 G4Exception(<span class="stringliteral">&quot;McTruthSvc::ReadOutputCard()&quot;</span>,
-<a name="l00100"></a>00100                                 <span class="stringliteral">&quot;InvalidSetup&quot;</span>, FatalException,
-<a name="l00101"></a>00101                                 <span class="stringliteral">&quot;cannot find output card&quot;</span>);
-<a name="l00102"></a>00102         }
-<a name="l00103"></a>00103         std::stringstream buf_card;
-<a name="l00104"></a>00104         std::string s_card;
-<a name="l00105"></a>00105         <span class="keywordtype">int</span> n_output_section_symbol = 0;
-<a name="l00106"></a>00106         <span class="keywordtype">int</span> n_filter_section_symbol = 0;
-<a name="l00107"></a>00107         <span class="keywordflow">while</span>(getline(fin_card,s_card)){
-<a name="l00108"></a>00108                 buf_card.str(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00109"></a>00109                 buf_card.clear();
-<a name="l00110"></a>00110                 buf_card&lt;&lt;s_card;
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112                 <span class="comment">//eleminate useless lines</span>
-<a name="l00113"></a>00113                 <span class="keyword">const</span> <span class="keywordtype">char</span>* c_card = s_card.c_str();
-<a name="l00114"></a>00114                 <span class="keywordtype">int</span> length = strlen(c_card);
-<a name="l00115"></a>00115                 <span class="keywordtype">int</span> offset = 0;
-<a name="l00116"></a>00116                 <span class="keywordflow">for</span> ( ; offset &lt; length; offset++ ){
-<a name="l00117"></a>00117                         <span class="keywordflow">if</span> ( c_card[offset] != <span class="charliteral">&apos; &apos;</span> ) <span class="keywordflow">break</span>;
-<a name="l00118"></a>00118                 }
-<a name="l00119"></a>00119                 <span class="keywordflow">if</span> ( c_card[offset] == <span class="charliteral">&apos;#&apos;</span> || (c_card[offset] == <span class="charliteral">&apos;/&apos;</span> &amp;&amp; c_card[offset+1] == <span class="charliteral">&apos;/&apos;</span>) || length - offset == 0 ){
-<a name="l00120"></a>00120                         <span class="keywordflow">continue</span>;
-<a name="l00121"></a>00121                 }
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123                 std::string name;
-<a name="l00124"></a>00124                 buf_card&gt;&gt;name;
-<a name="l00125"></a>00125                 <span class="keywordflow">if</span> ( n_output_section_symbol == 0 ){
-<a name="l00126"></a>00126                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTH_SECTION&quot;</span> ){
-<a name="l00127"></a>00127                                 n_output_section_symbol++;
-<a name="l00128"></a>00128                         }
-<a name="l00129"></a>00129                 }
-<a name="l00130"></a>00130                 <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( n_output_section_symbol == 1 ){
-<a name="l00131"></a>00131                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTH_SECTION&quot;</span> ){
-<a name="l00132"></a>00132                                 n_output_section_symbol++;
-<a name="l00133"></a>00133                         }
-<a name="l00134"></a>00134                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;nTracks&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a> = <span class="keyword">true</span>;
-<a name="l00135"></a>00135                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;pid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a> = <span class="keyword">true</span>;
-<a name="l00136"></a>00136                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;tid2pid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>= <span class="keyword">true</span>;
-<a name="l00137"></a>00137                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;tid2time&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>= <span class="keyword">true</span>;
-<a name="l00138"></a>00138                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;tid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a> = <span class="keyword">true</span>;
-<a name="l00139"></a>00139                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;ptid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a> = <span class="keyword">true</span>;
-<a name="l00140"></a>00140                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;ppid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a> = <span class="keyword">true</span>;
-<a name="l00141"></a>00141                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;time&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a028f7e6fc720e9a357d33e60eb5c8ba5">unitName_time</a>; <a class="code" href="classMcTruthSvc.html#af26d47451f69293c97de48dcf0fc93fa">unit_time</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_time);}
-<a name="l00142"></a>00142                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;px&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a87113cc70a0c0880452bfcfa7573a2fe">unitName_px</a>; <a class="code" href="classMcTruthSvc.html#a1528379b37a65be09cbcd40efc6d2a24">unit_px</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_px);}
-<a name="l00143"></a>00143                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;py&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a7d4d20d654c111872033d408da35a485">unitName_py</a>; <a class="code" href="classMcTruthSvc.html#a2717d3a2eab8d691bd91096936febbfc">unit_py</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_py);}
-<a name="l00144"></a>00144                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;pz&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#acf6d9eb26ccff2061e0011aa42939100">unitName_pz</a>; <a class="code" href="classMcTruthSvc.html#a322aaf48f9a6f98de5784482d0af9418">unit_pz</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_pz);}
-<a name="l00145"></a>00145                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;e&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a59bf98790b71c7aad7e50148fdab2e08">unitName_e</a>; <a class="code" href="classMcTruthSvc.html#a7d9fd80bc959ecbffcf89f6eea72675e">unit_e</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_e);}
-<a name="l00146"></a>00146                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;x&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a7a938ef9df7cccb9c743e461083ef853">unitName_x</a>; <a class="code" href="classMcTruthSvc.html#a8fb1561d86e31a994c46f92a49092740">unit_x</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_x);}
-<a name="l00147"></a>00147                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;y&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a21b9cdab167c5823a9e69036d7472285">unitName_y</a>; <a class="code" href="classMcTruthSvc.html#aebba11ae86af5bbaa3a676732d5022da">unit_y</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_y);}
-<a name="l00148"></a>00148                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;z&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a394761e6a9da118ed45a449b658d4caf">unitName_z</a>; <a class="code" href="classMcTruthSvc.html#ad6a9df1a8545c309dfb16a63bb55175e">unit_z</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_z);}
-<a name="l00149"></a>00149                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;particleName&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a> = <span class="keyword">true</span>;
-<a name="l00150"></a>00150                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;charge&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a> = <span class="keyword">true</span>;
-<a name="l00151"></a>00151                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;process&quot;</span> ) <a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a> = <span class="keyword">true</span>;
-<a name="l00152"></a>00152                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;volume&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a> = <span class="keyword">true</span>;
-<a name="l00153"></a>00153                         <span class="keywordflow">else</span>{
-<a name="l00154"></a>00154                                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, unknown name: &quot;</span>&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot; in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
-<a name="l00155"></a>00155                                 std::cout&lt;&lt;<span class="stringliteral">&quot;Will ignore this line!&quot;</span>&lt;&lt;std::endl;
-<a name="l00156"></a>00156                         }
-<a name="l00157"></a>00157                 }
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159                 <span class="keywordflow">if</span> ( n_filter_section_symbol == 0 ){
-<a name="l00160"></a>00160                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTHFILTER_SECTION&quot;</span> ){
-<a name="l00161"></a>00161                                 n_filter_section_symbol++;
-<a name="l00162"></a>00162                         }
-<a name="l00163"></a>00163                 }
-<a name="l00164"></a>00164                 <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( n_filter_section_symbol == 1 ){
-<a name="l00165"></a>00165                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTHFILTER_SECTION&quot;</span> ){
-<a name="l00166"></a>00166                                 n_filter_section_symbol++;
-<a name="l00167"></a>00167                         }
-<a name="l00168"></a>00168                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;Switch&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a> = <span class="keyword">true</span>;
-<a name="l00169"></a>00169                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;nTracks&quot;</span> ) buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>;
-<a name="l00170"></a>00170                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;WL&quot;</span> ){
-<a name="l00171"></a>00171                                 <span class="keywordtype">int</span> pid = 0;
-<a name="l00172"></a>00172                                 buf_card&gt;&gt;pid;
-<a name="l00173"></a>00173                                 <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.push_back(pid);
-<a name="l00174"></a>00174                         }
-<a name="l00175"></a>00175                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;BL&quot;</span> ){
-<a name="l00176"></a>00176                                 <span class="keywordtype">int</span> pid = 0;
-<a name="l00177"></a>00177                                 buf_card&gt;&gt;pid;
-<a name="l00178"></a>00178                                 <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.push_back(pid);
-<a name="l00179"></a>00179                         }
-<a name="l00180"></a>00180                         <span class="keywordflow">else</span>{
-<a name="l00181"></a>00181                                 G4double para;
-<a name="l00182"></a>00182                                 std::string unit;
-<a name="l00183"></a>00183                                 buf_card&gt;&gt;para&gt;&gt;unit;
-<a name="l00184"></a>00184                                 para *= <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unit);
-<a name="l00185"></a>00185                                 <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;minp&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a> = para;
-<a name="l00186"></a>00186                                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;mine&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a> = para;
-<a name="l00187"></a>00187                                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;mint&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a> = para;
-<a name="l00188"></a>00188                                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;maxt&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a> = para;
-<a name="l00189"></a>00189                                 <span class="keywordflow">else</span>{
-<a name="l00190"></a>00190                                         std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, unknown name: &quot;</span>&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot; in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
-<a name="l00191"></a>00191                                         std::cout&lt;&lt;<span class="stringliteral">&quot;Will ignore this line!&quot;</span>&lt;&lt;std::endl;
-<a name="l00192"></a>00192                                 }
-<a name="l00193"></a>00193                         }
-<a name="l00194"></a>00194                 }
-<a name="l00195"></a>00195 
-<a name="l00196"></a>00196                 <span class="keywordflow">if</span> ( n_output_section_symbol &gt; 1 &amp;&amp; n_filter_section_symbol &gt; 1 ){
-<a name="l00197"></a>00197                         <span class="keywordflow">break</span>;
-<a name="l00198"></a>00198                 }
-<a name="l00199"></a>00199         }
-<a name="l00200"></a>00200         buf_card.str(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00201"></a>00201         buf_card.clear();
-<a name="l00202"></a>00202         <span class="keywordflow">if</span> ( n_output_section_symbol &lt;= 1 ){
-<a name="l00203"></a>00203                 std::cout&lt;&lt;<span class="stringliteral">&quot;*****************WARNING********************&quot;</span>&lt;&lt;std::endl;
-<a name="l00204"></a>00204                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, failed to find enough section seperators for output in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
-<a name="l00205"></a>00205                 std::cout&lt;&lt;<span class="stringliteral">&quot;Will use default settings.&quot;</span>&lt;&lt;std::endl;
-<a name="l00206"></a>00206                 std::cout&lt;&lt;<span class="stringliteral">&quot;********************************************&quot;</span>&lt;&lt;std::endl;
-<a name="l00207"></a>00207         }
-<a name="l00208"></a>00208         <span class="keywordflow">if</span> ( n_filter_section_symbol&lt;= 1 ){
-<a name="l00209"></a>00209                 std::cout&lt;&lt;<span class="stringliteral">&quot;*****************WARNING********************&quot;</span>&lt;&lt;std::endl;
-<a name="l00210"></a>00210                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, failed to find enough section seperators for filter in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
-<a name="l00211"></a>00211                 std::cout&lt;&lt;<span class="stringliteral">&quot;Will use default settings.&quot;</span>&lt;&lt;std::endl;
-<a name="l00212"></a>00212                 std::cout&lt;&lt;<span class="stringliteral">&quot;********************************************&quot;</span>&lt;&lt;std::endl;
-<a name="l00213"></a>00213         }
-<a name="l00214"></a>00214         fin_card.close();
-<a name="l00215"></a>00215         <a class="code" href="classMcTruthSvc.html#a43e8aa2b11f725cdfaf2bab4df70fb46">ShowOutCard</a>();
-<a name="l00216"></a>00216 }
-<a name="l00217"></a>00217 
-<a name="l00218"></a><a class="code" href="classMcTruthSvc.html#af7fb0a2920bb5d255d7c3074f0cdcc21">00218</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#af7fb0a2920bb5d255d7c3074f0cdcc21">McTruthSvc::ReSet</a>(){
-<a name="l00219"></a>00219         <a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a> = <span class="keyword">false</span>;
-<a name="l00220"></a>00220         <a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a> = <span class="keyword">false</span>;
-<a name="l00221"></a>00221         <a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a> = <span class="keyword">false</span>;
-<a name="l00222"></a>00222         <a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a> = <span class="keyword">false</span>;
-<a name="l00223"></a>00223         <a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a> = <span class="keyword">false</span>;
-<a name="l00224"></a>00224         <a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a> = <span class="keyword">false</span>;
-<a name="l00225"></a>00225         <a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a> = <span class="keyword">false</span>;
-<a name="l00226"></a>00226         <a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a> = <span class="keyword">false</span>;
-<a name="l00227"></a>00227         <a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a> = <span class="keyword">false</span>;
-<a name="l00228"></a>00228         <a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a> = <span class="keyword">false</span>;
-<a name="l00229"></a>00229         <a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a> = <span class="keyword">false</span>;
-<a name="l00230"></a>00230         <a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a> = <span class="keyword">false</span>;
-<a name="l00231"></a>00231         <a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a> = <span class="keyword">false</span>;
-<a name="l00232"></a>00232         <a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a> = <span class="keyword">false</span>;
-<a name="l00233"></a>00233         <a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a> = <span class="keyword">false</span>;
-<a name="l00234"></a>00234         <a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a> = <span class="keyword">false</span>;
-<a name="l00235"></a>00235         <a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a> = <span class="keyword">false</span>;
-<a name="l00236"></a>00236         <a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a> = <span class="keyword">false</span>;
-<a name="l00237"></a>00237         <a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a> = <span class="keyword">false</span>;
-<a name="l00238"></a>00238         <a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a> = <span class="keyword">false</span>;
-<a name="l00239"></a>00239         <a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a> = 0;
-<a name="l00240"></a>00240         <a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a> = 0;
-<a name="l00241"></a>00241         <a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a> = 0;
-<a name="l00242"></a>00242         <a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a> = 0;
-<a name="l00243"></a>00243         <a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a> = 0;
-<a name="l00244"></a>00244         <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.clear();
-<a name="l00245"></a>00245         <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.clear();
-<a name="l00246"></a>00246         <a class="code" href="classMcTruthSvc.html#a028f7e6fc720e9a357d33e60eb5c8ba5">unitName_time</a>=<span class="stringliteral">&quot;s&quot;</span>;
-<a name="l00247"></a>00247         <a class="code" href="classMcTruthSvc.html#a87113cc70a0c0880452bfcfa7573a2fe">unitName_px</a>     =<span class="stringliteral">&quot;GeV&quot;</span>;
-<a name="l00248"></a>00248         <a class="code" href="classMcTruthSvc.html#a7d4d20d654c111872033d408da35a485">unitName_py</a>     =<span class="stringliteral">&quot;GeV&quot;</span>;
-<a name="l00249"></a>00249         <a class="code" href="classMcTruthSvc.html#acf6d9eb26ccff2061e0011aa42939100">unitName_pz</a>     =<span class="stringliteral">&quot;GeV&quot;</span>;
-<a name="l00250"></a>00250         <a class="code" href="classMcTruthSvc.html#a59bf98790b71c7aad7e50148fdab2e08">unitName_e</a>      =<span class="stringliteral">&quot;GeV&quot;</span>;
-<a name="l00251"></a>00251         <a class="code" href="classMcTruthSvc.html#a7a938ef9df7cccb9c743e461083ef853">unitName_x</a>      =<span class="stringliteral">&quot;cm&quot;</span>;
-<a name="l00252"></a>00252         <a class="code" href="classMcTruthSvc.html#a21b9cdab167c5823a9e69036d7472285">unitName_y</a>      =<span class="stringliteral">&quot;cm&quot;</span>;
-<a name="l00253"></a>00253         <a class="code" href="classMcTruthSvc.html#a394761e6a9da118ed45a449b658d4caf">unitName_z</a>      =<span class="stringliteral">&quot;cm&quot;</span>;
-<a name="l00254"></a>00254         <a class="code" href="classMcTruthSvc.html#af26d47451f69293c97de48dcf0fc93fa">unit_time</a>=s;
-<a name="l00255"></a>00255         <a class="code" href="classMcTruthSvc.html#a1528379b37a65be09cbcd40efc6d2a24">unit_px</a> =GeV;
-<a name="l00256"></a>00256         <a class="code" href="classMcTruthSvc.html#a2717d3a2eab8d691bd91096936febbfc">unit_py</a> =GeV;
-<a name="l00257"></a>00257         <a class="code" href="classMcTruthSvc.html#a322aaf48f9a6f98de5784482d0af9418">unit_pz</a> =GeV;
-<a name="l00258"></a>00258         <a class="code" href="classMcTruthSvc.html#a7d9fd80bc959ecbffcf89f6eea72675e">unit_e</a>  =GeV;
-<a name="l00259"></a>00259         <a class="code" href="classMcTruthSvc.html#a8fb1561d86e31a994c46f92a49092740">unit_x</a>  =cm;
-<a name="l00260"></a>00260         <a class="code" href="classMcTruthSvc.html#aebba11ae86af5bbaa3a676732d5022da">unit_y</a>  =cm;
-<a name="l00261"></a>00261         <a class="code" href="classMcTruthSvc.html#ad6a9df1a8545c309dfb16a63bb55175e">unit_z</a>  =cm;
-<a name="l00262"></a>00262 }
-<a name="l00263"></a>00263 
-<a name="l00264"></a><a class="code" href="classMcTruthSvc.html#a43e8aa2b11f725cdfaf2bab4df70fb46">00264</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#a43e8aa2b11f725cdfaf2bab4df70fb46">McTruthSvc::ShowOutCard</a>(){
-<a name="l00265"></a>00265         std::cout&lt;&lt;<span class="stringliteral">&quot;*************************Output settings for McTruthSvc***************************&quot;</span>&lt;&lt;std::endl;
-<a name="l00266"></a>00266         std::cout&lt;&lt;<span class="stringliteral">&quot;output nTracks?       &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00267"></a>00267         std::cout&lt;&lt;<span class="stringliteral">&quot;output pid?           &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00268"></a>00268         std::cout&lt;&lt;<span class="stringliteral">&quot;enable tid2pid?       &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00269"></a>00269         std::cout&lt;&lt;<span class="stringliteral">&quot;enable tid2time?      &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00270"></a>00270         std::cout&lt;&lt;<span class="stringliteral">&quot;output tid?           &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00271"></a>00271         std::cout&lt;&lt;<span class="stringliteral">&quot;output ptid?          &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00272"></a>00272         std::cout&lt;&lt;<span class="stringliteral">&quot;output ppid?          &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00273"></a>00273         std::cout&lt;&lt;<span class="stringliteral">&quot;output time?          &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a028f7e6fc720e9a357d33e60eb5c8ba5">unitName_time</a>&lt;&lt;std::endl;
-<a name="l00274"></a>00274         std::cout&lt;&lt;<span class="stringliteral">&quot;output px?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a87113cc70a0c0880452bfcfa7573a2fe">unitName_px</a>&lt;&lt;std::endl;
-<a name="l00275"></a>00275         std::cout&lt;&lt;<span class="stringliteral">&quot;output py?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a7d4d20d654c111872033d408da35a485">unitName_py</a>&lt;&lt;std::endl;
-<a name="l00276"></a>00276         std::cout&lt;&lt;<span class="stringliteral">&quot;output pz?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#acf6d9eb26ccff2061e0011aa42939100">unitName_pz</a>&lt;&lt;std::endl;
-<a name="l00277"></a>00277         std::cout&lt;&lt;<span class="stringliteral">&quot;output e?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a59bf98790b71c7aad7e50148fdab2e08">unitName_e</a>&lt;&lt;std::endl;
-<a name="l00278"></a>00278         std::cout&lt;&lt;<span class="stringliteral">&quot;output x?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a7a938ef9df7cccb9c743e461083ef853">unitName_x</a>&lt;&lt;std::endl;
-<a name="l00279"></a>00279         std::cout&lt;&lt;<span class="stringliteral">&quot;output y?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a21b9cdab167c5823a9e69036d7472285">unitName_y</a>&lt;&lt;std::endl;
-<a name="l00280"></a>00280         std::cout&lt;&lt;<span class="stringliteral">&quot;output z?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a394761e6a9da118ed45a449b658d4caf">unitName_z</a>&lt;&lt;std::endl;
-<a name="l00281"></a>00281         std::cout&lt;&lt;<span class="stringliteral">&quot;output particleName?  &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00282"></a>00282         std::cout&lt;&lt;<span class="stringliteral">&quot;output charge?        &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00283"></a>00283         std::cout&lt;&lt;<span class="stringliteral">&quot;output process?       &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00284"></a>00284         std::cout&lt;&lt;<span class="stringliteral">&quot;output volume?        &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00285"></a>00285         std::cout&lt;&lt;<span class="stringliteral">&quot;Switch on?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a>?<span class="stringliteral">&quot;yes&quot;</span>:<span class="stringliteral">&quot;no&quot;</span>)&lt;&lt;std::endl;
-<a name="l00286"></a>00286         std::cout&lt;&lt;<span class="stringliteral">&quot;minp =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a>/MeV&lt;&lt;<span class="stringliteral">&quot;MeV&quot;</span>&lt;&lt;std::endl;
-<a name="l00287"></a>00287         std::cout&lt;&lt;<span class="stringliteral">&quot;mine =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a>/MeV&lt;&lt;<span class="stringliteral">&quot;MeV&quot;</span>&lt;&lt;std::endl;
-<a name="l00288"></a>00288         std::cout&lt;&lt;<span class="stringliteral">&quot;maxnTracks =          &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>&lt;&lt;std::endl;
-<a name="l00289"></a>00289         std::cout&lt;&lt;<span class="stringliteral">&quot;mint =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a>/ns&lt;&lt;<span class="stringliteral">&quot;ns&quot;</span>&lt;&lt;std::endl;
-<a name="l00290"></a>00290         std::cout&lt;&lt;<span class="stringliteral">&quot;maxt =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a>/ns&lt;&lt;<span class="stringliteral">&quot;ns&quot;</span>&lt;&lt;std::endl;
-<a name="l00291"></a>00291         std::cout&lt;&lt;<span class="stringliteral">&quot;white list:     &quot;</span>&lt;&lt;std::endl;
-<a name="l00292"></a>00292         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i&lt; <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size(); i++){
-<a name="l00293"></a>00293                 std::cout &lt;&lt;<span class="stringliteral">&quot;  Only tracks with these following PDGCodes will be recorded:&quot;</span>&lt;&lt;std::endl;
-<a name="l00294"></a>00294                 std::cout&lt;&lt;<span class="stringliteral">&quot;            &quot;</span>&lt;&lt;i&lt;&lt;<span class="stringliteral">&quot;: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>[i]&lt;&lt;std::endl;
-<a name="l00295"></a>00295         }
-<a name="l00296"></a>00296         <span class="keywordflow">if</span> ( <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size() == 0 ){
-<a name="l00297"></a>00297                 std::cout &lt;&lt;<span class="stringliteral">&quot;  Empty! So all tracks will be recorded!&quot;</span>&lt;&lt;std::endl;
-<a name="l00298"></a>00298         }
-<a name="l00299"></a>00299         std::cout&lt;&lt;<span class="stringliteral">&quot;black list:     &quot;</span>&lt;&lt;std::endl;
-<a name="l00300"></a>00300         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i&lt; <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.size(); i++){
-<a name="l00301"></a>00301                 std::cout &lt;&lt;<span class="stringliteral">&quot;  Tracks with these following PDGCodes will NOT be recorded:&quot;</span>&lt;&lt;std::endl;
-<a name="l00302"></a>00302                 std::cout&lt;&lt;<span class="stringliteral">&quot;            &quot;</span>&lt;&lt;i&lt;&lt;<span class="stringliteral">&quot;: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>[i]&lt;&lt;std::endl;
-<a name="l00303"></a>00303         }
-<a name="l00304"></a>00304         std::cout&lt;&lt;<span class="stringliteral">&quot;******************************************************************************&quot;</span>&lt;&lt;std::endl;
-<a name="l00305"></a>00305 }
-<a name="l00306"></a>00306 
-<a name="l00307"></a><a class="code" href="classMcTruthSvc.html#a7323918508b30dd0f361f581dcf710d3">00307</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#a7323918508b30dd0f361f581dcf710d3">McTruthSvc::SetValuePre</a>(<span class="keyword">const</span> G4Track* aTrack){
-<a name="l00308"></a>00308         G4int pid = aTrack-&gt;GetParticleDefinition()-&gt;GetPDGEncoding();
-<a name="l00309"></a>00309         G4double globalT=aTrack-&gt;GetGlobalTime();<span class="comment">//Time since the event in which the track belongs is created</span>
-<a name="l00310"></a>00310         G4int trackID= aTrack-&gt;GetTrackID(); <span class="comment">//G4 track ID of current track.</span>
-<a name="l00311"></a>00311         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>||<a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>){
-<a name="l00312"></a>00312                 <a class="code" href="classMcTruthSvc.html#abffc1de53bd281064e024451e02b9f01">m_dicttid</a>.push_back(trackID);
-<a name="l00313"></a>00313                 <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>){
-<a name="l00314"></a>00314                         <a class="code" href="classMcTruthSvc.html#ac7c8936a059245f27b4ed65df5decad5">m_dictpid</a>.push_back(pid);
-<a name="l00315"></a>00315                 }
-<a name="l00316"></a>00316                 <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>){
-<a name="l00317"></a>00317                         <a class="code" href="classMcTruthSvc.html#a841e362e0da4a4719525e654e266165b">m_dicttime</a>.push_back(globalT);
-<a name="l00318"></a>00318                 }
-<a name="l00319"></a>00319         }
-<a name="l00320"></a>00320         <a class="code" href="classMcTruthSvc.html#a29bc3fcdaceeeb5be0eaed160aeb5f95">m_nTracksAll</a>++;
-<a name="l00321"></a>00321         <span class="comment">//switch</span>
-<a name="l00322"></a>00322         <span class="keywordflow">if</span> (!<a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a>) <span class="keywordflow">return</span>;
-<a name="l00323"></a>00323         <span class="comment">//nTracks</span>
-<a name="l00324"></a>00324         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>&amp;&amp;<a class="code" href="classMcTruthSvc.html#a15d280f877d46896c6936fe37c5abdf3">m_nTracks</a>&gt;=<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>) <span class="keywordflow">return</span>;
-<a name="l00325"></a>00325         <span class="comment">//momentum</span>
-<a name="l00326"></a>00326         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a>&amp;&amp;aTrack-&gt;GetMomentum().mag()&lt;<a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a>) <span class="keywordflow">return</span>;
-<a name="l00327"></a>00327         <span class="comment">//energy</span>
-<a name="l00328"></a>00328         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a>&amp;&amp;aTrack-&gt;GetTotalEnergy()&lt;<a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a>) <span class="keywordflow">return</span>;
-<a name="l00329"></a>00329         <span class="comment">//time window</span>
-<a name="l00330"></a>00330         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a>&amp;&amp;globalT&lt;<a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a>) <span class="keywordflow">return</span>;
-<a name="l00331"></a>00331         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a>&amp;&amp;globalT&gt;<a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a>) <span class="keywordflow">return</span>;
-<a name="l00332"></a>00332         <span class="comment">// white_list</span>
-<a name="l00333"></a>00333         <span class="keywordtype">bool</span> foundit = <span class="keyword">false</span>;
-<a name="l00334"></a>00334         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size(); i++){
-<a name="l00335"></a>00335                 <span class="keywordflow">if</span> (pid == <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>[i]) foundit=<span class="keyword">true</span>;
-<a name="l00336"></a>00336         }
-<a name="l00337"></a>00337         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size()==1&amp;&amp;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>[0]==0){
-<a name="l00338"></a>00338                 <span class="keywordflow">if</span> (pid&lt;1e7) foundit = <span class="keyword">true</span>;
-<a name="l00339"></a>00339         }
-<a name="l00340"></a>00340         <span class="keywordflow">if</span> (!foundit&amp;&amp;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size()) <span class="keywordflow">return</span>;
-<a name="l00341"></a>00341         <span class="comment">// black_list</span>
-<a name="l00342"></a>00342         foundit = <span class="keyword">false</span>;
-<a name="l00343"></a>00343         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.size(); i++){
-<a name="l00344"></a>00344                 <span class="keywordflow">if</span> (pid == <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>[i]) foundit=<span class="keyword">true</span>;
-<a name="l00345"></a>00345         }
-<a name="l00346"></a>00346         <span class="keywordflow">if</span> (foundit) <span class="keywordflow">return</span>;
-<a name="l00347"></a>00347 
-<a name="l00348"></a>00348         G4String processName;
-<a name="l00349"></a>00349         <span class="keyword">const</span> G4VProcess* process = aTrack-&gt;GetCreatorProcess();
-<a name="l00350"></a>00350         <span class="keywordflow">if</span> (process) {
-<a name="l00351"></a>00351                 processName = process-&gt;GetProcessName();
-<a name="l00352"></a>00352         }
-<a name="l00353"></a>00353         <span class="keywordflow">else</span>{
-<a name="l00354"></a>00354                 processName = <span class="stringliteral">&quot;NULL&quot;</span>;
-<a name="l00355"></a>00355         }
-<a name="l00356"></a>00356         G4int ptid = aTrack-&gt;GetParentID(); <span class="comment">//parent G4 track ID of current track.</span>
-<a name="l00357"></a>00357         G4ThreeVector mom_3vec = aTrack-&gt;GetMomentum();
-<a name="l00358"></a>00358         G4ThreeVector pos_3vec = aTrack-&gt;GetVertexPosition();
-<a name="l00359"></a>00359         std::string volume = aTrack-&gt;GetLogicalVolumeAtVertex()-&gt;GetName();
-<a name="l00360"></a>00360         std::string particleName = aTrack-&gt;GetParticleDefinition()-&gt;GetParticleName();
-<a name="l00361"></a>00361         <span class="keywordtype">int</span> charge = aTrack-&gt;GetParticleDefinition()-&gt;GetPDGCharge();
-<a name="l00362"></a>00362         G4double energy = aTrack-&gt;GetTotalEnergy();
-<a name="l00363"></a>00363 
-<a name="l00364"></a>00364         <a class="code" href="classMcTruthSvc.html#a15d280f877d46896c6936fe37c5abdf3">m_nTracks</a>++;
-<a name="l00365"></a>00365         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a>) <a class="code" href="classMcTruthSvc.html#a69d1b5d553f26af03c8750d83c8322b3">m_pid</a>.push_back(pid);
-<a name="l00366"></a>00366         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a>) <a class="code" href="classMcTruthSvc.html#ab3964bd847fd8e279e0afe66669e8fc4">m_tid</a>.push_back(trackID);
-<a name="l00367"></a>00367         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a>) <a class="code" href="classMcTruthSvc.html#a68235da0860f9b5a0d38828b173e84a7">m_ptid</a>.push_back(ptid);
-<a name="l00368"></a>00368         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a>){
-<a name="l00369"></a>00369                 <span class="keywordtype">int</span> ptid = aTrack-&gt;GetParentID();
-<a name="l00370"></a>00370                 <span class="keywordtype">int</span> ppid = <a class="code" href="classMcTruthSvc.html#aba785fd432f22eed7c13cf003d6c7839">McTruthSvc::GetMcTruthSvc</a>()-&gt;<a class="code" href="classMcTruthSvc.html#a506f5a0675e6b716e73caee2b5bd80df">tid2pid</a>(ptid);
-<a name="l00371"></a>00371                 <a class="code" href="classMcTruthSvc.html#a4953654654985205e9dc1de6abaca9d7">m_ppid</a>.push_back(ppid);
-<a name="l00372"></a>00372         }
-<a name="l00373"></a>00373         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a>) <a class="code" href="classMcTruthSvc.html#aaeb48db046bcc05dd1a8669a2f039710">m_time</a>.push_back(globalT/<a class="code" href="classMcTruthSvc.html#af26d47451f69293c97de48dcf0fc93fa">unit_time</a>);
-<a name="l00374"></a>00374         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a>) <a class="code" href="classMcTruthSvc.html#af2b0abc2ac8ccca17695502a569c8bc1">m_px</a>.push_back(mom_3vec.x()/<a class="code" href="classMcTruthSvc.html#a1528379b37a65be09cbcd40efc6d2a24">unit_px</a>);
-<a name="l00375"></a>00375 <span class="comment">//      std::cout&lt;&lt;&quot;m_px.push_back(&quot;&lt;&lt;(mom_3vec.x()/unit_px)&lt;&lt;&quot;)&quot;&lt;&lt;std::endl;</span>
-<a name="l00376"></a>00376         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a>) <a class="code" href="classMcTruthSvc.html#a7d5efa92f59a550efd08f370c8b0bbe1">m_py</a>.push_back(mom_3vec.y()/<a class="code" href="classMcTruthSvc.html#a2717d3a2eab8d691bd91096936febbfc">unit_py</a>);
-<a name="l00377"></a>00377         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a>) <a class="code" href="classMcTruthSvc.html#acdc84a1f37744b22376aa9cb8eca6344">m_pz</a>.push_back(mom_3vec.z()/<a class="code" href="classMcTruthSvc.html#a322aaf48f9a6f98de5784482d0af9418">unit_pz</a>);
-<a name="l00378"></a>00378         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a>) <a class="code" href="classMcTruthSvc.html#a562ea0a98cf298b6e9460d99bb65e76a">m_e</a>.push_back(energy/<a class="code" href="classMcTruthSvc.html#a7d9fd80bc959ecbffcf89f6eea72675e">unit_e</a>);
-<a name="l00379"></a>00379         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a>) <a class="code" href="classMcTruthSvc.html#a00160ed02f1903640adeaba14622b6e2">m_x</a>.push_back(pos_3vec.x()/<a class="code" href="classMcTruthSvc.html#a8fb1561d86e31a994c46f92a49092740">unit_x</a>);
-<a name="l00380"></a>00380         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a>) <a class="code" href="classMcTruthSvc.html#aed01142ba889ebe4c479f974276225bb">m_y</a>.push_back(pos_3vec.y()/<a class="code" href="classMcTruthSvc.html#aebba11ae86af5bbaa3a676732d5022da">unit_y</a>);
-<a name="l00381"></a>00381         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a>) <a class="code" href="classMcTruthSvc.html#a2d67a5d9b817d14991804cfe70c90faf">m_z</a>.push_back(pos_3vec.z()/<a class="code" href="classMcTruthSvc.html#ad6a9df1a8545c309dfb16a63bb55175e">unit_z</a>);
-<a name="l00382"></a>00382         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a>) <a class="code" href="classMcTruthSvc.html#ae86701505c127dadd98346a68ec1ffd0">m_charge</a>.push_back(charge);
-<a name="l00383"></a>00383         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a>) <a class="code" href="classMcTruthSvc.html#a849c86b9054dbcfc673464d9fda58af2">m_particleName</a>.push_back(particleName);
-<a name="l00384"></a>00384         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a>) <a class="code" href="classMcTruthSvc.html#ae3c486b58d42a229a10c609b778f74e9">m_process</a>.push_back(processName);
-<a name="l00385"></a>00385         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a>) <a class="code" href="classMcTruthSvc.html#ae23140ef15e17e9b34afc989394adc7b">m_volume</a>.push_back(volume);
-<a name="l00386"></a>00386 }
-<a name="l00387"></a>00387 
-<a name="l00388"></a><a class="code" href="classMcTruthSvc.html#acb8620775f4a9c09dc57e8c3bee977fc">00388</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#acb8620775f4a9c09dc57e8c3bee977fc">McTruthSvc::SetValuePost</a>(<span class="keyword">const</span> G4Track* aTrack){
-<a name="l00389"></a>00389         <span class="comment">//      G4int   nbSteps = aTrack-&gt;GetCurrentStepNumber();</span>
-<a name="l00390"></a>00390         <span class="comment">//      G4double trackLength = aTrack-&gt;GetTrackLength();</span>
-<a name="l00391"></a>00391 }
+<a name="l00063"></a>00063         <a class="code" href="classMcTruthSvc.html#a6c8fe7c4e2470304facc3b9791ad7107">m_ekin</a>.clear();
+<a name="l00064"></a>00064         <a class="code" href="classMcTruthSvc.html#a00160ed02f1903640adeaba14622b6e2">m_x</a>.clear();
+<a name="l00065"></a>00065         <a class="code" href="classMcTruthSvc.html#aed01142ba889ebe4c479f974276225bb">m_y</a>.clear();
+<a name="l00066"></a>00066         <a class="code" href="classMcTruthSvc.html#a2d67a5d9b817d14991804cfe70c90faf">m_z</a>.clear();
+<a name="l00067"></a>00067         <a class="code" href="classMcTruthSvc.html#a849c86b9054dbcfc673464d9fda58af2">m_particleName</a>.clear();
+<a name="l00068"></a>00068         <a class="code" href="classMcTruthSvc.html#ae86701505c127dadd98346a68ec1ffd0">m_charge</a>.clear();
+<a name="l00069"></a>00069         <a class="code" href="classMcTruthSvc.html#ae3c486b58d42a229a10c609b778f74e9">m_process</a>.clear();
+<a name="l00070"></a>00070         <a class="code" href="classMcTruthSvc.html#ae23140ef15e17e9b34afc989394adc7b">m_volume</a>.clear();
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a><a class="code" href="classMcTruthSvc.html#a3f4c5aff06cb1c959505353b9b92033d">00073</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#a3f4c5aff06cb1c959505353b9b92033d">McTruthSvc::SetBranch</a>(){
+<a name="l00074"></a>00074         <span class="keywordflow">if</span> (!<a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a>) <span class="keywordflow">return</span>;
+<a name="l00075"></a>00075         <a class="code" href="classMyRoot.html">MyRoot</a>* myRoot = <a class="code" href="classMyRoot.html#a1a6720785a853c92342dd72bd4bd7cfa">MyRoot::GetMyRoot</a>();
+<a name="l00076"></a>00076         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_nTracks&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a15d280f877d46896c6936fe37c5abdf3">m_nTracks</a>);
+<a name="l00077"></a>00077         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_pid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a69d1b5d553f26af03c8750d83c8322b3">m_pid</a>);
+<a name="l00078"></a>00078         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_tid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ab3964bd847fd8e279e0afe66669e8fc4">m_tid</a>);
+<a name="l00079"></a>00079         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_ptid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a68235da0860f9b5a0d38828b173e84a7">m_ptid</a>);
+<a name="l00080"></a>00080         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_ppid&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a4953654654985205e9dc1de6abaca9d7">m_ppid</a>);
+<a name="l00081"></a>00081         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_time&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#aaeb48db046bcc05dd1a8669a2f039710">m_time</a>);
+<a name="l00082"></a>00082         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_px&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#af2b0abc2ac8ccca17695502a569c8bc1">m_px</a>);
+<a name="l00083"></a>00083         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_py&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a7d5efa92f59a550efd08f370c8b0bbe1">m_py</a>);
+<a name="l00084"></a>00084         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_pz&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#acdc84a1f37744b22376aa9cb8eca6344">m_pz</a>);
+<a name="l00085"></a>00085         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_e&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a562ea0a98cf298b6e9460d99bb65e76a">m_e</a>);
+<a name="l00086"></a>00086         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_ekin&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a6c8fe7c4e2470304facc3b9791ad7107">m_ekin</a>);
+<a name="l00087"></a>00087         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_x&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a00160ed02f1903640adeaba14622b6e2">m_x</a>);
+<a name="l00088"></a>00088         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_y&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#aed01142ba889ebe4c479f974276225bb">m_y</a>);
+<a name="l00089"></a>00089         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_z&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a2d67a5d9b817d14991804cfe70c90faf">m_z</a>);
+<a name="l00090"></a>00090         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_charge&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ae86701505c127dadd98346a68ec1ffd0">m_charge</a>);
+<a name="l00091"></a>00091         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_particleName&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#a849c86b9054dbcfc673464d9fda58af2">m_particleName</a>);
+<a name="l00092"></a>00092         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_process&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ae3c486b58d42a229a10c609b778f74e9">m_process</a>);
+<a name="l00093"></a>00093         <span class="keywordflow">if</span>( <a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a> ) myRoot-&gt;<a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(<span class="stringliteral">&quot;McTruth_volume&quot;</span>, &amp;<a class="code" href="classMcTruthSvc.html#ae23140ef15e17e9b34afc989394adc7b">m_volume</a>);
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="classMcTruthSvc.html#aa323dbfa0480dfc689138ca977465e50">00096</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#aa323dbfa0480dfc689138ca977465e50">McTruthSvc::ReadOutputCard</a>(G4String filename){
+<a name="l00097"></a>00097         <a class="code" href="classMcTruthSvc.html#af7fb0a2920bb5d255d7c3074f0cdcc21">ReSet</a>();
+<a name="l00098"></a>00098         std::ifstream fin_card(filename);
+<a name="l00099"></a>00099         <span class="keywordflow">if</span>(!fin_card){
+<a name="l00100"></a>00100                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, cannot open &quot;</span>&lt;&lt;filename&lt;&lt;<span class="stringliteral">&quot;!!!&quot;</span>&lt;&lt;std::endl;
+<a name="l00101"></a>00101                 G4Exception(<span class="stringliteral">&quot;McTruthSvc::ReadOutputCard()&quot;</span>,
+<a name="l00102"></a>00102                                 <span class="stringliteral">&quot;InvalidSetup&quot;</span>, FatalException,
+<a name="l00103"></a>00103                                 <span class="stringliteral">&quot;cannot find output card&quot;</span>);
+<a name="l00104"></a>00104         }
+<a name="l00105"></a>00105         std::stringstream buf_card;
+<a name="l00106"></a>00106         std::string s_card;
+<a name="l00107"></a>00107         <span class="keywordtype">int</span> n_output_section_symbol = 0;
+<a name="l00108"></a>00108         <span class="keywordtype">int</span> n_filter_section_symbol = 0;
+<a name="l00109"></a>00109         <span class="keywordflow">while</span>(getline(fin_card,s_card)){
+<a name="l00110"></a>00110                 buf_card.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00111"></a>00111                 buf_card.clear();
+<a name="l00112"></a>00112                 buf_card&lt;&lt;s_card;
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114                 <span class="comment">//eleminate useless lines</span>
+<a name="l00115"></a>00115                 <span class="keyword">const</span> <span class="keywordtype">char</span>* c_card = s_card.c_str();
+<a name="l00116"></a>00116                 <span class="keywordtype">int</span> length = strlen(c_card);
+<a name="l00117"></a>00117                 <span class="keywordtype">int</span> offset = 0;
+<a name="l00118"></a>00118                 <span class="keywordflow">for</span> ( ; offset &lt; length; offset++ ){
+<a name="l00119"></a>00119                         <span class="keywordflow">if</span> ( c_card[offset] != <span class="charliteral">&apos; &apos;</span> ) <span class="keywordflow">break</span>;
+<a name="l00120"></a>00120                 }
+<a name="l00121"></a>00121                 <span class="keywordflow">if</span> ( c_card[offset] == <span class="charliteral">&apos;#&apos;</span> || (c_card[offset] == <span class="charliteral">&apos;/&apos;</span> &amp;&amp; c_card[offset+1] == <span class="charliteral">&apos;/&apos;</span>) || length - offset == 0 ){
+<a name="l00122"></a>00122                         <span class="keywordflow">continue</span>;
+<a name="l00123"></a>00123                 }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125                 std::string name;
+<a name="l00126"></a>00126                 buf_card&gt;&gt;name;
+<a name="l00127"></a>00127                 <span class="keywordflow">if</span> ( n_output_section_symbol == 0 ){
+<a name="l00128"></a>00128                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTH_SECTION&quot;</span> ){
+<a name="l00129"></a>00129                                 n_output_section_symbol++;
+<a name="l00130"></a>00130                         }
+<a name="l00131"></a>00131                 }
+<a name="l00132"></a>00132                 <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( n_output_section_symbol == 1 ){
+<a name="l00133"></a>00133                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTH_SECTION&quot;</span> ){
+<a name="l00134"></a>00134                                 n_output_section_symbol++;
+<a name="l00135"></a>00135                         }
+<a name="l00136"></a>00136                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;nTracks&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a> = <span class="keyword">true</span>;
+<a name="l00137"></a>00137                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;pid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a> = <span class="keyword">true</span>;
+<a name="l00138"></a>00138                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;tid2pid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>= <span class="keyword">true</span>;
+<a name="l00139"></a>00139                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;tid2time&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>= <span class="keyword">true</span>;
+<a name="l00140"></a>00140                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;tid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a> = <span class="keyword">true</span>;
+<a name="l00141"></a>00141                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;ptid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a> = <span class="keyword">true</span>;
+<a name="l00142"></a>00142                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;ppid&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a> = <span class="keyword">true</span>;
+<a name="l00143"></a>00143                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;time&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a028f7e6fc720e9a357d33e60eb5c8ba5">unitName_time</a>; <a class="code" href="classMcTruthSvc.html#af26d47451f69293c97de48dcf0fc93fa">unit_time</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_time);}
+<a name="l00144"></a>00144                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;px&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a87113cc70a0c0880452bfcfa7573a2fe">unitName_px</a>; <a class="code" href="classMcTruthSvc.html#a1528379b37a65be09cbcd40efc6d2a24">unit_px</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_px);}
+<a name="l00145"></a>00145                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;py&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a7d4d20d654c111872033d408da35a485">unitName_py</a>; <a class="code" href="classMcTruthSvc.html#a2717d3a2eab8d691bd91096936febbfc">unit_py</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_py);}
+<a name="l00146"></a>00146                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;pz&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#acf6d9eb26ccff2061e0011aa42939100">unitName_pz</a>; <a class="code" href="classMcTruthSvc.html#a322aaf48f9a6f98de5784482d0af9418">unit_pz</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_pz);}
+<a name="l00147"></a>00147                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;e&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a59bf98790b71c7aad7e50148fdab2e08">unitName_e</a>; <a class="code" href="classMcTruthSvc.html#a7d9fd80bc959ecbffcf89f6eea72675e">unit_e</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_e);}
+<a name="l00148"></a>00148                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;x&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a7a938ef9df7cccb9c743e461083ef853">unitName_x</a>; <a class="code" href="classMcTruthSvc.html#a8fb1561d86e31a994c46f92a49092740">unit_x</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_x);}
+<a name="l00149"></a>00149                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;y&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a21b9cdab167c5823a9e69036d7472285">unitName_y</a>; <a class="code" href="classMcTruthSvc.html#aebba11ae86af5bbaa3a676732d5022da">unit_y</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_y);}
+<a name="l00150"></a>00150                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;z&quot;</span> ) {<a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a> = <span class="keyword">true</span>; buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a394761e6a9da118ed45a449b658d4caf">unitName_z</a>; <a class="code" href="classMcTruthSvc.html#ad6a9df1a8545c309dfb16a63bb55175e">unit_z</a> = <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unitName_z);}
+<a name="l00151"></a>00151                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;particleName&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a> = <span class="keyword">true</span>;
+<a name="l00152"></a>00152                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;charge&quot;</span> ) <a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a> = <span class="keyword">true</span>;
+<a name="l00153"></a>00153                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;process&quot;</span> ) <a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a> = <span class="keyword">true</span>;
+<a name="l00154"></a>00154                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;volume&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a> = <span class="keyword">true</span>;
+<a name="l00155"></a>00155                         <span class="keywordflow">else</span>{
+<a name="l00156"></a>00156                                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, unknown name: &quot;</span>&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot; in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
+<a name="l00157"></a>00157                                 std::cout&lt;&lt;<span class="stringliteral">&quot;Will ignore this line!&quot;</span>&lt;&lt;std::endl;
+<a name="l00158"></a>00158                         }
+<a name="l00159"></a>00159                 }
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161                 <span class="keywordflow">if</span> ( n_filter_section_symbol == 0 ){
+<a name="l00162"></a>00162                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTHFILTER_SECTION&quot;</span> ){
+<a name="l00163"></a>00163                                 n_filter_section_symbol++;
+<a name="l00164"></a>00164                         }
+<a name="l00165"></a>00165                 }
+<a name="l00166"></a>00166                 <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( n_filter_section_symbol == 1 ){
+<a name="l00167"></a>00167                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;MCTRUTHFILTER_SECTION&quot;</span> ){
+<a name="l00168"></a>00168                                 n_filter_section_symbol++;
+<a name="l00169"></a>00169                         }
+<a name="l00170"></a>00170                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;Switch&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a> = <span class="keyword">true</span>;
+<a name="l00171"></a>00171                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;nTracks&quot;</span> ) buf_card&gt;&gt;<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>;
+<a name="l00172"></a>00172                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;WL&quot;</span> ){
+<a name="l00173"></a>00173                                 <span class="keywordtype">int</span> pid = 0;
+<a name="l00174"></a>00174                                 buf_card&gt;&gt;pid;
+<a name="l00175"></a>00175                                 <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.push_back(pid);
+<a name="l00176"></a>00176                         }
+<a name="l00177"></a>00177                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;BL&quot;</span> ){
+<a name="l00178"></a>00178                                 <span class="keywordtype">int</span> pid = 0;
+<a name="l00179"></a>00179                                 buf_card&gt;&gt;pid;
+<a name="l00180"></a>00180                                 <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.push_back(pid);
+<a name="l00181"></a>00181                         }
+<a name="l00182"></a>00182                         <span class="keywordflow">else</span>{
+<a name="l00183"></a>00183                                 G4double para;
+<a name="l00184"></a>00184                                 std::string unit;
+<a name="l00185"></a>00185                                 buf_card&gt;&gt;para&gt;&gt;unit;
+<a name="l00186"></a>00186                                 para *= <a class="code" href="classMyString2Anything.html#a72f1c881f212cebb9d8dc5d5f807d002">MyString2Anything::get_U</a>(unit);
+<a name="l00187"></a>00187                                 <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;minp&quot;</span> ) <a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a> = para;
+<a name="l00188"></a>00188                                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;mine&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a> = para;
+<a name="l00189"></a>00189                                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;mint&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a> = para;
+<a name="l00190"></a>00190                                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( name == <span class="stringliteral">&quot;maxt&quot;</span> ) <a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a> = para;
+<a name="l00191"></a>00191                                 <span class="keywordflow">else</span>{
+<a name="l00192"></a>00192                                         std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, unknown name: &quot;</span>&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot; in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
+<a name="l00193"></a>00193                                         std::cout&lt;&lt;<span class="stringliteral">&quot;Will ignore this line!&quot;</span>&lt;&lt;std::endl;
+<a name="l00194"></a>00194                                 }
+<a name="l00195"></a>00195                         }
+<a name="l00196"></a>00196                 }
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198                 <span class="keywordflow">if</span> ( n_output_section_symbol &gt; 1 &amp;&amp; n_filter_section_symbol &gt; 1 ){
+<a name="l00199"></a>00199                         <span class="keywordflow">break</span>;
+<a name="l00200"></a>00200                 }
+<a name="l00201"></a>00201         }
+<a name="l00202"></a>00202         buf_card.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00203"></a>00203         buf_card.clear();
+<a name="l00204"></a>00204         <span class="keywordflow">if</span> ( n_output_section_symbol &lt;= 1 ){
+<a name="l00205"></a>00205                 std::cout&lt;&lt;<span class="stringliteral">&quot;*****************WARNING********************&quot;</span>&lt;&lt;std::endl;
+<a name="l00206"></a>00206                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, failed to find enough section seperators for output in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
+<a name="l00207"></a>00207                 std::cout&lt;&lt;<span class="stringliteral">&quot;Will use default settings.&quot;</span>&lt;&lt;std::endl;
+<a name="l00208"></a>00208                 std::cout&lt;&lt;<span class="stringliteral">&quot;********************************************&quot;</span>&lt;&lt;std::endl;
+<a name="l00209"></a>00209         }
+<a name="l00210"></a>00210         <span class="keywordflow">if</span> ( n_filter_section_symbol&lt;= 1 ){
+<a name="l00211"></a>00211                 std::cout&lt;&lt;<span class="stringliteral">&quot;*****************WARNING********************&quot;</span>&lt;&lt;std::endl;
+<a name="l00212"></a>00212                 std::cout&lt;&lt;<span class="stringliteral">&quot;In McTruthSvc::ReadOutputCard, failed to find enough section seperators for filter in file &quot;</span>&lt;&lt;filename&lt;&lt;std::endl;
+<a name="l00213"></a>00213                 std::cout&lt;&lt;<span class="stringliteral">&quot;Will use default settings.&quot;</span>&lt;&lt;std::endl;
+<a name="l00214"></a>00214                 std::cout&lt;&lt;<span class="stringliteral">&quot;********************************************&quot;</span>&lt;&lt;std::endl;
+<a name="l00215"></a>00215         }
+<a name="l00216"></a>00216         fin_card.close();
+<a name="l00217"></a>00217         <a class="code" href="classMcTruthSvc.html#a43e8aa2b11f725cdfaf2bab4df70fb46">ShowOutCard</a>();
+<a name="l00218"></a>00218 }
+<a name="l00219"></a>00219 
+<a name="l00220"></a><a class="code" href="classMcTruthSvc.html#af7fb0a2920bb5d255d7c3074f0cdcc21">00220</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#af7fb0a2920bb5d255d7c3074f0cdcc21">McTruthSvc::ReSet</a>(){
+<a name="l00221"></a>00221         <a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a> = <span class="keyword">false</span>;
+<a name="l00222"></a>00222         <a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a> = <span class="keyword">false</span>;
+<a name="l00223"></a>00223         <a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a> = <span class="keyword">false</span>;
+<a name="l00224"></a>00224         <a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a> = <span class="keyword">false</span>;
+<a name="l00225"></a>00225         <a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a> = <span class="keyword">false</span>;
+<a name="l00226"></a>00226         <a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a> = <span class="keyword">false</span>;
+<a name="l00227"></a>00227         <a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a> = <span class="keyword">false</span>;
+<a name="l00228"></a>00228         <a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a> = <span class="keyword">false</span>;
+<a name="l00229"></a>00229         <a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a> = <span class="keyword">false</span>;
+<a name="l00230"></a>00230         <a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a> = <span class="keyword">false</span>;
+<a name="l00231"></a>00231         <a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a> = <span class="keyword">false</span>;
+<a name="l00232"></a>00232         <a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a> = <span class="keyword">false</span>;
+<a name="l00233"></a>00233         <a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a> = <span class="keyword">false</span>;
+<a name="l00234"></a>00234         <a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a> = <span class="keyword">false</span>;
+<a name="l00235"></a>00235         <a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a> = <span class="keyword">false</span>;
+<a name="l00236"></a>00236         <a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a> = <span class="keyword">false</span>;
+<a name="l00237"></a>00237         <a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a> = <span class="keyword">false</span>;
+<a name="l00238"></a>00238         <a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a> = <span class="keyword">false</span>;
+<a name="l00239"></a>00239         <a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a> = <span class="keyword">false</span>;
+<a name="l00240"></a>00240         <a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a> = <span class="keyword">false</span>;
+<a name="l00241"></a>00241         <a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a> = 0;
+<a name="l00242"></a>00242         <a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a> = 0;
+<a name="l00243"></a>00243         <a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a> = 0;
+<a name="l00244"></a>00244         <a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a> = 0;
+<a name="l00245"></a>00245         <a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a> = 0;
+<a name="l00246"></a>00246         <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.clear();
+<a name="l00247"></a>00247         <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.clear();
+<a name="l00248"></a>00248         <a class="code" href="classMcTruthSvc.html#a028f7e6fc720e9a357d33e60eb5c8ba5">unitName_time</a>=<span class="stringliteral">&quot;s&quot;</span>;
+<a name="l00249"></a>00249         <a class="code" href="classMcTruthSvc.html#a87113cc70a0c0880452bfcfa7573a2fe">unitName_px</a>     =<span class="stringliteral">&quot;GeV&quot;</span>;
+<a name="l00250"></a>00250         <a class="code" href="classMcTruthSvc.html#a7d4d20d654c111872033d408da35a485">unitName_py</a>     =<span class="stringliteral">&quot;GeV&quot;</span>;
+<a name="l00251"></a>00251         <a class="code" href="classMcTruthSvc.html#acf6d9eb26ccff2061e0011aa42939100">unitName_pz</a>     =<span class="stringliteral">&quot;GeV&quot;</span>;
+<a name="l00252"></a>00252         <a class="code" href="classMcTruthSvc.html#a59bf98790b71c7aad7e50148fdab2e08">unitName_e</a>      =<span class="stringliteral">&quot;GeV&quot;</span>;
+<a name="l00253"></a>00253         <a class="code" href="classMcTruthSvc.html#a7a938ef9df7cccb9c743e461083ef853">unitName_x</a>      =<span class="stringliteral">&quot;cm&quot;</span>;
+<a name="l00254"></a>00254         <a class="code" href="classMcTruthSvc.html#a21b9cdab167c5823a9e69036d7472285">unitName_y</a>      =<span class="stringliteral">&quot;cm&quot;</span>;
+<a name="l00255"></a>00255         <a class="code" href="classMcTruthSvc.html#a394761e6a9da118ed45a449b658d4caf">unitName_z</a>      =<span class="stringliteral">&quot;cm&quot;</span>;
+<a name="l00256"></a>00256         <a class="code" href="classMcTruthSvc.html#af26d47451f69293c97de48dcf0fc93fa">unit_time</a>=s;
+<a name="l00257"></a>00257         <a class="code" href="classMcTruthSvc.html#a1528379b37a65be09cbcd40efc6d2a24">unit_px</a> =GeV;
+<a name="l00258"></a>00258         <a class="code" href="classMcTruthSvc.html#a2717d3a2eab8d691bd91096936febbfc">unit_py</a> =GeV;
+<a name="l00259"></a>00259         <a class="code" href="classMcTruthSvc.html#a322aaf48f9a6f98de5784482d0af9418">unit_pz</a> =GeV;
+<a name="l00260"></a>00260         <a class="code" href="classMcTruthSvc.html#a7d9fd80bc959ecbffcf89f6eea72675e">unit_e</a>  =GeV;
+<a name="l00261"></a>00261         <a class="code" href="classMcTruthSvc.html#a8fb1561d86e31a994c46f92a49092740">unit_x</a>  =cm;
+<a name="l00262"></a>00262         <a class="code" href="classMcTruthSvc.html#aebba11ae86af5bbaa3a676732d5022da">unit_y</a>  =cm;
+<a name="l00263"></a>00263         <a class="code" href="classMcTruthSvc.html#ad6a9df1a8545c309dfb16a63bb55175e">unit_z</a>  =cm;
+<a name="l00264"></a>00264 }
+<a name="l00265"></a>00265 
+<a name="l00266"></a><a class="code" href="classMcTruthSvc.html#a43e8aa2b11f725cdfaf2bab4df70fb46">00266</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#a43e8aa2b11f725cdfaf2bab4df70fb46">McTruthSvc::ShowOutCard</a>(){
+<a name="l00267"></a>00267         std::cout&lt;&lt;<span class="stringliteral">&quot;*************************Output settings for McTruthSvc***************************&quot;</span>&lt;&lt;std::endl;
+<a name="l00268"></a>00268         std::cout&lt;&lt;<span class="stringliteral">&quot;output nTracks?       &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae68ec529f6db9aa94cc7ee23eedda666">flag_nTracks</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00269"></a>00269         std::cout&lt;&lt;<span class="stringliteral">&quot;output pid?           &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00270"></a>00270         std::cout&lt;&lt;<span class="stringliteral">&quot;enable tid2pid?       &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00271"></a>00271         std::cout&lt;&lt;<span class="stringliteral">&quot;enable tid2time?      &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00272"></a>00272         std::cout&lt;&lt;<span class="stringliteral">&quot;output tid?           &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00273"></a>00273         std::cout&lt;&lt;<span class="stringliteral">&quot;output ptid?          &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00274"></a>00274         std::cout&lt;&lt;<span class="stringliteral">&quot;output ppid?          &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00275"></a>00275         std::cout&lt;&lt;<span class="stringliteral">&quot;output time?          &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a028f7e6fc720e9a357d33e60eb5c8ba5">unitName_time</a>&lt;&lt;std::endl;
+<a name="l00276"></a>00276         std::cout&lt;&lt;<span class="stringliteral">&quot;output px?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a87113cc70a0c0880452bfcfa7573a2fe">unitName_px</a>&lt;&lt;std::endl;
+<a name="l00277"></a>00277         std::cout&lt;&lt;<span class="stringliteral">&quot;output py?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a7d4d20d654c111872033d408da35a485">unitName_py</a>&lt;&lt;std::endl;
+<a name="l00278"></a>00278         std::cout&lt;&lt;<span class="stringliteral">&quot;output pz?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#acf6d9eb26ccff2061e0011aa42939100">unitName_pz</a>&lt;&lt;std::endl;
+<a name="l00279"></a>00279         std::cout&lt;&lt;<span class="stringliteral">&quot;output e?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a59bf98790b71c7aad7e50148fdab2e08">unitName_e</a>&lt;&lt;std::endl;
+<a name="l00280"></a>00280         std::cout&lt;&lt;<span class="stringliteral">&quot;output x?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a7a938ef9df7cccb9c743e461083ef853">unitName_x</a>&lt;&lt;std::endl;
+<a name="l00281"></a>00281         std::cout&lt;&lt;<span class="stringliteral">&quot;output y?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a21b9cdab167c5823a9e69036d7472285">unitName_y</a>&lt;&lt;std::endl;
+<a name="l00282"></a>00282         std::cout&lt;&lt;<span class="stringliteral">&quot;output z?             &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;<span class="stringliteral">&quot;, unit: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a394761e6a9da118ed45a449b658d4caf">unitName_z</a>&lt;&lt;std::endl;
+<a name="l00283"></a>00283         std::cout&lt;&lt;<span class="stringliteral">&quot;output particleName?  &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00284"></a>00284         std::cout&lt;&lt;<span class="stringliteral">&quot;output charge?        &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00285"></a>00285         std::cout&lt;&lt;<span class="stringliteral">&quot;output process?       &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00286"></a>00286         std::cout&lt;&lt;<span class="stringliteral">&quot;output volume?        &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a>?<span class="stringliteral">&quot; yes&quot;</span>:<span class="stringliteral">&quot; no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00287"></a>00287         std::cout&lt;&lt;<span class="stringliteral">&quot;Switch on?            &quot;</span>&lt;&lt;(<a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a>?<span class="stringliteral">&quot;yes&quot;</span>:<span class="stringliteral">&quot;no&quot;</span>)&lt;&lt;std::endl;
+<a name="l00288"></a>00288         std::cout&lt;&lt;<span class="stringliteral">&quot;minp =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a>/MeV&lt;&lt;<span class="stringliteral">&quot;MeV&quot;</span>&lt;&lt;std::endl;
+<a name="l00289"></a>00289         std::cout&lt;&lt;<span class="stringliteral">&quot;mine =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a>/MeV&lt;&lt;<span class="stringliteral">&quot;MeV&quot;</span>&lt;&lt;std::endl;
+<a name="l00290"></a>00290         std::cout&lt;&lt;<span class="stringliteral">&quot;maxnTracks =          &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>&lt;&lt;std::endl;
+<a name="l00291"></a>00291         std::cout&lt;&lt;<span class="stringliteral">&quot;mint =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a>/ns&lt;&lt;<span class="stringliteral">&quot;ns&quot;</span>&lt;&lt;std::endl;
+<a name="l00292"></a>00292         std::cout&lt;&lt;<span class="stringliteral">&quot;maxt =                &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a>/ns&lt;&lt;<span class="stringliteral">&quot;ns&quot;</span>&lt;&lt;std::endl;
+<a name="l00293"></a>00293         std::cout&lt;&lt;<span class="stringliteral">&quot;white list:     &quot;</span>&lt;&lt;std::endl;
+<a name="l00294"></a>00294         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i&lt; <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size(); i++){
+<a name="l00295"></a>00295                 std::cout &lt;&lt;<span class="stringliteral">&quot;  Only tracks with these following PDGCodes will be recorded:&quot;</span>&lt;&lt;std::endl;
+<a name="l00296"></a>00296                 std::cout&lt;&lt;<span class="stringliteral">&quot;            &quot;</span>&lt;&lt;i&lt;&lt;<span class="stringliteral">&quot;: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>[i]&lt;&lt;std::endl;
+<a name="l00297"></a>00297         }
+<a name="l00298"></a>00298         <span class="keywordflow">if</span> ( <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size() == 0 ){
+<a name="l00299"></a>00299                 std::cout &lt;&lt;<span class="stringliteral">&quot;  Empty! So all tracks will be recorded!&quot;</span>&lt;&lt;std::endl;
+<a name="l00300"></a>00300         }
+<a name="l00301"></a>00301         std::cout&lt;&lt;<span class="stringliteral">&quot;black list:     &quot;</span>&lt;&lt;std::endl;
+<a name="l00302"></a>00302         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i&lt; <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.size(); i++){
+<a name="l00303"></a>00303                 std::cout &lt;&lt;<span class="stringliteral">&quot;  Tracks with these following PDGCodes will NOT be recorded:&quot;</span>&lt;&lt;std::endl;
+<a name="l00304"></a>00304                 std::cout&lt;&lt;<span class="stringliteral">&quot;            &quot;</span>&lt;&lt;i&lt;&lt;<span class="stringliteral">&quot;: &quot;</span>&lt;&lt;<a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>[i]&lt;&lt;std::endl;
+<a name="l00305"></a>00305         }
+<a name="l00306"></a>00306         std::cout&lt;&lt;<span class="stringliteral">&quot;******************************************************************************&quot;</span>&lt;&lt;std::endl;
+<a name="l00307"></a>00307 }
+<a name="l00308"></a>00308 
+<a name="l00309"></a><a class="code" href="classMcTruthSvc.html#a7323918508b30dd0f361f581dcf710d3">00309</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#a7323918508b30dd0f361f581dcf710d3">McTruthSvc::SetValuePre</a>(<span class="keyword">const</span> G4Track* aTrack){
+<a name="l00310"></a>00310         G4int pid = aTrack-&gt;GetParticleDefinition()-&gt;GetPDGEncoding();
+<a name="l00311"></a>00311         G4double globalT=aTrack-&gt;GetGlobalTime();<span class="comment">//Time since the event in which the track belongs is created</span>
+<a name="l00312"></a>00312         G4int trackID= aTrack-&gt;GetTrackID(); <span class="comment">//G4 track ID of current track.</span>
+<a name="l00313"></a>00313         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>||<a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>){
+<a name="l00314"></a>00314                 <a class="code" href="classMcTruthSvc.html#abffc1de53bd281064e024451e02b9f01">m_dicttid</a>.push_back(trackID);
+<a name="l00315"></a>00315                 <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#aa16a5f8271bd0f90324e1310500644d9">flag_tid2pid</a>){
+<a name="l00316"></a>00316                         <a class="code" href="classMcTruthSvc.html#ac7c8936a059245f27b4ed65df5decad5">m_dictpid</a>.push_back(pid);
+<a name="l00317"></a>00317                 }
+<a name="l00318"></a>00318                 <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a7a95e7901fff80e3e673fe5276d50a15">flag_tid2time</a>){
+<a name="l00319"></a>00319                         <a class="code" href="classMcTruthSvc.html#a841e362e0da4a4719525e654e266165b">m_dicttime</a>.push_back(globalT);
+<a name="l00320"></a>00320                 }
+<a name="l00321"></a>00321         }
+<a name="l00322"></a>00322         <a class="code" href="classMcTruthSvc.html#a29bc3fcdaceeeb5be0eaed160aeb5f95">m_nTracksAll</a>++;
+<a name="l00323"></a>00323         <span class="comment">//switch</span>
+<a name="l00324"></a>00324         <span class="keywordflow">if</span> (!<a class="code" href="classMcTruthSvc.html#a32eee3a24e724c45e3933a3b18b315f5">m_Switch</a>) <span class="keywordflow">return</span>;
+<a name="l00325"></a>00325         <span class="comment">//nTracks</span>
+<a name="l00326"></a>00326         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>&amp;&amp;<a class="code" href="classMcTruthSvc.html#a15d280f877d46896c6936fe37c5abdf3">m_nTracks</a>&gt;=<a class="code" href="classMcTruthSvc.html#a214dfaa8e5853898a4e7389e14db25f0">m_maxnTracks</a>) <span class="keywordflow">return</span>;
+<a name="l00327"></a>00327         <span class="comment">//momentum</span>
+<a name="l00328"></a>00328         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a>&amp;&amp;aTrack-&gt;GetMomentum().mag()&lt;<a class="code" href="classMcTruthSvc.html#ab3614a15a8115733099abfc672d47e34">m_minp</a>) <span class="keywordflow">return</span>;
+<a name="l00329"></a>00329         <span class="comment">//energy</span>
+<a name="l00330"></a>00330         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a>&amp;&amp;aTrack-&gt;GetTotalEnergy()&lt;<a class="code" href="classMcTruthSvc.html#a47598a6008ab0375933508c8e2625d9e">m_mine</a>) <span class="keywordflow">return</span>;
+<a name="l00331"></a>00331         <span class="comment">//time window</span>
+<a name="l00332"></a>00332         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a>&amp;&amp;globalT&lt;<a class="code" href="classMcTruthSvc.html#a3f4386035c51026572cefb97ddd9257b">m_mint</a>) <span class="keywordflow">return</span>;
+<a name="l00333"></a>00333         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a>&amp;&amp;globalT&gt;<a class="code" href="classMcTruthSvc.html#a91d744c35e4afdeaf71b491600717b11">m_maxt</a>) <span class="keywordflow">return</span>;
+<a name="l00334"></a>00334         <span class="comment">// white_list</span>
+<a name="l00335"></a>00335         <span class="keywordtype">bool</span> foundit = <span class="keyword">false</span>;
+<a name="l00336"></a>00336         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size(); i++){
+<a name="l00337"></a>00337                 <span class="keywordflow">if</span> (pid == <a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>[i]) foundit=<span class="keyword">true</span>;
+<a name="l00338"></a>00338         }
+<a name="l00339"></a>00339         <span class="keywordflow">if</span> (<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size()==1&amp;&amp;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>[0]==0){
+<a name="l00340"></a>00340                 <span class="keywordflow">if</span> (pid&lt;1e7) foundit = <span class="keyword">true</span>;
+<a name="l00341"></a>00341         }
+<a name="l00342"></a>00342         <span class="keywordflow">if</span> (!foundit&amp;&amp;<a class="code" href="classMcTruthSvc.html#a3b3c91e7fe91d6f3fab3bf7a5e207d7a">white_list</a>.size()) <span class="keywordflow">return</span>;
+<a name="l00343"></a>00343         <span class="comment">// black_list</span>
+<a name="l00344"></a>00344         foundit = <span class="keyword">false</span>;
+<a name="l00345"></a>00345         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>.size(); i++){
+<a name="l00346"></a>00346                 <span class="keywordflow">if</span> (pid == <a class="code" href="classMcTruthSvc.html#a4c450aefb70d81790c8292f11017a20e">black_list</a>[i]) foundit=<span class="keyword">true</span>;
+<a name="l00347"></a>00347         }
+<a name="l00348"></a>00348         <span class="keywordflow">if</span> (foundit) <span class="keywordflow">return</span>;
+<a name="l00349"></a>00349 
+<a name="l00350"></a>00350         G4String processName;
+<a name="l00351"></a>00351         <span class="keyword">const</span> G4VProcess* process = aTrack-&gt;GetCreatorProcess();
+<a name="l00352"></a>00352         <span class="keywordflow">if</span> (process) {
+<a name="l00353"></a>00353                 processName = process-&gt;GetProcessName();
+<a name="l00354"></a>00354         }
+<a name="l00355"></a>00355         <span class="keywordflow">else</span>{
+<a name="l00356"></a>00356                 processName = <span class="stringliteral">&quot;NULL&quot;</span>;
+<a name="l00357"></a>00357         }
+<a name="l00358"></a>00358         G4int ptid = aTrack-&gt;GetParentID(); <span class="comment">//parent G4 track ID of current track.</span>
+<a name="l00359"></a>00359         G4ThreeVector mom_3vec = aTrack-&gt;GetMomentum();
+<a name="l00360"></a>00360         G4ThreeVector pos_3vec = aTrack-&gt;GetVertexPosition();
+<a name="l00361"></a>00361         std::string volume = aTrack-&gt;GetLogicalVolumeAtVertex()-&gt;GetName();
+<a name="l00362"></a>00362         std::string particleName = aTrack-&gt;GetParticleDefinition()-&gt;GetParticleName();
+<a name="l00363"></a>00363         <span class="keywordtype">int</span> charge = aTrack-&gt;GetParticleDefinition()-&gt;GetPDGCharge();
+<a name="l00364"></a>00364         G4double energy = aTrack-&gt;GetTotalEnergy();
+<a name="l00365"></a>00365         G4double kinenergy = aTrack-&gt;GetKineticEnergy();
+<a name="l00366"></a>00366 
+<a name="l00367"></a>00367         <a class="code" href="classMcTruthSvc.html#a15d280f877d46896c6936fe37c5abdf3">m_nTracks</a>++;
+<a name="l00368"></a>00368         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a02f1e248cb1b1b78099018ea2742d2eb">flag_pid</a>) <a class="code" href="classMcTruthSvc.html#a69d1b5d553f26af03c8750d83c8322b3">m_pid</a>.push_back(pid);
+<a name="l00369"></a>00369         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#aefc2256fca7c9ecdeea3834695380fc2">flag_tid</a>) <a class="code" href="classMcTruthSvc.html#ab3964bd847fd8e279e0afe66669e8fc4">m_tid</a>.push_back(trackID);
+<a name="l00370"></a>00370         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#ae1f57de569a2f22c20ba42b608ef954a">flag_ptid</a>) <a class="code" href="classMcTruthSvc.html#a68235da0860f9b5a0d38828b173e84a7">m_ptid</a>.push_back(ptid);
+<a name="l00371"></a>00371         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a4ac83f0fdd1b8bb433088b3561fe75f7">flag_ppid</a>){
+<a name="l00372"></a>00372                 <span class="keywordtype">int</span> ptid = aTrack-&gt;GetParentID();
+<a name="l00373"></a>00373                 <span class="keywordtype">int</span> ppid = <a class="code" href="classMcTruthSvc.html#aba785fd432f22eed7c13cf003d6c7839">McTruthSvc::GetMcTruthSvc</a>()-&gt;<a class="code" href="classMcTruthSvc.html#a506f5a0675e6b716e73caee2b5bd80df">tid2pid</a>(ptid);
+<a name="l00374"></a>00374                 <a class="code" href="classMcTruthSvc.html#a4953654654985205e9dc1de6abaca9d7">m_ppid</a>.push_back(ppid);
+<a name="l00375"></a>00375         }
+<a name="l00376"></a>00376         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#abd53e985f2a4c7065581f6e3df6a7dd6">flag_time</a>) <a class="code" href="classMcTruthSvc.html#aaeb48db046bcc05dd1a8669a2f039710">m_time</a>.push_back(globalT/<a class="code" href="classMcTruthSvc.html#af26d47451f69293c97de48dcf0fc93fa">unit_time</a>);
+<a name="l00377"></a>00377         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#af2e7b2171f52ad99b732447358715c4f">flag_px</a>) <a class="code" href="classMcTruthSvc.html#af2b0abc2ac8ccca17695502a569c8bc1">m_px</a>.push_back(mom_3vec.x()/<a class="code" href="classMcTruthSvc.html#a1528379b37a65be09cbcd40efc6d2a24">unit_px</a>);
+<a name="l00378"></a>00378 <span class="comment">//      std::cout&lt;&lt;&quot;m_px.push_back(&quot;&lt;&lt;(mom_3vec.x()/unit_px)&lt;&lt;&quot;)&quot;&lt;&lt;std::endl;</span>
+<a name="l00379"></a>00379         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#af4a74ab9a9fb4d1e8ed3cfbfd76e8237">flag_py</a>) <a class="code" href="classMcTruthSvc.html#a7d5efa92f59a550efd08f370c8b0bbe1">m_py</a>.push_back(mom_3vec.y()/<a class="code" href="classMcTruthSvc.html#a2717d3a2eab8d691bd91096936febbfc">unit_py</a>);
+<a name="l00380"></a>00380         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a1990b8a00c4141fa190226d2f49d891c">flag_pz</a>) <a class="code" href="classMcTruthSvc.html#acdc84a1f37744b22376aa9cb8eca6344">m_pz</a>.push_back(mom_3vec.z()/<a class="code" href="classMcTruthSvc.html#a322aaf48f9a6f98de5784482d0af9418">unit_pz</a>);
+<a name="l00381"></a>00381         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a>) <a class="code" href="classMcTruthSvc.html#a562ea0a98cf298b6e9460d99bb65e76a">m_e</a>.push_back(energy/<a class="code" href="classMcTruthSvc.html#a7d9fd80bc959ecbffcf89f6eea72675e">unit_e</a>);
+<a name="l00382"></a>00382         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#adb31b43c9311a7b1c2a0bb8d72374273">flag_e</a>) <a class="code" href="classMcTruthSvc.html#a6c8fe7c4e2470304facc3b9791ad7107">m_ekin</a>.push_back(kinenergy/<a class="code" href="classMcTruthSvc.html#a7d9fd80bc959ecbffcf89f6eea72675e">unit_e</a>);
+<a name="l00383"></a>00383         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a2343fa7c25e641e1b4bd7d92753a024e">flag_x</a>) <a class="code" href="classMcTruthSvc.html#a00160ed02f1903640adeaba14622b6e2">m_x</a>.push_back(pos_3vec.x()/<a class="code" href="classMcTruthSvc.html#a8fb1561d86e31a994c46f92a49092740">unit_x</a>);
+<a name="l00384"></a>00384         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#ae823d5b007871938a3e57b90d800bec1">flag_y</a>) <a class="code" href="classMcTruthSvc.html#aed01142ba889ebe4c479f974276225bb">m_y</a>.push_back(pos_3vec.y()/<a class="code" href="classMcTruthSvc.html#aebba11ae86af5bbaa3a676732d5022da">unit_y</a>);
+<a name="l00385"></a>00385         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#a5df6e53fb1329f249040b1c9e6a5d678">flag_z</a>) <a class="code" href="classMcTruthSvc.html#a2d67a5d9b817d14991804cfe70c90faf">m_z</a>.push_back(pos_3vec.z()/<a class="code" href="classMcTruthSvc.html#ad6a9df1a8545c309dfb16a63bb55175e">unit_z</a>);
+<a name="l00386"></a>00386         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#aba614215eed5d9a44650eea44a91f7cb">flag_charge</a>) <a class="code" href="classMcTruthSvc.html#ae86701505c127dadd98346a68ec1ffd0">m_charge</a>.push_back(charge);
+<a name="l00387"></a>00387         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#aa8fa4f3709e087a38c941de7672d0e10">flag_particleName</a>) <a class="code" href="classMcTruthSvc.html#a849c86b9054dbcfc673464d9fda58af2">m_particleName</a>.push_back(particleName);
+<a name="l00388"></a>00388         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#af458d8a8bf4a289f27f1cd5041b3763e">flag_process</a>) <a class="code" href="classMcTruthSvc.html#ae3c486b58d42a229a10c609b778f74e9">m_process</a>.push_back(processName);
+<a name="l00389"></a>00389         <span class="keywordflow">if</span>(<a class="code" href="classMcTruthSvc.html#ae17ddd36cda5323e40f0d0e5e272745f">flag_volume</a>) <a class="code" href="classMcTruthSvc.html#ae23140ef15e17e9b34afc989394adc7b">m_volume</a>.push_back(volume);
+<a name="l00390"></a>00390 }
+<a name="l00391"></a>00391 
+<a name="l00392"></a><a class="code" href="classMcTruthSvc.html#acb8620775f4a9c09dc57e8c3bee977fc">00392</a> <span class="keywordtype">void</span> <a class="code" href="classMcTruthSvc.html#acb8620775f4a9c09dc57e8c3bee977fc">McTruthSvc::SetValuePost</a>(<span class="keyword">const</span> G4Track* aTrack){
+<a name="l00393"></a>00393         <span class="comment">//      G4int   nbSteps = aTrack-&gt;GetCurrentStepNumber();</span>
+<a name="l00394"></a>00394         <span class="comment">//      G4double trackLength = aTrack-&gt;GetTrackLength();</span>
+<a name="l00395"></a>00395 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Jul 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 17 Jul 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
