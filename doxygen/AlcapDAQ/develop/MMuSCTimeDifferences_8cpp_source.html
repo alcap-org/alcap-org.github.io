@@ -170,7 +170,7 @@
 <a name="l00148"></a>00148     gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
 <a name="l00149"></a>00149   
 <a name="l00150"></a>00150   <span class="comment">// Let&apos;s loop over the muSC times</span>
-<a name="l00151"></a>00151   std::string str_MuSC = gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<span class="stringliteral">&quot;muSc&quot;</span>);
+<a name="l00151"></a>00151   std::string str_MuSC = gSetup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<span class="stringliteral">&quot;muSc&quot;</span>);
 <a name="l00152"></a>00152   <span class="keywordtype">int</span> lPP = 0;
 <a name="l00153"></a>00153   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="MMuSCTimeDifferences_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>; ++i) <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i] = 0;
 <a name="l00154"></a>00154   
@@ -183,7 +183,7 @@
 <a name="l00161"></a>00161     
 <a name="l00162"></a>00162     std::string bank_name;
 <a name="l00163"></a>00163     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;nr_detectors; ++i){
-<a name="l00164"></a>00164       bank_name=gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>[i]);
+<a name="l00164"></a>00164       bank_name=gSetup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>[i]);
 <a name="l00165"></a>00165       <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i] = <a class="code" href="MFastSlowCorrelator_8cpp.html#a9f32c7c332b01ce8022bd9e7e2c147c1">FillCoincidenceTimeHistogram</a>(tMusc, pulse_islands_map[bank_name], 
 <a name="l00166"></a>00166                                              <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#a12b055fd4ad8a675b39fcd6d5e2a6f04">hAmplitudeVsTime</a>[i], t_low, t_high,
 <a name="l00167"></a>00167                                              PP, <a class="code" href="MMuSCTimeDifferences_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#ae163d5fd93c8330dfa5f793022f91f3c">hAmplitudeVsTime_PP</a>[i], bank_name);
@@ -233,7 +233,7 @@
 <a name="l00211"></a>00211    <span class="keywordflow">return</span> p-&gt;<a class="code" href="classTPulseIsland.html#a53a8591e34a14f2ef6d061f50a760cf8">GetPulseTime</a>() - setup-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bank_name);
 <a name="l00212"></a>00212 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

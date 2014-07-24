@@ -63,24 +63,24 @@
 <div class="memdoc">
 <p>Function to convert the details in this struct into a string used for naming plots </p>
 
-<p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00193">193</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ExportPulse_8cpp_source.html#l00213">213</a> of file <a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00037">bankname</a>, <a class="el" href="ExportPulse_8h_source.html#l00038">detname</a>, <a class="el" href="ExportPulse_8h_source.html#l00036">event</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00024">isNonCpp()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00035">pulseID</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00037">bankname</a>, <a class="el" href="ExportPulse_8h_source.html#l00038">detname</a>, <a class="el" href="ExportPulse_8h_source.html#l00036">event</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00031">isNonCpp()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00035">pulseID</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00233">ExportPulse::PlotTAP()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00256">ExportPulse::PlotTAP()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00193"></a>00193                                                   {
-<a name="l00194"></a>00194    std::stringstream histname;
-<a name="l00195"></a>00195    histname &lt;&lt; <span class="stringliteral">&quot;Pulse_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>;
-<a name="l00196"></a>00196    histname &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac21c371a0076ed6ef9f7e8319562d388">detname</a>;
-<a name="l00197"></a>00197    histname &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac1ad443dd9a7910ed934a62213bec745">event</a>;
-<a name="l00198"></a>00198    histname &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#a194a5aedc57c5c4ff621c30ef6994658">pulseID</a>;
-<a name="l00199"></a>00199    std::string hist=histname.str();
-<a name="l00200"></a>00200    <span class="comment">// replace all non c++ characters with underscore so we can use the</span>
-<a name="l00201"></a>00201    <span class="comment">// histograms in root directly.</span>
-<a name="l00202"></a>00202    std::replace_if(hist.begin(),hist.end(), <a class="code" href="ExportPulse_8cpp.html#a253edf10cbcee8d70ffcb18d8cc7add2">isNonCpp</a>, <span class="charliteral">&apos;_&apos;</span>);
-<a name="l00203"></a>00203    <span class="keywordflow">return</span> hist;
-<a name="l00204"></a>00204 }
+<p><div class="fragment"><pre class="fragment"><a name="l00213"></a>00213                                                   {
+<a name="l00214"></a>00214   std::stringstream histname;
+<a name="l00215"></a>00215   histname &lt;&lt; <span class="stringliteral">&quot;Pulse_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>;
+<a name="l00216"></a>00216   histname &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac21c371a0076ed6ef9f7e8319562d388">detname</a>;
+<a name="l00217"></a>00217   histname &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#ac1ad443dd9a7910ed934a62213bec745">event</a>;
+<a name="l00218"></a>00218   histname &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code" href="structExportPulse_1_1PulseInfo__t.html#a194a5aedc57c5c4ff621c30ef6994658">pulseID</a>;
+<a name="l00219"></a>00219   std::string hist=histname.str();
+<a name="l00220"></a>00220   <span class="comment">// replace all non c++ characters with underscore so we can use the</span>
+<a name="l00221"></a>00221   <span class="comment">// histograms in root directly.</span>
+<a name="l00222"></a>00222   std::replace_if(hist.begin(),hist.end(), <a class="code" href="ExportPulse_8cpp.html#a253edf10cbcee8d70ffcb18d8cc7add2">isNonCpp</a>, <span class="charliteral">&apos;_&apos;</span>);
+<a name="l00223"></a>00223   <span class="keywordflow">return</span> hist;
+<a name="l00224"></a>00224 }
 </pre></div></p>
 
 </div>
@@ -99,7 +99,7 @@
 
 <p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00037">37</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8h_source.html#l00102">ExportPulse::GetCurrentBankName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00193">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">ExportPulse::SetCurrentDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00045">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8h_source.html#l00102">ExportPulse::GetCurrentBankName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00213">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">ExportPulse::SetCurrentDetectorName()</a>.</p>
 
 </div>
 </div>
@@ -116,7 +116,7 @@
 
 <p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00038">38</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00193">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">ExportPulse::SetCurrentDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00045">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00213">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">ExportPulse::SetCurrentDetectorName()</a>.</p>
 
 </div>
 </div>
@@ -133,7 +133,7 @@
 
 <p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00036">36</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8h_source.html#l00101">ExportPulse::GetCurrentEventNumber()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00193">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00098">ExportPulse::SetCurrentEventNumber()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00045">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8h_source.html#l00101">ExportPulse::GetCurrentEventNumber()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00213">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00098">ExportPulse::SetCurrentEventNumber()</a>.</p>
 
 </div>
 </div>
@@ -150,7 +150,7 @@
 
 <p>Definition at line <a class="el" href="ExportPulse_8h_source.html#l00035">35</a> of file <a class="el" href="ExportPulse_8h_source.html">ExportPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00036">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00193">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00206">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00097">ExportPulse::SetCurrentPulseID()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00045">ExportPulse::ExportPulse()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00213">MakeTPIName()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00097">ExportPulse::SetCurrentPulseID()</a>.</p>
 
 </div>
 </div>
@@ -159,7 +159,7 @@
 <li>rootana/src/plotters/<a class="el" href="ExportPulse_8cpp_source.html">ExportPulse.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

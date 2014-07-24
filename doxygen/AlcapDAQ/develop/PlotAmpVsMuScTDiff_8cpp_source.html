@@ -43,7 +43,7 @@
 <a name="l00016"></a>00016 <span class="keyword">using</span> std::cout;
 <a name="l00017"></a>00017 <span class="keyword">using</span> std::endl;
 <a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
+<a name="l00019"></a>00019 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
 <a name="l00020"></a>00020 
 <a name="l00021"></a><a class="code" href="classPlotAmpVsMuScTDiff.html#a876181872596e81324133405aeaa7ea8">00021</a> <a class="code" href="classPlotAmpVsMuScTDiff.html#a876181872596e81324133405aeaa7ea8" title="Constructor description. If necessary, add a details tag like above.">PlotAmpVsMuScTDiff::PlotAmpVsMuScTDiff</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
 <a name="l00022"></a>00022     <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotAmpVsMuScTDiff&quot;</span>,opts){
@@ -56,8 +56,8 @@
 <a name="l00029"></a><a class="code" href="classPlotAmpVsMuScTDiff.html#a850fc4f3228ea5208587dd218e17a4a3">00029</a> <span class="keywordtype">int</span> <a class="code" href="classPlotAmpVsMuScTDiff.html#a850fc4f3228ea5208587dd218e17a4a3" title="What needes to be done before each run? Don&amp;#39;t hesitate to repeat what was said...">PlotAmpVsMuScTDiff::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
 <a name="l00030"></a>00030     <span class="comment">// Find the first muSc source ID</span>
 <a name="l00031"></a>00031     <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> muSc(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea9f7d7f2c53d9b647950010051d538a01">IDs::kMuSc</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">IDs::kAnySlowFast</a>, <span class="stringliteral">&quot;*&quot;</span>, <a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">IDs::kAnyConfig</a>);
-<a name="l00032"></a>00032     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_source=<a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00033"></a>00033             i_source!=<a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); i_source++){
+<a name="l00032"></a>00032     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_source=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00033"></a>00033             i_source!=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); i_source++){
 <a name="l00034"></a>00034         <span class="keywordflow">if</span>(i_source-&gt;first.matches(muSc)) <a class="code" href="classPlotAmpVsMuScTDiff.html#aca97928c5e257ee6df991a3805633506">fMuScSources</a>.push_back(i_source-&gt;first);
 <a name="l00035"></a>00035         <span class="keywordflow">else</span> <a class="code" href="classPlotAmpVsMuScTDiff.html#a89d701d067027adcbb13177b30284795">fNotMuScSources</a>.push_back(i_source-&gt;first);
 <a name="l00036"></a>00036     }
@@ -78,7 +78,7 @@
 <a name="l00051"></a>00051             i_not_muSc!=<a class="code" href="classPlotAmpVsMuScTDiff.html#a89d701d067027adcbb13177b30284795">fNotMuScSources</a>.end(); i_not_muSc++){
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053         <span class="comment">// Get all pulses for i_not_muSc </span>
-<a name="l00054"></a>00054         not_muSc_pulses=&amp;<a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*i_not_muSc];
+<a name="l00054"></a>00054         not_muSc_pulses=&amp;<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*i_not_muSc];
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056         <span class="comment">// for each muSc source</span>
 <a name="l00057"></a>00057         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceVector::const_iterator</a> i_muSc=<a class="code" href="classPlotAmpVsMuScTDiff.html#aca97928c5e257ee6df991a3805633506">fMuScSources</a>.begin();
@@ -93,7 +93,7 @@
 <a name="l00066"></a>00066             }
 <a name="l00067"></a>00067 
 <a name="l00068"></a>00068             <span class="comment">// Get all pulses for i_muSc</span>
-<a name="l00069"></a>00069             muSc_pulses=&amp;<a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*i_muSc];
+<a name="l00069"></a>00069             muSc_pulses=&amp;<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*i_muSc];
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071             <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> not_muSc = not_muSc_pulses-&gt;begin();
 <a name="l00072"></a>00072                     not_muSc != not_muSc_pulses-&gt;end(); ++not_muSc) {
@@ -161,7 +161,7 @@
 <a name="l00134"></a>00134 
 <a name="l00135"></a>00135 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotAmpVsMuScTDiff.html" title="A one line description of what your module does.">PlotAmpVsMuScTDiff</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -28,57 +28,46 @@
 <h1>rootana/src/TAP_generators/MaxBinAPGenerator.h</h1><a href="MaxBinAPGenerator_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef MAXBINAPGENERATOR_H__</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define MAXBINAPGENERATOR_H__</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="TVAnalysedPulseGenerator_8h.html">TVAnalysedPulseGenerator.h</a>&quot;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>;
-<a name="l00010"></a>00010 <span class="keyword">class </span><a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>;
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="classMaxBinAPGenerator.html">00012</a> <span class="keyword">class </span><a class="code" href="classMaxBinAPGenerator.html">MaxBinAPGenerator</a>:<span class="keyword">public</span> <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a> {
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014  <span class="keyword">public</span>:
-<a name="l00015"></a><a class="code" href="classMaxBinAPGenerator.html#a66c71f4e66c3b1414d6c6489be9e7001">00015</a>   <a class="code" href="classMaxBinAPGenerator.html#a66c71f4e66c3b1414d6c6489be9e7001">MaxBinAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts):
-<a name="l00016"></a>00016           <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;MaxBin&quot;</span>, opts),<a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>(<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>::Instance()){};
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="TVAnalysedPulseGenerator_8h.html">TVAnalysedPulseGenerator.h</a>&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">class </span><a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>;
+<a name="l00009"></a>00009 <span class="keyword">class </span><a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>;
+<a name="l00010"></a>00010 
+<a name="l00011"></a><a class="code" href="classMaxBinAPGenerator.html">00011</a> <span class="keyword">class </span><a class="code" href="classMaxBinAPGenerator.html">MaxBinAPGenerator</a>:<span class="keyword">public</span> <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a> {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013  <span class="keyword">public</span>:
+<a name="l00014"></a><a class="code" href="classMaxBinAPGenerator.html#a66c71f4e66c3b1414d6c6489be9e7001">00014</a>   <a class="code" href="classMaxBinAPGenerator.html#a66c71f4e66c3b1414d6c6489be9e7001">MaxBinAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts)
+<a name="l00015"></a>00015     : <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;MaxBinAPGenerator&quot;</span>, opts)
+<a name="l00016"></a>00016   {};
 <a name="l00017"></a>00017 
 <a name="l00018"></a><a class="code" href="classMaxBinAPGenerator.html#ad9baa02e3510fe0c4abc879f06bc54ba">00018</a>   <span class="keyword">virtual</span> <a class="code" href="classMaxBinAPGenerator.html#ad9baa02e3510fe0c4abc879f06bc54ba">~MaxBinAPGenerator</a>(){};
-<a name="l00019"></a><a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">00019</a>   <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">SetBankInfo</a>(std::string bankname){
-<a name="l00020"></a>00020       <a class="code" href="classMaxBinAPGenerator.html#ad623b92da441dcf613a9ed57d277b0dc">fBankname</a>=bankname;
-<a name="l00021"></a>00021       <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">GetPedestal</a>(bankname);
-<a name="l00022"></a>00022       <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
-<a name="l00023"></a>00023       <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a049d3a5de5fb19c304a9ffc7be6edae0" title="Deprecated.">GetADCSlopeCalib</a>(bankname);
-<a name="l00024"></a>00024       <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a68b99bddb9e8c88e5c99b0317c8e4708" title="Deprecated.">GetADCOffsetCalib</a>(bankname);
-<a name="l00025"></a>00025       <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a1cee3192841101548524aae1cdd73069">GetClockTick</a>(bankname);
-<a name="l00026"></a>00026       <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a> = <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bankname);
-<a name="l00027"></a>00027       <a class="code" href="classMaxBinAPGenerator.html#ab0946926727b5692905ccfd97632a06c">fDetName</a>=<a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
-<a name="l00028"></a>00028    }
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030  <span class="keyword">public</span>:
-<a name="l00031"></a>00031    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b" title="This method is called on each vector of pulses from a MIDAS event.">ProcessPulses</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;,<a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;);
-<a name="l00032"></a><a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">00032</a>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034    <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">GetAllParameters_MaxBin</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keywordtype">double</span>&amp; amplitude,
-<a name="l00035"></a>00035          <span class="keywordtype">double</span>&amp; time, <span class="keywordtype">double</span>&amp; integral, <span class="keywordtype">double</span>&amp; energy) ;
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037  <span class="keyword">private</span>:
-<a name="l00038"></a>00038    <span class="comment">// Ideally we would have the TSetupData storing all this as a single struct so</span>
-<a name="l00039"></a>00039    <span class="comment">// we wouldn&apos;t need the following fields</span>
-<a name="l00040"></a><a class="code" href="classMaxBinAPGenerator.html#ad623b92da441dcf613a9ed57d277b0dc">00040</a>    std::string <a class="code" href="classMaxBinAPGenerator.html#ad623b92da441dcf613a9ed57d277b0dc">fBankname</a>;
-<a name="l00041"></a><a class="code" href="classMaxBinAPGenerator.html#ab0946926727b5692905ccfd97632a06c">00041</a>    std::string <a class="code" href="classMaxBinAPGenerator.html#ab0946926727b5692905ccfd97632a06c">fDetName</a>;
-<a name="l00042"></a><a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">00042</a>    <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>;
-<a name="l00043"></a><a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">00043</a>    <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>;
-<a name="l00044"></a><a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">00044</a>    <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a>;
-<a name="l00045"></a><a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">00045</a>    <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
-<a name="l00046"></a><a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">00046</a>    <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>;
-<a name="l00047"></a><a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">00047</a>    <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>;
-<a name="l00048"></a><a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">00048</a>    <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classMaxBinAPGenerator.html#af50a912d99d9e9d786c9d824876eb49d">fSetup</a>;
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 };
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="preprocessor">#endif // MAXBINAPGENERATOR_H__</span>
+<a name="l00019"></a>00019   <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">SetBankInfo</a>(std::string bankname);
+<a name="l00020"></a>00020   
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a>00022   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b" title="This method is called on each vector of pulses from a MIDAS event.">ProcessPulses</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;,<a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;);
+<a name="l00023"></a><a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">00023</a>   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025   <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">GetAllParameters_MaxBin</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, <span class="keywordtype">double</span>&amp; amplitude,
+<a name="l00026"></a>00026                                <span class="keywordtype">double</span>&amp; time, <span class="keywordtype">double</span>&amp; integral, <span class="keywordtype">double</span>&amp; energy) ;
+<a name="l00027"></a>00027   
+<a name="l00028"></a>00028 <span class="keyword">private</span>:
+<a name="l00029"></a>00029   <span class="comment">// Ideally we would have the TSetupData storing all this as a single struct so</span>
+<a name="l00030"></a>00030   <span class="comment">// we wouldn&apos;t need the following fields</span>
+<a name="l00031"></a><a class="code" href="classMaxBinAPGenerator.html#ad623b92da441dcf613a9ed57d277b0dc">00031</a>   std::string <a class="code" href="classMaxBinAPGenerator.html#ad623b92da441dcf613a9ed57d277b0dc">fBankname</a>;
+<a name="l00032"></a><a class="code" href="classMaxBinAPGenerator.html#ab0946926727b5692905ccfd97632a06c">00032</a>   std::string <a class="code" href="classMaxBinAPGenerator.html#ab0946926727b5692905ccfd97632a06c">fDetName</a>;
+<a name="l00033"></a><a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">00033</a>   <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>;
+<a name="l00034"></a><a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">00034</a>   <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>;
+<a name="l00035"></a><a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">00035</a>   <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a>;
+<a name="l00036"></a><a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">00036</a>   <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
+<a name="l00037"></a><a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">00037</a>   <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>;
+<a name="l00038"></a><a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">00038</a>   <span class="keywordtype">double</span> <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>; 
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="preprocessor">#endif // MAXBINAPGENERATOR_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

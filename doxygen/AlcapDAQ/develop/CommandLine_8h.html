@@ -77,9 +77,9 @@
 
 <p>Definition at line <a class="el" href="CommandLine_8cpp_source.html#l00114">114</a> of file <a class="el" href="CommandLine_8cpp_source.html">CommandLine.cpp</a>.</p>
 
-<p>References <a class="el" href="CommandLine_8cpp_source.html#l00067">check_arguments()</a>, <a class="el" href="CommandLine_8h_source.html#l00011">ARGUMENTS::correction_file</a>, <a class="el" href="CommandLine_8cpp_source.html#l00012">help_command_line()</a>, <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::infile</a>, <a class="el" href="CommandLine_8cpp_source.html#l00032">isNumber()</a>, <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::outfile</a>, <a class="el" href="CommandLine_8h_source.html#l00015">ARGUMENTS::run</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00014">ARGUMENTS::stop</a>.</p>
+<p>References <a class="el" href="CommandLine_8cpp_source.html#l00067">check_arguments()</a>, <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::correction_file</a>, <a class="el" href="CommandLine_8cpp_source.html#l00012">help_command_line()</a>, <a class="el" href="CommandLine_8h_source.html#l00007">ARGUMENTS::infile</a>, <a class="el" href="CommandLine_8cpp_source.html#l00032">isNumber()</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00008">ARGUMENTS::outfile</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::run</a>, <a class="el" href="CommandLine_8h_source.html#l00011">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::stop</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp_source.html#l00084">main()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp_source.html#l00075">main()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00115"></a>00115 {
 <a name="l00116"></a>00116   <span class="comment">// Inialise the arguments to be consistently meaningless</span>
@@ -164,60 +164,50 @@
 <a name="l00195"></a>00195      <span class="keywordflow">break</span>;
 <a name="l00196"></a>00196 
 <a name="l00197"></a>00197      <span class="comment">//----------</span>
-<a name="l00198"></a>00198    <span class="keywordflow">case</span> <span class="charliteral">&apos;n&apos;</span>:
-<a name="l00199"></a>00199      <span class="keywordflow">if</span>(i+1 &lt; argc){
-<a name="l00200"></a>00200        <span class="keywordflow">if</span>(<a class="code" href="CommandLine_8cpp.html#a5d574e116b60049409315c3e09acebca">isNumber</a>(argv[i+1])){
-<a name="l00201"></a>00201          arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a> = atoi(argv[i+1]);
-<a name="l00202"></a>00202          i+=2;
-<a name="l00203"></a>00203        }
-<a name="l00204"></a>00204        <span class="keywordflow">else</span> {
-<a name="l00205"></a>00205          std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: Argument &quot;</span> &lt;&lt; argv[i+1]
-<a name="l00206"></a>00206                    &lt;&lt; <span class="stringliteral">&quot; for option -n is not a number\n&quot;</span>;
-<a name="l00207"></a>00207          <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;
-<a name="l00208"></a>00208        }
-<a name="l00209"></a>00209        <span class="keywordflow">if</span>(i &lt; argc &amp;&amp; argv[i][0] != <span class="charliteral">&apos;-&apos;</span>){
-<a name="l00210"></a>00210          <span class="keywordflow">if</span>(<a class="code" href="CommandLine_8cpp.html#a5d574e116b60049409315c3e09acebca">isNumber</a>(argv[i])){
-<a name="l00211"></a>00211            arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a> = atoi(argv[i]);
-<a name="l00212"></a>00212            i+=1;
-<a name="l00213"></a>00213          }
-<a name="l00214"></a>00214          <span class="keywordflow">else</span>{
-<a name="l00215"></a>00215            std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: Argument &quot;</span> &lt;&lt; argv[i+1]
-<a name="l00216"></a>00216                      &lt;&lt; <span class="stringliteral">&quot; for option -n is not a number\n&quot;</span>;
-<a name="l00217"></a>00217            <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;
-<a name="l00218"></a>00218          }
-<a name="l00219"></a>00219        }
-<a name="l00220"></a>00220      }
-<a name="l00221"></a>00221      <span class="keywordflow">else</span>{
-<a name="l00222"></a>00222        std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: No argument for number of processed events specified\n&quot;</span>;
-<a name="l00223"></a>00223        <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;
-<a name="l00224"></a>00224      }
-<a name="l00225"></a>00225      <span class="keywordflow">break</span>;
-<a name="l00226"></a>00226 
-<a name="l00227"></a>00227      <span class="comment">//----------</span>
-<a name="l00228"></a>00228    <span class="keywordflow">case</span> <span class="charliteral">&apos;r&apos;</span>:
-<a name="l00229"></a>00229      <span class="keywordflow">if</span>(i+1 &lt; argc){
-<a name="l00230"></a>00230        <span class="keywordflow">if</span>(<a class="code" href="CommandLine_8cpp.html#a5d574e116b60049409315c3e09acebca">isNumber</a>(argv[i+1])){
-<a name="l00231"></a>00231          arguments.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a> = atoi(argv[i+1]);
-<a name="l00232"></a>00232          i+=2;
-<a name="l00233"></a>00233        }
-<a name="l00234"></a>00234        <span class="keywordflow">else</span>{
-<a name="l00235"></a>00235          std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: Argument &quot;</span> &lt;&lt; argv[i+1]
-<a name="l00236"></a>00236                    &lt;&lt; <span class="stringliteral">&quot; for option -r is not a number\n&quot;</span>;
-<a name="l00237"></a>00237          <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;
-<a name="l00238"></a>00238        }
-<a name="l00239"></a>00239      }
-<a name="l00240"></a>00240      <span class="keywordflow">break</span>;
-<a name="l00241"></a>00241 
-<a name="l00242"></a>00242      <span class="comment">//----------</span>
-<a name="l00243"></a>00243    <span class="keywordflow">default</span>:
-<a name="l00244"></a>00244      std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: Argument &quot;</span> &lt;&lt; argv[i] &lt;&lt; <span class="stringliteral">&quot; not recognized\n&quot;</span>;
-<a name="l00245"></a>00245      <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;
-<a name="l00246"></a>00246    } <span class="comment">// End switch block</span>
-<a name="l00247"></a>00247   } <span class="comment">// End for loop over all args</span>
-<a name="l00248"></a>00248 
-<a name="l00249"></a>00249   <span class="comment">// Everything looks ok, so we now check the arguments</span>
-<a name="l00250"></a>00250   <span class="keywordflow">return</span> <a class="code" href="CommandLine_8cpp.html#a0829c2a0cb2673639021de30fca7fed4">check_arguments</a>(arguments);
-<a name="l00251"></a>00251 }
+<a name="l00198"></a>00198    <span class="keywordflow">case</span> <span class="charliteral">&apos;n&apos;</span>: 
+<a name="l00199"></a>00199      {
+<a name="l00200"></a>00200        <span class="comment">//detemine how many integer arguments are associated with the -n</span>
+<a name="l00201"></a>00201        <span class="keywordtype">int</span> nArgs = 0;
+<a name="l00202"></a>00202        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt; argc-i; ++j) {
+<a name="l00203"></a>00203          <span class="keywordflow">if</span> ( !<a class="code" href="CommandLine_8cpp.html#a5d574e116b60049409315c3e09acebca">isNumber</a>(argv[i+j]) ) <span class="keywordflow">break</span>;
+<a name="l00204"></a>00204          ++nArgs;
+<a name="l00205"></a>00205        }
+<a name="l00206"></a>00206        <span class="keywordflow">if</span> ( nArgs &gt; 2 || nArgs &lt; 1) {
+<a name="l00207"></a>00207          std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: &quot;</span> &lt;&lt; nArgs 
+<a name="l00208"></a>00208                    &lt;&lt; <span class="stringliteral">&quot; non-negative integer  arguments passed to&quot;</span>
+<a name="l00209"></a>00209                    &lt;&lt; <span class="stringliteral">&quot; -n option , which accepts only one or two&quot;</span>;
+<a name="l00210"></a>00210          <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;        
+<a name="l00211"></a>00211        }
+<a name="l00212"></a>00212        arguments.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a> = (nArgs==2) ? atoi(argv[i+1]) : 0; 
+<a name="l00213"></a>00213        arguments.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a> = (nArgs==2) ? atoi(argv[i+2]) : atoi(argv[i+1]);
+<a name="l00214"></a>00214        i += (nArgs+1);
+<a name="l00215"></a>00215      }
+<a name="l00216"></a>00216      <span class="keywordflow">break</span>;
+<a name="l00217"></a>00217      <span class="comment">//----------</span>
+<a name="l00218"></a>00218    <span class="keywordflow">case</span> <span class="charliteral">&apos;r&apos;</span>:
+<a name="l00219"></a>00219      <span class="keywordflow">if</span>(i+1 &lt; argc){
+<a name="l00220"></a>00220        <span class="keywordflow">if</span>(<a class="code" href="CommandLine_8cpp.html#a5d574e116b60049409315c3e09acebca">isNumber</a>(argv[i+1])){
+<a name="l00221"></a>00221          arguments.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a> = atoi(argv[i+1]);
+<a name="l00222"></a>00222          i+=2;
+<a name="l00223"></a>00223        }
+<a name="l00224"></a>00224        <span class="keywordflow">else</span>{
+<a name="l00225"></a>00225          std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: Argument &quot;</span> &lt;&lt; argv[i+1]
+<a name="l00226"></a>00226                    &lt;&lt; <span class="stringliteral">&quot; for option -r is not a number\n&quot;</span>;
+<a name="l00227"></a>00227          <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;
+<a name="l00228"></a>00228        }
+<a name="l00229"></a>00229      }
+<a name="l00230"></a>00230      <span class="keywordflow">break</span>;
+<a name="l00231"></a>00231 
+<a name="l00232"></a>00232      <span class="comment">//----------</span>
+<a name="l00233"></a>00233    <span class="keywordflow">default</span>:
+<a name="l00234"></a>00234      std::cerr &lt;&lt; <span class="stringliteral">&quot;ERROR: Argument &quot;</span> &lt;&lt; argv[i] &lt;&lt; <span class="stringliteral">&quot; not recognized\n&quot;</span>;
+<a name="l00235"></a>00235      <a class="code" href="CommandLine_8cpp.html#ad2660c3796902f69aaa23a1bfbcb556b">help_command_line</a>(argv[0]);   <span class="keywordflow">return</span> 1;
+<a name="l00236"></a>00236    } <span class="comment">// End switch block</span>
+<a name="l00237"></a>00237   } <span class="comment">// End for loop over all args</span>
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239   <span class="comment">// Everything looks ok, so we now check the arguments</span>
+<a name="l00240"></a>00240   <span class="keywordflow">return</span> <a class="code" href="CommandLine_8cpp.html#a0829c2a0cb2673639021de30fca7fed4">check_arguments</a>(arguments);
+<a name="l00241"></a>00241 }
 </pre></div></p>
 
 </div>
@@ -240,7 +230,7 @@
 
 <p>Definition at line <a class="el" href="CommandLine_8cpp_source.html#l00067">67</a> of file <a class="el" href="CommandLine_8cpp_source.html">CommandLine.cpp</a>.</p>
 
-<p>References <a class="el" href="CommandLine_8h_source.html#l00011">ARGUMENTS::correction_file</a>, <a class="el" href="CommandLine_8cpp_source.html#l00041">GetRunNumber()</a>, <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::infile</a>, <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::outfile</a>, <a class="el" href="CommandLine_8h_source.html#l00015">ARGUMENTS::run</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00014">ARGUMENTS::stop</a>.</p>
+<p>References <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::correction_file</a>, <a class="el" href="CommandLine_8cpp_source.html#l00041">GetRunNumber()</a>, <a class="el" href="CommandLine_8h_source.html#l00007">ARGUMENTS::infile</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00008">ARGUMENTS::outfile</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::run</a>, <a class="el" href="CommandLine_8h_source.html#l00011">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::stop</a>.</p>
 
 <p>Referenced by <a class="el" href="CommandLine_8cpp_source.html#l00114">analyze_command_line()</a>.</p>
 
@@ -420,32 +410,32 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="CommandLine_8cpp_source.html#l00254">254</a> of file <a class="el" href="CommandLine_8cpp_source.html">CommandLine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CommandLine_8cpp_source.html#l00244">244</a> of file <a class="el" href="CommandLine_8cpp_source.html">CommandLine.cpp</a>.</p>
 
 <p>References <a class="el" href="TemplateFactory_8tpl_source.html#l00029">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00068">modules::options::DumpOptions()</a>, <a class="el" href="ModulesReader_8h_source.html#l00042">modules::reader::GetModule()</a>, <a class="el" href="ModulesReader_8h_source.html#l00041">modules::reader::GetNumModules()</a>, <a class="el" href="ModulesReader_8h_source.html#l00043">modules::reader::GetOptions()</a>, <a class="el" href="ModulesFactory_8h_source.html#l00024">modules::factory::Instance()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00214">modules::reader::PrintAllOptions()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00016">modules::reader::ReadFile()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00254"></a>00254                                           {
-<a name="l00255"></a>00255   <a class="code" href="classmodules_1_1reader.html">modules::reader</a> modules_file;
-<a name="l00256"></a>00256   modules_file.<a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">ReadFile</a>(filename);
-<a name="l00257"></a>00257   modules_file.<a class="code" href="classmodules_1_1reader.html#a63eddaec1dc7bb964244ac0d11b1187e">PrintAllOptions</a>();
-<a name="l00258"></a>00258 
-<a name="l00259"></a>00259   <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1factory.html#a43862fa94fc6bd2842816aab607dc907">modules::factory::Instance</a>();
-<a name="l00260"></a>00260   <span class="keywordtype">size_t</span> num_modules = modules_file.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
-<a name="l00261"></a>00261   std::cout &lt;&lt; <span class="stringliteral">&quot;number of modules requested: &quot;</span> &lt;&lt; num_modules &lt;&lt; std::endl;
-<a name="l00262"></a>00262   std::string name;
-<a name="l00263"></a>00263   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
-<a name="l00264"></a>00264   <a class="code" href="classBaseModule.html">modules::BaseModule</a>** mods=NULL;
-<a name="l00265"></a>00265   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; num_modules; i++){
-<a name="l00266"></a>00266     name = modules_file.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
-<a name="l00267"></a>00267     opts = modules_file.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
-<a name="l00268"></a>00268     std::cout &lt;&lt; <span class="stringliteral">&quot;Creating module: &quot;</span> &lt;&lt; name
-<a name="l00269"></a>00269               &lt;&lt; <span class="stringliteral">&quot;\nWith options:&quot;</span> &lt;&lt; std::endl;
-<a name="l00270"></a>00270     opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
-<a name="l00271"></a>00271     mods[i] = mgr-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(name,opts);
-<a name="l00272"></a>00272   }
-<a name="l00273"></a>00273   
-<a name="l00274"></a>00274   <span class="keywordflow">return</span> 0;
-<a name="l00275"></a>00275 }
+<p><div class="fragment"><pre class="fragment"><a name="l00244"></a>00244                                           {
+<a name="l00245"></a>00245   <a class="code" href="classmodules_1_1reader.html">modules::reader</a> modules_file;
+<a name="l00246"></a>00246   modules_file.<a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">ReadFile</a>(filename);
+<a name="l00247"></a>00247   modules_file.<a class="code" href="classmodules_1_1reader.html#a63eddaec1dc7bb964244ac0d11b1187e">PrintAllOptions</a>();
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249   <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1factory.html#a43862fa94fc6bd2842816aab607dc907">modules::factory::Instance</a>();
+<a name="l00250"></a>00250   <span class="keywordtype">size_t</span> num_modules = modules_file.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
+<a name="l00251"></a>00251   std::cout &lt;&lt; <span class="stringliteral">&quot;number of modules requested: &quot;</span> &lt;&lt; num_modules &lt;&lt; std::endl;
+<a name="l00252"></a>00252   std::string name;
+<a name="l00253"></a>00253   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
+<a name="l00254"></a>00254   <a class="code" href="classBaseModule.html">modules::BaseModule</a>** mods=NULL;
+<a name="l00255"></a>00255   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; num_modules; i++){
+<a name="l00256"></a>00256     name = modules_file.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
+<a name="l00257"></a>00257     opts = modules_file.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
+<a name="l00258"></a>00258     std::cout &lt;&lt; <span class="stringliteral">&quot;Creating module: &quot;</span> &lt;&lt; name
+<a name="l00259"></a>00259               &lt;&lt; <span class="stringliteral">&quot;\nWith options:&quot;</span> &lt;&lt; std::endl;
+<a name="l00260"></a>00260     opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
+<a name="l00261"></a>00261     mods[i] = mgr-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(name,opts);
+<a name="l00262"></a>00262   }
+<a name="l00263"></a>00263   
+<a name="l00264"></a>00264   <span class="keywordflow">return</span> 0;
+<a name="l00265"></a>00265 }
 </pre></div></p>
 
 </div>
@@ -466,27 +456,27 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="CommandLine_8cpp_source.html#l00278">278</a> of file <a class="el" href="CommandLine_8cpp_source.html">CommandLine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CommandLine_8cpp_source.html#l00268">268</a> of file <a class="el" href="CommandLine_8cpp_source.html">CommandLine.cpp</a>.</p>
 
-<p>References <a class="el" href="CommandLine_8h_source.html#l00011">ARGUMENTS::correction_file</a>, <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::infile</a>, <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::outfile</a>, <a class="el" href="CommandLine_8h_source.html#l00015">ARGUMENTS::run</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00014">ARGUMENTS::stop</a>.</p>
+<p>References <a class="el" href="CommandLine_8h_source.html#l00009">ARGUMENTS::correction_file</a>, <a class="el" href="CommandLine_8h_source.html#l00007">ARGUMENTS::infile</a>, <a class="el" href="CommandLine_8h_source.html#l00010">ARGUMENTS::mod_file</a>, <a class="el" href="CommandLine_8h_source.html#l00008">ARGUMENTS::outfile</a>, <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::run</a>, <a class="el" href="CommandLine_8h_source.html#l00011">ARGUMENTS::start</a>, and <a class="el" href="CommandLine_8h_source.html#l00012">ARGUMENTS::stop</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00278"></a>00278                                            {
-<a name="l00279"></a>00279   std::cout &lt;&lt; <span class="stringliteral">&quot;ARGUMENTS struct:&quot;</span>
-<a name="l00280"></a>00280             &lt;&lt; <span class="stringliteral">&quot;\n    infile:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#a21097b5d0445995ba1cd3b925b209ed4">infile</a>
-<a name="l00281"></a>00281             &lt;&lt; <span class="stringliteral">&quot;\n    outfile:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#aa9279635bc83c50955d0310b4999e0ad">outfile</a>
-<a name="l00282"></a>00282             &lt;&lt; <span class="stringliteral">&quot;\n    correction file:\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#ab5ce0aa695766934982597fde901cb93">correction_file</a>
-<a name="l00283"></a>00283             &lt;&lt; <span class="stringliteral">&quot;\n    mod file:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#a1059fe164b947314463f0a53982568db">mod_file</a>
-<a name="l00284"></a>00284             &lt;&lt; <span class="stringliteral">&quot;\n    start event:\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>
-<a name="l00285"></a>00285             &lt;&lt; <span class="stringliteral">&quot;\n    stop event:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a>
-<a name="l00286"></a>00286             &lt;&lt; <span class="stringliteral">&quot;\n    run number:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a>
-<a name="l00287"></a>00287             &lt;&lt; std::endl;
-<a name="l00288"></a>00288 }
+<p><div class="fragment"><pre class="fragment"><a name="l00268"></a>00268                                            {
+<a name="l00269"></a>00269   std::cout &lt;&lt; <span class="stringliteral">&quot;ARGUMENTS struct:&quot;</span>
+<a name="l00270"></a>00270             &lt;&lt; <span class="stringliteral">&quot;\n    infile:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#a21097b5d0445995ba1cd3b925b209ed4">infile</a>
+<a name="l00271"></a>00271             &lt;&lt; <span class="stringliteral">&quot;\n    outfile:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#aa9279635bc83c50955d0310b4999e0ad">outfile</a>
+<a name="l00272"></a>00272             &lt;&lt; <span class="stringliteral">&quot;\n    correction file:\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#ab5ce0aa695766934982597fde901cb93">correction_file</a>
+<a name="l00273"></a>00273             &lt;&lt; <span class="stringliteral">&quot;\n    mod file:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#a1059fe164b947314463f0a53982568db">mod_file</a>
+<a name="l00274"></a>00274             &lt;&lt; <span class="stringliteral">&quot;\n    start event:\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#ab610db850e4d58b53127cb0bf1c55a91">start</a>
+<a name="l00275"></a>00275             &lt;&lt; <span class="stringliteral">&quot;\n    stop event:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#acd97b12de160ede1038cdceb57a2fc9d">stop</a>
+<a name="l00276"></a>00276             &lt;&lt; <span class="stringliteral">&quot;\n    run number:\t\t&quot;</span> &lt;&lt; args.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a>
+<a name="l00277"></a>00277             &lt;&lt; std::endl;
+<a name="l00278"></a>00278 }
 </pre></div></p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

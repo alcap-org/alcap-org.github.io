@@ -41,7 +41,7 @@
 <p><a href="classTSetupData-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a> (std::string DetectorName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a> (std::string DetectorName) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a> (std::string BankName) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#ac3d446e50498906f011af9ac8a62367c">GetAllDetectors</a> (std::map&lt; std::string, std::string &gt; &amp;<a class="el" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#ab5d4e6779caf43605f9a0e33a729ef21">GetAllDetectors</a> (std::vector&lt; std::string &gt; &amp;<a class="el" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>) const </td></tr>
@@ -87,16 +87,13 @@
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#a6bbcf8a283702cc73d7eafcb0e0b2f20">SetADCOffsetCalib</a> (std::string BankName, double value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#a1bc2d3729f6d1339e5132d37ab4c92a1">SetEnableBit</a> (std::string BankName, bool value)</td></tr>
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589">Instance</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">(Quasi-)Singleton interface  <a href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#a235d6afeda79e30b3b8f0ee2767af262">IsFADC</a> (const std::string &amp;BankName)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#ad8a66aaef59ea6a41aa2f049c3fb0907">IsHoustonCAEN</a> (const std::string &amp;BankName)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#a6cafc21cbe5511aa19020a775171da00">IsBostonCAEN</a> (const std::string &amp;BankName)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#adea06fc18f9c5a7e28d527d149bfb63b">IsSlow</a> (const std::string &amp;BankName)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSetupData.html#aef90c2c9b47ceba7f4e1ade81206dbcf">IsFast</a> (const std::string &amp;BankName)</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p><a class="anchor" id="amgrpd41d8cd98f00b204e9800998ecf8427e"></a> </p>
-<br/><br/></div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589">Instance</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">(Quasi-)Singleton interface  <a href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Public Attributes</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Maps</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p><a class="anchor" id="amgrpaf51fdf94adbb4b6fe4f1275b07df10d"></a> All maps have, as their keys the MIDAS bank (digitizer channel) name. These are all from the ODB. </p>
@@ -151,9 +148,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00079">79</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00043">fBankToADCOffsetCalibMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00043">fBankToADCOffsetCalibMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">MaxBinAPGenerator::SetBankInfo()</a>.</p>
+<p>Referenced by <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00020">MaxBinAPGenerator::SetBankInfo()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00079"></a>00079 { <span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#ab3c90e289d268d7fad98e652ed20e7a9" title="Deprecated.">fBankToADCOffsetCalibMap</a>,BankName); };
 </pre></div></p>
@@ -180,9 +177,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00077">77</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00041">fBankToADCSlopeCalibMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00041">fBankToADCSlopeCalibMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">MaxBinAPGenerator::SetBankInfo()</a>.</p>
+<p>Referenced by <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00020">MaxBinAPGenerator::SetBankInfo()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00077"></a>00077 { <span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a78dd2b048ef4954d49f259a97e65c1d5" title="Deprecated.">fBankToADCSlopeCalibMap</a>,BankName); };
 </pre></div></p>
@@ -217,7 +214,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                                                                     {
 <a name="l00022"></a>00022    <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, std::string&gt;::const_iterator</a> it;
-<a name="l00023"></a>00023    <span class="keywordflow">for</span> (it=<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin();it!= <a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end();it++){
+<a name="l00023"></a>00023    <span class="keywordflow">for</span> (it=<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin();it!= <a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end(); ++it){
 <a name="l00024"></a>00024        <span class="keywordflow">if</span>(it-&gt;second!=<span class="stringliteral">&quot;blank&quot;</span> ) <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>.push_back(it-&gt;second);
 <a name="l00025"></a>00025    }
 <a name="l00026"></a>00026 }
@@ -255,7 +252,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p><div class="fragment"><pre class="fragment"><a name="l00014"></a>00014                                                                            {
 <a name="l00015"></a>00015    <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, std::string&gt;::const_iterator</a> it;
-<a name="l00016"></a>00016    <span class="keywordflow">for</span> (it=<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin();it!= <a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end();it++){
+<a name="l00016"></a>00016    <span class="keywordflow">for</span> (it=<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin();it!= <a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end(); ++it){
 <a name="l00017"></a>00017        <span class="keywordflow">if</span>(it-&gt;second!=<span class="stringliteral">&quot;blank&quot;</span> ) <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>[it-&gt;second]=it-&gt;first;
 <a name="l00018"></a>00018    }
 <a name="l00019"></a>00019 }
@@ -263,7 +260,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a796c2a3e638560318393713b4858a76e"></a><!-- doxytag: member="TSetupData::GetBankName" ref="a796c2a3e638560318393713b4858a76e" args="(std::string DetectorName)" -->
+<a class="anchor" id="a9d2cb193423208f99c9ee4673098f038"></a><!-- doxytag: member="TSetupData::GetBankName" ref="a9d2cb193423208f99c9ee4673098f038" args="(std::string DetectorName) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -273,14 +270,14 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
           <td class="paramtype">std::string&nbsp;</td>
           <td class="paramname"> <em>DetectorName</em></td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl class="return"><dt><b>Returns:</b></dt><dd>Which bank this detector was hooked up to, or "" if not hooked up. </dd></dl>
 
-<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00050">ExportPulse::BeforeFirstEntry()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="MDQ__TDCCheck_8cpp_source.html#l00209">MDQ_TDCCheck()</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00178">MFastSlowCorrelator()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00138">MMuSCTimeDifferences()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">ExportPulse::SetCurrentDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00063">ExportPulse::BeforeFirstEntry()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="MDQ__TDCCheck_8cpp_source.html#l00209">MDQ_TDCCheck()</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00178">MFastSlowCorrelator()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00138">MMuSCTimeDifferences()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, and <a class="el" href="ExportPulse_8h_source.html#l00150">ExportPulse::SetCurrentDetectorName()</a>.</p>
 
 </div>
 </div>
@@ -303,9 +300,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00074">74</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00037">fBankToClockTickMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00037">fBankToClockTickMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00079">MDQ_IslandTimestamp_init()</a>, <a class="el" href="main_8cpp_source.html#l00338">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, and <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">MaxBinAPGenerator::SetBankInfo()</a>.</p>
+<p>Referenced by <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00079">MDQ_IslandTimestamp_init()</a>, <a class="el" href="main_8cpp_source.html#l00236">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00020">MaxBinAPGenerator::SetBankInfo()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074 { <span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a08920bf3948276cdaffd7b34c828df95" title="The length, in nanoseconds, of each sample clock tick.">fBankToClockTickMap</a>,BankName);}
 </pre></div></p>
@@ -333,7 +330,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>References <a class="el" href="TSetupData_8h_source.html#l00035">fBankToDetectorMap</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00124">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00115">IslandLength::Book()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00168">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00183">MDQ_Amplitude()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00154">MDQ_Amplitude_eor()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00097">MDQ_Amplitude_init()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00155">MDQ_DigitizerOverflow()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00095">MDQ_DigitizerOverflow_init()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00178">MDQ_IslandCounter()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00138">MDQ_IslandCounter_eor()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00086">MDQ_IslandCounter_init()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00155">MDQ_IslandLength()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00125">MDQ_IslandLength_eor()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00081">MDQ_IslandLength_init()</a>, <a class="el" href="MDQ__IslandRate_8cpp_source.html#l00171">MDQ_IslandRate()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00156">MDQ_IslandTimestamp()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00127">MDQ_IslandTimestamp_eor()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00079">MDQ_IslandTimestamp_init()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00142">MDQ_muScTDiff_eor()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00089">MDQ_muScTDiff_init()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00171">MDQ_PulseShapes()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00220">MDQ_PulseShapes_eor()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00108">MDQ_PulseShapes_init()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00081">MDQ_Thresholds_init()</a>, <a class="el" href="MPulseLengths_8cpp_source.html#l00065">MPulseLengths_init()</a>, <a class="el" href="main_8cpp_source.html#l00338">PrintSetupData()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00044">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00048">PlotPedestalAndNoise::ProcessEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00052">IslandLength::ProcessEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00089">IslandAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">MaxBinAPGenerator::SetBankInfo()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00124">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00115">IslandLength::Book()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00168">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00183">MDQ_Amplitude()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00154">MDQ_Amplitude_eor()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00097">MDQ_Amplitude_init()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00155">MDQ_DigitizerOverflow()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00095">MDQ_DigitizerOverflow_init()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00178">MDQ_IslandCounter()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00138">MDQ_IslandCounter_eor()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00086">MDQ_IslandCounter_init()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00155">MDQ_IslandLength()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00125">MDQ_IslandLength_eor()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00081">MDQ_IslandLength_init()</a>, <a class="el" href="MDQ__IslandRate_8cpp_source.html#l00171">MDQ_IslandRate()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00156">MDQ_IslandTimestamp()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00127">MDQ_IslandTimestamp_eor()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00079">MDQ_IslandTimestamp_init()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00142">MDQ_muScTDiff_eor()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00089">MDQ_muScTDiff_init()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00171">MDQ_PulseShapes()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00220">MDQ_PulseShapes_eor()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00108">MDQ_PulseShapes_init()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00081">MDQ_Thresholds_init()</a>, <a class="el" href="MPulseLengths_8cpp_source.html#l00065">MPulseLengths_init()</a>, <a class="el" href="main_8cpp_source.html#l00236">PrintSetupData()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00044">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00048">PlotPedestalAndNoise::ProcessEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00052">IslandLength::ProcessEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00089">IslandAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00020">MaxBinAPGenerator::SetBankInfo()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00058"></a>00058                                                       { 
 <a name="l00059"></a>00059     <span class="keywordflow">if</span> (<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.find(BankName)-&gt;second !=  <span class="stringliteral">&quot;blank&quot;</span>)
@@ -363,9 +360,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00085">85</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00051">fBankToEnableBitMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00051">fBankToEnableBitMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="TSetupData_8h_source.html#l00117">IsEnable()</a>.</p>
+<p>Referenced by <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, and <a class="el" href="TSetupData_8h_source.html#l00117">IsEnable()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085 {<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#ac8c09effe637dd8a1498887f847eabd3" title="Whether or not the channel was enabled.">fBankToEnableBitMap</a>, BankName);};
 </pre></div></p>
@@ -390,9 +387,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00075">75</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00039">fBankToBitMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00039">fBankToBitMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00097">MDQ_Amplitude_init()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00155">MDQ_DigitizerOverflow()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00108">MDQ_PulseShapes_init()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="main_8cpp_source.html#l00338">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00048">PlotPedestalAndNoise::ProcessEntry()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00097">MDQ_Amplitude_init()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00155">MDQ_DigitizerOverflow()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00108">MDQ_PulseShapes_init()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="main_8cpp_source.html#l00236">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00048">PlotPedestalAndNoise::ProcessEntry()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00075"></a>00075 { <span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a8f19390567c38b74a9803265c56ea7c7" title="The number of bits (precision) each ADC sample has.">fBankToBitMap</a>,BankName);}
 </pre></div></p>
@@ -417,9 +414,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00084">84</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00049">fBankToPedestalMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00049">fBankToPedestalMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="TPulseIsland_8cpp_source.html#l00096">TPulseIsland::GetPedestal()</a>, <a class="el" href="main_8cpp_source.html#l00338">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00089">IslandAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">MaxBinAPGenerator::SetBankInfo()</a>.</p>
+<p>Referenced by <a class="el" href="TPulseIsland_8cpp_source.html#l00096">TPulseIsland::GetPedestal()</a>, <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, <a class="el" href="main_8cpp_source.html#l00236">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00089">IslandAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00020">MaxBinAPGenerator::SetBankInfo()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00084"></a>00084 {<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a4e5b3809ba2d4841bfa8304e0307c3ed" title="The voltage offet in units of ADC.">fBankToPedestalMap</a>,BankName);};
 </pre></div></p>
@@ -446,9 +443,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00081">81</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00045">fBankToTimeShift</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00045">fBankToTimeShift</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00210">GetTime()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="main_8cpp_source.html#l00338">PrintSetupData()</a>, <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">CFTimeAPGenerator::ProcessPulses()</a>, and <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">MaxBinAPGenerator::SetBankInfo()</a>.</p>
+<p>Referenced by <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00210">GetTime()</a>, <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="main_8cpp_source.html#l00236">PrintSetupData()</a>, <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">CFTimeAPGenerator::ProcessPulses()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00020">MaxBinAPGenerator::SetBankInfo()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00081"></a>00081 { <span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a9cc7fd3b8c98eee8a4b5a791eb4b8c07" title="The timing offset from the muSc.">fBankToTimeShift</a>,BankName); };
 </pre></div></p>
@@ -475,9 +472,9 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00083">83</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00047">fBankToPolarityMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00121">GetValue()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00047">fBankToPolarityMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00122">GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="TPulseIsland_8h_source.html#l00055">TPulseIsland::GetTriggerPolarity()</a>, <a class="el" href="main_8cpp_source.html#l00338">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00089">IslandAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8h_source.html#l00019">MaxBinAPGenerator::SetBankInfo()</a>.</p>
+<p>Referenced by <a class="el" href="TPulseIsland_8h_source.html#l00055">TPulseIsland::GetTriggerPolarity()</a>, <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, <a class="el" href="main_8cpp_source.html#l00236">PrintSetupData()</a>, <a class="el" href="MakeTemplate_8cpp_source.html#l00036">MakeTemplate::ProcessEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00089">IslandAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8h_source.html#l00015">SimpIntAPGenerator::SetBankInfo()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00020">MaxBinAPGenerator::SetBankInfo()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00083"></a>00083 {<span class="keywordflow">return</span> <a class="code" href="classTSetupData.html#ac46df863b8c44ee68948e6f9f5152481">GetValue</a>(<a class="code" href="classTSetupData.html#a77bfbe88eb2c2e7bccd34e9cd8a2a8c2" title="The pulse polarity (positive = 1, negative = -1).">fBankToPolarityMap</a>,BankName);};
 </pre></div></p>
@@ -509,15 +506,13 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00133">133</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
+<p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00136">136</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00134"></a>00134                                                {
-<a name="l00135"></a>00135     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, bool&gt;::const_iterator</a> it=map.find(BankName); 
-<a name="l00136"></a>00136     <span class="keywordflow">if</span>(it!=map.end()) 
-<a name="l00137"></a>00137       <span class="keywordflow">return</span> it-&gt;second;
-<a name="l00138"></a>00138     <span class="keywordflow">else</span>
-<a name="l00139"></a>00139       <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00140"></a>00140   }
+<p><div class="fragment"><pre class="fragment"><a name="l00137"></a>00137                                                {
+<a name="l00138"></a>00138     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, bool&gt;::const_iterator</a> it=map.find(BankName); 
+<a name="l00139"></a>00139     <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00140"></a>00140     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00141"></a>00141   }
 </pre></div></p>
 
 </div>
@@ -547,13 +542,13 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00127">127</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
+<p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00129">129</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00127"></a>00127                                                                                {
-<a name="l00128"></a>00128     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, int&gt;::const_iterator</a> it=map.find(BankName); 
-<a name="l00129"></a>00129     <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
-<a name="l00130"></a>00130     <span class="keywordflow">return</span> 0;
-<a name="l00131"></a>00131   }
+<p><div class="fragment"><pre class="fragment"><a name="l00130"></a>00130                                               {
+<a name="l00131"></a>00131     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, int&gt;::const_iterator</a> it=map.find(BankName); 
+<a name="l00132"></a>00132     <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00133"></a>00133     <span class="keywordflow">return</span> 0;
+<a name="l00134"></a>00134   }
 </pre></div></p>
 
 </div>
@@ -583,15 +578,15 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00121">121</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
+<p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00122">122</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TSetupData_8h_source.html#l00079">GetADCOffsetCalib()</a>, <a class="el" href="TSetupData_8h_source.html#l00077">GetADCSlopeCalib()</a>, <a class="el" href="TSetupData_8h_source.html#l00074">GetClockTick()</a>, <a class="el" href="TSetupData_8h_source.html#l00085">GetEnableBit()</a>, <a class="el" href="TSetupData_8h_source.html#l00075">GetNBits()</a>, <a class="el" href="TSetupData_8h_source.html#l00084">GetPedestal()</a>, <a class="el" href="TSetupData_8h_source.html#l00081">GetTimeShift()</a>, and <a class="el" href="TSetupData_8h_source.html#l00083">GetTriggerPolarity()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121                                                                                      {
-<a name="l00122"></a>00122     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, double&gt;::const_iterator</a> it=map.find(BankName); 
-<a name="l00123"></a>00123     <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
-<a name="l00124"></a>00124     <span class="keywordflow">return</span> 0.;
-<a name="l00125"></a>00125   }
+<p><div class="fragment"><pre class="fragment"><a name="l00123"></a>00123                                                  {
+<a name="l00124"></a>00124     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;std::string, double&gt;::const_iterator</a> it=map.find(BankName); 
+<a name="l00125"></a>00125     <span class="keywordflow">if</span>(it!=map.end()) <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00126"></a>00126     <span class="keywordflow">return</span> 0.;
+<a name="l00127"></a>00127   }
 </pre></div></p>
 
 </div>
@@ -1129,7 +1124,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00039">39</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TSetupData_8h_source.html#l00075">GetNBits()</a>, and <a class="el" href="TSetupData_8h_source.html#l00102">SetNBits()</a>.</p>
+<p>Referenced by <a class="el" href="TSetupData_8h_source.html#l00075">GetNBits()</a>, <a class="el" href="SetupRecord_8cpp_source.html#l00067">SetupRecord::InitMetaData()</a>, and <a class="el" href="TSetupData_8h_source.html#l00102">SetNBits()</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1162,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TSetupData_8h_source.html#l00035">35</a> of file <a class="el" href="TSetupData_8h_source.html">TSetupData.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TSetupData_8cpp_source.html#l00014">GetAllDetectors()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00007">SetupNavigator::GetBank()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">GetDetectorName()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00097">MDQ_Amplitude_init()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00095">MDQ_DigitizerOverflow_init()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00086">MDQ_IslandCounter_init()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00081">MDQ_IslandLength_init()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00079">MDQ_IslandTimestamp_init()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00089">MDQ_muScTDiff_init()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00220">MDQ_PulseShapes_eor()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00108">MDQ_PulseShapes_init()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00115">MDQ_Thresholds_eor()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00081">MDQ_Thresholds_init()</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00078">MFastSlowCorrelator_init()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00076">MMuSCTimeDifferences_init()</a>, <a class="el" href="MDT5720ProcessRaw_8cpp_source.html#l00079">module_init()</a>, <a class="el" href="MPulseLengths_8cpp_source.html#l00065">MPulseLengths_init()</a>, <a class="el" href="main_8cpp_source.html#l00338">PrintSetupData()</a>, and <a class="el" href="TSetupData_8h_source.html#l00093">SetDetectorName()</a>.</p>
+<p>Referenced by <a class="el" href="TSetupData_8cpp_source.html#l00014">GetAllDetectors()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00007">SetupNavigator::GetBank()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">GetDetectorName()</a>, <a class="el" href="SetupRecord_8cpp_source.html#l00042">SetupRecord::InitChannels()</a>, <a class="el" href="MDQ__Amplitude_8cpp_source.html#l00097">MDQ_Amplitude_init()</a>, <a class="el" href="MDQ__DigitizerOverflow_8cpp_source.html#l00095">MDQ_DigitizerOverflow_init()</a>, <a class="el" href="MDQ__IslandCounter_8cpp_source.html#l00086">MDQ_IslandCounter_init()</a>, <a class="el" href="MDQ__IslandLength_8cpp_source.html#l00081">MDQ_IslandLength_init()</a>, <a class="el" href="MDQ__IslandTimestamp_8cpp_source.html#l00079">MDQ_IslandTimestamp_init()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00089">MDQ_muScTDiff_init()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00220">MDQ_PulseShapes_eor()</a>, <a class="el" href="MDQ__PulseShapes_8cpp_source.html#l00108">MDQ_PulseShapes_init()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00115">MDQ_Thresholds_eor()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00081">MDQ_Thresholds_init()</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00078">MFastSlowCorrelator_init()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00076">MMuSCTimeDifferences_init()</a>, <a class="el" href="MDT5720ProcessRaw_8cpp_source.html#l00079">module_init()</a>, <a class="el" href="MPulseLengths_8cpp_source.html#l00065">MPulseLengths_init()</a>, <a class="el" href="main_8cpp_source.html#l00236">PrintSetupData()</a>, and <a class="el" href="TSetupData_8h_source.html#l00093">SetDetectorName()</a>.</p>
 
 </div>
 </div>
@@ -1251,10 +1246,10 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 <li>src/common/<a class="el" href="TSetupData_8h_source.html">TSetupData.h</a></li>
 <li>src/common/<a class="el" href="analyzer_8cpp_source.html">analyzer.cpp</a></li>
 <li>src/common/<a class="el" href="TSetupData_8cpp_source.html">TSetupData.cpp</a></li>
-<li>rootana/src/<a class="el" href="main_8cpp_source.html">main.cpp</a></li>
+<li>rootana/src/framework/<a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

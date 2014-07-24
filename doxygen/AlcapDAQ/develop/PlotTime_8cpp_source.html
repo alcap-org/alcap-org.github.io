@@ -48,7 +48,7 @@
 <a name="l00021"></a>00021 <span class="keyword">using</span> std::vector;
 <a name="l00022"></a>00022 <span class="keyword">using</span> std::pair;
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
+<a name="l00024"></a>00024 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
 <a name="l00025"></a>00025 
 <a name="l00026"></a><a class="code" href="classPlotTime.html#a5e5c03cc7a0c07cad3337ffb4af74c16">00026</a> <a class="code" href="classPlotTime.html#a5e5c03cc7a0c07cad3337ffb4af74c16">PlotTime::PlotTime</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) :
 <a name="l00027"></a>00027     <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotTime&quot;</span>,opts) {
@@ -57,11 +57,11 @@
 <a name="l00030"></a><a class="code" href="classPlotTime.html#a2d043127747bbc73eb92e16efffa0c78">00030</a> <a class="code" href="classPlotTime.html#a2d043127747bbc73eb92e16efffa0c78">PlotTime::~PlotTime</a>(){  
 <a name="l00031"></a>00031 }
 <a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f">00033</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTime.html#a5bb24324c7b13885e23dba2d14b65a8f" title="The big kahuna. Overload this in the derived class and it will be called for each...">PlotTime::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
+<a name="l00033"></a><a class="code" href="classPlotTime.html#a02bdd149393683bb1b5f2af53fdb2ac1">00033</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTime.html#a02bdd149393683bb1b5f2af53fdb2ac1" title="The big kahuna. Overload this in the derived class and it will be called for each...">PlotTime::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035     <span class="comment">// Loop over each TAP list</span>
-<a name="l00036"></a>00036     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_det = <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00037"></a>00037             i_det != <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end();
+<a name="l00036"></a>00036     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_det = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00037"></a>00037             i_det != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end();
 <a name="l00038"></a>00038             i_det++) {
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 
@@ -97,7 +97,7 @@
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTime.html">PlotTime</a>)
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

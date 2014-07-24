@@ -29,67 +29,86 @@
 <a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="MaxBinAPGenerator_8h.html">MaxBinAPGenerator.h</a>&quot;</span>
 <a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="TPulseIsland_8h.html">TPulseIsland.h</a>&quot;</span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="TAnalysedPulse_8h.html">TAnalysedPulse.h</a>&quot;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;algorithm&gt;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a>00007 <span class="comment">// IsTimeOrdered()</span>
-<a name="l00008"></a>00008 <span class="comment">// -- Returns tru of the first pulse is before the second</span>
-<a name="l00009"></a>00009 <span class="comment">// Static so that only this file sees it</span>
-<a name="l00010"></a>00010 <span class="comment">// Useful for sorting the pulses</span>
-<a name="l00011"></a><a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">00011</a> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">IsTimeOrdered</a>(<a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* a, <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* b) {
-<a name="l00012"></a>00012   <span class="comment">// Want a to be before b</span>
-<a name="l00013"></a>00013   <span class="keywordflow">return</span> ( a-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() &lt; b-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() );
-<a name="l00014"></a>00014 }
-<a name="l00015"></a>00015 
-<a name="l00016"></a><a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b">00016</a> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b" title="This method is called on each vector of pulses from a MIDAS event.">MaxBinAPGenerator::ProcessPulses</a>(
-<a name="l00017"></a>00017       <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; pulseList, <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; analysedList){
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="EventNavigator_8h.html">EventNavigator.h</a>&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="comment">// IsTimeOrdered()</span>
+<a name="l00009"></a>00009 <span class="comment">// -- Returns true of the first pulse is before the second</span>
+<a name="l00010"></a>00010 <span class="comment">// Static so that only this file sees it</span>
+<a name="l00011"></a>00011 <span class="comment">// Useful for sorting the pulses</span>
+<a name="l00012"></a><a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">00012</a> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">IsTimeOrdered</a>(<a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* a, <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* b) {
+<a name="l00013"></a>00013   <span class="comment">// Want a to be before b</span>
+<a name="l00014"></a>00014   <span class="keywordflow">return</span> ( a-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() &lt; b-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>() );
+<a name="l00015"></a>00015 }
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="comment">//======================================================================</span>
 <a name="l00018"></a>00018 
-<a name="l00019"></a>00019       <a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">SetBankInfo</a>(pulseList.at(0)-&gt;GetBankName());
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021       <span class="keywordtype">double</span> amplitude, time, integral, energy;
-<a name="l00022"></a>00022       <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* outPulse;
-<a name="l00023"></a>00023       <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> pulseIter = pulseList.begin(); pulseIter != pulseList.end(); pulseIter++) {
-<a name="l00024"></a>00024          amplitude = 0;
-<a name="l00025"></a>00025          time = 0;
-<a name="l00026"></a>00026          integral = 0;
-<a name="l00027"></a>00027          energy = 0.;
-<a name="l00028"></a>00028          <span class="comment">// Assume one TAnalysedPulse per TPulseIsland</span>
-<a name="l00029"></a>00029          <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">GetAllParameters_MaxBin</a>(*pulseIter,amplitude,time,integral,energy);
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031          <span class="comment">// Make the TAnalysedPulse pulse</span>
-<a name="l00032"></a>00032          outPulse=<a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(pulseIter-pulseList.begin());
-<a name="l00033"></a>00033          outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(amplitude);
-<a name="l00034"></a>00034          outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
-<a name="l00035"></a>00035          outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a3cb1acc3d1ad46fd0a69e0bbde8cf272">SetEnergy</a>(energy);
-<a name="l00036"></a>00036          <span class="comment">// Add the pulse into the list</span>
-<a name="l00037"></a>00037          analysedList.push_back(outPulse);
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039       }
-<a name="l00040"></a>00040       std::sort(analysedList.begin(), analysedList.end(), <a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">IsTimeOrdered</a>);
-<a name="l00041"></a>00041       <span class="keywordflow">return</span> 0;
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">00044</a> <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">MaxBinAPGenerator::GetAllParameters_MaxBin</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse,
-<a name="l00045"></a>00045                                                  <span class="keywordtype">double</span>&amp; amplitude, <span class="keywordtype">double</span>&amp; time, <span class="keywordtype">double</span>&amp; integral, <span class="keywordtype">double</span>&amp; energy) {
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048   <span class="comment">// First find the position of the peak</span>
-<a name="l00049"></a>00049   std::vector&lt;int&gt; pulseSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();  
-<a name="l00050"></a>00050   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
-<a name="l00051"></a>00051   <span class="keywordflow">if</span> (<a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> == 1)
-<a name="l00052"></a>00052     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00053"></a>00053   <span class="keywordflow">else</span>
-<a name="l00054"></a>00054     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056   <span class="comment">// Now assign the parameters</span>
-<a name="l00057"></a>00057   amplitude = <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>*(*peak_sample_pos - <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>);
-<a name="l00058"></a>00058   time = ((pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>) - <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>;
-<a name="l00059"></a>00059   integral = 0;
-<a name="l00060"></a>00060   energy = <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> * amplitude + <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
-<a name="l00061"></a>00061 }
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(MaxBin);
+<a name="l00019"></a>00019 <span class="comment">//----------------------------------------------------------------------</span>
+<a name="l00020"></a><a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">00020</a> <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">MaxBinAPGenerator::SetBankInfo</a>(std::string bankname){
+<a name="l00021"></a>00021   <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* fSetup = <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a2c61e5fb29f625bc1bd817e5c2c6ea92">GetSetupData</a>();
+<a name="l00022"></a>00022   <a class="code" href="classMaxBinAPGenerator.html#ad623b92da441dcf613a9ed57d277b0dc">fBankname</a>=bankname;
+<a name="l00023"></a>00023   <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a> = fSetup-&gt;<a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">GetPedestal</a>(bankname);
+<a name="l00024"></a>00024   <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> = fSetup-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
+<a name="l00025"></a>00025   <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> = fSetup-&gt;<a class="code" href="classTSetupData.html#a049d3a5de5fb19c304a9ffc7be6edae0" title="Deprecated.">GetADCSlopeCalib</a>(bankname);
+<a name="l00026"></a>00026   <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a> = fSetup-&gt;<a class="code" href="classTSetupData.html#a68b99bddb9e8c88e5c99b0317c8e4708" title="Deprecated.">GetADCOffsetCalib</a>(bankname);
+<a name="l00027"></a>00027   <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a> = fSetup-&gt;<a class="code" href="classTSetupData.html#a1cee3192841101548524aae1cdd73069">GetClockTick</a>(bankname);
+<a name="l00028"></a>00028   <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a> = fSetup-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bankname);
+<a name="l00029"></a>00029   <a class="code" href="classMaxBinAPGenerator.html#ab0946926727b5692905ccfd97632a06c">fDetName</a>=fSetup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment">//----------------------------------------------------------------------</span>
+<a name="l00034"></a><a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b">00034</a> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b" title="This method is called on each vector of pulses from a MIDAS event.">MaxBinAPGenerator::ProcessPulses</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; pulseList,
+<a name="l00035"></a>00035                                      <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; analysedList)
+<a name="l00036"></a>00036 {
+<a name="l00037"></a>00037   <a class="code" href="classMaxBinAPGenerator.html#a8b7a6e003bc66767ee8a4851ba2cb4b1">SetBankInfo</a>(pulseList.at(0)-&gt;GetBankName());
+<a name="l00038"></a>00038   
+<a name="l00039"></a>00039   <span class="keywordtype">double</span> amplitude, time, integral, energy;
+<a name="l00040"></a>00040   <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* outPulse;
+<a name="l00041"></a>00041   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> pulseIter = pulseList.begin(); pulseIter != pulseList.end(); pulseIter++) {
+<a name="l00042"></a>00042     amplitude = 0;
+<a name="l00043"></a>00043     time = 0;
+<a name="l00044"></a>00044     integral = 0;
+<a name="l00045"></a>00045     energy = 0.;
+<a name="l00046"></a>00046     <span class="comment">// Assume one TAnalysedPulse per TPulseIsland</span>
+<a name="l00047"></a>00047     <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">GetAllParameters_MaxBin</a>(*pulseIter,amplitude,time,integral,energy);
+<a name="l00048"></a>00048     
+<a name="l00049"></a>00049     <span class="comment">// Make the TAnalysedPulse pulse</span>
+<a name="l00050"></a>00050     outPulse=<a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(pulseIter-pulseList.begin());
+<a name="l00051"></a>00051     outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(amplitude);
+<a name="l00052"></a>00052     outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
+<a name="l00053"></a>00053     outPulse-&gt;<a class="code" href="classTAnalysedPulse.html#a3cb1acc3d1ad46fd0a69e0bbde8cf272">SetEnergy</a>(energy);
+<a name="l00054"></a>00054     <span class="comment">// Add the pulse into the list</span>
+<a name="l00055"></a>00055     analysedList.push_back(outPulse);
+<a name="l00056"></a>00056     
+<a name="l00057"></a>00057   }
+<a name="l00058"></a>00058   std::sort(analysedList.begin(), analysedList.end(), <a class="code" href="MaxBinAPGenerator_8cpp.html#aef267cf7561f541d15a2b3dd048dc6c7">IsTimeOrdered</a>);
+<a name="l00059"></a>00059   <span class="keywordflow">return</span> 0;
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="comment">//----------------------------------------------------------------------</span>
+<a name="l00063"></a><a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">00063</a> <span class="keywordtype">void</span> <a class="code" href="classMaxBinAPGenerator.html#a67c230702ee1bdbc21432e58f38ab0ba">MaxBinAPGenerator::GetAllParameters_MaxBin</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse,
+<a name="l00064"></a>00064                                                 <span class="keywordtype">double</span>&amp; amplitude, <span class="keywordtype">double</span>&amp; time,
+<a name="l00065"></a>00065                                                 <span class="keywordtype">double</span>&amp; integral, <span class="keywordtype">double</span>&amp; energy)
+<a name="l00066"></a>00066 {
+<a name="l00067"></a>00067   <span class="comment">// First find the position of the peak</span>
+<a name="l00068"></a>00068   std::vector&lt;int&gt; pulseSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();  
+<a name="l00069"></a>00069   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
+<a name="l00070"></a>00070   <span class="keywordflow">if</span> (<a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a> == 1)
+<a name="l00071"></a>00071     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00072"></a>00072   <span class="keywordflow">else</span>
+<a name="l00073"></a>00073     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075   <span class="comment">// Now assign the parameters</span>
+<a name="l00076"></a>00076   amplitude = <a class="code" href="classMaxBinAPGenerator.html#a33499aee54ced6de6158550122c2c620">fTriggerPolarity</a>*(*peak_sample_pos - <a class="code" href="classMaxBinAPGenerator.html#a3c9fcc80d9a4516c23d554962561be2f">fPedestal</a>);
+<a name="l00077"></a>00077   time = ((pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="classMaxBinAPGenerator.html#aa4a6dd05cab02bd51bae64c3173995ee">fClockTick</a>) - <a class="code" href="classMaxBinAPGenerator.html#a5f0b5dde8447ffaaae5ae6cb1c6e09eb">fTimeShift</a>;
+<a name="l00078"></a>00078   integral = 0;
+<a name="l00079"></a>00079   energy = <a class="code" href="classMaxBinAPGenerator.html#a9866075f53350e79fc1907bfe09fe08b">fECalibSlope</a> * amplitude + <a class="code" href="classMaxBinAPGenerator.html#a8e7c0f0e8cd2979dd25646fb898058f8">fECalibOffset</a>;
+<a name="l00080"></a>00080 }
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(MaxBin);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

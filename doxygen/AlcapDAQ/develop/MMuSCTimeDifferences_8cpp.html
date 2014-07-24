@@ -306,7 +306,7 @@
 
 <p>Definition at line <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00138">138</a> of file <a class="el" href="MMuSCTimeDifferences_8cpp_source.html">MMuSCTimeDifferences.cpp</a>.</p>
 
-<p>References <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00064">detectors</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00216">FillCoincidenceTimeHistogram()</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">TSetupData::GetBankName()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00210">GetTime()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00060">hAmplitudeVsTime</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00062">hAmplitudeVsTime_PP</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00059">hTime</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00061">hTime_PP</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00241">IsPileupProtected()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00063">last</a>, and <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00065">nr_detectors</a>.</p>
+<p>References <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00064">detectors</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00216">FillCoincidenceTimeHistogram()</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">TSetupData::GetBankName()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00210">GetTime()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00060">hAmplitudeVsTime</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00062">hAmplitudeVsTime_PP</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00059">hTime</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00061">hTime_PP</a>, <a class="el" href="MFastSlowCorrelator_8cpp_source.html#l00241">IsPileupProtected()</a>, <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00063">last</a>, and <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00065">nr_detectors</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00138"></a>00138                                                              {
 <a name="l00139"></a>00139   <span class="keywordtype">double</span> t_low = -10000;
@@ -321,7 +321,7 @@
 <a name="l00148"></a>00148     <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
 <a name="l00149"></a>00149   
 <a name="l00150"></a>00150   <span class="comment">// Let&apos;s loop over the muSC times</span>
-<a name="l00151"></a>00151   std::string str_MuSC = <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<span class="stringliteral">&quot;muSc&quot;</span>);
+<a name="l00151"></a>00151   std::string str_MuSC = <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<span class="stringliteral">&quot;muSc&quot;</span>);
 <a name="l00152"></a>00152   <span class="keywordtype">int</span> lPP = 0;
 <a name="l00153"></a>00153   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="MMuSCTimeDifferences_8cpp.html#afe4516d8ba685a9f7f4d2cc65a8d74ec">nr_detectors</a>; ++i) <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i] = 0;
 <a name="l00154"></a>00154   
@@ -334,7 +334,7 @@
 <a name="l00161"></a>00161     
 <a name="l00162"></a>00162     std::string bank_name;
 <a name="l00163"></a>00163     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;nr_detectors; ++i){
-<a name="l00164"></a>00164       bank_name=<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(<a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>[i]);
+<a name="l00164"></a>00164       bank_name=<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>[i]);
 <a name="l00165"></a>00165       <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i] = <a class="code" href="MFastSlowCorrelator_8cpp.html#a9f32c7c332b01ce8022bd9e7e2c147c1">FillCoincidenceTimeHistogram</a>(tMusc, pulse_islands_map[bank_name], 
 <a name="l00166"></a>00166                                              <a class="code" href="MMuSCTimeDifferences_8cpp.html#a3579fbbede9d99d8d4aafc118b3abed3">last</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#a49542b8626dc87c671e7281953e2238b">hTime</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#a12b055fd4ad8a675b39fcd6d5e2a6f04">hAmplitudeVsTime</a>[i], t_low, t_high,
 <a name="l00167"></a>00167                                              PP, <a class="code" href="MMuSCTimeDifferences_8cpp.html#ae08cf1ecd0f447197de40e13306affb7">hTime_PP</a>[i], <a class="code" href="MMuSCTimeDifferences_8cpp.html#ae163d5fd93c8330dfa5f793022f91f3c">hAmplitudeVsTime_PP</a>[i], bank_name);
@@ -590,7 +590,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

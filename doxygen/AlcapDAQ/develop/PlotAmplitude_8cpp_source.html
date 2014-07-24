@@ -48,7 +48,7 @@
 <a name="l00021"></a>00021 <span class="keyword">using</span> std::vector;
 <a name="l00022"></a>00022 <span class="keyword">using</span> std::pair;
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
+<a name="l00024"></a>00024 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
 <a name="l00025"></a>00025 
 <a name="l00026"></a><a class="code" href="classPlotAmplitude.html#a281b5d252f8b77de347c325a3c203e07">00026</a> <a class="code" href="classPlotAmplitude.html#a281b5d252f8b77de347c325a3c203e07">PlotAmplitude::PlotAmplitude</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts) : 
 <a name="l00027"></a>00027     <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotAmplitude&quot;</span>,opts) {
@@ -57,15 +57,15 @@
 <a name="l00030"></a><a class="code" href="classPlotAmplitude.html#a31d5adcdef952de86d7b572b66a3fbd8">00030</a> <a class="code" href="classPlotAmplitude.html#a31d5adcdef952de86d7b572b66a3fbd8">PlotAmplitude::~PlotAmplitude</a>(){  
 <a name="l00031"></a>00031 }
 <a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="classPlotAmplitude.html#ad31d0fc639d36e8ff2b60936cd23588b">00033</a> <span class="keywordtype">int</span> <a class="code" href="classPlotAmplitude.html#ad31d0fc639d36e8ff2b60936cd23588b">PlotAmplitude::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
+<a name="l00033"></a><a class="code" href="classPlotAmplitude.html#ac69b9704d9c12a95b0293e58e9ee1787">00033</a> <span class="keywordtype">int</span> <a class="code" href="classPlotAmplitude.html#ac69b9704d9c12a95b0293e58e9ee1787">PlotAmplitude::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
 <a name="l00034"></a>00034     <span class="keywordflow">return</span> 0;
 <a name="l00035"></a>00035 }
 <a name="l00036"></a>00036 
-<a name="l00037"></a><a class="code" href="classPlotAmplitude.html#a294bf2dc055241f59ca05264fc1451c1">00037</a> <span class="keywordtype">int</span> <a class="code" href="classPlotAmplitude.html#a294bf2dc055241f59ca05264fc1451c1" title="The big kahuna. Overload this in the derived class and it will be called for each...">PlotAmplitude::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
+<a name="l00037"></a><a class="code" href="classPlotAmplitude.html#a3ffc0ef2718c1623733795d97fb9f111">00037</a> <span class="keywordtype">int</span> <a class="code" href="classPlotAmplitude.html#a3ffc0ef2718c1623733795d97fb9f111" title="The big kahuna. Overload this in the derived class and it will be called for each...">PlotAmplitude::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039     <span class="comment">// Loop over each TAP list</span>
-<a name="l00040"></a>00040     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_det = <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00041"></a>00041             i_det != <a class="code" href="main_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end();
+<a name="l00040"></a>00040     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_det = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00041"></a>00041             i_det != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end();
 <a name="l00042"></a>00042             i_det++) {
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044         <span class="keyword">const</span> std::string&amp; detname = i_det-&gt;first.str();
@@ -79,7 +79,7 @@
 <a name="l00052"></a>00052             std::stringstream histtitle;
 <a name="l00053"></a>00053             histtitle&lt;&lt;<span class="stringliteral">&quot;Amplitude of pulses from source &quot;</span> &lt;&lt; i_det-&gt;first;
 <a name="l00054"></a>00054             histtitle&lt;&lt;<span class="stringliteral">&quot; for run &quot;</span>&lt;&lt;<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>();
-<a name="l00055"></a>00055             <span class="keywordtype">int</span> n_bits = gSetup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(gSetup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(i_det-&gt;first.Channel().str()));
+<a name="l00055"></a>00055             <span class="keywordtype">int</span> n_bits = gSetup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(gSetup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(i_det-&gt;first.Channel().str()));
 <a name="l00056"></a>00056             <span class="keywordtype">double</span> max_adc_value = std::pow(2, n_bits);
 <a name="l00057"></a>00057             TH1F* hAmplitude = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.str().c_str(), max_adc_value,0,max_adc_value);
 <a name="l00058"></a>00058             hAmplitude-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Amplitude (ADC value)&quot;</span>);
@@ -102,7 +102,7 @@
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotAmplitude.html">PlotAmplitude</a>)
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

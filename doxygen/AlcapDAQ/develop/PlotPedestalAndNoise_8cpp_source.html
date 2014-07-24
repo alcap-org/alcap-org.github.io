@@ -164,7 +164,7 @@
 <a name="l00137"></a>00137       <span class="comment">// Now loop through the histograms and record the run_numberm channel, bank and mean and RMS of first fNSamples to the SQLite table</span>
 <a name="l00138"></a>00138       <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, TH2D*&gt;::iterator</a> histIter = <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.begin(); histIter != <a class="code" href="classPlotPedestalAndNoise.html#afede8ca47bf517f53b213ec0a2a904e7" title="The map that we store the pedestal vs. noise histograms for each channel.">fPedestalVsNoiseHistograms</a>.end(); ++histIter) {
 <a name="l00139"></a>00139         std::string detname = histIter-&gt;first;
-<a name="l00140"></a>00140         std::string bankname = setup-&gt;<a class="code" href="classTSetupData.html#a796c2a3e638560318393713b4858a76e">GetBankName</a>(detname);
+<a name="l00140"></a>00140         std::string bankname = setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(detname);
 <a name="l00141"></a>00141         TH2D* pedestal_vs_noise_histogram = histIter-&gt;second;
 <a name="l00142"></a>00142       
 <a name="l00143"></a>00143         <span class="keywordtype">double</span> pedestal = pedestal_vs_noise_histogram-&gt;GetMean(1);
@@ -210,7 +210,7 @@
 <a name="l00183"></a>00183 <span class="comment">// within the modules file.  See the github wiki for more.</span>
 <a name="l00184"></a>00184 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotPedestalAndNoise.html" title="Plots the pedestal and noise of each TPulseIsland and writes these to an SQLite database...">PlotPedestalAndNoise</a>,x_max);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

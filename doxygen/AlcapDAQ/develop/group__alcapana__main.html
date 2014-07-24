@@ -38,6 +38,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">INT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga86f2bc78d542107ce023a1d54f79b13e">ana_pause_run</a> (INT run_number, char *error)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">INT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga35f57e1efbd308b1ca049035dcdc13f6">ana_resume_run</a> (INT run_number, char *error)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">INT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga7173b35a859f0740c437df5f68ccf80b">analyzer_loop</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589">TSetupData::Instance</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">(Quasi-)Singleton interface  <a href="#ga96d8c48f8693f69adda6aac005d17589"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTGlobalData.html">TGlobalData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga1c4c3f00cd502a89de4657c11a1a1c4b">TGlobalData::Instance</a> ()</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#gac0643332f28f071aea7b0bd6c8d49a0c">analyzer_name</a> = &quot;Analyzer&quot;</td></tr>
@@ -54,10 +56,6 @@
 <tr><td class="memItemLeft" align="right" valign="top">ANA_MODULE&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#gad837e77e5d72daf1d8d0f8e93c1cc4b2">MVacuumHisto_module</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">ANA_MODULE *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga2d84c77d817655a526309d53c4fefdec">Vacuum_module</a> []</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">ANALYZE_REQUEST&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#gab1be3d7f64edcbf386bfd220bc7bda9b">analyze_request</a> []</td></tr>
-<tr><td colspan="2"><p><a class="anchor" id="amgrpd41d8cd98f00b204e9800998ecf8427e"></a> </p>
-<br/><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589">TSetupData::Instance</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">(Quasi-)Singleton interface  <a href="#ga96d8c48f8693f69adda6aac005d17589"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>System part of the Analyzer code. </p>
@@ -402,10 +400,11 @@
 <div class="memdoc">
 
 <p>(Quasi-)Singleton interface </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This method currently needs to exist for the benefit of online classes that expect to be able to get a non-const pointer this way, but it may be removed in the future. Offline code should use <a class="el" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance()</a>.GetSetupData() directly. </dd></dl>
 
 <p>Definition at line <a class="el" href="analyzer_8cpp_source.html#l00085">85</a> of file <a class="el" href="analyzer_8cpp_source.html">analyzer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00124">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00168">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00029">TPulseIsland::GetAmplitude()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00096">TPulseIsland::GetPedestal()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00055">TPulseIsland::GetTriggerPolarity()</a>, <a class="el" href="main_8cpp_source.html#l00165">Main_event_loop()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00115">MDQ_Thresholds_eor()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="main_8cpp_source.html#l00377">PrepareSingletonObjects()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00048">PlotPedestalAndNoise::ProcessEntry()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00124">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00168">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00029">TPulseIsland::GetAmplitude()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00096">TPulseIsland::GetPedestal()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00055">TPulseIsland::GetTriggerPolarity()</a>, <a class="el" href="MDQ__muScTDiff_8cpp_source.html#l00172">MDQ_muScTDiff()</a>, <a class="el" href="MDQ__Thresholds_8cpp_source.html#l00115">MDQ_Thresholds_eor()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00048">PlotPedestalAndNoise::ProcessEntry()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086 {
 <a name="l00087"></a>00087         <span class="keywordflow">return</span> <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>;
@@ -966,7 +965,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Jul 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
