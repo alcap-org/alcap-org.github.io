@@ -35,28 +35,51 @@
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="TemplateArchive_8h.html">utils/TemplateArchive.h</a>&quot;</span>
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="PulseCandidateFinder_8h.html">utils/PulseCandidateFinder.h</a>&quot;</span>
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="classTemplateCreator.html">00012</a> <span class="keyword">class </span><a class="code" href="classTemplateCreator.html">TemplateCreator</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014  <span class="keyword">public</span>:
-<a name="l00015"></a>00015   <a class="code" href="classTemplateCreator.html#a14f9890eadec9e00bb37a97b7c4f4c13">TemplateCreator</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
-<a name="l00016"></a>00016   <a class="code" href="classTemplateCreator.html#a50828894e8aa3da51f3c543cd955a4ab">~TemplateCreator</a>();
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018  <span class="keyword">private</span>:
-<a name="l00019"></a>00019   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#af011c57b324263249b1dd323861f9cff" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
-<a name="l00020"></a>00020   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#a1465faef6f2c4f5de31794c64d5a3515">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup);
-<a name="l00021"></a>00021   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#ae5f5a731f66c274dd42f17dc9e4ed738">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup);
-<a name="l00022"></a>00022 
-<a name="l00024"></a><a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8">00024</a>   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>;
-<a name="l00025"></a>00025 
-<a name="l00026"></a><a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">00026</a>   <a class="code" href="classTemplateArchive.html" title="Utility class that manages reading and writing template histograms to a ROOT file...">TemplateArchive</a>* <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>;
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028   <span class="keywordtype">void</span> <a class="code" href="classTemplateCreator.html#a1cadc4c94ac4a72163b4984382058b33">AddPulseToTemplate</a>(TH1D* &amp; hTemplate, <span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse);
-<a name="l00029"></a>00029 };
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="TemplateFitter_8h.html">utils/TemplateFitter.h</a>&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="classTemplateCreator.html">00013</a> <span class="keyword">class </span><a class="code" href="classTemplateCreator.html">TemplateCreator</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a>{
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015  <span class="keyword">public</span>:
+<a name="l00016"></a>00016   <a class="code" href="classTemplateCreator.html#a14f9890eadec9e00bb37a97b7c4f4c13">TemplateCreator</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts);
+<a name="l00017"></a>00017   <a class="code" href="classTemplateCreator.html#a50828894e8aa3da51f3c543cd955a4ab">~TemplateCreator</a>();
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019  <span class="keyword">private</span>:
+<a name="l00020"></a>00020   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#af011c57b324263249b1dd323861f9cff" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>);
+<a name="l00021"></a>00021   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#a1465faef6f2c4f5de31794c64d5a3515">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup);
+<a name="l00022"></a>00022   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#ae5f5a731f66c274dd42f17dc9e4ed738">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup);
+<a name="l00023"></a>00023 
+<a name="l00025"></a><a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8">00025</a>   <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* <a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>;
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">00027</a>   <a class="code" href="classTemplateArchive.html" title="Utility class that manages reading and writing template histograms to a ROOT file...">TemplateArchive</a>* <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>;
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029   <span class="keywordtype">void</span> <a class="code" href="classTemplateCreator.html#a2647c24a64b10feab30ad6f6a14aa7eb">AddPulseToTemplate</a>(TH1D* &amp; hTemplate, TH1D* &amp; hPulse, std::string bankname);
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#endif //TEMPLATECREATOR_H_</span>
+<a name="l00033"></a><a class="code" href="classTemplateCreator.html#a709aaa4766e09fd861045a5034ead608">00033</a>   std::map&lt;std::string, int&gt; <a class="code" href="classTemplateCreator.html#a709aaa4766e09fd861045a5034ead608" title="A map of the number of fit attempts on each detector.">fNFitAttempts</a>;
+<a name="l00034"></a>00034 
+<a name="l00037"></a><a class="code" href="classTemplateCreator.html#aae144704087b2e7c69fa77118782c7ea">00037</a>   std::map&lt;std::string, int&gt; <a class="code" href="classTemplateCreator.html#aae144704087b2e7c69fa77118782c7ea" title="A map of the number of successful fits on each detector.">fNSuccessfulFits</a>;
+<a name="l00038"></a>00038 
+<a name="l00041"></a><a class="code" href="classTemplateCreator.html#a1ea48f4538fcc4c529efd94c23c8f674">00041</a>   std::map&lt;std::string, int&gt; <a class="code" href="classTemplateCreator.html#a1ea48f4538fcc4c529efd94c23c8f674" title="A map of the number of pulses in the template.">fNPulsesInTemplate</a>;
+<a name="l00042"></a>00042 
+<a name="l00045"></a><a class="code" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844">00045</a>   std::map&lt;std::string, TH1D*&gt; <a class="code" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844" title="A map of the template histograms.">fTemplates</a>;
+<a name="l00046"></a>00046 
+<a name="l00049"></a>00049   <span class="keywordtype">double</span> <a class="code" href="classTemplateCreator.html#ae474ec35dd56e9e85907c46b62a36ec0" title="Corrects a given sample value.">CorrectSampleValue</a>(<span class="keywordtype">double</span> old_value, <span class="keywordtype">double</span> template_pedestal);
+<a name="l00050"></a>00050 
+<a name="l00053"></a>00053   TH1D* <a class="code" href="classTemplateCreator.html#a9d86bec851ae360f33dae893909dd210" title="Creates a refined histogram for a given TPulseIsland.">CreateRefinedPulseHistogram</a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse, std::string histname, std::string histtitle, <span class="keywordtype">bool</span> interpolate);
+<a name="l00054"></a>00054 
+<a name="l00057"></a><a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724">00057</a>   <span class="keywordtype">int</span> <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>;
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">00059</a>   <a class="code" href="classTemplateFitter.html">TemplateFitter</a>* <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>;
+<a name="l00060"></a>00060 
+<a name="l00064"></a><a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921">00064</a>   <span class="keywordtype">bool</span> <a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921" title="If true, then print out all pulses that get added to the templates and also print...">fPulseDebug</a>;
+<a name="l00065"></a>00065 
+<a name="l00069"></a>00069   <span class="keywordtype">bool</span> <a class="code" href="classTemplateCreator.html#a7acb96f059573934f28afcac346954e7" title="Checks if the template has converged and that adding a new pulse has not effect on...">CheckConvergence</a>(TH1D* hTemplate, std::string bankname);
+<a name="l00070"></a><a class="code" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">00070</a>   std::map&lt;std::string, TH1D*&gt; <a class="code" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">fErrorVsPulseAddedHistograms</a>;
+<a name="l00071"></a><a class="code" href="classTemplateCreator.html#adbe66fc2148450c6a5f34a852132af73">00071</a>   std::map&lt;std::string, bool&gt; <a class="code" href="classTemplateCreator.html#adbe66fc2148450c6a5f34a852132af73">fConvergedStatuses</a>;
+<a name="l00072"></a>00072 };
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="preprocessor">#endif //TEMPLATECREATOR_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 31 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

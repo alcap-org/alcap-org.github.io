@@ -49,13 +49,15 @@
 <a name="l00022"></a>00022 <span class="comment">// -- saves a template to the template file</span>
 <a name="l00023"></a><a class="code" href="classTemplateArchive.html#ad96d5464324433d3c00aa1481227b815">00023</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateArchive.html#ad96d5464324433d3c00aa1481227b815" title="Takes the given histogram and saves it to the ROOT file.">TemplateArchive::SaveTemplate</a>(TH1* hTemplate) {
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025   <span class="keywordflow">if</span> (hTemplate) {
-<a name="l00026"></a>00026     <a class="code" href="classTemplateArchive.html#a4aa0fa8fa133d90285cbf6f9290e6ce3" title="The ROOT file that contains the templates.">fTemplateFile</a>-&gt;cd();
-<a name="l00027"></a>00027     hTemplate-&gt;Write();
-<a name="l00028"></a>00028   }
-<a name="l00029"></a>00029 }
+<a name="l00025"></a>00025   TDirectory* oldDir = TDirectory::CurrentDirectory(); <span class="comment">// should be the directory we were already in</span>
+<a name="l00026"></a>00026   <span class="keywordflow">if</span> (hTemplate) {
+<a name="l00027"></a>00027     <a class="code" href="classTemplateArchive.html#a4aa0fa8fa133d90285cbf6f9290e6ce3" title="The ROOT file that contains the templates.">fTemplateFile</a>-&gt;cd();
+<a name="l00028"></a>00028     hTemplate-&gt;Write();
+<a name="l00029"></a>00029   }
+<a name="l00030"></a>00030   oldDir-&gt;cd(); <span class="comment">// go back to the old directory</span>
+<a name="l00031"></a>00031 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 31 Jul 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
