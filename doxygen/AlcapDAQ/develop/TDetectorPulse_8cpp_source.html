@@ -31,38 +31,42 @@
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;sstream&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;cstdlib&gt;</span>
 <a name="l00006"></a>00006 
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;TF1.h&quot;</span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="keyword">using</span> std::vector;
-<a name="l00010"></a>00010 <span class="keyword">using</span> std::string;
+<a name="l00007"></a>00007 <span class="keyword">using</span> std::vector;
+<a name="l00008"></a>00008 <span class="keyword">using</span> std::string;
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <a class="code" href="TGlobalData_8cpp.html#ac999af46ecbed64cdd6850e43119a957">ClassImp</a>(<a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>);
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <a class="code" href="TGlobalData_8cpp.html#ac999af46ecbed64cdd6850e43119a957">ClassImp</a>(<a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>);
+<a name="l00012"></a><a class="code" href="classTDetectorPulse.html#a9b509f5d31ec9f12d8cfbcb7f44d76b0">00012</a> <a class="code" href="classTDetectorPulse.html#a9b509f5d31ec9f12d8cfbcb7f44d76b0">TDetectorPulse::~TDetectorPulse</a>(){}
 <a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="classTDetectorPulse.html#a9b509f5d31ec9f12d8cfbcb7f44d76b0">00014</a> <a class="code" href="classTDetectorPulse.html#a9b509f5d31ec9f12d8cfbcb7f44d76b0">TDetectorPulse::~TDetectorPulse</a>(){}
-<a name="l00015"></a>00015 
-<a name="l00016"></a><a class="code" href="classTDetectorPulse.html#a08253f05823f18b27eeb9652a7330596">00016</a> <a class="code" href="classTDetectorPulse.html#a08253f05823f18b27eeb9652a7330596">TDetectorPulse::TDetectorPulse</a>()
-<a name="l00017"></a>00017 {
-<a name="l00018"></a>00018   <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">Reset</a>();
-<a name="l00019"></a>00019 }
-<a name="l00020"></a>00020 
-<a name="l00021"></a><a class="code" href="classTDetectorPulse.html#a54562495b1cfc848fac7a7deaf1ee501">00021</a> <a class="code" href="classTDetectorPulse.html#a08253f05823f18b27eeb9652a7330596">TDetectorPulse::TDetectorPulse</a>(<a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* fast_pulse, <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* slow_pulse, std::string det_name)
-<a name="l00022"></a>00022 {
-<a name="l00023"></a>00023   <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">Reset</a>();
-<a name="l00024"></a>00024   <a class="code" href="classTDetectorPulse.html#ad9d5d46928f877776960efd082e0c57e">fFastPulse</a> = fast_pulse;
-<a name="l00025"></a>00025   <a class="code" href="classTDetectorPulse.html#a362ea4d906040a52bc4098b09d0981fa">fSlowPulse</a> = slow_pulse;
-<a name="l00026"></a>00026   <a class="code" href="classTDetectorPulse.html#a8887cd368daf912656ce4f02eaec0871">fDetName</a> = det_name;
-<a name="l00027"></a>00027 }
-<a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">00029</a> <span class="keywordtype">void</span> <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">TDetectorPulse::Reset</a>(Option_t* o)
-<a name="l00030"></a>00030 {
-<a name="l00031"></a>00031   <a class="code" href="classTDetectorPulse.html#ad9d5d46928f877776960efd082e0c57e">fFastPulse</a> = NULL;
-<a name="l00032"></a>00032   <a class="code" href="classTDetectorPulse.html#a362ea4d906040a52bc4098b09d0981fa">fSlowPulse</a> = NULL;
-<a name="l00033"></a>00033   <a class="code" href="classTDetectorPulse.html#a8887cd368daf912656ce4f02eaec0871">fDetName</a> = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00034"></a>00034   <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>=<span class="keyword">false</span>;
-<a name="l00035"></a>00035   <a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>=<span class="keyword">false</span>;
-<a name="l00036"></a>00036 }
+<a name="l00014"></a><a class="code" href="classTDetectorPulse.html#a08253f05823f18b27eeb9652a7330596">00014</a> <a class="code" href="classTDetectorPulse.html#a08253f05823f18b27eeb9652a7330596">TDetectorPulse::TDetectorPulse</a>(){
+<a name="l00015"></a>00015   <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">Reset</a>();
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="classTDetectorPulse.html#a584e579cf5b6c1c769e209ca88884760">00018</a> <a class="code" href="classTDetectorPulse.html#a08253f05823f18b27eeb9652a7330596">TDetectorPulse::TDetectorPulse</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; sourceID,
+<a name="l00019"></a>00019                 <span class="keywordtype">int</span> f_parentID, <span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* f_parent,
+<a name="l00020"></a>00020                 <span class="keywordtype">int</span> s_parentID, <span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* s_parent
+<a name="l00021"></a>00021                 ){
+<a name="l00022"></a>00022   <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">Reset</a>();
+<a name="l00023"></a>00023   <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">kSlow</a>] = s_parent;
+<a name="l00024"></a>00024   <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>] = f_parent;
+<a name="l00025"></a>00025   <span class="keywordflow">if</span>(s_parent) <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">kSlow</a>]= s_parent-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>();
+<a name="l00026"></a>00026   <span class="keywordflow">if</span>(f_parent) <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>]= f_parent-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>();
+<a name="l00027"></a>00027   <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">kSlow</a>]=s_parentID;
+<a name="l00028"></a>00028   <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>]=f_parentID;
+<a name="l00029"></a>00029   <a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">fSource</a>.<a class="code" href="classFlyWeight.html#a70fd41ad0b4c2c3168837d8083e37ff0">SetValue</a>(sourceID);
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+<a name="l00032"></a><a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">00032</a> <span class="keywordtype">void</span> <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">TDetectorPulse::Reset</a>(Option_t* o) {
+<a name="l00033"></a>00033     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>;++i){
+<a name="l00034"></a>00034         <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[i] = NULL;
+<a name="l00035"></a>00035         <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[i]=-1;
+<a name="l00036"></a>00036         <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[i].<a class="code" href="classFlyWeight.html#a68d535fdb5896735a367c1a7466adb0e">Reset</a>();
+<a name="l00037"></a>00037     }
+<a name="l00038"></a>00038     <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>=<span class="keyword">false</span>;
+<a name="l00039"></a>00039     <a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>=<span class="keyword">false</span>;
+<a name="l00040"></a>00040 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

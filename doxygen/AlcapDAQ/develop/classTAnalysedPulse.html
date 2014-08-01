@@ -50,6 +50,8 @@ Inheritance diagram for TAnalysedPulse:</div>
 
 <p><a href="classTAnalysedPulse-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTAnalysedPulse_1_1Tag.html">Tag</a></td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a0496ac4b000daa8c9c3bf6ad620e382a">TAnalysedPulse</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This constructor must exist for ROOT I/O, but should not be used as you cannot set the source outside of the constructor.  <a href="#a0496ac4b000daa8c9c3bf6ad620e382a"></a><br/></td></tr>
@@ -95,21 +97,10 @@ Inheritance diagram for TAnalysedPulse:</div>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a3902a0fe916a4550e5b3ecfc2d8423ce">IsEnergySet</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#afb7cf4f30bb4ad44f28971fc9e5ad224">IsPedestalSet</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#ac85e0e181720311b70be7d90b8cfac33">IsTriggerTimeSet</a> () const </td></tr>
-<tr><td colspan="2"><h2>Private Types</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">SourceProxy</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p><a class="anchor" id="amgrpa539f404bc9d2d0b648fde670b1ef278"></a>A flyweight for identifying which source was used to make the TAP without copying the entire source.</p>
-<p>Because many TAPs will be using the same source, and we don't want to waste the space storing copies of them or the time making them, we instead store a single copy in a vector of each source used throughout the invocation of this program in the making of TAPs. If a TAP generator uses a source, that source is searched for in ProxyToSourceMap and the index identifying where it is is saved with this TAP. If the source does not exists, it is created and appended to the end. </p>
-<br/><br/></div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#ab50248f4bf850e91964a9701ceebc20f">SourceProxy_t</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classIDs_1_1source.html">IDs::source</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a4f9cc70b2adda52cc7543670a70093c5">ProxyToSourceMap</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="classIDs_1_1source.html">IDs::source</a>, <br class="typebreak"/>
-<a class="el" href="classTAnalysedPulse.html#ab50248f4bf850e91964a9701ceebc20f">SourceProxy_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#affdac6523eb50f4ad7bdaf52def35f82">SourceToProxyMap</a></td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a38526142329244a415dc1c03149e11d6">SetSource</a> (const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;sourceID)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#ae302d37c834e4deb3c5f85bc7ed1324e">ClassDef</a> (<a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a>, 4)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#aff377c5ee85adf583c2cdd9f6c2a1522">ClassDef</a> (<a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a>, 5)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#a177aa032b00e764197f1a9c6ad49a98f">TPulseIslandID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTAnalysedPulse.html#ab50248f4bf850e91964a9701ceebc20f">SourceProxy_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a></td></tr>
@@ -117,65 +108,16 @@ Inheritance diagram for TAnalysedPulse:</div>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; <a class="el" href="classIDs_1_1source.html">IDs::source</a>, <a class="el" href="structTAnalysedPulse_1_1Tag.html">Tag</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a8a12653653619c909aed30adeb32c5ee">fSource</a></td></tr>
 <tr><td colspan="2"><h2>Static Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a> = -99999</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">fDefaultValue</a> = definitions::DefaultValue</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">To enable sanity checks, we have an unphysical value that all fields are set to.  <a href="#a477d8e1f357165903913bd51ddc06c44"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTAnalysedPulse.html#a4f9cc70b2adda52cc7543670a70093c5">ProxyToSourceMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#aef45c8cc38cda418645e1ca9601af50b">sProxyToSources</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">See description of SourceProxy. This is the single instance of that map needed.  <a href="#aef45c8cc38cda418645e1ca9601af50b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTAnalysedPulse.html#affdac6523eb50f4ad7bdaf52def35f82">SourceToProxyMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb">sSourceToProxies</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">See description of SourceProxy. This is the single instance of the map needed.  <a href="#aa9acdf59a6ec83751bba3110ff21b5eb"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework. </p>
 <p>A TAP is generated from a <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a> and represents the next higher level, more intuitive representation of a physical hit in a detector. It has properties more commonly associated with a physics event, such as time and energy, that are derived from the TPI using the methods in generator (derived from <a class="el" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>). Different generators can calculate the same quantitites using different techniques, leading to multiple TAPs coming from a single TPI. </p>
 
 <p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00030">30</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
-<hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a4f9cc70b2adda52cc7543670a70093c5"></a><!-- doxytag: member="TAnalysedPulse::ProxyToSourceMap" ref="a4f9cc70b2adda52cc7543670a70093c5" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::vector&lt;<a class="el" href="classIDs_1_1source.html">IDs::source</a>&gt; <a class="el" href="classTAnalysedPulse.html#a4f9cc70b2adda52cc7543670a70093c5">TAnalysedPulse::ProxyToSourceMap</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00049">49</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab50248f4bf850e91964a9701ceebc20f"></a><!-- doxytag: member="TAnalysedPulse::SourceProxy_t" ref="ab50248f4bf850e91964a9701ceebc20f" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef int <a class="el" href="classTAnalysedPulse.html#ab50248f4bf850e91964a9701ceebc20f">TAnalysedPulse::SourceProxy_t</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00048">48</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="affdac6523eb50f4ad7bdaf52def35f82"></a><!-- doxytag: member="TAnalysedPulse::SourceToProxyMap" ref="affdac6523eb50f4ad7bdaf52def35f82" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::map&lt;<a class="el" href="classIDs_1_1source.html">IDs::source</a>,<a class="el" href="classTAnalysedPulse.html#ab50248f4bf850e91964a9701ceebc20f">SourceProxy_t</a>&gt; <a class="el" href="classTAnalysedPulse.html#affdac6523eb50f4ad7bdaf52def35f82">TAnalysedPulse::SourceToProxyMap</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00050">50</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
-
-</div>
-</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0496ac4b000daa8c9c3bf6ad620e382a"></a><!-- doxytag: member="TAnalysedPulse::TAnalysedPulse" ref="a0496ac4b000daa8c9c3bf6ad620e382a" args="()" -->
 <div class="memitem">
@@ -194,20 +136,19 @@ Inheritance diagram for TAnalysedPulse:</div>
 
 <p>This constructor must exist for ROOT I/O, but should not be used as you cannot set the source outside of the constructor. </p>
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00034">34</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00030">30</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034                               :
-<a name="l00035"></a>00035   <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00036"></a>00036   <a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00037"></a>00037   <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00038"></a>00038   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00039"></a>00039   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00040"></a>00040   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00041"></a>00041   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00042"></a>00042   <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00043"></a>00043   <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>){
-<a name="l00044"></a>00044     <span class="comment">//Reset();</span>
-<a name="l00045"></a>00045 }
+<p><div class="fragment"><pre class="fragment"><a name="l00030"></a>00030                               :
+<a name="l00031"></a>00031   <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00032"></a>00032   <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00033"></a>00033   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00034"></a>00034   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00035"></a>00035   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00036"></a>00036   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00037"></a>00037   <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00038"></a>00038   <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>){
+<a name="l00039"></a>00039     <span class="comment">//Reset();</span>
+<a name="l00040"></a>00040 }
 
 </pre></div></p>
 
@@ -255,23 +196,22 @@ Inheritance diagram for TAnalysedPulse:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00019">19</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00016">16</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8cpp_source.html#l00070">SetParentTPIProperties()</a>, and <a class="el" href="TAnalysedPulse_8cpp_source.html#l00081">SetSource()</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00139">fSource</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00065">SetParentTPIProperties()</a>, and <a class="el" href="FlyWeight_8h_source.html#l00059">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00020"></a>00020                                                                            :
-<a name="l00021"></a>00021   <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00022"></a>00022   <a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00023"></a>00023   <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00024"></a>00024   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00025"></a>00025   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00026"></a>00026   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00027"></a>00027   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00028"></a>00028   <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
-<a name="l00029"></a>00029   <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>){
-<a name="l00030"></a>00030     <a class="code" href="classTAnalysedPulse.html#a38526142329244a415dc1c03149e11d6">SetSource</a>(sourceID);
-<a name="l00031"></a>00031     <a class="code" href="classTAnalysedPulse.html#ad591734c66ce50d04f74d21ad1e0c37e">SetParentTPIProperties</a>(parentID, parentTPI);
-<a name="l00032"></a>00032 }
+<p><div class="fragment"><pre class="fragment"><a name="l00017"></a>00017                                                                            :
+<a name="l00018"></a>00018   <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00019"></a>00019   <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00020"></a>00020   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00021"></a>00021   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00022"></a>00022   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00023"></a>00023   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00024"></a>00024   <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>),
+<a name="l00025"></a>00025   <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>(<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>){
+<a name="l00026"></a>00026     <a class="code" href="classTAnalysedPulse.html#a8a12653653619c909aed30adeb32c5ee">fSource</a>.<a class="code" href="classFlyWeight.html#a70fd41ad0b4c2c3168837d8083e37ff0">SetValue</a>(sourceID);
+<a name="l00027"></a>00027     <a class="code" href="classTAnalysedPulse.html#ad591734c66ce50d04f74d21ad1e0c37e">SetParentTPIProperties</a>(parentID, parentTPI);
+<a name="l00028"></a>00028 }
 
 </pre></div></p>
 
@@ -292,15 +232,15 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00076">76</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00057">57</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00076"></a>00076 {};
+<p><div class="fragment"><pre class="fragment"><a name="l00057"></a>00057 {};
 </pre></div></p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ae302d37c834e4deb3c5f85bc7ed1324e"></a><!-- doxytag: member="TAnalysedPulse::ClassDef" ref="ae302d37c834e4deb3c5f85bc7ed1324e" args="(TAnalysedPulse, 4)" -->
+<a class="anchor" id="aff377c5ee85adf583c2cdd9f6c2a1522"></a><!-- doxytag: member="TAnalysedPulse::ClassDef" ref="aff377c5ee85adf583c2cdd9f6c2a1522" args="(TAnalysedPulse, 5)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -313,7 +253,7 @@ Inheritance diagram for TAnalysedPulse:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">4&nbsp;</td>
+          <td class="paramtype">5&nbsp;</td>
           <td class="paramname"></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -355,23 +295,23 @@ Inheritance diagram for TAnalysedPulse:</div>
 
 <p>Reimplemented in <a class="el" href="classTGaussFitAnalysedPulse.html#a8d1c57e2ef786e8a68abb6c2245acd26">TGaussFitAnalysedPulse</a>.</p>
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00058">58</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00053">53</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00154">fAmplitude</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00155">fTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00133">fAmplitude</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00134">fTime</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8cpp_source.html#l00258">ExportPulse::PlotTAP()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00058"></a>00058                                                    {
-<a name="l00059"></a>00059         <span class="keywordflow">if</span>(tpi_pulse) {
-<a name="l00060"></a>00060           std::string name=tpi_pulse-&gt;GetName();
-<a name="l00061"></a>00061           <span class="keywordtype">int</span> n_bins=tpi_pulse-&gt;GetXaxis()-&gt;GetNbins();
-<a name="l00062"></a>00062           <span class="keywordtype">double</span> x_max=tpi_pulse-&gt;GetXaxis()-&gt;GetXmax();
-<a name="l00063"></a>00063           <span class="keywordtype">double</span> x_min=tpi_pulse-&gt;GetXaxis()-&gt;GetXmin();
-<a name="l00064"></a>00064           TH1F* tap_pulse=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_AP&quot;</span>).c_str(),(<span class="stringliteral">&quot;TAP for &quot;</span>+name).c_str(),n_bins,x_min,x_max);
-<a name="l00065"></a>00065           <span class="keywordtype">int</span> bin=tap_pulse-&gt;FindBin(<a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>);
-<a name="l00066"></a>00066           tap_pulse-&gt;SetBinContent(bin,<a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>);
-<a name="l00067"></a>00067         }
-<a name="l00068"></a>00068 }
+<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053                                                    {
+<a name="l00054"></a>00054         <span class="keywordflow">if</span>(tpi_pulse) {
+<a name="l00055"></a>00055           std::string name=tpi_pulse-&gt;GetName();
+<a name="l00056"></a>00056           <span class="keywordtype">int</span> n_bins=tpi_pulse-&gt;GetXaxis()-&gt;GetNbins();
+<a name="l00057"></a>00057           <span class="keywordtype">double</span> x_max=tpi_pulse-&gt;GetXaxis()-&gt;GetXmax();
+<a name="l00058"></a>00058           <span class="keywordtype">double</span> x_min=tpi_pulse-&gt;GetXaxis()-&gt;GetXmin();
+<a name="l00059"></a>00059           TH1F* tap_pulse=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_AP&quot;</span>).c_str(),(<span class="stringliteral">&quot;TAP for &quot;</span>+name).c_str(),n_bins,x_min,x_max);
+<a name="l00060"></a>00060           <span class="keywordtype">int</span> bin=tap_pulse-&gt;FindBin(<a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>);
+<a name="l00061"></a>00061           tap_pulse-&gt;SetBinContent(bin,<a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>);
+<a name="l00062"></a>00062         }
+<a name="l00063"></a>00063 }
 </pre></div></p>
 
 </div>
@@ -391,13 +331,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00103">103</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00084">84</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00154">fAmplitude</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00133">fAmplitude</a>.</p>
 
-<p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00023">TDetectorPulse::GetFastPulseAmplitude()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00024">TDetectorPulse::GetSlowPulseAmplitude()</a>.</p>
+<p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00103"></a>00103 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00084"></a>00084 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>;};
 </pre></div></p>
 
 </div>
@@ -417,13 +357,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00106">106</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00087">87</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00157">fEnergy</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00136">fEnergy</a>.</p>
 
 <p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00106"></a>00106 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00087"></a>00087 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>;};
 </pre></div></p>
 
 </div>
@@ -443,13 +383,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00105">105</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00086">86</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00156">fIntegral</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00135">fIntegral</a>.</p>
 
-<p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00029">TDetectorPulse::GetFastPulseIntegral()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00030">TDetectorPulse::GetSlowPulseIntegral()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00105"></a>00105 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>;};
 </pre></div></p>
 
 </div>
@@ -469,13 +409,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00101">101</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00082">82</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00151">fParentID</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00124">fParentID</a>.</p>
 
 <p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00101"></a>00101 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00082"></a>00082 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>;};
 </pre></div></p>
 
 </div>
@@ -495,13 +435,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00107">107</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00088">88</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00158">fPedestal</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00137">fPedestal</a>.</p>
 
 <p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00088"></a>00088 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>;};
 </pre></div></p>
 
 </div>
@@ -521,13 +461,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00109">109</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00090">90</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00152">fSource</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00168">sProxyToSources</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00139">fSource</a>, and <a class="el" href="FlyWeight_8h_source.html#l00052">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>.</p>
 
-<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, and <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00010">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse::TDetectorPulse()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00109"></a>00109 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#aef45c8cc38cda418645e1ca9601af50b" title="See description of SourceProxy. This is the single instance of that map needed.">sProxyToSources</a>.at(<a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>);};
+<p><div class="fragment"><pre class="fragment"><a name="l00090"></a>00090 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a8a12653653619c909aed30adeb32c5ee">fSource</a>.<a class="code" href="classFlyWeight.html#a9d64d2cf8d604cbf2960dc2ea53ac5c7">GetValue</a>();};
 </pre></div></p>
 
 </div>
@@ -547,13 +487,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00104">104</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00085">85</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00155">fTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00134">fTime</a>.</p>
 
-<p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00026">TDetectorPulse::GetFastPulseTime()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00027">TDetectorPulse::GetSlowPulseTime()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00012">IsTimeOrdered()</a>, and <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00010">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TGaussFitAnalysedPulse_8cpp_source.html#l00006">TGaussFitAnalysedPulse::Draw()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00012">IsTimeOrdered()</a>, and <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00104"></a>00104 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>;};
 </pre></div></p>
 
 </div>
@@ -573,13 +513,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00102">102</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00083">83</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00153">fTPILength</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00132">fTPILength</a>.</p>
 
 <p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00083"></a>00083 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>;};
 </pre></div></p>
 
 </div>
@@ -599,13 +539,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00108">108</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00089">89</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00159">fTriggerTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00138">fTriggerTime</a>.</p>
 
 <p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00164">PulseViewer::GetParameterValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00108"></a>00108 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00089"></a>00089 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>;};
 </pre></div></p>
 
 </div>
@@ -625,11 +565,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00138">138</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00119">119</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00154">fAmplitude</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00133">fAmplitude</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00138"></a>00138 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00119"></a>00119 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -649,11 +589,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00141">141</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00122">122</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00157">fEnergy</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00136">fEnergy</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00141"></a>00141 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00122"></a>00122 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -673,11 +613,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00140">140</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00121">121</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00156">fIntegral</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00135">fIntegral</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00140"></a>00140 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -697,11 +637,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00136">136</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00117">117</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00151">fParentID</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00124">fParentID</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00136"></a>00136 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00117"></a>00117 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -721,11 +661,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00142">142</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00123">123</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00158">fPedestal</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00137">fPedestal</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00142"></a>00142 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00123"></a>00123 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -745,11 +685,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00139">139</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00120">120</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00155">fTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00134">fTime</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00139"></a>00139 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00120"></a>00120 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -769,11 +709,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00137">137</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00118">118</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00153">fTPILength</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00132">fTPILength</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00137"></a>00137 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00118"></a>00118 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -793,11 +733,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00143">143</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00124">124</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00159">fTriggerTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00138">fTriggerTime</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00143"></a>00143 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00124"></a>00124 {<span class="keywordflow">return</span> <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>!=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;};
 </pre></div></p>
 
 </div>
@@ -820,20 +760,20 @@ Inheritance diagram for TAnalysedPulse:</div>
 
 <p>Clear the TAP. This will probably not be used. </p>
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">47</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">42</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00154">fAmplitude</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00164">fDefaultValue</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00157">fEnergy</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00156">fIntegral</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00151">fParentID</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00158">fPedestal</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00155">fTime</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00153">fTPILength</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00159">fTriggerTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00133">fAmplitude</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00144">fDefaultValue</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00136">fEnergy</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00135">fIntegral</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00124">fParentID</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00137">fPedestal</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00134">fTime</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00132">fTPILength</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00138">fTriggerTime</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047                                       {
-<a name="l00048"></a>00048   <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00049"></a>00049   <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00050"></a>00050   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00051"></a>00051   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00052"></a>00052   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00053"></a>00053   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00054"></a>00054   <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00055"></a>00055   <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
-<a name="l00056"></a>00056 }
+<p><div class="fragment"><pre class="fragment"><a name="l00042"></a>00042                                       {
+<a name="l00043"></a>00043   <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00044"></a>00044   <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00045"></a>00045   <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00046"></a>00046   <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00047"></a>00047   <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00048"></a>00048   <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00049"></a>00049   <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00050"></a>00050   <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>=<a class="code" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44" title="To enable sanity checks, we have an unphysical value that all fields are set to.">fDefaultValue</a>;
+<a name="l00051"></a>00051 }
 </pre></div></p>
 
 </div>
@@ -854,13 +794,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00123">123</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00104">104</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00154">fAmplitude</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00133">fAmplitude</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00034">MaxBinAPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00123"></a>00123 { <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00104"></a>00104 { <a class="code" href="classTAnalysedPulse.html#af03e9764fa1aa6b2b034700bbb3e95aa">fAmplitude</a>=val;};
 </pre></div></p>
 
 </div>
@@ -881,13 +821,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00126">126</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00107">107</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00157">fEnergy</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00136">fEnergy</a>.</p>
 
 <p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00010">SimpIntAPGenerator::ProcessPulses()</a>, and <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00034">MaxBinAPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00126"></a>00126 { <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107 { <a class="code" href="classTAnalysedPulse.html#aa593388aa3c041df5e26e7c5263cb84a">fEnergy</a>=val;};
 </pre></div></p>
 
 </div>
@@ -908,13 +848,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00125">125</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00106">106</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00156">fIntegral</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00135">fIntegral</a>.</p>
 
 <p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00010">SimpIntAPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00125"></a>00125 { <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00106"></a>00106 { <a class="code" href="classTAnalysedPulse.html#af4f6bb089947a59b1089efc950c78b89">fIntegral</a>=val;};
 </pre></div></p>
 
 </div>
@@ -935,13 +875,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00121">121</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00102">102</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00151">fParentID</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00124">fParentID</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00070">SetParentTPIProperties()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00065">SetParentTPIProperties()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121 { <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102 { <a class="code" href="classTAnalysedPulse.html#a6e64b9fd975d5a9acab36ab913d60b10">fParentID</a>=val;};
 </pre></div></p>
 
 </div>
@@ -971,21 +911,21 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00070">70</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00065">65</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00070">TPulseIsland::GetPulseLength()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00121">SetParentID()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00122">SetTPILength()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00128">SetTriggerTime()</a>.</p>
+<p>References <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00070">TPulseIsland::GetPulseLength()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00102">SetParentID()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00103">SetTPILength()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00109">SetTriggerTime()</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00019">TAnalysedPulse()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00016">TAnalysedPulse()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071                                                                       {
-<a name="l00072"></a>00072   <a class="code" href="classTAnalysedPulse.html#a4366bcb35e16aa04e466fa51d03e5540">SetParentID</a>(<span class="keywordtype">id</span>);
-<a name="l00073"></a>00073   <span class="keywordflow">if</span>(!pulse) {
-<a name="l00074"></a>00074     std::cerr&lt;&lt;<span class="stringliteral">&quot;NULL pointer to TPulseIsland passed as parent for TAnalysedPulse.&quot;</span>&lt;&lt;std::endl;
-<a name="l00075"></a>00075     <span class="keywordflow">return</span>;
-<a name="l00076"></a>00076   }
-<a name="l00077"></a>00077   <a class="code" href="classTAnalysedPulse.html#a66d5626837fbaf230e43b1b35d7ca61e">SetTPILength</a>(pulse-&gt;GetPulseLength());
-<a name="l00078"></a>00078   <a class="code" href="classTAnalysedPulse.html#a298641fb1cff7f7377591bb5833d84fc">SetTriggerTime</a>(pulse-&gt;GetTimeStamp()*pulse-&gt;GetClockTickInNs());
-<a name="l00079"></a>00079 }
+<p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066                                                                       {
+<a name="l00067"></a>00067   <a class="code" href="classTAnalysedPulse.html#a4366bcb35e16aa04e466fa51d03e5540">SetParentID</a>(<span class="keywordtype">id</span>);
+<a name="l00068"></a>00068   <span class="keywordflow">if</span>(!pulse) {
+<a name="l00069"></a>00069     std::cerr&lt;&lt;<span class="stringliteral">&quot;NULL pointer to TPulseIsland passed as parent for TAnalysedPulse.&quot;</span>&lt;&lt;std::endl;
+<a name="l00070"></a>00070     <span class="keywordflow">return</span>;
+<a name="l00071"></a>00071   }
+<a name="l00072"></a>00072   <a class="code" href="classTAnalysedPulse.html#a66d5626837fbaf230e43b1b35d7ca61e">SetTPILength</a>(pulse-&gt;GetPulseLength());
+<a name="l00073"></a>00073   <a class="code" href="classTAnalysedPulse.html#a298641fb1cff7f7377591bb5833d84fc">SetTriggerTime</a>(pulse-&gt;GetTimeStamp()*pulse-&gt;GetClockTickInNs());
+<a name="l00074"></a>00074 }
 </pre></div></p>
 
 </div>
@@ -1006,50 +946,11 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00127">127</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00108">108</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00158">fPedestal</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00137">fPedestal</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00127"></a>00127 { <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>=val;};
-</pre></div></p>
-
-</div>
-</div>
-<a class="anchor" id="a38526142329244a415dc1c03149e11d6"></a><!-- doxytag: member="TAnalysedPulse::SetSource" ref="a38526142329244a415dc1c03149e11d6" args="(const IDs::source &amp;sourceID)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TAnalysedPulse::SetSource </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>sourceID</em></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Why is this private? </dd></dl>
-
-<p>Definition at line <a class="el" href="TAnalysedPulse_8cpp_source.html#l00081">81</a> of file <a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a>.</p>
-
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00152">fSource</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00168">sProxyToSources</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00172">sSourceToProxies</a>.</p>
-
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00019">TAnalysedPulse()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00081"></a>00081                                                        {
-<a name="l00082"></a>00082     <span class="comment">// Is this proxy already contained in the maps</span>
-<a name="l00083"></a>00083     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceToProxyMap::const_iterator</a> it=<a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb" title="See description of SourceProxy. This is the single instance of the map needed.">sSourceToProxies</a>.find(sourceID);
-<a name="l00084"></a>00084     <span class="keywordflow">if</span>(it!=<a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb" title="See description of SourceProxy. This is the single instance of the map needed.">sSourceToProxies</a>.end()){
-<a name="l00085"></a>00085       <a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>=it-&gt;second;
-<a name="l00086"></a>00086     } <span class="keywordflow">else</span> {
-<a name="l00087"></a>00087       <span class="comment">// if it&apos;s a new kind, add the source to the hash table</span>
-<a name="l00088"></a>00088       <a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>=<a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb" title="See description of SourceProxy. This is the single instance of the map needed.">sSourceToProxies</a>.size();
-<a name="l00089"></a>00089       <a class="code" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb" title="See description of SourceProxy. This is the single instance of the map needed.">sSourceToProxies</a>[sourceID]=<a class="code" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">fSource</a>;
-<a name="l00090"></a>00090       <a class="code" href="classTAnalysedPulse.html#aef45c8cc38cda418645e1ca9601af50b" title="See description of SourceProxy. This is the single instance of that map needed.">sProxyToSources</a>.push_back(sourceID);
-<a name="l00091"></a>00091     }
-<a name="l00092"></a>00092 }
+<p><div class="fragment"><pre class="fragment"><a name="l00108"></a>00108 { <a class="code" href="classTAnalysedPulse.html#a50df5b35d9714476cb72af9d7e99eac6">fPedestal</a>=val;};
 </pre></div></p>
 
 </div>
@@ -1070,13 +971,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00124">124</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00105">105</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00155">fTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00134">fTime</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00034">MaxBinAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00124"></a>00124 { <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00105"></a>00105 { <a class="code" href="classTAnalysedPulse.html#a421b181e4d2e82dad6be641a6080f867">fTime</a>=val;};
 </pre></div></p>
 
 </div>
@@ -1097,13 +998,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00122">122</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00103">103</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00153">fTPILength</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00132">fTPILength</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00070">SetParentTPIProperties()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00065">SetParentTPIProperties()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00122"></a>00122 { <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00103"></a>00103 { <a class="code" href="classTAnalysedPulse.html#ad0274b763431a7068326101461a8bb80">fTPILength</a>=val;};
 </pre></div></p>
 
 </div>
@@ -1124,13 +1025,13 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00128">128</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00109">109</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00159">fTriggerTime</a>.</p>
+<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00138">fTriggerTime</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00070">SetParentTPIProperties()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00065">SetParentTPIProperties()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00128"></a>00128 { <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00109"></a>00109 { <a class="code" href="classTAnalysedPulse.html#a435266970905195f0d9e6d374f15e7d8">fTriggerTime</a>=val;};
 </pre></div></p>
 
 </div>
@@ -1147,9 +1048,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00154">154</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00133">133</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00058">Draw()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00103">GetAmplitude()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00138">IsAmplitudeSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00123">SetAmplitude()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00053">Draw()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00084">GetAmplitude()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00119">IsAmplitudeSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00104">SetAmplitude()</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1059,7 @@ Inheritance diagram for TAnalysedPulse:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">TAnalysedPulse::fDefaultValue</a> = -99999<code> [static, private]</code></td>
+          <td class="memname">const int <a class="el" href="classTAnalysedPulse.html#a477d8e1f357165903913bd51ddc06c44">TAnalysedPulse::fDefaultValue</a> = definitions::DefaultValue<code> [static, private]</code></td>
         </tr>
       </table>
 </div>
@@ -1166,9 +1067,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 
 <p>To enable sanity checks, we have an unphysical value that all fields are set to. </p>
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00164">164</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00144">144</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00138">IsAmplitudeSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00141">IsEnergySet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00140">IsIntegralSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00136">IsParentIDSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00142">IsPedestalSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00139">IsTimeSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00137">IsTPILengthSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00143">IsTriggerTimeSet()</a>, and <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00119">IsAmplitudeSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00122">IsEnergySet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00121">IsIntegralSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00117">IsParentIDSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00123">IsPedestalSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00120">IsTimeSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00118">IsTPILengthSet()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00124">IsTriggerTimeSet()</a>, and <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>.</p>
 
 </div>
 </div>
@@ -1183,9 +1084,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00157">157</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00136">136</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00106">GetEnergy()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00141">IsEnergySet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00126">SetEnergy()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00087">GetEnergy()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00122">IsEnergySet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00107">SetEnergy()</a>.</p>
 
 </div>
 </div>
@@ -1200,9 +1101,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00156">156</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00135">135</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00105">GetIntegral()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00140">IsIntegralSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00125">SetIntegral()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00086">GetIntegral()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00121">IsIntegralSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00106">SetIntegral()</a>.</p>
 
 </div>
 </div>
@@ -1217,9 +1118,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00151">151</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00124">124</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00101">GetParentID()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00136">IsParentIDSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00121">SetParentID()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00082">GetParentID()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00117">IsParentIDSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00102">SetParentID()</a>.</p>
 
 </div>
 </div>
@@ -1234,26 +1135,26 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00158">158</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00137">137</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00107">GetPedestal()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00142">IsPedestalSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00127">SetPedestal()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00088">GetPedestal()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00123">IsPedestalSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00108">SetPedestal()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a71ec682e49d75181d7a32c1071b4a44f"></a><!-- doxytag: member="TAnalysedPulse::fSource" ref="a71ec682e49d75181d7a32c1071b4a44f" args="" -->
+<a class="anchor" id="a8a12653653619c909aed30adeb32c5ee"></a><!-- doxytag: member="TAnalysedPulse::fSource" ref="a8a12653653619c909aed30adeb32c5ee" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classTAnalysedPulse.html#ab50248f4bf850e91964a9701ceebc20f">SourceProxy_t</a> <a class="el" href="classTAnalysedPulse.html#a71ec682e49d75181d7a32c1071b4a44f">TAnalysedPulse::fSource</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="classFlyWeight.html">FlyWeight</a>&lt;<a class="el" href="classIDs_1_1source.html">IDs::source</a>,<a class="el" href="structTAnalysedPulse_1_1Tag.html">Tag</a>&gt; <a class="el" href="classTAnalysedPulse.html#a8a12653653619c909aed30adeb32c5ee">TAnalysedPulse::fSource</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00152">152</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00139">139</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00109">GetSource()</a>, and <a class="el" href="TAnalysedPulse_8cpp_source.html#l00081">SetSource()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00090">GetSource()</a>, and <a class="el" href="TAnalysedPulse_8cpp_source.html#l00016">TAnalysedPulse()</a>.</p>
 
 </div>
 </div>
@@ -1268,9 +1169,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00155">155</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00134">134</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00058">Draw()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00104">GetTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00139">IsTimeSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00124">SetTime()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00053">Draw()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00085">GetTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00120">IsTimeSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00105">SetTime()</a>.</p>
 
 </div>
 </div>
@@ -1285,9 +1186,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00153">153</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00132">132</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00102">GetTPILength()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00137">IsTPILengthSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00122">SetTPILength()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00083">GetTPILength()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00118">IsTPILengthSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00103">SetTPILength()</a>.</p>
 
 </div>
 </div>
@@ -1302,47 +1203,9 @@ Inheritance diagram for TAnalysedPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00159">159</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00138">138</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00108">GetTriggerTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00143">IsTriggerTimeSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00047">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00128">SetTriggerTime()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aef45c8cc38cda418645e1ca9601af50b"></a><!-- doxytag: member="TAnalysedPulse::sProxyToSources" ref="aef45c8cc38cda418645e1ca9601af50b" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classTAnalysedPulse.html#a4f9cc70b2adda52cc7543670a70093c5">TAnalysedPulse::ProxyToSourceMap</a> <a class="el" href="classTAnalysedPulse.html#aef45c8cc38cda418645e1ca9601af50b">TAnalysedPulse::sProxyToSources</a><code> [static, private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>See description of SourceProxy. This is the single instance of that map needed. </p>
-
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00168">168</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
-
-<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00109">GetSource()</a>, and <a class="el" href="TAnalysedPulse_8cpp_source.html#l00081">SetSource()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa9acdf59a6ec83751bba3110ff21b5eb"></a><!-- doxytag: member="TAnalysedPulse::sSourceToProxies" ref="aa9acdf59a6ec83751bba3110ff21b5eb" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classTAnalysedPulse.html#affdac6523eb50f4ad7bdaf52def35f82">TAnalysedPulse::SourceToProxyMap</a> <a class="el" href="classTAnalysedPulse.html#aa9acdf59a6ec83751bba3110ff21b5eb">TAnalysedPulse::sSourceToProxies</a><code> [static, private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>See description of SourceProxy. This is the single instance of the map needed. </p>
-
-<p>Definition at line <a class="el" href="TAnalysedPulse_8h_source.html#l00172">172</a> of file <a class="el" href="TAnalysedPulse_8h_source.html">TAnalysedPulse.h</a>.</p>
-
-<p>Referenced by <a class="el" href="TAnalysedPulse_8cpp_source.html#l00081">SetSource()</a>.</p>
+<p>Referenced by <a class="el" href="TAnalysedPulse_8h_source.html#l00089">GetTriggerTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00124">IsTriggerTimeSet()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00042">Reset()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00109">SetTriggerTime()</a>.</p>
 
 </div>
 </div>
@@ -1351,7 +1214,7 @@ Inheritance diagram for TAnalysedPulse:</div>
 <li>rootana/src/TAP_generators/<a class="el" href="TAnalysedPulse_8cpp_source.html">TAnalysedPulse.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

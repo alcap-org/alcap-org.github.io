@@ -49,11 +49,12 @@ Inheritance diagram for BaseModule:</div>
 <area href="classPlotAmpVsMuScTDiff.html" alt="PlotAmpVsMuScTDiff" shape="rect" coords="278,560,546,584"/>
 <area href="classPlotAmpVsTDiff.html" alt="PlotAmpVsTDiff" shape="rect" coords="278,616,546,640"/>
 <area href="classPlotPedestalAndNoise.html" alt="PlotPedestalAndNoise" shape="rect" coords="278,672,546,696"/>
-<area href="classPlotTime.html" alt="PlotTime" shape="rect" coords="278,728,546,752"/>
-<area href="classPulseCandidateFinder__InvestigateParameters.html" alt="PulseCandidateFinder_InvestigateParameters" shape="rect" coords="278,784,546,808"/>
-<area href="classPulseViewer.html" alt="PulseViewer" shape="rect" coords="278,840,546,864"/>
-<area href="classSimpleHistograms.html" alt="SimpleHistograms" shape="rect" coords="278,896,546,920"/>
-<area href="classTemplateCreator.html" alt="TemplateCreator" shape="rect" coords="278,952,546,976"/>
+<area href="classPlotTDPs.html" alt="PlotTDPs" shape="rect" coords="278,728,546,752"/>
+<area href="classPlotTime.html" alt="PlotTime" shape="rect" coords="278,784,546,808"/>
+<area href="classPulseCandidateFinder__InvestigateParameters.html" alt="PulseCandidateFinder_InvestigateParameters" shape="rect" coords="278,840,546,864"/>
+<area href="classPulseViewer.html" alt="PulseViewer" shape="rect" coords="278,896,546,920"/>
+<area href="classSimpleHistograms.html" alt="SimpleHistograms" shape="rect" coords="278,952,546,976"/>
+<area href="classTemplateCreator.html" alt="TemplateCreator" shape="rect" coords="278,1008,546,1032"/>
 </map>
  </div>
 </div>
@@ -65,8 +66,8 @@ Inheritance diagram for BaseModule:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor of a module class. Provides several virtual methods that should be overloaded in the derived class. Derived classes should hard-code their name as the first argument to the constructor.  <a href="#a828d4e27c72536894e03b3cf330ba8c6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#a3227c93689598fc23ca808a216222d80">~BaseModule</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#a204587ff6e1d967ab21d0cbbfea3b0fd">ProcessGenericEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="group__MV1724ProcessRaw.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ae8eb83f91b9c827de50f74f06a9303e2">BeforeFirstEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ae1557c76d8c3806d31a7d71b0d8f00c0">AfterLastEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BeforeFirstEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">AfterLastEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#aab50673c8ec954675da2664677abfab1">SetAlias</a> (const std::string &amp;alias)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ac3e4f013f5465813c9cfa2179788cbf3">GetAlias</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#af30c91fa2a3388325dd20b322de517ca">GetName</a> () const </td></tr>
@@ -78,8 +79,8 @@ Inheritance diagram for BaseModule:</div>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a></td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ab65f9166b9cc135b73ef9ecdb0ab105d">ProcessEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="group__MV1724ProcessRaw.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The big kahuna. Overload this in the derived class and it will be called for each event.  <a href="#ab65f9166b9cc135b73ef9ecdb0ab105d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">ProcessEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="group__MV1724ProcessRaw.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)=0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The big kahuna. Overload this in the derived class and it will be called for each event.  <a href="#aa4f8e8bc97c131fa8a97091ac7b7232f"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ac5a639ae355fcb1d403b785a183ece8a">fSetup</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a></td></tr>
@@ -138,7 +139,7 @@ Inheritance diagram for BaseModule:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00007">7</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00085">dir</a>, <a class="el" href="BaseModule_8h_source.html#l00076">fDebug</a>, <a class="el" href="BaseModule_8h_source.html#l00078">fDirectory</a>, <a class="el" href="BaseModule_8h_source.html#l00077">fName</a>, <a class="el" href="BaseModule_8h_source.html#l00051">GetAlias()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::GetAlias()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00039">modules::options::GetBool()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00011">modules::options::GetOption()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00163">modules::options::HasOption()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00094">modules::navigator::Instance()</a>, <a class="el" href="BaseModule_8h_source.html#l00047">SetAlias()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00104">modules::options::StringDescription()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00085">dir</a>, <a class="el" href="BaseModule_8h_source.html#l00076">fDebug</a>, <a class="el" href="BaseModule_8h_source.html#l00078">fDirectory</a>, <a class="el" href="BaseModule_8h_source.html#l00077">fName</a>, <a class="el" href="BaseModule_8h_source.html#l00051">GetAlias()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00132">modules::options::GetAlias()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00039">modules::options::GetBool()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00011">modules::options::GetOption()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00163">modules::options::HasOption()</a>, <a class="el" href="ModulesNavigator_8h_source.html#l00099">modules::navigator::Instance()</a>, <a class="el" href="BaseModule_8h_source.html#l00047">SetAlias()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00104">modules::options::StringDescription()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00007"></a>00007                                                                                :
 <a name="l00008"></a>00008         <a class="code" href="classBaseModule.html#ac5a639ae355fcb1d403b785a183ece8a">fSetup</a>(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()),<a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>(<span class="keyword">false</span>),<a class="code" href="classBaseModule.html#a743cac6481efcd5dea914e1d28813dfe">fName</a>(name),<a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>(NULL){
@@ -198,7 +199,7 @@ Inheritance diagram for BaseModule:</div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ae1557c76d8c3806d31a7d71b0d8f00c0"></a><!-- doxytag: member="BaseModule::AfterLastEntry" ref="ae1557c76d8c3806d31a7d71b0d8f00c0" args="(TGlobalData *gData, const TSetupData *setup)" -->
+<a class="anchor" id="adce5c0d504fe9daf1d4d77b8c0522a7c"></a><!-- doxytag: member="BaseModule::AfterLastEntry" ref="adce5c0d504fe9daf1d4d77b8c0522a7c" args="(TGlobalData *gData, const TSetupData *setup)=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -217,7 +218,7 @@ Inheritance diagram for BaseModule:</div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [inline, virtual]</code></td>
+          <td></td><td></td><td><code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -225,18 +226,13 @@ Inheritance diagram for BaseModule:</div>
 <p>Optional method which is called once after the main event loop Can be used to dump a summary or finalise a histogram </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on sucess and non-zero if a problem occurred </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classPulseViewer.html#a6e6a7a6f33b022b2d07a7c1f5574d0fd">PulseViewer</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a43d208320d880921e07359f706c8b066">PulseCandidateFinder_InvestigateParameters</a>, and <a class="el" href="classTemplateCreator.html#ae5f5a731f66c274dd42f17dc9e4ed738">TemplateCreator</a>.</p>
-
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00043">43</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Implemented in <a class="el" href="classIslandAmplitude.html#acebf24e05c64abd6911095239523c4af">IslandAmplitude</a>, <a class="el" href="classIslandLength.html#a10dc5f1c78d6199ad235000c5e6cd163">IslandLength</a>, <a class="el" href="classExportPulse.html#a153f189babdedc0cb3ea75d6de6d934b">ExportPulse</a>, <a class="el" href="classPlotAmplitude.html#a9d78a44db66770b891a4bad28a29ba92">PlotAmplitude</a>, <a class="el" href="classPlotAmpVsMuScTDiff.html#ab87e2df02fd69a25adfa569b2ae6387e">PlotAmpVsMuScTDiff</a>, <a class="el" href="classPlotAmpVsTDiff.html#a4978777f72e2e826ce1061e4e208308c">PlotAmpVsTDiff</a>, <a class="el" href="classPlotPedestalAndNoise.html#aae1ccda20035785f1f78a0897bf0abef">PlotPedestalAndNoise</a>, <a class="el" href="classPlotTDPs.html#acc8aac00def41941edb1acaf6b653908">PlotTDPs</a>, <a class="el" href="classPlotTime.html#a0ae1351f76da61be24a3e70fedbf11df">PlotTime</a>, <a class="el" href="classPulseViewer.html#a6e6a7a6f33b022b2d07a7c1f5574d0fd">PulseViewer</a>, <a class="el" href="classMakeAnalysedPulses.html#a231612e06acfa949f80146fea5f7b420">MakeAnalysedPulses</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a43d208320d880921e07359f706c8b066">PulseCandidateFinder_InvestigateParameters</a>, <a class="el" href="classTemplateCreator.html#ae5f5a731f66c274dd42f17dc9e4ed738">TemplateCreator</a>, <a class="el" href="classMakeDetectorPulses.html#ab0c7667e349dc75ea67fc99b09babd8c">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#a70c458f833e050b5d3a8c87bcc64461a">MakeMuonEvents</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00122">LoopSequence::Postprocess()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00043"></a>00043 {<span class="keywordflow">return</span> 0;};
-</pre></div></p>
-
 </div>
 </div>
-<a class="anchor" id="ae8eb83f91b9c827de50f74f06a9303e2"></a><!-- doxytag: member="BaseModule::BeforeFirstEntry" ref="ae8eb83f91b9c827de50f74f06a9303e2" args="(TGlobalData *gData, const TSetupData *setup)" -->
+<a class="anchor" id="a2c043d991a87450829025075284f5519"></a><!-- doxytag: member="BaseModule::BeforeFirstEntry" ref="a2c043d991a87450829025075284f5519" args="(TGlobalData *gData, const TSetupData *setup)=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -255,7 +251,7 @@ Inheritance diagram for BaseModule:</div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [inline, virtual]</code></td>
+          <td></td><td></td><td><code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -263,14 +259,9 @@ Inheritance diagram for BaseModule:</div>
 <p>Optional method which is called once before the main event loop Can be used to parse options and setup histograms. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on sucess and non-zero if a problem occurred </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classExportPulse.html#ac185f757b015663a7d411d76114f54d4">ExportPulse</a>, <a class="el" href="classPlotAmplitude.html#ac69b9704d9c12a95b0293e58e9ee1787">PlotAmplitude</a>, <a class="el" href="classPulseViewer.html#ab15f5a12681c3b56d6c34124989b9d19">PulseViewer</a>, <a class="el" href="classMakeAnalysedPulses.html#aa3b0fee1356a7a295f1aafbbe1f0ae9c">MakeAnalysedPulses</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a098c28b4705936f23cd2112fe70f0750">PulseCandidateFinder_InvestigateParameters</a>, <a class="el" href="classTemplateCreator.html#a1465faef6f2c4f5de31794c64d5a3515">TemplateCreator</a>, <a class="el" href="classMakeDetectorPulses.html#a1835c2dc6e4f8d16ab289ca128eb7f9b">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#aff85ccedb2f5aea875f3425083f5c43f">MakeMuonEvents</a>.</p>
-
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00038">38</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Implemented in <a class="el" href="classIslandAmplitude.html#a9d09e14b8d38fd607be4d0724eae1157">IslandAmplitude</a>, <a class="el" href="classIslandLength.html#aa8ec40511e0f2322ba3a0c8c7e82e82f">IslandLength</a>, <a class="el" href="classExportPulse.html#ac185f757b015663a7d411d76114f54d4">ExportPulse</a>, <a class="el" href="classPlotAmplitude.html#ac69b9704d9c12a95b0293e58e9ee1787">PlotAmplitude</a>, <a class="el" href="classPlotAmpVsMuScTDiff.html#a08c5400dff6013b6498d30a92f9ad812">PlotAmpVsMuScTDiff</a>, <a class="el" href="classPlotAmpVsTDiff.html#aab16ff0f09930cc935239893a79aeee3">PlotAmpVsTDiff</a>, <a class="el" href="classPlotPedestalAndNoise.html#a772c38ac3dbe764b73530089ce33ae6d">PlotPedestalAndNoise</a>, <a class="el" href="classPlotTDPs.html#a2d6e5c0adf86b4b251f364e18919ecee">PlotTDPs</a>, <a class="el" href="classPlotTime.html#afd325a15c66242b9e10b7bd1881aabb2">PlotTime</a>, <a class="el" href="classPulseViewer.html#ab15f5a12681c3b56d6c34124989b9d19">PulseViewer</a>, <a class="el" href="classMakeAnalysedPulses.html#aa3b0fee1356a7a295f1aafbbe1f0ae9c">MakeAnalysedPulses</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a098c28b4705936f23cd2112fe70f0750">PulseCandidateFinder_InvestigateParameters</a>, <a class="el" href="classTemplateCreator.html#a1465faef6f2c4f5de31794c64d5a3515">TemplateCreator</a>, <a class="el" href="classMakeDetectorPulses.html#a1835c2dc6e4f8d16ab289ca128eb7f9b">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#aff85ccedb2f5aea875f3425083f5c43f">MakeMuonEvents</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00076">LoopSequence::Preprocess()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038 {<span class="keywordflow">return</span> 0;};
-</pre></div></p>
 
 </div>
 </div>
@@ -295,7 +286,7 @@ Inheritance diagram for BaseModule:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00076">fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00191">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00087">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00147">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00074">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00037">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00033">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00214">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00110">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00139">PulseViewer::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00191">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00087">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00147">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00037">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00037">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00033">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00214">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00135">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00139">PulseViewer::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -350,6 +341,8 @@ Inheritance diagram for BaseModule:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00078">fDirectory</a>.</p>
 
+<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00037">PlotTDPs::BeforeFirstEntry()</a>.</p>
+
 <p><div class="fragment"><pre class="fragment"><a name="l00062"></a>00062 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>;}
 </pre></div></p>
 
@@ -376,19 +369,19 @@ Inheritance diagram for BaseModule:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00077">fName</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00037">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00054"></a>00054 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a743cac6481efcd5dea914e1d28813dfe">fName</a>.c_str();};
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="ab65f9166b9cc135b73ef9ecdb0ab105d"></a><!-- doxytag: member="BaseModule::ProcessEntry" ref="ab65f9166b9cc135b73ef9ecdb0ab105d" args="(TGlobalData *gData, const TSetupData *gSetup)" -->
+<a class="anchor" id="aa4f8e8bc97c131fa8a97091ac7b7232f"></a><!-- doxytag: member="BaseModule::ProcessEntry" ref="aa4f8e8bc97c131fa8a97091ac7b7232f" args="(TGlobalData *gData, const TSetupData *gSetup)=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int BaseModule::ProcessEntry </td>
+          <td class="memname">virtual int BaseModule::ProcessEntry </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classTGlobalData.html">TGlobalData</a> *&nbsp;</td>
           <td class="paramname"> <em>gData</em>, </td>
@@ -402,7 +395,7 @@ Inheritance diagram for BaseModule:</div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [private, virtual]</code></td>
+          <td></td><td></td><td><code> [private, pure virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -418,17 +411,9 @@ Inheritance diagram for BaseModule:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on success and non-zero on failure </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classExportPulse.html#a5600abba9c12062485a436c5003a2064">ExportPulse</a>, <a class="el" href="classPlotAmplitude.html#a3ffc0ef2718c1623733795d97fb9f111">PlotAmplitude</a>, <a class="el" href="classPlotAmpVsTDiff.html#a9d9abd4c3aa55615b121f6a8454e0038">PlotAmpVsTDiff</a>, <a class="el" href="classPlotTime.html#a02bdd149393683bb1b5f2af53fdb2ac1">PlotTime</a>, <a class="el" href="classPulseViewer.html#a442f4d8b64b155948adba50822dc03fa">PulseViewer</a>, <a class="el" href="classMakeTemplate.html#aa79ac0cbb33c4aabc38b12d6892ef75f">MakeTemplate</a>, <a class="el" href="classMakeAnalysedPulses.html#a63c2b9b6838f06c18e93fd4d58bc1a2e">MakeAnalysedPulses</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a4d330e1dc673c7f60947dcbf9e30e8a2">PulseCandidateFinder_InvestigateParameters</a>, <a class="el" href="classTemplateCreator.html#af011c57b324263249b1dd323861f9cff">TemplateCreator</a>, <a class="el" href="classMakeDetectorPulses.html#ada6b3d53f9cb53ccdfd24e4c179a2b3c">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#a7396d1211db876acd034cfcb2772f4e1">MakeMuonEvents</a>.</p>
+<p>Implemented in <a class="el" href="classIslandAmplitude.html#a5e22d5b423dd3711803bece7d3ead02b">IslandAmplitude</a>, <a class="el" href="classIslandLength.html#a0bcf32c728d663f72bb8281480a0ee5a">IslandLength</a>, <a class="el" href="classExportPulse.html#a5600abba9c12062485a436c5003a2064">ExportPulse</a>, <a class="el" href="classPlotAmplitude.html#a3ffc0ef2718c1623733795d97fb9f111">PlotAmplitude</a>, <a class="el" href="classPlotAmpVsMuScTDiff.html#ac69d55621767af18d70a8613e5f115f9">PlotAmpVsMuScTDiff</a>, <a class="el" href="classPlotAmpVsTDiff.html#a9d9abd4c3aa55615b121f6a8454e0038">PlotAmpVsTDiff</a>, <a class="el" href="classPlotPedestalAndNoise.html#ade78376aa5dbd41849652771d2fe0da5">PlotPedestalAndNoise</a>, <a class="el" href="classPlotTDPs.html#a8fbe4ffd26b9e7397d89c7975135b0b8">PlotTDPs</a>, <a class="el" href="classPlotTime.html#a02bdd149393683bb1b5f2af53fdb2ac1">PlotTime</a>, <a class="el" href="classPulseViewer.html#a442f4d8b64b155948adba50822dc03fa">PulseViewer</a>, <a class="el" href="classMakeTemplate.html#aa79ac0cbb33c4aabc38b12d6892ef75f">MakeTemplate</a>, <a class="el" href="classMakeAnalysedPulses.html#a63c2b9b6838f06c18e93fd4d58bc1a2e">MakeAnalysedPulses</a>, <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a4d330e1dc673c7f60947dcbf9e30e8a2">PulseCandidateFinder_InvestigateParameters</a>, <a class="el" href="classTemplateCreator.html#af011c57b324263249b1dd323861f9cff">TemplateCreator</a>, <a class="el" href="classMakeDetectorPulses.html#ada6b3d53f9cb53ccdfd24e4c179a2b3c">MakeDetectorPulses</a>, and <a class="el" href="classMakeMuonEvents.html#a7396d1211db876acd034cfcb2772f4e1">MakeMuonEvents</a>.</p>
 
-<p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00044">44</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00049">ProcessGenericEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044                                                                         {
-<a name="l00045"></a>00045   <span class="comment">// This is a virtual function and should be overwritten by the deriving analysis module!</span>
-<a name="l00046"></a>00046   <span class="keywordflow">return</span> 0;
-<a name="l00047"></a>00047 }
-</pre></div></p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00044">ProcessGenericEntry()</a>.</p>
 
 </div>
 </div>
@@ -459,22 +444,22 @@ Inheritance diagram for BaseModule:</div>
 <p>Method called by the main event loop for each entry in the input root tree. Does some simple work, then hooks into the derived class through ProcessEntry. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on sucess and non-zero if a problem occurred </dd></dl>
 
-<p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00049">49</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00044">44</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00078">fDirectory</a>, and <a class="el" href="BaseModule_8cpp_source.html#l00044">ProcessEntry()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00078">fDirectory</a>, and <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">ProcessEntry()</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049                                                                                {
-<a name="l00050"></a>00050   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
-<a name="l00051"></a>00051   <span class="comment">// process routines if we have more than one Tree and hence different tpyes of data input.</span>
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>) <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>-&gt;cd();
-<a name="l00054"></a>00054   <span class="keywordtype">int</span> ret = <a class="code" href="classBaseModule.html#ab65f9166b9cc135b73ef9ecdb0ab105d" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(gData, gSetup);
-<a name="l00055"></a>00055   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057   <span class="keywordflow">return</span> ret;
-<a name="l00058"></a>00058 }
+<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044                                                                                {
+<a name="l00045"></a>00045   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
+<a name="l00046"></a>00046   <span class="comment">// process routines if we have more than one Tree and hence different tpyes of data input.</span>
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>) <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>-&gt;cd();
+<a name="l00049"></a>00049   <span class="keywordtype">int</span> ret = <a class="code" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f" title="The big kahuna. Overload this in the derived class and it will be called for each...">ProcessEntry</a>(gData, gSetup);
+<a name="l00050"></a>00050   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052   <span class="keywordflow">return</span> ret;
+<a name="l00053"></a>00053 }
 </pre></div></p>
 
 </div>
@@ -573,7 +558,7 @@ Inheritance diagram for BaseModule:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00078">78</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule()</a>, <a class="el" href="BaseModule_8h_source.html#l00062">GetDirectory()</a>, and <a class="el" href="BaseModule_8cpp_source.html#l00049">ProcessGenericEntry()</a>.</p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule()</a>, <a class="el" href="BaseModule_8h_source.html#l00062">GetDirectory()</a>, and <a class="el" href="BaseModule_8cpp_source.html#l00044">ProcessGenericEntry()</a>.</p>
 
 </div>
 </div>
@@ -616,7 +601,7 @@ Inheritance diagram for BaseModule:</div>
 <li>rootana/src/framework/<a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -50,17 +50,17 @@
 <a name="l00024"></a>00024 
 <a name="l00025"></a><a class="code" href="classhash_1_1MurmurHash3.html">00025</a> <span class="keyword">class </span><a class="code" href="classhash_1_1MurmurHash3.html">hash::MurmurHash3</a> {
 <a name="l00026"></a>00026 <span class="keyword">public</span>:
-<a name="l00027"></a><a class="code" href="classhash_1_1MurmurHash3.html#a609b095a3b5e136d927d48bd83c68d40ae12b6d633c799883f8df2a8cd93c22e4">00027</a>   <span class="keyword">enum</span> {<a class="code" href="classhash_1_1MurmurHash3.html#a609b095a3b5e136d927d48bd83c68d40ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a> = 0xe086c5ff};
+<a name="l00027"></a><a class="code" href="classhash_1_1MurmurHash3.html#a46b374edf4617660db5ab8cb8f20a6b9ae12b6d633c799883f8df2a8cd93c22e4">00027</a>   <span class="keyword">enum</span> {<a class="code" href="classhash_1_1MurmurHash3.html#a46b374edf4617660db5ab8cb8f20a6b9ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a> = 0xe086c5ff};
 <a name="l00028"></a>00028 
 <a name="l00029"></a><a class="code" href="classhash_1_1MurmurHash3.html#a2ea624c86e0b9b69dacfc850f69fbfc3">00029</a>   <span class="keyword">typedef</span> UInt_t <a class="code" href="classhash_1_1MurmurHash3.html#a2ea624c86e0b9b69dacfc850f69fbfc3">Hash_t</a>;
 <a name="l00030"></a><a class="code" href="classhash_1_1MurmurHash3.html#a29aaccbd3963a107697810556663f5a3">00030</a>   <span class="keyword">typedef</span> Int_t <a class="code" href="classhash_1_1MurmurHash3.html#a29aaccbd3963a107697810556663f5a3">Length_t</a>;
 <a name="l00031"></a><a class="code" href="classhash_1_1MurmurHash3.html#ac25ec2dbf5cc48b4f29758ef482974f2">00031</a>   <span class="keyword">typedef</span> Byte_t <a class="code" href="classhash_1_1MurmurHash3.html#ac25ec2dbf5cc48b4f29758ef482974f2">Rot_t</a>; 
 <a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="classhash_1_1MurmurHash3.html#a5495a5a38ee5146f806045e68c60888b">00033</a>   <a class="code" href="classhash_1_1MurmurHash3.html#a5495a5a38ee5146f806045e68c60888b">MurmurHash3</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> seed = <a class="code" href="classhash_1_1MurmurHash3.html#a609b095a3b5e136d927d48bd83c68d40ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a>)
+<a name="l00033"></a><a class="code" href="classhash_1_1MurmurHash3.html#a5495a5a38ee5146f806045e68c60888b">00033</a>   <a class="code" href="classhash_1_1MurmurHash3.html#a5495a5a38ee5146f806045e68c60888b">MurmurHash3</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> seed = <a class="code" href="classhash_1_1MurmurHash3.html#a46b374edf4617660db5ab8cb8f20a6b9ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a>)
 <a name="l00034"></a>00034     : <a class="code" href="classhash_1_1MurmurHash3.html#a85050acc532bfabde3fb6bda2369ebcf">fHash</a>(seed), <a class="code" href="classhash_1_1MurmurHash3.html#a6333112ac23ccd44022ea0a336f7bccd">fTail</a>(0), <a class="code" href="classhash_1_1MurmurHash3.html#adf413175327bbb728d15626b732ab8ee">fCount</a>(0), <a class="code" href="classhash_1_1MurmurHash3.html#a0fe8b883b8c1b5fb435ebb0f33bc5cdb">fSize</a>(0)
 <a name="l00035"></a>00035   {}
 <a name="l00036"></a>00036   
-<a name="l00037"></a><a class="code" href="classhash_1_1MurmurHash3.html#a88bb0866299a4088fd953ea761c95661">00037</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classhash_1_1MurmurHash3.html#a88bb0866299a4088fd953ea761c95661">Reset</a>(UInt_t seed = <a class="code" href="classhash_1_1MurmurHash3.html#a609b095a3b5e136d927d48bd83c68d40ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a>) 
+<a name="l00037"></a><a class="code" href="classhash_1_1MurmurHash3.html#a88bb0866299a4088fd953ea761c95661">00037</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classhash_1_1MurmurHash3.html#a88bb0866299a4088fd953ea761c95661">Reset</a>(UInt_t seed = <a class="code" href="classhash_1_1MurmurHash3.html#a46b374edf4617660db5ab8cb8f20a6b9ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a>) 
 <a name="l00038"></a>00038   {
 <a name="l00039"></a>00039     <a class="code" href="classhash_1_1MurmurHash3.html#a85050acc532bfabde3fb6bda2369ebcf">fHash</a> = seed;
 <a name="l00040"></a>00040     <a class="code" href="classhash_1_1MurmurHash3.html#a6333112ac23ccd44022ea0a336f7bccd">fTail</a> = <a class="code" href="classhash_1_1MurmurHash3.html#adf413175327bbb728d15626b732ab8ee">fCount</a> = <a class="code" href="classhash_1_1MurmurHash3.html#a0fe8b883b8c1b5fb435ebb0f33bc5cdb">fSize</a> = 0;
@@ -85,7 +85,7 @@
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060   <a class="code" href="classhash_1_1MurmurHash3.html#a2ea624c86e0b9b69dacfc850f69fbfc3">Hash_t</a> <a class="code" href="classhash_1_1MurmurHash3.html#a28a8a025bce3f535cbc45fd9390aabc4">Value</a>() <span class="keyword">const</span>;
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062   <a class="code" href="classhash_1_1MurmurHash3.html#a2ea624c86e0b9b69dacfc850f69fbfc3">Hash_t</a> <a class="code" href="classhash_1_1MurmurHash3.html#af2f588c7f5105c526bb10e31f4b7c194">End</a>(UInt_t seed = <a class="code" href="classhash_1_1MurmurHash3.html#a609b095a3b5e136d927d48bd83c68d40ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a>);
+<a name="l00062"></a>00062   <a class="code" href="classhash_1_1MurmurHash3.html#a2ea624c86e0b9b69dacfc850f69fbfc3">Hash_t</a> <a class="code" href="classhash_1_1MurmurHash3.html#af2f588c7f5105c526bb10e31f4b7c194">End</a>(UInt_t seed = <a class="code" href="classhash_1_1MurmurHash3.html#a46b374edf4617660db5ab8cb8f20a6b9ae12b6d633c799883f8df2a8cd93c22e4">kDefaultSeed</a>);
 <a name="l00063"></a>00063 
 <a name="l00064"></a>00064 <span class="keyword">private</span>:  
 <a name="l00065"></a>00065 
@@ -130,7 +130,7 @@
 <a name="l00104"></a>00104 
 <a name="l00105"></a>00105 <span class="preprocessor">#endif //MURMURHASH3_H;</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

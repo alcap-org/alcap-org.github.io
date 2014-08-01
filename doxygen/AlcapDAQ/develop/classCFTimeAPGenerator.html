@@ -268,12 +268,10 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00120"></a>00120                                                                            {
 <a name="l00121"></a>00121     TypeOfTAP* pulse=NULL;
-<a name="l00122"></a>00122     <span class="keywordflow">try</span>{
-<a name="l00123"></a>00123         <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>-&gt;at(parent_index);
-<a name="l00124"></a>00124         pulse=<span class="keyword">new</span> TypeOfTAP(<a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a" title="Get the source id for this generator being used on the current channel.">GetSource</a>(),parent_index,parent);
-<a name="l00125"></a>00125     } <span class="keywordflow">catch</span> (std::out_of_range){}
-<a name="l00126"></a>00126     <span class="keywordflow">return</span> pulse;
-<a name="l00127"></a>00127 }
+<a name="l00122"></a>00122     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>-&gt;at(parent_index);
+<a name="l00123"></a>00123     pulse=<span class="keyword">new</span> TypeOfTAP(<a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a" title="Get the source id for this generator being used on the current channel.">GetSource</a>(),parent_index,parent);
+<a name="l00124"></a>00124     <span class="keywordflow">return</span> pulse;
+<a name="l00125"></a>00125 }
 </pre></div></p>
 
 </div>
@@ -292,7 +290,7 @@ template&lt;typename TypeOfTAP &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Document this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Document this </dd></dl>
 
 <p>Implements <a class="el" href="classTVAnalysedPulseGenerator.html#a44b71be7412768b797f268de1551e9b7">TVAnalysedPulseGenerator</a>.</p>
 
@@ -341,7 +339,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00026">26</a> of file <a class="el" href="CFTimeAPGenerator_8cpp_source.html">CFTimeAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="CFTimeAPGenerator_8h_source.html#l00012">fConstantFraction</a>, <a class="el" href="TPulseIsland_8h_source.html#l00052">TPulseIsland::GetBankName()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00050">TPulseIsland::GetSamples()</a>, <a class="el" href="TSetupData_8h_source.html#l00081">TSetupData::GetTimeShift()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00124">TAnalysedPulse::SetTime()</a>.</p>
+<p>References <a class="el" href="CFTimeAPGenerator_8h_source.html#l00012">fConstantFraction</a>, <a class="el" href="TPulseIsland_8h_source.html#l00052">TPulseIsland::GetBankName()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00054">TPulseIsland::GetClockTickInNs()</a>, <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00050">TPulseIsland::GetSamples()</a>, <a class="el" href="TSetupData_8h_source.html#l00081">TSetupData::GetTimeShift()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00105">TAnalysedPulse::SetTime()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027                                                                       {
 <a name="l00028"></a>00028   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> th_frac = 0.25;
@@ -427,7 +425,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <li>rootana/src/TAP_generators/<a class="el" href="CFTimeAPGenerator_8cpp_source.html">CFTimeAPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

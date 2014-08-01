@@ -80,75 +80,74 @@
 <a name="l00053"></a>00053      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;=<a class="code" href="namespaceIDs.html#a21b70390666601b102103703d91e4bba" title="Used by some algorithms to loop over all Detector_t enum values.">IDs::num_detector_enums</a>;i++){
 <a name="l00054"></a>00054         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(det,names[i])) <span class="keywordflow">return</span> (<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a>)i;
 <a name="l00055"></a>00055      } 
-<a name="l00056"></a>00056      <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea38728be74fd95e96902f1d545b2b26c7">kErrorDetector</a>;
-<a name="l00057"></a>00057 }
-<a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="classIDs_1_1channel.html#a452d37a5ae1ad130f0fab7b3ab1bcbf1">00059</a> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; <a class="code" href="classIDs_1_1channel.html#a452d37a5ae1ad130f0fab7b3ab1bcbf1">IDs::channel::operator=</a>(<span class="keyword">const</span> std::string&amp; rhs){
-<a name="l00060"></a>00060    <span class="comment">// Search for a fast slow string at the end of the end of the string</span>
-<a name="l00061"></a>00061    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_strs=3;
-<a name="l00062"></a>00062    <span class="keyword">static</span> <span class="keyword">const</span> std::string fast_slow_strs[num_strs]={<span class="stringliteral">&quot;-*&quot;</span>,<span class="stringliteral">&quot;-S&quot;</span>,<span class="stringliteral">&quot;-F&quot;</span>};
-<a name="l00063"></a>00063    <span class="keywordtype">int</span> i=0;
-<a name="l00064"></a>00064    <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::string::const_iterator</a> match;
-<a name="l00065"></a>00065    <span class="comment">// Create a functino pointer to the iequals method</span>
-<a name="l00066"></a>00066    bool (*compare) (<span class="keyword">const</span> <span class="keywordtype">char</span> a, <span class="keyword">const</span> <span class="keywordtype">char</span> b);
-<a name="l00067"></a>00067    compare = <a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>;
-<a name="l00068"></a>00068    <span class="keywordflow">for</span>(i=0;i&lt;num_strs ; i++){
-<a name="l00069"></a>00069         match=std::find_end(rhs.begin(),rhs.end(),
-<a name="l00070"></a>00070             fast_slow_strs[i].begin(),fast_slow_strs[i].end(),
-<a name="l00071"></a>00071             compare);
-<a name="l00072"></a>00072     <span class="keywordflow">if</span> (match!=rhs.end()) <span class="keywordflow">break</span>;
-<a name="l00073"></a>00073    }
-<a name="l00074"></a>00074    <span class="comment">// Have we found a map</span>
-<a name="l00075"></a>00075    <span class="keywordtype">size_t</span> boundary=std::string::npos;
-<a name="l00076"></a>00076    <span class="keywordflow">if</span>(i&lt;= num_strs){
-<a name="l00077"></a>00077        boundary=match - rhs.begin();
-<a name="l00078"></a>00078    std::string fs=rhs.substr(boundary);
-<a name="l00079"></a>00079            <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>=<a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">GetSlowFastEnum</a>(fs);
-<a name="l00080"></a>00080    }<span class="keywordflow">else</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>=<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a>;
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082    <span class="comment">// Use what&apos;s left to make the channel part</span>
-<a name="l00083"></a>00083    <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>=<a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">GetDetectorEnum</a>(rhs.substr(0,boundary));
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085    <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00086"></a>00086 }
-<a name="l00087"></a>00087 
-<a name="l00088"></a><a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc">00088</a> std::string <a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc" title="Convert a SlowFast_t enum into the corresponding string.">IDs::channel::GetSlowFastString</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31">SlowFast_t</a> sf){
-<a name="l00089"></a>00089  std::string output;
-<a name="l00090"></a>00090  <span class="keywordflow">switch</span>(sf){
-<a name="l00091"></a>00091    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>   : output+=<span class="stringliteral">&quot;-*&quot;</span> ; break ; 
-<a name="l00092"></a>00092    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>          : output+=<span class="stringliteral">&quot;-S&quot;</span> ; break ; 
-<a name="l00093"></a>00093    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>          : output+=<span class="stringliteral">&quot;-F&quot;</span> ; break ; 
-<a name="l00094"></a>00094    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a> : <span class="keywordflow">break</span>;
-<a name="l00095"></a>00095    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a2d0e9c74661a8bf3cf894fe56314846d">kErrorSlowFast</a>: output+=<span class="stringliteral">&quot;-Unknown&quot;</span> ;break ; 
-<a name="l00096"></a>00096  }
-<a name="l00097"></a>00097  <span class="keywordflow">return</span> output;
-<a name="l00098"></a>00098 }
-<a name="l00099"></a>00099 
-<a name="l00100"></a><a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">00100</a> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31">IDs::SlowFast_t</a> <a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">IDs::channel::GetSlowFastEnum</a>(<span class="keyword">const</span> std::string&amp; type){
-<a name="l00101"></a>00101         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(type,<span class="stringliteral">&quot;-S&quot;</span>) || type==<span class="stringliteral">&quot;slow&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>;
-<a name="l00102"></a>00102         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(type,<span class="stringliteral">&quot;-F&quot;</span>)|| type==<span class="stringliteral">&quot;fast&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>;
-<a name="l00103"></a>00103         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(type==<span class="stringliteral">&quot;*&quot;</span>|| type==<span class="stringliteral">&quot;any&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>;
-<a name="l00104"></a>00104         <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a>;
-<a name="l00105"></a>00105 }
-<a name="l00106"></a>00106 
-<a name="l00107"></a><a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">00107</a> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> <a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">IDs::channel::GetCorrespondingFastSlow</a>()<span class="keyword">const</span>{
-<a name="l00108"></a>00108     <span class="keywordflow">switch</span>(<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>){
-<a name="l00109"></a>00109         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>: <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">IDs::channel</a>(<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>); <span class="keywordflow">break</span>;
-<a name="l00110"></a>00110         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>: <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">IDs::channel</a>(<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>); <span class="keywordflow">break</span>;
-<a name="l00111"></a>00111         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a>: 
-<a name="l00112"></a>00112         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>: 
-<a name="l00113"></a>00113         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a2d0e9c74661a8bf3cf894fe56314846d">kErrorSlowFast</a>:<span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="keywordflow">break</span>;
-<a name="l00114"></a>00114     }
-<a name="l00115"></a>00115     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00116"></a>00116 }
-<a name="l00117"></a>00117 
-<a name="l00118"></a><a class="code" href="IdChannel_8h.html#a1fee8a7cfb62c896250204fd0077c36d">00118</a> std::ostream&amp; <a class="code" href="IdChannel_8cpp.html#a1fee8a7cfb62c896250204fd0077c36d">operator&lt;&lt; </a>(ostream&amp; os ,<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; <span class="keywordtype">id</span>){
-<a name="l00119"></a>00119   os&lt;&lt;<span class="keywordtype">id</span>.str();
-<a name="l00120"></a>00120   <span class="keywordflow">return</span> os;
-<a name="l00121"></a>00121 }
-<a name="l00122"></a>00122 
+<a name="l00056"></a>00056      std::cout&lt;&lt;<span class="stringliteral">&quot;Unknown detector name given to IDs::channel: &apos;&quot;</span>&lt;&lt;det&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;std::endl;
+<a name="l00057"></a>00057      <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea38728be74fd95e96902f1d545b2b26c7">kErrorDetector</a>;
+<a name="l00058"></a>00058 }
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="classIDs_1_1channel.html#a452d37a5ae1ad130f0fab7b3ab1bcbf1">00060</a> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; <a class="code" href="classIDs_1_1channel.html#a452d37a5ae1ad130f0fab7b3ab1bcbf1">IDs::channel::operator=</a>(<span class="keyword">const</span> std::string&amp; rhs){
+<a name="l00061"></a>00061    <span class="comment">// Search for a fast slow string at the end of the end of the string</span>
+<a name="l00062"></a>00062    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_strs=3;
+<a name="l00063"></a>00063    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> fast_slow_strs[num_strs]={<span class="charliteral">&apos;*&apos;</span>,<span class="charliteral">&apos;F&apos;</span>,<span class="charliteral">&apos;S&apos;</span>};
+<a name="l00064"></a>00064    <span class="keywordtype">int</span> i=0;
+<a name="l00065"></a>00065    <span class="keywordtype">size_t</span> sz = rhs.size();
+<a name="l00066"></a>00066    <span class="keywordflow">for</span>(i=0;i&lt;num_strs ; i++){
+<a name="l00067"></a>00067        <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(rhs[sz-1],fast_slow_strs[i])){
+<a name="l00068"></a>00068            <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(rhs[sz-2],<span class="charliteral">&apos;-&apos;</span>)){
+<a name="l00069"></a>00069                <span class="keywordflow">break</span>;
+<a name="l00070"></a>00070            }
+<a name="l00071"></a>00071        }
+<a name="l00072"></a>00072    }
+<a name="l00073"></a>00073    <span class="comment">// Have we found a map</span>
+<a name="l00074"></a>00074    <span class="keywordtype">size_t</span> boundary=std::string::npos;
+<a name="l00075"></a>00075    <span class="keywordflow">if</span>(i&lt; num_strs){
+<a name="l00076"></a>00076        boundary=sz-2;
+<a name="l00077"></a>00077    std::string fs=rhs.substr(boundary);
+<a name="l00078"></a>00078            <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>=<a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">GetSlowFastEnum</a>(fs);
+<a name="l00079"></a>00079    }<span class="keywordflow">else</span> <a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>=<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a>;
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081    <span class="comment">// Use what&apos;s left to make the channel part</span>
+<a name="l00082"></a>00082    <a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>=<a class="code" href="classIDs_1_1channel.html#aba0bfe98f07810bb06a0a4a1d65bb595">GetDetectorEnum</a>(rhs.substr(0,boundary));
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084    <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00085"></a>00085 }
+<a name="l00086"></a>00086 
+<a name="l00087"></a><a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc">00087</a> std::string <a class="code" href="classIDs_1_1channel.html#a16711247a18f8ad20b626a0a523ae6fc" title="Convert a SlowFast_t enum into the corresponding string.">IDs::channel::GetSlowFastString</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31">SlowFast_t</a> sf){
+<a name="l00088"></a>00088  std::string output;
+<a name="l00089"></a>00089  <span class="keywordflow">switch</span>(sf){
+<a name="l00090"></a>00090    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>   : output+=<span class="stringliteral">&quot;-*&quot;</span> ; break ; 
+<a name="l00091"></a>00091    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>          : output+=<span class="stringliteral">&quot;-S&quot;</span> ; break ; 
+<a name="l00092"></a>00092    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>          : output+=<span class="stringliteral">&quot;-F&quot;</span> ; break ; 
+<a name="l00093"></a>00093    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a> : <span class="keywordflow">break</span>;
+<a name="l00094"></a>00094    <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a2d0e9c74661a8bf3cf894fe56314846d">kErrorSlowFast</a>: output+=<span class="stringliteral">&quot;-Unknown&quot;</span> ;break ; 
+<a name="l00095"></a>00095  }
+<a name="l00096"></a>00096  <span class="keywordflow">return</span> output;
+<a name="l00097"></a>00097 }
+<a name="l00098"></a>00098 
+<a name="l00099"></a><a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">00099</a> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31">IDs::SlowFast_t</a> <a class="code" href="classIDs_1_1channel.html#ab269afc9d0f9859973b4f62809d74f26">IDs::channel::GetSlowFastEnum</a>(<span class="keyword">const</span> std::string&amp; type){
+<a name="l00100"></a>00100         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(type,<span class="stringliteral">&quot;-S&quot;</span>) || type==<span class="stringliteral">&quot;slow&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>;
+<a name="l00101"></a>00101         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(type,<span class="stringliteral">&quot;-F&quot;</span>)|| type==<span class="stringliteral">&quot;fast&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>;
+<a name="l00102"></a>00102         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(type==<span class="stringliteral">&quot;*&quot;</span>|| type==<span class="stringliteral">&quot;any&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>;
+<a name="l00103"></a>00103         <span class="keywordflow">return</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a>;
+<a name="l00104"></a>00104 }
+<a name="l00105"></a>00105 
+<a name="l00106"></a><a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">00106</a> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> <a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">IDs::channel::GetCorrespondingFastSlow</a>()<span class="keyword">const</span>{
+<a name="l00107"></a>00107     <span class="keywordflow">switch</span>(<a class="code" href="classIDs_1_1channel.html#aa424739e13a7f3994547f71068cb42e8" title="The type of timing filter used, if any, on this channel.">fSlowFast</a>){
+<a name="l00108"></a>00108         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>: <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">IDs::channel</a>(<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>); <span class="keywordflow">break</span>;
+<a name="l00109"></a>00109         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>: <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1channel.html#a0914ee257eb8a60ea1664dd66fd5e783" title="Construct using a Detector_t and SlowFast_t enum. Also acts as a default constructor...">IDs::channel</a>(<a class="code" href="classIDs_1_1channel.html#a277e34b5818e900223ea87a735cdccd7" title="The detector that produced this channel.">fDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>); <span class="keywordflow">break</span>;
+<a name="l00110"></a>00110         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">kNotApplicable</a>: 
+<a name="l00111"></a>00111         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31af6ce8ff75f0bd6cb26417bc3cb722865">kAnySlowFast</a>: 
+<a name="l00112"></a>00112         <span class="keywordflow">case</span> <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a2d0e9c74661a8bf3cf894fe56314846d">kErrorSlowFast</a>:<span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="keywordflow">break</span>;
+<a name="l00113"></a>00113     }
+<a name="l00114"></a>00114     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00115"></a>00115 }
+<a name="l00116"></a>00116 
+<a name="l00117"></a><a class="code" href="IdChannel_8h.html#a1fee8a7cfb62c896250204fd0077c36d">00117</a> std::ostream&amp; <a class="code" href="IdChannel_8cpp.html#a1fee8a7cfb62c896250204fd0077c36d">operator&lt;&lt; </a>(ostream&amp; os ,<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; <span class="keywordtype">id</span>){
+<a name="l00118"></a>00118   os&lt;&lt;<span class="keywordtype">id</span>.str();
+<a name="l00119"></a>00119   <span class="keywordflow">return</span> os;
+<a name="l00120"></a>00120 }
+<a name="l00121"></a>00121 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

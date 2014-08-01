@@ -121,21 +121,21 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00023">23</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00024">24</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00035">TSetupData::fBankToDetectorMap</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00139">modules::parser::iequals()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00031">Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">IDs::channel::str()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00035">TSetupData::fBankToDetectorMap</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00152">modules::parser::iequals()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00031">Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">IDs::channel::str()</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00023"></a>00023                                                            {
-<a name="l00024"></a>00024     <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup=<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">TSetupData::Instance</a>();
-<a name="l00025"></a>00025     std::map&lt;std::string, std::string&gt;* bankDetNameMap=&amp;setup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>;
-<a name="l00026"></a>00026     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = bankDetNameMap-&gt;begin();
-<a name="l00027"></a>00027             it != bankDetNameMap-&gt;end(); ++it){
-<a name="l00028"></a>00028         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(it-&gt;second , src.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>())) <span class="keywordflow">return</span> it-&gt;first;
-<a name="l00029"></a>00029     }
-<a name="l00030"></a>00030     <span class="keywordflow">return</span> <span class="stringliteral">&quot;invalid-det-bank&quot;</span>;
-<a name="l00031"></a>00031 }
+<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024                                                            {
+<a name="l00025"></a>00025     <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup=<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">TSetupData::Instance</a>();
+<a name="l00026"></a>00026     std::map&lt;std::string, std::string&gt;* bankDetNameMap=&amp;setup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>;
+<a name="l00027"></a>00027     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = bankDetNameMap-&gt;begin();
+<a name="l00028"></a>00028             it != bankDetNameMap-&gt;end(); ++it){
+<a name="l00029"></a>00029         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(it-&gt;second , src.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>())) <span class="keywordflow">return</span> it-&gt;first;
+<a name="l00030"></a>00030     }
+<a name="l00031"></a>00031     <span class="keywordflow">return</span> <span class="stringliteral">&quot;invalid-det-bank&quot;</span>;
+<a name="l00032"></a>00032 }
 </pre></div></p>
 
 </div>
@@ -158,44 +158,44 @@
 
 <p>Gets the pedestal from the SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00066">66</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00067">67</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00015">GetRunNumber()</a>.</p>
+<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00015">GetRunNumber()</a>.</p>
 
 <p>Referenced by <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00101">PulseCandidateFinder::FindCandidatePulses_Fast()</a>, and <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00156">PulseCandidateFinder::FindCandidatePulses_Slow()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066                                                      {
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068   <span class="comment">// The values that we will read in</span>
-<a name="l00069"></a>00069   <span class="keywordtype">double</span> pedestal;
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071   <span class="comment">// Get the SQLite database file</span>
-<a name="l00072"></a>00072   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074   std::stringstream query; 
-<a name="l00075"></a>00075   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
-<a name="l00076"></a>00076   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
-<a name="l00077"></a>00077   <span class="keywordflow">if</span> (server) {
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; WHERE bank=\&apos;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&apos; AND run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
-<a name="l00080"></a>00080     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
-<a name="l00081"></a>00081     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
-<a name="l00084"></a>00084     <span class="keywordflow">while</span> (row != NULL) {
-<a name="l00085"></a>00085       pedestal = atof(row-&gt;GetField(3));
-<a name="l00086"></a>00086       
-<a name="l00087"></a>00087       <span class="keyword">delete</span> row;
-<a name="l00088"></a>00088       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
-<a name="l00089"></a>00089     }
-<a name="l00090"></a>00090     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
-<a name="l00091"></a>00091   }
-<a name="l00092"></a>00092   <span class="keywordflow">else</span> {
-<a name="l00093"></a>00093     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
-<a name="l00094"></a>00094   }
-<a name="l00095"></a>00095   server-&gt;Close();
-<a name="l00096"></a>00096   <span class="keywordflow">return</span> pedestal;
-<a name="l00097"></a>00097 }
+<p><div class="fragment"><pre class="fragment"><a name="l00067"></a>00067                                                      {
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069   <span class="comment">// The values that we will read in</span>
+<a name="l00070"></a>00070   <span class="keywordtype">double</span> pedestal=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072   <span class="comment">// Get the SQLite database file</span>
+<a name="l00073"></a>00073   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075   std::stringstream query; 
+<a name="l00076"></a>00076   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
+<a name="l00077"></a>00077   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
+<a name="l00078"></a>00078   <span class="keywordflow">if</span> (server) {
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; WHERE bank=\&apos;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&apos; AND run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
+<a name="l00081"></a>00081     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
+<a name="l00082"></a>00082     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
+<a name="l00085"></a>00085     <span class="keywordflow">while</span> (row != NULL) {
+<a name="l00086"></a>00086       pedestal = atof(row-&gt;GetField(3));
+<a name="l00087"></a>00087       
+<a name="l00088"></a>00088       <span class="keyword">delete</span> row;
+<a name="l00089"></a>00089       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
+<a name="l00090"></a>00090     }
+<a name="l00091"></a>00091     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
+<a name="l00092"></a>00092   }
+<a name="l00093"></a>00093   <span class="keywordflow">else</span> {
+<a name="l00094"></a>00094     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
+<a name="l00095"></a>00095   }
+<a name="l00096"></a>00096   server-&gt;Close();
+<a name="l00097"></a>00097   <span class="keywordflow">return</span> pedestal;
+<a name="l00098"></a>00098 }
 </pre></div></p>
 
 </div>
@@ -218,44 +218,44 @@
 
 <p>Gets the error on the pedestal from the SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00033">33</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00034">34</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00015">GetRunNumber()</a>.</p>
+<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00015">GetRunNumber()</a>.</p>
 
 <p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00413">TemplateCreator::CreateRefinedPulseHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00101">PulseCandidateFinder::FindCandidatePulses_Fast()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00156">PulseCandidateFinder::FindCandidatePulses_Slow()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033                                                           {
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035   <span class="comment">// The values that we will read in</span>
-<a name="l00036"></a>00036   <span class="keywordtype">double</span> noise;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038   <span class="comment">// Get the SQLite database file</span>
-<a name="l00039"></a>00039   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041   std::stringstream query; 
-<a name="l00042"></a>00042   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
-<a name="l00043"></a>00043   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
-<a name="l00044"></a>00044   <span class="keywordflow">if</span> (server) {
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; WHERE bank=\&apos;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&apos; AND run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
-<a name="l00047"></a>00047     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
-<a name="l00048"></a>00048     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
-<a name="l00051"></a>00051     <span class="keywordflow">while</span> (row != NULL) {
-<a name="l00052"></a>00052       noise = atof(row-&gt;GetField(4));
-<a name="l00053"></a>00053       
-<a name="l00054"></a>00054       <span class="keyword">delete</span> row;
-<a name="l00055"></a>00055       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
-<a name="l00056"></a>00056     }
-<a name="l00057"></a>00057     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
-<a name="l00058"></a>00058   }
-<a name="l00059"></a>00059   <span class="keywordflow">else</span> {
-<a name="l00060"></a>00060     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
-<a name="l00061"></a>00061   }
-<a name="l00062"></a>00062   server-&gt;Close();
-<a name="l00063"></a>00063   <span class="keywordflow">return</span> noise;
-<a name="l00064"></a>00064 }
+<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034                                                           {
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036   <span class="comment">// The values that we will read in</span>
+<a name="l00037"></a>00037   <span class="keywordtype">double</span> noise=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039   <span class="comment">// Get the SQLite database file</span>
+<a name="l00040"></a>00040   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042   std::stringstream query; 
+<a name="l00043"></a>00043   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
+<a name="l00044"></a>00044   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
+<a name="l00045"></a>00045   <span class="keywordflow">if</span> (server) {
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; WHERE bank=\&apos;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&apos; AND run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
+<a name="l00048"></a>00048     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
+<a name="l00049"></a>00049     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
+<a name="l00052"></a>00052     <span class="keywordflow">while</span> (row != NULL) {
+<a name="l00053"></a>00053       noise = atof(row-&gt;GetField(4));
+<a name="l00054"></a>00054       
+<a name="l00055"></a>00055       <span class="keyword">delete</span> row;
+<a name="l00056"></a>00056       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
+<a name="l00057"></a>00057     }
+<a name="l00058"></a>00058     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
+<a name="l00059"></a>00059   }
+<a name="l00060"></a>00060   <span class="keywordflow">else</span> {
+<a name="l00061"></a>00061     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
+<a name="l00062"></a>00062   }
+<a name="l00063"></a>00063   server-&gt;Close();
+<a name="l00064"></a>00064   <span class="keywordflow">return</span> noise;
+<a name="l00065"></a>00065 }
 </pre></div></p>
 
 </div>
@@ -279,7 +279,7 @@
 
 <p>References <a class="el" href="SetupNavigator_8h_source.html#l00028">fCommandLineArgs</a>, and <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::run</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00202">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00066">GetPedestal()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00033">GetPedestalError()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00202">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00067">GetPedestal()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00034">GetPedestalError()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00015"></a>00015 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a>;};
 </pre></div></p>
@@ -305,7 +305,7 @@
 
 <p>References <a class="el" href="SetupNavigator_8h_source.html#l00027">fThis</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00008">SetupNavigator()</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00413">TemplateCreator::CreateRefinedPulseHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00202">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00101">PulseCandidateFinder::FindCandidatePulses_Fast()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00156">PulseCandidateFinder::FindCandidatePulses_Slow()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00023">GetBank()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="main_8cpp_source.html#l00075">main()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00413">TemplateCreator::CreateRefinedPulseHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00202">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00101">PulseCandidateFinder::FindCandidatePulses_Fast()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00156">PulseCandidateFinder::FindCandidatePulses_Slow()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00024">GetBank()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="main_8cpp_source.html#l00075">main()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00031"></a>00031                                                {
 <a name="l00032"></a>00032   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
@@ -382,7 +382,7 @@
 <li>rootana/src/framework/<a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

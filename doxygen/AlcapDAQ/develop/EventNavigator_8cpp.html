@@ -136,23 +136,23 @@ template&lt;typename T , unsigned int &amp; I&gt; </div>
 <a name="l00219"></a>00219   }
 <a name="l00220"></a>00220   <span class="comment">//  gAnalysedPulseMap.clear();</span>
 <a name="l00221"></a>00221 
-<a name="l00222"></a>00222   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.end(); mapIter++) {
+<a name="l00222"></a>00222   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); mapIter++) {
 <a name="l00223"></a>00223     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00224"></a>00224     std::vector&lt;TDetectorPulse*&gt;&amp; pulse_vector= mapIter-&gt;second;
+<a name="l00224"></a>00224     <a class="code" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
 <a name="l00225"></a>00225     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
 <a name="l00226"></a>00226       <span class="keyword">delete</span> pulse_vector[i];
 <a name="l00227"></a>00227       pulse_vector[i] = NULL;
 <a name="l00228"></a>00228     }
 <a name="l00229"></a>00229     pulse_vector.clear();
 <a name="l00230"></a>00230   }
-<a name="l00231"></a>00231   <a class="code" href="main_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">gDetectorPulseMap</a>.clear();
+<a name="l00231"></a>00231   <span class="comment">//gDetectorPulseMap.clear();</span>
 <a name="l00232"></a>00232 }
 </pre></div></p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

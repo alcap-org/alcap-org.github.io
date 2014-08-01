@@ -38,6 +38,7 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
   <img src="classTVDetectorPulseGenerator.gif" usemap="#TVDetectorPulseGenerator_map" alt=""/>
   <map id="TVDetectorPulseGenerator_map" name="TVDetectorPulseGenerator_map">
 <area href="classMaxTimeDiffDPGenerator.html" alt="MaxTimeDiffDPGenerator" shape="rect" coords="0,56,164,80"/>
+<area href="classPassThroughDPGenerator.html" alt="PassThroughDPGenerator" shape="rect" coords="174,56,338,80"/>
 </map>
  </div>
 </div>
@@ -45,30 +46,54 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 <p><a href="classTVDetectorPulseGenerator-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a671d6cd92fd7650d53123780ff7ab4e2">TVDetectorPulseGenerator</a> (<a class="el" href="classTDPGeneratorOptions.html">TDPGeneratorOptions</a> *opts)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a7734fb64cab79115e89f5c8d9536b640">TVDetectorPulseGenerator</a> (const char *name, <a class="el" href="classTDPGeneratorOptions.html">TDPGeneratorOptions</a> *opts)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#adb3a36838d20fcf4c97fa0bd3898f5ff">~TVDetectorPulseGenerator</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a1f47143a65b937aed5862256b52c2a7c">ProcessPulses</a> (const <a class="el" href="classTSetupData.html">TSetupData</a> *setup, const std::string &amp;detector, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *fast, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow, <a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;output)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#ad3cb134c81839ac060ee8652ad2c3921">ProcessPulses</a> (<a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;output)=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#af0280a835e04e706019761c34ee34e6d">ChecksForPileUp</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#af1920c7c5a049fe60dea3cbcdbbb57b9">SetPulseSources</a> (const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;fast, const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;slow)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#addd738298e41ed6cccb21a91ca3bdb21">SetPulseLists</a> (const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *fast, const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a> (const bool &amp;val=true)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a564dfb47e1759f20eac3082a397dd210">Debug</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#aed0dd7200b83f50109127634e8007623">MakeTDP</a> (int fast_parent, int slow_parent) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a4916ded8359f381657eb35c95b37ea54">GetSource</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#aae79fcbeec3f3e34800b6718f80fb6cb">GetFastSource</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a72edddd3889080c628d44c1bb3423313">GetSlowSource</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a68a05bde7d3f8ee07d1bac15cd5deada">SetChannel</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;ch)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1generator.html">IDs::generator</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a1a47ac68ee49dc0ae5d319c79644ac94">GetGeneratorID</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a84822324f9d48642f9fb05860f866821">FastPulseList</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#af292ca73cbf3ff688adce1b5af4bdb91">SlowPulseList</a> () const </td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#abc6f0c0b33e137b3d07cbb61460497af">fFastSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a87b770a3d00be7ec21c79a3575ed2f2d">fSlowSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a90076feea6bd119a7aaa2ace9229fa38">fSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#aa34e38a0399eb394d0a6a50cc0e11f00">fFastPulses</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVDetectorPulseGenerator.html#a5bb5f3117cb544d965fade828088e056">fSlowPulses</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
 <p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00010">10</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a671d6cd92fd7650d53123780ff7ab4e2"></a><!-- doxytag: member="TVDetectorPulseGenerator::TVDetectorPulseGenerator" ref="a671d6cd92fd7650d53123780ff7ab4e2" args="(TDPGeneratorOptions *opts)" -->
+<a class="anchor" id="a7734fb64cab79115e89f5c8d9536b640"></a><!-- doxytag: member="TVDetectorPulseGenerator::TVDetectorPulseGenerator" ref="a7734fb64cab79115e89f5c8d9536b640" args="(const char *name, TDPGeneratorOptions *opts)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">TVDetectorPulseGenerator::TVDetectorPulseGenerator </td>
           <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="classTDPGeneratorOptions.html">TDPGeneratorOptions</a> *&nbsp;</td>
-          <td class="paramname"> <em>opts</em></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td class="paramname"> <em>opts</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -76,7 +101,13 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 
 <p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00014">14</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00014"></a>00014 :<a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>(<span class="keyword">false</span>){};
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fSource</a>, and <a class="el" href="IdSource_8h_source.html#l00077">IDs::source::Generator()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00014"></a>00014                                                                        :
+<a name="l00015"></a>00015       <a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>(<span class="keyword">false</span>),<a class="code" href="classTVDetectorPulseGenerator.html#aa34e38a0399eb394d0a6a50cc0e11f00">fFastPulses</a>(NULL),<a class="code" href="classTVDetectorPulseGenerator.html#a5bb5f3117cb544d965fade828088e056">fSlowPulses</a>(NULL){
+<a name="l00016"></a>00016             <a class="code" href="classTVDetectorPulseGenerator.html#a90076feea6bd119a7aaa2ace9229fa38">fSource</a>.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>(name);<span class="comment">//,opts-&gt;ToOneString());</span>
+<a name="l00017"></a>00017       }
+  <span class="keyword">virtual</span> <a class="code" href="classTVDetectorPulseGenerator.html#adb3a36838d20fcf4c97fa0bd3898f5ff">~TVDetectorPulseGenerator</a>(){}
 </pre></div></p>
 
 </div>
@@ -96,9 +127,9 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00015">15</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00018">18</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00015"></a>00015 {};
+<p><div class="fragment"><pre class="fragment"><a name="l00018"></a>00018 {}
 </pre></div></p>
 
 </div>
@@ -119,7 +150,7 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Implemented in <a class="el" href="classMaxTimeDiffDPGenerator.html#a1bad794f97db82d1312b77a3c3884abb">MaxTimeDiffDPGenerator</a>.</p>
+<p>Implemented in <a class="el" href="classMaxTimeDiffDPGenerator.html#a1bad794f97db82d1312b77a3c3884abb">MaxTimeDiffDPGenerator</a>, and <a class="el" href="classPassThroughDPGenerator.html#a25ccf2d096284c382108118db973336e">PassThroughDPGenerator</a>.</p>
 
 </div>
 </div>
@@ -138,61 +169,235 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">24</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00034">34</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00010">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00057">fDebug</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>;};
+<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>;};
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a1f47143a65b937aed5862256b52c2a7c"></a><!-- doxytag: member="TVDetectorPulseGenerator::ProcessPulses" ref="a1f47143a65b937aed5862256b52c2a7c" args="(const TSetupData *setup, const std::string &amp;detector, const AnalysedPulseList *fast, const AnalysedPulseList *slow, DetectorPulseList &amp;output)=0" -->
+<a class="anchor" id="a84822324f9d48642f9fb05860f866821"></a><!-- doxytag: member="TVDetectorPulseGenerator::FastPulseList" ref="a84822324f9d48642f9fb05860f866821" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* TVDetectorPulseGenerator::FastPulseList </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00053">53</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">fFastPulses</a>.</p>
+
+<p>Referenced by <a class="el" href="PassThroughDPGenerator_8cpp_source.html#l00011">PassThroughDPGenerator::ProcessPulses()</a>, and <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#aa34e38a0399eb394d0a6a50cc0e11f00">fFastPulses</a>;}
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="aae79fcbeec3f3e34800b6718f80fb6cb"></a><!-- doxytag: member="TVDetectorPulseGenerator::GetFastSource" ref="aae79fcbeec3f3e34800b6718f80fb6cb" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1source.html">IDs::source</a> TVDetectorPulseGenerator::GetFastSource </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00048">48</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fFastSource</a>.</p>
+
+<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00048"></a>00048 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#abc6f0c0b33e137b3d07cbb61460497af">fFastSource</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a1a47ac68ee49dc0ae5d319c79644ac94"></a><!-- doxytag: member="TVDetectorPulseGenerator::GetGeneratorID" ref="a1a47ac68ee49dc0ae5d319c79644ac94" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1generator.html">IDs::generator</a> TVDetectorPulseGenerator::GetGeneratorID </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00051">51</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fSource</a>, and <a class="el" href="IdSource_8h_source.html#l00077">IDs::source::Generator()</a>.</p>
+
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00051"></a>00051 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#a90076feea6bd119a7aaa2ace9229fa38">fSource</a>.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>();}
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a72edddd3889080c628d44c1bb3423313"></a><!-- doxytag: member="TVDetectorPulseGenerator::GetSlowSource" ref="a72edddd3889080c628d44c1bb3423313" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1source.html">IDs::source</a> TVDetectorPulseGenerator::GetSlowSource </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00049">49</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fSlowSource</a>.</p>
+
+<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#a87b770a3d00be7ec21c79a3575ed2f2d">fSlowSource</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a4916ded8359f381657eb35c95b37ea54"></a><!-- doxytag: member="TVDetectorPulseGenerator::GetSource" ref="a4916ded8359f381657eb35c95b37ea54" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1source.html">IDs::source</a> TVDetectorPulseGenerator::GetSource </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00047">47</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fSource</a>.</p>
+
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8h_source.html#l00041">MakeDetectorPulses::GetPassThruGeneratorID()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00036">MakeTDP()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#a90076feea6bd119a7aaa2ace9229fa38">fSource</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="aed0dd7200b83f50109127634e8007623"></a><!-- doxytag: member="TVDetectorPulseGenerator::MakeTDP" ref="aed0dd7200b83f50109127634e8007623" args="(int fast_parent, int slow_parent) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTDetectorPulse.html">TDetectorPulse</a>* TVDetectorPulseGenerator::MakeTDP </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>fast_parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>slow_parent</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00036">36</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">fFastPulses</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">fSlowPulses</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00047">GetSource()</a>.</p>
+
+<p>Referenced by <a class="el" href="PassThroughDPGenerator_8cpp_source.html#l00011">PassThroughDPGenerator::ProcessPulses()</a>, and <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00036"></a>00036                                                                 {
+<a name="l00037"></a>00037       <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* pulse=NULL;
+<a name="l00038"></a>00038       <span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* fast=NULL;
+<a name="l00039"></a>00039       <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#aa34e38a0399eb394d0a6a50cc0e11f00">fFastPulses</a> &amp;&amp; fast_parent&gt;=0) fast=<a class="code" href="classTVDetectorPulseGenerator.html#aa34e38a0399eb394d0a6a50cc0e11f00">fFastPulses</a>-&gt;at(fast_parent);
+<a name="l00040"></a>00040       <span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* slow=NULL;
+<a name="l00041"></a>00041       <span class="keywordflow">if</span>(<a class="code" href="classTVDetectorPulseGenerator.html#a5bb5f3117cb544d965fade828088e056">fSlowPulses</a> &amp;&amp; slow_parent&gt;=0) slow=<a class="code" href="classTVDetectorPulseGenerator.html#a5bb5f3117cb544d965fade828088e056">fSlowPulses</a>-&gt;at(slow_parent);
+<a name="l00042"></a>00042       <span class="keywordflow">if</span>(fast || slow) {
+<a name="l00043"></a>00043           pulse=<span class="keyword">new</span> <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>(<a class="code" href="classTVDetectorPulseGenerator.html#a4916ded8359f381657eb35c95b37ea54">GetSource</a>(),fast_parent,fast,slow_parent,slow);
+<a name="l00044"></a>00044       }
+<a name="l00045"></a>00045       <span class="keywordflow">return</span> pulse;
+<a name="l00046"></a>00046   }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ad3cb134c81839ac060ee8652ad2c3921"></a><!-- doxytag: member="TVDetectorPulseGenerator::ProcessPulses" ref="ad3cb134c81839ac060ee8652ad2c3921" args="(DetectorPulseList &amp;output)=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">virtual int TVDetectorPulseGenerator::ProcessPulses </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classTSetupData.html">TSetupData</a> *&nbsp;</td>
-          <td class="paramname"> <em>setup</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>detector</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td>
-          <td class="paramname"> <em>fast</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td>
-          <td class="paramname"> <em>slow</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>output</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [pure virtual]</code></td>
+          <td class="paramname"> <em>output</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Implemented in <a class="el" href="classMaxTimeDiffDPGenerator.html#a9a5513060ebf6f1056bde2c4c4a35a16">MaxTimeDiffDPGenerator</a>.</p>
+<p>Implemented in <a class="el" href="classMaxTimeDiffDPGenerator.html#a84d7485779dbba217c6b887c89d4126d">MaxTimeDiffDPGenerator</a>, and <a class="el" href="classPassThroughDPGenerator.html#a181280d21f1797869b9d961744299e9a">PassThroughDPGenerator</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00022">MakeDetectorPulses::ProcessEntry()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a68a05bde7d3f8ee07d1bac15cd5deada"></a><!-- doxytag: member="TVDetectorPulseGenerator::SetChannel" ref="a68a05bde7d3f8ee07d1bac15cd5deada" args="(const IDs::channel &amp;ch)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TVDetectorPulseGenerator::SetChannel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>ch</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00050">50</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="IdSource_8h_source.html#l00080">IDs::source::Channel()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fSource</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00050"></a>00050 {<a class="code" href="classTVDetectorPulseGenerator.html#a90076feea6bd119a7aaa2ace9229fa38">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=ch;};
+</pre></div></p>
 
 </div>
 </div>
@@ -212,13 +417,113 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00023">23</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00033">33</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">fDebug</a>.</p>
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00057">fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00110">MakeDetectorPulses::MakeGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00135">MakeDetectorPulses::MakeGenerator()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00023"></a>00023 {<a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>=val;};
+<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033 {<a class="code" href="classTVDetectorPulseGenerator.html#add0bb452610818e38c4d990ad360617c">fDebug</a>=val;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="addd738298e41ed6cccb21a91ca3bdb21"></a><!-- doxytag: member="TVDetectorPulseGenerator::SetPulseLists" ref="addd738298e41ed6cccb21a91ca3bdb21" args="(const AnalysedPulseList *fast, const AnalysedPulseList *slow)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TVDetectorPulseGenerator::SetPulseLists </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td>
+          <td class="paramname"> <em>fast</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *&nbsp;</td>
+          <td class="paramname"> <em>slow</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00028">28</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">fFastPulses</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">fSlowPulses</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00028"></a>00028                                                                                  {
+<a name="l00029"></a>00029       <a class="code" href="classTVDetectorPulseGenerator.html#aa34e38a0399eb394d0a6a50cc0e11f00">fFastPulses</a>=fast;
+<a name="l00030"></a>00030       <a class="code" href="classTVDetectorPulseGenerator.html#a5bb5f3117cb544d965fade828088e056">fSlowPulses</a>=slow;
+<a name="l00031"></a>00031   }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="af1920c7c5a049fe60dea3cbcdbbb57b9"></a><!-- doxytag: member="TVDetectorPulseGenerator::SetPulseSources" ref="af1920c7c5a049fe60dea3cbcdbbb57b9" args="(const IDs::source &amp;fast, const IDs::source &amp;slow)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TVDetectorPulseGenerator::SetPulseSources </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>fast</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>slow</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">24</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fFastSource</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">fSlowSource</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024                                                                     {
+<a name="l00025"></a>00025       <a class="code" href="classTVDetectorPulseGenerator.html#abc6f0c0b33e137b3d07cbb61460497af">fFastSource</a>=fast;
+<a name="l00026"></a>00026       <a class="code" href="classTVDetectorPulseGenerator.html#a87b770a3d00be7ec21c79a3575ed2f2d">fSlowSource</a>=slow;
+<a name="l00027"></a>00027   }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="af292ca73cbf3ff688adce1b5af4bdb91"></a><!-- doxytag: member="TVDetectorPulseGenerator::SlowPulseList" ref="af292ca73cbf3ff688adce1b5af4bdb91" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* TVDetectorPulseGenerator::SlowPulseList </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00054">54</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">fSlowPulses</a>.</p>
+
+<p>Referenced by <a class="el" href="MaxTimeDiffDPGenerator_8cpp_source.html#l00015">MaxTimeDiffDPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00054"></a>00054 {<span class="keywordflow">return</span> <a class="code" href="classTVDetectorPulseGenerator.html#a5bb5f3117cb544d965fade828088e056">fSlowPulses</a>;}
 </pre></div></p>
 
 </div>
@@ -235,9 +540,94 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">24</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00057">57</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00023">SetDebug()</a>.</p>
+<p>Referenced by <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00034">Debug()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00033">SetDebug()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa34e38a0399eb394d0a6a50cc0e11f00"></a><!-- doxytag: member="TVDetectorPulseGenerator::fFastPulses" ref="aa34e38a0399eb394d0a6a50cc0e11f00" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* <a class="el" href="classTVDetectorPulseGenerator.html#aa34e38a0399eb394d0a6a50cc0e11f00">TVDetectorPulseGenerator::fFastPulses</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">59</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00053">FastPulseList()</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00036">MakeTDP()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00028">SetPulseLists()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc6f0c0b33e137b3d07cbb61460497af"></a><!-- doxytag: member="TVDetectorPulseGenerator::fFastSource" ref="abc6f0c0b33e137b3d07cbb61460497af" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1source.html">IDs::source</a> <a class="el" href="classTVDetectorPulseGenerator.html#abc6f0c0b33e137b3d07cbb61460497af">TVDetectorPulseGenerator::fFastSource</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">58</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00048">GetFastSource()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">SetPulseSources()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5bb5f3117cb544d965fade828088e056"></a><!-- doxytag: member="TVDetectorPulseGenerator::fSlowPulses" ref="a5bb5f3117cb544d965fade828088e056" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> * <a class="el" href="classTVDetectorPulseGenerator.html#a5bb5f3117cb544d965fade828088e056">TVDetectorPulseGenerator::fSlowPulses</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00059">59</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00036">MakeTDP()</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00028">SetPulseLists()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00054">SlowPulseList()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87b770a3d00be7ec21c79a3575ed2f2d"></a><!-- doxytag: member="TVDetectorPulseGenerator::fSlowSource" ref="a87b770a3d00be7ec21c79a3575ed2f2d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1source.html">IDs::source</a> <a class="el" href="classTVDetectorPulseGenerator.html#a87b770a3d00be7ec21c79a3575ed2f2d">TVDetectorPulseGenerator::fSlowSource</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">58</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00049">GetSlowSource()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00024">SetPulseSources()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90076feea6bd119a7aaa2ace9229fa38"></a><!-- doxytag: member="TVDetectorPulseGenerator::fSource" ref="a90076feea6bd119a7aaa2ace9229fa38" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIDs_1_1source.html">IDs::source</a> <a class="el" href="classTVDetectorPulseGenerator.html#a90076feea6bd119a7aaa2ace9229fa38">TVDetectorPulseGenerator::fSource</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00058">58</a> of file <a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00051">GetGeneratorID()</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00047">GetSource()</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00050">SetChannel()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00014">TVDetectorPulseGenerator()</a>.</p>
 
 </div>
 </div>
@@ -245,7 +635,7 @@ Inheritance diagram for TVDetectorPulseGenerator:</div>
 <li>rootana/src/TDP_generators/<a class="el" href="TVDetectorPulseGenerator_8h_source.html">TVDetectorPulseGenerator.h</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

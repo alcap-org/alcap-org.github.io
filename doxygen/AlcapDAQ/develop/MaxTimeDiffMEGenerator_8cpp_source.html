@@ -62,11 +62,11 @@
 <a name="l00035"></a>00035             <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = 0; b &lt; pulseIters.size(); ++b) {
 <a name="l00036"></a>00036 
 <a name="l00037"></a>00037               <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* pulse = *(pulseIters[b]);
-<a name="l00038"></a>00038               <span class="keywordtype">double</span> pulse_time = pulse-&gt;<a class="code" href="classTDetectorPulse.html#a37d8d8b7b95057e8edc1028d8b22f98b">GetTime</a>() * 1e-6; <span class="comment">// convert to ms</span>
+<a name="l00038"></a>00038               <span class="keywordtype">double</span> pulse_time = pulse-&gt;<a class="code" href="classTDetectorPulse.html#a9de0d98ab8fbc487da6a9e6179cdb3e9">GetTime</a>() * 1e-6; <span class="comment">// convert to ms</span>
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040               <span class="keywordflow">if</span> (std::fabs(pulse_time - min_time) &lt; time_difference) {
-<a name="l00041"></a>00041                  <span class="keywordflow">if</span>(<a class="code" href="classTVMuonEventGenerator.html#a9089a6515497c95c95980ae9765c8fec">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Using pulse from: &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTDetectorPulse.html#acf0820b6bc37f8f6cd1f2a06d530e51d">GetDetName</a>() &lt;&lt; std::endl;
-<a name="l00042"></a>00042                  muon_event-&gt;<a class="code" href="classTMuonEvent.html#a5caaf93ea550ae77de415e2ec588053c">SetPulse</a>(pulse-&gt;<a class="code" href="classTDetectorPulse.html#acf0820b6bc37f8f6cd1f2a06d530e51d">GetDetName</a>(), pulse);
+<a name="l00041"></a>00041                  <span class="keywordflow">if</span>(<a class="code" href="classTVMuonEventGenerator.html#a9089a6515497c95c95980ae9765c8fec">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Using pulse from: &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTDetectorPulse.html#a8705fa60d3ba37d581b7308088419f85">GetSource</a>() &lt;&lt; std::endl;
+<a name="l00042"></a>00042                  muon_event-&gt;<a class="code" href="classTMuonEvent.html#a5caaf93ea550ae77de415e2ec588053c">SetPulse</a>(pulse-&gt;<a class="code" href="classTDetectorPulse.html#a8705fa60d3ba37d581b7308088419f85">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>(), pulse);
 <a name="l00043"></a>00043                 ++(pulseIters[b]); <span class="comment">// increment the iterator because we used the pulse</span>
 <a name="l00044"></a>00044               }
 <a name="l00045"></a>00045             }
@@ -91,7 +91,7 @@
 <a name="l00064"></a>00064 
 <a name="l00065"></a>00065 <a class="code" href="TMEGeneratorFactory_8h.html#a22c13971c9d6bd83908f8948d3c0ecd1">ALCAP_TME_GENERATOR</a>(MaxTimeDiff);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 1 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
