@@ -75,8 +75,30 @@
 <a name="l00051"></a>00051 
 <a name="l00052"></a>00052   <span class="keywordflow">return</span> ret;
 <a name="l00053"></a>00053 }
+<a name="l00054"></a>00054 
+<a name="l00055"></a><a class="code" href="classBaseModule.html#ac24b7d3d359985742164399bb19bad76">00055</a> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#ac24b7d3d359985742164399bb19bad76" title="Method called by the main pre-process loop.">BaseModule::Preprocess</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
+<a name="l00056"></a>00056   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
+<a name="l00057"></a>00057   <span class="comment">// process routines if we have more than one Tree and hence different tpyes of data input.</span>
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>) <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>-&gt;cd();
+<a name="l00060"></a>00060   <span class="keywordtype">int</span> ret = <a class="code" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BeforeFirstEntry</a>(gData, gSetup);
+<a name="l00061"></a>00061   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063   <span class="keywordflow">return</span> ret;
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="classBaseModule.html#a5f8dd6ba24c3cc68385eb540c17ae5de">00066</a> <span class="keywordtype">int</span> <a class="code" href="classBaseModule.html#a5f8dd6ba24c3cc68385eb540c17ae5de" title="Method called by the main pre-process loop.">BaseModule::Postprocess</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
+<a name="l00067"></a>00067   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
+<a name="l00068"></a>00068   <span class="comment">// process routines if we have more than one Tree and hence different tpyes of data input.</span>
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>) <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>-&gt;cd();
+<a name="l00071"></a>00071   <span class="keywordtype">int</span> ret = <a class="code" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">AfterLastEntry</a>(gData, gSetup);
+<a name="l00072"></a>00072   gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074   <span class="keywordflow">return</span> ret;
+<a name="l00075"></a>00075 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

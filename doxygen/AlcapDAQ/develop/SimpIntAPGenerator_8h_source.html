@@ -32,42 +32,29 @@
 <a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="TVAnalysedPulseGenerator_8h.html">TVAnalysedPulseGenerator.h</a>&quot;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="definitions_8h.html">definitions.h</a>&quot;</span>
 <a name="l00007"></a>00007 
-<a name="l00008"></a><a class="code" href="classSimpIntAPGenerator.html">00008</a> <span class="keyword">class </span><a class="code" href="classSimpIntAPGenerator.html">SimpIntAPGenerator</a>:<span class="keyword">public</span> <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a> {
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="TAPAlgorithms_8h.html">TAPAlgorithms.h</a>&quot;</span>
 <a name="l00009"></a>00009 
-<a name="l00010"></a>00010  <span class="keyword">public</span>:
-<a name="l00011"></a><a class="code" href="classSimpIntAPGenerator.html#ae1395763fe9f829966682f019d2d5bd6">00011</a>   <a class="code" href="classSimpIntAPGenerator.html#ae1395763fe9f829966682f019d2d5bd6">SimpIntAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts):
-<a name="l00012"></a>00012   <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;SimpInt&quot;</span>, opts),<a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">fSetup</a>(<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>::Instance()){};
-<a name="l00013"></a><a class="code" href="classSimpIntAPGenerator.html#ace688ae9c10c81ce5cfebccae524676b">00013</a>   <span class="keyword">virtual</span> <a class="code" href="classSimpIntAPGenerator.html#ace688ae9c10c81ce5cfebccae524676b">~SimpIntAPGenerator</a>(){};
-<a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="classSimpIntAPGenerator.html#aae6e30532164ab0037925b2ca4306f67">00015</a>   <span class="keywordtype">void</span> <a class="code" href="classSimpIntAPGenerator.html#aae6e30532164ab0037925b2ca4306f67">SetBankInfo</a>(std::string bankname)
-<a name="l00016"></a>00016   {
-<a name="l00017"></a>00017     <a class="code" href="classSimpIntAPGenerator.html#a74145df04284805017b6e73cabba0a2c">fBankname</a>= bankname;
-<a name="l00018"></a>00018     <a class="code" href="classSimpIntAPGenerator.html#a26b18d23e5eac773fcebbf387da76dbe">fDetname</a> = <a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
-<a name="l00019"></a>00019     <a class="code" href="classSimpIntAPGenerator.html#a06113a0a2cc77f22f6f3cedebc54bd49">fPedestal</a> = <a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">GetPedestal</a>(bankname);
-<a name="l00020"></a>00020     <a class="code" href="classSimpIntAPGenerator.html#a82a7905a984ddc4d6030aad175d0b06a">fTriggerPolarity</a> = <a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
-<a name="l00021"></a>00021     <a class="code" href="classSimpIntAPGenerator.html#a9f1bdd4f684593c3fb06b538d9213973">fECalibSlope</a> = <a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a049d3a5de5fb19c304a9ffc7be6edae0" title="Deprecated.">GetADCSlopeCalib</a>(bankname);
-<a name="l00022"></a>00022     <a class="code" href="classSimpIntAPGenerator.html#ae4c900bea334134074f773c06b787347">fECalibOffset</a> = <a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">fSetup</a>-&gt;<a class="code" href="classTSetupData.html#a68b99bddb9e8c88e5c99b0317c8e4708" title="Deprecated.">GetADCOffsetCalib</a>(bankname);
-<a name="l00023"></a>00023   }
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026  <span class="keyword">public</span>:
-<a name="l00027"></a>00027    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classSimpIntAPGenerator.html#a2b4b796176226acf97963f3ce36da16a" title="This method is called on each vector of pulses from a MIDAS event.">ProcessPulses</a>( <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;,<a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;);
-<a name="l00028"></a><a class="code" href="classSimpIntAPGenerator.html#ac1da3a185d88aaa358df0a8b89a7692b">00028</a>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSimpIntAPGenerator.html#ac1da3a185d88aaa358df0a8b89a7692b">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031  <span class="keyword">private</span>:
-<a name="l00032"></a>00032    <span class="comment">// This will likely be unnecessary</span>
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034    std::string <a class="code" href="classSimpIntAPGenerator.html#a74145df04284805017b6e73cabba0a2c">fBankname</a>;
-<a name="l00035"></a><a class="code" href="classSimpIntAPGenerator.html#a26b18d23e5eac773fcebbf387da76dbe">00035</a>    std::string <a class="code" href="classSimpIntAPGenerator.html#a26b18d23e5eac773fcebbf387da76dbe">fDetname</a>;
-<a name="l00036"></a><a class="code" href="classSimpIntAPGenerator.html#a06113a0a2cc77f22f6f3cedebc54bd49">00036</a>    <span class="keywordtype">double</span> <a class="code" href="classSimpIntAPGenerator.html#a06113a0a2cc77f22f6f3cedebc54bd49">fPedestal</a>, <a class="code" href="classSimpIntAPGenerator.html#a9f1bdd4f684593c3fb06b538d9213973">fECalibSlope</a>, <a class="code" href="classSimpIntAPGenerator.html#ae4c900bea334134074f773c06b787347">fECalibOffset</a>;
-<a name="l00037"></a><a class="code" href="classSimpIntAPGenerator.html#a82a7905a984ddc4d6030aad175d0b06a">00037</a>    <span class="keywordtype">int</span> <a class="code" href="classSimpIntAPGenerator.html#a82a7905a984ddc4d6030aad175d0b06a">fTriggerPolarity</a>;
-<a name="l00038"></a><a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">00038</a>    <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classSimpIntAPGenerator.html#abda2270a75c6679e477b1609e1a9fb2e">fSetup</a>;
-<a name="l00039"></a>00039 };
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="preprocessor">#endif //SIMPLEINTEGRATOR_H__</span>
+<a name="l00010"></a><a class="code" href="classSimpIntAPGenerator.html">00010</a> <span class="keyword">class </span><a class="code" href="classSimpIntAPGenerator.html">SimpIntAPGenerator</a>:<span class="keyword">public</span> <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a> {
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012  <span class="keyword">public</span>:
+<a name="l00013"></a><a class="code" href="classSimpIntAPGenerator.html#ae1395763fe9f829966682f019d2d5bd6">00013</a>   <a class="code" href="classSimpIntAPGenerator.html#ae1395763fe9f829966682f019d2d5bd6">SimpIntAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts):
+<a name="l00014"></a>00014   <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;SimpInt&quot;</span>, opts){};
+<a name="l00015"></a><a class="code" href="classSimpIntAPGenerator.html#ace688ae9c10c81ce5cfebccae524676b">00015</a>   <span class="keyword">virtual</span> <a class="code" href="classSimpIntAPGenerator.html#ace688ae9c10c81ce5cfebccae524676b">~SimpIntAPGenerator</a>(){};
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018  <span class="keyword">public</span>:
+<a name="l00019"></a>00019    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classSimpIntAPGenerator.html#a2b4b796176226acf97963f3ce36da16a" title="This method is called on each vector of pulses from a MIDAS event.">ProcessPulses</a>( <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;,<a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;);
+<a name="l00020"></a><a class="code" href="classSimpIntAPGenerator.html#ac1da3a185d88aaa358df0a8b89a7692b">00020</a>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classSimpIntAPGenerator.html#ac1da3a185d88aaa358df0a8b89a7692b">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023  <span class="keyword">private</span>:
+<a name="l00024"></a>00024    <span class="comment">// The algorithms that this generator will use</span>
+<a name="l00025"></a>00025    <a class="code" href="structAlgorithm_1_1SimpleIntegral.html">Algorithm::SimpleIntegral</a> <a class="code" href="classSimpIntAPGenerator.html#a7b228dce22df3cfc965c22c01f436e1b">fSimpleIntegral</a>;
+<a name="l00026"></a>00026 };
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="preprocessor">#endif //SIMPLEINTEGRATOR_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

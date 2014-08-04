@@ -39,10 +39,10 @@
 <a name="l00025"></a><a class="code" href="classPlotTDPs.html">00025</a> <span class="keyword">class </span><a class="code" href="classPlotTDPs.html" title="A one line description of what your module does.">PlotTDPs</a> : <span class="keyword">public</span> <a class="code" href="classBaseModule.html">BaseModule</a> {
 <a name="l00026"></a>00026     <span class="keyword">public</span>:     
 <a name="l00027"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html">00027</a>         <span class="keyword">struct </span><a class="code" href="structPlotTDPs_1_1Detector__t.html">Detector_t</a> {
-<a name="l00028"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">00028</a>             TH2F* <a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>;
-<a name="l00029"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">00029</a>             TH1F* <a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>, *<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>;
-<a name="l00030"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">00030</a>             TH1F* <a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>, *<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>;
-<a name="l00031"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#a8c7e2202bfeaeea559a810fd30cbd18e">00031</a>             TH1F* <a class="code" href="structPlotTDPs_1_1Detector__t.html#a8c7e2202bfeaeea559a810fd30cbd18e">time_diff</a>;
+<a name="l00028"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">00028</a>             TH2F *<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>;
+<a name="l00029"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">00029</a>             TH1F *<a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>, *<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>;
+<a name="l00030"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">00030</a>             TH1F *<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>, *<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>;
+<a name="l00031"></a><a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">00031</a>             TH2F *<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>, *<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>;
 <a name="l00032"></a>00032         };
 <a name="l00033"></a><a class="code" href="classPlotTDPs.html#a6c92a9e7c0dc22c8621495a41a095844">00033</a>         <span class="keyword">typedef</span> std::map&lt;IDs::source,Detector_t&gt; <a class="code" href="classPlotTDPs.html#a6c92a9e7c0dc22c8621495a41a095844">PlotsList_t</a>;
 <a name="l00034"></a>00034 
@@ -58,11 +58,12 @@
 <a name="l00071"></a>00071     <span class="keyword">private</span>:
 <a name="l00072"></a><a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">00072</a>         <a class="code" href="classPlotTDPs.html#a6c92a9e7c0dc22c8621495a41a095844">PlotsList_t</a> <a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>;
 <a name="l00073"></a><a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">00073</a>         <span class="keywordtype">double</span> <a class="code" href="classPlotTDPs.html#a87b54e642caa4c66306dd317213a0a66">fFastCut</a>, <a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">fSlowCut</a>;
-<a name="l00074"></a>00074 };
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="preprocessor">#endif //PLOTTDPS_H_</span>
+<a name="l00074"></a><a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">00074</a>         <span class="keywordtype">bool</span> <a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>;
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="preprocessor">#endif //PLOTTDPS_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
