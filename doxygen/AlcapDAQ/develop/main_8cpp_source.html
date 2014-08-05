@@ -73,9 +73,9 @@
 <a name="l00064"></a>00064 Int_t <a class="code" href="main_8cpp.html#a01c84c0dac0bd263aefe62e312e094fb">PrepareAnalysedPulseMap</a>(TFile* fileOut);
 <a name="l00065"></a>00065 Int_t <a class="code" href="main_8cpp.html#abef9cd089df37fd6dd1a765f02c5882b">PrepareSingletonObjects</a>(<span class="keyword">const</span> <a class="code" href="structARGUMENTS.html">ARGUMENTS</a>&amp;);
 <a name="l00066"></a>00066 
-<a name="l00067"></a><a class="code" href="main_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">00067</a> <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a> *<a class="code" href="LoopSequence_8cpp.html#adb5d6e458a1f896bbeceb8ab3ef5ff0c">gAnalysedPulseMapWrapper</a>=NULL;
-<a name="l00068"></a><a class="code" href="main_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">00068</a> TTree *<a class="code" href="LoopSequence_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a> = NULL;
-<a name="l00069"></a><a class="code" href="main_8cpp.html#a52ff8a263597f111e6d57f5dd6925e70">00069</a> TBranch *<a class="code" href="main_8cpp.html#a52ff8a263597f111e6d57f5dd6925e70">gAnalysedPulseBranch</a> = NULL;
+<a name="l00067"></a>00067 <span class="comment">//TAnalysedPulseMapWrapper *gAnalysedPulseMapWrapper=NULL;</span>
+<a name="l00068"></a>00068 <span class="comment">//TTree *gAnalysedPulseTree = NULL;</span>
+<a name="l00069"></a>00069 <span class="comment">//TBranch *gAnalysedPulseBranch = NULL;</span>
 <a name="l00070"></a>00070 
 <a name="l00071"></a><a class="code" href="MakeDetectorPulses_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">00071</a> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
 <a name="l00072"></a><a class="code" href="MakeMuonEvents_8cpp.html#a50b67b49a0b5e14613a34d4927b7b8c8">00072</a> <a class="code" href="definitions_8h.html#ab6b36cbc9a3363d8b03d3b9f363c8ced">SourceDetPulseMap</a> <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>;
@@ -162,7 +162,7 @@
 <a name="l00153"></a>00153   
 <a name="l00154"></a>00154   <span class="comment">// and finish up</span>
 <a name="l00155"></a>00155   fileOut-&gt;cd();
-<a name="l00156"></a>00156   <a class="code" href="LoopSequence_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a>-&gt;Write();
+<a name="l00156"></a>00156   <span class="comment">//gAnalysedPulseTree-&gt;Write();</span>
 <a name="l00157"></a>00157   fileOut-&gt;Write();
 <a name="l00158"></a>00158   fileOut-&gt;Close();
 <a name="l00159"></a>00159   navi.<a class="code" href="classEventNavigator.html#ae26a52b832649c2202600dae37de2177">Close</a>();
@@ -187,7 +187,7 @@
 <a name="l00178"></a>00178   }
 <a name="l00179"></a>00179   
 <a name="l00180"></a>00180   enav.<a class="code" href="classEventNavigator.html#ad009a7feece0bfeb66c715d1247f2763">MakeLoopSequence</a>(arguments).<a class="code" href="classLoopSequence.html#a5d1119195bb63ba7093ff4f8a3863bcc">Run</a>();
-<a name="l00181"></a>00181   std::cout &lt;&lt; <span class="stringliteral">&quot;Finished processing data normally&quot;</span> &lt;&lt; std::endl;
+<a name="l00181"></a>00181   std::cout &lt;&lt; <span class="stringliteral">&quot;Finished processing data&quot;</span> &lt;&lt; std::endl;
 <a name="l00182"></a>00182   <span class="keywordflow">return</span> 0;
 <a name="l00183"></a>00183 }
 <a name="l00184"></a>00184 
@@ -202,110 +202,112 @@
 <a name="l00193"></a>00193   <span class="comment">// own the pulses, they would be deleted later. A solution is to</span>
 <a name="l00194"></a>00194   <span class="comment">// be sure that TGlobalData isn&apos;t called in alcapana, or ensure</span>
 <a name="l00195"></a>00195   <span class="comment">// that g_event owns the pulse islands at that level.  </span>
-<a name="l00196"></a>00196   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringPulseIslandMap::iterator</a> mapIter;
-<a name="l00197"></a>00197   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">StringPulseIslandMap::iterator</a> mapEnd = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end();
-<a name="l00198"></a>00198   <span class="keywordflow">for</span>(mapIter = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); mapIter != mapEnd; mapIter++) {
-<a name="l00199"></a>00199     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00200"></a>00200     std::vector&lt;TPulseIsland*&gt;&amp; pulse_vector= mapIter-&gt;second;
-<a name="l00201"></a>00201     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
-<a name="l00202"></a>00202       <span class="keyword">delete</span> pulse_vector[i];
-<a name="l00203"></a>00203       pulse_vector[i] = NULL;
-<a name="l00204"></a>00204     }
-<a name="l00205"></a>00205     pulse_vector.clear();
-<a name="l00206"></a>00206   }
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> mapIter=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00210"></a>00210      mapIter != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); mapIter++) {
-<a name="l00211"></a>00211 
-<a name="l00212"></a>00212     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00213"></a>00213     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
-<a name="l00214"></a>00214     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
-<a name="l00215"></a>00215       <span class="keyword">delete</span> pulse_vector[i];
-<a name="l00216"></a>00216       pulse_vector[i] = NULL;
-<a name="l00217"></a>00217     }
-<a name="l00218"></a>00218     pulse_vector.clear();
-<a name="l00219"></a>00219   }
-<a name="l00220"></a>00220   <span class="comment">//  gAnalysedPulseMap.clear();</span>
-<a name="l00221"></a>00221 
-<a name="l00222"></a>00222   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); mapIter++) {
-<a name="l00223"></a>00223     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00224"></a>00224     <a class="code" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
-<a name="l00225"></a>00225     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
-<a name="l00226"></a>00226       <span class="keyword">delete</span> pulse_vector[i];
-<a name="l00227"></a>00227       pulse_vector[i] = NULL;
-<a name="l00228"></a>00228     }
-<a name="l00229"></a>00229     pulse_vector.clear();
-<a name="l00230"></a>00230   }
-<a name="l00231"></a>00231   <span class="comment">//gDetectorPulseMap.clear();</span>
-<a name="l00232"></a>00232 }
-<a name="l00233"></a>00233 
-<a name="l00234"></a>00234 
-<a name="l00235"></a>00235 <span class="comment">//----------------------------------------------------------------------</span>
-<a name="l00236"></a><a class="code" href="main_8cpp.html#aa65bc9a61a45ce3d70886e27b6e2613f">00236</a> <span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#aa65bc9a61a45ce3d70886e27b6e2613f">PrintSetupData</a>(<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* s_data)
-<a name="l00237"></a>00237 {
-<a name="l00238"></a>00238   <span class="keywordflow">if</span>(!s_data) <span class="keywordflow">return</span>;
-<a name="l00239"></a>00239   <span class="comment">// print things out</span>
-<a name="l00240"></a>00240   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it_info;
-<a name="l00241"></a>00241   std::cout &lt;&lt; <span class="stringliteral">&quot;### TSetupData ###\n&quot;</span>
-<a name="l00242"></a>00242             &lt;&lt; <span class="stringliteral">&quot;Bank  Detector Name  Clock Tick (ns)  Pedestal (ADC)&quot;</span>
-<a name="l00243"></a>00243             &lt;&lt; <span class="stringliteral">&quot;  Trigger Polarity  Time Shift (ns)  No. of Bits\n&quot;</span>
-<a name="l00244"></a>00244             &lt;&lt; <span class="stringliteral">&quot;----  -------------  ---------------  --------------&quot;</span>
-<a name="l00245"></a>00245             &lt;&lt; <span class="stringliteral">&quot;  ----------------  ---------------  -----------&quot;</span> 
-<a name="l00246"></a>00246             &lt;&lt; std::endl;
-<a name="l00247"></a>00247 
-<a name="l00248"></a>00248   <span class="keywordflow">for</span> (it_info=s_data-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin(); 
-<a name="l00249"></a>00249        it_info!=s_data-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end(); ++it_info){
-<a name="l00250"></a>00250     <span class="keyword">const</span> std::string&amp; bankname = it_info-&gt;first;
-<a name="l00251"></a>00251     std::cout &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;  &quot;</span> 
-<a name="l00252"></a>00252               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
-<a name="l00253"></a>00253               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a1cee3192841101548524aae1cdd73069">GetClockTick</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> 
-<a name="l00254"></a>00254               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">GetPedestal</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
-<a name="l00255"></a>00255               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
-<a name="l00256"></a>00256               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
-<a name="l00257"></a>00257               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname)
-<a name="l00258"></a>00258               &lt;&lt; std::endl;
-<a name="l00259"></a>00259   }
-<a name="l00260"></a>00260 }
-<a name="l00261"></a>00261 
-<a name="l00262"></a>00262 <span class="comment">//----------------------------------------------------------------------</span>
-<a name="l00263"></a><a class="code" href="main_8cpp.html#a01c84c0dac0bd263aefe62e312e094fb">00263</a> Int_t <a class="code" href="main_8cpp.html#a01c84c0dac0bd263aefe62e312e094fb">PrepareAnalysedPulseMap</a>(TFile* fileOut)
-<a name="l00264"></a>00264 {
-<a name="l00265"></a>00265   <span class="comment">// TAnalysedMapWrapper</span>
-<a name="l00266"></a>00266   gAnalysedPulseMapWrapper = <span class="keyword">new</span> <a class="code" href="classTAnalysedPulseMapWrapper.html">TAnalysedPulseMapWrapper</a>(<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>);
-<a name="l00267"></a>00267   
-<a name="l00268"></a>00268   <span class="keywordtype">int</span> split = 1;
-<a name="l00269"></a>00269   <span class="keywordtype">int</span> bufsize = 64000;
-<a name="l00270"></a>00270   Int_t branchstyle = 1;
-<a name="l00271"></a>00271   
-<a name="l00272"></a>00272   <span class="keywordflow">if</span> (split &lt; 0) {branchstyle = 0; split = -1-split;}
-<a name="l00273"></a>00273   TTree::SetBranchStyle(branchstyle);
-<a name="l00274"></a>00274   
-<a name="l00275"></a>00275   <a class="code" href="LoopSequence_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a> = <span class="keyword">new</span> TTree(<span class="stringliteral">&quot;AnalysedPulseTree&quot;</span>, <span class="stringliteral">&quot;AnalysedPulseTree&quot;</span>);
-<a name="l00276"></a>00276   <a class="code" href="LoopSequence_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a>-&gt;SetAutoSave(100000000);
-<a name="l00277"></a>00277   <a class="code" href="LoopSequence_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a>-&gt;SetMaxVirtualSize(100000000);
-<a name="l00278"></a>00278   <a class="code" href="main_8cpp.html#a52ff8a263597f111e6d57f5dd6925e70">gAnalysedPulseBranch</a> = <a class="code" href="LoopSequence_8cpp.html#a16da3578e3e090d93fffe5a2e325e6d0">gAnalysedPulseTree</a>-&gt;Branch(<span class="stringliteral">&quot;AnalysedPulseMapWrapper&quot;</span>, 
-<a name="l00279"></a>00279                                                     <span class="stringliteral">&quot;TAnalysedPulseMapWrapper&quot;</span>,
-<a name="l00280"></a>00280                                                     &amp;gAnalysedPulseMapWrapper,
-<a name="l00281"></a>00281                                                     bufsize, split);
-<a name="l00282"></a>00282   <a class="code" href="main_8cpp.html#a52ff8a263597f111e6d57f5dd6925e70">gAnalysedPulseBranch</a>-&gt;SetAutoDelete(kFALSE);
-<a name="l00283"></a>00283   <span class="keywordflow">return</span> 0;
-<a name="l00284"></a>00284 }
-<a name="l00285"></a>00285 
-<a name="l00286"></a>00286 <span class="comment">//----------------------------------------------------------------------</span>
-<a name="l00287"></a><a class="code" href="main_8cpp.html#abef9cd089df37fd6dd1a765f02c5882b">00287</a> Int_t <a class="code" href="main_8cpp.html#abef9cd089df37fd6dd1a765f02c5882b">PrepareSingletonObjects</a>(<span class="keyword">const</span> <a class="code" href="structARGUMENTS.html">ARGUMENTS</a>&amp;){
-<a name="l00288"></a>00288   <span class="comment">// Set up the modules navigator</span>
-<a name="l00289"></a>00289   <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()) <span class="keywordflow">return</span> 1;
-<a name="l00290"></a>00290   
-<a name="l00291"></a>00291   <span class="comment">// Make sure the instance of TSetupData get&apos;s loaded </span>
-<a name="l00292"></a>00292   <span class="comment">// (though in practice we can do this lazily)</span>
-<a name="l00293"></a>00293   <span class="keywordflow">if</span>( !<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().GetSetupData() ) <span class="keywordflow">return</span> 2;
-<a name="l00294"></a>00294   
-<a name="l00295"></a>00295   <span class="keywordflow">return</span> 0;
-<a name="l00296"></a>00296 }
-<a name="l00297"></a>00297 
+<a name="l00196"></a>00196 <span class="comment">//</span>
+<a name="l00197"></a>00197 <span class="comment">//---  LoopSequence::Process now takes care of this part by invoking TGlobalData::Clear</span>
+<a name="l00198"></a>00198 <span class="comment">//  StringPulseIslandMap::iterator mapIter;</span>
+<a name="l00199"></a>00199 <span class="comment">//  StringPulseIslandMap::iterator mapEnd = data-&gt;fPulseIslandToChannelMap.end();</span>
+<a name="l00200"></a>00200 <span class="comment">//  for(mapIter = data-&gt;fPulseIslandToChannelMap.begin(); mapIter != mapEnd; mapIter++) {</span>
+<a name="l00201"></a>00201 <span class="comment">//    // The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
+<a name="l00202"></a>00202 <span class="comment">//    std::vector&lt;TPulseIsland*&gt;&amp; pulse_vector= mapIter-&gt;second;</span>
+<a name="l00203"></a>00203 <span class="comment">//    for(size_t i=0; i&lt;pulse_vector.size(); i++){</span>
+<a name="l00204"></a>00204 <span class="comment">//      delete pulse_vector[i];</span>
+<a name="l00205"></a>00205 <span class="comment">//      pulse_vector[i] = NULL;</span>
+<a name="l00206"></a>00206 <span class="comment">//    }</span>
+<a name="l00207"></a>00207 <span class="comment">//    pulse_vector.clear();</span>
+<a name="l00208"></a>00208 <span class="comment">//  }</span>
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> mapIter=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00212"></a>00212      mapIter != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); mapIter++) {
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
+<a name="l00215"></a>00215     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
+<a name="l00216"></a>00216     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
+<a name="l00217"></a>00217       <span class="keyword">delete</span> pulse_vector[i];
+<a name="l00218"></a>00218       pulse_vector[i] = NULL;
+<a name="l00219"></a>00219     }
+<a name="l00220"></a>00220     pulse_vector.clear();
+<a name="l00221"></a>00221   }
+<a name="l00222"></a>00222   <span class="comment">//  gAnalysedPulseMap.clear();</span>
+<a name="l00223"></a>00223 
+<a name="l00224"></a>00224   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); mapIter++) {
+<a name="l00225"></a>00225     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
+<a name="l00226"></a>00226     <a class="code" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
+<a name="l00227"></a>00227     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
+<a name="l00228"></a>00228       <span class="keyword">delete</span> pulse_vector[i];
+<a name="l00229"></a>00229       pulse_vector[i] = NULL;
+<a name="l00230"></a>00230     }
+<a name="l00231"></a>00231     pulse_vector.clear();
+<a name="l00232"></a>00232   }
+<a name="l00233"></a>00233   <span class="comment">//gDetectorPulseMap.clear();</span>
+<a name="l00234"></a>00234 }
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237 <span class="comment">//----------------------------------------------------------------------</span>
+<a name="l00238"></a><a class="code" href="main_8cpp.html#aa65bc9a61a45ce3d70886e27b6e2613f">00238</a> <span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#aa65bc9a61a45ce3d70886e27b6e2613f">PrintSetupData</a>(<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* s_data)
+<a name="l00239"></a>00239 {
+<a name="l00240"></a>00240   <span class="keywordflow">if</span>(!s_data) <span class="keywordflow">return</span>;
+<a name="l00241"></a>00241   <span class="comment">// print things out</span>
+<a name="l00242"></a>00242   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it_info;
+<a name="l00243"></a>00243   std::cout &lt;&lt; <span class="stringliteral">&quot;### TSetupData ###\n&quot;</span>
+<a name="l00244"></a>00244             &lt;&lt; <span class="stringliteral">&quot;Bank  Detector Name  Clock Tick (ns)  Pedestal (ADC)&quot;</span>
+<a name="l00245"></a>00245             &lt;&lt; <span class="stringliteral">&quot;  Trigger Polarity  Time Shift (ns)  No. of Bits\n&quot;</span>
+<a name="l00246"></a>00246             &lt;&lt; <span class="stringliteral">&quot;----  -------------  ---------------  --------------&quot;</span>
+<a name="l00247"></a>00247             &lt;&lt; <span class="stringliteral">&quot;  ----------------  ---------------  -----------&quot;</span> 
+<a name="l00248"></a>00248             &lt;&lt; std::endl;
+<a name="l00249"></a>00249 
+<a name="l00250"></a>00250   <span class="keywordflow">for</span> (it_info=s_data-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.begin(); 
+<a name="l00251"></a>00251        it_info!=s_data-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>.end(); ++it_info){
+<a name="l00252"></a>00252     <span class="keyword">const</span> std::string&amp; bankname = it_info-&gt;first;
+<a name="l00253"></a>00253     std::cout &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;  &quot;</span> 
+<a name="l00254"></a>00254               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
+<a name="l00255"></a>00255               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a1cee3192841101548524aae1cdd73069">GetClockTick</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> 
+<a name="l00256"></a>00256               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a3f7c42e2a78e5d178b427a30757ee7c2">GetPedestal</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
+<a name="l00257"></a>00257               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
+<a name="l00258"></a>00258               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bankname) &lt;&lt; <span class="stringliteral">&quot;\t\t&quot;</span> 
+<a name="l00259"></a>00259               &lt;&lt; s_data-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname)
+<a name="l00260"></a>00260               &lt;&lt; std::endl;
+<a name="l00261"></a>00261   }
+<a name="l00262"></a>00262 }
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264 <span class="comment">//----------------------------------------------------------------------</span>
+<a name="l00265"></a><a class="code" href="main_8cpp.html#a01c84c0dac0bd263aefe62e312e094fb">00265</a> Int_t <a class="code" href="main_8cpp.html#a01c84c0dac0bd263aefe62e312e094fb">PrepareAnalysedPulseMap</a>(TFile* fileOut)
+<a name="l00266"></a>00266 {
+<a name="l00267"></a>00267   <span class="comment">// TAnalysedMapWrapper</span>
+<a name="l00268"></a>00268   <span class="comment">//gAnalysedPulseMapWrapper = new TAnalysedPulseMapWrapper(gAnalysedPulseMap);</span>
+<a name="l00269"></a>00269   
+<a name="l00270"></a>00270   <span class="keywordtype">int</span> split = 1;
+<a name="l00271"></a>00271   <span class="keywordtype">int</span> bufsize = 64000;
+<a name="l00272"></a>00272   Int_t branchstyle = 1;
+<a name="l00273"></a>00273   
+<a name="l00274"></a>00274   <span class="keywordflow">if</span> (split &lt; 0) {branchstyle = 0; split = -1-split;}
+<a name="l00275"></a>00275   TTree::SetBranchStyle(branchstyle);
+<a name="l00276"></a>00276   
+<a name="l00277"></a>00277   <span class="comment">//gAnalysedPulseTree = new TTree(&quot;AnalysedPulseTree&quot;, &quot;AnalysedPulseTree&quot;);</span>
+<a name="l00278"></a>00278   <span class="comment">//gAnalysedPulseTree-&gt;SetAutoSave(100000000);</span>
+<a name="l00279"></a>00279   <span class="comment">//gAnalysedPulseTree-&gt;SetMaxVirtualSize(100000000);</span>
+<a name="l00280"></a>00280   <span class="comment">//gAnalysedPulseBranch = gAnalysedPulseTree-&gt;Branch(&quot;AnalysedPulseMapWrapper&quot;, </span>
+<a name="l00281"></a>00281   <span class="comment">//                                                  &quot;TAnalysedPulseMapWrapper&quot;,</span>
+<a name="l00282"></a>00282   <span class="comment">//                                                  &amp;gAnalysedPulseMapWrapper,</span>
+<a name="l00283"></a>00283   <span class="comment">//                                                  bufsize, split);</span>
+<a name="l00284"></a>00284   <span class="comment">//gAnalysedPulseBranch-&gt;SetAutoDelete(kFALSE);</span>
+<a name="l00285"></a>00285   <span class="keywordflow">return</span> 0;
+<a name="l00286"></a>00286 }
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288 <span class="comment">//----------------------------------------------------------------------</span>
+<a name="l00289"></a><a class="code" href="main_8cpp.html#abef9cd089df37fd6dd1a765f02c5882b">00289</a> Int_t <a class="code" href="main_8cpp.html#abef9cd089df37fd6dd1a765f02c5882b">PrepareSingletonObjects</a>(<span class="keyword">const</span> <a class="code" href="structARGUMENTS.html">ARGUMENTS</a>&amp;){
+<a name="l00290"></a>00290   <span class="comment">// Set up the modules navigator</span>
+<a name="l00291"></a>00291   <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()) <span class="keywordflow">return</span> 1;
+<a name="l00292"></a>00292   
+<a name="l00293"></a>00293   <span class="comment">// Make sure the instance of TSetupData get&apos;s loaded </span>
+<a name="l00294"></a>00294   <span class="comment">// (though in practice we can do this lazily)</span>
+<a name="l00295"></a>00295   <span class="keywordflow">if</span>( !<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().GetSetupData() ) <span class="keywordflow">return</span> 2;
+<a name="l00296"></a>00296   
+<a name="l00297"></a>00297   <span class="keywordflow">return</span> 0;
+<a name="l00298"></a>00298 }
+<a name="l00299"></a>00299 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

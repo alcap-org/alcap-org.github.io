@@ -92,10 +92,6 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIslandLength.html#aac3168556c595ce13777990bd7a7a196">Book</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *data, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Book histograms and similar.  <a href="#aac3168556c595ce13777990bd7a7a196"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIslandLength.html#ad6205719e676349d7d8986f830a7b7ca">fDirName</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The directory where the histograms will reside.  <a href="#ad6205719e676349d7d8986f830a7b7ca"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIslandLength.html#a88b399525de76e48980fbe0e8107cac7">fHistDir</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The directory where histograms arre stored.  <a href="#a88b399525de76e48980fbe0e8107cac7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIslandLength.html#a0d0e1a058308d034d014039f49a195d4">mapSH_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc">fHistos</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Map of histograms, keyed by bank_name;.  <a href="#aeb431052cfc9761e447c034fe77366bc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIslandLength.html#a0d0e1a058308d034d014039f49a195d4">mapSH_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b">fHistosNorm</a></td></tr>
@@ -214,15 +210,14 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 <p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00013">13</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00014"></a>00014   : <a class="code" href="classBaseModule.html#a828d4e27c72536894e03b3cf330ba8c6" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;IslandLength&quot;</span>,opts)
-<a name="l00015"></a>00015   , <a class="code" href="classIslandLength.html#ad6205719e676349d7d8986f830a7b7ca" title="The directory where the histograms will reside.">fDirName</a>(<span class="stringliteral">&quot;IslandLength&quot;</span>)
-<a name="l00016"></a>00016 {
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018   <span class="comment">// Do something with opts here.  Has the user specified any</span>
-<a name="l00019"></a>00019   <span class="comment">// particular configuration that you want to know?</span>
-<a name="l00020"></a>00020   <span class="comment">// For example, perhaps this module wants an axis range:</span>
-<a name="l00021"></a>00021   <span class="comment">//fXMax=opts-&gt;GetDouble(&quot;x_max&quot;,100); </span>
-<a name="l00022"></a>00022   
-<a name="l00023"></a>00023 }
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017   <span class="comment">// Do something with opts here.  Has the user specified any</span>
+<a name="l00018"></a>00018   <span class="comment">// particular configuration that you want to know?</span>
+<a name="l00019"></a>00019   <span class="comment">// For example, perhaps this module wants an axis range:</span>
+<a name="l00020"></a>00020   <span class="comment">//fXMax=opts-&gt;GetDouble(&quot;x_max&quot;,100); </span>
+<a name="l00021"></a>00021   
+<a name="l00022"></a>00022 }
 </pre></div></p>
 
 </div>
@@ -244,10 +239,10 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Is anything done in the destructor? </p>
 
-<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00027">27</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00026">26</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00028"></a>00028 {
-<a name="l00029"></a>00029 }
+<p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027 {
+<a name="l00028"></a>00028 }
 </pre></div></p>
 
 </div>
@@ -310,35 +305,31 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Implements <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00087">87</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00086">86</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="IslandLength_8h_source.html#l00083">fHistDir</a>, <a class="el" href="IslandLength_8h_source.html#l00086">fHistos</a>, <a class="el" href="IslandLength_8h_source.html#l00089">fHistosNorm</a>, <a class="el" href="IslandLength_8h_source.html#l00092">fNormHist</a>, and <a class="el" href="IslandLength_8h_source.html#l00095">fNProcessed</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="IslandLength_8h_source.html#l00080">fHistos</a>, <a class="el" href="IslandLength_8h_source.html#l00083">fHistosNorm</a>, <a class="el" href="IslandLength_8h_source.html#l00086">fNormHist</a>, and <a class="el" href="IslandLength_8h_source.html#l00089">fNProcessed</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00088"></a>00088 {
-<a name="l00089"></a>00089   <span class="comment">// Return non-zero to indicate a problem</span>
-<a name="l00090"></a>00090   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00091"></a>00091     std::cout &lt;&lt; <span class="stringliteral">&quot;-----IslandLength::AfterLastEntry(): I&apos;m debugging!&quot;</span>
-<a name="l00092"></a>00092               &lt;&lt; std::endl;    
-<a name="l00093"></a>00093   }
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095   TDirectory* pwd = TDirectory::CurrentDirectory();
-<a name="l00096"></a>00096   <a class="code" href="classIslandLength.html#a88b399525de76e48980fbe0e8107cac7" title="The directory where histograms arre stored.">fHistDir</a>-&gt;cd();
-<a name="l00097"></a>00097   
-<a name="l00098"></a>00098   <span class="keywordtype">double</span> run_norm = <a class="code" href="classIslandLength.html#a57178c83316da0f7646d23fda066a894" title="The histogram that we use for normalising to;.">fNormHist</a>-&gt;Integral(0,-1);
-<a name="l00099"></a>00099   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">mapSH_t::iterator</a> it = <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>.begin(); it != <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>.end(); ++it){
-<a name="l00100"></a>00100     TH1F* h = it-&gt;second;
-<a name="l00101"></a>00101     TObject* obj = h-&gt;Clone((std::string(h-&gt;GetName()) + <span class="stringliteral">&quot;_RunNorm&quot;</span>).c_str());
-<a name="l00102"></a>00102     TH1* hn = <span class="keyword">static_cast&lt;</span>TH1*<span class="keyword">&gt;</span>(obj);
-<a name="l00103"></a>00103     hn-&gt;SetTitle((std::string(h-&gt;GetTitle()) + <span class="stringliteral">&quot; (run normalised)&quot;</span>).c_str());
-<a name="l00104"></a>00104     hn-&gt;Scale(1./run_norm);
-<a name="l00105"></a>00105   }
-<a name="l00106"></a>00106   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">mapSH_t::iterator</a> it = <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>.begin(); it != <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>.end(); ++it){
-<a name="l00107"></a>00107     it-&gt;second-&gt;Scale(1./<a class="code" href="classIslandLength.html#a08e6e1e881c5eed427bd0fcc791bb141">fNProcessed</a>);
-<a name="l00108"></a>00108   }
-<a name="l00109"></a>00109   pwd-&gt;cd();
-<a name="l00110"></a>00110 
-<a name="l00111"></a>00111   <span class="keywordflow">return</span> 0;
-<a name="l00112"></a>00112 }
+<p><div class="fragment"><pre class="fragment"><a name="l00087"></a>00087 {
+<a name="l00088"></a>00088   <span class="comment">// Return non-zero to indicate a problem</span>
+<a name="l00089"></a>00089   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00090"></a>00090     std::cout &lt;&lt; <span class="stringliteral">&quot;-----IslandLength::AfterLastEntry(): I&apos;m debugging!&quot;</span>
+<a name="l00091"></a>00091               &lt;&lt; std::endl;    
+<a name="l00092"></a>00092   }
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094   <span class="keywordtype">double</span> run_norm = <a class="code" href="classIslandLength.html#a57178c83316da0f7646d23fda066a894" title="The histogram that we use for normalising to;.">fNormHist</a>-&gt;Integral(0,-1);
+<a name="l00095"></a>00095   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">mapSH_t::iterator</a> it = <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>.begin(); it != <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>.end(); ++it){
+<a name="l00096"></a>00096     TH1F* h = it-&gt;second;
+<a name="l00097"></a>00097     <a class="code" href="classTObject.html">TObject</a>* obj = h-&gt;Clone((std::string(h-&gt;GetName()) + <span class="stringliteral">&quot;_RunNorm&quot;</span>).c_str());
+<a name="l00098"></a>00098     TH1* hn = <span class="keyword">static_cast&lt;</span>TH1*<span class="keyword">&gt;</span>(obj);
+<a name="l00099"></a>00099     hn-&gt;SetTitle((std::string(h-&gt;GetTitle()) + <span class="stringliteral">&quot; (run normalised)&quot;</span>).c_str());
+<a name="l00100"></a>00100     hn-&gt;Scale(1./run_norm);
+<a name="l00101"></a>00101   }
+<a name="l00102"></a>00102   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">mapSH_t::iterator</a> it = <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>.begin(); it != <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>.end(); ++it){
+<a name="l00103"></a>00103     it-&gt;second-&gt;Scale(1./<a class="code" href="classIslandLength.html#a08e6e1e881c5eed427bd0fcc791bb141">fNProcessed</a>);
+<a name="l00104"></a>00104   }
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106   <span class="keywordflow">return</span> 0;
+<a name="l00107"></a>00107 }
 </pre></div></p>
 
 </div>
@@ -380,25 +371,25 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Implements <a class="el" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00033">33</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00032">32</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
 
-<p>References <a class="el" href="IslandLength_8cpp_source.html#l00115">Book()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, and <a class="el" href="IslandLength_8h_source.html#l00095">fNProcessed</a>.</p>
+<p>References <a class="el" href="IslandLength_8cpp_source.html#l00110">Book()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, and <a class="el" href="IslandLength_8h_source.html#l00089">fNProcessed</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034 {
-<a name="l00035"></a>00035   <span class="comment">// Called before the main event loop</span>
-<a name="l00036"></a>00036   <span class="comment">// Can be used to set things up, like histograms etc</span>
-<a name="l00037"></a>00037   <span class="comment">// Return non-zero to indicate a problem</span>
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00040"></a>00040   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00041"></a>00041     std::cout&lt;&lt;<span class="stringliteral">&quot;-----IslandLength::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>
-<a name="l00042"></a>00042              &lt;&lt;std::endl;
-<a name="l00043"></a>00043   }
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045   <a class="code" href="classIslandLength.html#a08e6e1e881c5eed427bd0fcc791bb141">fNProcessed</a> = 0;
-<a name="l00046"></a>00046   <a class="code" href="classIslandLength.html#aac3168556c595ce13777990bd7a7a196" title="Book histograms and similar.">Book</a>(data, setup);
-<a name="l00047"></a>00047   <span class="keywordflow">return</span> 0;
-<a name="l00048"></a>00048 }
+<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033 {
+<a name="l00034"></a>00034   <span class="comment">// Called before the main event loop</span>
+<a name="l00035"></a>00035   <span class="comment">// Can be used to set things up, like histograms etc</span>
+<a name="l00036"></a>00036   <span class="comment">// Return non-zero to indicate a problem</span>
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00039"></a>00039   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00040"></a>00040     std::cout&lt;&lt;<span class="stringliteral">&quot;-----IslandLength::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>
+<a name="l00041"></a>00041              &lt;&lt;std::endl;
+<a name="l00042"></a>00042   }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044   <a class="code" href="classIslandLength.html#a08e6e1e881c5eed427bd0fcc791bb141">fNProcessed</a> = 0;
+<a name="l00045"></a>00045   <a class="code" href="classIslandLength.html#aac3168556c595ce13777990bd7a7a196" title="Book histograms and similar.">Book</a>(data, setup);
+<a name="l00046"></a>00046   <span class="keywordflow">return</span> 0;
+<a name="l00047"></a>00047 }
 </pre></div></p>
 
 </div>
@@ -430,42 +421,35 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Book histograms and similar. </p>
 
-<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00115">115</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00110">110</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
 
-<p>References <a class="el" href="IslandLength_8h_source.html#l00080">fDirName</a>, <a class="el" href="IslandLength_8h_source.html#l00083">fHistDir</a>, <a class="el" href="IslandLength_8h_source.html#l00086">fHistos</a>, <a class="el" href="IslandLength_8h_source.html#l00089">fHistosNorm</a>, <a class="el" href="IslandLength_8h_source.html#l00092">fNormHist</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>.</p>
+<p>References <a class="el" href="IslandLength_8h_source.html#l00080">fHistos</a>, <a class="el" href="IslandLength_8h_source.html#l00083">fHistosNorm</a>, <a class="el" href="IslandLength_8h_source.html#l00086">fNormHist</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>.</p>
 
-<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00033">BeforeFirstEntry()</a>.</p>
+<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00032">BeforeFirstEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00116"></a>00116 {
-<a name="l00117"></a>00117   <span class="keywordflow">if</span> (!TDirectory::CurrentDirectory()-&gt;cd(<a class="code" href="classIslandLength.html#ad6205719e676349d7d8986f830a7b7ca" title="The directory where the histograms will reside.">fDirName</a>.c_str())){
-<a name="l00118"></a>00118     <span class="comment">// this will blow up if the file is not writable.  Good!</span>
-<a name="l00119"></a>00119     TDirectory::CurrentDirectory()-&gt;mkdir(<a class="code" href="classIslandLength.html#ad6205719e676349d7d8986f830a7b7ca" title="The directory where the histograms will reside.">fDirName</a>.c_str())-&gt;cd();
-<a name="l00120"></a>00120   }
-<a name="l00121"></a>00121   <a class="code" href="classIslandLength.html#a88b399525de76e48980fbe0e8107cac7" title="The directory where histograms arre stored.">fHistDir</a> = TDirectory::CurrentDirectory();
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123   <span class="comment">//Change: Use the same map as when processing entries. This should</span>
-<a name="l00124"></a>00124   <span class="comment">//guarentee that all histograms we try to fill also exist </span>
-<a name="l00125"></a>00125   <a class="code" href="definitions_8h.html#a848e7d8148f5d52d30147ca5847f847e">StringPulseIslandMap</a>&amp; islands = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
-<a name="l00126"></a>00126   <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ab118b8b932d0111b0656754ea6c2fca4">mapSP_iter</a> it = islands.begin(); it != islands.end(); ++it){
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128     std::string bank_name = it-&gt;first;
-<a name="l00129"></a>00129     std::string det_name = setup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bank_name);
-<a name="l00130"></a>00130     std::string hist_name = <span class="stringliteral">&quot;hDQ_IslandLength_&quot;</span> + det_name + <span class="stringliteral">&quot;&quot;</span> + bank_name;
-<a name="l00131"></a>00131     std::string hist_title = <span class="stringliteral">&quot;Length of TPulseIslands in &quot;</span> + det_name;
-<a name="l00132"></a>00132     std::string axis_title = <span class="stringliteral">&quot;;Length /samples;Number of Islands&quot;</span>;
-<a name="l00133"></a>00133     TH1F* histo = <span class="keyword">new</span> TH1F(hist_name.c_str(), (hist_title + axis_title).c_str(),
-<a name="l00134"></a>00134                            500, 0, 2000);
-<a name="l00135"></a>00135     <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>[bank_name] = histo;
-<a name="l00136"></a>00136     <span class="keywordflow">if</span> (det_name == <span class="stringliteral">&quot;muSc&quot;</span>) <a class="code" href="classIslandLength.html#a57178c83316da0f7646d23fda066a894" title="The histogram that we use for normalising to;.">fNormHist</a> = histo;
-<a name="l00137"></a>00137 
-<a name="l00138"></a>00138     hist_name += <span class="stringliteral">&quot;_EvtNorm&quot;</span>;
-<a name="l00139"></a>00139     hist_title += <span class="stringliteral">&quot; (event normalised)&quot;</span>;
-<a name="l00140"></a>00140     histo = <span class="keyword">new</span> TH1F(hist_name.c_str(), (hist_title + axis_title).c_str(),
-<a name="l00141"></a>00141                      500, 0, 2000);
-<a name="l00142"></a>00142     <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>[bank_name] = histo;
-<a name="l00143"></a>00143   }
-<a name="l00144"></a>00144   TDirectory::CurrentDirectory()-&gt;cd(<span class="stringliteral">&quot;../&quot;</span>);
-<a name="l00145"></a>00145 }
+<p><div class="fragment"><pre class="fragment"><a name="l00111"></a>00111 {
+<a name="l00112"></a>00112   <span class="comment">//Change: Use the same map as when processing entries. This should</span>
+<a name="l00113"></a>00113   <span class="comment">//guarentee that all histograms we try to fill also exist </span>
+<a name="l00114"></a>00114   <a class="code" href="definitions_8h.html#a848e7d8148f5d52d30147ca5847f847e">StringPulseIslandMap</a>&amp; islands = data-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>;
+<a name="l00115"></a>00115   <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ab118b8b932d0111b0656754ea6c2fca4">mapSP_iter</a> it = islands.begin(); it != islands.end(); ++it){
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117     std::string bank_name = it-&gt;first;
+<a name="l00118"></a>00118     std::string det_name = setup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bank_name);
+<a name="l00119"></a>00119     std::string hist_name = <span class="stringliteral">&quot;hDQ_IslandLength_&quot;</span> + det_name + <span class="stringliteral">&quot;&quot;</span> + bank_name;
+<a name="l00120"></a>00120     std::string hist_title = <span class="stringliteral">&quot;Length of TPulseIslands in &quot;</span> + det_name;
+<a name="l00121"></a>00121     std::string axis_title = <span class="stringliteral">&quot;;Length /samples;Number of Islands&quot;</span>;
+<a name="l00122"></a>00122     TH1F* histo = <span class="keyword">new</span> TH1F(hist_name.c_str(), (hist_title + axis_title).c_str(),
+<a name="l00123"></a>00123                            500, 0, 2000);
+<a name="l00124"></a>00124     <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>[bank_name] = histo;
+<a name="l00125"></a>00125     <span class="keywordflow">if</span> (det_name == <span class="stringliteral">&quot;muSc&quot;</span>) <a class="code" href="classIslandLength.html#a57178c83316da0f7646d23fda066a894" title="The histogram that we use for normalising to;.">fNormHist</a> = histo;
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127     hist_name += <span class="stringliteral">&quot;_EvtNorm&quot;</span>;
+<a name="l00128"></a>00128     hist_title += <span class="stringliteral">&quot; (event normalised)&quot;</span>;
+<a name="l00129"></a>00129     histo = <span class="keyword">new</span> TH1F(hist_name.c_str(), (hist_title + axis_title).c_str(),
+<a name="l00130"></a>00130                      500, 0, 2000);
+<a name="l00131"></a>00131     <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>[bank_name] = histo;
+<a name="l00132"></a>00132   }
+<a name="l00133"></a>00133 }
 </pre></div></p>
 
 </div>
@@ -491,7 +475,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00088">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00191">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00116">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00087">AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00147">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00037">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00033">BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00037">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00214">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00135">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00227">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00139">PulseViewer::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00191">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00122">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00038">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00222">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00136">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00140">PulseViewer::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -546,7 +530,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>.</p>
+<p>Referenced by <a class="el" href="SavePulses_8cpp_source.html#l00074">SavePulses::AfterLastEntry()</a>, and <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>;}
 </pre></div></p>
@@ -574,7 +558,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00089">BaseModule::fName</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="SavePulses_8cpp_source.html#l00029">SavePulses::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00134">LoopSequence::Run()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a743cac6481efcd5dea914e1d28813dfe">fName</a>.c_str();};
 </pre></div></p>
@@ -633,7 +617,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>References <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule::AfterLastEntry()</a>, and <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>.</p>
 
-<p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00122">LoopSequence::Postprocess()</a>.</p>
+<p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00119">LoopSequence::Postprocess()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066                                                                        {
 <a name="l00067"></a>00067   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
@@ -682,7 +666,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>References <a class="el" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BaseModule::BeforeFirstEntry()</a>, and <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>.</p>
 
-<p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00076">LoopSequence::Preprocess()</a>.</p>
+<p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00074">LoopSequence::Preprocess()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00055"></a>00055                                                                       {
 <a name="l00056"></a>00056   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
@@ -735,41 +719,41 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Implements <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00052">52</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8cpp_source.html#l00051">51</a> of file <a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a>.</p>
 
-<p>References <a class="el" href="MyModule_8cpp_source.html#l00023">banks</a>, <a class="el" href="IslandLength_8h_source.html#l00086">fHistos</a>, <a class="el" href="IslandLength_8h_source.html#l00089">fHistosNorm</a>, <a class="el" href="IslandLength_8h_source.html#l00095">fNProcessed</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>.</p>
+<p>References <a class="el" href="MyModule_8cpp_source.html#l00023">banks</a>, <a class="el" href="IslandLength_8h_source.html#l00080">fHistos</a>, <a class="el" href="IslandLength_8h_source.html#l00083">fHistosNorm</a>, <a class="el" href="IslandLength_8h_source.html#l00089">fNProcessed</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, and <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053 {
-<a name="l00054"></a>00054   ++<a class="code" href="classIslandLength.html#a08e6e1e881c5eed427bd0fcc791bb141">fNProcessed</a>;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056   <span class="comment">// Called once for each event in the main event loop</span>
-<a name="l00057"></a>00057   <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
-<a name="l00058"></a>00058   <a class="code" href="definitions_8h.html#a848e7d8148f5d52d30147ca5847f847e">StringPulseIslandMap</a>&amp; <a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a> = data-&gt;fPulseIslandToChannelMap;
-<a name="l00059"></a>00059   <span class="comment">//typedef StringPulseIslandMap::iterator mapSP_iter;</span>
-<a name="l00060"></a>00060   <span class="keywordtype">int</span> entry_norm = -1;
-<a name="l00061"></a>00061   <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ab118b8b932d0111b0656754ea6c2fca4">mapSP_iter</a> biter = banks.begin(); biter != banks.end(); ++biter){
-<a name="l00062"></a>00062     std::string det_name = setup-&gt;GetDetectorName(biter-&gt;first);
-<a name="l00063"></a>00063     <span class="keywordflow">if</span> (det_name == <span class="stringliteral">&quot;muSc&quot;</span>){
-<a name="l00064"></a>00064       entry_norm = biter-&gt;second.size();
-<a name="l00065"></a>00065     }
-<a name="l00066"></a>00066   }  
-<a name="l00067"></a>00067   <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ab118b8b932d0111b0656754ea6c2fca4">mapSP_iter</a> biter = banks.begin(); biter != banks.end(); ++biter){
-<a name="l00068"></a>00068     std::string bank_name = biter-&gt;first;
-<a name="l00069"></a>00069     std::string det_name = setup-&gt;GetDetectorName(bank_name);
-<a name="l00070"></a>00070     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; islands = biter-&gt;second;
-<a name="l00071"></a>00071     
-<a name="l00072"></a>00072     TH1F* hist = <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>.find(bank_name)-&gt;second;
-<a name="l00073"></a>00073     TH1F* histNorm = <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>.find(bank_name)-&gt;second;
-<a name="l00074"></a>00074    
-<a name="l00075"></a>00075     <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ad46ef740aaf9cc430659b3dd9f1ab97a">PIL_iter</a> piter = islands.begin(); piter != islands.end(); ++piter){
-<a name="l00076"></a>00076       <span class="keywordtype">int</span> length = (*piter)-&gt;GetSamples().size();
-<a name="l00077"></a>00077       hist-&gt;Fill(length);
-<a name="l00078"></a>00078       <span class="keywordflow">if</span> (entry_norm!=0) histNorm-&gt;Fill(length, 1./entry_norm);
-<a name="l00079"></a>00079     }
-<a name="l00080"></a>00080   }
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082   <span class="keywordflow">return</span> 0;
-<a name="l00083"></a>00083 }
+<p><div class="fragment"><pre class="fragment"><a name="l00052"></a>00052 {
+<a name="l00053"></a>00053   ++<a class="code" href="classIslandLength.html#a08e6e1e881c5eed427bd0fcc791bb141">fNProcessed</a>;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055   <span class="comment">// Called once for each event in the main event loop</span>
+<a name="l00056"></a>00056   <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
+<a name="l00057"></a>00057   <a class="code" href="definitions_8h.html#a848e7d8148f5d52d30147ca5847f847e">StringPulseIslandMap</a>&amp; <a class="code" href="MyModule_8cpp.html#aebb1bc7b6b5a2c4ac668ccd06329e1f7">banks</a> = data-&gt;fPulseIslandToChannelMap;
+<a name="l00058"></a>00058   <span class="comment">//typedef StringPulseIslandMap::iterator mapSP_iter;</span>
+<a name="l00059"></a>00059   <span class="keywordtype">int</span> entry_norm = -1;
+<a name="l00060"></a>00060   <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ab118b8b932d0111b0656754ea6c2fca4">mapSP_iter</a> biter = banks.begin(); biter != banks.end(); ++biter){
+<a name="l00061"></a>00061     std::string det_name = setup-&gt;GetDetectorName(biter-&gt;first);
+<a name="l00062"></a>00062     <span class="keywordflow">if</span> (det_name == <span class="stringliteral">&quot;muSc&quot;</span>){
+<a name="l00063"></a>00063       entry_norm = biter-&gt;second.size();
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065   }  
+<a name="l00066"></a>00066   <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ab118b8b932d0111b0656754ea6c2fca4">mapSP_iter</a> biter = banks.begin(); biter != banks.end(); ++biter){
+<a name="l00067"></a>00067     std::string bank_name = biter-&gt;first;
+<a name="l00068"></a>00068     std::string det_name = setup-&gt;GetDetectorName(bank_name);
+<a name="l00069"></a>00069     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; islands = biter-&gt;second;
+<a name="l00070"></a>00070     
+<a name="l00071"></a>00071     TH1F* hist = <a class="code" href="classIslandLength.html#aeb431052cfc9761e447c034fe77366bc" title="Map of histograms, keyed by bank_name;.">fHistos</a>.find(bank_name)-&gt;second;
+<a name="l00072"></a>00072     TH1F* histNorm = <a class="code" href="classIslandLength.html#ac54dbe25cc60fbf2faae516b3e993c0b" title="Map of normalised histograms, keyed by bank_name;.">fHistosNorm</a>.find(bank_name)-&gt;second;
+<a name="l00073"></a>00073    
+<a name="l00074"></a>00074     <span class="keywordflow">for</span> (<a class="code" href="classIslandLength.html#ad46ef740aaf9cc430659b3dd9f1ab97a">PIL_iter</a> piter = islands.begin(); piter != islands.end(); ++piter){
+<a name="l00075"></a>00075       <span class="keywordtype">int</span> length = (*piter)-&gt;GetSamples().size();
+<a name="l00076"></a>00076       hist-&gt;Fill(length);
+<a name="l00077"></a>00077       <span class="keywordflow">if</span> (entry_norm!=0) histNorm-&gt;Fill(length, 1./entry_norm);
+<a name="l00078"></a>00078     }
+<a name="l00079"></a>00079   }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081   <span class="keywordflow">return</span> 0;
+<a name="l00082"></a>00082 }
 </pre></div></p>
 
 </div>
@@ -805,7 +789,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>, and <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule::ProcessEntry()</a>.</p>
 
-<p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>.</p>
+<p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00090">LoopSequence::Process()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044                                                                                {
 <a name="l00045"></a>00045   <span class="comment">// This is called by our main routine and would allow later to split into different </span>
@@ -864,45 +848,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00097">97</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00045">ExportPulse::ExportPulse()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, and <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad6205719e676349d7d8986f830a7b7ca"></a><!-- doxytag: member="IslandLength::fDirName" ref="ad6205719e676349d7d8986f830a7b7ca" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string <a class="el" href="classIslandLength.html#ad6205719e676349d7d8986f830a7b7ca">IslandLength::fDirName</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>The directory where the histograms will reside. </p>
-
-<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00080">80</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
-
-<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00115">Book()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a88b399525de76e48980fbe0e8107cac7"></a><!-- doxytag: member="IslandLength::fHistDir" ref="a88b399525de76e48980fbe0e8107cac7" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TDirectory* <a class="el" href="classIslandLength.html#a88b399525de76e48980fbe0e8107cac7">IslandLength::fHistDir</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>The directory where histograms arre stored. </p>
-
-<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00083">83</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
-
-<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00087">AfterLastEntry()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00115">Book()</a>.</p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00031">ExportPulse::ExportPulse()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, and <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>.</p>
 
 </div>
 </div>
@@ -919,9 +865,9 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Map of histograms, keyed by bank_name;. </p>
 
-<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00086">86</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00080">80</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00087">AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00115">Book()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00052">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00086">AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00110">Book()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00051">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -938,9 +884,9 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>Map of normalised histograms, keyed by bank_name;. </p>
 
-<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00089">89</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00083">83</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00087">AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00115">Book()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00052">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00086">AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00110">Book()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00051">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -957,9 +903,9 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 
 <p>The histogram that we use for normalising to;. </p>
 
-<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00092">92</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00086">86</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00087">AfterLastEntry()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00115">Book()</a>.</p>
+<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00086">AfterLastEntry()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00110">Book()</a>.</p>
 
 </div>
 </div>
@@ -974,9 +920,9 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00095">95</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
+<p>Definition at line <a class="el" href="IslandLength_8h_source.html#l00089">89</a> of file <a class="el" href="IslandLength_8h_source.html">IslandLength.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00087">AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00033">BeforeFirstEntry()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00052">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="IslandLength_8cpp_source.html#l00086">AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">BeforeFirstEntry()</a>, and <a class="el" href="IslandLength_8cpp_source.html#l00051">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -985,7 +931,7 @@ StringPulseIslandMap::iterator&nbsp;</td><td class="memItemRight" valign="bottom
 <li>rootana/src/data_quality/<a class="el" href="IslandLength_8cpp_source.html">IslandLength.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -29,8 +29,18 @@
   </div>
 </div>
 <div class="contents">
-<h1>TDetectorPulse Class Reference</h1><!-- doxytag: class="TDetectorPulse" -->
+<h1>TDetectorPulse Class Reference</h1><!-- doxytag: class="TDetectorPulse" --><!-- doxytag: inherits="TObject" -->
 <p><code>#include &lt;<a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for TDetectorPulse:</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="classTDetectorPulse.gif" usemap="#TDetectorPulse_map" alt=""/>
+  <map id="TDetectorPulse_map" name="TDetectorPulse_map">
+<area href="classTObject.html" alt="TObject" shape="rect" coords="0,0,98,24"/>
+</map>
+ </div>
+</div>
 
 <p><a href="classTDetectorPulse-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -171,7 +181,7 @@
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">18</a> of file <a class="el" href="TDetectorPulse_8cpp_source.html">TDetectorPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00056">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00055">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00057">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00059">fSource</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00090">TAnalysedPulse::GetSource()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kFast</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kSlow</a>, <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, and <a class="el" href="FlyWeight_8h_source.html#l00059">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00056">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00055">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00059">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00060">fSource</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00090">TAnalysedPulse::GetSource()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kFast</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kSlow</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                  {
 <a name="l00022"></a>00022   <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">Reset</a>();
@@ -181,7 +191,7 @@
 <a name="l00026"></a>00026   <span class="keywordflow">if</span>(f_parent) <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>]= f_parent-&gt;<a class="code" href="classTAnalysedPulse.html#a13fbb8e3c0acd515851de4dda711bdc9">GetSource</a>();
 <a name="l00027"></a>00027   <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">kSlow</a>]=s_parentID;
 <a name="l00028"></a>00028   <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>]=f_parentID;
-<a name="l00029"></a>00029   <a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">fSource</a>.<a class="code" href="classFlyWeight.html#a70fd41ad0b4c2c3168837d8083e37ff0">SetValue</a>(sourceID);
+<a name="l00029"></a>00029   <a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">fSource</a>=sourceID;
 <a name="l00030"></a>00030 }
 </pre></div></p>
 
@@ -332,7 +342,7 @@
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00044">44</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00059">fSource</a>, and <a class="el" href="FlyWeight_8h_source.html#l00052">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00060">fSource</a>, and <a class="el" href="FlyWeight_8h_source.html#l00085">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxTimeDiffMEGenerator_8cpp_source.html#l00009">MaxTimeDiffMEGenerator::ProcessPulses()</a>.</p>
 
@@ -436,7 +446,7 @@
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">32</a> of file <a class="el" href="TDetectorPulse_8cpp_source.html">TDetectorPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00049">fCheckedForPileUp</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00056">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00055">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00057">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00053">fPileUpSafe</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kNumParents</a>, and <a class="el" href="FlyWeight_8h_source.html#l00037">FlyWeight&lt; ValueType, UniqueTag &gt;::Reset()</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00049">fCheckedForPileUp</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00056">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00055">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00059">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00053">fPileUpSafe</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kNumParents</a>, and <a class="el" href="FlyWeight_8h_source.html#l00063">FlyWeight&lt; ValueType, UniqueTag &gt;::Reset()</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8cpp_source.html#l00014">TDetectorPulse()</a>.</p>
 
@@ -590,7 +600,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00057">57</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00059">59</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse()</a>.</p>
 
@@ -624,7 +634,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00059">59</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00060">60</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00044">GetSource()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse()</a>.</p>
 
@@ -635,7 +645,7 @@
 <li>rootana/src/TDP_generators/<a class="el" href="TDetectorPulse_8cpp_source.html">TDetectorPulse.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

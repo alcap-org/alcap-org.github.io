@@ -69,11 +69,11 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">45</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00040">clock_tick_in_ns</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00043">constant_fraction</a>, <a class="el" href="TPulseIsland_8h_source.html#l00050">TPulseIsland::GetSamples()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00051">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00039">max_adc_value</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00037">pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00044">th_frac</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00041">time_shift</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00038">trigger_polarity</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00040">clock_tick_in_ns</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00043">constant_fraction</a>, <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00062">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00039">max_adc_value</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00037">pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00044">th_frac</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00041">time_shift</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00038">trigger_polarity</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00045"></a>00045                                                                          {
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samps = tpi-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00047"></a>00047   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samps = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
 <a name="l00048"></a>00048   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> b = samps.begin(), e = samps.end();
 <a name="l00049"></a>00049 
 <a name="l00050"></a>00050   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> m = <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a09124a1321c54e9dd5a695f3a253801e">trigger_polarity</a> &gt; 0 ? std::max_element(b, e) : std::min_element(b, e);
@@ -113,7 +113,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00040">40</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -147,7 +147,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00039">39</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -164,7 +164,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00037">37</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -198,7 +198,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00041">41</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -215,7 +215,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00038">38</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00045">operator()()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -224,7 +224,7 @@
 <li>rootana/src/TAP_generators/utils/<a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

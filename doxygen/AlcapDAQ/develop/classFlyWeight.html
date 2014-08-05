@@ -29,24 +29,37 @@
   </div>
 </div>
 <div class="contents">
-<h1>FlyWeight&lt; ValueType, UniqueTag &gt; Class Template Reference</h1><!-- doxytag: class="FlyWeight" -->
+<h1>FlyWeight&lt; ValueType, UniqueTag &gt; Class Template Reference</h1><!-- doxytag: class="FlyWeight" --><!-- doxytag: inherits="TObject" -->
 <p><code>#include &lt;<a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for FlyWeight&lt; ValueType, UniqueTag &gt;:</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="classFlyWeight.gif" usemap="#FlyWeight&lt; ValueType, UniqueTag &gt;_map" alt=""/>
+  <map id="FlyWeight&lt; ValueType, UniqueTag &gt;_map" name="FlyWeight&lt; ValueType, UniqueTag &gt;_map">
+<area href="classTObject.html" alt="TObject" shape="rect" coords="0,0,221,24"/>
+</map>
+ </div>
+</div>
 
 <p><a href="classFlyWeight-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a9edd74a83e5aef559b2fa28b9e8bcfd9">Proxy_t</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; ValueType, <br class="typebreak"/>
-<a class="el" href="classFlyWeight.html#a9edd74a83e5aef559b2fa28b9e8bcfd9">Proxy_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a2a9a1081b24b5fd7f3252ee0ad26bb0f">ValueToProxyMap</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; ValueType &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#aac8245d827631ad536622292c281a015">ProxyToValueMap</a></td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a348e00b2d26542ce745c251cf13bb208">FlyWeight</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#aaafda4e46b39603f1b4dc75a9943e439">FlyWeight</a> (const ValueType &amp;val)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a68d535fdb5896735a367c1a7466adb0e">Reset</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a0a929271b51234aac15e54288dff03ce">operator=</a> (const ValueType &amp;v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#ae7f409f64fdf524f39825f7504842f88">DumpTable</a> () const </td></tr>
+<tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#afb316325b337c4c28f4d7d8db3b5a6b6">InitProxyList</a> ()</td></tr>
+<tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#add5433f784cc93ba0cae52e5cc764d49">ClassDef</a> (<a class="el" href="classFlyWeight.html">FlyWeight</a>, 2)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFlyWeight.html#a9edd74a83e5aef559b2fa28b9e8bcfd9">Proxy_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a></td></tr>
-<tr><td colspan="2"><h2>SourceProxy</h2></td></tr>
-<tr><td colspan="2"><p><a class="anchor" id="amgrpa539f404bc9d2d0b648fde670b1ef278"></a>A generic flyweight to store relatively bulky objects that are massively re-used, such as the source <a class="el" href="namespaceIDs.html">IDs</a> in each TAP / TDP.</p>
+<tr><td colspan="2"><h2>FlyWeight</h2></td></tr>
+<tr><td colspan="2"><p><a class="anchor" id="amgrp28c7ab932c3ee974866601060a12d880"></a>A generic flyweight to store relatively bulky objects that are massively re-used, such as the source <a class="el" href="namespaceIDs.html">IDs</a> in each TAP / TDP.</p>
 <p>Objects such as TAPs and TDPs often contain largely repeated data such as the source ID for all pulses coming from the same algorithm applied to the same detector channel. To reduce the redundancy and therefore save memory and some processing time, this class implements a simple version of the flyweight pattern, which replaces each different value with an int, but provides a similar interface to the object that it wraps. When we want to store a new value, it is searched for in the ProxyToValueMap and the index identifying where it is is saved is used instead. If the value has not been used already, it is added to the list of values </p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
@@ -56,17 +69,19 @@
   </dd>
 </dl>
 <br/><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFlyWeight.html#aac8245d827631ad536622292c281a015">ProxyToValueMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a4dae8db971c8513de2bbff10f95e39a1">sProxyToVals</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFlyWeight.html#a2a9a1081b24b5fd7f3252ee0ad26bb0f">ValueToProxyMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a9bf0d15a9c21578e370d4b8367ad84da">sValsToProxies</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFlyWeightLists.html">FlyWeightLists</a><br class="typebreak"/>
+&lt; ValueType, UniqueTag &gt; *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a> = NULL</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a70fd41ad0b4c2c3168837d8083e37ff0">SetValue</a> (const ValueType &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const ValueType &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a9d64d2cf8d604cbf2960dc2ea53ac5c7">GetValue</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#a125b9939a6bb274f481fd74707ccca4f">LoadProxyList</a> (TDirectory *file, const std::string &amp;name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlyWeight.html#ace35a7fa9b94aada970f78674d1a345d">SaveProxyList</a> (TDirectory *file, const std::string &amp;name)</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <h3>template&lt;typename ValueType, typename UniqueTag = int&gt;<br/>
  class FlyWeight&lt; ValueType, UniqueTag &gt;</h3>
 
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00030">30</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00055">55</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 <hr/><h2>Member Typedef Documentation</h2>
 <a class="anchor" id="a9edd74a83e5aef559b2fa28b9e8bcfd9"></a><!-- doxytag: member="FlyWeight::Proxy_t" ref="a9edd74a83e5aef559b2fa28b9e8bcfd9" args="" -->
 <div class="memitem">
@@ -81,41 +96,7 @@ template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00032">32</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aac8245d827631ad536622292c281a015"></a><!-- doxytag: member="FlyWeight::ProxyToValueMap" ref="aac8245d827631ad536622292c281a015" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::vector&lt;ValueType&gt; <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html#aac8245d827631ad536622292c281a015">ProxyToValueMap</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00034">34</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a9a1081b24b5fd7f3252ee0ad26bb0f"></a><!-- doxytag: member="FlyWeight::ValueToProxyMap" ref="a2a9a1081b24b5fd7f3252ee0ad26bb0f" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::map&lt;ValueType,<a class="el" href="classFlyWeight.html#a9edd74a83e5aef559b2fa28b9e8bcfd9">Proxy_t</a>&gt; <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html#a2a9a1081b24b5fd7f3252ee0ad26bb0f">ValueToProxyMap</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00033">33</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00057">57</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
 </div>
 </div>
@@ -137,14 +118,94 @@ template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00036">36</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00059">59</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00036"></a>00036 :<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>(-1){}
+<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 :<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>(-1){}
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="aaafda4e46b39603f1b4dc75a9943e439"></a><!-- doxytag: member="FlyWeight::FlyWeight" ref="aaafda4e46b39603f1b4dc75a9943e439" args="(const ValueType &amp;val)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html">FlyWeight</a> </td>
+          <td>(</td>
+          <td class="paramtype">const ValueType &amp;&nbsp;</td>
+          <td class="paramname"> <em>val</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00060">60</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060                                        :<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>(-1){
+<a name="l00061"></a>00061             <a class="code" href="classFlyWeight.html#a70fd41ad0b4c2c3168837d8083e37ff0">SetValue</a>(val);
+<a name="l00062"></a>00062         }
 </pre></div></p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="add5433f784cc93ba0cae52e5cc764d49"></a><!-- doxytag: member="FlyWeight::ClassDef" ref="add5433f784cc93ba0cae52e5cc764d49" args="(FlyWeight, 2)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::ClassDef </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">2&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae7f409f64fdf524f39825f7504842f88"></a><!-- doxytag: member="FlyWeight::DumpTable" ref="ae7f409f64fdf524f39825f7504842f88" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::DumpTable </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00070">70</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00070"></a>00070 {<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>-&gt;DumpTable();}
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a9d64d2cf8d604cbf2960dc2ea53ac5c7"></a><!-- doxytag: member="FlyWeight::GetValue" ref="a9d64d2cf8d604cbf2960dc2ea53ac5c7" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -162,17 +223,95 @@ template&lt;typename ValueType , typename UniqueTag &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00052">52</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00085">85</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
-<p>References <a class="el" href="FlyWeight_8h_source.html#l00046">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxy</a>, and <a class="el" href="FlyWeight_8h_source.html#l00047">FlyWeight&lt; ValueType, UniqueTag &gt;::sProxyToVals</a>.</p>
+<p>References <a class="el" href="FlyWeight_8h_source.html#l00074">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxy</a>, and <a class="el" href="FlyWeight_8h_source.html#l00079">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxyList</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00044">TDetectorPulse::GetSource()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00090">TAnalysedPulse::GetSource()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00052"></a>00052                                                                      {
-<a name="l00053"></a>00053     <span class="keywordflow">if</span>(<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>&lt;0) std::cerr&lt;&lt;<span class="stringliteral">&quot;Trying to get a value &quot;</span>
-<a name="l00054"></a>00054         <span class="stringliteral">&quot;from an unitialized flyweight&quot;</span>&lt;&lt;std::endl;
-<a name="l00055"></a>00055     <span class="keywordflow">return</span> <a class="code" href="classFlyWeight.html#a4dae8db971c8513de2bbff10f95e39a1">sProxyToVals</a>.at(<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>);
-<a name="l00056"></a>00056 }
+<p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085                                                                      {
+<a name="l00086"></a>00086     <span class="keywordflow">if</span>(<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>&lt;0) std::cerr&lt;&lt;<span class="stringliteral">&quot;Trying to get a value &quot;</span>
+<a name="l00087"></a>00087         <span class="stringliteral">&quot;from an unitialized flyweight&quot;</span>&lt;&lt;std::endl;
+<a name="l00088"></a>00088     <span class="keywordflow">return</span> <a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>-&gt;GetValue(<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>);
+<a name="l00089"></a>00089 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="afb316325b337c4c28f4d7d8db3b5a6b6"></a><!-- doxytag: member="FlyWeight::InitProxyList" ref="afb316325b337c4c28f4d7d8db3b5a6b6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::InitProxyList </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00074">74</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00092">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074 {<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>=<span class="keyword">new</span> <a class="code" href="classFlyWeightLists.html">FlyWeightLists&lt;ValueType,UniqueTag&gt;</a>();};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a125b9939a6bb274f481fd74707ccca4f"></a><!-- doxytag: member="FlyWeight::LoadProxyList" ref="a125b9939a6bb274f481fd74707ccca4f" args="(TDirectory *file, const std::string &amp;name)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename UniqueTag &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::LoadProxyList </td>
+          <td>(</td>
+          <td class="paramtype">TDirectory *&nbsp;</td>
+          <td class="paramname"> <em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>name</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00098">98</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+
+<p>References <a class="el" href="FlyWeight_8h_source.html#l00079">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxyList</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00099"></a>00099                                                  {
+<a name="l00100"></a>00100     <span class="keywordflow">if</span>(<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a> &amp;&amp; !<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>-&gt;empty()){
+<a name="l00101"></a>00101         std::cout&lt;&lt;<span class="stringliteral">&quot;FlyWeight: Error: Proxy list is not empty but was asked to load the list from a file&quot;</span>&lt;&lt;std::endl;
+<a name="l00102"></a>00102         <span class="keywordflow">return</span> 1;
+<a name="l00103"></a>00103     }
+<a name="l00104"></a>00104     <span class="keywordflow">if</span>(!file) {
+<a name="l00105"></a>00105         std::cout&lt;&lt;<span class="stringliteral">&quot;FlyWeight: Error: Cannot load a proxy list from a NULL file&quot;</span>&lt;&lt;std::endl;
+<a name="l00106"></a>00106         <span class="keywordflow">return</span> 2;
+<a name="l00107"></a>00107     }
+<a name="l00108"></a>00108     file-&gt;GetObject(name.c_str(),<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>);
+<a name="l00109"></a>00109     <span class="keywordflow">if</span>(!<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>){
+<a name="l00110"></a>00110         std::cout&lt;&lt;<span class="stringliteral">&quot;FlyWeight: Error: Couldn&apos;t find proxy list &apos;&quot;</span>&lt;&lt;name
+<a name="l00111"></a>00111             &lt;&lt;<span class="stringliteral">&quot;&apos; in file &apos;&quot;</span>&lt;&lt;file-&gt;GetName()&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;std::endl;
+<a name="l00112"></a>00112         <span class="keywordflow">return</span> 3;
+<a name="l00113"></a>00113     }
+<a name="l00114"></a>00114     <span class="keywordflow">return</span> 0;
+<a name="l00115"></a>00115 }
 </pre></div></p>
 
 </div>
@@ -195,11 +334,11 @@ template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00039">39</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00065">65</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00039"></a>00039                                           {
-<a name="l00040"></a>00040             <a class="code" href="classFlyWeight.html#a70fd41ad0b4c2c3168837d8083e37ff0">SetValue</a>(v);
-<a name="l00041"></a>00041         }
+<p><div class="fragment"><pre class="fragment"><a name="l00065"></a>00065                                           {
+<a name="l00066"></a>00066             <a class="code" href="classFlyWeight.html#a70fd41ad0b4c2c3168837d8083e37ff0">SetValue</a>(v);
+<a name="l00067"></a>00067         }
 </pre></div></p>
 
 </div>
@@ -221,11 +360,54 @@ template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00037">37</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00063">63</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">TDetectorPulse::Reset()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037 {<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>=-1;}
+<p><div class="fragment"><pre class="fragment"><a name="l00063"></a>00063 {<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>=-1;}
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ace35a7fa9b94aada970f78674d1a345d"></a><!-- doxytag: member="FlyWeight::SaveProxyList" ref="ace35a7fa9b94aada970f78674d1a345d" args="(TDirectory *file, const std::string &amp;name)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename UniqueTag &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::SaveProxyList </td>
+          <td>(</td>
+          <td class="paramtype">TDirectory *&nbsp;</td>
+          <td class="paramname"> <em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>name</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00118">118</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+
+<p>References <a class="el" href="FlyWeight_8h_source.html#l00079">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxyList</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00119"></a>00119                                                  {
+<a name="l00120"></a>00120     <span class="keywordflow">if</span>(!file) {
+<a name="l00121"></a>00121         std::cout&lt;&lt;<span class="stringliteral">&quot;FlyWeight: Error: Cannot save a proxy list from a NULL file&quot;</span>&lt;&lt;std::endl;
+<a name="l00122"></a>00122         <span class="keywordflow">return</span> 1;
+<a name="l00123"></a>00123     }
+<a name="l00124"></a>00124     file-&gt;WriteObject(<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>,name.c_str());
+<a name="l00125"></a>00125     <span class="keywordflow">return</span> 0;
+<a name="l00126"></a>00126 }
 </pre></div></p>
 
 </div>
@@ -248,24 +430,16 @@ template&lt;typename ValueType, typename UniqueTag &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00059">59</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00092">92</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
-<p>References <a class="el" href="FlyWeight_8h_source.html#l00046">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxy</a>, <a class="el" href="FlyWeight_8h_source.html#l00047">FlyWeight&lt; ValueType, UniqueTag &gt;::sProxyToVals</a>, and <a class="el" href="FlyWeight_8h_source.html#l00048">FlyWeight&lt; ValueType, UniqueTag &gt;::sValsToProxies</a>.</p>
+<p>References <a class="el" href="FlyWeight_8h_source.html#l00074">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxy</a>, <a class="el" href="FlyWeight_8h_source.html#l00079">FlyWeight&lt; ValueType, UniqueTag &gt;::fProxyList</a>, and <a class="el" href="FlyWeight_8h_source.html#l00074">FlyWeight&lt; ValueType, UniqueTag &gt;::InitProxyList()</a>.</p>
 
-<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00039">FlyWeight&lt; IDs::source, TAnalysedPulse::Tag &gt;::operator=()</a>, <a class="el" href="TAnalysedPulse_8cpp_source.html#l00016">TAnalysedPulse::TAnalysedPulse()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse::TDetectorPulse()</a>.</p>
+<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00060">FlyWeight&lt; IDs::source, TAnalysedPulse::Tag &gt;::FlyWeight()</a>, and <a class="el" href="FlyWeight_8h_source.html#l00065">FlyWeight&lt; IDs::source, TAnalysedPulse::Tag &gt;::operator=()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059                                                                       {
-<a name="l00060"></a>00060     <span class="comment">// Is this proxy already contained in the maps</span>
-<a name="l00061"></a>00061     <span class="keyword">typename</span> <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ValueToProxyMap::const_iterator</a> it=<a class="code" href="classFlyWeight.html#a9bf0d15a9c21578e370d4b8367ad84da">sValsToProxies</a>.find(v);
-<a name="l00062"></a>00062     <span class="keywordflow">if</span>(it!=<a class="code" href="classFlyWeight.html#a9bf0d15a9c21578e370d4b8367ad84da">sValsToProxies</a>.end()){
-<a name="l00063"></a>00063         <a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>=it-&gt;second;
-<a name="l00064"></a>00064     } <span class="keywordflow">else</span> {
-<a name="l00065"></a>00065         <span class="comment">// if it&apos;s a new kind, add the source to the hash table</span>
-<a name="l00066"></a>00066         <a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>=<a class="code" href="classFlyWeight.html#a9bf0d15a9c21578e370d4b8367ad84da">sValsToProxies</a>.size();
-<a name="l00067"></a>00067         <a class="code" href="classFlyWeight.html#a9bf0d15a9c21578e370d4b8367ad84da">sValsToProxies</a>[v]=<a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>;
-<a name="l00068"></a>00068         <a class="code" href="classFlyWeight.html#a4dae8db971c8513de2bbff10f95e39a1">sProxyToVals</a>.push_back(v);
-<a name="l00069"></a>00069     }
-<a name="l00070"></a>00070 }
+<p><div class="fragment"><pre class="fragment"><a name="l00092"></a>00092                                                                       {
+<a name="l00093"></a>00093     <span class="keywordflow">if</span>(!<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>)<a class="code" href="classFlyWeight.html#afb316325b337c4c28f4d7d8db3b5a6b6">InitProxyList</a>();
+<a name="l00094"></a>00094     <a class="code" href="classFlyWeight.html#a4d41a072cfe514c4f0dc9821662ae179">fProxy</a>=<a class="code" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a>-&gt;GetProxy(v);
+<a name="l00095"></a>00095 }
 </pre></div></p>
 
 </div>
@@ -284,47 +458,28 @@ template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00046">46</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00074">74</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
-<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00052">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>, <a class="el" href="FlyWeight_8h_source.html#l00037">FlyWeight&lt; IDs::source, TAnalysedPulse::Tag &gt;::Reset()</a>, and <a class="el" href="FlyWeight_8h_source.html#l00059">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
+<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00085">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>, <a class="el" href="FlyWeight_8h_source.html#l00063">FlyWeight&lt; IDs::source, TAnalysedPulse::Tag &gt;::Reset()</a>, and <a class="el" href="FlyWeight_8h_source.html#l00092">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4dae8db971c8513de2bbff10f95e39a1"></a><!-- doxytag: member="FlyWeight::sProxyToVals" ref="a4dae8db971c8513de2bbff10f95e39a1" args="" -->
+<a class="anchor" id="a6b15466dca34ddd43f0b335cdf4321fa"></a><!-- doxytag: member="FlyWeight::fProxyList" ref="a6b15466dca34ddd43f0b335cdf4321fa" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html#aac8245d827631ad536622292c281a015">ProxyToValueMap</a> <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html#a4dae8db971c8513de2bbff10f95e39a1">sProxyToVals</a><code> [inline, static, private]</code></td>
+          <td class="memname"><a class="el" href="classFlyWeightLists.html">FlyWeightLists</a>&lt; ValueType, UniqueTag &gt; * <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html#a6b15466dca34ddd43f0b335cdf4321fa">fProxyList</a> = NULL<code> [inline, static, private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00047">47</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00079">79</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
 
-<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00052">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>, and <a class="el" href="FlyWeight_8h_source.html#l00059">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9bf0d15a9c21578e370d4b8367ad84da"></a><!-- doxytag: member="FlyWeight::sValsToProxies" ref="a9bf0d15a9c21578e370d4b8367ad84da" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html#a2a9a1081b24b5fd7f3252ee0ad26bb0f">ValueToProxyMap</a> <a class="el" href="classFlyWeight.html">FlyWeight</a>&lt; ValueType, UniqueTag &gt;::<a class="el" href="classFlyWeight.html#a9bf0d15a9c21578e370d4b8367ad84da">sValsToProxies</a><code> [inline, static, private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="FlyWeight_8h_source.html#l00048">48</a> of file <a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a>.</p>
-
-<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00059">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
+<p>Referenced by <a class="el" href="FlyWeight_8h_source.html#l00070">FlyWeight&lt; IDs::source, TAnalysedPulse::Tag &gt;::DumpTable()</a>, <a class="el" href="FlyWeight_8h_source.html#l00085">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>, <a class="el" href="FlyWeight_8h_source.html#l00074">FlyWeight&lt; IDs::source, TAnalysedPulse::Tag &gt;::InitProxyList()</a>, <a class="el" href="FlyWeight_8h_source.html#l00098">FlyWeight&lt; ValueType, UniqueTag &gt;::LoadProxyList()</a>, <a class="el" href="FlyWeight_8h_source.html#l00118">FlyWeight&lt; ValueType, UniqueTag &gt;::SaveProxyList()</a>, and <a class="el" href="FlyWeight_8h_source.html#l00092">FlyWeight&lt; ValueType, UniqueTag &gt;::SetValue()</a>.</p>
 
 </div>
 </div>
@@ -332,7 +487,7 @@ template&lt;typename ValueType, typename UniqueTag = int&gt; </div>
 <li>rootana/src/framework/<a class="el" href="FlyWeight_8h_source.html">FlyWeight.h</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

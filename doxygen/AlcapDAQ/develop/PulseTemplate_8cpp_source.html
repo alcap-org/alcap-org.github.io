@@ -73,7 +73,7 @@
 <a name="l00046"></a>00046     old_template = (TH1D*)<a class="code" href="classPulseTemplate.html#a3967f084affe6dea415abf4420bf0f4e">fTemplate</a>-&gt;Clone(<span class="stringliteral">&quot;old_histogram&quot;</span>);
 <a name="l00047"></a>00047   pol = (double)pulse-&gt;<a class="code" href="classTPulseIsland.html#abe8b33d12efb9b578ab29548a5bd0fd2">GetTriggerPolarity</a>();
 <a name="l00048"></a>00048   ped = pulse-&gt;<a class="code" href="classTPulseIsland.html#a9bc7ddff7c900e105697e2a68ed917e6">GetPedestal</a>(0);
-<a name="l00049"></a>00049   samples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00049"></a>00049   samples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
 <a name="l00050"></a>00050   ped = (double)(samples[0]+samples[1]+samples[2]+samples[3]) / 4.; <span class="comment">/*** TEMPERARY PEDESTAL ***/</span>
 <a name="l00051"></a>00051   nsamps = samples.size();
 <a name="l00052"></a>00052   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nsamps; ++i)
@@ -196,7 +196,7 @@
 <a name="l00169"></a>00169   <span class="comment">// Then pass to fitter.</span>
 <a name="l00170"></a>00170   <span class="comment">// Returns ped in units of ADC counts, amp in... scale units(?), and time in units</span>
 <a name="l00171"></a>00171   <span class="comment">// of bins since the beginning of pulse</span>
-<a name="l00172"></a>00172   std::vector&lt;int&gt; samples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00172"></a>00172   std::vector&lt;int&gt; samples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
 <a name="l00173"></a>00173   <span class="keywordtype">int</span> nel = samples.size();
 <a name="l00174"></a>00174   TH1D* rebinned_pulse = <span class="keyword">new</span> TH1D(<span class="stringliteral">&quot;pulse2fit&quot;</span>, <span class="stringliteral">&quot;pulse2fit&quot;</span>, nel * <a class="code" href="classPulseTemplate.html#ac837704baaae97929243fbda256fbcc9">fRefine</a>, -0.5, nel - 0.5);
 <a name="l00175"></a>00175   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nel; ++i)
@@ -273,7 +273,7 @@
 <a name="l00246"></a>00246   <span class="keywordflow">return</span> <a class="code" href="classPulseTemplate.html#aa669faf05f09fe1153513a9981775691">fNPulses</a>;
 <a name="l00247"></a>00247 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

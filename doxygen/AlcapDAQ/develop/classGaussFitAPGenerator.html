@@ -62,6 +62,9 @@ Inheritance diagram for GaussFitAPGenerator:</div>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1channel.html">IDs::channel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a">GetSource</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the source id for this generator being used on the current channel.  <a href="#af97cf629419460226703984524db9c2a"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a96d9ffc0889d659fb376ae93bb17ca76">SetChannel</a> (const std::string &amp;det)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the channel for this generator. Should NOT be called by user code.  <a href="#a96d9ffc0889d659fb376ae93bb17ca76"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGaussFitAPGenerator.html#aa3702b6fbcfbad0653b36a7c0bf0c10e">FitParams</a> { <br/>
 &nbsp;&nbsp;<a class="el" href="classGaussFitAPGenerator.html#aa3702b6fbcfbad0653b36a7c0bf0c10ea403620cca5b145a47fdd20b0b4089bee">kAmplitude</a> = 0, 
@@ -84,6 +87,8 @@ Inheritance diagram for GaussFitAPGenerator:</div>
 <tr><td class="memItemLeft" align="right" valign="top">TF1 *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGaussFitAPGenerator.html#a4f73e3c92ac5d7a2ea6a87b77a65eb06">fFitFunc</a></td></tr>
 <tr><td colspan="2"><h2>Static Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGaussFitAPGenerator.html#ad9653837937a8e1f44785ccc146f2e11">fFitName</a> = &quot;GausLinear&quot;</td></tr>
+<tr><td colspan="2"><h2>Friends</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a32411abab614529fa147b2ce1736199e">MakeAnalysedPulses</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
@@ -209,7 +214,7 @@ Inheritance diagram for GaussFitAPGenerator:</div>
 
 <p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00113">TVAnalysedPulseGenerator::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">FitPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">FitPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00079"></a>00079 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d" title="Debug flagged set from modules file. Used, for example, in deciding whether or not...">fDebug</a>;};
 </pre></div></p>
@@ -249,7 +254,7 @@ Inheritance diagram for GaussFitAPGenerator:</div>
 
 <p>Definition at line <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">74</a> of file <a class="el" href="GaussFitAPGenerator_8cpp_source.html">GaussFitAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="GaussFitAPGenerator_8h_source.html#l00017">GaussFitAPGenerator::FittedVals::chi2</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00079">TVAnalysedPulseGenerator::Debug()</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00019">GaussFitAPGenerator::FittedVals::error</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fAmplitude</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00036">fFitFunc</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fGradient</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fMean</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fPedestal</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fWidth</a>, <a class="el" href="TPulseIsland_8h_source.html#l00070">TPulseIsland::GetPulseLength()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00072">TPulseIsland::GetPulseWaveform()</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kAmplitude</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kGradient</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kPedestal</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kTime</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kWidth</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00016">GaussFitAPGenerator::FittedVals::status</a>, and <a class="el" href="GaussFitAPGenerator_8h_source.html#l00018">GaussFitAPGenerator::FittedVals::value</a>.</p>
+<p>References <a class="el" href="GaussFitAPGenerator_8h_source.html#l00017">GaussFitAPGenerator::FittedVals::chi2</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00079">TVAnalysedPulseGenerator::Debug()</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00019">GaussFitAPGenerator::FittedVals::error</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fAmplitude</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00036">fFitFunc</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fGradient</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fMean</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fPedestal</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00035">fWidth</a>, <a class="el" href="TPulseIsland_8h_source.html#l00081">TPulseIsland::GetPulseLength()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00077">TPulseIsland::GetPulseWaveform()</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kAmplitude</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kGradient</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kPedestal</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kTime</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00012">kWidth</a>, <a class="el" href="GaussFitAPGenerator_8h_source.html#l00016">GaussFitAPGenerator::FittedVals::status</a>, and <a class="el" href="GaussFitAPGenerator_8h_source.html#l00018">GaussFitAPGenerator::FittedVals::value</a>.</p>
 
 <p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00034">ProcessPulses()</a>.</p>
 
@@ -312,9 +317,9 @@ Inheritance diagram for GaussFitAPGenerator:</div>
 
 <p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00083">83</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdSource_8h_source.html#l00080">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00102">TVAnalysedPulseGenerator::fSource</a>.</p>
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00102">TVAnalysedPulseGenerator::fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00083"></a>00083 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
 </pre></div></p>
@@ -341,7 +346,7 @@ Inheritance diagram for GaussFitAPGenerator:</div>
 
 <p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00092">92</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00092"></a>00092 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>;};
 </pre></div></p>
@@ -413,7 +418,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00116">TVAnalysedPulseGenerator::fPulseList</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00092">TVAnalysedPulseGenerator::GetSource()</a>.</p>
 
-<p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00018">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00120"></a>00120                                                                            {
 <a name="l00121"></a>00121     TypeOfTAP* pulse=NULL;
@@ -531,6 +536,38 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a96d9ffc0889d659fb376ae93bb17ca76"></a><!-- doxytag: member="GaussFitAPGenerator::SetChannel" ref="a96d9ffc0889d659fb376ae93bb17ca76" args="(const std::string &amp;det)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void TVAnalysedPulseGenerator::SetChannel </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>det</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, protected, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the channel for this generator. Should NOT be called by user code. </p>
+<p>Called by <a class="el" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a> to tell this generator what channel it is looking at. </p>
+
+<p>Reimplemented in <a class="el" href="classFirstCompleteAPGenerator.html#a40aff827db076190a84ce7deadc0f366">FirstCompleteAPGenerator</a>.</p>
+
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00102">102</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00102">TVAnalysedPulseGenerator::fSource</a>.</p>
+
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00191">MakeAnalysedPulses::AddGenerator()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102 {<a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=det;};
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a52fbd858d4ea72d672d8ef6a91b1310f"></a><!-- doxytag: member="GaussFitAPGenerator::SetPulseList" ref="a52fbd858d4ea72d672d8ef6a91b1310f" args="(PulseIslandList *list)" -->
 <div class="memitem">
 <div class="memproto">
@@ -553,6 +590,22 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00046"></a>00046 {<a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>=<a class="code" href="namespacemodules.html#ad4b4c82a2af83370510aa8b5006283f3">list</a>;};
 </pre></div></p>
+
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a32411abab614529fa147b2ce1736199e"></a><!-- doxytag: member="GaussFitAPGenerator::MakeAnalysedPulses" ref="a32411abab614529fa147b2ce1736199e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a><code> [friend, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00092">92</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -681,7 +734,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <li>rootana/src/TAP_generators/<a class="el" href="GaussFitAPGenerator_8cpp_source.html">GaussFitAPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

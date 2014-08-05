@@ -139,7 +139,7 @@
 <a name="l00112"></a>00112           std::string histname = <span class="stringliteral">&quot;hTemplate_&quot;</span> + detname;
 <a name="l00113"></a>00113           std::string histtitle = <span class="stringliteral">&quot;Template Histogram for the &quot;</span> + detname + <span class="stringliteral">&quot; channel&quot;</span>;
 <a name="l00114"></a>00114 
-<a name="l00115"></a>00115           <span class="keywordtype">int</span> pulse_length = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>().size();
+<a name="l00115"></a>00115           <span class="keywordtype">int</span> pulse_length = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>().size();
 <a name="l00116"></a>00116           <span class="keywordflow">if</span> (pulse-&gt;<a class="code" href="classTPulseIsland.html#a1b722ca51d1ce3f7de191b5f070945e7">GetPeakSample</a>() &gt;= pulse_length - pulse_length/5.0) {
 <a name="l00117"></a>00117             <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
 <a name="l00118"></a>00118               std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; is too close to one end of the island and so won&apos;t be used as the first pulse in the template.&quot;</span> &lt;&lt; std::endl;
@@ -438,7 +438,7 @@
 <a name="l00414"></a>00414 
 <a name="l00415"></a>00415   <span class="comment">// Get a few things first</span>
 <a name="l00416"></a>00416   std::string bankname = pulse-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
-<a name="l00417"></a>00417   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a7dafdaf3c0f1b021e74240436fb475b2">GetSamples</a>();
+<a name="l00417"></a>00417   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
 <a name="l00418"></a>00418   <span class="keywordtype">int</span> n_samples = theSamples.size();
 <a name="l00419"></a>00419   <span class="keywordtype">int</span> n_bins = <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>*n_samples; <span class="comment">// number of bins in the template</span>
 <a name="l00420"></a>00420 
@@ -520,7 +520,7 @@
 <a name="l00496"></a>00496 <span class="comment">//ALCAP_REGISTER_MODULE(TemplateCreator ,slow_gen,fast_gen);</span>
 <a name="l00497"></a>00497 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classTemplateCreator.html">TemplateCreator</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -143,44 +143,45 @@
 <a name="l00116"></a>00116             slow_pulses=&amp;(current-&gt;second);
 <a name="l00117"></a>00117             <span class="comment">// check if the fast_pulses is empty</span>
 <a name="l00118"></a>00118             <span class="keywordflow">if</span>(slow_pulses-&gt;empty()) {
-<a name="l00119"></a>00119                 cout&lt;&lt; <span class="stringliteral">&quot;List of TAPs for &quot;</span>&lt;&lt;i_detector-&gt;slow&lt;&lt;<span class="stringliteral">&quot; is empty.&quot;</span>&lt;&lt;endl;
-<a name="l00120"></a>00120                 <span class="keywordflow">continue</span>;
-<a name="l00121"></a>00121             }
-<a name="l00122"></a>00122         }
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124         <span class="comment">// Set the channel</span>
-<a name="l00125"></a>00125         i_detector-&gt;generator-&gt;SetChannel(detector);
-<a name="l00126"></a>00126         <span class="comment">// Set the pulse lists</span>
-<a name="l00127"></a>00127         i_detector-&gt;generator-&gt;SetPulseLists(fast_pulses,slow_pulses);
-<a name="l00128"></a>00128         <span class="comment">// Process the pulses</span>
-<a name="l00129"></a>00129         source=i_detector-&gt;<a class="code" href="classIDs_1_1source.html#ac69f24988db57102546a6ebf1b2575f7">source</a>;
-<a name="l00130"></a>00130         i_detector-&gt;generator-&gt;ProcessPulses(<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.at(source));
-<a name="l00131"></a>00131     }
-<a name="l00132"></a>00132     <span class="keywordflow">return</span> 0;
-<a name="l00133"></a>00133 }
-<a name="l00134"></a>00134 
-<a name="l00135"></a><a class="code" href="classMakeDetectorPulses.html#ad6e4756b9773e760059b8bdcf07aae46">00135</a> <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* <a class="code" href="classMakeDetectorPulses.html#ad6e4756b9773e760059b8bdcf07aae46">MakeDetectorPulses::MakeGenerator</a>(<span class="keyword">const</span> std::string&amp; generatorType, <a class="code" href="classTDPGeneratorOptions.html">TDPGeneratorOptions</a>* opts ){
-<a name="l00136"></a>00136     <span class="comment">// Select the generator type</span>
-<a name="l00137"></a>00137     <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* generator=<a class="code" href="classTDPGeneratorFactory.html#a94491216243b0befb389ed2f53f13c2f">TDPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
-<a name="l00138"></a>00138     <span class="keywordflow">if</span> (!generator){
-<a name="l00139"></a>00139         <span class="keywordflow">return</span> NULL;
-<a name="l00140"></a>00140     }
-<a name="l00141"></a>00141     <span class="comment">// setup some options on the generator</span>
-<a name="l00142"></a>00142     generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>());
-<a name="l00143"></a>00143     <span class="keywordflow">return</span> generator;
-<a name="l00144"></a>00144 }
-<a name="l00145"></a>00145 
-<a name="l00146"></a><a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">00146</a> <span class="keywordtype">void</span> <a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">MakeDetectorPulses::DumpgAnalysedPulseMap</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a>&amp; aMap){
-<a name="l00147"></a>00147     std::cout&lt;&lt;<span class="stringliteral">&quot;gAnalysedPulseMap contains:&quot;</span>&lt;&lt;std::endl;
-<a name="l00148"></a>00148     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> it=aMap.begin();
-<a name="l00149"></a>00149             it!=aMap.end(); it++){
-<a name="l00150"></a>00150         cout&lt;&lt;it-&gt;first&lt;&lt;<span class="stringliteral">&quot; contains &quot;</span>&lt;&lt;it-&gt;second.size()&lt;&lt;<span class="stringliteral">&quot; TAPs&quot;</span>&lt;&lt;endl;
-<a name="l00151"></a>00151     }
-<a name="l00152"></a>00152 
-<a name="l00153"></a>00153 }
-<a name="l00154"></a>00154 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>,default_algorithm);
+<a name="l00119"></a>00119                 <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>())
+<a name="l00120"></a>00120                 cout&lt;&lt; <span class="stringliteral">&quot;List of TAPs for &quot;</span>&lt;&lt;i_detector-&gt;slow&lt;&lt;<span class="stringliteral">&quot; is empty.&quot;</span>&lt;&lt;endl;
+<a name="l00121"></a>00121                 <span class="keywordflow">continue</span>;
+<a name="l00122"></a>00122             }
+<a name="l00123"></a>00123         }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125         <span class="comment">// Set the channel</span>
+<a name="l00126"></a>00126         i_detector-&gt;generator-&gt;SetChannel(detector);
+<a name="l00127"></a>00127         <span class="comment">// Set the pulse lists</span>
+<a name="l00128"></a>00128         i_detector-&gt;generator-&gt;SetPulseLists(fast_pulses,slow_pulses);
+<a name="l00129"></a>00129         <span class="comment">// Process the pulses</span>
+<a name="l00130"></a>00130         source=i_detector-&gt;<a class="code" href="classIDs_1_1source.html#ac69f24988db57102546a6ebf1b2575f7">source</a>;
+<a name="l00131"></a>00131         i_detector-&gt;generator-&gt;ProcessPulses(<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.at(source));
+<a name="l00132"></a>00132     }
+<a name="l00133"></a>00133     <span class="keywordflow">return</span> 0;
+<a name="l00134"></a>00134 }
+<a name="l00135"></a>00135 
+<a name="l00136"></a><a class="code" href="classMakeDetectorPulses.html#ad6e4756b9773e760059b8bdcf07aae46">00136</a> <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* <a class="code" href="classMakeDetectorPulses.html#ad6e4756b9773e760059b8bdcf07aae46">MakeDetectorPulses::MakeGenerator</a>(<span class="keyword">const</span> std::string&amp; generatorType, <a class="code" href="classTDPGeneratorOptions.html">TDPGeneratorOptions</a>* opts ){
+<a name="l00137"></a>00137     <span class="comment">// Select the generator type</span>
+<a name="l00138"></a>00138     <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* generator=<a class="code" href="classTDPGeneratorFactory.html#a94491216243b0befb389ed2f53f13c2f">TDPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
+<a name="l00139"></a>00139     <span class="keywordflow">if</span> (!generator){
+<a name="l00140"></a>00140         <span class="keywordflow">return</span> NULL;
+<a name="l00141"></a>00141     }
+<a name="l00142"></a>00142     <span class="comment">// setup some options on the generator</span>
+<a name="l00143"></a>00143     generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>());
+<a name="l00144"></a>00144     <span class="keywordflow">return</span> generator;
+<a name="l00145"></a>00145 }
+<a name="l00146"></a>00146 
+<a name="l00147"></a><a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">00147</a> <span class="keywordtype">void</span> <a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">MakeDetectorPulses::DumpgAnalysedPulseMap</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a>&amp; aMap){
+<a name="l00148"></a>00148     std::cout&lt;&lt;<span class="stringliteral">&quot;gAnalysedPulseMap contains:&quot;</span>&lt;&lt;std::endl;
+<a name="l00149"></a>00149     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> it=aMap.begin();
+<a name="l00150"></a>00150             it!=aMap.end(); it++){
+<a name="l00151"></a>00151         cout&lt;&lt;it-&gt;first&lt;&lt;<span class="stringliteral">&quot; contains &quot;</span>&lt;&lt;it-&gt;second.size()&lt;&lt;<span class="stringliteral">&quot; TAPs&quot;</span>&lt;&lt;endl;
+<a name="l00152"></a>00152     }
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154 }
+<a name="l00155"></a>00155 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>,default_algorithm);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
