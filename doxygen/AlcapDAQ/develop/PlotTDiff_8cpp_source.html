@@ -53,10 +53,10 @@
 <a name="l00026"></a>00026 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a> <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>;
 <a name="l00027"></a>00027 
 <a name="l00028"></a><a class="code" href="classPlotTDiff.html#ab69b1d83dc49798c466eebbecd0cbb33">00028</a> <a class="code" href="classPlotTDiff.html#ab69b1d83dc49798c466eebbecd0cbb33" title="Constructor description. If necessary, add a details tag like above.">PlotTDiff::PlotTDiff</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
-<a name="l00029"></a>00029    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotTDiff&quot;</span>,opts){    
-<a name="l00030"></a>00030   <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;det1&quot;</span>);
-<a name="l00031"></a>00031   <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;det2&quot;</span>);
-<a name="l00032"></a>00032 }
+<a name="l00029"></a>00029     <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotTDiff&quot;</span>,opts){    
+<a name="l00030"></a>00030         <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;det1&quot;</span>);
+<a name="l00031"></a>00031         <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#acea8e20c0f5017fbe91d15fcc52acea2" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;det2&quot;</span>);
+<a name="l00032"></a>00032     }
 <a name="l00033"></a>00033 
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035 
@@ -65,196 +65,171 @@
 <a name="l00038"></a>00038 
 <a name="l00040"></a>00040 
 <a name="l00041"></a><a class="code" href="classPlotTDiff.html#a0ee75ce45c56afdc61051203505a9450">00041</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDiff.html#a0ee75ce45c56afdc61051203505a9450" title="What needes to be done before each run? Don&amp;#39;t hesitate to repeat what was said...">PlotTDiff::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00042"></a>00042   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00043"></a>00043   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00044"></a>00044     cout&lt;&lt;<span class="stringliteral">&quot;-----PlotTDiff::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00045"></a>00045   }
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047   <span class="comment">//call my source finders and build histogram for each source with</span>
-<a name="l00048"></a>00048   <span class="comment">//a time component.</span>
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050   <span class="comment">//should I continue to work on just two? or should I have this loop </span>
-<a name="l00051"></a>00051   <span class="comment">//through all pairs</span>
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> sourceIt = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00054"></a>00054       sourceIt != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); sourceIt++)
-<a name="l00055"></a>00055     {
-<a name="l00056"></a>00056       <span class="comment">//std::string fBankNameB = setup-&gt;GetBank(fDetNameB);</span>
-<a name="l00057"></a>00057       <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>() &amp;&amp; sourceIt-&gt;first.Channel() != <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a>)
-<a name="l00058"></a>00058         {
-<a name="l00059"></a>00059           cout &lt;&lt; sourceIt-&gt;first.Channel() &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt; <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> &lt;&lt; endl;
-<a name="l00060"></a>00060           <span class="keywordflow">continue</span>;   <span class="comment">//check for detector A</span>
-<a name="l00061"></a>00061         }
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063       
-<a name="l00064"></a>00064       <span class="comment">//I need to check that this source generates a time</span>
-<a name="l00065"></a>00065       <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> pulses = sourceIt-&gt;second;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043     <span class="comment">//call my source finders and build histogram for each source with</span>
+<a name="l00044"></a>00044     <span class="comment">//a time component.</span>
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046     <span class="comment">//should I continue to work on just two? or should I have this loop </span>
+<a name="l00047"></a>00047     <span class="comment">//through all pairs</span>
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> sourceIt = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00050"></a>00050             sourceIt != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); sourceIt++) {
+<a name="l00051"></a>00051         <span class="comment">//std::string fBankNameB = setup-&gt;GetBank(fDetNameB);</span>
+<a name="l00052"></a>00052         <span class="keywordflow">if</span>( sourceIt-&gt;first.Channel() != <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a>) {
+<a name="l00053"></a>00053             cout &lt;&lt; sourceIt-&gt;first.Channel() &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt; <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> &lt;&lt; endl;
+<a name="l00054"></a>00054             <span class="keywordflow">continue</span>;   <span class="comment">//check for detector A</span>
+<a name="l00055"></a>00055         }
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057         <span class="comment">//I need to check that this source generates a time</span>
+<a name="l00058"></a>00058         <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> pulses = sourceIt-&gt;second;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> sourceIt2 = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin(); sourceIt2 != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); sourceIt2++)
+<a name="l00061"></a>00061         {
+<a name="l00062"></a>00062             <span class="keywordflow">if</span>(sourceIt2-&gt;first.Channel() != <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a>)
+<a name="l00063"></a>00063                 <span class="keywordflow">continue</span>;  <span class="comment">//check for detector B</span>
+<a name="l00064"></a>00064             <span class="keywordflow">if</span>(sourceIt2-&gt;first.Generator() != sourceIt-&gt;first.Generator())
+<a name="l00065"></a>00065                 <span class="keywordflow">continue</span>;  <span class="comment">//make sure they have the same generator</span>
 <a name="l00066"></a>00066 
-<a name="l00067"></a>00067       
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071       <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> sourceIt2 = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin(); sourceIt2 != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); sourceIt2++)
-<a name="l00072"></a>00072         {
-<a name="l00073"></a>00073           <span class="keywordflow">if</span>(sourceIt2-&gt;first.Channel() != <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a>)
-<a name="l00074"></a>00074             <span class="keywordflow">continue</span>;  <span class="comment">//check for detector B</span>
-<a name="l00075"></a>00075           <span class="keywordflow">if</span>(sourceIt2-&gt;first.Generator() != sourceIt-&gt;first.Generator())
-<a name="l00076"></a>00076             <span class="keywordflow">continue</span>;  <span class="comment">//make sure they have the same generator</span>
-<a name="l00077"></a>00077 
+<a name="l00067"></a>00067             <span class="comment">//I should make a vector of the sources for detA and detB</span>
+<a name="l00068"></a>00068             <a class="code" href="classPlotTDiff.html#a1ffec4e48c7fa2b119cbceea8f481178">fDetASources</a>.push_back(sourceIt-&gt;first);
+<a name="l00069"></a>00069             <a class="code" href="classPlotTDiff.html#a85b4852f181f2f25402f20095f357d5c">fDetBSources</a>.push_back(sourceIt2-&gt;first);
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072     <span class="keywordflow">return</span> 0;
+<a name="l00073"></a>00073 }
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="comment">// Called once for each event in the main event loop</span>
+<a name="l00076"></a>00076 <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
+<a name="l00077"></a><a class="code" href="classPlotTDiff.html#a5a22ad5303ebde977017fcba92fb8ee5">00077</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDiff.html#a5a22ad5303ebde977017fcba92fb8ee5" title="What&amp;#39;s calculated for every entry? Don&amp;#39;t hesitate to repeat what was said...">PlotTDiff::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
 <a name="l00078"></a>00078 
-<a name="l00079"></a>00079  
-<a name="l00080"></a>00080           <span class="comment">//I should make a vector of the sources for detA and detB</span>
-<a name="l00081"></a>00081           <a class="code" href="classPlotTDiff.html#a1ffec4e48c7fa2b119cbceea8f481178">fDetASources</a>.push_back(sourceIt-&gt;first);
-<a name="l00082"></a>00082           <a class="code" href="classPlotTDiff.html#a85b4852f181f2f25402f20095f357d5c">fDetBSources</a>.push_back(sourceIt2-&gt;first);
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086         }
-<a name="l00087"></a>00087     }
-<a name="l00088"></a>00088   <span class="keywordflow">return</span> 0;
-<a name="l00089"></a>00089 }
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091 <span class="comment">// Called once for each event in the main event loop</span>
-<a name="l00092"></a>00092 <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
-<a name="l00093"></a><a class="code" href="classPlotTDiff.html#a5a22ad5303ebde977017fcba92fb8ee5">00093</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDiff.html#a5a22ad5303ebde977017fcba92fb8ee5" title="What&amp;#39;s calculated for every entry? Don&amp;#39;t hesitate to repeat what was said...">PlotTDiff::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceVector::const_iterator</a> sourceIt = <a class="code" href="classPlotTDiff.html#a1ffec4e48c7fa2b119cbceea8f481178">fDetASources</a>.begin(); sourceIt != <a class="code" href="classPlotTDiff.html#a1ffec4e48c7fa2b119cbceea8f481178">fDetASources</a>.end(); sourceIt++)
-<a name="l00096"></a>00096     {
-<a name="l00097"></a>00097       <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detAPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*sourceIt];
+<a name="l00079"></a>00079     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceVector::const_iterator</a> sourceIt = <a class="code" href="classPlotTDiff.html#a1ffec4e48c7fa2b119cbceea8f481178">fDetASources</a>.begin(); sourceIt != <a class="code" href="classPlotTDiff.html#a1ffec4e48c7fa2b119cbceea8f481178">fDetASources</a>.end(); sourceIt++)
+<a name="l00080"></a>00080     {
+<a name="l00081"></a>00081         <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detAPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*sourceIt];
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083         <span class="comment">//Get DetB pulses for the same Generator</span>
+<a name="l00084"></a>00084         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceVector::const_iterator</a> sourceIt2 = <a class="code" href="classPlotTDiff.html#a85b4852f181f2f25402f20095f357d5c">fDetBSources</a>.begin();
+<a name="l00085"></a>00085                 sourceIt2 != <a class="code" href="classPlotTDiff.html#a85b4852f181f2f25402f20095f357d5c">fDetBSources</a>.end(); sourceIt2++){
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087             <span class="comment">// only compare sources with the same generator</span>
+<a name="l00088"></a>00088             <span class="keywordflow">if</span>((*sourceIt2).Generator() != (*sourceIt).Generator()) <span class="keywordflow">continue</span>;
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090             <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detBPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*sourceIt2];
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092             <span class="comment">//now I should build my histograms, need some keyname(source1?)</span>
+<a name="l00093"></a>00093             <span class="comment">//std::string keyname = sourceIt;</span>
+<a name="l00094"></a>00094             std::string keyname =  sourceIt-&gt;str();
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096             <span class="keywordtype">int</span> nBits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a>));
+<a name="l00097"></a>00097             <span class="keywordtype">int</span> maxAmpA = std::pow(2, nBits);
 <a name="l00098"></a>00098 
-<a name="l00099"></a>00099       <span class="comment">//check for GetTime.</span>
-<a name="l00100"></a>00100       <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt = detAPulses.begin();
-<a name="l00101"></a>00101       pulseIt++;
-<a name="l00102"></a>00102       <span class="keywordflow">if</span>((*pulseIt)-&gt;GetTime() == <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>)      
-<a name="l00103"></a>00103         <span class="keywordflow">continue</span>;
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106       <span class="comment">//Get DetB pulses for the same Generator</span>
-<a name="l00107"></a>00107       <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceVector::const_iterator</a> sourceIt2 = <a class="code" href="classPlotTDiff.html#a85b4852f181f2f25402f20095f357d5c">fDetBSources</a>.begin(); sourceIt2 != <a class="code" href="classPlotTDiff.html#a85b4852f181f2f25402f20095f357d5c">fDetBSources</a>.end(); sourceIt2++)
-<a name="l00108"></a>00108         <span class="keywordflow">if</span>((*sourceIt2).Generator() == (*sourceIt).Generator())
-<a name="l00109"></a>00109           {
-<a name="l00110"></a>00110             <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detBPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[*sourceIt2];
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113             <span class="comment">//now I should build my histograms, need some keyname(source1?)</span>
-<a name="l00114"></a>00114             <span class="comment">//std::string keyname = sourceIt;</span>
-<a name="l00115"></a>00115             std::string keyname =  sourceIt-&gt;str();
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117             <span class="keywordtype">int</span> nBits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a>));
-<a name="l00118"></a>00118             <span class="keywordtype">int</span> maxAmpA = std::pow(2, nBits);
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120             nBits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a>));
-<a name="l00121"></a>00121             <span class="keywordtype">int</span> maxAmpB = std::pow(2, nBits);
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123             <span class="comment">//if histogram does not exist, make histograms (amp and/or int, or 1D)</span>
-<a name="l00124"></a>00124             <span class="keywordflow">if</span>((<a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>.find(keyname) == <a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>.end()) &amp;&amp; ((*pulseIt)-&gt;GetAmplitude() != <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>))
-<a name="l00125"></a>00125               {
-<a name="l00126"></a>00126                 <span class="comment">//ampA plots</span>
-<a name="l00127"></a>00127                 std::string histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot;TDiff_AmpA&quot;</span>;
-<a name="l00128"></a>00128                 std::string histtitle = <span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
-<a name="l00129"></a>00129                 TH2F* AAplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 1000, -10000, 10000, maxAmpA, 0, maxAmpA);
-<a name="l00130"></a>00130                 AAplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
-<a name="l00131"></a>00131                 AAplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Amplitude (ADC counts)&quot;</span>);
-<a name="l00132"></a>00132                 <a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>[keyname] = AAplots;
-<a name="l00133"></a>00133             
-<a name="l00134"></a>00134 
-<a name="l00135"></a>00135                 <span class="comment">//ampB plots</span>
-<a name="l00136"></a>00136                 histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot; TDiff_AmpB&quot;</span>;
-<a name="l00137"></a>00137                 histtitle = <span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
-<a name="l00138"></a>00138                 TH2F* ABplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 1000, -10000, 10000, maxAmpB, 0, maxAmpB);
-<a name="l00139"></a>00139                 ABplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
-<a name="l00140"></a>00140                 ABplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Amplitude (ADC counts)&quot;</span>);
-<a name="l00141"></a>00141                 <a class="code" href="classPlotTDiff.html#a2788543a54d7cca2e6a9285102c4fb8d">ampB_plots</a>[keyname] = ABplots;
-<a name="l00142"></a>00142 
-<a name="l00143"></a>00143               }
+<a name="l00099"></a>00099             nBits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a>));
+<a name="l00100"></a>00100             <span class="keywordtype">int</span> maxAmpB = std::pow(2, nBits);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102             <span class="comment">//if histogram does not exist, make histograms (amp and/or int, or 1D)</span>
+<a name="l00103"></a>00103             <span class="keywordflow">if</span>((<a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>.find(keyname) == <a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>.end()) ) {
+<a name="l00104"></a>00104                 <span class="comment">//ampA plots</span>
+<a name="l00105"></a>00105                 std::string histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot;TDiff_AmpA&quot;</span>;
+<a name="l00106"></a>00106                 std::string histtitle = <span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a>
+<a name="l00107"></a>00107                     + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> 
+<a name="l00108"></a>00108                     + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
+<a name="l00109"></a>00109                 TH2F* AAplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, -10000, 10000, 200, 0, maxAmpA);
+<a name="l00110"></a>00110                 AAplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
+<a name="l00111"></a>00111                 AAplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Amplitude (ADC counts)&quot;</span>);
+<a name="l00112"></a>00112                 <a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>[keyname] = AAplots;
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115                 <span class="comment">//ampB plots</span>
+<a name="l00116"></a>00116                 histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot; TDiff_AmpB&quot;</span>;
+<a name="l00117"></a>00117                 histtitle = <span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a>
+<a name="l00118"></a>00118                     + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> 
+<a name="l00119"></a>00119                     + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
+<a name="l00120"></a>00120                 TH2F* ABplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, -10000, 10000, 200, 0, maxAmpB);
+<a name="l00121"></a>00121                 ABplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
+<a name="l00122"></a>00122                 ABplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Amplitude (ADC counts)&quot;</span>);
+<a name="l00123"></a>00123                 <a class="code" href="classPlotTDiff.html#a2788543a54d7cca2e6a9285102c4fb8d">ampB_plots</a>[keyname] = ABplots;
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125             }
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127             <span class="keywordflow">if</span>(<a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>.find(keyname) == <a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>.end() ) {
+<a name="l00128"></a>00128                 <span class="comment">//intA plots</span>
+<a name="l00129"></a>00129                 std::string histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot; TDiff_IntA&quot;</span>;
+<a name="l00130"></a>00130                 std::string histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
+<a name="l00131"></a>00131                 TH2F* IAplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, -10000, 10000, 200, 0, 5*maxAmpA);
+<a name="l00132"></a>00132                 IAplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
+<a name="l00133"></a>00133                 IAplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Integral (ADC counts)&quot;</span>);
+<a name="l00134"></a>00134                 <a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>[keyname] = IAplots;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136                 <span class="comment">//intB plots</span>
+<a name="l00137"></a>00137                 histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot; TDiff_IntB&quot;</span>;
+<a name="l00138"></a>00138                 histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
+<a name="l00139"></a>00139                 TH2F* IBplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, -10000, 10000, 200, 0, 5*maxAmpB);
+<a name="l00140"></a>00140                 IBplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
+<a name="l00141"></a>00141                 IBplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Integral (ADC counts)&quot;</span>);
+<a name="l00142"></a>00142                 <a class="code" href="classPlotTDiff.html#a5017d346686d3a3485fb0917e2faa4e1">intB_plots</a>[keyname] = IBplots;
+<a name="l00143"></a>00143             }
 <a name="l00144"></a>00144 
-<a name="l00145"></a>00145             <span class="keywordflow">if</span>((<a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>.find(keyname) == <a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>.end()) &amp;&amp; ((*pulseIt)-&gt;GetIntegral() != <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>))
-<a name="l00146"></a>00146               {
-<a name="l00147"></a>00147                 <span class="comment">//intA plots</span>
-<a name="l00148"></a>00148                 std::string histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot; TDiff_IntA&quot;</span>;
-<a name="l00149"></a>00149                 std::string histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
-<a name="l00150"></a>00150                 TH2F* IAplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 1000, -10000, 10000, maxAmpA, 0, 5*maxAmpA);
-<a name="l00151"></a>00151                 IAplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
-<a name="l00152"></a>00152                 IAplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Integral (ADC counts)&quot;</span>);
-<a name="l00153"></a>00153                 <a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>[keyname] = IAplots;
+<a name="l00145"></a>00145             <span class="keywordflow">if</span>(<a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>.find(keyname) == <a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>.end()) {
+<a name="l00146"></a>00146                 std::string histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot;TDiff_1D&quot;</span>;
+<a name="l00147"></a>00147                 std::string histtitle = <span class="stringliteral">&quot;Time difference between  &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; and &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
+<a name="l00148"></a>00148                 TH1F* dplots = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), 500, -10000, 10000);
+<a name="l00149"></a>00149                 dplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
+<a name="l00150"></a>00150                 dplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Count&quot;</span>);
+<a name="l00151"></a>00151                 <a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>[keyname] = dplots;
+<a name="l00152"></a>00152             }
+<a name="l00153"></a>00153 
 <a name="l00154"></a>00154 
-<a name="l00155"></a>00155                 <span class="comment">//intB plots</span>
-<a name="l00156"></a>00156                 histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot; TDiff_IntB&quot;</span>;
-<a name="l00157"></a>00157                 histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
-<a name="l00158"></a>00158                 TH2F* IBplots = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 1000, -10000, 10000, maxAmpB, 0, 5*maxAmpB);
-<a name="l00159"></a>00159                 IBplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
-<a name="l00160"></a>00160                 IBplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Integral (ADC counts)&quot;</span>);
-<a name="l00161"></a>00161                 <a class="code" href="classPlotTDiff.html#a5017d346686d3a3485fb0917e2faa4e1">intB_plots</a>[keyname] = IBplots;
-<a name="l00162"></a>00162               }
+<a name="l00155"></a>00155             <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt = detAPulses.begin();
+<a name="l00156"></a>00156                     pulseIt != detAPulses.end(); ++pulseIt) {
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158                 <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt2 = detBPulses.begin();
+<a name="l00159"></a>00159                         pulseIt2 != detBPulses.end(); ++pulseIt2) {
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161                     <span class="keywordtype">double</span> timeA = (*pulseIt)-&gt;GetTime(), timeB = (*pulseIt2)-&gt;GetTime();
+<a name="l00162"></a>00162                     <span class="keywordtype">double</span> tDiff = timeA - timeB;
 <a name="l00163"></a>00163 
-<a name="l00164"></a>00164             <span class="keywordflow">if</span>(((*pulseIt)-&gt;GetIntegral() == <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>) &amp;&amp; ((*pulseIt)-&gt;GetAmplitude() == <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>) &amp;&amp; (<a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>.find(keyname) == <a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>.end()))
-<a name="l00165"></a>00165               {
-<a name="l00166"></a>00166                 std::string histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + keyname + <span class="stringliteral">&quot;TDiff_1D&quot;</span>;
-<a name="l00167"></a>00167                 std::string histtitle = <span class="stringliteral">&quot;Time difference between  &quot;</span> + <a class="code" href="classPlotTDiff.html#ac479c7c31d190086954ceb8659dc01d4" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; and &quot;</span> + <a class="code" href="classPlotTDiff.html#a5882685e6706df06434d57727ad37c20">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + (*sourceIt).Generator().str() + <span class="stringliteral">&quot; generator&quot;</span>;
-<a name="l00168"></a>00168                 TH1F* dplots = <span class="keyword">new</span> TH1F(histname.c_str(), histtitle.c_str(), 1000, -10000, 10000);
-<a name="l00169"></a>00169                 dplots-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Time Difference (ns)&quot;</span>);
-<a name="l00170"></a>00170                 dplots-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Count&quot;</span>);
-<a name="l00171"></a>00171                 <a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>[keyname] = dplots;
-<a name="l00172"></a>00172               }
-<a name="l00173"></a>00173 
+<a name="l00164"></a>00164                     <span class="keywordtype">double</span> ampA = (*pulseIt)-&gt;GetAmplitude(), ampB = (*pulseIt2)-&gt;GetAmplitude();
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166                     <span class="keywordtype">double</span> intA = (*pulseIt)-&gt;GetIntegral(), intB = (*pulseIt2)-&gt;GetIntegral();
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169                     <span class="keywordflow">if</span>(ampA != <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>)
+<a name="l00170"></a>00170                     {
+<a name="l00171"></a>00171                         <a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>[keyname]-&gt;Fill(tDiff, ampA);
+<a name="l00172"></a>00172                         <a class="code" href="classPlotTDiff.html#a2788543a54d7cca2e6a9285102c4fb8d">ampB_plots</a>[keyname]-&gt;Fill(-tDiff, ampB);
+<a name="l00173"></a>00173                     }
 <a name="l00174"></a>00174 
-<a name="l00175"></a>00175             <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt = detAPulses.begin(); pulseIt != detAPulses.end(); pulseIt++)
-<a name="l00176"></a>00176               {
-<a name="l00177"></a>00177 
-<a name="l00178"></a>00178                 <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt2 = detBPulses.begin(); pulseIt2 != detBPulses.end(); pulseIt2++)
-<a name="l00179"></a>00179                   {
-<a name="l00180"></a>00180                     <span class="keywordtype">double</span> timeA = (*pulseIt)-&gt;GetTime(), timeB = (*pulseIt2)-&gt;GetTime();
-<a name="l00181"></a>00181                     <span class="keywordtype">double</span> tDiff = timeA - timeB;
-<a name="l00182"></a>00182 
-<a name="l00183"></a>00183                     <span class="keywordtype">double</span> ampA = (*pulseIt)-&gt;GetAmplitude(), ampB = (*pulseIt2)-&gt;GetAmplitude();
+<a name="l00175"></a>00175                     <span class="keywordflow">if</span>(intA != <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>)
+<a name="l00176"></a>00176                     {
+<a name="l00177"></a>00177                         <a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>[keyname]-&gt;Fill(tDiff, intA);
+<a name="l00178"></a>00178                         <a class="code" href="classPlotTDiff.html#a5017d346686d3a3485fb0917e2faa4e1">intB_plots</a>[keyname]-&gt;Fill(-tDiff, intB);
+<a name="l00179"></a>00179                     }
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182                     <span class="keywordflow">if</span>((intA == <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>) &amp;&amp; (ampA ==<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>))
+<a name="l00183"></a>00183                         <a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>[keyname]-&gt;Fill(tDiff);
 <a name="l00184"></a>00184 
-<a name="l00185"></a>00185                     <span class="keywordtype">double</span> intA = (*pulseIt)-&gt;GetIntegral(), intB = (*pulseIt2)-&gt;GetIntegral();
-<a name="l00186"></a>00186 
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188                     <span class="keywordflow">if</span>(ampA != <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>)
-<a name="l00189"></a>00189                       {
-<a name="l00190"></a>00190                         <a class="code" href="classPlotTDiff.html#a9151a956896327d43eb709d916305533">ampA_plots</a>[keyname]-&gt;Fill(tDiff, ampA);
-<a name="l00191"></a>00191                         <a class="code" href="classPlotTDiff.html#a2788543a54d7cca2e6a9285102c4fb8d">ampB_plots</a>[keyname]-&gt;Fill(-tDiff, ampB);
-<a name="l00192"></a>00192                       }
-<a name="l00193"></a>00193               
-<a name="l00194"></a>00194                     <span class="keywordflow">if</span>(intA != <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>)
-<a name="l00195"></a>00195                       {
-<a name="l00196"></a>00196                         <a class="code" href="classPlotTDiff.html#a242d0d5c5f1bbcc1c620d84c754cf617">intA_plots</a>[keyname]-&gt;Fill(tDiff, intA);
-<a name="l00197"></a>00197                         <a class="code" href="classPlotTDiff.html#a5017d346686d3a3485fb0917e2faa4e1">intB_plots</a>[keyname]-&gt;Fill(-tDiff, intB);
-<a name="l00198"></a>00198                       }
-<a name="l00199"></a>00199               
-<a name="l00200"></a>00200                     
-<a name="l00201"></a>00201                     <span class="keywordflow">if</span>((intA == <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>) &amp;&amp; (ampA ==<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>))
-<a name="l00202"></a>00202                       <a class="code" href="classPlotTDiff.html#a4f48b0af992a8f116f7a99b6d1e8c51b">oned_plots</a>[keyname]-&gt;Fill(tDiff);
-<a name="l00203"></a>00203                     
-<a name="l00204"></a>00204                   }<span class="comment">//end detBPulse loop</span>
-<a name="l00205"></a>00205               }<span class="comment">//end detAPulse loop</span>
-<a name="l00206"></a>00206           }<span class="comment">//end sourceIt2 loop</span>
-<a name="l00207"></a>00207     }<span class="comment">//end sourceIt loop</span>
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209   <span class="keywordflow">return</span> 0;
-<a name="l00210"></a>00210 }
-<a name="l00211"></a>00211 
-<a name="l00212"></a>00212 <span class="comment">// Called just after the main event loop</span>
-<a name="l00213"></a>00213 <span class="comment">// Can be used to write things out, dump a summary etc</span>
-<a name="l00214"></a>00214 <span class="comment">// Return non-zero to indicate a problem</span>
-<a name="l00215"></a><a class="code" href="classPlotTDiff.html#adfb862dcf0d9d1ead6670d7d9bd18ab6">00215</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDiff.html#adfb862dcf0d9d1ead6670d7d9bd18ab6" title="What needs to be done after each run? Don&amp;#39;t hesitate to repeat what was said...">PlotTDiff::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00216"></a>00216 
-<a name="l00217"></a>00217   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00218"></a>00218   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00219"></a>00219      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotTDiff::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00220"></a>00220   }
-<a name="l00221"></a>00221 
-<a name="l00222"></a>00222   <span class="keywordflow">return</span> 0;
-<a name="l00223"></a>00223 }
-<a name="l00224"></a>00224 
-<a name="l00225"></a>00225 <span class="comment">// The following macro registers this module to be useable in the config file.</span>
-<a name="l00226"></a>00226 <span class="comment">// The first argument is compulsory and gives the name of this module</span>
-<a name="l00227"></a>00227 <span class="comment">// All subsequent arguments will be used as names for arguments given directly </span>
-<a name="l00228"></a>00228 <span class="comment">// within the modules file.  See the github wiki for more.</span>
-<a name="l00229"></a>00229 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTDiff.html" title="A one line description of what your module does.">PlotTDiff</a>,x_max);
+<a name="l00185"></a>00185                 }<span class="comment">//end detBPulse loop</span>
+<a name="l00186"></a>00186             }<span class="comment">//end detAPulse loop</span>
+<a name="l00187"></a>00187         }<span class="comment">//end sourceIt2 loop</span>
+<a name="l00188"></a>00188     }<span class="comment">//end sourceIt loop</span>
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190     <span class="keywordflow">return</span> 0;
+<a name="l00191"></a>00191 }
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 <span class="comment">// Called just after the main event loop</span>
+<a name="l00194"></a>00194 <span class="comment">// Can be used to write things out, dump a summary etc</span>
+<a name="l00195"></a>00195 <span class="comment">// Return non-zero to indicate a problem</span>
+<a name="l00196"></a><a class="code" href="classPlotTDiff.html#adfb862dcf0d9d1ead6670d7d9bd18ab6">00196</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDiff.html#adfb862dcf0d9d1ead6670d7d9bd18ab6" title="What needs to be done after each run? Don&amp;#39;t hesitate to repeat what was said...">PlotTDiff::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00197"></a>00197     <span class="keywordflow">return</span> 0;
+<a name="l00198"></a>00198 }
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200 <span class="comment">// The following macro registers this module to be useable in the config file.</span>
+<a name="l00201"></a>00201 <span class="comment">// The first argument is compulsory and gives the name of this module</span>
+<a name="l00202"></a>00202 <span class="comment">// All subsequent arguments will be used as names for arguments given directly </span>
+<a name="l00203"></a>00203 <span class="comment">// within the modules file.  See the github wiki for more.</span>
+<a name="l00204"></a>00204 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTDiff.html" title="A one line description of what your module does.">PlotTDiff</a>,det1,det2);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
