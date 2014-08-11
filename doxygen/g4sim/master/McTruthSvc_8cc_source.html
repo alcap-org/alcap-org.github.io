@@ -382,7 +382,7 @@
 <a name="l00358"></a>00358         G4int ptid = aTrack-&gt;GetParentID(); <span class="comment">//parent G4 track ID of current track.</span>
 <a name="l00359"></a>00359         G4ThreeVector mom_3vec = aTrack-&gt;GetMomentum();
 <a name="l00360"></a>00360         G4ThreeVector pos_3vec = aTrack-&gt;GetVertexPosition();
-<a name="l00361"></a>00361         std::string volume = aTrack-&gt;GetLogicalVolumeAtVertex()-&gt;GetName();
+<a name="l00361"></a>00361         std::string volume = aTrack-&gt;GetLogicalVolumeAtVertex()?aTrack-&gt;GetLogicalVolumeAtVertex()-&gt;GetName():<span class="stringliteral">&quot;NULL&quot;</span>;
 <a name="l00362"></a>00362         std::string particleName = aTrack-&gt;GetParticleDefinition()-&gt;GetParticleName();
 <a name="l00363"></a>00363         <span class="keywordtype">int</span> charge = aTrack-&gt;GetParticleDefinition()-&gt;GetPDGCharge();
 <a name="l00364"></a>00364         G4double energy = aTrack-&gt;GetTotalEnergy();
@@ -418,7 +418,7 @@
 <a name="l00394"></a>00394         <span class="comment">//      G4double trackLength = aTrack-&gt;GetTrackLength();</span>
 <a name="l00395"></a>00395 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Aug 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Aug 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
