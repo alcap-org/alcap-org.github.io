@@ -287,7 +287,7 @@
 <a name="l00260"></a>00260           TH1D* hCorrectedPulse = (TH1D*) hPulseToFit-&gt;Clone(histname.str().c_str());
 <a name="l00261"></a>00261           hCorrectedPulse-&gt;SetEntries(0); <span class="comment">// set entries back to 0</span>
 <a name="l00262"></a>00262           
-<a name="l00263"></a>00263           <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#ae28ddf33023f906bc396563ae6f71264" title="Gets the error on the pedestal from the SQLite database.">GetPedestalError</a>(bankname);
+<a name="l00263"></a>00263           <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#aae1d3f2a3b506abe42a7d472d7dd16fb" title="Gets the error on the pedestal from the SQLite database.">GetNoise</a>(bankname);
 <a name="l00264"></a>00264 
 <a name="l00265"></a>00265           <span class="comment">// Loop through the bins of the uncorrected pulse and set the values in the corrected pulse histogram</span>
 <a name="l00266"></a>00266           <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iPulseBin = 1; iPulseBin &lt;= hPulseToFit-&gt;GetNbinsX(); ++iPulseBin) {
@@ -445,7 +445,7 @@
 <a name="l00421"></a>00421   <span class="comment">// Create the higher resolution histogram</span>
 <a name="l00422"></a>00422   TH1D* hist = <span class="keyword">new</span> TH1D(histname.c_str(), histtitle.c_str(), n_bins, 0, n_samples);
 <a name="l00423"></a>00423 
-<a name="l00424"></a>00424   <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#ae28ddf33023f906bc396563ae6f71264" title="Gets the error on the pedestal from the SQLite database.">GetPedestalError</a>(bankname);
+<a name="l00424"></a>00424   <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#aae1d3f2a3b506abe42a7d472d7dd16fb" title="Gets the error on the pedestal from the SQLite database.">GetNoise</a>(bankname);
 <a name="l00425"></a>00425 
 <a name="l00426"></a>00426   <span class="comment">// Go through the bins in the high-resolution histogram</span>
 <a name="l00427"></a>00427   <span class="comment">// NB sample numbers go grom 0 to n-1 and bins go from 1 to n</span>
@@ -520,7 +520,7 @@
 <a name="l00496"></a>00496 <span class="comment">//ALCAP_REGISTER_MODULE(TemplateCreator ,slow_gen,fast_gen);</span>
 <a name="l00497"></a>00497 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classTemplateCreator.html">TemplateCreator</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

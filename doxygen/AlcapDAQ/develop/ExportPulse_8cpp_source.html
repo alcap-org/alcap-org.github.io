@@ -257,7 +257,7 @@
 <a name="l00231"></a>00231   <span class="comment">//double max= min + num_samples * fClockTick;</span>
 <a name="l00232"></a>00232   TH1F* hPulse = <span class="keyword">new</span> TH1F(hist.c_str(), title.str().c_str(), num_samples,min,max);
 <a name="l00233"></a>00233   
-<a name="l00234"></a>00234   <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">SetupNavigator::Instance</a>()-&gt;GetPedestalError(info.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>);
+<a name="l00234"></a>00234   <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">SetupNavigator::Instance</a>()-&gt;GetNoise(info.<a class="code" href="structExportPulse_1_1PulseInfo__t.html#a249e153d3372464b44d58e76f8787cc7">bankname</a>);
 <a name="l00235"></a>00235   <span class="keywordflow">for</span> ( <span class="keywordtype">size_t</span> i=0;i &lt;num_samples; ++i) {
 <a name="l00236"></a>00236     hPulse-&gt;SetBinContent(i+1, pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>().at(i));
 <a name="l00237"></a>00237     hPulse-&gt;SetBinError(i+1, pedestal_error);
@@ -367,7 +367,7 @@
 <a name="l00341"></a>00341 
 <a name="l00342"></a>00342 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classExportPulse.html">ExportPulse</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

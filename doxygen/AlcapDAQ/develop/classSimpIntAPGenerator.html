@@ -165,7 +165,7 @@ Inheritance diagram for SimpIntAPGenerator:</div>
 
 <p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00102">TVAnalysedPulseGenerator::fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00113">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00083"></a>00083 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
 </pre></div></p>
@@ -339,7 +339,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">11</a> of file <a class="el" href="SimpIntAPGenerator_8cpp_source.html">SimpIntAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="SimpIntAPGenerator_8h_source.html#l00020">fSimpleIntegral</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00067">SetupNavigator::GetPedestal()</a>, <a class="el" href="TSetupData_8h_source.html#l00083">TSetupData::GetTriggerPolarity()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00031">SetupNavigator::Instance()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00052">Algorithm::SimpleIntegral::pedestal</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00106">TAnalysedPulse::SetIntegral()</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00053">Algorithm::SimpleIntegral::trigger_polarity</a>.</p>
+<p>References <a class="el" href="SimpIntAPGenerator_8h_source.html#l00020">fSimpleIntegral</a>, <a class="el" href="SetupNavigator_8h_source.html#l00026">SetupNavigator::GetPedestal()</a>, <a class="el" href="TSetupData_8h_source.html#l00083">TSetupData::GetTriggerPolarity()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00053">SetupNavigator::Instance()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00052">Algorithm::SimpleIntegral::pedestal</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00106">TAnalysedPulse::SetIntegral()</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00053">Algorithm::SimpleIntegral::trigger_polarity</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00013"></a>00013 {
 <a name="l00014"></a>00014 
@@ -347,7 +347,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017   <span class="comment">// Get the relevant variables from TSetupData/SetupNavigator that this generator wants</span>
 <a name="l00018"></a>00018   std::string bankname = pulseList[0]-&gt;GetBankName();
-<a name="l00019"></a>00019   <a class="code" href="classSimpIntAPGenerator.html#a7b228dce22df3cfc965c22c01f436e1b">fSimpleIntegral</a>.<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a> = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#ae66bec5c590146dd0b22b527707db202" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(bankname);
+<a name="l00019"></a>00019   <a class="code" href="classSimpIntAPGenerator.html#a7b228dce22df3cfc965c22c01f436e1b">fSimpleIntegral</a>.<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a> = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a224ddb1f273e2bb51a0e4972c6461a20" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(bankname);
 <a name="l00020"></a>00020   <a class="code" href="classSimpIntAPGenerator.html#a7b228dce22df3cfc965c22c01f436e1b">fSimpleIntegral</a>.<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a4d3b6dfddd30b5a992aed6c909b0b2c9">trigger_polarity</a> = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
 <a name="l00021"></a>00021 
 <a name="l00022"></a>00022   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> pIt = pulseList.begin(); pIt != pulseList.end(); pIt++)
@@ -467,7 +467,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <li>rootana/src/TAP_generators/<a class="el" href="SimpIntAPGenerator_8cpp_source.html">SimpIntAPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -86,37 +86,37 @@
 <div class="memdoc">
 <p>rootana_main </p>
 
-<p>Definition at line <a class="el" href="main_8cpp_source.html#l00164">164</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00165">165</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 <p>References <a class="el" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">TGlobalData::Clear()</a>, <a class="el" href="EventNavigator_8h_source.html#l00097">EventNavigator::GetInputNEntries()</a>, <a class="el" href="EventNavigator_8h_source.html#l00196">EventNavigator::GetRawData()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00086">EventNavigator::MakeLoopSequence()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00134">LoopSequence::Run()</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00075">main()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00165"></a>00165 {
-<a name="l00166"></a>00166   <span class="comment">//Loop over tree entries and call histogramming modules.</span>
-<a name="l00167"></a>00167   <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; enav = <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>();
-<a name="l00168"></a>00168   Long64_t nEntries = enav.<a class="code" href="classEventNavigator.html#a54d5eed3cba750f44cc3d506bc3ec25e">GetInputNEntries</a>();
-<a name="l00169"></a>00169   std::cout &lt;&lt; <span class="stringliteral">&quot;Raw data tree contains &quot;</span> &lt;&lt; nEntries 
-<a name="l00170"></a>00170             &lt;&lt; <span class="stringliteral">&quot; entries.&quot;</span> &lt;&lt; std::endl
-<a name="l00171"></a>00171             &lt;&lt; <span class="stringliteral">&quot;Processing file, which may take a while...&quot;</span>
-<a name="l00172"></a>00172             &lt;&lt; std::endl;
-<a name="l00173"></a>00173 
-<a name="l00174"></a>00174   <span class="comment">//set up the input data</span>
-<a name="l00175"></a>00175   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* raw_data = enav.<a class="code" href="classEventNavigator.html#a06c65cb62dfd52792738fba1c646236b">GetRawData</a>();
-<a name="l00176"></a>00176   <span class="keywordflow">if</span> ( raw_data ){
-<a name="l00177"></a>00177     raw_data-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>(<span class="stringliteral">&quot;C&quot;</span>);
-<a name="l00178"></a>00178   }
-<a name="l00179"></a>00179   
-<a name="l00180"></a>00180   enav.<a class="code" href="classEventNavigator.html#ad009a7feece0bfeb66c715d1247f2763">MakeLoopSequence</a>(arguments).<a class="code" href="classLoopSequence.html#a5d1119195bb63ba7093ff4f8a3863bcc">Run</a>();
-<a name="l00181"></a>00181   std::cout &lt;&lt; <span class="stringliteral">&quot;Finished processing data&quot;</span> &lt;&lt; std::endl;
-<a name="l00182"></a>00182   <span class="keywordflow">return</span> 0;
-<a name="l00183"></a>00183 }
+<p><div class="fragment"><pre class="fragment"><a name="l00166"></a>00166 {
+<a name="l00167"></a>00167   <span class="comment">//Loop over tree entries and call histogramming modules.</span>
+<a name="l00168"></a>00168   <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; enav = <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>();
+<a name="l00169"></a>00169   Long64_t nEntries = enav.<a class="code" href="classEventNavigator.html#a54d5eed3cba750f44cc3d506bc3ec25e">GetInputNEntries</a>();
+<a name="l00170"></a>00170   std::cout &lt;&lt; <span class="stringliteral">&quot;Raw data tree contains &quot;</span> &lt;&lt; nEntries 
+<a name="l00171"></a>00171             &lt;&lt; <span class="stringliteral">&quot; entries.&quot;</span> &lt;&lt; std::endl
+<a name="l00172"></a>00172             &lt;&lt; <span class="stringliteral">&quot;Processing file, which may take a while...&quot;</span>
+<a name="l00173"></a>00173             &lt;&lt; std::endl;
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175   <span class="comment">//set up the input data</span>
+<a name="l00176"></a>00176   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* raw_data = enav.<a class="code" href="classEventNavigator.html#a06c65cb62dfd52792738fba1c646236b">GetRawData</a>();
+<a name="l00177"></a>00177   <span class="keywordflow">if</span> ( raw_data ){
+<a name="l00178"></a>00178     raw_data-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>(<span class="stringliteral">&quot;C&quot;</span>);
+<a name="l00179"></a>00179   }
+<a name="l00180"></a>00180   
+<a name="l00181"></a>00181   enav.<a class="code" href="classEventNavigator.html#ad009a7feece0bfeb66c715d1247f2763">MakeLoopSequence</a>(arguments).<a class="code" href="classLoopSequence.html#a5d1119195bb63ba7093ff4f8a3863bcc">Run</a>();
+<a name="l00182"></a>00182   std::cout &lt;&lt; <span class="stringliteral">&quot;Finished processing data&quot;</span> &lt;&lt; std::endl;
+<a name="l00183"></a>00183   <span class="keywordflow">return</span> 0;
+<a name="l00184"></a>00184 }
 </pre></div></p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

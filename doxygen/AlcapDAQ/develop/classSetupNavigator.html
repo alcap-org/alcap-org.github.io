@@ -38,23 +38,37 @@
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#ad030a4a56f858c8354c3ae85a0569c0b">SetCommandLineArgs</a> (const <a class="el" href="structARGUMENTS.html">ARGUMENTS</a> &amp;args)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">GetBank</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#ae28ddf33023f906bc396563ae6f71264">GetPedestalError</a> (std::string bankname)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the error on the pedestal from the SQLite database.  <a href="#ae28ddf33023f906bc396563ae6f71264"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#ae66bec5c590146dd0b22b527707db202">GetPedestal</a> (std::string bankname)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the pedestal from the SQLite database.  <a href="#ae66bec5c590146dd0b22b527707db202"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a1be81dd6e8f6e31e1b7ef41189cd80f7">CacheCalibDB</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Caches the information stored in the calib DB.  <a href="#a1be81dd6e8f6e31e1b7ef41189cd80f7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a224ddb1f273e2bb51a0e4972c6461a20">GetPedestal</a> (<a class="el" href="classIDs_1_1channel.html">IDs::channel</a> channel)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the pedestal from the SQLite database.  <a href="#a224ddb1f273e2bb51a0e4972c6461a20"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#aae1d3f2a3b506abe42a7d472d7dd16fb">GetNoise</a> (<a class="el" href="classIDs_1_1channel.html">IDs::channel</a> channel)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the error on the pedestal from the SQLite database.  <a href="#aae1d3f2a3b506abe42a7d472d7dd16fb"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSetupNavigator.html">SetupNavigator</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">Instance</a> ()</td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#aabf8cf69b7ebc7e19d9b1f99b25941d3">~SetupNavigator</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c">ReadPedestalAndNoiseValues</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads the pedestal and pedestal error values.  <a href="#a17b8c3f7a2855ae6368bd513c9af300c"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structARGUMENTS.html">ARGUMENTS</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37">fSQLiteFilename</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The SQLite filename, the SQLite server object and the current table name.  <a href="#a4aaa2eaab628ed3a0b774e5ec777cc37"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TSQLiteServer *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a></td></tr>
 <tr><td colspan="2"><h2>Static Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSetupNavigator.html">SetupNavigator</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a> = NULL</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static std::map&lt; <a class="el" href="classIDs_1_1channel.html">IDs::channel</a>, <br class="typebreak"/>
+double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1">fPedestalValues</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The map that stores the pedestal values that we get from the SQLite database.  <a href="#ac0b596065d9bef7b3fd54d6d398467c1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static std::map&lt; <a class="el" href="classIDs_1_1channel.html">IDs::channel</a>, <br class="typebreak"/>
+double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a">fNoiseValues</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The map that stores the pedestal error values (i.e. noise) that we get from the SQLite database.  <a href="#a1cb81057e43d06eaa983df6aac53ac2a"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00007">7</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00009">9</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="add255c11b74ffac71f4e95eaa9afbbb6"></a><!-- doxytag: member="SetupNavigator::SetupNavigator" ref="add255c11b74ffac71f4e95eaa9afbbb6" args="()" -->
 <div class="memitem">
@@ -65,17 +79,28 @@
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline, private]</code></td>
+          <td><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00008">8</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00031">31</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00031">Instance()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00038">fServer</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00037">fSQLiteFilename</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00008"></a>00008 {};
+<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00053">Instance()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00031"></a>00031                                {
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033   <a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>=<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>;
+<a name="l00034"></a>00034   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a> = <span class="keyword">new</span> TSQLiteServer(<a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>.c_str());
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036   <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;IsZombie()) {
+<a name="l00037"></a>00037     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: ERROR: Couldn&apos;t connect to SQLite database.&quot;</span> &lt;&lt; std::endl;
+<a name="l00038"></a>00038     <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1NoCalibDB.html">Except::NoCalibDB</a>();
+<a name="l00039"></a>00039   }
+<a name="l00040"></a>00040 }
 </pre></div></p>
 
 </div>
@@ -89,22 +114,68 @@
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline, private]</code></td>
+          <td><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00009">9</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00042">42</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00027">fThis</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00038">fServer</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00029">fThis</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00009"></a>00009 { <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <span class="keyword">delete</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00042"></a>00042                                 {
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Close();
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046   <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) 
+<a name="l00047"></a>00047     <span class="keyword">delete</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
+<a name="l00048"></a>00048 }
 </pre></div></p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a1be81dd6e8f6e31e1b7ef41189cd80f7"></a><!-- doxytag: member="SetupNavigator::CacheCalibDB" ref="a1be81dd6e8f6e31e1b7ef41189cd80f7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetupNavigator::CacheCalibDB </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Caches the information stored in the calib DB. </p>
+
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00060">60</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00046">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00043">fPedestalValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00038">fServer</a>, <a class="el" href="SetupNavigator_8h_source.html#l00039">fTableName</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00074">ReadPedestalAndNoiseValues()</a>.</p>
+
+<p>Referenced by <a class="el" href="main_8cpp_source.html#l00075">main()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00060"></a>00060                                   {
+<a name="l00061"></a>00061   <span class="comment">// Cache all the variables we have in the database</span>
+<a name="l00062"></a>00062   <span class="comment">// First the pedestals and noises</span>
+<a name="l00063"></a>00063   <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
+<a name="l00064"></a>00064   <span class="keywordflow">if</span> (!<a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;HasTable(<a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a>.c_str())) { <span class="comment">// check it exists</span>
+<a name="l00065"></a>00065     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: ERROR: Table &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> &lt;&lt; <span class="stringliteral">&quot; does not exist.&quot;</span> &lt;&lt; std::endl;
+<a name="l00066"></a>00066   }
+<a name="l00067"></a>00067   <span class="keywordflow">else</span> {
+<a name="l00068"></a>00068     <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>.empty() &amp;&amp; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>.empty()) {
+<a name="l00069"></a>00069       <a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c" title="Reads the pedestal and pedestal error values.">ReadPedestalAndNoiseValues</a>();
+<a name="l00070"></a>00070     }
+<a name="l00071"></a>00071   }
+<a name="l00072"></a>00072 }
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a52a414db348d8963a712c90e4ece561a"></a><!-- doxytag: member="SetupNavigator::GetBank" ref="a52a414db348d8963a712c90e4ece561a" args="(const IDs::channel &amp;) const " -->
 <div class="memitem">
 <div class="memproto">
@@ -121,96 +192,36 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00024">24</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00050">50</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="TSetupData_8h_source.html#l00035">TSetupData::fBankToDetectorMap</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00173">modules::parser::iequals()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00031">Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">IDs::channel::str()</a>.</p>
+<p>References <a class="el" href="TSetupData_8h_source.html#l00035">TSetupData::fBankToDetectorMap</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00173">modules::parser::iequals()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00053">Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00009">IDs::channel::str()</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024                                                            {
-<a name="l00025"></a>00025     <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup=<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">TSetupData::Instance</a>();
-<a name="l00026"></a>00026     std::map&lt;std::string, std::string&gt;* bankDetNameMap=&amp;setup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>;
-<a name="l00027"></a>00027     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = bankDetNameMap-&gt;begin();
-<a name="l00028"></a>00028             it != bankDetNameMap-&gt;end(); ++it){
-<a name="l00029"></a>00029         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(it-&gt;second , src.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>())) <span class="keywordflow">return</span> it-&gt;first;
-<a name="l00030"></a>00030     }
-<a name="l00031"></a>00031     <span class="keywordflow">return</span> <span class="stringliteral">&quot;invalid-det-bank&quot;</span>;
-<a name="l00032"></a>00032 }
+<p><div class="fragment"><pre class="fragment"><a name="l00050"></a>00050                                                            {
+<a name="l00051"></a>00051     <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup=<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">TSetupData::Instance</a>();
+<a name="l00052"></a>00052     std::map&lt;std::string, std::string&gt;* bankDetNameMap=&amp;setup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>;
+<a name="l00053"></a>00053     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = bankDetNameMap-&gt;begin();
+<a name="l00054"></a>00054             it != bankDetNameMap-&gt;end(); ++it){
+<a name="l00055"></a>00055         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(it-&gt;second , src.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>())) <span class="keywordflow">return</span> it-&gt;first;
+<a name="l00056"></a>00056     }
+<a name="l00057"></a>00057     <span class="keywordflow">return</span> <span class="stringliteral">&quot;invalid-det-bank&quot;</span>;
+<a name="l00058"></a>00058 }
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="ae66bec5c590146dd0b22b527707db202"></a><!-- doxytag: member="SetupNavigator::GetPedestal" ref="ae66bec5c590146dd0b22b527707db202" args="(std::string bankname)" -->
+<a class="anchor" id="aae1d3f2a3b506abe42a7d472d7dd16fb"></a><!-- doxytag: member="SetupNavigator::GetNoise" ref="aae1d3f2a3b506abe42a7d472d7dd16fb" args="(IDs::channel channel)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double SetupNavigator::GetPedestal </td>
+          <td class="memname">double SetupNavigator::GetNoise </td>
           <td>(</td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>bankname</em></td>
+          <td class="paramtype"><a class="el" href="classIDs_1_1channel.html">IDs::channel</a>&nbsp;</td>
+          <td class="paramname"> <em>channel</em></td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Gets the pedestal from the SQLite database. </p>
-
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00067">67</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
-
-<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00015">GetRunNumber()</a>.</p>
-
-<p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00067"></a>00067                                                      {
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069   <span class="comment">// The values that we will read in</span>
-<a name="l00070"></a>00070   <span class="keywordtype">double</span> pedestal=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072   <span class="comment">// Get the SQLite database file</span>
-<a name="l00073"></a>00073   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075   std::stringstream query; 
-<a name="l00076"></a>00076   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
-<a name="l00077"></a>00077   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
-<a name="l00078"></a>00078   <span class="keywordflow">if</span> (server) {
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; WHERE bank=\&apos;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&apos; AND run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
-<a name="l00081"></a>00081     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
-<a name="l00082"></a>00082     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
-<a name="l00085"></a>00085     <span class="keywordflow">while</span> (row != NULL) {
-<a name="l00086"></a>00086       pedestal = atof(row-&gt;GetField(3));
-<a name="l00087"></a>00087       
-<a name="l00088"></a>00088       <span class="keyword">delete</span> row;
-<a name="l00089"></a>00089       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
-<a name="l00090"></a>00090     }
-<a name="l00091"></a>00091     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
-<a name="l00092"></a>00092   }
-<a name="l00093"></a>00093   <span class="keywordflow">else</span> {
-<a name="l00094"></a>00094     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
-<a name="l00095"></a>00095   }
-<a name="l00096"></a>00096   server-&gt;Close();
-<a name="l00097"></a>00097   <span class="keywordflow">return</span> pedestal;
-<a name="l00098"></a>00098 }
-</pre></div></p>
-
-</div>
-</div>
-<a class="anchor" id="ae28ddf33023f906bc396563ae6f71264"></a><!-- doxytag: member="SetupNavigator::GetPedestalError" ref="ae28ddf33023f906bc396563ae6f71264" args="(std::string bankname)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double SetupNavigator::GetPedestalError </td>
-          <td>(</td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>bankname</em></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -218,44 +229,42 @@
 
 <p>Gets the error on the pedestal from the SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00034">34</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00029">29</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00015">GetRunNumber()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00046">fNoiseValues</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00413">TemplateCreator::CreateRefinedPulseHistogram()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00413">TemplateCreator::CreateRefinedPulseHistogram()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, and <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00018">PulseCandidateFinder::PulseCandidateFinder()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034                                                           {
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036   <span class="comment">// The values that we will read in</span>
-<a name="l00037"></a>00037   <span class="keywordtype">double</span> noise=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039   <span class="comment">// Get the SQLite database file</span>
-<a name="l00040"></a>00040   TSQLiteServer* server = <span class="keyword">new</span> TSQLiteServer(<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>);
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042   std::stringstream query; 
-<a name="l00043"></a>00043   std::string tablename = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
-<a name="l00044"></a>00044   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
-<a name="l00045"></a>00045   <span class="keywordflow">if</span> (server) {
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047     query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; tablename &lt;&lt; <span class="stringliteral">&quot; WHERE bank=\&apos;&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;\&apos; AND run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
-<a name="l00048"></a>00048     TSQLiteResult* result = (TSQLiteResult*) server-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
-<a name="l00049"></a>00049     query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051     TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
-<a name="l00052"></a>00052     <span class="keywordflow">while</span> (row != NULL) {
-<a name="l00053"></a>00053       noise = atof(row-&gt;GetField(4));
-<a name="l00054"></a>00054       
-<a name="l00055"></a>00055       <span class="keyword">delete</span> row;
-<a name="l00056"></a>00056       row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
-<a name="l00057"></a>00057     }
-<a name="l00058"></a>00058     <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
-<a name="l00059"></a>00059   }
-<a name="l00060"></a>00060   <span class="keywordflow">else</span> {
-<a name="l00061"></a>00061     std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Couldn&apos;t connect to SQLite database&quot;</span> &lt;&lt; std::endl;
-<a name="l00062"></a>00062   }
-<a name="l00063"></a>00063   server-&gt;Close();
-<a name="l00064"></a>00064   <span class="keywordflow">return</span> noise;
-<a name="l00065"></a>00065 }
+<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029 { <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>[channel]; };
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a224ddb1f273e2bb51a0e4972c6461a20"></a><!-- doxytag: member="SetupNavigator::GetPedestal" ref="a224ddb1f273e2bb51a0e4972c6461a20" args="(IDs::channel channel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SetupNavigator::GetPedestal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIDs_1_1channel.html">IDs::channel</a>&nbsp;</td>
+          <td class="paramname"> <em>channel</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Gets the pedestal from the SQLite database. </p>
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00026">26</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00043">fPedestalValues</a>.</p>
+
+<p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>, and <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00018">PulseCandidateFinder::PulseCandidateFinder()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00026"></a>00026 { <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>[channel]; };
 </pre></div></p>
 
 </div>
@@ -275,13 +284,13 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00015">15</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00017">17</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00028">fCommandLineArgs</a>, and <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::run</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00033">fCommandLineArgs</a>, and <a class="el" href="CommandLine_8h_source.html#l00013">ARGUMENTS::run</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00122">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00223">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00067">GetPedestal()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00034">GetPedestalError()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, and <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00122">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00215">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00074">ReadPedestalAndNoiseValues()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00015"></a>00015 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00017"></a>00017 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a>;};
 </pre></div></p>
 
 </div>
@@ -301,16 +310,70 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00031">31</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00053">53</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00027">fThis</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00008">SetupNavigator()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00029">fThis</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00031">SetupNavigator()</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00122">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00413">TemplateCreator::CreateRefinedPulseHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00223">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00024">GetBank()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="main_8cpp_source.html#l00075">main()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00122">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00413">TemplateCreator::CreateRefinedPulseHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00215">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00050">GetBank()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="main_8cpp_source.html#l00075">main()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00027">CFTimeAPGenerator::ProcessPulses()</a>, and <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00018">PulseCandidateFinder::PulseCandidateFinder()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00031"></a>00031                                                {
-<a name="l00032"></a>00032   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
-<a name="l00033"></a>00033   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
-<a name="l00034"></a>00034 }
+<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053                                                {
+<a name="l00054"></a>00054   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
+<a name="l00055"></a>00055   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
+<a name="l00056"></a>00056 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a17b8c3f7a2855ae6368bd513c9af300c"></a><!-- doxytag: member="SetupNavigator::ReadPedestalAndNoiseValues" ref="a17b8c3f7a2855ae6368bd513c9af300c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetupNavigator::ReadPedestalAndNoiseValues </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reads the pedestal and pedestal error values. </p>
+
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00074">74</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+
+<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, <a class="el" href="SetupNavigator_8h_source.html#l00046">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00043">fPedestalValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00038">fServer</a>, <a class="el" href="SetupNavigator_8h_source.html#l00039">fTableName</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00017">GetRunNumber()</a>.</p>
+
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00060">CacheCalibDB()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074                                                 {
+<a name="l00075"></a>00075   <span class="comment">// The values that we will read in</span>
+<a name="l00076"></a>00076   <span class="keywordtype">double</span> pedestal=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00077"></a>00077   <span class="keywordtype">double</span> noise=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00078"></a>00078   std::string channelname;
+<a name="l00079"></a>00079  
+<a name="l00080"></a>00080   std::stringstream query;
+<a name="l00081"></a>00081   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083   query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> &lt;&lt; <span class="stringliteral">&quot; WHERE run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
+<a name="l00084"></a>00084   TSQLiteResult* result = (TSQLiteResult*) <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
+<a name="l00085"></a>00085   query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00086"></a>00086   
+<a name="l00087"></a>00087   TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
+<a name="l00088"></a>00088   <span class="keywordflow">while</span> (row != NULL) {
+<a name="l00089"></a>00089     channelname = row-&gt;GetField(1);
+<a name="l00090"></a>00090     pedestal = atof(row-&gt;GetField(3));
+<a name="l00091"></a>00091     noise = atof(row-&gt;GetField(4));
+<a name="l00092"></a>00092     
+<a name="l00093"></a>00093     <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>[channelname] = pedestal;
+<a name="l00094"></a>00094     <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>[channelname] = noise;
+<a name="l00095"></a>00095     <span class="keyword">delete</span> row;
+<a name="l00096"></a>00096     row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
+<a name="l00097"></a>00097   }
+<a name="l00098"></a>00098   <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 }
 </pre></div></p>
 
 </div>
@@ -331,13 +394,13 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00013">13</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00015">15</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00028">fCommandLineArgs</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00033">fCommandLineArgs</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00075">main()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00013"></a>00013 {<a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>=args;}
+<p><div class="fragment"><pre class="fragment"><a name="l00015"></a>00015 {<a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>=args;}
 </pre></div></p>
 
 </div>
@@ -354,9 +417,100 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00028">28</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00033">33</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00015">GetRunNumber()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00013">SetCommandLineArgs()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00017">GetRunNumber()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00015">SetCommandLineArgs()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1cb81057e43d06eaa983df6aac53ac2a"></a><!-- doxytag: member="SetupNavigator::fNoiseValues" ref="a1cb81057e43d06eaa983df6aac53ac2a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; <a class="el" href="classIDs_1_1channel.html">IDs::channel</a>, double &gt; <a class="el" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a">SetupNavigator::fNoiseValues</a><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The map that stores the pedestal error values (i.e. noise) that we get from the SQLite database. </p>
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00046">46</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00060">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00029">GetNoise()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00074">ReadPedestalAndNoiseValues()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0b596065d9bef7b3fd54d6d398467c1"></a><!-- doxytag: member="SetupNavigator::fPedestalValues" ref="ac0b596065d9bef7b3fd54d6d398467c1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; <a class="el" href="classIDs_1_1channel.html">IDs::channel</a>, double &gt; <a class="el" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1">SetupNavigator::fPedestalValues</a><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The map that stores the pedestal values that we get from the SQLite database. </p>
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00043">43</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00060">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00026">GetPedestal()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00074">ReadPedestalAndNoiseValues()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d730300979c36d8845484b111184997"></a><!-- doxytag: member="SetupNavigator::fServer" ref="a6d730300979c36d8845484b111184997" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TSQLiteServer* <a class="el" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">SetupNavigator::fServer</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00038">38</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00060">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00074">ReadPedestalAndNoiseValues()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00031">SetupNavigator()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00042">~SetupNavigator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4aaa2eaab628ed3a0b774e5ec777cc37"></a><!-- doxytag: member="SetupNavigator::fSQLiteFilename" ref="a4aaa2eaab628ed3a0b774e5ec777cc37" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37">SetupNavigator::fSQLiteFilename</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The SQLite filename, the SQLite server object and the current table name. </p>
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00037">37</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00031">SetupNavigator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae35b17128021748804fc1debd2449a28"></a><!-- doxytag: member="SetupNavigator::fTableName" ref="ae35b17128021748804fc1debd2449a28" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">SetupNavigator::fTableName</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00039">39</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00060">CacheCalibDB()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00074">ReadPedestalAndNoiseValues()</a>.</p>
 
 </div>
 </div>
@@ -371,9 +525,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00027">27</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00029">29</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00031">Instance()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00009">~SetupNavigator()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00053">Instance()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00042">~SetupNavigator()</a>.</p>
 
 </div>
 </div>
@@ -382,7 +536,7 @@
 <li>rootana/src/framework/<a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
