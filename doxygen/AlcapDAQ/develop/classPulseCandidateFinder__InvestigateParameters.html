@@ -78,15 +78,15 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a43d208320d880921e07359f706c8b066">AfterLastEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Nothing done at the end of each run.  <a href="#a43d208320d880921e07359f706c8b066"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH1D * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">fParameterHistograms</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The map that we store the parameter histograms for each channel.  <a href="#a695d2d081ea83c9b9fb16edb4fa15e3e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH2D * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a2d3f7ba0fdb5057c45a0585c5dacb7cc">fParameterHistograms</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The map that we store the parameter histograms for each channel.  <a href="#a2d3f7ba0fdb5057c45a0585c5dacb7cc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodules_1_1options.html">modules::options</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#aee474660939c2d138a7138632f80fae2">fOpts</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Store the module options so that they can be passed to the <a class="el" href="classPulseCandidateFinder.html" title="Utility class to find pulse candidates on a TPulseIsland.">PulseCandidateFinder</a>.  <a href="#aee474660939c2d138a7138632f80fae2"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Produces plots either the sample heights or the sample differences for each <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>. </p>
 <dl class="author"><dt><b>Author:</b></dt><dd>Andrew Edmonds</dd></dl>
-<p>This module loops over TPulseIslands and sends them to <a class="el" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968" title="Takes a histogram and fills it with the parameters (either sample height above pedestals...">PulseCandidateFinder::FillParameterHistogram()</a> to plot either the height of the sample above pedestals (if the <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a> is on a slow channel) or the difference between samples (if the <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a> is on a fast channel).</p>
+<p>This module loops over TPulseIslands and sends them to <a class="el" href="classPulseCandidateFinder.html#a42704ffd10909d28e25e0b8defc6212c" title="Takes a histogram and fills it with the parameters (both sample height above pedestals...">PulseCandidateFinder::FillParameterHistogram()</a> to plot either the height of the sample above pedestals (if the <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a> is on a slow channel) or the difference between samples (if the <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a> is on a fast channel).</p>
 <p>The idea is that we can then look at these histograms to determine the values of the parameters for the <a class="el" href="classPulseCandidateFinder.html" title="Utility class to find pulse candidates on a TPulseIsland.">PulseCandidateFinder</a> </p>
 
 <p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00026">26</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html">PulseCandidateFinder_InvestigateParameters.h</a>.</p>
@@ -189,18 +189,18 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">97</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">102</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00097"></a>00097                                                                                                          {
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00100"></a>00100   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00101"></a>00101      cout&lt;&lt;<span class="stringliteral">&quot;-----PulseCandidateFinder_InvestigateParameters::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00102"></a>00102   }
-<a name="l00103"></a>00103   <span class="keywordflow">return</span> 0;
-<a name="l00104"></a>00104 }
+<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102                                                                                                          {
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00105"></a>00105   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00106"></a>00106      cout&lt;&lt;<span class="stringliteral">&quot;-----PulseCandidateFinder_InvestigateParameters::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
+<a name="l00107"></a>00107   }
+<a name="l00108"></a>00108   <span class="keywordflow">return</span> 0;
+<a name="l00109"></a>00109 }
 </pre></div></p>
 
 </div>
@@ -279,7 +279,7 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00088">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00191">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00097">AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00122">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00038">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00136">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00191">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">AfterLastEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00122">PlotPedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00034">MakeMuonEvents::BeforeFirstEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00038">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotPedestalAndNoise_8cpp_source.html#l00038">PlotPedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00136">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -506,7 +506,7 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 <p>Definition at line <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">38</a> of file <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00215">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00042">PulseCandidateFinder::FindPulseCandidates()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00073">fOpts</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00069">fParameterHistograms</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, and <a class="el" href="PulseCandidateFinder_8h_source.html#l00066">PulseCandidateFinder::GetNPulseCandidates()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00229">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00043">PulseCandidateFinder::FindPulseCandidates()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00073">fOpts</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8h_source.html#l00069">fParameterHistograms</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, <a class="el" href="PulseCandidateFinder_8h_source.html#l00068">PulseCandidateFinder::GetNPulseCandidates()</a>, and <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038                                                                                                        {
 <a name="l00039"></a>00039 
@@ -530,39 +530,44 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 <a name="l00057"></a>00057     <span class="keywordflow">if</span> (thePulseIslands.size() == 0) <span class="keywordflow">continue</span>; <span class="comment">// no pulses here..</span>
 <a name="l00058"></a>00058 
 <a name="l00059"></a>00059     <span class="comment">// Create the histogram that will store all the parameter values that we will look at to determine the best values</span>
-<a name="l00060"></a>00060     <span class="keywordflow">if</span> (<a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>.find(detname) == <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>.end()) {
-<a name="l00061"></a>00061       <span class="keywordtype">int</span> num_bins = 10000;
-<a name="l00062"></a>00062       <span class="keywordtype">int</span> max_value = 7500;
-<a name="l00063"></a>00063       std::string histname = <span class="stringliteral">&quot;fParameterHistogram_&quot;</span> + detname;
-<a name="l00064"></a>00064       TH1D* histogram = <span class="keyword">new</span> TH1D(histname.c_str(), histname.c_str(), num_bins, max_value-num_bins, max_value);
-<a name="l00065"></a>00065       <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>[detname] = histogram;
-<a name="l00066"></a>00066     }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <span class="comment">// Get the parameter histogram for this detector</span>
-<a name="l00069"></a>00069     TH1D* parameter_histogram = <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>[detname];
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071     <span class="comment">// Loop through all the pulses</span>
-<a name="l00072"></a>00072     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074       <span class="comment">// Find the pulse candidates on this TPulseIsland and then fill the parameter histogram</span>
-<a name="l00075"></a>00075       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48" title="Find the pulse candidates on the given TPulseIsland.">FindPulseCandidates</a>(*pulseIter);
-<a name="l00076"></a>00076       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a66c025c6456498b4b31cd5ba4af8e968" title="Takes a histogram and fills it with the parameters (either sample height above pedestals...">FillParameterHistogram</a>(parameter_histogram);
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078       <span class="comment">// Use to export pulses (NB you will only want to run rootana on a few events to stop the output being large)</span>
-<a name="l00079"></a>00079       <span class="keywordtype">int</span> n_pulse_candidates = pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a705d5fe0bff87dffdc9f465180362f02" title="Returns the number of pulse candidates that were found.">GetNPulseCandidates</a>();
-<a name="l00080"></a>00080       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00081"></a>00081         <span class="keywordflow">if</span> (n_pulse_candidates &gt; 0) {
-<a name="l00082"></a>00082           <span class="comment">//      ExportPulse::Instance()-&gt;AddToExportList(detname, pulseIter - thePulseIslands.begin());</span>
-<a name="l00083"></a>00083           <span class="keywordflow">if</span> (n_pulse_candidates &gt; 1) {
-<a name="l00084"></a>00084             std::cout &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;): Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; has &quot;</span> &lt;&lt; n_pulse_candidates &lt;&lt; <span class="stringliteral">&quot; pulse candidates\n&quot;</span>; 
-<a name="l00085"></a>00085           }
-<a name="l00086"></a>00086         }
-<a name="l00087"></a>00087       } <span class="comment">// end if Debug</span>
-<a name="l00088"></a>00088     } <span class="comment">// end loop through pulses</span>
-<a name="l00089"></a>00089   } <span class="comment">//  end loop through detectors</span>
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091   <span class="keywordflow">return</span> 0;
-<a name="l00092"></a>00092 }
+<a name="l00060"></a>00060     <span class="keywordflow">if</span> (<a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a2d3f7ba0fdb5057c45a0585c5dacb7cc" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>.find(detname) == <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a2d3f7ba0fdb5057c45a0585c5dacb7cc" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>.end()) {
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062       <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
+<a name="l00063"></a>00063       <span class="keywordtype">int</span> max_adc_value = std::pow(2, n_bits);
+<a name="l00064"></a>00064       <span class="keywordtype">int</span> min_value = 0;
+<a name="l00065"></a>00065       <span class="keywordtype">int</span> max_value = max_adc_value;
+<a name="l00066"></a>00066       <span class="keywordtype">int</span> bin_width = 10;
+<a name="l00067"></a>00067       <span class="keywordtype">int</span> num_bins = (max_value - min_value) / bin_width;
+<a name="l00068"></a>00068       std::string histname = <span class="stringliteral">&quot;fParameterHistogram_&quot;</span> + detname;
+<a name="l00069"></a>00069       TH2D* histogram = <span class="keyword">new</span> TH2D(histname.c_str(), histname.c_str(), num_bins,min_value,max_value, num_bins,min_value,max_value);
+<a name="l00070"></a>00070       <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a2d3f7ba0fdb5057c45a0585c5dacb7cc" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>[detname] = histogram;
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073     <span class="comment">// Get the parameter histogram for this detector</span>
+<a name="l00074"></a>00074     TH2D* parameter_histogram = <a class="code" href="classPulseCandidateFinder__InvestigateParameters.html#a2d3f7ba0fdb5057c45a0585c5dacb7cc" title="The map that we store the parameter histograms for each channel.">fParameterHistograms</a>[detname];
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076     <span class="comment">// Loop through all the pulses</span>
+<a name="l00077"></a>00077     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079       <span class="comment">// Find the pulse candidates on this TPulseIsland and then fill the parameter histogram</span>
+<a name="l00080"></a>00080       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48" title="Find the pulse candidates on the given TPulseIsland.">FindPulseCandidates</a>(*pulseIter);
+<a name="l00081"></a>00081       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a42704ffd10909d28e25e0b8defc6212c" title="Takes a histogram and fills it with the parameters (both sample height above pedestals...">FillParameterHistogram</a>(parameter_histogram);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083       <span class="comment">// Use to export pulses (NB you will only want to run rootana on a few events to stop the output being large)</span>
+<a name="l00084"></a>00084       <span class="keywordtype">int</span> n_pulse_candidates = pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a705d5fe0bff87dffdc9f465180362f02" title="Returns the number of pulse candidates that were found.">GetNPulseCandidates</a>();
+<a name="l00085"></a>00085       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00086"></a>00086         <span class="keywordflow">if</span> (n_pulse_candidates &gt; 0) {
+<a name="l00087"></a>00087           <span class="comment">//      ExportPulse::Instance()-&gt;AddToExportList(detname, pulseIter - thePulseIslands.begin());</span>
+<a name="l00088"></a>00088           <span class="keywordflow">if</span> (n_pulse_candidates &gt; 1) {
+<a name="l00089"></a>00089             std::cout &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;): Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; has &quot;</span> &lt;&lt; n_pulse_candidates &lt;&lt; <span class="stringliteral">&quot; pulse candidates\n&quot;</span>; 
+<a name="l00090"></a>00090           }
+<a name="l00091"></a>00091         }
+<a name="l00092"></a>00092       } <span class="comment">// end if Debug</span>
+<a name="l00093"></a>00093     } <span class="comment">// end loop through pulses</span>
+<a name="l00094"></a>00094   } <span class="comment">//  end loop through detectors</span>
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096   <span class="keywordflow">return</span> 0;
+<a name="l00097"></a>00097 }
 </pre></div></p>
 
 </div>
@@ -680,12 +685,12 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 
 </div>
 </div>
-<a class="anchor" id="a695d2d081ea83c9b9fb16edb4fa15e3e"></a><!-- doxytag: member="PulseCandidateFinder_InvestigateParameters::fParameterHistograms" ref="a695d2d081ea83c9b9fb16edb4fa15e3e" args="" -->
+<a class="anchor" id="a2d3f7ba0fdb5057c45a0585c5dacb7cc"></a><!-- doxytag: member="PulseCandidateFinder_InvestigateParameters::fParameterHistograms" ref="a2d3f7ba0fdb5057c45a0585c5dacb7cc" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, TH1D*&gt; <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a695d2d081ea83c9b9fb16edb4fa15e3e">PulseCandidateFinder_InvestigateParameters::fParameterHistograms</a><code> [private]</code></td>
+          <td class="memname">std::map&lt;std::string, TH2D*&gt; <a class="el" href="classPulseCandidateFinder__InvestigateParameters.html#a2d3f7ba0fdb5057c45a0585c5dacb7cc">PulseCandidateFinder_InvestigateParameters::fParameterHistograms</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -704,7 +709,7 @@ Inheritance diagram for PulseCandidateFinder_InvestigateParameters:</div>
 <li>rootana/src/TAP_generators/<a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html">PulseCandidateFinder_InvestigateParameters.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 13 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 14 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

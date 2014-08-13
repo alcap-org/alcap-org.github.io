@@ -191,38 +191,38 @@ Inheritance diagram for FirstCompleteAPGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00113">113</a> of file <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html">FirstCompleteAPGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">111</a> of file <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html">FirstCompleteAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00135">ExportPulse::AddToExportList()</a>, <a class="el" href="EventNavigator_8h_source.html#l00093">EventNavigator::EntryNo()</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00041">fSubPulses</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00083">TVAnalysedPulseGenerator::GetChannel()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>, <a class="el" href="ExportPulse_8h_source.html#l00131">ExportPulse::Instance()</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00077">modules::parser::ToCppValid()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00093">EventNavigator::EntryNo()</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00041">fSubPulses</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00083">TVAnalysedPulseGenerator::GetChannel()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00077">modules::parser::ToCppValid()</a>.</p>
 
 <p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00113"></a>00113                                                                                               {
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115     <span class="keywordflow">if</span>( <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">ExportPulse::Instance</a>())
-<a name="l00116"></a>00116         <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">ExportPulse::Instance</a>()-&gt;<a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str(), original);
-<a name="l00117"></a>00117     <span class="keywordflow">else</span> <span class="keywordflow">return</span>;
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;TPulseIsland*&gt;::const_iterator</a> subPulseIter = <a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.begin();
-<a name="l00120"></a>00120             subPulseIter != <a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.end(); ++subPulseIter) {
-<a name="l00121"></a>00121         std::stringstream histname;
-<a name="l00122"></a>00122         histname &lt;&lt; <span class="stringliteral">&quot;hSubPulse_&quot;</span> &lt;&lt; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>() &lt;&lt; <span class="stringliteral">&quot;_Event&quot;</span> 
-<a name="l00123"></a>00123             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() &lt;&lt;<span class="stringliteral">&quot;_Pulse&quot;</span> &lt;&lt; original
-<a name="l00124"></a>00124             &lt;&lt; <span class="stringliteral">&quot;_SubPulse&quot;</span> &lt;&lt; subPulseIter - <a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.begin();
+<p><div class="fragment"><pre class="fragment"><a name="l00111"></a>00111                                                                                               {
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113   <span class="comment">/*    if( ExportPulse::Instance())</span>
+<a name="l00114"></a>00114 <span class="comment">        ExportPulse::Instance()-&gt;AddToExportList(GetChannel().str(), original);</span>
+<a name="l00115"></a>00115 <span class="comment">    else return;</span>
+<a name="l00116"></a>00116 <span class="comment">  */</span>
+<a name="l00117"></a>00117     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;TPulseIsland*&gt;::const_iterator</a> subPulseIter = <a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.begin();
+<a name="l00118"></a>00118             subPulseIter != <a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.end(); ++subPulseIter) {
+<a name="l00119"></a>00119         std::stringstream histname;
+<a name="l00120"></a>00120         histname &lt;&lt; <span class="stringliteral">&quot;hSubPulse_&quot;</span> &lt;&lt; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>() &lt;&lt; <span class="stringliteral">&quot;_Event&quot;</span> 
+<a name="l00121"></a>00121             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() &lt;&lt;<span class="stringliteral">&quot;_Pulse&quot;</span> &lt;&lt; original
+<a name="l00122"></a>00122             &lt;&lt; <span class="stringliteral">&quot;_SubPulse&quot;</span> &lt;&lt; subPulseIter - <a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.begin();
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124         <span class="keyword">const</span> std::vector&lt;int&gt;&amp; sub_pulse_samples = (*subPulseIter)-&gt;GetSamples();
 <a name="l00125"></a>00125 
-<a name="l00126"></a>00126         <span class="keyword">const</span> std::vector&lt;int&gt;&amp; sub_pulse_samples = (*subPulseIter)-&gt;GetSamples();
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128         TH1D* hPulse = <span class="keyword">new</span> TH1D(<a class="code" href="namespacemodules_1_1parser.html#a251ecfa397c10d7e2ba4709b46099260">modules::parser::ToCppValid</a>(histname.str()).c_str(),
-<a name="l00129"></a>00129                 histname.str().c_str(), n_pulse_samples,0,n_pulse_samples);
-<a name="l00130"></a>00130         hPulse-&gt;SetLineColor(kMagenta);
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132         <span class="keywordtype">int</span> delay = (*subPulseIter)-&gt;GetTimeStamp() - pulse_timestamp;
-<a name="l00133"></a>00133         <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> subPulseSampleIter = sub_pulse_samples.begin();
-<a name="l00134"></a>00134                 subPulseSampleIter != sub_pulse_samples.end(); ++subPulseSampleIter) {
-<a name="l00135"></a>00135             hPulse-&gt;Fill( (subPulseSampleIter - sub_pulse_samples.begin()) + delay, (*subPulseSampleIter) );
-<a name="l00136"></a>00136         }
-<a name="l00137"></a>00137     }
-<a name="l00138"></a>00138 }
+<a name="l00126"></a>00126         TH1D* hPulse = <span class="keyword">new</span> TH1D(<a class="code" href="namespacemodules_1_1parser.html#a251ecfa397c10d7e2ba4709b46099260">modules::parser::ToCppValid</a>(histname.str()).c_str(),
+<a name="l00127"></a>00127                 histname.str().c_str(), n_pulse_samples,0,n_pulse_samples);
+<a name="l00128"></a>00128         hPulse-&gt;SetLineColor(kMagenta);
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130         <span class="keywordtype">int</span> delay = (*subPulseIter)-&gt;GetTimeStamp() - pulse_timestamp;
+<a name="l00131"></a>00131         <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> subPulseSampleIter = sub_pulse_samples.begin();
+<a name="l00132"></a>00132                 subPulseSampleIter != sub_pulse_samples.end(); ++subPulseSampleIter) {
+<a name="l00133"></a>00133             hPulse-&gt;Fill( (subPulseSampleIter - sub_pulse_samples.begin()) + delay, (*subPulseSampleIter) );
+<a name="l00134"></a>00134         }
+<a name="l00135"></a>00135     }
+<a name="l00136"></a>00136 }
 </pre></div></p>
 
 </div>
@@ -247,7 +247,7 @@ Inheritance diagram for FirstCompleteAPGenerator:</div>
 
 <p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00102">TVAnalysedPulseGenerator::fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00113">DrawPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">DrawPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00083"></a>00083 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
 </pre></div></p>
@@ -421,7 +421,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">36</a> of file <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html">FirstCompleteAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00040">Algorithm::ConstantFractionTime::clock_tick_in_ns</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00079">TVAnalysedPulseGenerator::Debug()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00113">DrawPulse()</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00030">fConstantFractionTime</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00042">PulseCandidateFinder::FindPulseCandidates()</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00029">fMaxBinAmplitude</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00034">fPulseCandidateFinder</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00031">fSimpleIntegral</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00041">fSubPulses</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00083">TVAnalysedPulseGenerator::GetChannel()</a>, <a class="el" href="TSetupData_8h_source.html#l00074">TSetupData::GetClockTick()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="PulseCandidateFinder_8h_source.html#l00066">PulseCandidateFinder::GetNPulseCandidates()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00026">SetupNavigator::GetPedestal()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00067">PulseCandidateFinder::GetPulseCandidates()</a>, <a class="el" href="TSetupData_8h_source.html#l00081">TSetupData::GetTimeShift()</a>, <a class="el" href="TSetupData_8h_source.html#l00083">TSetupData::GetTriggerPolarity()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00053">SetupNavigator::Instance()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00039">Algorithm::ConstantFractionTime::max_adc_value</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00052">Algorithm::SimpleIntegral::pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00037">Algorithm::ConstantFractionTime::pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00021">Algorithm::MaxBinAmplitude::pedestal</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00104">TAnalysedPulse::SetAmplitude()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00106">TAnalysedPulse::SetIntegral()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00105">TAnalysedPulse::SetTime()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00009">IDs::channel::str()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00041">Algorithm::ConstantFractionTime::time_shift</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00053">Algorithm::SimpleIntegral::trigger_polarity</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00038">Algorithm::ConstantFractionTime::trigger_polarity</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00020">Algorithm::MaxBinAmplitude::trigger_polarity</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00040">Algorithm::ConstantFractionTime::clock_tick_in_ns</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00079">TVAnalysedPulseGenerator::Debug()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">DrawPulse()</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00030">fConstantFractionTime</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00043">PulseCandidateFinder::FindPulseCandidates()</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00029">fMaxBinAmplitude</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00034">fPulseCandidateFinder</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00031">fSimpleIntegral</a>, <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00041">fSubPulses</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00083">TVAnalysedPulseGenerator::GetChannel()</a>, <a class="el" href="TSetupData_8h_source.html#l00074">TSetupData::GetClockTick()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="PulseCandidateFinder_8h_source.html#l00068">PulseCandidateFinder::GetNPulseCandidates()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00026">SetupNavigator::GetPedestal()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00078">PulseCandidateFinder::GetPulseCandidates()</a>, <a class="el" href="TSetupData_8h_source.html#l00081">TSetupData::GetTimeShift()</a>, <a class="el" href="TSetupData_8h_source.html#l00083">TSetupData::GetTriggerPolarity()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00053">SetupNavigator::Instance()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00120">TVAnalysedPulseGenerator::MakeNewTAP()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00039">Algorithm::ConstantFractionTime::max_adc_value</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00052">Algorithm::SimpleIntegral::pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00037">Algorithm::ConstantFractionTime::pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00021">Algorithm::MaxBinAmplitude::pedestal</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00104">TAnalysedPulse::SetAmplitude()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00106">TAnalysedPulse::SetIntegral()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00105">TAnalysedPulse::SetTime()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00009">IDs::channel::str()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00041">Algorithm::ConstantFractionTime::time_shift</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00053">Algorithm::SimpleIntegral::trigger_polarity</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00038">Algorithm::ConstantFractionTime::trigger_polarity</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00020">Algorithm::MaxBinAmplitude::trigger_polarity</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038                                         {
 <a name="l00039"></a>00039 
@@ -455,48 +455,46 @@ template&lt;typename TypeOfTAP &gt; </div>
 <a name="l00067"></a>00067         <span class="keywordtype">int</span> n_pulse_candidates = <a class="code" href="classFirstCompleteAPGenerator.html#aebe095df994268d62efca352bca6c451">fPulseCandidateFinder</a>-&gt;<a class="code" href="classPulseCandidateFinder.html#a705d5fe0bff87dffdc9f465180362f02" title="Returns the number of pulse candidates that were found.">GetNPulseCandidates</a>();
 <a name="l00068"></a>00068         <a class="code" href="classFirstCompleteAPGenerator.html#aebe095df994268d62efca352bca6c451">fPulseCandidateFinder</a>-&gt;<a class="code" href="classPulseCandidateFinder.html#a8864e5e999bb82182312b353ad81222c" title="Returns the actual TPulseIsland of each candidate.">GetPulseCandidates</a>(<a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>);
 <a name="l00069"></a>00069 
-<a name="l00070"></a>00070         <span class="keywordflow">if</span>(<a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">Debug</a>()) {
-<a name="l00071"></a>00071           std::cout &lt;&lt; <span class="stringliteral">&quot;FirstCompleteAPGenerator: &quot;</span> &lt;&lt; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>() 
-<a name="l00072"></a>00072                     &lt;&lt; <span class="stringliteral">&quot;: n_pulse_candidates = &quot;</span> &lt;&lt; n_pulse_candidates  &lt;&lt; std::endl;
-<a name="l00073"></a>00073         }
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075         <span class="keywordflow">if</span> (<a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">Debug</a>() &amp;&amp; n_pulse_candidates &gt; 10
-<a name="l00076"></a>00076                 &amp;&amp; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str() != <span class="stringliteral">&quot;muSc&quot;</span> &amp;&amp; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str() != <span class="stringliteral">&quot;muScA&quot;</span>
-<a name="l00077"></a>00077                 &amp;&amp; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str() != <span class="stringliteral">&quot;ScL&quot;</span> &amp;&amp; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str() != <span class="stringliteral">&quot;ScR&quot;</span>
-<a name="l00078"></a>00078                 &amp;&amp; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str() != <span class="stringliteral">&quot;ScGe&quot;</span> &amp;&amp; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str() != <span class="stringliteral">&quot;ScVe&quot;</span>) {
-<a name="l00079"></a>00079             <a class="code" href="classFirstCompleteAPGenerator.html#a1c74c5452ff16f945d7f58644caeb424">DrawPulse</a>(original_tpi-pulseList.begin(),
-<a name="l00080"></a>00080                     (*original_tpi)-&gt;GetTimeStamp(),
-<a name="l00081"></a>00081                     (*original_tpi)-&gt;GetPulseLength());
-<a name="l00082"></a>00082         }
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> i_tpi=<a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.begin(); i_tpi!=<a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.end(); ++i_tpi){
-<a name="l00085"></a>00085             <span class="comment">// Skip small pulses.  This must be at least 1 to skip empty pulses</span>
-<a name="l00086"></a>00086           <span class="comment">//            PulseIslandList::const_iterator i_tpi=original_tpi;</span>
-<a name="l00087"></a>00087             <span class="keywordflow">if</span>((*i_tpi)-&gt;GetPulseLength() &lt; 14) <span class="keywordflow">continue</span>;
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089             <span class="comment">// Analyse each TPI</span>
-<a name="l00090"></a>00090             amplitude=<a class="code" href="classFirstCompleteAPGenerator.html#a2f4c07ea3fa59d63c75555e42dd8e46e">fMaxBinAmplitude</a>(*i_tpi);
-<a name="l00091"></a>00091             time=<a class="code" href="classFirstCompleteAPGenerator.html#a587ff04a7bbbdca3f783a422b0b20ac4">fConstantFractionTime</a>(*i_tpi);
-<a name="l00092"></a>00092             integral=<a class="code" href="classFirstCompleteAPGenerator.html#adfb5350e9861f20d67b10116ee93468e">fSimpleIntegral</a>(*i_tpi);
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094             <span class="comment">// Now that we&apos;ve found the information we were looking for make a TAP to</span>
-<a name="l00095"></a>00095             <span class="comment">// hold it.  This method makes a TAP and sets the parent TPI info.  It needs</span>
-<a name="l00096"></a>00096             <span class="comment">// the index of the parent TPI in the container as an argument</span>
-<a name="l00097"></a>00097             tap = <a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(original_tpi-pulseList.begin());
-<a name="l00098"></a>00098             tap-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(amplitude);
-<a name="l00099"></a>00099             tap-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
-<a name="l00100"></a>00100             tap-&gt;<a class="code" href="classTAnalysedPulse.html#a344fa582147a1071867aa5447adba82e">SetIntegral</a>(integral);
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102             <span class="comment">// Finally add the new TAP to the output list</span>
-<a name="l00103"></a>00103             analysedList.push_back(tap);
+<a name="l00070"></a>00070         <span class="keywordflow">if</span> (<a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">Debug</a>() &amp;&amp; n_pulse_candidates &gt; 0
+<a name="l00071"></a>00071             &amp;&amp; (<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str() == <span class="stringliteral">&quot;ScL&quot;</span>)
+<a name="l00072"></a>00072            ) {
+<a name="l00073"></a>00073           
+<a name="l00074"></a>00074           std::cout &lt;&lt; <span class="stringliteral">&quot;FirstCompleteAPGenerator: &quot;</span> &lt;&lt; <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>() 
+<a name="l00075"></a>00075                     &lt;&lt; <span class="stringliteral">&quot;: n_pulse_candidates = &quot;</span> &lt;&lt; n_pulse_candidates  &lt;&lt; std::endl;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077             <a class="code" href="classFirstCompleteAPGenerator.html#a1c74c5452ff16f945d7f58644caeb424">DrawPulse</a>(original_tpi-pulseList.begin(),
+<a name="l00078"></a>00078                     (*original_tpi)-&gt;GetTimeStamp(),
+<a name="l00079"></a>00079                     (*original_tpi)-&gt;GetPulseLength());
+<a name="l00080"></a>00080         }
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> i_tpi=<a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.begin(); i_tpi!=<a class="code" href="classFirstCompleteAPGenerator.html#aa3070997226cd1930c130ee1328f5264">fSubPulses</a>.end(); ++i_tpi){
+<a name="l00083"></a>00083             <span class="comment">// Skip small pulses.  This must be at least 1 to skip empty pulses</span>
+<a name="l00084"></a>00084           <span class="comment">//            PulseIslandList::const_iterator i_tpi=original_tpi;</span>
+<a name="l00085"></a>00085             <span class="keywordflow">if</span>((*i_tpi)-&gt;GetPulseLength() &lt; 14) <span class="keywordflow">continue</span>;
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087             <span class="comment">// Analyse each TPI</span>
+<a name="l00088"></a>00088             amplitude=<a class="code" href="classFirstCompleteAPGenerator.html#a2f4c07ea3fa59d63c75555e42dd8e46e">fMaxBinAmplitude</a>(*i_tpi);
+<a name="l00089"></a>00089             time=<a class="code" href="classFirstCompleteAPGenerator.html#a587ff04a7bbbdca3f783a422b0b20ac4">fConstantFractionTime</a>(*i_tpi);
+<a name="l00090"></a>00090             integral=<a class="code" href="classFirstCompleteAPGenerator.html#adfb5350e9861f20d67b10116ee93468e">fSimpleIntegral</a>(*i_tpi);
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092             <span class="comment">// Now that we&apos;ve found the information we were looking for make a TAP to</span>
+<a name="l00093"></a>00093             <span class="comment">// hold it.  This method makes a TAP and sets the parent TPI info.  It needs</span>
+<a name="l00094"></a>00094             <span class="comment">// the index of the parent TPI in the container as an argument</span>
+<a name="l00095"></a>00095             tap = <a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(original_tpi-pulseList.begin());
+<a name="l00096"></a>00096             tap-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(amplitude);
+<a name="l00097"></a>00097             tap-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
+<a name="l00098"></a>00098             tap-&gt;<a class="code" href="classTAnalysedPulse.html#a344fa582147a1071867aa5447adba82e">SetIntegral</a>(integral);
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100             <span class="comment">// Finally add the new TAP to the output list</span>
+<a name="l00101"></a>00101             analysedList.push_back(tap);
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103         } <span class="comment">// loop over all sub-pulses</span>
 <a name="l00104"></a>00104 
-<a name="l00105"></a>00105         } <span class="comment">// loop over all sub-pulses</span>
-<a name="l00106"></a>00106 
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106     } <span class="comment">// loop over all original TPIs</span>
 <a name="l00107"></a>00107 
-<a name="l00108"></a>00108     } <span class="comment">// loop over all original TPIs</span>
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110     <span class="keywordflow">return</span> 0;
-<a name="l00111"></a>00111 }
+<a name="l00108"></a>00108     <span class="keywordflow">return</span> 0;
+<a name="l00109"></a>00109 }
 </pre></div></p>
 
 </div>
@@ -675,7 +673,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="FirstCompleteAPGenerator_8h_source.html#l00041">41</a> of file <a class="el" href="FirstCompleteAPGenerator_8h_source.html">FirstCompleteAPGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00113">DrawPulse()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00023">~FirstCompleteAPGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">DrawPulse()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00023">~FirstCompleteAPGenerator()</a>.</p>
 
 </div>
 </div>
@@ -684,7 +682,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <li>rootana/src/TAP_generators/<a class="el" href="FirstCompleteAPGenerator_8cpp_source.html">FirstCompleteAPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 13 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 14 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
