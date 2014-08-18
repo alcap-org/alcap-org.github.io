@@ -40,225 +40,268 @@
 <a name="l00013"></a>00013 
 <a name="l00014"></a>00014 <span class="preprocessor">#include &quot;TH2F.h&quot;</span>
 <a name="l00015"></a>00015 <span class="preprocessor">#include &quot;TH1F.h&quot;</span>
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;cmath&gt;</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;sstream&gt;</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00021"></a>00021 <span class="keyword">using</span> std::cout;
-<a name="l00022"></a>00022 <span class="keyword">using</span> std::endl;
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="keyword">using namespace </span>std::rel_ops;
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;TProfile.h&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;TFitResult.h&quot;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;cmath&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00023"></a>00023 <span class="keyword">using</span> std::cout;
+<a name="l00024"></a>00024 <span class="keyword">using</span> std::endl;
 <a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#ab6b36cbc9a3363d8b03d3b9f363c8ced">SourceDetPulseMap</a> <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>;
+<a name="l00026"></a>00026 <span class="keyword">using namespace </span>std::rel_ops;
 <a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="classPlotTDPs.html#a0fc6a0a559220943120f1e42ff3a0c3a">00028</a> <a class="code" href="classPlotTDPs.html#a0fc6a0a559220943120f1e42ff3a0c3a" title="Constructor description. If necessary, add a details tag like above.">PlotTDPs::PlotTDPs</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
-<a name="l00029"></a>00029    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotTDPs&quot;</span>,opts),fCutHists(false){
-<a name="l00030"></a>00030        <a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>=!opts-&gt;<a class="code" href="classmodules_1_1options.html#afd85b5a7cd2ac4dbe59d5b07d83397d6" title="Check if a flag option has been set.">GetFlag</a>(<span class="stringliteral">&quot;no_cut_histos&quot;</span>);
-<a name="l00031"></a>00031        <a class="code" href="classPlotTDPs.html#a87b54e642caa4c66306dd317213a0a66">fFastCut</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#aa26113243f75f844d53ab87b7ce25f27" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;fast_ch_cut&quot;</span>,0);
-<a name="l00032"></a>00032        <a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">fSlowCut</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#aa26113243f75f844d53ab87b7ce25f27" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;slow_ch_cut&quot;</span>,0);
-<a name="l00033"></a>00033 }
-<a name="l00034"></a>00034 
-<a name="l00035"></a><a class="code" href="classPlotTDPs.html#ab40145cd5ab6cf047a09daf6878d821b">00035</a> <a class="code" href="classPlotTDPs.html#ab40145cd5ab6cf047a09daf6878d821b" title="Is anything done in the destructor?">PlotTDPs::~PlotTDPs</a>(){
-<a name="l00036"></a>00036 }
-<a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="classPlotTDPs.html#a2d6e5c0adf86b4b251f364e18919ecee">00038</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDPs.html#a2d6e5c0adf86b4b251f364e18919ecee" title="What needes to be done before each run? Don&amp;#39;t hesitate to repeat what was said...">PlotTDPs::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00039"></a>00039     <span class="comment">// Change into this modules directory</span>
-<a name="l00040"></a>00040     <a class="code" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b" title="Get the TDirectory for this module.">GetDirectory</a>()-&gt;cd();
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042     <span class="comment">// Make sure we&apos;ve got MakeDetectorPulses being used</span>
-<a name="l00043"></a>00043     <a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>* makeTDPs=<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;GetModule&lt;<a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>&gt;(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>);
-<a name="l00044"></a>00044     <span class="keywordflow">if</span>(!makeTDPs){
-<a name="l00045"></a>00045         cout&lt;&lt;<span class="stringliteral">&quot;It&apos;s meaningless to use the PlotTDPs module without MakeDetectorPulses as well&quot;</span>&lt;&lt;endl;
-<a name="l00046"></a>00046         <span class="keywordflow">return</span> 1;
-<a name="l00047"></a>00047     }
-<a name="l00048"></a>00048     <span class="comment">// Make sure MakeDetectorPulses is called before PlotTDPs</span>
-<a name="l00049"></a>00049     <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;Before(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>,<a class="code" href="classBaseModule.html#af30c91fa2a3388325dd20b322de517ca" title="Get the name of this module as given to the constructor of the base class.">GetName</a>())){
-<a name="l00050"></a>00050         cout&lt;&lt;<span class="stringliteral">&quot;MakeDetectorPulses must be used before PlotTDPs&quot;</span>&lt;&lt;endl;
-<a name="l00051"></a>00051         <span class="keywordflow">return</span> 2;
-<a name="l00052"></a>00052     }
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054     <span class="comment">// Init loop variables</span>
-<a name="l00055"></a>00055     <a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a> passThruId=makeTDPs-&gt;<a class="code" href="classMakeDetectorPulses.html#a336ba62a12a819686785c436dc1448ac">GetPassThruGeneratorID</a>();
-<a name="l00056"></a>00056     <a class="code" href="structPlotTDPs_1_1Detector__t.html">Detector_t</a> tmp;
-<a name="l00057"></a>00057     std::string name;
-<a name="l00058"></a>00058     std::string title;
-<a name="l00059"></a>00059     std::stringstream full_title;
-<a name="l00060"></a>00060     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> fast_id;
-<a name="l00061"></a>00061     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> slow_id;
-<a name="l00062"></a>00062     <span class="keywordtype">int</span> n_bits;
-<a name="l00063"></a>00063     <span class="keywordtype">double</span> fast_amp_max, slow_amp_max;
-<a name="l00064"></a>00064     <span class="keywordtype">double</span> fast_amp_min=0, slow_amp_min=0;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066     <span class="comment">// Loop over all TDP sources</span>
-<a name="l00067"></a>00067     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin();
-<a name="l00068"></a>00068             i_source!= <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); ++i_source){
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070         <span class="comment">// Ignore TDP sources that use the pass-through generator (so only have</span>
-<a name="l00071"></a>00071         <span class="comment">// one valid input channel, like a scintillator or the muScA)</span>
-<a name="l00072"></a>00072         <span class="keywordflow">if</span>(i_source-&gt;first==passThruId){
-<a name="l00073"></a>00073             cout&lt;&lt;<span class="stringliteral">&quot;Skipping TDP source, &apos;&quot;</span>&lt;&lt;i_source-&gt;first&lt;&lt;<span class="stringliteral">&quot;&apos; as it was made with the pass-through generator&quot;</span>&lt;&lt;endl;
-<a name="l00074"></a>00074             <span class="keywordflow">continue</span>;
-<a name="l00075"></a>00075         }
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077         <span class="comment">// make the name and title for the histogram</span>
-<a name="l00078"></a>00078         name=<span class="charliteral">&apos;h&apos;</span>+i_source-&gt;first.<a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19" title="Get this ID as a string.">str</a>();
-<a name="l00079"></a>00079         <a class="code" href="namespacemodules_1_1parser.html#a251ecfa397c10d7e2ba4709b46099260">modules::parser::ToCppValid</a>(name);
-<a name="l00080"></a>00080         title=<span class="stringliteral">&quot; coming from &quot;</span>;
-<a name="l00081"></a>00081         title+=i_source-&gt;first.str();
-<a name="l00082"></a>00082         <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00083"></a>00083             cout&lt;&lt;<span class="stringliteral">&quot;Made histogram called &quot;</span>&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot; with title &quot;</span>&lt;&lt; title&lt;&lt;endl;
-<a name="l00084"></a>00084         }
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086         <span class="comment">// Setup the Axis limits</span>
-<a name="l00087"></a>00087         fast_id=i_source-&gt;first.Channel();
-<a name="l00088"></a>00088         fast_id.<a class="code" href="classIDs_1_1channel.html#a412d1ebe2d4a25f46eb3e405f356ba1a" title="Get the SlowFast enum for this channel.">SlowFast</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">IDs::kFast</a>);
-<a name="l00089"></a>00089         slow_id=fast_id.<a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">GetCorrespondingFastSlow</a>();
-<a name="l00090"></a>00090         n_bits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;GetBank(fast_id));
-<a name="l00091"></a>00091         fast_amp_max = std::pow(2, n_bits);
-<a name="l00092"></a>00092         n_bits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;GetBank(slow_id));
-<a name="l00093"></a>00093         slow_amp_max = std::pow(2, n_bits);
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095         <span class="comment">// Make a histogram of the relative amplitudes</span>
-<a name="l00096"></a>00096         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>=<span class="keyword">new</span> TH2F((name+<span class="stringliteral">&quot;_amp&quot;</span>).c_str(),(<span class="stringliteral">&quot;Amplitudes of TDPs &quot;</span>+title).c_str(),
-<a name="l00097"></a>00097                 150,fast_amp_min,fast_amp_max,150,slow_amp_min,slow_amp_max);
-<a name="l00098"></a>00098         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
-<a name="l00099"></a>00099         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;SetYTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101         <span class="comment">// Histogram amplitudes for pulses not in either channel</span>
-<a name="l00102"></a>00102         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_fast_only_amp&quot;</span>).c_str(),
-<a name="l00103"></a>00103                 (<span class="stringliteral">&quot;Amplitudes of hits with no corresponding slow pulse &quot;</span>+title).c_str(), 
-<a name="l00104"></a>00104                 200,fast_amp_min,fast_amp_max);
-<a name="l00105"></a>00105         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107         <span class="comment">// Histogram amplitudes for pulses not in either channel</span>
-<a name="l00108"></a>00108         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_slow_only_amp&quot;</span>).c_str(),
-<a name="l00109"></a>00109                 (<span class="stringliteral">&quot;Amplitudes of hits with no corresponding fast pulse &quot;</span>+title).c_str(), 
-<a name="l00110"></a>00110                 200,slow_amp_min,slow_amp_max);
-<a name="l00111"></a>00111         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113         <span class="comment">// Make a histogram of the time difference between pulses</span>
-<a name="l00114"></a>00114         full_title.str(<span class="stringliteral">&quot;Time difference vs. fast amplitude for pulses &quot;</span>);
-<a name="l00115"></a>00115         full_title&lt;&lt;title;
-<a name="l00116"></a>00116         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>=<span class="keyword">new</span> TH2F((name+<span class="stringliteral">&quot;_fast_amp_tdiff&quot;</span>).c_str(),full_title.str().c_str(),
-<a name="l00117"></a>00117                 200,0,-1,200,fast_amp_min,fast_amp_max);
-<a name="l00118"></a>00118         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>-&gt;SetXTitle(<span class="stringliteral">&quot;t_{Fast} - t_{Slow}&quot;</span>);
-<a name="l00119"></a>00119         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>-&gt;SetYTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121         full_title.str(<span class="stringliteral">&quot;Time difference vs. slow amplitude for pulses &quot;</span>);
-<a name="l00122"></a>00122         full_title&lt;&lt;title;
-<a name="l00123"></a>00123         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>=<span class="keyword">new</span> TH2F((name+<span class="stringliteral">&quot;_slow_amp_tdiff&quot;</span>).c_str(),full_title.str().c_str(),
-<a name="l00124"></a>00124                 200,0,-1,200,slow_amp_min,slow_amp_max);
-<a name="l00125"></a>00125         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>-&gt;SetXTitle(<span class="stringliteral">&quot;t_{Fast} - t_{Slow}&quot;</span>);
-<a name="l00126"></a>00126         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>-&gt;SetYTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128         <span class="keywordflow">if</span>(<a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>){
-<a name="l00129"></a>00129             <span class="comment">// Histogram amplitudes for fast pulses with a slow pulse cut</span>
-<a name="l00130"></a>00130             full_title.str(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00131"></a>00131             full_title&lt;&lt;<span class="stringliteral">&quot;Amplitudes in slow channel if paired to a fast pulse with amplitude above &quot;</span>;
-<a name="l00132"></a>00132             full_title&lt;&lt;<a class="code" href="classPlotTDPs.html#a87b54e642caa4c66306dd317213a0a66">fFastCut</a>&lt;&lt;title;
-<a name="l00133"></a>00133             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_slow_amp_fast_cut&quot;</span>).c_str(),
-<a name="l00134"></a>00134                     full_title.str().c_str(), 200,slow_amp_min,slow_amp_max);
-<a name="l00135"></a>00135             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137             <span class="comment">// Histogram amplitudes for slow pulses with a fast pulse cut</span>
-<a name="l00138"></a>00138             full_title.str(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00139"></a>00139             full_title&lt;&lt;<span class="stringliteral">&quot;Amplitudes in fast channel if paired to a slow pulse with amplitude above &quot;</span>;
-<a name="l00140"></a>00140             full_title&lt;&lt;<a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">fSlowCut</a>&lt;&lt;title;
-<a name="l00141"></a>00141             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_fast_amps_slow_cut&quot;</span>).c_str(),
-<a name="l00142"></a>00142                     full_title.str().c_str(), 200,fast_amp_min,fast_amp_max);
-<a name="l00143"></a>00143             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
-<a name="l00144"></a>00144         } <span class="keywordflow">else</span>{
-<a name="l00145"></a>00145             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>=NULL;
-<a name="l00146"></a>00146             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>=NULL;
-<a name="l00147"></a>00147         }
-<a name="l00148"></a>00148 
-<a name="l00149"></a>00149         <span class="comment">// Add tmp to the list of TDPs to draw</span>
-<a name="l00150"></a>00150         <a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>[i_source-&gt;first]=tmp;
-<a name="l00151"></a>00151     }
-<a name="l00152"></a>00152 
-<a name="l00153"></a>00153     <span class="comment">// Change back to the top level directory</span>
-<a name="l00154"></a>00154     <a class="code" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b" title="Get the TDirectory for this module.">GetDirectory</a>()-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
-<a name="l00155"></a>00155   <span class="keywordflow">return</span> 0;
-<a name="l00156"></a>00156 }
-<a name="l00157"></a>00157 
-<a name="l00158"></a><a class="code" href="classPlotTDPs.html#a8fbe4ffd26b9e7397d89c7975135b0b8">00158</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDPs.html#a8fbe4ffd26b9e7397d89c7975135b0b8" title="What&amp;#39;s calculated for every entry? Don&amp;#39;t hesitate to repeat what was said...">PlotTDPs::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00159"></a>00159 
-<a name="l00160"></a>00160     <span class="comment">// For each TDP source of interest (defined in BeforeFirstEntry)</span>
-<a name="l00161"></a>00161     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a>* pulseList;
-<a name="l00162"></a>00162     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_pulse_list;
-<a name="l00163"></a>00163     <span class="keywordtype">double</span> fast_amp, slow_amp, fast_time, slow_time;
-<a name="l00164"></a>00164     <a class="code" href="structPlotTDPs_1_1Detector__t.html">Detector_t</a> plots;
-<a name="l00165"></a>00165     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PlotsList_t::iterator</a> i_source=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.begin();
-<a name="l00166"></a>00166             i_source!=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.end(); ++i_source){
-<a name="l00167"></a>00167         <span class="comment">// Get the desired pulse list</span>
-<a name="l00168"></a>00168         i_pulse_list=<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.find(i_source-&gt;first);
-<a name="l00169"></a>00169         <span class="keywordflow">if</span>(i_pulse_list== <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end()){
-<a name="l00170"></a>00170             cout&lt;&lt;<span class="stringliteral">&quot;Unable to find TDP list for source, &quot;</span>&lt;&lt;i_source-&gt;first&lt;&lt;endl;
-<a name="l00171"></a>00171             <span class="keywordflow">return</span> 1;
-<a name="l00172"></a>00172         }
-<a name="l00173"></a>00173         pulseList=&amp;i_pulse_list-&gt;second;
-<a name="l00174"></a>00174         plots=i_source-&gt;second;
-<a name="l00175"></a>00175 
-<a name="l00176"></a>00176         <span class="comment">// Loop over the pulse list</span>
-<a name="l00177"></a>00177         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">DetectorPulseList::const_iterator</a> i_pulse=pulseList-&gt;begin();
-<a name="l00178"></a>00178                 i_pulse!=pulseList-&gt;end(); ++i_pulse){
-<a name="l00179"></a>00179 
-<a name="l00180"></a>00180             <span class="comment">// get the amplitudes for each pulse</span>
-<a name="l00181"></a>00181             fast_amp=(*i_pulse)-&gt;GetAmplitude(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">TDetectorPulse::kFast</a>);
-<a name="l00182"></a>00182             slow_amp=(*i_pulse)-&gt;GetAmplitude(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">TDetectorPulse::kSlow</a>);
-<a name="l00183"></a>00183             fast_time=(*i_pulse)-&gt;GetTime(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">TDetectorPulse::kFast</a>);
-<a name="l00184"></a>00184             slow_time=(*i_pulse)-&gt;GetTime(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">TDetectorPulse::kSlow</a>);
-<a name="l00185"></a>00185 
-<a name="l00186"></a>00186             <span class="comment">// If one of the channels is the default value then fill the</span>
-<a name="l00187"></a>00187             <span class="comment">// histogram for channels that weren&apos;t matched</span>
-<a name="l00188"></a>00188             <span class="keywordflow">if</span>(fast_amp==<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
-<a name="l00189"></a>00189                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>-&gt;Fill(slow_amp);
-<a name="l00190"></a>00190             }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(slow_amp==<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
-<a name="l00191"></a>00191                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>-&gt;Fill(fast_amp);
-<a name="l00192"></a>00192             }<span class="keywordflow">else</span> {
-<a name="l00193"></a>00193                 <span class="comment">// Both channels saw hits, fill the 2d plot</span>
-<a name="l00194"></a>00194                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;Fill(slow_amp,fast_amp);
-<a name="l00195"></a>00195                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>-&gt;Fill(slow_time - fast_time ,fast_amp);
-<a name="l00196"></a>00196                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>-&gt;Fill(slow_time - fast_time ,slow_amp);
-<a name="l00197"></a>00197             }
-<a name="l00198"></a>00198 
-<a name="l00199"></a>00199             <span class="keywordflow">if</span>(!<a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>) <span class="keywordflow">continue</span>;
-<a name="l00200"></a>00200             <span class="comment">// Fill the cut histograms</span>
-<a name="l00201"></a>00201             <span class="keywordflow">if</span>(fast_amp&gt; <a class="code" href="classPlotTDPs.html#a87b54e642caa4c66306dd317213a0a66">fFastCut</a> &amp;&amp; slow_amp!=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
-<a name="l00202"></a>00202                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>-&gt;Fill(slow_amp);
-<a name="l00203"></a>00203             }
-<a name="l00204"></a>00204             <span class="keywordflow">if</span>(slow_amp&gt; <a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">fSlowCut</a> &amp;&amp; fast_amp!=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
-<a name="l00205"></a>00205                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>-&gt;Fill(fast_amp);
-<a name="l00206"></a>00206             }
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208         }
-<a name="l00209"></a>00209     }
-<a name="l00210"></a>00210 
-<a name="l00211"></a>00211     <span class="keywordflow">return</span> 0;
-<a name="l00212"></a>00212 }
-<a name="l00213"></a>00213 
-<a name="l00214"></a><a class="code" href="classPlotTDPs.html#acc8aac00def41941edb1acaf6b653908">00214</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDPs.html#acc8aac00def41941edb1acaf6b653908" title="What needs to be done after each run? Don&amp;#39;t hesitate to repeat what was said...">PlotTDPs::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00215"></a>00215     <span class="comment">// Draw and save all histograms</span>
-<a name="l00216"></a>00216     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PlotsList_t::iterator</a> i_source=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.begin();
-<a name="l00217"></a>00217             i_source!=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.end(); ++i_source){
-<a name="l00218"></a>00218         i_source-&gt;second.amplitudes-&gt;Draw();
-<a name="l00219"></a>00219         i_source-&gt;second.slow_only_amps-&gt;Draw();
-<a name="l00220"></a>00220         i_source-&gt;second.fast_only_amps-&gt;Draw();
-<a name="l00221"></a>00221         i_source-&gt;second.time_diff_fast-&gt;Draw();
-<a name="l00222"></a>00222         i_source-&gt;second.time_diff_slow-&gt;Draw();
-<a name="l00223"></a>00223         <span class="keywordflow">if</span>(<a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>){
-<a name="l00224"></a>00224             i_source-&gt;second.fast_amps_slow_cut-&gt;Draw();
-<a name="l00225"></a>00225             i_source-&gt;second.slow_amps_fast_cut-&gt;Draw();
-<a name="l00226"></a>00226         }
-<a name="l00227"></a>00227     }
-<a name="l00228"></a>00228 
-<a name="l00229"></a>00229   <span class="keywordflow">return</span> 0;
-<a name="l00230"></a>00230 }
-<a name="l00231"></a>00231 
-<a name="l00232"></a>00232 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTDPs.html" title="A one line description of what your module does.">PlotTDPs</a>,slow_ch_cut,fast_ch_cut);
+<a name="l00028"></a>00028 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#ab6b36cbc9a3363d8b03d3b9f363c8ced">SourceDetPulseMap</a> <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>;
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="classPlotTDPs.html#a0fc6a0a559220943120f1e42ff3a0c3a">00030</a> <a class="code" href="classPlotTDPs.html#a0fc6a0a559220943120f1e42ff3a0c3a" title="Constructor.">PlotTDPs::PlotTDPs</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
+<a name="l00031"></a>00031    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotTDPs&quot;</span>,opts),fCutHists(false){
+<a name="l00032"></a>00032        <a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>=!opts-&gt;<a class="code" href="classmodules_1_1options.html#afd85b5a7cd2ac4dbe59d5b07d83397d6" title="Check if a flag option has been set.">GetFlag</a>(<span class="stringliteral">&quot;no_cut_histos&quot;</span>);
+<a name="l00033"></a>00033        <a class="code" href="classPlotTDPs.html#a87b54e642caa4c66306dd317213a0a66">fFastCut</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#aa26113243f75f844d53ab87b7ce25f27" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;fast_ch_cut&quot;</span>,0);
+<a name="l00034"></a>00034        <a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">fSlowCut</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#aa26113243f75f844d53ab87b7ce25f27" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;slow_ch_cut&quot;</span>,0);
+<a name="l00035"></a>00035 }
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="classPlotTDPs.html#ab40145cd5ab6cf047a09daf6878d821b">00037</a> <a class="code" href="classPlotTDPs.html#ab40145cd5ab6cf047a09daf6878d821b" title="Destructor.">PlotTDPs::~PlotTDPs</a>(){
+<a name="l00038"></a>00038 }
+<a name="l00039"></a>00039 
+<a name="l00040"></a><a class="code" href="classPlotTDPs.html#a2d6e5c0adf86b4b251f364e18919ecee">00040</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDPs.html#a2d6e5c0adf86b4b251f364e18919ecee" title="Setup all histograms.">PlotTDPs::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00041"></a>00041     <span class="comment">// Change into this modules directory</span>
+<a name="l00042"></a>00042     <a class="code" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b" title="Get the TDirectory for this module.">GetDirectory</a>()-&gt;cd();
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     <span class="comment">// Make sure we&apos;ve got MakeDetectorPulses being used</span>
+<a name="l00045"></a>00045     <a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>* makeTDPs=<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;GetModule&lt;<a class="code" href="classMakeDetectorPulses.html">MakeDetectorPulses</a>&gt;(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>);
+<a name="l00046"></a>00046     <span class="keywordflow">if</span>(!makeTDPs){
+<a name="l00047"></a>00047         cout&lt;&lt;<span class="stringliteral">&quot;It&apos;s meaningless to use the PlotTDPs module without MakeDetectorPulses as well&quot;</span>&lt;&lt;endl;
+<a name="l00048"></a>00048         <span class="keywordflow">return</span> 1;
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050     <span class="comment">// Make sure MakeDetectorPulses is called before PlotTDPs</span>
+<a name="l00051"></a>00051     <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;Before(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>,<a class="code" href="classBaseModule.html#af30c91fa2a3388325dd20b322de517ca" title="Get the name of this module as given to the constructor of the base class.">GetName</a>())){
+<a name="l00052"></a>00052         cout&lt;&lt;<span class="stringliteral">&quot;MakeDetectorPulses must be used before PlotTDPs&quot;</span>&lt;&lt;endl;
+<a name="l00053"></a>00053         <span class="keywordflow">return</span> 2;
+<a name="l00054"></a>00054     }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <span class="comment">// Init loop variables</span>
+<a name="l00057"></a>00057     <a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a> passThruId=makeTDPs-&gt;<a class="code" href="classMakeDetectorPulses.html#a336ba62a12a819686785c436dc1448ac">GetPassThruGeneratorID</a>();
+<a name="l00058"></a>00058     <a class="code" href="structPlotTDPs_1_1Detector__t.html">Detector_t</a> tmp;
+<a name="l00059"></a>00059     std::string name;
+<a name="l00060"></a>00060     std::string title;
+<a name="l00061"></a>00061     std::stringstream full_title;
+<a name="l00062"></a>00062     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> fast_id;
+<a name="l00063"></a>00063     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> slow_id;
+<a name="l00064"></a>00064     <span class="keywordtype">int</span> n_bits;
+<a name="l00065"></a>00065     <span class="keywordtype">double</span> fast_amp_max, slow_amp_max;
+<a name="l00066"></a>00066     <span class="keywordtype">double</span> fast_amp_min=0, slow_amp_min=0;
+<a name="l00067"></a>00067     <span class="keywordtype">double</span> tdiff_min=-1e6, tdiff_max=1e6;
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <span class="comment">// Loop over all TDP sources</span>
+<a name="l00070"></a>00070     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin();
+<a name="l00071"></a>00071             i_source!= <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); ++i_source){
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073         <span class="comment">// Ignore TDP sources that use the pass-through generator (so only have</span>
+<a name="l00074"></a>00074         <span class="comment">// one valid input channel, like a scintillator or the muScA)</span>
+<a name="l00075"></a>00075         <span class="keywordflow">if</span>(i_source-&gt;first==passThruId){
+<a name="l00076"></a>00076             cout&lt;&lt;<span class="stringliteral">&quot;Skipping TDP source, &apos;&quot;</span>&lt;&lt;i_source-&gt;first&lt;&lt;<span class="stringliteral">&quot;&apos; as it was made with the pass-through generator&quot;</span>&lt;&lt;endl;
+<a name="l00077"></a>00077             <span class="keywordflow">continue</span>;
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080         <span class="comment">// make the name and title for the histogram</span>
+<a name="l00081"></a>00081         name=<span class="charliteral">&apos;h&apos;</span>+i_source-&gt;first.<a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19" title="Get this ID as a string.">str</a>();
+<a name="l00082"></a>00082         <a class="code" href="namespacemodules_1_1parser.html#a251ecfa397c10d7e2ba4709b46099260">modules::parser::ToCppValid</a>(name);
+<a name="l00083"></a>00083         title=<span class="stringliteral">&quot; from &quot;</span>;
+<a name="l00084"></a>00084         title+=i_source-&gt;first.str();
+<a name="l00085"></a>00085         <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00086"></a>00086             cout&lt;&lt;<span class="stringliteral">&quot;Made histogram called &quot;</span>&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot; with title &quot;</span>&lt;&lt; title&lt;&lt;endl;
+<a name="l00087"></a>00087         }
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089         <span class="comment">// Setup the Axis limits</span>
+<a name="l00090"></a>00090         fast_id=i_source-&gt;first.Channel();
+<a name="l00091"></a>00091         fast_id.<a class="code" href="classIDs_1_1channel.html#a412d1ebe2d4a25f46eb3e405f356ba1a" title="Get the SlowFast enum for this channel.">SlowFast</a>(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">IDs::kFast</a>);
+<a name="l00092"></a>00092         slow_id=fast_id.<a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">GetCorrespondingFastSlow</a>();
+<a name="l00093"></a>00093         n_bits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;GetBank(fast_id));
+<a name="l00094"></a>00094         fast_amp_max = std::pow(2, n_bits);
+<a name="l00095"></a>00095         n_bits = setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;GetBank(slow_id));
+<a name="l00096"></a>00096         slow_amp_max = std::pow(2, n_bits);
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098         <span class="comment">// Make a histogram of the relative amplitudes</span>
+<a name="l00099"></a>00099         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>=<span class="keyword">new</span> TH2F((name+<span class="stringliteral">&quot;_amp&quot;</span>).c_str(),(<span class="stringliteral">&quot;Amplitudes of TDPs &quot;</span>+title).c_str(),
+<a name="l00100"></a>00100                 150,fast_amp_min,fast_amp_max,150,slow_amp_min,slow_amp_max);
+<a name="l00101"></a>00101         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
+<a name="l00102"></a>00102         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;SetYTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104         <span class="comment">// Histogram amplitudes for pulses not in either channel</span>
+<a name="l00105"></a>00105         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_fast_only_amp&quot;</span>).c_str(),
+<a name="l00106"></a>00106                 (<span class="stringliteral">&quot;Amplitudes of hits with no corresponding slow pulse &quot;</span>+title).c_str(), 
+<a name="l00107"></a>00107                 200,fast_amp_min,fast_amp_max);
+<a name="l00108"></a>00108         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110         <span class="comment">// Histogram amplitudes for pulses not in either channel</span>
+<a name="l00111"></a>00111         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_slow_only_amp&quot;</span>).c_str(),
+<a name="l00112"></a>00112                 (<span class="stringliteral">&quot;Amplitudes of hits with no corresponding fast pulse &quot;</span>+title).c_str(), 
+<a name="l00113"></a>00113                 200,slow_amp_min,slow_amp_max);
+<a name="l00114"></a>00114         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116         <span class="comment">// Histogram of amplitude ratio to show the scale factor in paired</span>
+<a name="l00117"></a>00117         <span class="comment">// channels</span>
+<a name="l00118"></a>00118         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ac40ec201cb1b381b701541b5e1375ef7">scale_factor</a>=<span class="keyword">new</span>  TH1F((name+<span class="stringliteral">&quot;_scale_factor&quot;</span>).c_str(),
+<a name="l00119"></a>00119                 (<span class="stringliteral">&quot;Ratio of amplitudes &quot;</span>+title).c_str(), 
+<a name="l00120"></a>00120                 200,0,10);
+<a name="l00121"></a>00121         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ac40ec201cb1b381b701541b5e1375ef7">scale_factor</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Ratio of amplitudes, A_{Slow} / A_{Fast}&quot;</span>);
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123         <span class="comment">// Make a histogram of the time difference between pulses</span>
+<a name="l00124"></a>00124         full_title.str(<span class="stringliteral">&quot;Time difference vs. fast amplitude for pulses &quot;</span>);
+<a name="l00125"></a>00125         full_title&lt;&lt;title;
+<a name="l00126"></a>00126         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>=<span class="keyword">new</span> TH2F((name+<span class="stringliteral">&quot;_fast_amp_tdiff&quot;</span>).c_str(),full_title.str().c_str(),
+<a name="l00127"></a>00127                                     200,tdiff_min,tdiff_max,200,fast_amp_min,fast_amp_max);
+<a name="l00128"></a>00128         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>-&gt;SetXTitle(<span class="stringliteral">&quot;t_{Fast} - t_{Slow}&quot;</span>);
+<a name="l00129"></a>00129         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>-&gt;SetYTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131         full_title.str(<span class="stringliteral">&quot;Time difference vs. slow amplitude for pulses &quot;</span>);
+<a name="l00132"></a>00132         full_title&lt;&lt;title;
+<a name="l00133"></a>00133         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>=<span class="keyword">new</span> TH2F((name+<span class="stringliteral">&quot;_slow_amp_tdiff&quot;</span>).c_str(),full_title.str().c_str(),
+<a name="l00134"></a>00134                 200,tdiff_min,tdiff_max,200,slow_amp_min,slow_amp_max);
+<a name="l00135"></a>00135         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>-&gt;SetXTitle(<span class="stringliteral">&quot;t_{Fast} - t_{Slow}&quot;</span>);
+<a name="l00136"></a>00136         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>-&gt;SetYTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a50d972300971c73cc2ef52beedf59549">times</a>=<span class="keyword">new</span> TH2F((name+<span class="stringliteral">&quot;_times&quot;</span>).c_str(),(<span class="stringliteral">&quot;Times of pulses &quot;</span>+title).c_str(),
+<a name="l00139"></a>00139                 200,0,-1,200,0,-1);
+<a name="l00140"></a>00140         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a50d972300971c73cc2ef52beedf59549">times</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Time in Fast channel&quot;</span>);
+<a name="l00141"></a>00141         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a50d972300971c73cc2ef52beedf59549">times</a>-&gt;SetYTitle(<span class="stringliteral">&quot;Time in Slow channel&quot;</span>);
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143         <span class="keywordflow">if</span>(<a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>){
+<a name="l00144"></a>00144             <span class="comment">// Histogram amplitudes for fast pulses with a slow pulse cut</span>
+<a name="l00145"></a>00145             full_title.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00146"></a>00146             full_title&lt;&lt;<span class="stringliteral">&quot;Amplitudes in slow channel if paired to a fast pulse with amplitude above &quot;</span>;
+<a name="l00147"></a>00147             full_title&lt;&lt;<a class="code" href="classPlotTDPs.html#a87b54e642caa4c66306dd317213a0a66">fFastCut</a>&lt;&lt;title;
+<a name="l00148"></a>00148             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_slow_amp_fast_cut&quot;</span>).c_str(),
+<a name="l00149"></a>00149                     full_title.str().c_str(), 200,slow_amp_min,slow_amp_max);
+<a name="l00150"></a>00150             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Slow channel&quot;</span>);
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152             <span class="comment">// Histogram amplitudes for slow pulses with a fast pulse cut</span>
+<a name="l00153"></a>00153             full_title.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00154"></a>00154             full_title&lt;&lt;<span class="stringliteral">&quot;Amplitudes in fast channel if paired to a slow pulse with amplitude above &quot;</span>;
+<a name="l00155"></a>00155             full_title&lt;&lt;<a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">fSlowCut</a>&lt;&lt;title;
+<a name="l00156"></a>00156             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>=<span class="keyword">new</span> TH1F((name+<span class="stringliteral">&quot;_fast_amps_slow_cut&quot;</span>).c_str(),
+<a name="l00157"></a>00157                     full_title.str().c_str(), 200,fast_amp_min,fast_amp_max);
+<a name="l00158"></a>00158             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>-&gt;SetXTitle(<span class="stringliteral">&quot;Amplitude in Fast channel&quot;</span>);
+<a name="l00159"></a>00159         } <span class="keywordflow">else</span>{
+<a name="l00160"></a>00160             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>=NULL;
+<a name="l00161"></a>00161             tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>=NULL;
+<a name="l00162"></a>00162         }
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164         tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ab83c9c420906e113f22fdda1c045214f">amp_status</a>=tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a8bc3d8e3192a5b8698f15eb383a70670">amp_inter</a>=tmp.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a42d05aef01dff39bce5c8088ae821318">amp_grad</a>=0;
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166         <span class="comment">// Add tmp to the list of TDPs to draw</span>
+<a name="l00167"></a>00167         <a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>[i_source-&gt;first]=tmp;
+<a name="l00168"></a>00168     }
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170     <span class="comment">// Change back to the top level directory</span>
+<a name="l00171"></a>00171     <a class="code" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b" title="Get the TDirectory for this module.">GetDirectory</a>()-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00172"></a>00172   <span class="keywordflow">return</span> 0;
+<a name="l00173"></a>00173 }
+<a name="l00174"></a>00174 
+<a name="l00175"></a><a class="code" href="classPlotTDPs.html#a8fbe4ffd26b9e7397d89c7975135b0b8">00175</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDPs.html#a8fbe4ffd26b9e7397d89c7975135b0b8" title="Fill all histograms.">PlotTDPs::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177     <span class="comment">// For each TDP source of interest (defined in BeforeFirstEntry)</span>
+<a name="l00178"></a>00178     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a>* pulseList;
+<a name="l00179"></a>00179     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_pulse_list;
+<a name="l00180"></a>00180     <span class="keywordtype">double</span> fast_amp, slow_amp, fast_time, slow_time;
+<a name="l00181"></a>00181     <a class="code" href="structPlotTDPs_1_1Detector__t.html">Detector_t</a> plots;
+<a name="l00182"></a>00182     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PlotsList_t::iterator</a> i_source=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.begin();
+<a name="l00183"></a>00183             i_source!=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.end(); ++i_source){
+<a name="l00184"></a>00184         <span class="comment">// Get the desired pulse list</span>
+<a name="l00185"></a>00185         i_pulse_list=<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.find(i_source-&gt;first);
+<a name="l00186"></a>00186         <span class="keywordflow">if</span>(i_pulse_list== <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end()){
+<a name="l00187"></a>00187             cout&lt;&lt;<span class="stringliteral">&quot;Unable to find TDP list for source, &quot;</span>&lt;&lt;i_source-&gt;first&lt;&lt;endl;
+<a name="l00188"></a>00188             <span class="keywordflow">return</span> 1;
+<a name="l00189"></a>00189         }
+<a name="l00190"></a>00190         pulseList=&amp;i_pulse_list-&gt;second;
+<a name="l00191"></a>00191         plots=i_source-&gt;second;
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193         <span class="comment">// Loop over the pulse list</span>
+<a name="l00194"></a>00194         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">DetectorPulseList::const_iterator</a> i_pulse=pulseList-&gt;begin();
+<a name="l00195"></a>00195                 i_pulse!=pulseList-&gt;end(); ++i_pulse){
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197             <span class="comment">// get the amplitudes for each pulse</span>
+<a name="l00198"></a>00198             fast_amp=(*i_pulse)-&gt;GetAmplitude(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">TDetectorPulse::kFast</a>);
+<a name="l00199"></a>00199             slow_amp=(*i_pulse)-&gt;GetAmplitude(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">TDetectorPulse::kSlow</a>);
+<a name="l00200"></a>00200             fast_time=(*i_pulse)-&gt;GetTime(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">TDetectorPulse::kFast</a>);
+<a name="l00201"></a>00201             slow_time=(*i_pulse)-&gt;GetTime(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">TDetectorPulse::kSlow</a>);
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203             <span class="comment">// If one of the channels is the default value then fill the</span>
+<a name="l00204"></a>00204             <span class="comment">// histogram for channels that weren&apos;t matched</span>
+<a name="l00205"></a>00205             <span class="keywordflow">if</span>(fast_amp==<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
+<a name="l00206"></a>00206                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ad495004385a3ca3df45095a602b8cb4f">slow_only_amps</a>-&gt;Fill(slow_amp);
+<a name="l00207"></a>00207             }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(slow_amp==<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
+<a name="l00208"></a>00208                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a965ce006344157b5263467812bb09770">fast_only_amps</a>-&gt;Fill(fast_amp);
+<a name="l00209"></a>00209             }<span class="keywordflow">else</span> {
+<a name="l00210"></a>00210                 <span class="comment">// Both channels saw hits, fill the 2d plot</span>
+<a name="l00211"></a>00211                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;Fill(slow_amp,fast_amp);
+<a name="l00212"></a>00212                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a5aaf9ef74d45be8b8ba58737529e573c">time_diff_fast</a>-&gt;Fill(slow_time - fast_time ,fast_amp);
+<a name="l00213"></a>00213                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a17c16ad3e45e3d3fa127b1501f02b30d">time_diff_slow</a>-&gt;Fill(slow_time - fast_time ,slow_amp);
+<a name="l00214"></a>00214                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a50d972300971c73cc2ef52beedf59549">times</a>-&gt;Fill(slow_time, fast_time);
+<a name="l00215"></a>00215                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ac40ec201cb1b381b701541b5e1375ef7">scale_factor</a>-&gt;Fill(slow_amp/fast_amp);
+<a name="l00216"></a>00216             }
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218             <span class="keywordflow">if</span>(!<a class="code" href="classPlotTDPs.html#aa044c287636c43794cf53249947bd927">fCutHists</a>) <span class="keywordflow">continue</span>;
+<a name="l00219"></a>00219             <span class="comment">// Fill the cut histograms</span>
+<a name="l00220"></a>00220             <span class="keywordflow">if</span>(fast_amp&gt; <a class="code" href="classPlotTDPs.html#a87b54e642caa4c66306dd317213a0a66">fFastCut</a> &amp;&amp; slow_amp!=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
+<a name="l00221"></a>00221                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a269bcec8958da244fe5ff43354cd0374">slow_amps_fast_cut</a>-&gt;Fill(slow_amp);
+<a name="l00222"></a>00222             }
+<a name="l00223"></a>00223             <span class="keywordflow">if</span>(slow_amp&gt; <a class="code" href="classPlotTDPs.html#ae38c09ba00ef3606dd7e204c8b7fd80e">fSlowCut</a> &amp;&amp; fast_amp!=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>){
+<a name="l00224"></a>00224                 plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#aaabaac6b4714cdb17a3c6b4469c494f7">fast_amps_slow_cut</a>-&gt;Fill(fast_amp);
+<a name="l00225"></a>00225             }
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227         }
+<a name="l00228"></a>00228     }
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230     <span class="keywordflow">return</span> 0;
+<a name="l00231"></a>00231 }
+<a name="l00232"></a>00232 
+<a name="l00233"></a><a class="code" href="classPlotTDPs.html#acc8aac00def41941edb1acaf6b653908">00233</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDPs.html#acc8aac00def41941edb1acaf6b653908" title="Draw and fit all desired histograms.">PlotTDPs::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00234"></a>00234     <span class="comment">// Draw and save all histograms</span>
+<a name="l00235"></a>00235     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PlotsList_t::iterator</a> i_source=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.begin();
+<a name="l00236"></a>00236             i_source!=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.end(); ++i_source){
+<a name="l00237"></a>00237         <a class="code" href="structPlotTDPs_1_1Detector__t.html">Detector_t</a>&amp; plots=i_source-&gt;second;
+<a name="l00238"></a>00238         <span class="comment">//plots.amplitudes-&gt;Draw();</span>
+<a name="l00239"></a>00239         <span class="comment">//plots.slow_only_amps-&gt;Draw();</span>
+<a name="l00240"></a>00240         <span class="comment">//plots.fast_only_amps-&gt;Draw();</span>
+<a name="l00241"></a>00241         <span class="comment">//plots.time_diff_fast-&gt;Draw();</span>
+<a name="l00242"></a>00242         <span class="comment">//plots.time_diff_slow-&gt;Draw();</span>
+<a name="l00243"></a>00243         <span class="comment">//if(fCutHists){</span>
+<a name="l00244"></a>00244         <span class="comment">//    plots.fast_amps_slow_cut-&gt;Draw();</span>
+<a name="l00245"></a>00245         <span class="comment">//    plots.slow_amps_fast_cut-&gt;Draw();</span>
+<a name="l00246"></a>00246         <span class="comment">//}</span>
+<a name="l00247"></a>00247         TProfile* profile=plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;ProfileX(Form(<span class="stringliteral">&quot;%s_fit&quot;</span>,plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a105746006a28677b7d163501a3230658">amplitudes</a>-&gt;GetName()));
+<a name="l00248"></a>00248         TFitResultPtr fit=profile-&gt;Fit(<span class="stringliteral">&quot;pol1&quot;</span>,<span class="stringliteral">&quot;QS&quot;</span>);
+<a name="l00249"></a>00249         <span class="keywordflow">if</span>(((<span class="keywordtype">int</span>)fit)!=0){
+<a name="l00250"></a>00250             cout&lt;&lt;<span class="stringliteral">&quot;PlotTDPs: Warning: fitting to 2D amplitude plots failed with status: &quot;</span>
+<a name="l00251"></a>00251                 &lt;&lt; (int)fit &lt;&lt;<span class="stringliteral">&quot; for &quot;</span>&lt;&lt;i_source-&gt;first&lt;&lt;endl;
+<a name="l00252"></a>00252         } <span class="keywordflow">else</span> {
+<a name="l00253"></a>00253             plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a8bc3d8e3192a5b8698f15eb383a70670">amp_inter</a>=fit-&gt;Parameter(0);
+<a name="l00254"></a>00254             plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a42d05aef01dff39bce5c8088ae821318">amp_grad</a>=fit-&gt;Parameter(1);
+<a name="l00255"></a>00255         }
+<a name="l00256"></a>00256         plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ab83c9c420906e113f22fdda1c045214f">amp_status</a>=fit;
+<a name="l00257"></a>00257     }
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259     <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00260"></a>00260         cout&lt;&lt;<span class="stringliteral">&quot;PlotTDPs: Fitted amplitude gradients:&quot;</span>&lt;&lt;endl;
+<a name="l00261"></a>00261         cout&lt;&lt;<span class="stringliteral">&quot;   intercept\t| gradient\t| source&quot;</span>&lt;&lt;endl;
+<a name="l00262"></a>00262         cout&lt;&lt;<span class="stringliteral">&quot;   ---------\t| --------\t| ------&quot;</span>&lt;&lt;endl;
+<a name="l00263"></a>00263         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PlotsList_t::const_iterator</a> i_source=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.begin();
+<a name="l00264"></a>00264                 i_source!=<a class="code" href="classPlotTDPs.html#a7f2f6ca8a4d5ff7d62cc556f814e1c6b">fPlotsList</a>.end(); ++i_source){
+<a name="l00265"></a>00265             <span class="keyword">const</span> <a class="code" href="structPlotTDPs_1_1Detector__t.html">Detector_t</a>&amp; plots=i_source-&gt;second;
+<a name="l00266"></a>00266             <span class="keywordflow">if</span>(!plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#ab83c9c420906e113f22fdda1c045214f">amp_status</a>)
+<a name="l00267"></a>00267                 cout&lt;&lt; <span class="stringliteral">&quot;  &quot;</span>&lt;&lt;plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a8bc3d8e3192a5b8698f15eb383a70670">amp_inter</a>&lt;&lt;<span class="stringliteral">&quot;\t| &quot;</span>&lt;&lt;  plots.<a class="code" href="structPlotTDPs_1_1Detector__t.html#a42d05aef01dff39bce5c8088ae821318">amp_grad</a>&lt;&lt;<span class="stringliteral">&quot;\t| &quot;</span>&lt;&lt;i_source-&gt;first&lt;&lt;endl;
+<a name="l00268"></a>00268         }
+<a name="l00269"></a>00269     }
+<a name="l00270"></a>00270 
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272   <span class="keywordflow">return</span> 0;
+<a name="l00273"></a>00273 }
+<a name="l00274"></a>00274 
+<a name="l00275"></a>00275 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTDPs.html" title="Profile TDetectorPulse s.">PlotTDPs</a>,slow_ch_cut,fast_ch_cut);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

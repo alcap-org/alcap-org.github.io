@@ -64,54 +64,59 @@
 <a name="l00037"></a>00037         title=<span class="stringliteral">&quot;Integral of pulses coming from &quot;</span>+source-&gt;<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>();
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039         <span class="comment">// make a histogram</span>
-<a name="l00040"></a>00040         hist=<span class="keyword">new</span> TH1F(name.c_str(),title.c_str(),300,0,-1);
-<a name="l00041"></a>00041         hist-&gt;SetXTitle(<span class="stringliteral">&quot;Integral of each pulse (arb. units)&quot;</span>);
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043         <span class="comment">// register histogram with list</span>
-<a name="l00044"></a>00044         <a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>[*source]=hist;
-<a name="l00045"></a>00045     }
-<a name="l00046"></a>00046   <span class="keywordflow">return</span> 0;
-<a name="l00047"></a>00047 }
-<a name="l00048"></a>00048 
-<a name="l00049"></a><a class="code" href="classPlotIntegral.html#a65e35613bf95f548b4e106994c93803e">00049</a> <span class="keywordtype">int</span> <a class="code" href="classPlotIntegral.html#a65e35613bf95f548b4e106994c93803e" title="What&amp;#39;s calculated for every entry? Don&amp;#39;t hesitate to repeat what was said...">PlotIntegral::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PlotList_t::iterator</a> i_plot;
-<a name="l00052"></a>00052     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* pulseList;
-<a name="l00053"></a>00053     <span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>* source;
-<a name="l00054"></a>00054     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_source = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00055"></a>00055             i_source!=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); ++i_source){
-<a name="l00056"></a>00056         source=&amp;i_source-&gt;first;
-<a name="l00057"></a>00057         pulseList=&amp;i_source-&gt;second;
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059         <span class="comment">// Find the corresponding histogram</span>
-<a name="l00060"></a>00060         i_plot=<a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>.find(*source);
-<a name="l00061"></a>00061         <span class="keywordflow">if</span>(i_plot==<a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>.end()){
-<a name="l00062"></a>00062             cout&lt;&lt;<span class="stringliteral">&quot;PlotIntegral: Error: Unable to find plot for source &apos;&quot;</span>&lt;&lt;*source&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;endl;
-<a name="l00063"></a>00063             <span class="keywordflow">return</span> 1;
-<a name="l00064"></a>00064         }
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066         <span class="comment">// For each TAP </span>
-<a name="l00067"></a>00067         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> i_pulse=pulseList-&gt;begin();
-<a name="l00068"></a>00068                 i_pulse!=pulseList-&gt;end();++i_pulse){
-<a name="l00069"></a>00069             <span class="comment">// Fill integral histogram</span>
-<a name="l00070"></a>00070             i_plot-&gt;second-&gt;Fill((*i_pulse)-&gt;GetIntegral());
-<a name="l00071"></a>00071         }
-<a name="l00072"></a>00072     }
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074   <span class="keywordflow">return</span> 0;
-<a name="l00075"></a>00075 }
-<a name="l00076"></a>00076 
-<a name="l00077"></a><a class="code" href="classPlotIntegral.html#a7e9b80a60cf13a29df70b58b53b5a54b">00077</a> <span class="keywordtype">int</span> <a class="code" href="classPlotIntegral.html#a7e9b80a60cf13a29df70b58b53b5a54b" title="What needs to be done after each run? Don&amp;#39;t hesitate to repeat what was said...">PlotIntegral::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00078"></a>00078     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PlotList_t::iterator</a> i_plot=<a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>.begin();
-<a name="l00079"></a>00079             i_plot!=<a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>.end(); ++i_plot){
-<a name="l00080"></a>00080         i_plot-&gt;second-&gt;Draw();
-<a name="l00081"></a>00081     }
-<a name="l00082"></a>00082   <span class="keywordflow">return</span> 0;
-<a name="l00083"></a>00083 }
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotIntegral.html" title="A one line description of what your module does.">PlotIntegral</a>);
+<a name="l00040"></a>00040         <span class="keywordtype">int</span> x_min = -100000;
+<a name="l00041"></a>00041         <span class="keywordtype">int</span> x_max = 5000000;
+<a name="l00042"></a>00042         <span class="keywordtype">int</span> bin_width = 100;
+<a name="l00043"></a>00043         <span class="keywordtype">int</span> n_bins = (x_max - x_min) / bin_width;
+<a name="l00044"></a>00044         hist=<span class="keyword">new</span> TH1F(name.c_str(),title.c_str(),n_bins,x_min,x_max);
+<a name="l00045"></a>00045         hist-&gt;SetXTitle(<span class="stringliteral">&quot;Integral of each pulse (arb. units)&quot;</span>);
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047         <span class="comment">// register histogram with list</span>
+<a name="l00048"></a>00048         <a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>[*source]=hist;
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050   <span class="keywordflow">return</span> 0;
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="classPlotIntegral.html#a65e35613bf95f548b4e106994c93803e">00053</a> <span class="keywordtype">int</span> <a class="code" href="classPlotIntegral.html#a65e35613bf95f548b4e106994c93803e" title="What&amp;#39;s calculated for every entry? Don&amp;#39;t hesitate to repeat what was said...">PlotIntegral::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PlotList_t::iterator</a> i_plot;
+<a name="l00056"></a>00056     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* pulseList;
+<a name="l00057"></a>00057     <span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>* source;
+<a name="l00058"></a>00058     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> i_source = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00059"></a>00059             i_source!=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); ++i_source){
+<a name="l00060"></a>00060         source=&amp;i_source-&gt;first;
+<a name="l00061"></a>00061         pulseList=&amp;i_source-&gt;second;
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063         <span class="comment">// Find the corresponding histogram</span>
+<a name="l00064"></a>00064         i_plot=<a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>.find(*source);
+<a name="l00065"></a>00065         <span class="keywordflow">if</span>(i_plot==<a class="code" href="classPlotIntegral.html#a928b0b1c1e9554b6000fea03f0d8ff4a">fPlots</a>.end()){
+<a name="l00066"></a>00066             cout&lt;&lt;<span class="stringliteral">&quot;PlotIntegral: Error: Unable to find plot for source &apos;&quot;</span>&lt;&lt;*source&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;endl;
+<a name="l00067"></a>00067             <span class="keywordflow">return</span> 1;
+<a name="l00068"></a>00068         }
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="comment">// For each TAP </span>
+<a name="l00071"></a>00071         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> i_pulse=pulseList-&gt;begin();
+<a name="l00072"></a>00072                 i_pulse!=pulseList-&gt;end();++i_pulse){
+<a name="l00073"></a>00073             <span class="comment">// Fill integral histogram</span>
+<a name="l00074"></a>00074             i_plot-&gt;second-&gt;Fill((*i_pulse)-&gt;GetIntegral());
+<a name="l00075"></a>00075         }
+<a name="l00076"></a>00076     }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078   <span class="keywordflow">return</span> 0;
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="classPlotIntegral.html#a7e9b80a60cf13a29df70b58b53b5a54b">00081</a> <span class="keywordtype">int</span> <a class="code" href="classPlotIntegral.html#a7e9b80a60cf13a29df70b58b53b5a54b" title="What needs to be done after each run? Don&amp;#39;t hesitate to repeat what was said...">PlotIntegral::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00082"></a>00082   <span class="comment">/*    for(PlotList_t::iterator i_plot=fPlots.begin();</span>
+<a name="l00083"></a>00083 <span class="comment">            i_plot!=fPlots.end(); ++i_plot){</span>
+<a name="l00084"></a>00084 <span class="comment">        i_plot-&gt;second-&gt;Draw();</span>
+<a name="l00085"></a>00085 <span class="comment">    }</span>
+<a name="l00086"></a>00086 <span class="comment">  */</span>
+<a name="l00087"></a>00087   <span class="keywordflow">return</span> 0;
+<a name="l00088"></a>00088 }
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotIntegral.html" title="A one line description of what your module does.">PlotIntegral</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
