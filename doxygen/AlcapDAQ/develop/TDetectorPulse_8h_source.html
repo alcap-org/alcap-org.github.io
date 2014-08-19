@@ -75,24 +75,26 @@
 <a name="l00048"></a><a class="code" href="classTDetectorPulse.html#a011d2797fc9c353e94e38f55a9d739f9">00048</a>         <span class="keywordtype">bool</span> <a class="code" href="classTDetectorPulse.html#a011d2797fc9c353e94e38f55a9d739f9">WasPileUpChecked</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>;};
 <a name="l00049"></a><a class="code" href="classTDetectorPulse.html#aefb21f9b96ff538473175a8c9850523e">00049</a>         <span class="keywordtype">void</span> <a class="code" href="classTDetectorPulse.html#aefb21f9b96ff538473175a8c9850523e">SetPileUpChecked</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; val=<span class="keyword">true</span>){ <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>=val;};
 <a name="l00050"></a>00050 
-<a name="l00051"></a>00051     <span class="keyword">private</span>:
-<a name="l00052"></a>00052         <span class="keywordtype">bool</span> <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>;
-<a name="l00053"></a><a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">00053</a>         <span class="keywordtype">bool</span> <a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>;
-<a name="l00054"></a>00054 
-<a name="l00055"></a><a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">00055</a>         <span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>];
-<a name="l00056"></a><a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">00056</a>         <span class="keywordtype">int</span> <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>];
-<a name="l00057"></a>00057         <span class="comment">//IDs::source fParentSource[kNumParents];</span>
-<a name="l00058"></a>00058         <span class="comment">//IDs::source fSource;</span>
-<a name="l00059"></a><a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">00059</a>         <a class="code" href="classFlyWeight.html">FlyWeight&lt;IDs::source,TAnalysedPulse::Tag&gt;</a> <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>];
-<a name="l00060"></a><a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">00060</a>         <a class="code" href="classFlyWeight.html">FlyWeight&lt;IDs::source,Tag&gt;</a> <a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">fSource</a>;
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062         <a class="code" href="classTDetectorPulse.html#a421c067c101b907e609b6b7f6a2d08e9">ClassDef</a>(<a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>, 2);
-<a name="l00063"></a>00063 };
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="preprocessor">#undef TDP_GetField</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00051"></a><a class="code" href="classTDetectorPulse.html#a2e515e5a048ab01ea27acc3e5412f6f1">00051</a>         <span class="keywordtype">bool</span> <a class="code" href="classTDetectorPulse.html#a2e515e5a048ab01ea27acc3e5412f6f1">IsPairedPulse</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>]&amp;&amp;<a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">kSlow</a>];}
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053     <span class="keyword">private</span>:
+<a name="l00054"></a><a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">00054</a>         <span class="keywordtype">bool</span> <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>;
+<a name="l00055"></a><a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">00055</a>         <span class="keywordtype">bool</span> <a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>;
+<a name="l00056"></a>00056 
+<a name="l00057"></a><a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">00057</a>         <span class="keyword">const</span> <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>];
+<a name="l00058"></a><a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">00058</a>         <span class="keywordtype">int</span> <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>];
+<a name="l00059"></a>00059         <span class="comment">//IDs::source fParentSource[kNumParents];</span>
+<a name="l00060"></a>00060         <span class="comment">//IDs::source fSource;</span>
+<a name="l00061"></a><a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">00061</a>         <a class="code" href="classFlyWeight.html">FlyWeight&lt;IDs::source,TAnalysedPulse::Tag&gt;</a> <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>];
+<a name="l00062"></a><a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">00062</a>         <a class="code" href="classFlyWeight.html">FlyWeight&lt;IDs::source,Tag&gt;</a> <a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">fSource</a>;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064         <a class="code" href="classTDetectorPulse.html#a421c067c101b907e609b6b7f6a2d08e9">ClassDef</a>(<a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>, 2);
+<a name="l00065"></a>00065 };
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="preprocessor">#undef TDP_GetField</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

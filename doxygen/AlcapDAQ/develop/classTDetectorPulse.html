@@ -66,6 +66,7 @@ Inheritance diagram for TDetectorPulse:</div>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTDetectorPulse.html#a4caa57e5e77b9975a21028935c846e73">SetPileUpSafe</a> (const bool &amp;val=true)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTDetectorPulse.html#a011d2797fc9c353e94e38f55a9d739f9">WasPileUpChecked</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTDetectorPulse.html#aefb21f9b96ff538473175a8c9850523e">SetPileUpChecked</a> (const bool &amp;val=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTDetectorPulse.html#a2e515e5a048ab01ea27acc3e5412f6f1">IsPairedPulse</a> () const </td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTDetectorPulse.html#a421c067c101b907e609b6b7f6a2d08e9">ClassDef</a> (<a class="el" href="classTDetectorPulse.html">TDetectorPulse</a>, 2)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
@@ -181,7 +182,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">18</a> of file <a class="el" href="TDetectorPulse_8cpp_source.html">TDetectorPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00056">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00055">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00059">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00060">fSource</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00090">TAnalysedPulse::GetSource()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kFast</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kSlow</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00058">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00057">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00061">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00062">fSource</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00090">TAnalysedPulse::GetSource()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kFast</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kSlow</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                  {
 <a name="l00022"></a>00022   <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">Reset</a>();
@@ -342,7 +343,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00044">44</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00060">fSource</a>, and <a class="el" href="FlyWeight_8h_source.html#l00085">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00062">fSource</a>, and <a class="el" href="FlyWeight_8h_source.html#l00085">FlyWeight&lt; ValueType, UniqueTag &gt;::GetValue()</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxTimeDiffMEGenerator_8cpp_source.html#l00009">MaxTimeDiffMEGenerator::ProcessPulses()</a>.</p>
 
@@ -369,7 +370,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00042">42</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00055">fParentPulse</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00057">fParentPulse</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00042"></a>00042 {<span class="keywordflow">return</span> <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[ch];}
 </pre></div></p>
@@ -404,6 +405,30 @@ Inheritance diagram for TDetectorPulse:</div>
 
 </div>
 </div>
+<a class="anchor" id="a2e515e5a048ab01ea27acc3e5412f6f1"></a><!-- doxytag: member="TDetectorPulse::IsPairedPulse" ref="a2e515e5a048ab01ea27acc3e5412f6f1" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TDetectorPulse::IsPairedPulse </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00051">51</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00057">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kFast</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00021">kSlow</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00051"></a>00051 {<span class="keywordflow">return</span> <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>]&amp;&amp;<a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">kSlow</a>];}
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="ae0c65000a3c6d7be6ceddaaf1d26f020"></a><!-- doxytag: member="TDetectorPulse::IsPileUpSafe" ref="ae0c65000a3c6d7be6ceddaaf1d26f020" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -421,7 +446,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00046">46</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00049">fCheckedForPileUp</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00053">fPileUpSafe</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00054">fCheckedForPileUp</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00055">fPileUpSafe</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00046"></a>00046 {<span class="keywordflow">return</span> <a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>&amp;&amp;<a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>;};
 </pre></div></p>
@@ -446,7 +471,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">32</a> of file <a class="el" href="TDetectorPulse_8cpp_source.html">TDetectorPulse.cpp</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00049">fCheckedForPileUp</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00056">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00055">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00059">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00053">fPileUpSafe</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kNumParents</a>, and <a class="el" href="FlyWeight_8h_source.html#l00063">FlyWeight&lt; ValueType, UniqueTag &gt;::Reset()</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00054">fCheckedForPileUp</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00058">fParentID</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00057">fParentPulse</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00061">fParentSource</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00055">fPileUpSafe</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00021">kNumParents</a>, and <a class="el" href="FlyWeight_8h_source.html#l00063">FlyWeight&lt; ValueType, UniqueTag &gt;::Reset()</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8cpp_source.html#l00014">TDetectorPulse()</a>.</p>
 
@@ -481,7 +506,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00049">49</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00049">fCheckedForPileUp</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00054">fCheckedForPileUp</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049 { <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>=val;};
 </pre></div></p>
@@ -506,7 +531,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00047">47</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00049">fCheckedForPileUp</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00053">fPileUpSafe</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00054">fCheckedForPileUp</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00055">fPileUpSafe</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047 {<a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>=val;<a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>=<span class="keyword">true</span>;};
 </pre></div></p>
@@ -530,7 +555,7 @@ Inheritance diagram for TDetectorPulse:</div>
 
 <p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00048">48</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00049">fCheckedForPileUp</a>.</p>
+<p>References <a class="el" href="TDetectorPulse_8h_source.html#l00054">fCheckedForPileUp</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00048"></a>00048 {<span class="keywordflow">return</span> <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>;};
 </pre></div></p>
@@ -549,7 +574,7 @@ Inheritance diagram for TDetectorPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00049">49</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00054">54</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00046">IsPileUpSafe()</a>, <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00049">SetPileUpChecked()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00047">SetPileUpSafe()</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00048">WasPileUpChecked()</a>.</p>
 
@@ -566,7 +591,7 @@ Inheritance diagram for TDetectorPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00056">56</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00058">58</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse()</a>.</p>
 
@@ -583,9 +608,9 @@ Inheritance diagram for TDetectorPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00055">55</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00057">57</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00042">GetTAP()</a>, <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse()</a>.</p>
+<p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00042">GetTAP()</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00051">IsPairedPulse()</a>, <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse()</a>.</p>
 
 </div>
 </div>
@@ -600,7 +625,7 @@ Inheritance diagram for TDetectorPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00059">59</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00061">61</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse()</a>.</p>
 
@@ -617,7 +642,7 @@ Inheritance diagram for TDetectorPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00053">53</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00055">55</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00046">IsPileUpSafe()</a>, <a class="el" href="TDetectorPulse_8cpp_source.html#l00032">Reset()</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00047">SetPileUpSafe()</a>.</p>
 
@@ -634,7 +659,7 @@ Inheritance diagram for TDetectorPulse:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00060">60</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
+<p>Definition at line <a class="el" href="TDetectorPulse_8h_source.html#l00062">62</a> of file <a class="el" href="TDetectorPulse_8h_source.html">TDetectorPulse.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TDetectorPulse_8h_source.html#l00044">GetSource()</a>, and <a class="el" href="TDetectorPulse_8cpp_source.html#l00018">TDetectorPulse()</a>.</p>
 
@@ -645,7 +670,7 @@ Inheritance diagram for TDetectorPulse:</div>
 <li>rootana/src/TDP_generators/<a class="el" href="TDetectorPulse_8cpp_source.html">TDetectorPulse.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
