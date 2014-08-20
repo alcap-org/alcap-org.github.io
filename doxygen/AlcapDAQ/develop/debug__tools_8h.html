@@ -40,16 +40,552 @@
 <tr><td colspan="2"><h2>Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDEBUG.html">DEBUG</a></td></tr>
 <tr><td colspan="2"><h2>Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a887702d7d5bd938ce9ef1a7fb802c314">_NUM_ARGS</a>(X100, X99, X98, X97, X96, X95, X94, X93, X92, X91, X90, X89, X88, X87, X86, X85, X84, X83, X82, X81, X80, X79, X78, X77, X76, X75, X74, X73, X72, X71, X70, X69, X68, X67, X66, X65, X64, X63, X62, X61, X60, X59, X58, X57, X56, X55, X54, X53, X52, X51, X50, X49, X48, X47, X46, X45, X44, X43, X42, X41, X40, X39, X38, X37, X36, X35, X34, X33, X32, X31, X30, X29, X28, X27, X26, X25, X24, X23, X22, X21, X20, X19, X18, X17, X16, X15, X14, X13, X12, X11, X10, X9, X8, X7, X6, X5, X4, X3, X2, X1, N,...)&nbsp;&nbsp;&nbsp;N</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a8f1bac1b9225d9b290d41c1a85fdc73f">NUM_ARGS</a>(...)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a1c9d15f8ccd4a52a7f0bf4f24db139bd">DEBUG_PREFIX</a>&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; &quot;@ &quot; &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a192ca341aebc557ac741708a99c3c16f">DEBUG_VALUE_IMP</a>(value)&nbsp;&nbsp;&nbsp;&quot;\n  &quot;#value&quot;= [&quot; &lt;&lt; (value) &lt;&lt;&quot;]&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a5341dba618445c2c2fd4a36194d5d5a3">DEBUG_VALUE_1</a>(value)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a727854b8cd7ec752385609d3d254ce2e">DEBUG_VALUE_2</a>(value,...)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_1(__VA_ARGS__)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a2da898c566476757f42593a8aaa773ea">DEBUG_VALUE_3</a>(value,...)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_2(__VA_ARGS__)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#accf2553a04775f2c395b0c1043c68d4b">DEBUG_VALUE_4</a>(value,...)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_3(__VA_ARGS__)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#ab8ecd14febaac55e024d398ae18c2576">DEBUG_VALUE_5</a>(value,...)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_4(__VA_ARGS__)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a22b0de30d0775563b02281a51501fff8">DEBUG_VALUE_6</a>(value,...)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_5(__VA_ARGS__)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a2751aefeedc8705d20b011ac783660c3">DEBUG_VALUE_N_</a>(n,...)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_##n(__VA_ARGS__)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a68a49c6d8fe7b1fcada915f5b252d922">DEBUG_VALUE_N</a>(n,...)&nbsp;&nbsp;&nbsp;DEBUG_VALUE_N_(n,__VA_ARGS__)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a5f0eef1f739e977285c9d7fd5bc18722">DEBUG_CHECKPOINT</a>&nbsp;&nbsp;&nbsp;DEBUG_PREFIX &lt;&lt; std::endl;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#ab7ddf347af3f261a8add760637a07b21">DEBUG_PRINT</a>(output)&nbsp;&nbsp;&nbsp;DEBUG_PREFIX&lt;&lt;output &lt;&lt; std::endl;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a345a1b3cf334669b8de7e7e3bd891aca">DEBUG_VALUE</a>(value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug__tools_8h.html#a902eecd05809897fb1525d2ef9f02d08">DEBUG_VALUE</a>(...)</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;int I&gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const time_log&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceDEBUG.html#a8f7cb826726df16b7cedc4142ca14798">DEBUG::check_clock</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const mem_log&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDEBUG.html#a60406d2633a01859a75a95fa95943672">DEBUG::check_mem</a> ()</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
+<a class="anchor" id="a887702d7d5bd938ce9ef1a7fb802c314"></a><!-- doxytag: member="debug_tools.h::_NUM_ARGS" ref="a887702d7d5bd938ce9ef1a7fb802c314" args="(X100, X99, X98, X97, X96, X95, X94, X93, X92, X91, X90, X89, X88, X87, X86, X85, X84, X83, X82, X81, X80, X79, X78, X77, X76, X75, X74, X73, X72, X71, X70, X69, X68, X67, X66, X65, X64, X63, X62, X61, X60, X59, X58, X57, X56, X55, X54, X53, X52, X51, X50, X49, X48, X47, X46, X45, X44, X43, X42, X41, X40, X39, X38, X37, X36, X35, X34, X33, X32, X31, X30, X29, X28, X27, X26, X25, X24, X23, X22, X21, X20, X19, X18, X17, X16, X15, X14, X13, X12, X11, X10, X9, X8, X7, X6, X5, X4, X3, X2, X1, N,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _NUM_ARGS</td>
+          <td>(</td>
+          <td class="paramtype">X100, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X99, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X98, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X97, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X96, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X95, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X94, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X93, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X92, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X91, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X90, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X89, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X88, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X87, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X86, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X85, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X84, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X83, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X82, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X81, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X80, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X79, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X78, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X77, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X76, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X75, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X74, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X73, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X72, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X71, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X70, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X69, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X68, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X67, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X66, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X65, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X64, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X63, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X62, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X61, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X60, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X59, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X58, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X57, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X56, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X55, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X54, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X53, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X52, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X51, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X50, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X49, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X48, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X47, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X46, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X45, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X44, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X43, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X42, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X41, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X40, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X39, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X38, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X37, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X36, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X35, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X34, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X33, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X32, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X31, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X30, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X29, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X28, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X27, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X26, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X25, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X24, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X23, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X22, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X21, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X20, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X19, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X18, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X17, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X16, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X15, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X14, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X13, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X12, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X11, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X10, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X9, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X8, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X7, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X6, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X5, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X4, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X3, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">X1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">N, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;N</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00019">19</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a5f0eef1f739e977285c9d7fd5bc18722"></a><!-- doxytag: member="debug_tools.h::DEBUG_CHECKPOINT" ref="a5f0eef1f739e977285c9d7fd5bc18722" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -61,7 +597,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00013">13</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00042">42</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
 
 </div>
 </div>
@@ -76,7 +612,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00012">12</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00029">29</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
 
 <p>Referenced by <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00045">PlotAmpVsMuScTDiff::ProcessEntry()</a>.</p>
 
@@ -98,18 +634,20 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00014">14</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00043">43</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TMuonEvent_8cpp_source.html#l00075">TMuonEvent::WasEarlyInEvent()</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00080">TMuonEvent::WasLateInEvent()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a345a1b3cf334669b8de7e7e3bd891aca"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE" ref="a345a1b3cf334669b8de7e7e3bd891aca" args="(value)" -->
+<a class="anchor" id="a902eecd05809897fb1525d2ef9f02d08"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE" ref="a902eecd05809897fb1525d2ef9f02d08" args="(...)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">#define DEBUG_VALUE</td>
           <td>(</td>
-          <td class="paramtype">value&nbsp;</td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -117,16 +655,257 @@
       </table>
 </div>
 <div class="memdoc">
-<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="debug__tools_8h.html#a1c9d15f8ccd4a52a7f0bf4f24db139bd">DEBUG_PREFIX</a> &lt;&lt; <span class="stringliteral">&quot;:\n&quot;</span> &lt;&lt; std::boolalpha      \
-                                        &lt;&lt;<span class="stringliteral">&quot;  &quot;</span>#value<span class="stringliteral">&quot;= [&quot;</span> &lt;&lt; (value)    \
-                                        &lt;&lt;<span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;
+<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="debug__tools_8h.html#a1c9d15f8ccd4a52a7f0bf4f24db139bd">DEBUG_PREFIX</a> &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; std::boolalpha \
+    &lt;&lt; <a class="code" href="debug__tools_8h.html#a68a49c6d8fe7b1fcada915f5b252d922">DEBUG_VALUE_N</a>(<a class="code" href="debug__tools_8h.html#a8f1bac1b9225d9b290d41c1a85fdc73f">NUM_ARGS</a>(__VA_ARGS__),__VA_ARGS__) &lt;&lt;std::endl;
 </pre></div>
-<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00015">15</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00044">44</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5341dba618445c2c2fd4a36194d5d5a3"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_1" ref="a5341dba618445c2c2fd4a36194d5d5a3" args="(value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_1</td>
+          <td>(</td>
+          <td class="paramtype">value&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00031">31</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a727854b8cd7ec752385609d3d254ce2e"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_2" ref="a727854b8cd7ec752385609d3d254ce2e" args="(value,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_2</td>
+          <td>(</td>
+          <td class="paramtype">value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_1(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00032">32</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2da898c566476757f42593a8aaa773ea"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_3" ref="a2da898c566476757f42593a8aaa773ea" args="(value,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_3</td>
+          <td>(</td>
+          <td class="paramtype">value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_2(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00033">33</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="accf2553a04775f2c395b0c1043c68d4b"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_4" ref="accf2553a04775f2c395b0c1043c68d4b" args="(value,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_4</td>
+          <td>(</td>
+          <td class="paramtype">value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_3(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00034">34</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8ecd14febaac55e024d398ae18c2576"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_5" ref="ab8ecd14febaac55e024d398ae18c2576" args="(value,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_5</td>
+          <td>(</td>
+          <td class="paramtype">value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_4(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00035">35</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22b0de30d0775563b02281a51501fff8"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_6" ref="a22b0de30d0775563b02281a51501fff8" args="(value,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_6</td>
+          <td>(</td>
+          <td class="paramtype">value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_IMP(value)&quot;, &quot; &lt;&lt; DEBUG_VALUE_5(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00036">36</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a192ca341aebc557ac741708a99c3c16f"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_IMP" ref="a192ca341aebc557ac741708a99c3c16f" args="(value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_IMP</td>
+          <td>(</td>
+          <td class="paramtype">value&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;&quot;\n  &quot;#value&quot;= [&quot; &lt;&lt; (value) &lt;&lt;&quot;]&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00030">30</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a68a49c6d8fe7b1fcada915f5b252d922"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_N" ref="a68a49c6d8fe7b1fcada915f5b252d922" args="(n,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_N</td>
+          <td>(</td>
+          <td class="paramtype">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_N_(n,__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00039">39</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2751aefeedc8705d20b011ac783660c3"></a><!-- doxytag: member="debug_tools.h::DEBUG_VALUE_N_" ref="a2751aefeedc8705d20b011ac783660c3" args="(n,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_VALUE_N_</td>
+          <td>(</td>
+          <td class="paramtype">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;DEBUG_VALUE_##n(__VA_ARGS__)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00038">38</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f1bac1b9225d9b290d41c1a85fdc73f"></a><!-- doxytag: member="debug_tools.h::NUM_ARGS" ref="a8f1bac1b9225d9b290d41c1a85fdc73f" args="(...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NUM_ARGS</td>
+          <td>(</td>
+          <td class="paramtype"> <em>...</em>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="debug__tools_8h.html#a887702d7d5bd938ce9ef1a7fb802c314">_NUM_ARGS</a>(__VA_ARGS__, 100, 99, 98, 97, 96, 95, 94,\
+        93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77,\
+        76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60,\
+        59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43,\
+        42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26,\
+        25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8,\
+        7, 6, 5, 4, 3, 2, 1)
+</pre></div>
+<p>Definition at line <a class="el" href="debug__tools_8h_source.html#l00021">21</a> of file <a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>.</p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

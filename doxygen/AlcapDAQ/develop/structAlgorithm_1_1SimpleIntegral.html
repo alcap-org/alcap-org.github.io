@@ -44,7 +44,7 @@
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00048">48</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00047">47</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a53569139c38701d4952f8824c0fbcacf"></a><!-- doxytag: member="Algorithm::SimpleIntegral::operator()" ref="a53569139c38701d4952f8824c0fbcacf" args="(const TPulseIsland *tpi)" -->
 <div class="memitem">
@@ -62,22 +62,22 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00070">70</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00065">65</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
 
-<p>References <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00052">pedestal</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00053">trigger_polarity</a>.</p>
+<p>References <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00051">pedestal</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00052">trigger_polarity</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00070"></a>00070                                                                    {
-<a name="l00071"></a>00071   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
+<p><div class="fragment"><pre class="fragment"><a name="l00065"></a>00065                                                                    {
+<a name="l00066"></a>00066   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
+<a name="l00067"></a>00067   
+<a name="l00068"></a>00068   <span class="keywordtype">double</span> length = samples.size();
+<a name="l00069"></a>00069   <span class="keywordtype">double</span> tempint = 0;
+<a name="l00070"></a>00070   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> sIt = samples.begin(); sIt != samples.end(); sIt++)
+<a name="l00071"></a>00071     tempint += *sIt;
 <a name="l00072"></a>00072   
-<a name="l00073"></a>00073   <span class="keywordtype">double</span> length = samples.size();
-<a name="l00074"></a>00074   <span class="keywordtype">double</span> tempint = 0;
-<a name="l00075"></a>00075   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> sIt = samples.begin(); sIt != samples.end(); sIt++)
-<a name="l00076"></a>00076     tempint += *sIt;
-<a name="l00077"></a>00077   
-<a name="l00078"></a>00078   <span class="keywordtype">double</span> integral = <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a4d3b6dfddd30b5a992aed6c909b0b2c9">trigger_polarity</a> * (tempint - (<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a> * length));
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080   <span class="keywordflow">return</span> integral;
-<a name="l00081"></a>00081 }
+<a name="l00073"></a>00073   <span class="keywordtype">double</span> integral = <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a4d3b6dfddd30b5a992aed6c909b0b2c9">trigger_polarity</a> * (tempint - (<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a> * length));
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075   <span class="keywordflow">return</span> integral;
+<a name="l00076"></a>00076 }
 </pre></div></p>
 
 </div>
@@ -94,9 +94,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00052">52</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00051">51</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00070">operator()()</a>, <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00065">operator()()</a>, <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -111,9 +111,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00053">53</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00052">52</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00070">operator()()</a>, <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00065">operator()()</a>, <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00011">SimpIntAPGenerator::ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -122,7 +122,7 @@
 <li>rootana/src/TAP_generators/utils/<a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

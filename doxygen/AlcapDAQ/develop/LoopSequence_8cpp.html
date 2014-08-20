@@ -34,6 +34,7 @@
 <code>#include &quot;<a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="ModulesNavigator_8h_source.html">ModulesNavigator.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="AlcapExcept_8h_source.html">AlcapExcept.h</a>&quot;</code><br/>
 
 <p><a href="LoopSequence_8cpp_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -66,7 +67,7 @@
 
 <p>Definition at line <a class="el" href="main_8cpp_source.html#l00188">188</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>References <a class="el" href="main_8cpp_source.html#l00071">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00072">gDetectorPulseMap</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00099">modules::navigator::Instance()</a>.</p>
+<p>References <a class="el" href="main_8cpp_source.html#l00071">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00072">gDetectorPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00073">gMuonEvents</a>, and <a class="el" href="ModulesNavigator_8h_source.html#l00099">modules::navigator::Instance()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00189"></a>00189 {
 <a name="l00190"></a>00190   <span class="comment">// TODO: this comment is now gibberish.</span>
@@ -94,7 +95,7 @@
 <a name="l00212"></a>00212     <span class="comment">// TAP tree (which uses a TClonesArray that is responsible for deleting them )</span>
 <a name="l00213"></a>00213     <span class="keyword">static</span> <span class="keywordtype">bool</span> should_delete_TAPS=!<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;GetModule(<span class="stringliteral">&quot;LoadPulses&quot;</span>);
 <a name="l00214"></a>00214     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> mapIter=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00215"></a>00215             mapIter != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); mapIter++) {
+<a name="l00215"></a>00215             mapIter != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); ++mapIter) {
 <a name="l00216"></a>00216 
 <a name="l00217"></a>00217         <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
 <a name="l00218"></a>00218         <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
@@ -108,17 +109,24 @@
 <a name="l00226"></a>00226   }
 <a name="l00227"></a>00227   <span class="comment">//  gAnalysedPulseMap.clear();</span>
 <a name="l00228"></a>00228 
-<a name="l00229"></a>00229   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin(); mapIter != <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); mapIter++) {
-<a name="l00230"></a>00230     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
-<a name="l00231"></a>00231     <a class="code" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
-<a name="l00232"></a>00232     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
-<a name="l00233"></a>00233       <span class="keyword">delete</span> pulse_vector[i];
-<a name="l00234"></a>00234       pulse_vector[i] = NULL;
-<a name="l00235"></a>00235     }
-<a name="l00236"></a>00236     pulse_vector.clear();
-<a name="l00237"></a>00237   }
-<a name="l00238"></a>00238   <span class="comment">//gDetectorPulseMap.clear();</span>
-<a name="l00239"></a>00239 }
+<a name="l00229"></a>00229   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceDetPulseMap::iterator</a> mapIter = <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin();
+<a name="l00230"></a>00230           mapIter != <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); ++mapIter) {
+<a name="l00231"></a>00231     <span class="comment">// The iterator is pointing to a pair&lt;string, vector&lt;TPulseIsland*&gt; &gt;</span>
+<a name="l00232"></a>00232     <a class="code" href="definitions_8h.html#a9ef160c68f1bd90227fdb260ff89f6da">DetectorPulseList</a>&amp; pulse_vector= mapIter-&gt;second;
+<a name="l00233"></a>00233     <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;pulse_vector.size(); i++){
+<a name="l00234"></a>00234       <span class="keyword">delete</span> pulse_vector[i];
+<a name="l00235"></a>00235       pulse_vector[i] = NULL;
+<a name="l00236"></a>00236     }
+<a name="l00237"></a>00237     pulse_vector.clear();
+<a name="l00238"></a>00238   }
+<a name="l00239"></a>00239   <span class="comment">//gDetectorPulseMap.clear();</span>
+<a name="l00240"></a>00240 
+<a name="l00241"></a>00241   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">MuonEventList::iterator</a> muonEvent = <a class="code" href="main_8cpp.html#ad027f941b8aac123df6d914593784b61">gMuonEvents</a>.begin();
+<a name="l00242"></a>00242           muonEvent != <a class="code" href="main_8cpp.html#ad027f941b8aac123df6d914593784b61">gMuonEvents</a>.end(); ++muonEvent) {
+<a name="l00243"></a>00243       <span class="keyword">delete</span> *muonEvent;
+<a name="l00244"></a>00244   }
+<a name="l00245"></a>00245   <a class="code" href="main_8cpp.html#ad027f941b8aac123df6d914593784b61">gMuonEvents</a>.clear();
+<a name="l00246"></a>00246 }
 </pre></div></p>
 
 </div>
@@ -137,12 +145,12 @@
 
 <p>Definition at line <a class="el" href="main_8cpp_source.html#l00071">71</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00033">MakeAnalysedPulses::BeforeFirstEntry()</a>, <a class="el" href="SavePulses_8cpp_source.html#l00029">SavePulses::BeforeFirstEntry()</a>, <a class="el" href="PlotTDiff_8cpp_source.html#l00041">PlotTDiff::BeforeFirstEntry()</a>, <a class="el" href="PlotIntegral_8cpp_source.html#l00026">PlotIntegral::BeforeFirstEntry()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00029">PlotAmpVsMuScTDiff::BeforeFirstEntry()</a>, <a class="el" href="LoadPulses_8cpp_source.html#l00032">LoadPulses::BeforeFirstEntry()</a>, <a class="el" href="main_8cpp_source.html#l00188">ClearGlobalData()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="SavePulses_8cpp_source.html#l00052">SavePulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>, <a class="el" href="PlotTime_8cpp_source.html#l00033">PlotTime::ProcessEntry()</a>, <a class="el" href="PlotTDiff_8cpp_source.html#l00077">PlotTDiff::ProcessEntry()</a>, <a class="el" href="PlotIntegral_8cpp_source.html#l00053">PlotIntegral::ProcessEntry()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00081">PlotAmpVsTDiff::ProcessEntry()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00045">PlotAmpVsMuScTDiff::ProcessEntry()</a>, <a class="el" href="PlotAmplitude_8cpp_source.html#l00037">PlotAmplitude::ProcessEntry()</a>, and <a class="el" href="LoadPulses_8cpp_source.html#l00080">LoadPulses::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00032">MakeAnalysedPulses::BeforeFirstEntry()</a>, <a class="el" href="SavePulses_8cpp_source.html#l00029">SavePulses::BeforeFirstEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">PlotTAP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="PlotTAP__Integral_8cpp_source.html#l00026">PlotTAP_Integral::BeforeFirstEntry()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00029">PlotAmpVsMuScTDiff::BeforeFirstEntry()</a>, <a class="el" href="CalcCoarseTimeOffset_8cpp_source.html#l00041">CalcCoarseTimeOffset::BeforeFirstEntry()</a>, <a class="el" href="LoadPulses_8cpp_source.html#l00032">LoadPulses::BeforeFirstEntry()</a>, <a class="el" href="main_8cpp_source.html#l00188">ClearGlobalData()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00102">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="SavePulses_8cpp_source.html#l00052">SavePulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>, <a class="el" href="PlotTAP__Time_8cpp_source.html#l00033">PlotTAP_Time::ProcessEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">PlotTAP_TDiff::ProcessEntry()</a>, <a class="el" href="PlotTAP__Integral_8cpp_source.html#l00053">PlotTAP_Integral::ProcessEntry()</a>, <a class="el" href="PlotTAP__Amplitude_8cpp_source.html#l00037">PlotTAP_Amplitude::ProcessEntry()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00081">PlotAmpVsTDiff::ProcessEntry()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00045">PlotAmpVsMuScTDiff::ProcessEntry()</a>, <a class="el" href="CalcCoarseTimeOffset_8cpp_source.html#l00074">CalcCoarseTimeOffset::ProcessEntry()</a>, and <a class="el" href="LoadPulses_8cpp_source.html#l00080">LoadPulses::ProcessEntry()</a>.</p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

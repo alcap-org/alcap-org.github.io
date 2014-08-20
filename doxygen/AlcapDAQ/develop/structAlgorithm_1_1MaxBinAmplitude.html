@@ -62,27 +62,27 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00009">9</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">11</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
 
 <p>References <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00021">pedestal</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00020">trigger_polarity</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00009"></a>00009                                                                     {
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011   <span class="comment">// Get the samples and get an iterator ready to find the peak sample</span>
-<a name="l00012"></a>00012   std::vector&lt;int&gt; pulseSamples = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();  
-<a name="l00013"></a>00013   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015   <span class="comment">// Find the position of the peak samples</span>
-<a name="l00016"></a>00016   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == 1)
-<a name="l00017"></a>00017     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00018"></a>00018   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == -1)
-<a name="l00019"></a>00019     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021   <span class="comment">// Now calculate the amplitude</span>
-<a name="l00022"></a>00022   <span class="keywordtype">double</span> amplitude = <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a>*(*peak_sample_pos - <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a80bd9bec5eec31c185f09a3cd248ddb8">pedestal</a>);
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024   <span class="keywordflow">return</span> amplitude;
-<a name="l00025"></a>00025 }
+<p><div class="fragment"><pre class="fragment"><a name="l00011"></a>00011                                                                     {
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013   <span class="comment">// Get the samples and get an iterator ready to find the peak sample</span>
+<a name="l00014"></a>00014   std::vector&lt;int&gt; pulseSamples = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();  
+<a name="l00015"></a>00015   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017   <span class="comment">// Find the position of the peak samples</span>
+<a name="l00018"></a>00018   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == 1)
+<a name="l00019"></a>00019     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00020"></a>00020   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == -1)
+<a name="l00021"></a>00021     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023   <span class="comment">// Now calculate the amplitude</span>
+<a name="l00024"></a>00024   <span class="keywordtype">double</span> amplitude = <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a>*(*peak_sample_pos - <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a80bd9bec5eec31c185f09a3cd248ddb8">pedestal</a>);
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026   <span class="keywordflow">return</span> amplitude;
+<a name="l00027"></a>00027 }
 </pre></div></p>
 
 </div>
@@ -101,7 +101,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00021">21</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00009">operator()()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">operator()()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00028">CFTimeMBAmpAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -118,7 +118,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00020">20</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00009">operator()()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">operator()()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00028">CFTimeMBAmpAPGenerator::ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -127,7 +127,7 @@
 <li>rootana/src/TAP_generators/utils/<a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

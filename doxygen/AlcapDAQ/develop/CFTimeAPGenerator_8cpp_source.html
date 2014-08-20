@@ -44,7 +44,7 @@
 <a name="l00017"></a>00017 };
 <a name="l00018"></a>00018 
 <a name="l00019"></a><a class="code" href="classCFTimeAPGenerator.html#ac0539d7207c757bb2742be36141fe8d6">00019</a> <a class="code" href="classCFTimeAPGenerator.html#ac0539d7207c757bb2742be36141fe8d6">CFTimeAPGenerator::CFTimeAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts):
-<a name="l00020"></a>00020         <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;CFTime&quot;</span>,opts){
+<a name="l00020"></a>00020         <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;CFTimeAPGenerator&quot;</span>,opts){
 <a name="l00021"></a>00021   <span class="comment">//fConstantFraction = opts-&gt;GetDouble(&quot;constfrac&quot;, 0.1);</span>
 <a name="l00022"></a>00022   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ae439836eeac199c6952abf8ef123ae95">constant_fraction</a> = 0.2;
 <a name="l00023"></a>00023   <span class="keywordflow">if</span> (<a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ae439836eeac199c6952abf8ef123ae95">constant_fraction</a> &lt;= 0. || <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ae439836eeac199c6952abf8ef123ae95">constant_fraction</a> &gt;=100.)
@@ -53,39 +53,38 @@
 <a name="l00026"></a>00026 
 <a name="l00027"></a><a class="code" href="classCFTimeAPGenerator.html#afe2faaad7b4c38b487e51359bd6bb2cb">00027</a> <span class="keywordtype">int</span> <a class="code" href="classCFTimeAPGenerator.html#afe2faaad7b4c38b487e51359bd6bb2cb" title="This method is called on each vector of pulses from a MIDAS event.">CFTimeAPGenerator::ProcessPulses</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; pulseList,
 <a name="l00028"></a>00028                                      <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; analysedList) {
-<a name="l00029"></a>00029   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a2e5a29f8e63218a4b24347eabea0d6e6">th_frac</a> = 0.25;
+<a name="l00029"></a>00029   <span class="comment">// Get the variables we want from TSetupData/SetupNavigator</span>
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031   <span class="comment">// Get the variables we want from TSetupData/SetupNavigator</span>
+<a name="l00031"></a>00031 
 <a name="l00032"></a>00032   std::string bankname = pulseList[0]-&gt;GetBankName();
-<a name="l00033"></a>00033   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a8ba040d3efde02c812ba694fc1bd83d6">pedestal</a> = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a224ddb1f273e2bb51a0e4972c6461a20" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(bankname);
+<a name="l00033"></a>00033   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a8ba040d3efde02c812ba694fc1bd83d6">pedestal</a> = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a3de371d03d102140499cf700bb0bf933" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetDetectorName(bankname));
 <a name="l00034"></a>00034   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a09124a1321c54e9dd5a695f3a253801e">trigger_polarity</a> = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
 <a name="l00035"></a>00035   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a567fbb65aea37b355d3fb1c54550a120">max_adc_value</a> = std::pow(2, <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetNBits(bankname)) - 1;
 <a name="l00036"></a>00036   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ad36d940bf594abea062d52d89664921a">clock_tick_in_ns</a> = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a1cee3192841101548524aae1cdd73069">GetClockTick</a>(bankname);
 <a name="l00037"></a>00037   <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>.<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a0c1be95217b15f48835386992833106a">time_shift</a> = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a44c6c930564ea0a3b6ce7d26127b893f" title="Timing offset of bank from muSc.">GetTimeShift</a>(bankname);
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iTPI = 0; iTPI &lt; pulseList.size(); ++iTPI) {
-<a name="l00041"></a>00041     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* tpi = pulseList.at(iTPI);
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043     <span class="keywordtype">double</span> time = <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>(tpi);
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045     <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* tap = <a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(iTPI);
-<a name="l00046"></a>00046     tap-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
-<a name="l00047"></a>00047     analysedList.push_back(tap);
-<a name="l00048"></a>00048   }
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050   <span class="keywordflow">return</span> 0;
-<a name="l00051"></a>00051 }
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="comment">// Similar to the modules, this macro registers the generator with</span>
-<a name="l00054"></a>00054 <span class="comment">// MakeAnalysedPulses. The first argument is compulsory and gives the name of</span>
-<a name="l00055"></a>00055 <span class="comment">// this generator. All subsequent arguments will be used as names for arguments</span>
-<a name="l00056"></a>00056 <span class="comment">// given directly within the modules file.  See the github wiki for more.</span>
-<a name="l00057"></a>00057 <span class="comment">//</span>
-<a name="l00058"></a>00058 <span class="comment">// NOTE: for TAP generators OMIT the APGenerator part of the class&apos; name</span>
-<a name="l00059"></a>00059 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(CFTime);
+<a name="l00039"></a>00039   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iTPI = 0; iTPI &lt; pulseList.size(); ++iTPI) {
+<a name="l00040"></a>00040     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* tpi = pulseList.at(iTPI);
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042     <span class="keywordtype">double</span> time = <a class="code" href="classCFTimeAPGenerator.html#a59e0f79c16b058046c33663e0d514953" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>(tpi);
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* tap = <a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(iTPI);
+<a name="l00045"></a>00045     tap-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
+<a name="l00046"></a>00046     analysedList.push_back(tap);
+<a name="l00047"></a>00047   }
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049   <span class="keywordflow">return</span> 0;
+<a name="l00050"></a>00050 }
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="comment">// Similar to the modules, this macro registers the generator with</span>
+<a name="l00053"></a>00053 <span class="comment">// MakeAnalysedPulses. The first argument is compulsory and gives the name of</span>
+<a name="l00054"></a>00054 <span class="comment">// this generator. All subsequent arguments will be used as names for arguments</span>
+<a name="l00055"></a>00055 <span class="comment">// given directly within the modules file.  See the github wiki for more.</span>
+<a name="l00056"></a>00056 <span class="comment">//</span>
+<a name="l00057"></a>00057 <span class="comment">// NOTE: for TAP generators OMIT the APGenerator part of the class&apos; name</span>
+<a name="l00058"></a>00058 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(CFTime);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

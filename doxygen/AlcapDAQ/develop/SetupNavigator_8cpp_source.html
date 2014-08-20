@@ -48,85 +48,185 @@
 <a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="AlcapExcept_8h.html">AlcapExcept.h</a>&quot;</span>
 <a name="l00022"></a>00022 
 <a name="l00023"></a><a class="code" href="classExcept_1_1NoCalibDB.html#acb5ef73bb2f9ef7cd90b4419b0986057">00023</a> <a class="code" href="AlcapExcept_8h.html#a020f7674f2dcfff452980456e6405864">MAKE_EXCEPTION</a>(<a class="code" href="classExcept_1_1NoCalibDB.html">NoCalibDB</a>, <a class="code" href="classExcept_1_1Base.html">Base</a>);
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">SetupNavigator::fThis</a>=NULL;
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="comment">// Declare all our caches</span>
-<a name="l00028"></a>00028 std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">SetupNavigator::fPedestalValues</a>;
-<a name="l00029"></a>00029 std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">SetupNavigator::fNoiseValues</a>;
-<a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">00031</a> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator::SetupNavigator</a>() {
+<a name="l00024"></a><a class="code" href="classExcept_1_1InvalidDetector.html#a710efe570e1472465892a723777e5026">00024</a> <a class="code" href="AlcapExcept_8h.html#a020f7674f2dcfff452980456e6405864">MAKE_EXCEPTION</a>(<a class="code" href="classExcept_1_1InvalidDetector.html">InvalidDetector</a>, <a class="code" href="classExcept_1_1Base.html">Base</a>);
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">SetupNavigator::fThis</a>=NULL;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="comment">// Declare all our caches</span>
+<a name="l00029"></a>00029 std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">SetupNavigator::fPedestalValues</a>;
+<a name="l00030"></a>00030 std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">SetupNavigator::fNoiseValues</a>;
+<a name="l00031"></a>00031 std::map&lt;IDs::source, double&gt; <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">SetupNavigator::fCoarseTimeOffset</a>;
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033   <a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>=<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>;
-<a name="l00034"></a>00034   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a> = <span class="keyword">new</span> TSQLiteServer(<a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>.c_str());
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036   <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;IsZombie()) {
-<a name="l00037"></a>00037     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: ERROR: Couldn&apos;t connect to SQLite database.&quot;</span> &lt;&lt; std::endl;
-<a name="l00038"></a>00038     <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1NoCalibDB.html">Except::NoCalibDB</a>();
-<a name="l00039"></a>00039   }
-<a name="l00040"></a>00040 }
-<a name="l00041"></a>00041 
-<a name="l00042"></a><a class="code" href="classSetupNavigator.html#aabf8cf69b7ebc7e19d9b1f99b25941d3">00042</a> <a class="code" href="classSetupNavigator.html#aabf8cf69b7ebc7e19d9b1f99b25941d3">SetupNavigator::~SetupNavigator</a>() {
+<a name="l00033"></a><a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">00033</a> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator::SetupNavigator</a>() {
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035   <a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>=<span class="stringliteral">&quot;sqlite://pedestals-and-noises.sqlite&quot;</span>;
+<a name="l00036"></a>00036   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a> = <span class="keyword">new</span> TSQLiteServer(<a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>.c_str());
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038   <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;IsZombie()) {
+<a name="l00039"></a>00039     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: ERROR: Couldn&apos;t connect to SQLite database.&quot;</span> &lt;&lt; std::endl;
+<a name="l00040"></a>00040     <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1NoCalibDB.html">Except::NoCalibDB</a>();
+<a name="l00041"></a>00041   }
+<a name="l00042"></a>00042 }
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Close();
+<a name="l00044"></a><a class="code" href="classSetupNavigator.html#aabf8cf69b7ebc7e19d9b1f99b25941d3">00044</a> <a class="code" href="classSetupNavigator.html#aabf8cf69b7ebc7e19d9b1f99b25941d3">SetupNavigator::~SetupNavigator</a>() {
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046   <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) 
-<a name="l00047"></a>00047     <span class="keyword">delete</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
-<a name="l00048"></a>00048 }
-<a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">00050</a> std::string <a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">SetupNavigator::GetBank</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; src)<span class="keyword">const</span>{
-<a name="l00051"></a>00051     <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup=<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">TSetupData::Instance</a>();
-<a name="l00052"></a>00052     std::map&lt;std::string, std::string&gt;* bankDetNameMap=&amp;setup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>;
-<a name="l00053"></a>00053     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = bankDetNameMap-&gt;begin();
-<a name="l00054"></a>00054             it != bankDetNameMap-&gt;end(); ++it){
-<a name="l00055"></a>00055         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(it-&gt;second , src.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>())) <span class="keywordflow">return</span> it-&gt;first;
-<a name="l00056"></a>00056     }
-<a name="l00057"></a>00057     <span class="keywordflow">return</span> <span class="stringliteral">&quot;invalid-det-bank&quot;</span>;
-<a name="l00058"></a>00058 }
-<a name="l00059"></a>00059 
-<a name="l00060"></a><a class="code" href="classSetupNavigator.html#a1be81dd6e8f6e31e1b7ef41189cd80f7">00060</a> <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a1be81dd6e8f6e31e1b7ef41189cd80f7" title="Caches the information stored in the calib DB.">SetupNavigator::CacheCalibDB</a>() {
-<a name="l00061"></a>00061   <span class="comment">// Cache all the variables we have in the database</span>
-<a name="l00062"></a>00062   <span class="comment">// First the pedestals and noises</span>
-<a name="l00063"></a>00063   <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
-<a name="l00064"></a>00064   <span class="keywordflow">if</span> (!<a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;HasTable(<a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a>.c_str())) { <span class="comment">// check it exists</span>
-<a name="l00065"></a>00065     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: ERROR: Table &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> &lt;&lt; <span class="stringliteral">&quot; does not exist.&quot;</span> &lt;&lt; std::endl;
-<a name="l00066"></a>00066   }
-<a name="l00067"></a>00067   <span class="keywordflow">else</span> {
-<a name="l00068"></a>00068     <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>.empty() &amp;&amp; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>.empty()) {
-<a name="l00069"></a>00069       <a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c" title="Reads the pedestal and pedestal error values.">ReadPedestalAndNoiseValues</a>();
-<a name="l00070"></a>00070     }
-<a name="l00071"></a>00071   }
-<a name="l00072"></a>00072 }
-<a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c">00074</a> <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c" title="Reads the pedestal and pedestal error values.">SetupNavigator::ReadPedestalAndNoiseValues</a>() {
-<a name="l00075"></a>00075   <span class="comment">// The values that we will read in</span>
-<a name="l00076"></a>00076   <span class="keywordtype">double</span> pedestal=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
-<a name="l00077"></a>00077   <span class="keywordtype">double</span> noise=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
-<a name="l00078"></a>00078   std::string channelname;
-<a name="l00079"></a>00079  
-<a name="l00080"></a>00080   std::stringstream query;
-<a name="l00081"></a>00081   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
+<a name="l00046"></a>00046   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Close();
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048   <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) 
+<a name="l00049"></a>00049     <span class="keyword">delete</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
+<a name="l00050"></a>00050 }
+<a name="l00051"></a>00051 
+<a name="l00052"></a><a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">00052</a> std::string <a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">SetupNavigator::GetBank</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; src)<span class="keyword">const</span>{
+<a name="l00053"></a>00053     <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup=<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">TSetupData::Instance</a>();
+<a name="l00054"></a>00054     std::map&lt;std::string, std::string&gt;* bankDetNameMap=&amp;setup-&gt;<a class="code" href="classTSetupData.html#ac5b4d66e99aaf4a0450c86f0e9433f36" title="The physical detector name.">fBankToDetectorMap</a>;
+<a name="l00055"></a>00055     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::map&lt;std::string, std::string&gt;::iterator</a> it = bankDetNameMap-&gt;begin();
+<a name="l00056"></a>00056             it != bankDetNameMap-&gt;end(); ++it){
+<a name="l00057"></a>00057         <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>(it-&gt;second , src.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>())) <span class="keywordflow">return</span> it-&gt;first;
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059     std::cout &lt;&lt; <span class="stringliteral">&quot;Invalid detector name: &quot;</span> &lt;&lt; src.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>() &lt;&lt; std::endl;
+<a name="l00060"></a>00060     <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1InvalidDetector.html">Except::InvalidDetector</a>();
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
+<a name="l00063"></a><a class="code" href="classSetupNavigator.html#a1be81dd6e8f6e31e1b7ef41189cd80f7">00063</a> <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a1be81dd6e8f6e31e1b7ef41189cd80f7" title="Caches the information stored in the calib DB.">SetupNavigator::CacheCalibDB</a>() {
+<a name="l00064"></a>00064   <span class="comment">// Cache all the variables we have in the database</span>
+<a name="l00065"></a>00065   <span class="comment">// First the pedestals and noises</span>
+<a name="l00066"></a>00066   <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> = <span class="stringliteral">&quot;pedestals_and_noises&quot;</span>;
+<a name="l00067"></a>00067   <span class="keywordflow">if</span> (!<a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;HasTable(<a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a>.c_str())) {<span class="comment">// check it exists</span>
+<a name="l00068"></a>00068     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: ERROR: Table &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> &lt;&lt; <span class="stringliteral">&quot; does not exist.&quot;</span> &lt;&lt; std::endl;
+<a name="l00069"></a>00069     <span class="keywordflow">if</span> (!<a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a008aa96291442ff9a8eabe7aff3f2960">calib</a>)
+<a name="l00070"></a>00070       <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1NoCalibDB.html">Except::NoCalibDB</a>();
+<a name="l00071"></a>00071   } <span class="keywordflow">else</span> {
+<a name="l00072"></a>00072     <a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c" title="Reads the pedestal and pedestal error values.">ReadPedestalAndNoiseValues</a>();
+<a name="l00073"></a>00073   }
+<a name="l00074"></a>00074   <span class="keywordflow">if</span> (!<a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;HasTable(<span class="stringliteral">&quot;CoarseTimeOffset&quot;</span>)) {
+<a name="l00075"></a>00075     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: ERROR: Table &quot;</span> &lt;&lt; <span class="stringliteral">&quot;CoarseTimeOffset&quot;</span> &lt;&lt; <span class="stringliteral">&quot; does not exist.&quot;</span> &lt;&lt; std::endl;
+<a name="l00076"></a>00076     <span class="keywordflow">if</span> (!<a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a008aa96291442ff9a8eabe7aff3f2960">calib</a>)
+<a name="l00077"></a>00077       <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1NoCalibDB.html">Except::NoCalibDB</a>();
+<a name="l00078"></a>00078   } <span class="keywordflow">else</span> {
+<a name="l00079"></a>00079     <a class="code" href="classSetupNavigator.html#a3a2e821214dfcca56df4b68396a4dc0d" title="Reads the gross time offset values.">ReadCoarseTimeOffsetValues</a>();
+<a name="l00080"></a>00080   }
+<a name="l00081"></a>00081 }
 <a name="l00082"></a>00082 
-<a name="l00083"></a>00083   query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> &lt;&lt; <span class="stringliteral">&quot; WHERE run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
-<a name="l00084"></a>00084   TSQLiteResult* result = (TSQLiteResult*) <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
-<a name="l00085"></a>00085   query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
-<a name="l00086"></a>00086   
-<a name="l00087"></a>00087   TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
-<a name="l00088"></a>00088   <span class="keywordflow">while</span> (row != NULL) {
-<a name="l00089"></a>00089     channelname = row-&gt;GetField(1);
-<a name="l00090"></a>00090     pedestal = atof(row-&gt;GetField(3));
-<a name="l00091"></a>00091     noise = atof(row-&gt;GetField(4));
-<a name="l00092"></a>00092     
-<a name="l00093"></a>00093     <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>[channelname] = pedestal;
-<a name="l00094"></a>00094     <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>[channelname] = noise;
-<a name="l00095"></a>00095     <span class="keyword">delete</span> row;
-<a name="l00096"></a>00096     row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
-<a name="l00097"></a>00097   }
-<a name="l00098"></a>00098   <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 }
+<a name="l00083"></a><a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c">00083</a> <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c" title="Reads the pedestal and pedestal error values.">SetupNavigator::ReadPedestalAndNoiseValues</a>() {
+<a name="l00084"></a>00084   <span class="comment">// The values that we will read in</span>
+<a name="l00085"></a>00085   <span class="keywordtype">double</span> pedestal=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00086"></a>00086   <span class="keywordtype">double</span> noise=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00087"></a>00087   std::string channelname;
+<a name="l00088"></a>00088  
+<a name="l00089"></a>00089   std::stringstream query;
+<a name="l00090"></a>00090   <span class="keywordtype">int</span> run_number = <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>(); <span class="comment">// get this run number (Note that if we don&apos;t have a catalogue of pedestals and noises for each run then we will want to change this)</span>
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092   query &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#ae35b17128021748804fc1debd2449a28">fTableName</a> &lt;&lt; <span class="stringliteral">&quot; WHERE run=&quot;</span> &lt;&lt; run_number &lt;&lt; <span class="stringliteral">&quot;;&quot;</span>; <span class="comment">// get all the pedestals and noises</span>
+<a name="l00093"></a>00093   TSQLiteResult* result = (TSQLiteResult*) <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(query.str().c_str());  <span class="comment">// get the result of this query</span>
+<a name="l00094"></a>00094   query.str(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// clear the stringstream after use</span>
+<a name="l00095"></a>00095   
+<a name="l00096"></a>00096   TSQLiteRow* row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the first row</span>
+<a name="l00097"></a>00097   <span class="keywordflow">while</span> (row != NULL) {
+<a name="l00098"></a>00098     channelname = row-&gt;GetField(1);
+<a name="l00099"></a>00099     pedestal = atof(row-&gt;GetField(3));
+<a name="l00100"></a>00100     noise = atof(row-&gt;GetField(4));
+<a name="l00101"></a>00101     
+<a name="l00102"></a>00102     <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>[channelname] = pedestal;
+<a name="l00103"></a>00103     <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>[channelname] = noise;
+<a name="l00104"></a>00104     <span class="keyword">delete</span> row;
+<a name="l00105"></a>00105     row = (TSQLiteRow*) result-&gt;Next(); <span class="comment">// get the next row</span>
+<a name="l00106"></a>00106   }
+<a name="l00107"></a>00107   <span class="keyword">delete</span> result; <span class="comment">// user has to delete the result</span>
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 }
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 
+<a name="l00112"></a><a class="code" href="classSetupNavigator.html#a3a2e821214dfcca56df4b68396a4dc0d">00112</a> <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a3a2e821214dfcca56df4b68396a4dc0d" title="Reads the gross time offset values.">SetupNavigator::ReadCoarseTimeOffsetValues</a>() {
+<a name="l00113"></a>00113   <span class="comment">// The values that we will read in</span>
+<a name="l00114"></a>00114   <span class="keyword">const</span> std::vector&lt;std::string&gt; table = <a class="code" href="classSetupNavigator.html#abb6d1ee74fba92234e4ed4b35f1af1e7" title="Read in gross time offset columns determining what TAP generators we&amp;#39;re ready...">GetCoarseTimeOffsetColumns</a>();
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116   std::stringstream query;
+<a name="l00117"></a>00117   query &lt;&lt; <span class="stringliteral">&quot;SELECT channel&quot;</span>;
+<a name="l00118"></a>00118   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; table.size(); ++i)
+<a name="l00119"></a>00119     query &lt;&lt; <span class="stringliteral">&quot;,\&quot;&quot;</span> &lt;&lt; table[i] &lt;&lt; <span class="charliteral">&apos;&quot;&apos;</span>;
+<a name="l00120"></a>00120   query &lt;&lt; <span class="stringliteral">&quot; FROM &quot;</span> &lt;&lt; <span class="stringliteral">&quot;CoarseTimeOffset&quot;</span> &lt;&lt; <span class="stringliteral">&quot; WHERE run==&quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>();
+<a name="l00121"></a>00121   TSQLResult* res = <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(query.str().c_str());
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123   TSQLRow* row;
+<a name="l00124"></a>00124   <span class="keywordflow">while</span> ((row = res-&gt;Next())) {
+<a name="l00125"></a>00125     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; table.size(); ++i) {
+<a name="l00126"></a>00126       std::stringstream srcstr;
+<a name="l00127"></a>00127       srcstr &lt;&lt; row-&gt;GetField(0) &lt;&lt; <a class="code" href="namespaceIDs.html#a9672489ed1528077290e969d3dff7af7">IDs::field_separator</a> &lt;&lt; table[i];
+<a name="l00128"></a>00128       <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>[<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(srcstr.str())] = atof(row-&gt;GetField(1 + i));
+<a name="l00129"></a>00129     }
+<a name="l00130"></a>00130     <span class="keyword">delete</span> row;
+<a name="l00131"></a>00131   }
+<a name="l00132"></a>00132   <span class="keyword">delete</span> res;
+<a name="l00133"></a>00133 }
+<a name="l00134"></a>00134 
+<a name="l00135"></a><a class="code" href="classSetupNavigator.html#abb6d1ee74fba92234e4ed4b35f1af1e7">00135</a> std::vector&lt;std::string&gt; <a class="code" href="classSetupNavigator.html#abb6d1ee74fba92234e4ed4b35f1af1e7" title="Read in gross time offset columns determining what TAP generators we&amp;#39;re ready...">SetupNavigator::GetCoarseTimeOffsetColumns</a>() {
+<a name="l00136"></a>00136   std::vector&lt;std::string&gt; cols;
+<a name="l00137"></a>00137   std::stringstream cmd;
+<a name="l00138"></a>00138   cmd &lt;&lt; <span class="stringliteral">&quot;PRAGMA table_info(&quot;</span> &lt;&lt; <span class="stringliteral">&quot;CoarseTimeOffset&quot;</span> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00139"></a>00139   TSQLResult* res = <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(cmd.str().c_str());
+<a name="l00140"></a>00140   TSQLRow* row;
+<a name="l00141"></a>00141   <span class="keywordflow">while</span> ((row = res-&gt;Next())) {
+<a name="l00142"></a>00142     <span class="keywordflow">if</span> (row-&gt;GetField(1) != std::string(<span class="stringliteral">&quot;run&quot;</span>) &amp;&amp; row-&gt;GetField(1) != std::string(<span class="stringliteral">&quot;channel&quot;</span>))
+<a name="l00143"></a>00143       cols.push_back(std::string(row-&gt;GetField(1)));
+<a name="l00144"></a>00144     <span class="keyword">delete</span> row;
+<a name="l00145"></a>00145   }
+<a name="l00146"></a>00146   <span class="keyword">delete</span> res;
+<a name="l00147"></a>00147   <span class="keywordflow">return</span> cols;
+<a name="l00148"></a>00148 }
+<a name="l00149"></a>00149 
+<a name="l00150"></a><a class="code" href="classSetupNavigator.html#a6538c76e50628b0f4d6c75bbf3229f71">00150</a> <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a6538c76e50628b0f4d6c75bbf3229f71">SetupNavigator::SetCoarseTimeOffset</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; src, <span class="keyword">const</span> <span class="keywordtype">double</span> dt) {
+<a name="l00151"></a>00151   std::stringstream cmd;
+<a name="l00152"></a>00152   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;StartTransaction();
+<a name="l00153"></a>00153   <span class="comment">// Create table and columns if they don&apos;t exist</span>
+<a name="l00154"></a>00154   cmd &lt;&lt; <span class="stringliteral">&quot;CREATE TABLE IF NOT EXISTS &quot;</span> &lt;&lt; <span class="stringliteral">&quot;CoarseTimeOffset&quot;</span>
+<a name="l00155"></a>00155       &lt;&lt; <span class="stringliteral">&quot;(run INT, channel TEXT)&quot;</span>;
+<a name="l00156"></a>00156   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Exec(cmd.str().c_str());
+<a name="l00157"></a>00157   <a class="code" href="classSetupNavigator.html#a4ebf962617b100812d8e05b05fb5dab0">CreateColumnIfNotExist</a>(<span class="stringliteral">&quot;CoarseTimeOffset&quot;</span>, src.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().str(), <span class="stringliteral">&quot;REAL&quot;</span>);
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159   cmd.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00160"></a>00160   cmd &lt;&lt; <span class="stringliteral">&quot;SELECT * FROM &quot;</span> &lt;&lt; <span class="stringliteral">&quot;CoarseTimeOffset&quot;</span> &lt;&lt; <span class="stringliteral">&quot; WHERE run==&quot;</span>
+<a name="l00161"></a>00161       &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>() &lt;&lt; <span class="stringliteral">&quot; AND channel==&apos;&quot;</span> &lt;&lt; src.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str() &lt;&lt; <span class="stringliteral">&quot;&apos;&quot;</span>;
+<a name="l00162"></a>00162   TSQLResult* res = <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(cmd.str().c_str());
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164   cmd.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00165"></a>00165   <span class="keywordflow">if</span> (res-&gt;Next())
+<a name="l00166"></a>00166     cmd &lt;&lt; <span class="stringliteral">&quot;UPDATE &quot;</span> &lt;&lt; <span class="stringliteral">&quot;CoarseTimeOffset&quot;</span> &lt;&lt; <span class="stringliteral">&quot; SET \&quot;&quot;</span> &lt;&lt; src.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().str()
+<a name="l00167"></a>00167         &lt;&lt; <span class="stringliteral">&quot;\&quot;=&quot;</span> &lt;&lt; dt &lt;&lt; <span class="stringliteral">&quot; WHERE run==&quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>() &lt;&lt; <span class="stringliteral">&quot; AND channel==&apos;&quot;</span>
+<a name="l00168"></a>00168         &lt;&lt; src.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str() &lt;&lt; <span class="stringliteral">&quot;&apos;&quot;</span>;
+<a name="l00169"></a>00169   <span class="keywordflow">else</span>
+<a name="l00170"></a>00170     cmd &lt;&lt; <span class="stringliteral">&quot;INSERT INTO &quot;</span> &lt;&lt; <span class="stringliteral">&quot;CoarseTimeOffset&quot;</span> &lt;&lt; <span class="stringliteral">&quot;(run,channel,\&quot;&quot;</span>
+<a name="l00171"></a>00171         &lt;&lt; src.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().str() &lt;&lt; <span class="stringliteral">&quot;\&quot;) VALUES (&quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>() &lt;&lt; <span class="stringliteral">&quot;,&apos;&quot;</span>
+<a name="l00172"></a>00172         &lt;&lt; src.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str() &lt;&lt; <span class="stringliteral">&quot;&apos;,&quot;</span> &lt;&lt; dt &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00173"></a>00173   std::cout &lt;&lt; <span class="stringliteral">&quot;Executing SQL command: &quot;</span> &lt;&lt; cmd.str() &lt;&lt; std::endl;
+<a name="l00174"></a>00174   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Exec(cmd.str().c_str());
+<a name="l00175"></a>00175   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Commit();
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177   <span class="keyword">delete</span> res;
+<a name="l00178"></a>00178 }
+<a name="l00179"></a>00179 
+<a name="l00180"></a><a class="code" href="classSetupNavigator.html#a4ebf962617b100812d8e05b05fb5dab0">00180</a> <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a4ebf962617b100812d8e05b05fb5dab0">SetupNavigator::CreateColumnIfNotExist</a>(<span class="keyword">const</span> std::string&amp; tab, <span class="keyword">const</span> std::string&amp; col, <span class="keyword">const</span> std::string&amp; type) {
+<a name="l00181"></a>00181   std::stringstream cmd;
+<a name="l00182"></a>00182   cmd &lt;&lt; <span class="stringliteral">&quot;PRAGMA table_info(&quot;</span> &lt;&lt; tab &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00183"></a>00183   TSQLResult* res = <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(cmd.str().c_str());
+<a name="l00184"></a>00184   TSQLRow* row;
+<a name="l00185"></a>00185   <span class="keywordflow">while</span> ((row = res-&gt;Next())) {
+<a name="l00186"></a>00186     <span class="keywordflow">if</span> (col == row-&gt;GetField(1)) {
+<a name="l00187"></a>00187       <span class="keyword">delete</span> row;
+<a name="l00188"></a>00188       <span class="keyword">delete</span> res;
+<a name="l00189"></a>00189       <span class="keywordflow">return</span>;
+<a name="l00190"></a>00190     }
+<a name="l00191"></a>00191     <span class="keyword">delete</span> row;
+<a name="l00192"></a>00192   }
+<a name="l00193"></a>00193   <span class="keyword">delete</span> res;
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195   cmd.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00196"></a>00196   <span class="comment">// Since the table name is the source string, which inclueds the character #,</span>
+<a name="l00197"></a>00197   <span class="comment">// the table name in the SQLite database must be surrounded by double quotes.</span>
+<a name="l00198"></a>00198   cmd &lt;&lt; <span class="stringliteral">&quot;ALTER TABLE &quot;</span> &lt;&lt; tab &lt;&lt; <span class="stringliteral">&quot; ADD COLUMN \&quot;&quot;</span> &lt;&lt; col &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span> &lt;&lt; type;
+<a name="l00199"></a>00199   <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Exec(cmd.str().c_str());
+<a name="l00200"></a>00200 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

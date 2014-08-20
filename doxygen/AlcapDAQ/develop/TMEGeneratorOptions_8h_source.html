@@ -35,11 +35,21 @@
 <a name="l00011"></a><a class="code" href="classTMEGeneratorOptions.html#ae6c1bc84a49245d634013ab7efcd1c49">00011</a>         <a class="code" href="classTMEGeneratorOptions.html#ae6c1bc84a49245d634013ab7efcd1c49">TMEGeneratorOptions</a>(<span class="keyword">const</span> std::string&amp; name):
 <a name="l00012"></a>00012                 modules::<a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">options</a>(name){};
 <a name="l00013"></a><a class="code" href="classTMEGeneratorOptions.html#a7070bf578ed16b9ac77b0f76c07d7822">00013</a>         <a class="code" href="classTMEGeneratorOptions.html#a7070bf578ed16b9ac77b0f76c07d7822">~TMEGeneratorOptions</a>(){};
-<a name="l00014"></a>00014 };
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="preprocessor">#endif // TMEGENERATOROPTIONS_H_</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="classTMEGeneratorOptions.html#a006fc933f3fffa6ef412aa705554d63b">00015</a>     <a class="code" href="classTMEGeneratorOptions.html#ae6c1bc84a49245d634013ab7efcd1c49">TMEGeneratorOptions</a>(<span class="keyword">const</span> std::string&amp; name,<span class="keyword">const</span> <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
+<a name="l00016"></a>00016         modules::<a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">options</a>(name){
+<a name="l00017"></a>00017             <a class="code" href="classTMEGeneratorOptions.html#aec9fb63c9d3f70d57dd510562bb6b371">modules::options::operator=</a>(*opts);
+<a name="l00018"></a>00018         }
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="classTMEGeneratorOptions.html#aec9fb63c9d3f70d57dd510562bb6b371">00020</a>     <a class="code" href="classTMEGeneratorOptions.html">TMEGeneratorOptions</a>&amp; <a class="code" href="classTMEGeneratorOptions.html#aec9fb63c9d3f70d57dd510562bb6b371">operator=</a>(<span class="keyword">const</span> <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>&amp; rhs){
+<a name="l00021"></a>00021         <a class="code" href="classTMEGeneratorOptions.html#aec9fb63c9d3f70d57dd510562bb6b371">modules::options::operator=</a>(rhs);
+<a name="l00022"></a>00022         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00023"></a>00023     }
+<a name="l00024"></a>00024 };
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#endif // TMEGENERATOROPTIONS_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

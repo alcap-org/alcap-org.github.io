@@ -54,6 +54,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">IsNotFloatChar</a> (char in)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1parser.html#a5e6b6034024d2c554774158dd355377b">IsNumber</a> (const std::string &amp;input)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1parser.html#a60030050aac01bdb531300aa2bcdb8f9">GetNumber</a> (const std::string &amp;input)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1parser.html#ae62fb294d079f5dc6d6b170a9d110632">IsTrue</a> (const std::string &amp;input)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1parser.html#a0fbddc06cf5ff21fe6aab31f83b088d0">GetDouble</a> (const std::string &amp;input, size_t start=0, size_t stop=std::string::npos)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">iequals</a> (const std::string &amp;a, const std::string &amp;b)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodules_1_1parser.html#a2ad90fded53122d25fb44bf11f7199f9">iequals</a> (const char a, const char b)</td></tr>
@@ -165,7 +166,7 @@
 
 <p>Definition at line <a class="el" href="ModulesParser_8cpp_source.html#l00033">33</a> of file <a class="el" href="ModulesParser_8cpp_source.html">ModulesParser.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00155">MakeAnalysedPulses::ParseGeneratorList()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00152">MakeAnalysedPulses::ParseGeneratorList()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033                                                                                  {
 <a name="l00034"></a>00034         std::stringstream ss(in.substr(start,stop-start));
@@ -240,7 +241,7 @@
 
 <p>Definition at line <a class="el" href="ModulesParser_8cpp_source.html#l00173">173</a> of file <a class="el" href="ModulesParser_8cpp_source.html">ModulesParser.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00033">MakeAnalysedPulses::BeforeFirstEntry()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00050">SetupNavigator::GetBank()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00045">IDs::channel::GetDetectorEnum()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00099">IDs::channel::GetSlowFastEnum()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00060">IDs::channel::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00032">MakeAnalysedPulses::BeforeFirstEntry()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00052">SetupNavigator::GetBank()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00048">IDs::channel::GetDetectorEnum()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00102">IDs::channel::GetSlowFastEnum()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00063">IDs::channel::operator=()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00173"></a>00173                                                                  {
 <a name="l00174"></a>00174   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sz = a.size();
@@ -397,6 +398,33 @@
 <p><div class="fragment"><pre class="fragment"><a name="l00151"></a>00151                                                   {
 <a name="l00152"></a>00152         <span class="keywordflow">return</span> std::find_if(input.begin(),input.end(),<a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">IsNotFloatChar</a>) == input.end();
 <a name="l00153"></a>00153 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ae62fb294d079f5dc6d6b170a9d110632"></a><!-- doxytag: member="modules::parser::IsTrue" ref="ae62fb294d079f5dc6d6b170a9d110632" args="(const std::string &amp;input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool modules::parser::IsTrue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>input</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ModulesParser_8cpp_source.html#l00182">182</a> of file <a class="el" href="ModulesParser_8cpp_source.html">ModulesParser.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00074">modules::options::GetBool()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00182"></a>00182                                               {
+<a name="l00183"></a>00183     <span class="keywordflow">return</span>  (val==<span class="stringliteral">&quot;true&quot;</span>)|| (val==<span class="stringliteral">&quot;TRUE&quot;</span>)|| (val==<span class="stringliteral">&quot;YES&quot;</span>)|| (val==<span class="stringliteral">&quot;yes&quot;</span>)|| (val==<span class="stringliteral">&quot;on&quot;</span>)|| (val==<span class="stringliteral">&quot;ON&quot;</span>)|| (val==<span class="stringliteral">&quot;1&quot;</span>);
+<a name="l00184"></a>00184 }
 </pre></div></p>
 
 </div>
@@ -692,7 +720,7 @@
 
 <p>Definition at line <a class="el" href="ModulesParser_8cpp_source.html#l00098">98</a> of file <a class="el" href="ModulesParser_8cpp_source.html">ModulesParser.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00069">PulseViewer::ParseTriggerString()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesOptions_8cpp_source.html#l00035">modules::options::CheckValid()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00069">PulseViewer::ParseTriggerString()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00098"></a>00098                                                                                                    {
 <a name="l00099"></a>00099     <span class="keywordtype">size_t</span> match_start;
@@ -753,7 +781,7 @@
 
 <p>References <a class="el" href="ModulesParser_8cpp_source.html#l00094">ReplaceAll()</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotIntegral_8cpp_source.html#l00026">PlotIntegral::BeforeFirstEntry()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00199">ExportPulse::PulseInfo_t::MakeTPIName()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="PlotTAP__Integral_8cpp_source.html#l00026">PlotTAP_Integral::BeforeFirstEntry()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00111">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00199">ExportPulse::PulseInfo_t::MakeTPIName()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00077"></a>00077                                               {
 <a name="l00078"></a>00078     <a class="code" href="namespacemodules_1_1parser.html#a57bb8cbf1f59123d696cdeb50084c225">ReplaceAll</a>(input,<span class="stringliteral">&quot; :{}#*()-=+$%^&amp;!.,/?&quot;</span>,<span class="stringliteral">&quot;_&quot;</span> );
@@ -797,7 +825,7 @@
 
 <p>References <a class="el" href="ModulesParser_8h_source.html#l00041">max_line</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFactory_8tpl_source.html#l00070">TemplateFactory&lt; BaseModule, OptionsType &gt;::addArguments()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00103">modules::reader::AddModule()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFactory_8tpl_source.html#l00064">TemplateFactory&lt; BaseModule, OptionsType &gt;::addArguments()</a>, and <a class="el" href="ModulesReader_8cpp_source.html#l00103">modules::reader::AddModule()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                                                                                                              {
 <a name="l00022"></a>00022     <span class="keywordtype">char</span> line[<a class="code" href="namespacemodules_1_1parser.html#a2582172290f000705e6520483877aad0">modules::parser::max_line</a>];
@@ -873,7 +901,7 @@
 
 <p>References <a class="el" href="ModulesParser_8cpp_source.html#l00063">RemoveWhitespace()</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00103">modules::reader::AddModule()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00032">modules::options::GetString()</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00041">ParseConstructor()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00103">modules::reader::AddModule()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00061">modules::options::GetString()</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00041">ParseConstructor()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107                                                             {
 <a name="l00108"></a>00108         <span class="keywordtype">size_t</span> not_white=line.find_first_not_of(<span class="stringliteral">&quot; \t&quot;</span>);
@@ -907,7 +935,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

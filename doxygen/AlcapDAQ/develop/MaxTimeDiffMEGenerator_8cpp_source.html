@@ -33,12 +33,12 @@
 <a name="l00006"></a>00006 <span class="keyword">using</span> std::cout;
 <a name="l00007"></a>00007 <span class="keyword">using</span> std::endl;
 <a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="classMaxTimeDiffMEGenerator.html#a93c6f79b4fcad392bfaa6c53566c1508">00009</a> <span class="keywordtype">int</span> <a class="code" href="classMaxTimeDiffMEGenerator.html#a93c6f79b4fcad392bfaa6c53566c1508">MaxTimeDiffMEGenerator::ProcessPulses</a>(<a class="code" href="definitions_8h.html#ad44ba723ef2502e4b89ad5d164f0376d">MuonEventList</a>&amp; muonEventsOut,
-<a name="l00010"></a>00010                 <span class="keyword">const</span> <a class="code" href="definitions_8h.html#ab8ac2e007871b459439fbdbc9a6a693c">StringDetPulseMap</a>&amp; detectorPulsesIn){
+<a name="l00009"></a><a class="code" href="classMaxTimeDiffMEGenerator.html#a6e689f129dc0a06d03133c3c1a84a191">00009</a> <span class="keywordtype">int</span> <a class="code" href="classMaxTimeDiffMEGenerator.html#a6e689f129dc0a06d03133c3c1a84a191">MaxTimeDiffMEGenerator::ProcessPulses</a>(<a class="code" href="definitions_8h.html#ad44ba723ef2502e4b89ad5d164f0376d">MuonEventList</a>&amp; muonEventsOut,
+<a name="l00010"></a>00010                 <span class="keyword">const</span> <a class="code" href="definitions_8h.html#ab6b36cbc9a3363d8b03d3b9f363c8ced">SourceDetPulseMap</a>&amp; detectorPulsesIn){
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012           std::vector&lt;DetectorPulseList::const_iterator&gt; pulseIters;
 <a name="l00013"></a>00013           std::vector&lt;DetectorPulseList::const_iterator&gt; finalIters;
-<a name="l00014"></a>00014           <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringDetPulseMap::const_iterator</a> i_detector=detectorPulsesIn.begin();
+<a name="l00014"></a>00014           <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_detector=detectorPulsesIn.begin();
 <a name="l00015"></a>00015                           i_detector!=detectorPulsesIn.end(); i_detector++){
 <a name="l00016"></a>00016                           pulseIters.push_back(i_detector-&gt;second.begin());
 <a name="l00017"></a>00017                           finalIters.push_back(i_detector-&gt;second.end());
@@ -58,7 +58,7 @@
 <a name="l00031"></a>00031 
 <a name="l00032"></a>00032             <span class="comment">// Now go through and find all the pulses that are within a certain time of this</span>
 <a name="l00033"></a>00033             <span class="keywordtype">double</span> time_difference = 0.1; <span class="comment">// 0.1 ms</span>
-<a name="l00034"></a>00034             <a class="code" href="classTMuonEvent.html">TMuonEvent</a>* muon_event=<span class="keyword">new</span> <a class="code" href="classTMuonEvent.html">TMuonEvent</a>();
+<a name="l00034"></a>00034             <a class="code" href="classTMuonEvent.html" title="Single event in the muon centred tree.">TMuonEvent</a>* muon_event=<span class="keyword">new</span> <a class="code" href="classTMuonEvent.html" title="Single event in the muon centred tree.">TMuonEvent</a>();
 <a name="l00035"></a>00035             <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b = 0; b &lt; pulseIters.size(); ++b) {
 <a name="l00036"></a>00036 
 <a name="l00037"></a>00037               <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* pulse = *(pulseIters[b]);
@@ -66,13 +66,13 @@
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040               <span class="keywordflow">if</span> (std::fabs(pulse_time - min_time) &lt; time_difference) {
 <a name="l00041"></a>00041                  <span class="keywordflow">if</span>(<a class="code" href="classTVMuonEventGenerator.html#a9089a6515497c95c95980ae9765c8fec">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;Using pulse from: &quot;</span> &lt;&lt; pulse-&gt;<a class="code" href="classTDetectorPulse.html#a8705fa60d3ba37d581b7308088419f85">GetSource</a>() &lt;&lt; std::endl;
-<a name="l00042"></a>00042                  muon_event-&gt;<a class="code" href="classTMuonEvent.html#a5caaf93ea550ae77de415e2ec588053c">SetPulse</a>(pulse-&gt;<a class="code" href="classTDetectorPulse.html#a8705fa60d3ba37d581b7308088419f85">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>(), pulse);
+<a name="l00042"></a>00042                  muon_event-&gt;<a class="code" href="classTMuonEvent.html#af4127dea4e2488268dac1c8d5f369a7f" title="Add a pulse into the list of pulses.">AddPulse</a>(pulse-&gt;<a class="code" href="classTDetectorPulse.html#a8705fa60d3ba37d581b7308088419f85">GetSource</a>(), pulse);
 <a name="l00043"></a>00043                 ++(pulseIters[b]); <span class="comment">// increment the iterator because we used the pulse</span>
 <a name="l00044"></a>00044               }
 <a name="l00045"></a>00045             }
 <a name="l00046"></a>00046             muonEventsOut.push_back(muon_event);
 <a name="l00047"></a>00047             <span class="keywordflow">if</span>(<a class="code" href="classTVMuonEventGenerator.html#a9089a6515497c95c95980ae9765c8fec">Debug</a>()){
-<a name="l00048"></a>00048                 cout&lt;&lt;<span class="stringliteral">&quot;Created a TMuonEvent with &quot;</span>&lt;&lt;muon_event-&gt;<a class="code" href="classTMuonEvent.html#a0215b671593c175b511dcc603da15ca9">GetNumPulses</a>();
+<a name="l00048"></a>00048                 cout&lt;&lt;<span class="stringliteral">&quot;Created a TMuonEvent with &quot;</span>&lt;&lt;muon_event-&gt;<a class="code" href="classTMuonEvent.html#a92eca0f01b4211597c293f3f0c4a54f3" title="Get the total number of pulses contained in this TME.">TotalNumPulses</a>();
 <a name="l00049"></a>00049                 cout&lt;&lt; std::endl;
 <a name="l00050"></a>00050             }
 <a name="l00051"></a>00051 
@@ -91,7 +91,7 @@
 <a name="l00064"></a>00064 
 <a name="l00065"></a>00065 <a class="code" href="TMEGeneratorFactory_8h.html#a22c13971c9d6bd83908f8948d3c0ecd1">ALCAP_TME_GENERATOR</a>(MaxTimeDiff);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
