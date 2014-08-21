@@ -57,7 +57,7 @@
 <a name="l00030"></a>00030     <span class="keywordflow">return</span> output.size();
 <a name="l00031"></a>00031 }
 <a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">00033</a> std::string <a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">modules::parser::GetOneWord</a>(<span class="keyword">const</span> std::string&amp; in, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> stop){
+<a name="l00033"></a><a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">00033</a> std::string <a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">modules::parser::GetOneWord</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="SetupNavigator_8cpp.html#a147a815c77daece96508df3fbdf2aeb8">in</a>, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> stop){
 <a name="l00034"></a>00034         std::stringstream ss(in.substr(start,stop-start));
 <a name="l00035"></a>00035         std::string word;
 <a name="l00036"></a>00036         ss&gt;&gt;word;
@@ -141,7 +141,7 @@
 <a name="l00114"></a>00114            <a class="code" href="namespacemodules_1_1parser.html#a66cc781537bf59528d352aacd62c144f">RemoveWhitespace</a>(line, line.begin()+not_white+1,line.end());
 <a name="l00115"></a>00115 }
 <a name="l00116"></a>00116 
-<a name="l00117"></a><a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">00117</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">modules::parser::IsWhitespace</a>(<span class="keywordtype">char</span> in){
+<a name="l00117"></a><a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">00117</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a25d74dc9703b9f8204e55a5f5596467c">modules::parser::IsWhitespace</a>(<span class="keywordtype">char</span> <a class="code" href="SetupNavigator_8cpp.html#a147a815c77daece96508df3fbdf2aeb8">in</a>){
 <a name="l00118"></a>00118         <span class="keywordtype">bool</span> retval=<span class="keyword">false</span>;
 <a name="l00119"></a>00119         <span class="keywordflow">switch</span>(in){
 <a name="l00120"></a>00120                 <span class="keywordflow">case</span> <span class="charliteral">&apos; &apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;\t&apos;</span>:
@@ -153,7 +153,7 @@
 <a name="l00126"></a>00126         <span class="keywordflow">return</span> retval;
 <a name="l00127"></a>00127 }
 <a name="l00128"></a>00128 
-<a name="l00129"></a><a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">00129</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">modules::parser::IsDigit</a>(<span class="keywordtype">char</span> in){
+<a name="l00129"></a><a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">00129</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">modules::parser::IsDigit</a>(<span class="keywordtype">char</span> <a class="code" href="SetupNavigator_8cpp.html#a147a815c77daece96508df3fbdf2aeb8">in</a>){
 <a name="l00130"></a>00130         <span class="keywordtype">bool</span> retval=<span class="keyword">false</span>;
 <a name="l00131"></a>00131         <span class="keywordflow">switch</span>(in){
 <a name="l00132"></a>00132                 <span class="keywordflow">case</span> <span class="charliteral">&apos;0&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;1&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;2&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;3&apos;</span>: <span class="keywordflow">case</span> <span class="charliteral">&apos;4&apos;</span>:
@@ -163,15 +163,15 @@
 <a name="l00136"></a>00136         <span class="keywordflow">return</span> retval;
 <a name="l00137"></a>00137 }
 <a name="l00138"></a>00138 
-<a name="l00139"></a><a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">00139</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">modules::parser::IsDecimal</a>(<span class="keywordtype">char</span> in){
+<a name="l00139"></a><a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">00139</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">modules::parser::IsDecimal</a>(<span class="keywordtype">char</span> <a class="code" href="SetupNavigator_8cpp.html#a147a815c77daece96508df3fbdf2aeb8">in</a>){
 <a name="l00140"></a>00140         <span class="keywordflow">return</span> in==<span class="charliteral">&apos;.&apos;</span>;
 <a name="l00141"></a>00141 }
 <a name="l00142"></a>00142 
-<a name="l00143"></a><a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">00143</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">modules::parser::IsFloatChar</a>(<span class="keywordtype">char</span> in){
+<a name="l00143"></a><a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">00143</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">modules::parser::IsFloatChar</a>(<span class="keywordtype">char</span> <a class="code" href="SetupNavigator_8cpp.html#a147a815c77daece96508df3fbdf2aeb8">in</a>){
 <a name="l00144"></a>00144         <span class="keywordflow">return</span> <a class="code" href="namespacemodules_1_1parser.html#aef9b2543d173b4d368dec14c249541c1">IsDecimal</a>(in) || <a class="code" href="namespacemodules_1_1parser.html#a8d83d7a7348fd48a6de458344dd7f09d">IsDigit</a>(in);
 <a name="l00145"></a>00145 }
 <a name="l00146"></a>00146 
-<a name="l00147"></a><a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">00147</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">modules::parser::IsNotFloatChar</a>(<span class="keywordtype">char</span> in){
+<a name="l00147"></a><a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">00147</a> <span class="keywordtype">bool</span> <a class="code" href="namespacemodules_1_1parser.html#af282b0d37ac1e82f0b030b1fba0d35f2">modules::parser::IsNotFloatChar</a>(<span class="keywordtype">char</span> <a class="code" href="SetupNavigator_8cpp.html#a147a815c77daece96508df3fbdf2aeb8">in</a>){
 <a name="l00148"></a>00148         <span class="keywordflow">return</span> !<a class="code" href="namespacemodules_1_1parser.html#a795d25f2c7f85e2173230e571ced9ec1">IsFloatChar</a>(in);
 <a name="l00149"></a>00149 }
 <a name="l00150"></a>00150 
@@ -210,7 +210,7 @@
 <a name="l00183"></a>00183     <span class="keywordflow">return</span>  (val==<span class="stringliteral">&quot;true&quot;</span>)|| (val==<span class="stringliteral">&quot;TRUE&quot;</span>)|| (val==<span class="stringliteral">&quot;YES&quot;</span>)|| (val==<span class="stringliteral">&quot;yes&quot;</span>)|| (val==<span class="stringliteral">&quot;on&quot;</span>)|| (val==<span class="stringliteral">&quot;ON&quot;</span>)|| (val==<span class="stringliteral">&quot;1&quot;</span>);
 <a name="l00184"></a>00184 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

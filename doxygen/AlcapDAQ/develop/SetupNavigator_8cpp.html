@@ -37,6 +37,8 @@
 <code>#include &lt;cstdlib&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 <code>#include &quot;<a class="el" href="AlcapExcept_8h_source.html">AlcapExcept.h</a>&quot;</code><br/>
 
 <p><a href="SetupNavigator_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -46,9 +48,88 @@
 <tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExcept_1_1InvalidDetector.html">Except::InvalidDetector</a></td></tr>
 <tr><td colspan="2"><h2>Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceExcept.html">Except</a></td></tr>
+<tr><td colspan="2"><h2>Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="SetupNavigator_8cpp.html#ac63411fdd93bfaf26d10231904f2442f">StripTimeShiftConfigFromString</a> (std::string con)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="SetupNavigator_8cpp.html#a147a815c77daece96508df3fbdf2aeb8">in</a> (T x, std::vector&lt; T &gt; v)</td></tr>
 </table>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a147a815c77daece96508df3fbdf2aeb8"></a><!-- doxytag: member="SetupNavigator.cpp::in" ref="a147a815c77daece96508df3fbdf2aeb8" args="(T x, std::vector&lt; T &gt; v)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool in </td>
+          <td>(</td>
+          <td class="paramtype">T&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt;&nbsp;</td>
+          <td class="paramname"> <em>v</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00038">38</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00074">modules::reader::OpenFile()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038                              {
+<a name="l00039"></a>00039   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; v.size(); ++i)
+<a name="l00040"></a>00040     <span class="keywordflow">if</span> (x == v[i])
+<a name="l00041"></a>00041       <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00042"></a>00042   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00043"></a>00043 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ac63411fdd93bfaf26d10231904f2442f"></a><!-- doxytag: member="SetupNavigator.cpp::StripTimeShiftConfigFromString" ref="ac63411fdd93bfaf26d10231904f2442f" args="(std::string con)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string StripTimeShiftConfigFromString </td>
+          <td>(</td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>con</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00026">26</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00173">SetupNavigator::OutputCalibCSV()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00026"></a>00026                                                                {
+<a name="l00027"></a>00027   <span class="keyword">const</span> <span class="keywordtype">char</span>* strs[2] = {<span class="stringliteral">&quot;{no_time_shift=true}&quot;</span>, <span class="stringliteral">&quot;{no_time_shift=false}&quot;</span>};
+<a name="l00028"></a>00028   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 2; ++i) {
+<a name="l00029"></a>00029     std::size_t pos = con.find(strs[i]);
+<a name="l00030"></a>00030     <span class="keywordflow">if</span> (pos != std::string::npos)
+<a name="l00031"></a>00031       con.replace(pos, std::char_traits&lt;char&gt;::length(strs[i]),<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00032"></a>00032   }
+<a name="l00033"></a>00033   <span class="keywordflow">return</span> con;
+<a name="l00034"></a>00034 }
+</pre></div></p>
+
+</div>
+</div>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -109,8 +109,8 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Print all <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> managed by this list to cout.  <a href="#a50375d69bc7c6d45cb4d6faf3eb38d74"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a2d08e58ecdd1a72170a6661c862f6355">SetAlias</a> (const std::string &amp;alias)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the alias option for this module.  <a href="#a2d08e58ecdd1a72170a6661c862f6355"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a598833c13aded62eeafa407aec9e6dcc">GetAlias</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the alias option for this module.  <a href="#a598833c13aded62eeafa407aec9e6dcc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a9fc9570a3fe9c771997b91bdd58f6d73">GetAlias</a> (const std::string &amp;defVal=&quot;&quot;) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the alias option for this module.  <a href="#a9fc9570a3fe9c771997b91bdd58f6d73"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a></td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
@@ -491,14 +491,15 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="a598833c13aded62eeafa407aec9e6dcc"></a><!-- doxytag: member="modules::options::GetAlias" ref="a598833c13aded62eeafa407aec9e6dcc" args="() const " -->
+<a class="anchor" id="a9fc9570a3fe9c771997b91bdd58f6d73"></a><!-- doxytag: member="modules::options::GetAlias" ref="a9fc9570a3fe9c771997b91bdd58f6d73" args="(const std::string &amp;defVal=&quot;&quot;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">std::string modules::options::GetAlias </td>
           <td>(</td>
-          <td class="paramname"></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>defVal</em> = <code>&quot;&quot;</code></td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inline]</code></td>
         </tr>
@@ -514,7 +515,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00198"></a>00198 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;alias&quot;</span>);};
+<p><div class="fragment"><pre class="fragment"><a name="l00198"></a>00198 {<span class="keywordflow">return</span> <a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;alias&quot;</span>,defVal);};
 </pre></div></p>
 
 </div>
@@ -1065,7 +1066,7 @@ template&lt;typename T &gt; </div>
 
 <p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00015">GetOption()</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00107">modules::parser::TrimWhiteSpaceBeforeAfter()</a>.</p>
 
-<p>Referenced by <a class="el" href="CalcCoarseTimeOffset_8cpp_source.html#l00028">CalcCoarseTimeOffset::CalcCoarseTimeOffset()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00198">GetAlias()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00074">GetBool()</a>, <a class="el" href="LoadPulses_8cpp_source.html#l00023">LoadPulses::LoadPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00013">MakeDetectorPulses::MakeDetectorPulses()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00052">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00017">PlotTDP_TDiff::PlotTDP_TDiff()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer::PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="CalcCoarseTimeOffset_8cpp_source.html#l00028">CalcCoarseTimeOffset::CalcCoarseTimeOffset()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00198">GetAlias()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00074">GetBool()</a>, <a class="el" href="TAPGeneratorOptions_8h_source.html#l00017">TAPGeneratorOptions::GetChannel()</a>, <a class="el" href="LoadPulses_8cpp_source.html#l00023">LoadPulses::LoadPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00013">MakeDetectorPulses::MakeDetectorPulses()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00052">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00017">PlotTDP_TDiff::PlotTDP_TDiff()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer::PulseViewer()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00067"></a>00067                                                                                      {
 <a name="l00068"></a>00068     std::string ret_val=<a class="code" href="classmodules_1_1options.html#a8cdf6161138add2e39d5fab4cd93c555" title="Returns the unprocessed value assigned to name.">GetOption</a>(name,<span class="keyword">false</span>);
@@ -1330,7 +1331,7 @@ template&lt;typename T &gt; </div>
 
 <p>References <a class="el" href="ModulesOptions_8h_source.html#l00223">fOptions</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00224">fOrder</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPGeneratorOptions_8cpp_source.html#l00004">TAPGeneratorOptions::AddArgument()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00117">AddArgument()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00192">modules::reader::AddOption()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00196">SetAlias()</a>.</p>
+<p>Referenced by <a class="el" href="TAPGeneratorOptions_8cpp_source.html#l00004">TAPGeneratorOptions::AddArgument()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00117">AddArgument()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00192">modules::reader::AddOption()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00196">SetAlias()</a>, and <a class="el" href="TAPGeneratorOptions_8h_source.html#l00020">TAPGeneratorOptions::SetChannel()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00232"></a>00232                                                                                    {
 <a name="l00233"></a>00233     <span class="comment">// if a new key was added, store an iterator in the order list</span>
@@ -1461,7 +1462,7 @@ template&lt;typename T &gt; </div>
 <li>rootana/src/framework/<a class="el" href="ModulesOptions_8cpp_source.html">ModulesOptions.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

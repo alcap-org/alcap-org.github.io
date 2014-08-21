@@ -226,12 +226,12 @@
 <a name="l00199"></a>00199 
 <a name="l00200"></a>00200     <span class="comment">// Make sure opts is not null</span>
 <a name="l00201"></a>00201     <span class="keywordflow">if</span>(!opts) opts=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(*<a class="code" href="classMakeAnalysedPulses.html#aa5186e2930dc83658dcc5d633b574b39">fDefaultOpts</a>);
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203     <span class="comment">// Get the requested generator</span>
-<a name="l00204"></a>00204     <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>* generator=
-<a name="l00205"></a>00205         <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">TAPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
-<a name="l00206"></a>00206     <span class="keywordflow">if</span>(!generator) <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00207"></a>00207     generator-&gt;<a class="code" href="classTVAnalysedPulseGenerator.html#a96d9ffc0889d659fb376ae93bb17ca76" title="Set the channel for this generator. Should NOT be called by user code.">SetChannel</a>(detector);
+<a name="l00202"></a>00202     opts-&gt;<a class="code" href="classTAPGeneratorOptions.html#a1bb2dcf4fbdadf4c29acb17f3a74d083">SetChannel</a>(detector);
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204     <span class="comment">// Get the requested generator</span>
+<a name="l00205"></a>00205     <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>* generator=
+<a name="l00206"></a>00206         <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">TAPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
+<a name="l00207"></a>00207     <span class="keywordflow">if</span>(!generator) <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00208"></a>00208 
 <a name="l00209"></a>00209     <span class="comment">// print something</span>
 <a name="l00210"></a>00210     <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
@@ -251,7 +251,7 @@
 <a name="l00224"></a>00224 
 <a name="l00225"></a>00225 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>,slow_gen,fast_gen);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
