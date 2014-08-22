@@ -65,7 +65,7 @@
 <a name="l00081"></a>00081 
 <a name="l00084"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">00084</a>         <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> <a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
 <a name="l00085"></a>00085 
-<a name="l00093"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a32411abab614529fa147b2ce1736199e">00093</a>         <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> <a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a" title="Get the source id for this generator being used on the current channel.">GetSource</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>;};
+<a name="l00093"></a><a class="code" href="classTVAnalysedPulseGenerator.html#a32411abab614529fa147b2ce1736199e">00093</a>         <span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; <a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>;};
 <a name="l00094"></a>00094 
 <a name="l00095"></a>00095     <span class="keyword">protected</span>:
 <a name="l00096"></a>00096         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>;
@@ -83,13 +83,13 @@
 <a name="l00121"></a><a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487">00121</a> <span class="keyword">inline</span> TypeOfTAP* <a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">TVAnalysedPulseGenerator::MakeNewTAP</a>(<span class="keywordtype">int</span> parent_index)<span class="keyword">const</span>{
 <a name="l00122"></a>00122     TypeOfTAP* pulse=NULL;
 <a name="l00123"></a>00123     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>-&gt;at(parent_index);
-<a name="l00124"></a>00124     pulse=<span class="keyword">new</span> TypeOfTAP(<a class="code" href="classTVAnalysedPulseGenerator.html#af97cf629419460226703984524db9c2a" title="Get the source id for this generator being used on the current channel.">GetSource</a>(),parent_index,parent);
+<a name="l00124"></a>00124     pulse=<span class="keyword">new</span> TypeOfTAP(<a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>(),parent_index,parent);
 <a name="l00125"></a>00125     <span class="keywordflow">return</span> pulse;
 <a name="l00126"></a>00126 }
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128 <span class="preprocessor">#endif // TVANALYSEDPULSEGENERATOR_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

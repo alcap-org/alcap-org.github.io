@@ -39,25 +39,23 @@
 <a name="l00012"></a><a class="code" href="classMaxBinAPGenerator.html">00012</a> <span class="keyword">class </span><a class="code" href="classMaxBinAPGenerator.html">MaxBinAPGenerator</a>:<span class="keyword">public</span> <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a> {
 <a name="l00013"></a>00013 
 <a name="l00014"></a>00014  <span class="keyword">public</span>:
-<a name="l00015"></a><a class="code" href="classMaxBinAPGenerator.html#a66c71f4e66c3b1414d6c6489be9e7001">00015</a>   <a class="code" href="classMaxBinAPGenerator.html#a66c71f4e66c3b1414d6c6489be9e7001">MaxBinAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts)
-<a name="l00016"></a>00016     : <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;MaxBinAPGenerator&quot;</span>, opts)
-<a name="l00017"></a>00017   {};
-<a name="l00018"></a>00018 
-<a name="l00019"></a><a class="code" href="classMaxBinAPGenerator.html#ad9baa02e3510fe0c4abc879f06bc54ba">00019</a>   <span class="keyword">virtual</span> <a class="code" href="classMaxBinAPGenerator.html#ad9baa02e3510fe0c4abc879f06bc54ba">~MaxBinAPGenerator</a>(){};
-<a name="l00020"></a>00020   
-<a name="l00021"></a>00021 <span class="keyword">public</span>:
-<a name="l00022"></a>00022   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b" title="This method is called on each vector of pulses from a MIDAS event.">ProcessPulses</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;,<a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;);
-<a name="l00023"></a><a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">00023</a>   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
+<a name="l00015"></a>00015   <a class="code" href="classMaxBinAPGenerator.html#a66c71f4e66c3b1414d6c6489be9e7001">MaxBinAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts);
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="classMaxBinAPGenerator.html#ad9baa02e3510fe0c4abc879f06bc54ba">00017</a>   <span class="keyword">virtual</span> <a class="code" href="classMaxBinAPGenerator.html#ad9baa02e3510fe0c4abc879f06bc54ba">~MaxBinAPGenerator</a>(){};
+<a name="l00018"></a>00018   
+<a name="l00019"></a>00019 <span class="keyword">public</span>:
+<a name="l00020"></a>00020   <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classMaxBinAPGenerator.html#a9e793fc89c4544772be57ff68fccb25b" title="This method is called on each vector of pulses from a MIDAS event.">ProcessPulses</a>(<span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;,<a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;);
+<a name="l00021"></a><a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">00021</a>   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classMaxBinAPGenerator.html#a604e52154ea091ddf3109cda4b12bfae">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">private</span>:
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="keyword">private</span>:
-<a name="l00026"></a>00026 
-<a name="l00029"></a>00029   <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html">Algorithm::MaxBinAmplitude</a> <a class="code" href="classMaxBinAPGenerator.html#aa470e1ac71221f345a0ff0f4d590bd6e" title="The algorithms that this generator uses.">fMaxBinAmplitude</a>;
-<a name="l00030"></a><a class="code" href="classMaxBinAPGenerator.html#a6617dece42fce07b724ae3c7a267c440">00030</a>   <a class="code" href="structAlgorithm_1_1MaxBinTime.html">Algorithm::MaxBinTime</a> <a class="code" href="classMaxBinAPGenerator.html#a6617dece42fce07b724ae3c7a267c440">fMaxBinTime</a>;
-<a name="l00031"></a>00031 };
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="preprocessor">#endif // MAXBINAPGENERATOR_H__</span>
+<a name="l00027"></a>00027   <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html">Algorithm::MaxBinAmplitude</a> <a class="code" href="classMaxBinAPGenerator.html#aa470e1ac71221f345a0ff0f4d590bd6e" title="The algorithms that this generator uses.">fMaxBinAmplitude</a>;
+<a name="l00028"></a><a class="code" href="classMaxBinAPGenerator.html#a6617dece42fce07b724ae3c7a267c440">00028</a>   <a class="code" href="structAlgorithm_1_1MaxBinTime.html">Algorithm::MaxBinTime</a> <a class="code" href="classMaxBinAPGenerator.html#a6617dece42fce07b724ae3c7a267c440">fMaxBinTime</a>;
+<a name="l00029"></a>00029 };
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="preprocessor">#endif // MAXBINAPGENERATOR_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

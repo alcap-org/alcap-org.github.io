@@ -37,14 +37,48 @@
 <p><a href="structAlgorithm_1_1MaxBinAmplitude-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a9a2c7f8ac05cca33a389eabf9ab34d82">MaxBinAmplitude</a> (double ped, int trig_pol)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a8f48564cb2b9de4bc3b7474265894440">operator()</a> (const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *tpi)</td></tr>
 <tr><td colspan="2"><h2>Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a80bd9bec5eec31c185f09a3cd248ddb8">pedestal</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a5609c8d74ce54d6763eae3cc52fdb861">pedestal</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00016">16</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9a2c7f8ac05cca33a389eabf9ab34d82"></a><!-- doxytag: member="Algorithm::MaxBinAmplitude::MaxBinAmplitude" ref="a9a2c7f8ac05cca33a389eabf9ab34d82" args="(double ped, int trig_pol)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Algorithm::MaxBinAmplitude::MaxBinAmplitude </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>ped</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>trig_pol</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00018">18</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019     :<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a>(trig_pol), <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a5609c8d74ce54d6763eae3cc52fdb861">pedestal</a>(ped){}
+</pre></div></p>
+
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a8f48564cb2b9de4bc3b7474265894440"></a><!-- doxytag: member="Algorithm::MaxBinAmplitude::operator()" ref="a8f48564cb2b9de4bc3b7474265894440" args="(const TPulseIsland *tpi)" -->
 <div class="memitem">
@@ -64,7 +98,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">11</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
 
-<p>References <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00021">pedestal</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00020">trigger_polarity</a>.</p>
+<p>References <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00023">pedestal</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00022">trigger_polarity</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00011"></a>00011                                                                     {
 <a name="l00012"></a>00012 
@@ -73,13 +107,13 @@
 <a name="l00015"></a>00015   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017   <span class="comment">// Find the position of the peak samples</span>
-<a name="l00018"></a>00018   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == 1)
+<a name="l00018"></a>00018   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a> == 1)
 <a name="l00019"></a>00019     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00020"></a>00020   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == -1)
+<a name="l00020"></a>00020   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a> == -1)
 <a name="l00021"></a>00021     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
 <a name="l00022"></a>00022 
 <a name="l00023"></a>00023   <span class="comment">// Now calculate the amplitude</span>
-<a name="l00024"></a>00024   <span class="keywordtype">double</span> amplitude = <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a>*(*peak_sample_pos - <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a80bd9bec5eec31c185f09a3cd248ddb8">pedestal</a>);
+<a name="l00024"></a>00024   <span class="keywordtype">double</span> amplitude = <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a>*(*peak_sample_pos - <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a5609c8d74ce54d6763eae3cc52fdb861">pedestal</a>);
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026   <span class="keywordflow">return</span> amplitude;
 <a name="l00027"></a>00027 }
@@ -88,37 +122,37 @@
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a80bd9bec5eec31c185f09a3cd248ddb8"></a><!-- doxytag: member="Algorithm::MaxBinAmplitude::pedestal" ref="a80bd9bec5eec31c185f09a3cd248ddb8" args="" -->
+<a class="anchor" id="a5609c8d74ce54d6763eae3cc52fdb861"></a><!-- doxytag: member="Algorithm::MaxBinAmplitude::pedestal" ref="a5609c8d74ce54d6763eae3cc52fdb861" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a80bd9bec5eec31c185f09a3cd248ddb8">Algorithm::MaxBinAmplitude::pedestal</a></td>
+          <td class="memname">const double <a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a5609c8d74ce54d6763eae3cc52fdb861">Algorithm::MaxBinAmplitude::pedestal</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00021">21</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00023">23</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">operator()()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00028">CFTimeMBAmpAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">operator()()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abe0a2d3e5b20366fb9b6759bf786bf37"></a><!-- doxytag: member="Algorithm::MaxBinAmplitude::trigger_polarity" ref="abe0a2d3e5b20366fb9b6759bf786bf37" args="" -->
+<a class="anchor" id="a11b0dcaf1b02fe3be231c9a262ced5e7"></a><!-- doxytag: member="Algorithm::MaxBinAmplitude::trigger_polarity" ref="a11b0dcaf1b02fe3be231c9a262ced5e7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">Algorithm::MaxBinAmplitude::trigger_polarity</a></td>
+          <td class="memname">const int <a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">Algorithm::MaxBinAmplitude::trigger_polarity</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00020">20</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00022">22</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">operator()()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00022">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00028">CFTimeMBAmpAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00011">operator()()</a>.</p>
 
 </div>
 </div>
@@ -127,7 +161,7 @@
 <li>rootana/src/TAP_generators/utils/<a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

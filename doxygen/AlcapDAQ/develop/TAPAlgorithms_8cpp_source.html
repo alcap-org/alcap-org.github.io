@@ -42,13 +42,13 @@
 <a name="l00015"></a>00015   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017   <span class="comment">// Find the position of the peak samples</span>
-<a name="l00018"></a>00018   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == 1)
+<a name="l00018"></a>00018   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a> == 1)
 <a name="l00019"></a>00019     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00020"></a>00020   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a> == -1)
+<a name="l00020"></a>00020   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a> == -1)
 <a name="l00021"></a>00021     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
 <a name="l00022"></a>00022 
 <a name="l00023"></a>00023   <span class="comment">// Now calculate the amplitude</span>
-<a name="l00024"></a>00024   <span class="keywordtype">double</span> amplitude = <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#abe0a2d3e5b20366fb9b6759bf786bf37">trigger_polarity</a>*(*peak_sample_pos - <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a80bd9bec5eec31c185f09a3cd248ddb8">pedestal</a>);
+<a name="l00024"></a>00024   <span class="keywordtype">double</span> amplitude = <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a11b0dcaf1b02fe3be231c9a262ced5e7">trigger_polarity</a>*(*peak_sample_pos - <a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a5609c8d74ce54d6763eae3cc52fdb861">pedestal</a>);
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026   <span class="keywordflow">return</span> amplitude;
 <a name="l00027"></a>00027 }
@@ -60,13 +60,13 @@
 <a name="l00033"></a>00033   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035   <span class="comment">// Find the position of the peak samples</span>
-<a name="l00036"></a>00036   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a383522da18ce75cb7c148dddcf04899d">trigger_polarity</a> == 1)
+<a name="l00036"></a>00036   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a> == 1)
 <a name="l00037"></a>00037     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00038"></a>00038   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a383522da18ce75cb7c148dddcf04899d">trigger_polarity</a> == -1)
+<a name="l00038"></a>00038   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a> == -1)
 <a name="l00039"></a>00039     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041   <span class="comment">// Now calculate the time</span>
-<a name="l00042"></a>00042   <span class="keywordtype">double</span> time = ((tpi-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a210ae8b866488746811026f59161fe24">clock_tick_in_ns</a>) - <a class="code" href="structAlgorithm_1_1MaxBinTime.html#addaa5369ac754d700a52e19b2e16e378">time_shift</a>;
+<a name="l00042"></a>00042   <span class="keywordtype">double</span> time = ((tpi-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a8fae6673e313edca1ba5346297d2ff4b">clock_tick_in_ns</a>) - <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a6b72506e253c9558d1f60deb216375e6">time_shift</a>;
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044   <span class="keywordflow">return</span> time;
 <a name="l00045"></a>00045 }
@@ -76,17 +76,17 @@
 <a name="l00049"></a>00049   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samps = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
 <a name="l00050"></a>00050   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> b = samps.begin(), e = samps.end();
 <a name="l00051"></a>00051 
-<a name="l00052"></a>00052   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> m = <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a09124a1321c54e9dd5a695f3a253801e">trigger_polarity</a> &gt; 0 ? std::max_element(b, e) : std::min_element(b, e);
+<a name="l00052"></a>00052   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> m = <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a1abdb64a7b0fa26f2ee742626230b812">trigger_polarity</a> &gt; 0 ? std::max_element(b, e) : std::min_element(b, e);
 <a name="l00053"></a>00053   <span class="keyword">const</span> <span class="keywordtype">int</span> amp = *m;
-<a name="l00054"></a>00054   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cf = <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a09124a1321c54e9dd5a695f3a253801e">trigger_polarity</a> &gt; 0 ?
-<a name="l00055"></a>00055       (<span class="keywordtype">unsigned</span> int)(<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ae439836eeac199c6952abf8ef123ae95">constant_fraction</a>*(<span class="keywordtype">double</span>)(amp-<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a8ba040d3efde02c812ba694fc1bd83d6">pedestal</a>)) + <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a8ba040d3efde02c812ba694fc1bd83d6">pedestal</a> :
-<a name="l00056"></a>00056       (<span class="keywordtype">unsigned</span> int)((<span class="keywordtype">double</span>)(<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a8ba040d3efde02c812ba694fc1bd83d6">pedestal</a>-amp)*(1.-<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ae439836eeac199c6952abf8ef123ae95">constant_fraction</a>) + amp);
-<a name="l00057"></a>00057   <span class="keywordflow">while</span> (m != b &amp;&amp; (<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a09124a1321c54e9dd5a695f3a253801e">trigger_polarity</a> &gt; 0 ? *--m &gt; (<span class="keywordtype">int</span>)cf : *--m &lt; (int)cf));
+<a name="l00054"></a>00054   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cf = <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a1abdb64a7b0fa26f2ee742626230b812">trigger_polarity</a> &gt; 0 ?
+<a name="l00055"></a>00055       (<span class="keywordtype">unsigned</span> int)(<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a16ebacff20c387266a55d74bc34d279c">constant_fraction</a>*(<span class="keywordtype">double</span>)(amp-<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a657582d4859e3e8243b275e26bec9761">pedestal</a>)) + <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a657582d4859e3e8243b275e26bec9761">pedestal</a> :
+<a name="l00056"></a>00056       (<span class="keywordtype">unsigned</span> int)((<span class="keywordtype">double</span>)(<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a657582d4859e3e8243b275e26bec9761">pedestal</a>-amp)*(1.-<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a16ebacff20c387266a55d74bc34d279c">constant_fraction</a>) + amp);
+<a name="l00057"></a>00057   <span class="keywordflow">while</span> (m != b &amp;&amp; (<a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a1abdb64a7b0fa26f2ee742626230b812">trigger_polarity</a> &gt; 0 ? *--m &gt; (<span class="keywordtype">int</span>)cf : *--m &lt; (int)cf));
 <a name="l00058"></a>00058   <span class="keywordtype">double</span> dx = (double)(m-b);
 <a name="l00059"></a>00059   <span class="keywordflow">if</span> (*(m+1) != *m)
 <a name="l00060"></a>00060     dx += (<span class="keywordtype">double</span>)((int)cf - *m)/(double)(*(m+1) - *m);
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062   <span class="keywordflow">return</span> (dx + (<span class="keywordtype">double</span>)tpi-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>()) * <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ad36d940bf594abea062d52d89664921a">clock_tick_in_ns</a> - <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a0c1be95217b15f48835386992833106a">time_shift</a>;
+<a name="l00062"></a>00062   <span class="keywordflow">return</span> (dx + (<span class="keywordtype">double</span>)tpi-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>()) * <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#ab95d4964112e01004d3d10dd1f290965">clock_tick_in_ns</a> - <a class="code" href="structAlgorithm_1_1ConstantFractionTime.html#a709758724a7708b7775e8f037307a26e">time_shift</a>;
 <a name="l00063"></a>00063 }
 <a name="l00064"></a>00064 
 <a name="l00065"></a><a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a53569139c38701d4952f8824c0fbcacf">00065</a> <span class="keywordtype">double</span> <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a53569139c38701d4952f8824c0fbcacf">Algorithm::SimpleIntegral::operator() </a>(<span class="keyword">const</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* tpi) {
@@ -97,12 +97,12 @@
 <a name="l00070"></a>00070   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;int&gt;::const_iterator</a> sIt = samples.begin(); sIt != samples.end(); sIt++)
 <a name="l00071"></a>00071     tempint += *sIt;
 <a name="l00072"></a>00072   
-<a name="l00073"></a>00073   <span class="keywordtype">double</span> integral = <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a4d3b6dfddd30b5a992aed6c909b0b2c9">trigger_polarity</a> * (tempint - (<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a> * length));
+<a name="l00073"></a>00073   <span class="keywordtype">double</span> integral = <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#aea76a02d841a5d8791c566ae87dc907e">trigger_polarity</a> * (tempint - (<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ad6083ed8cb0c1de917cf4f9a9291324e">pedestal</a> * length));
 <a name="l00074"></a>00074 
 <a name="l00075"></a>00075   <span class="keywordflow">return</span> integral;
 <a name="l00076"></a>00076 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -34,17 +34,17 @@
 <a name="l00007"></a>00007 <span class="keyword">using</span> std::cout;
 <a name="l00008"></a>00008 <span class="keyword">using</span> std::endl;
 <a name="l00009"></a>00009 
-<a name="l00010"></a>00010 
-<a name="l00011"></a><a class="code" href="classSimpIntAPGenerator.html#a2b4b796176226acf97963f3ce36da16a">00011</a> <span class="keywordtype">int</span> <a class="code" href="classSimpIntAPGenerator.html#a2b4b796176226acf97963f3ce36da16a" title="This method is called on each vector of pulses from a MIDAS event.">SimpIntAPGenerator::ProcessPulses</a>( 
-<a name="l00012"></a>00012           <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; pulseList, <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; analysedList)
-<a name="l00013"></a>00013 {
+<a name="l00010"></a><a class="code" href="classSimpIntAPGenerator.html#ae1395763fe9f829966682f019d2d5bd6">00010</a> <a class="code" href="classSimpIntAPGenerator.html#ae1395763fe9f829966682f019d2d5bd6">SimpIntAPGenerator::SimpIntAPGenerator</a>(<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts):
+<a name="l00011"></a>00011   <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;SimpInt&quot;</span>, opts),
+<a name="l00012"></a>00012   fSimpleIntegral(<a class="code" href="classSetupNavigator.html">SetupNavigator</a>::Instance()-&gt;GetPedestal(GetChannel()), 
+<a name="l00013"></a>00013                   <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>::Instance()-&gt;GetTriggerPolarity(<a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>::Instance()-&gt;GetBankName(GetChannel().str()))) {
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015   <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* outPulse;
+<a name="l00015"></a>00015 }
 <a name="l00016"></a>00016 
-<a name="l00017"></a>00017   <span class="comment">// Get the relevant variables from TSetupData/SetupNavigator that this generator wants</span>
-<a name="l00018"></a>00018   std::string bankname = pulseList[0]-&gt;GetBankName();
-<a name="l00019"></a>00019   <a class="code" href="classSimpIntAPGenerator.html#a7b228dce22df3cfc965c22c01f436e1b">fSimpleIntegral</a>.<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a> = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a3de371d03d102140499cf700bb0bf933" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(bankname);
-<a name="l00020"></a>00020   <a class="code" href="classSimpIntAPGenerator.html#a7b228dce22df3cfc965c22c01f436e1b">fSimpleIntegral</a>.<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a4d3b6dfddd30b5a992aed6c909b0b2c9">trigger_polarity</a> = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
+<a name="l00017"></a><a class="code" href="classSimpIntAPGenerator.html#a2b4b796176226acf97963f3ce36da16a">00017</a> <span class="keywordtype">int</span> <a class="code" href="classSimpIntAPGenerator.html#a2b4b796176226acf97963f3ce36da16a" title="This method is called on each vector of pulses from a MIDAS event.">SimpIntAPGenerator::ProcessPulses</a>( 
+<a name="l00018"></a>00018           <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; pulseList, <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; analysedList)
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020   <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* outPulse;
 <a name="l00021"></a>00021 
 <a name="l00022"></a>00022   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> pIt = pulseList.begin(); pIt != pulseList.end(); pIt++)
 <a name="l00023"></a>00023     {    
@@ -72,7 +72,7 @@
 <a name="l00045"></a>00045 <span class="comment">// NOTE: for TAP generators OMIT the APGenerator part of the class&apos; name</span>
 <a name="l00046"></a>00046 <a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(SimpInt);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
