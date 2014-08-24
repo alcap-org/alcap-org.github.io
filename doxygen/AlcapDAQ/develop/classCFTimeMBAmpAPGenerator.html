@@ -94,25 +94,16 @@ Inheritance diagram for CFTimeMBAmpAPGenerator:</div>
 
 <p>Definition at line <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00019">19</a> of file <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html">CFTimeMBAmpAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00057">modules::options::GetDouble()</a>.</p>
-
 <p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019                                                                         :
 <a name="l00020"></a>00020   <a class="code" href="classTVAnalysedPulseGenerator.html#a5a325342073385877a496219778acde4">TVAnalysedPulseGenerator</a>(<span class="stringliteral">&quot;CFTimeMBAmpAPGenerator&quot;</span>,opts),
 <a name="l00021"></a>00021   <a class="code" href="classCFTimeMBAmpAPGenerator.html#a8972d697d569cb2be43ebc5be9970df3" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;GetPedestal(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>()), 
 <a name="l00022"></a>00022                         <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetTriggerPolarity(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetBankName(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str())),
-<a name="l00023"></a>00023                         std::pow(2, <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetNBits(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetBankName(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str()))) - 1,
-<a name="l00024"></a>00024                         <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetClockTick(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetBankName(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str())),
-<a name="l00025"></a>00025                         opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;time_shift&quot;</span>, <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a7419c9d85ea61936f9d253f102855242">GetCoarseTimeOffset</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>())),
-<a name="l00026"></a>00026                         opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;constant_fraction&quot;</span>, -0.10)), 
-<a name="l00027"></a>00027   <a class="code" href="classCFTimeMBAmpAPGenerator.html#a82dd2be4e90813dcc1eba1fafc0ceb5e">fMaxBinAmplitude</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a3de371d03d102140499cf700bb0bf933" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>()), 
-<a name="l00028"></a>00028                    <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetBankName(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str()))) {
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030   <span class="comment">// Get the parameters we want from the modules file</span>
-<a name="l00031"></a>00031   <span class="comment">// This is required in the modules file by giving it an invalid default value.</span>
-<a name="l00032"></a>00032   <span class="keywordtype">double</span> constant_fraction_param = opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;constant_fraction&quot;</span>, -0.10);
-<a name="l00033"></a>00033   <span class="keywordflow">if</span> (constant_fraction_param &lt;= 0.00 || constant_fraction_param &gt;=1.00)
-<a name="l00034"></a>00034     <span class="keywordflow">throw</span> <a class="code" href="classOptionsError.html">OptionsError</a>();
-<a name="l00035"></a>00035 }
+<a name="l00023"></a>00023                         <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetClockTick(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetBankName(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str())),
+<a name="l00024"></a>00024                         opts-&gt;<a class="code" href="classmodules_1_1options.html#afd05ff40baf1d5b42f47da2521615f58" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;no_time_shift&quot;</span>) ? 0. : <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a7419c9d85ea61936f9d253f102855242">GetCoarseTimeOffset</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>()),
+<a name="l00025"></a>00025                         opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;constant_fraction&quot;</span>, -0.10)), 
+<a name="l00026"></a>00026   <a class="code" href="classCFTimeMBAmpAPGenerator.html#a82dd2be4e90813dcc1eba1fafc0ceb5e">fMaxBinAmplitude</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a3de371d03d102140499cf700bb0bf933" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>()), 
+<a name="l00027"></a>00027                    <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetBankName(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str()))) {
+<a name="l00028"></a>00028 }
 
 </pre></div></p>
 
@@ -160,7 +151,7 @@ Inheritance diagram for CFTimeMBAmpAPGenerator:</div>
 
 <p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00114">TVAnalysedPulseGenerator::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">GaussFitAPGenerator::FitPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00042">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">GaussFitAPGenerator::FitPulse()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00080"></a>00080 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d" title="Debug flagged set from modules file. Used, for example, in deciding whether or not...">fDebug</a>;};
 </pre></div></p>
@@ -187,7 +178,7 @@ Inheritance diagram for CFTimeMBAmpAPGenerator:</div>
 
 <p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">TVAnalysedPulseGenerator::fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00100">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00042">FirstCompleteAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00083">FirstCompleteAPGenerator::DrawPulse()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00084"></a>00084 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
 </pre></div></p>
@@ -286,7 +277,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00117">TVAnalysedPulseGenerator::fPulseList</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00093">TVAnalysedPulseGenerator::GetSource()</a>.</p>
 
-<p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00017">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00031">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00042">FirstCompleteAPGenerator::ProcessPulses()</a>, <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00037">ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00032">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00017">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00031">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00030">ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00032">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121                                                                            {
 <a name="l00122"></a>00122     TypeOfTAP* pulse=NULL;
@@ -359,26 +350,26 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Implements <a class="el" href="classTVAnalysedPulseGenerator.html#a1099fae9972c00150ef6687e067e5a10">TVAnalysedPulseGenerator</a>.</p>
 
-<p>Definition at line <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00037">37</a> of file <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html">CFTimeMBAmpAPGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00030">30</a> of file <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html">CFTimeMBAmpAPGenerator.cpp</a>.</p>
 
 <p>References <a class="el" href="CFTimeMBAmpAPGenerator_8h_source.html#l00021">fConstantFractionTime</a>, <a class="el" href="CFTimeMBAmpAPGenerator_8h_source.html#l00028">fMaxBinAmplitude</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">TVAnalysedPulseGenerator::MakeNewTAP()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00104">TAnalysedPulse::SetAmplitude()</a>, and <a class="el" href="TAnalysedPulse_8h_source.html#l00105">TAnalysedPulse::SetTime()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00038"></a>00038                                                                       {
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iTPI = 0; iTPI &lt; pulseList.size(); ++iTPI) {
-<a name="l00041"></a>00041     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* tpi = pulseList.at(iTPI);
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043     <span class="keywordtype">double</span> time = <a class="code" href="classCFTimeMBAmpAPGenerator.html#a8972d697d569cb2be43ebc5be9970df3" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>(tpi);
-<a name="l00044"></a>00044     <span class="keywordtype">double</span> amplitude  = <a class="code" href="classCFTimeMBAmpAPGenerator.html#a82dd2be4e90813dcc1eba1fafc0ceb5e">fMaxBinAmplitude</a>(tpi);
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046     <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* tap = <a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(iTPI);
-<a name="l00047"></a>00047     tap-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
-<a name="l00048"></a>00048     tap-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(amplitude);
-<a name="l00049"></a>00049     analysedList.push_back(tap);
-<a name="l00050"></a>00050   }
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052   <span class="keywordflow">return</span> 0;
-<a name="l00053"></a>00053 }
+<p><div class="fragment"><pre class="fragment"><a name="l00031"></a>00031                                                                       {
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iTPI = 0; iTPI &lt; pulseList.size(); ++iTPI) {
+<a name="l00034"></a>00034     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* tpi = pulseList.at(iTPI);
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036     <span class="keywordtype">double</span> time = <a class="code" href="classCFTimeMBAmpAPGenerator.html#a8972d697d569cb2be43ebc5be9970df3" title="The algorithms that will be used by this generator.">fConstantFractionTime</a>(tpi);
+<a name="l00037"></a>00037     <span class="keywordtype">double</span> amplitude  = <a class="code" href="classCFTimeMBAmpAPGenerator.html#a82dd2be4e90813dcc1eba1fafc0ceb5e">fMaxBinAmplitude</a>(tpi);
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <a class="code" href="classTAnalysedPulse.html" title="A TAnalysedPulse (TAP) is the product of the second level of analysis in the framework...">TAnalysedPulse</a>* tap = <a class="code" href="classTVAnalysedPulseGenerator.html#afc3b7aa35f52b3c404490a0ca782c487" title="The suggested method for constructing a new TAP.">MakeNewTAP</a>(iTPI);
+<a name="l00040"></a>00040     tap-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(time);
+<a name="l00041"></a>00041     tap-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(amplitude);
+<a name="l00042"></a>00042     analysedList.push_back(tap);
+<a name="l00043"></a>00043   }
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045   <span class="keywordflow">return</span> 0;
+<a name="l00046"></a>00046 }
 </pre></div></p>
 
 </div>
@@ -470,7 +461,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="CFTimeMBAmpAPGenerator_8h_source.html#l00021">21</a> of file <a class="el" href="CFTimeMBAmpAPGenerator_8h_source.html">CFTimeMBAmpAPGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00037">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00030">ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -487,7 +478,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="CFTimeMBAmpAPGenerator_8h_source.html#l00028">28</a> of file <a class="el" href="CFTimeMBAmpAPGenerator_8h_source.html">CFTimeMBAmpAPGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00037">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00030">ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -496,7 +487,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <li>rootana/src/TAP_generators/<a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html">CFTimeMBAmpAPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
