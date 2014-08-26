@@ -86,10 +86,8 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#a2105845754ac83bee39a99290003320a">fTimeHigh</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#a29e6223f6390170f6e49f636053bb337">fExportSQL</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH2F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#aaea9bbe30d8f5a8c5ff6dffeba721444">intA_plots</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH2F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#ae4a6301e599cf52b1be6dc032e0ceb8f">intB_plots</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH2F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#a74cca4683283ed94a6ba085227fb08cb">ampA_plots</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH2F * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#a838d199ec864cc9c75b4525ae04aa751">ampB_plots</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <br class="typebreak"/>
+std::vector&lt; TH2F * &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#a7e875e652146a573b1e4283316d2e540">fHists</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classIDs_1_1source.html">IDs::source</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classIDs_1_1source.html">IDs::source</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlotTAP__TDiff.html#a673f58ed1e4ad26afb7401080ad97857">fDetBSources</a></td></tr>
 </table>
@@ -206,19 +204,19 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00102">102</a> of file <a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00100">100</a> of file <a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a>.</p>
 
-<p>References <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">ampA_plots</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00073">fExportSQL</a>, <a class="el" href="SetupNavigator_8h_source.html#l00076">SetupNavigator::Instance()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00206">SetupNavigator::SetCoarseTimeOffset()</a>.</p>
+<p>References <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00073">fExportSQL</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">fHists</a>, <a class="el" href="SetupNavigator_8h_source.html#l00077">SetupNavigator::Instance()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00206">SetupNavigator::SetCoarseTimeOffset()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102                                                                            {
-<a name="l00103"></a>00103   <span class="keywordflow">if</span> (<a class="code" href="classPlotTAP__TDiff.html#a29e6223f6390170f6e49f636053bb337">fExportSQL</a>) {
-<a name="l00104"></a>00104     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.size(); ++i) {
-<a name="l00105"></a>00105       TH1D* h = <a class="code" href="classPlotTAP__TDiff.html#a74cca4683283ed94a6ba085227fb08cb">ampA_plots</a>[<a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>[i].str()]-&gt;ProjectionX();
-<a name="l00106"></a>00106       <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a6538c76e50628b0f4d6c75bbf3229f71">SetCoarseTimeOffset</a>(<a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>[i], h-&gt;GetBinCenter(h-&gt;GetMaximumBin()));
-<a name="l00107"></a>00107     }
-<a name="l00108"></a>00108   }
-<a name="l00109"></a>00109   <span class="keywordflow">return</span> 0;
-<a name="l00110"></a>00110 }
+<p><div class="fragment"><pre class="fragment"><a name="l00100"></a>00100                                                                            {
+<a name="l00101"></a>00101   <span class="keywordflow">if</span> (<a class="code" href="classPlotTAP__TDiff.html#a29e6223f6390170f6e49f636053bb337">fExportSQL</a>) {
+<a name="l00102"></a>00102     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.size(); ++i) {
+<a name="l00103"></a>00103       TH1D* h = <a class="code" href="classPlotTAP__TDiff.html#a7e875e652146a573b1e4283316d2e540">fHists</a>[<a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>[i].str()][0]-&gt;ProjectionX();
+<a name="l00104"></a>00104       <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a6538c76e50628b0f4d6c75bbf3229f71">SetCoarseTimeOffset</a>(<a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>[i], h-&gt;GetBinCenter(h-&gt;GetMaximumBin()));
+<a name="l00105"></a>00105     }
+<a name="l00106"></a>00106   }
+<a name="l00107"></a>00107   <span class="keywordflow">return</span> 0;
+<a name="l00108"></a>00108 }
 </pre></div></p>
 
 </div>
@@ -262,7 +260,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">46</a> of file <a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a>.</p>
 
-<p>References <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetBSources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameA</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameB</a>, and <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>.</p>
+<p>References <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">BookHistograms()</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetBSources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameA</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameB</a>, and <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00046"></a>00046                                                                              {
 <a name="l00047"></a>00047 
@@ -276,18 +274,16 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 <a name="l00055"></a>00055       {
 <a name="l00056"></a>00056         <span class="keywordflow">if</span>(sourceIt2-&gt;first.Channel() != <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a>)
 <a name="l00057"></a>00057           <span class="keywordflow">continue</span>;  <span class="comment">//check for detector B</span>
-<a name="l00058"></a>00058         <span class="keywordflow">if</span>(sourceIt2-&gt;first.Generator() != sourceIt-&gt;first.Generator())
-<a name="l00059"></a>00059           <span class="keywordflow">continue</span>;  <span class="comment">//make sure they have the same generator</span>
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061         <span class="comment">//I should make a vector of the sources for detA and detB</span>
-<a name="l00062"></a>00062         <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.push_back(sourceIt-&gt;first);
-<a name="l00063"></a>00063         <a class="code" href="classPlotTAP__TDiff.html#a673f58ed1e4ad26afb7401080ad97857">fDetBSources</a>.push_back(sourceIt2-&gt;first);
-<a name="l00064"></a>00064         <span class="keywordflow">break</span>;
-<a name="l00065"></a>00065       }
-<a name="l00066"></a>00066   }
-<a name="l00067"></a>00067   <a class="code" href="classPlotTAP__TDiff.html#ab3d13aae5730b4c0c2443a4652a65d30" title="Prepare histograms.">BookHistograms</a>(setup);
-<a name="l00068"></a>00068   <span class="keywordflow">return</span> 0;
-<a name="l00069"></a>00069 }
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="comment">//I should make a vector of the sources for detA and detB</span>
+<a name="l00060"></a>00060         <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.push_back(sourceIt-&gt;first);
+<a name="l00061"></a>00061         <a class="code" href="classPlotTAP__TDiff.html#a673f58ed1e4ad26afb7401080ad97857">fDetBSources</a>.push_back(sourceIt2-&gt;first);
+<a name="l00062"></a>00062         <span class="keywordflow">break</span>;
+<a name="l00063"></a>00063       }
+<a name="l00064"></a>00064   }
+<a name="l00065"></a>00065   <a class="code" href="classPlotTAP__TDiff.html#ab3d13aae5730b4c0c2443a4652a65d30" title="Prepare histograms.">BookHistograms</a>(setup);
+<a name="l00066"></a>00066   <span class="keywordflow">return</span> 0;
+<a name="l00067"></a>00067 }
 </pre></div></p>
 
 </div>
@@ -310,42 +306,41 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Prepare histograms. </p>
 
-<p>Definition at line <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">112</a> of file <a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">110</a> of file <a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a>.</p>
 
-<p>References <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">ampA_plots</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">ampB_plots</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameA</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameB</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00072">fTimeHigh</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00072">fTimeLow</a>, <a class="el" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">TSetupData::GetBankName()</a>, <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">intA_plots</a>, and <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">intB_plots</a>.</p>
+<p>References <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameA</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">fDetNameB</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">fHists</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00072">fTimeHigh</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00072">fTimeLow</a>, <a class="el" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">TSetupData::GetBankName()</a>, and <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>.</p>
 
 <p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00112"></a>00112                                                           {
-<a name="l00113"></a>00113   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.size(); ++i) {
-<a name="l00114"></a>00114     <span class="keyword">const</span> std::string key = <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).str();
-<a name="l00115"></a>00115     <span class="keyword">const</span> std::string gen = <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).Generator().str();
-<a name="l00116"></a>00116     <span class="keyword">const</span> <span class="keywordtype">int</span> maxAmpA = std::pow(2, setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a>)));
-<a name="l00117"></a>00117     <span class="keyword">const</span> <span class="keywordtype">int</span> maxAmpB = std::pow(2, setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a>)));
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119     <span class="comment">//ampA plots</span>
-<a name="l00120"></a>00120     std::string histname(<span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + key + <span class="stringliteral">&quot;TDiff_AmpA&quot;</span>);
-<a name="l00121"></a>00121     std::string histtitle(<span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Amplitude (ADC counts)&quot;</span>);
-<a name="l00122"></a>00122     <a class="code" href="classPlotTAP__TDiff.html#a74cca4683283ed94a6ba085227fb08cb">ampA_plots</a>[key] = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, <a class="code" href="classPlotTAP__TDiff.html#a2105845754ac83bee39a99290003320a">fTimeHigh</a>, 200, 0, maxAmpA);
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125     <span class="comment">//ampB plots</span>
-<a name="l00126"></a>00126     histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + key + <span class="stringliteral">&quot; TDiff_AmpB&quot;</span>;
-<a name="l00127"></a>00127     histtitle = <span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Amplitude (ADC counts)&quot;</span>;
-<a name="l00128"></a>00128     <a class="code" href="classPlotTAP__TDiff.html#a838d199ec864cc9c75b4525ae04aa751">ampB_plots</a>[key] = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, fTimeHigh, 200, 0, maxAmpB);
-<a name="l00129"></a>00129  
-<a name="l00130"></a>00130     <span class="comment">//intA plots</span>
-<a name="l00131"></a>00131     histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + key + <span class="stringliteral">&quot; TDiff_IntA&quot;</span>;
-<a name="l00132"></a>00132     histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Integral (ADC counts)&quot;</span>;
-<a name="l00133"></a>00133     <a class="code" href="classPlotTAP__TDiff.html#aaea9bbe30d8f5a8c5ff6dffeba721444">intA_plots</a>[key] = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, fTimeHigh, 200, 0, 5*maxAmpA);
-<a name="l00134"></a>00134       
-<a name="l00135"></a>00135     <span class="comment">//intB plots</span>
-<a name="l00136"></a>00136     histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + key + <span class="stringliteral">&quot; TDiff_IntB&quot;</span>;
-<a name="l00137"></a>00137     histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Integral (ADC counts)&quot;</span>;
-<a name="l00138"></a>00138     <a class="code" href="classPlotTAP__TDiff.html#ae4a6301e599cf52b1be6dc032e0ceb8f">intB_plots</a>[key] = <span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, fTimeHigh, 200, 0, 5*maxAmpB);
-<a name="l00139"></a>00139     
-<a name="l00140"></a>00140   }
-<a name="l00141"></a>00141 }
+<p><div class="fragment"><pre class="fragment"><a name="l00110"></a>00110                                                           {
+<a name="l00111"></a>00111   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.size(); ++i) {
+<a name="l00112"></a>00112     <span class="keyword">const</span> std::string gen = <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).Generator().str();
+<a name="l00113"></a>00113     <span class="keyword">const</span> <span class="keywordtype">int</span> maxAmpA = std::pow(2, setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a>)));
+<a name="l00114"></a>00114     <span class="keyword">const</span> <span class="keywordtype">int</span> maxAmpB = std::pow(2, setup-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(setup-&gt;<a class="code" href="classTSetupData.html#a9d2cb193423208f99c9ee4673098f038">GetBankName</a>(<a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a>)));
+<a name="l00115"></a>00115     std::vector&lt;TH2F*&gt;&amp; hists = <a class="code" href="classPlotTAP__TDiff.html#a7e875e652146a573b1e4283316d2e540">fHists</a>[<a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).str()];
+<a name="l00116"></a>00116     
+<a name="l00117"></a>00117     <span class="comment">//ampA plots</span>
+<a name="l00118"></a>00118     std::string histname(<span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).str() + <span class="stringliteral">&quot;TDiff_AmpA&quot;</span>);
+<a name="l00119"></a>00119     std::string histtitle(<span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Amplitude (ADC counts)&quot;</span>);
+<a name="l00120"></a>00120     hists.push_back(<span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, <a class="code" href="classPlotTAP__TDiff.html#a2105845754ac83bee39a99290003320a">fTimeHigh</a>, 200, 0, maxAmpA));
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122     <span class="comment">//ampB plots</span>
+<a name="l00123"></a>00123     histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).str() + <span class="stringliteral">&quot; TDiff_AmpB&quot;</span>;
+<a name="l00124"></a>00124     histtitle = <span class="stringliteral">&quot;Amplitude of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Amplitude (ADC counts)&quot;</span>;
+<a name="l00125"></a>00125     hists.push_back(<span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, fTimeHigh, 200, 0, maxAmpB));
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127     <span class="comment">//intA plots</span>
+<a name="l00128"></a>00128     histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).str() + <span class="stringliteral">&quot; TDiff_IntA&quot;</span>;
+<a name="l00129"></a>00129     histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Integral (ADC counts)&quot;</span>;
+<a name="l00130"></a>00130     hists.push_back(<span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, fTimeHigh, 200, 0, 5*maxAmpA));
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132     <span class="comment">//intB plots</span>
+<a name="l00133"></a>00133     histname = <span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.at(i).str() + <span class="stringliteral">&quot; TDiff_IntB&quot;</span>;
+<a name="l00134"></a>00134     histtitle = <span class="stringliteral">&quot;Integral of &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a86137d133d3a8a3a842c45ead59167c3">fDetNameB</a> + <span class="stringliteral">&quot; vs time difference with &quot;</span> + <a class="code" href="classPlotTAP__TDiff.html#a5e89d75b5bae31df30cb46322a5b244f" title="Don&amp;#39;t forget to forget descirptions for each field...">fDetNameA</a> + <span class="stringliteral">&quot; detectors with the &quot;</span> + gen + <span class="stringliteral">&quot; generator;Time Difference (ns);Integral (ADC counts)&quot;</span>;
+<a name="l00135"></a>00135     hists.push_back(<span class="keyword">new</span> TH2F(histname.c_str(), histtitle.c_str(), 200, <a class="code" href="classPlotTAP__TDiff.html#a5d3df48e9f59665bf6a4164a3907a796">fTimeLow</a>, fTimeHigh, 200, 0, 5*maxAmpB));
+<a name="l00136"></a>00136     
+<a name="l00137"></a>00137   }
+<a name="l00138"></a>00138 }
 </pre></div></p>
 
 </div>
@@ -371,7 +366,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00088">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00189">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00136">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00102">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>, and <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00189">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00102">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>, and <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -596,35 +591,35 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">73</a> of file <a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00071">71</a> of file <a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a>.</p>
 
-<p>References <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">ampA_plots</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">ampB_plots</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetBSources</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">intA_plots</a>, and <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">intB_plots</a>.</p>
+<p>References <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetASources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">fDetBSources</a>, <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">fHists</a>, and <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00073"></a>00073                                                                           {
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.size(); ++i) {
-<a name="l00076"></a>00076     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detAPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[<a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>[i]];
-<a name="l00077"></a>00077     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detBPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[<a class="code" href="classPlotTAP__TDiff.html#a673f58ed1e4ad26afb7401080ad97857">fDetBSources</a>[i]];
-<a name="l00078"></a>00078     <span class="keyword">const</span> std::string&amp; key = fDetASources[i].str();
-<a name="l00079"></a>00079     
-<a name="l00080"></a>00080     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt = detAPulses.begin();
-<a name="l00081"></a>00081         pulseIt != detAPulses.end(); ++pulseIt) {
-<a name="l00082"></a>00082       
-<a name="l00083"></a>00083       <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt2 = detBPulses.begin();
-<a name="l00084"></a>00084           pulseIt2 != detBPulses.end(); ++pulseIt2) {
-<a name="l00085"></a>00085         <span class="keywordtype">double</span> tDiff = (*pulseIt)-&gt;GetTime() - (*pulseIt2)-&gt;GetTime();
-<a name="l00086"></a>00086         
-<a name="l00087"></a>00087         <a class="code" href="classPlotTAP__TDiff.html#a74cca4683283ed94a6ba085227fb08cb">ampA_plots</a>[key]-&gt;Fill(tDiff, (*pulseIt)-&gt;GetAmplitude());
-<a name="l00088"></a>00088         <a class="code" href="classPlotTAP__TDiff.html#a838d199ec864cc9c75b4525ae04aa751">ampB_plots</a>[key]-&gt;Fill(tDiff, (*pulseIt2)-&gt;GetAmplitude());
-<a name="l00089"></a>00089         <a class="code" href="classPlotTAP__TDiff.html#aaea9bbe30d8f5a8c5ff6dffeba721444">intA_plots</a>[key]-&gt;Fill(tDiff, (*pulseIt)-&gt;GetIntegral());
-<a name="l00090"></a>00090         <a class="code" href="classPlotTAP__TDiff.html#ae4a6301e599cf52b1be6dc032e0ceb8f">intB_plots</a>[key]-&gt;Fill(tDiff, (*pulseIt2)-&gt;GetIntegral());
-<a name="l00091"></a>00091         
-<a name="l00092"></a>00092       }<span class="comment">//end detBPulse loop</span>
-<a name="l00093"></a>00093     }<span class="comment">//end detAPulse loop</span>
-<a name="l00094"></a>00094   }<span class="comment">//end sources loop</span>
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096   <span class="keywordflow">return</span> 0;
-<a name="l00097"></a>00097 }
+<p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071                                                                           {
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>.size(); ++i) {
+<a name="l00074"></a>00074     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detAPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[<a class="code" href="classPlotTAP__TDiff.html#aab9926acea6cd2a4d22a140053212e8d">fDetASources</a>[i]];
+<a name="l00075"></a>00075     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp; detBPulses = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[<a class="code" href="classPlotTAP__TDiff.html#a673f58ed1e4ad26afb7401080ad97857">fDetBSources</a>[i]];
+<a name="l00076"></a>00076     <span class="keyword">const</span> std::vector&lt;TH2F*&gt;&amp; hists = <a class="code" href="classPlotTAP__TDiff.html#a7e875e652146a573b1e4283316d2e540">fHists</a>[fDetASources[i].str()];
+<a name="l00077"></a>00077     
+<a name="l00078"></a>00078     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt = detAPulses.begin();
+<a name="l00079"></a>00079         pulseIt != detAPulses.end(); ++pulseIt) {
+<a name="l00080"></a>00080       
+<a name="l00081"></a>00081       <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">AnalysedPulseList::const_iterator</a> pulseIt2 = detBPulses.begin();
+<a name="l00082"></a>00082           pulseIt2 != detBPulses.end(); ++pulseIt2) {
+<a name="l00083"></a>00083         <span class="keywordtype">double</span> tDiff = (*pulseIt)-&gt;GetTime() - (*pulseIt2)-&gt;GetTime();
+<a name="l00084"></a>00084         
+<a name="l00085"></a>00085         hists[0]-&gt;Fill(tDiff, (*pulseIt)-&gt;GetAmplitude());
+<a name="l00086"></a>00086         hists[1]-&gt;Fill(tDiff, (*pulseIt2)-&gt;GetAmplitude());
+<a name="l00087"></a>00087         hists[2]-&gt;Fill(tDiff, (*pulseIt)-&gt;GetIntegral());
+<a name="l00088"></a>00088         hists[3]-&gt;Fill(tDiff, (*pulseIt2)-&gt;GetIntegral());
+<a name="l00089"></a>00089         
+<a name="l00090"></a>00090       }<span class="comment">//end detBPulse loop</span>
+<a name="l00091"></a>00091     }<span class="comment">//end detAPulse loop</span>
+<a name="l00092"></a>00092   }<span class="comment">//end sources loop</span>
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094   <span class="keywordflow">return</span> 0;
+<a name="l00095"></a>00095 }
 </pre></div></p>
 
 </div>
@@ -705,40 +700,6 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a74cca4683283ed94a6ba085227fb08cb"></a><!-- doxytag: member="PlotTAP_TDiff::ampA_plots" ref="a74cca4683283ed94a6ba085227fb08cb" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::string, TH2F*&gt; <a class="el" href="classPlotTAP__TDiff.html#a74cca4683283ed94a6ba085227fb08cb">PlotTAP_TDiff::ampA_plots</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">75</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
-
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00102">AfterLastEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">ProcessEntry()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a838d199ec864cc9c75b4525ae04aa751"></a><!-- doxytag: member="PlotTAP_TDiff::ampB_plots" ref="a838d199ec864cc9c75b4525ae04aa751" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::string, TH2F*&gt; <a class="el" href="classPlotTAP__TDiff.html#a838d199ec864cc9c75b4525ae04aa751">PlotTAP_TDiff::ampB_plots</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">75</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
-
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">ProcessEntry()</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="aa00f24e65a18c1d08149965da0fa1a22"></a><!-- doxytag: member="PlotTAP_TDiff::dir" ref="aa00f24e65a18c1d08149965da0fa1a22" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -770,7 +731,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">77</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00102">AfterLastEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00100">AfterLastEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">BookHistograms()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00071">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -787,7 +748,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00077">77</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00071">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -807,7 +768,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">71</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">BookHistograms()</a>.</p>
 
 </div>
 </div>
@@ -824,7 +785,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00071">71</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00046">BeforeFirstEntry()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">BookHistograms()</a>.</p>
 
 </div>
 </div>
@@ -841,7 +802,24 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00073">73</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00102">AfterLastEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00100">AfterLastEntry()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7e875e652146a573b1e4283316d2e540"></a><!-- doxytag: member="PlotTAP_TDiff::fHists" ref="a7e875e652146a573b1e4283316d2e540" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, std::vector&lt;TH2F*&gt; &gt; <a class="el" href="classPlotTAP__TDiff.html#a7e875e652146a573b1e4283316d2e540">PlotTAP_TDiff::fHists</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">75</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00100">AfterLastEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">BookHistograms()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00071">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -858,7 +836,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00072">72</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">BookHistograms()</a>.</p>
 
 </div>
 </div>
@@ -875,41 +853,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 
 <p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00072">72</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaea9bbe30d8f5a8c5ff6dffeba721444"></a><!-- doxytag: member="PlotTAP_TDiff::intA_plots" ref="aaea9bbe30d8f5a8c5ff6dffeba721444" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::string, TH2F*&gt; <a class="el" href="classPlotTAP__TDiff.html#aaea9bbe30d8f5a8c5ff6dffeba721444">PlotTAP_TDiff::intA_plots</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">75</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
-
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">ProcessEntry()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae4a6301e599cf52b1be6dc032e0ceb8f"></a><!-- doxytag: member="PlotTAP_TDiff::intB_plots" ref="ae4a6301e599cf52b1be6dc032e0ceb8f" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::string, TH2F*&gt; <a class="el" href="classPlotTAP__TDiff.html#ae4a6301e599cf52b1be6dc032e0ceb8f">PlotTAP_TDiff::intB_plots</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="PlotTAP__TDiff_8h_source.html#l00075">75</a> of file <a class="el" href="PlotTAP__TDiff_8h_source.html">PlotTAP_TDiff.h</a>.</p>
-
-<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00112">BookHistograms()</a>, and <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00073">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00110">BookHistograms()</a>.</p>
 
 </div>
 </div>
@@ -918,7 +862,7 @@ Inheritance diagram for PlotTAP_TDiff:</div>
 <li>rootana/src/plotters/<a class="el" href="PlotTAP__TDiff_8cpp_source.html">PlotTAP_TDiff.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

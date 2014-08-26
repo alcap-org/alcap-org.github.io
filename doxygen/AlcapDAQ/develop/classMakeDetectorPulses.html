@@ -228,7 +228,7 @@ Inheritance diagram for MakeDetectorPulses:</div>
 
 <p>Definition at line <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">24</a> of file <a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a>.</p>
 
-<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00060">fAlgorithm</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00058">fFastSlowPairs</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00055">fGenerator</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00059">fOptions</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00054">fPassThruGenerator</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00060">fPassThruName</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00073">gDetectorPulseMap</a>, <a class="el" href="IdSource_8h_source.html#l00085">IDs::source::Generator()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00109">IDs::channel::GetCorrespondingFastSlow()</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00051">TVDetectorPulseGenerator::GetGeneratorID()</a>, <a class="el" href="IdChannel_8h_source.html#l00127">IDs::channel::isFast()</a>, <a class="el" href="IdChannel_8h_source.html#l00039">IDs::kNotApplicable</a>, and <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00136">MakeGenerator()</a>.</p>
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00060">fAlgorithm</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00058">fFastSlowPairs</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00055">fGenerator</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00059">fOptions</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00054">fPassThruGenerator</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00060">fPassThruName</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00073">gDetectorPulseMap</a>, <a class="el" href="IdSource_8h_source.html#l00085">IDs::source::Generator()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00109">IDs::channel::GetCorrespondingFastSlow()</a>, <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00051">TVDetectorPulseGenerator::GetGeneratorID()</a>, <a class="el" href="IdChannel_8h_source.html#l00127">IDs::channel::isFast()</a>, <a class="el" href="IdChannel_8h_source.html#l00039">IDs::kNotApplicable</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">MakeGenerator()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00050">IDs::generator::Type()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024                                                                                    {
 <a name="l00025"></a>00025     <span class="comment">// Set up the generator</span>
@@ -247,42 +247,51 @@ Inheritance diagram for MakeDetectorPulses:</div>
 <a name="l00038"></a>00038             i_source != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); i_source++) {
 <a name="l00039"></a>00039         ch=&amp;i_source-&gt;first.Channel();
 <a name="l00040"></a>00040         gen=&amp;i_source-&gt;first.Generator();
-<a name="l00041"></a>00041         partner=<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(ch-&gt;<a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">GetCorrespondingFastSlow</a>(),*gen);
-<a name="l00042"></a>00042         <span class="keywordflow">if</span>(<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.count(partner)==0) partner=i_source-&gt;first;
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044         <span class="comment">// if there is no corresponding fast / slow channel then use the pass</span>
-<a name="l00045"></a>00045         <span class="comment">// through generator</span>
-<a name="l00046"></a>00046         <span class="keywordflow">if</span>(partner==i_source-&gt;first) {
-<a name="l00047"></a>00047             generator=<a class="code" href="classMakeDetectorPulses.html#a7a3cfca1279f97dfd0a24aa5620bf06b">fPassThruGenerator</a>;
-<a name="l00048"></a>00048         } <span class="keywordflow">else</span> {
-<a name="l00049"></a>00049             generator=<a class="code" href="classMakeDetectorPulses.html#a13f94ae1e1f7dac6db98330cb9911193">fGenerator</a>;
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042         <span class="comment">// Find the correct source since the generator options could be different</span>
+<a name="l00043"></a>00043         <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> j_source = <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00044"></a>00044              j_source != <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); ++j_source) {
+<a name="l00045"></a>00045           
+<a name="l00046"></a>00046           <span class="keywordflow">if</span> (j_source-&gt;first.Generator().Type() == gen-&gt;<a class="code" href="classIDs_1_1generator.html#a54b9c64ade53e75798aca80ee0cf3e71" title="Returns the type of generator that this ID represents.">Type</a>()
+<a name="l00047"></a>00047               &amp;&amp; j_source-&gt;first.Channel() == ch-&gt;<a class="code" href="classIDs_1_1channel.html#a63317dcc2c399021a518166357196bbb">GetCorrespondingFastSlow</a>()) {
+<a name="l00048"></a>00048             partner = j_source-&gt;first;
+<a name="l00049"></a>00049           }
 <a name="l00050"></a>00050         }
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052         <span class="comment">// Prepare the source ID for the TDP generator</span>
-<a name="l00053"></a>00053         tdp_source=i_source-&gt;first;
-<a name="l00054"></a>00054         tdp_source.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().SlowFast(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">IDs::kNotApplicable</a>);
-<a name="l00055"></a>00055         tdp_source.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a1a47ac68ee49dc0ae5d319c79644ac94">GetGeneratorID</a>();
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057         <span class="keywordflow">if</span>(ch-&gt;<a class="code" href="classIDs_1_1channel.html#a42a3ac122222a5ff54dc421da9401912" title="Check if this channel ID is for a fast channel.">isFast</a>()) {
-<a name="l00058"></a>00058             <span class="comment">// fast channels go first</span>
-<a name="l00059"></a>00059             <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.insert(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a>(tdp_source, i_source-&gt;first,partner,generator));
-<a name="l00060"></a>00060         }<span class="keywordflow">else</span>{ 
-<a name="l00061"></a>00061             <span class="comment">// slow channels go second</span>
-<a name="l00062"></a>00062             <span class="comment">// if both fast and slow are the same then later there will be</span>
-<a name="l00063"></a>00063             <span class="comment">// nothing to do.</span>
-<a name="l00064"></a>00064             <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.insert(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a>(tdp_source, partner,i_source-&gt;first,generator));
-<a name="l00065"></a>00065         }
-<a name="l00066"></a>00066     }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <span class="comment">// setup gDetectorPulseMap to contain all pulse lists for each TDP source</span>
-<a name="l00069"></a>00069     <span class="keywordflow">for</span>( <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelPairing_t::iterator</a> i=<a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.begin();i!=<a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.end();i++){
-<a name="l00070"></a>00070         <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>[i-&gt;source];
-<a name="l00071"></a>00071         <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00072"></a>00072             std::cout&lt;&lt;<span class="stringliteral">&quot;Paired: &quot;</span>&lt;&lt;i-&gt;fast&lt;&lt;<span class="stringliteral">&quot; with &quot;</span>&lt;&lt;i-&gt;slow&lt;&lt;<span class="stringliteral">&quot; processed by: &quot;</span>&lt;&lt;i-&gt;generator-&gt;GetGeneratorID()&lt;&lt;std::endl;
-<a name="l00073"></a>00073         }
-<a name="l00074"></a>00074     }
-<a name="l00075"></a>00075     <span class="keywordflow">return</span> 0;
-<a name="l00076"></a>00076 }
+<a name="l00051"></a>00051         <span class="keywordflow">if</span> (<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.count(partner)==0) partner=i_source-&gt;first;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053         <span class="comment">// if there is no corresponding fast / slow channel then use the pass</span>
+<a name="l00054"></a>00054         <span class="comment">// through generator</span>
+<a name="l00055"></a>00055         <span class="keywordflow">if</span>(partner==i_source-&gt;first) {
+<a name="l00056"></a>00056             generator=<a class="code" href="classMakeDetectorPulses.html#a7a3cfca1279f97dfd0a24aa5620bf06b">fPassThruGenerator</a>;
+<a name="l00057"></a>00057         } <span class="keywordflow">else</span> {
+<a name="l00058"></a>00058             generator=<a class="code" href="classMakeDetectorPulses.html#a13f94ae1e1f7dac6db98330cb9911193">fGenerator</a>;
+<a name="l00059"></a>00059         }
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061         <span class="comment">// Prepare the source ID for the TDP generator</span>
+<a name="l00062"></a>00062         tdp_source=i_source-&gt;first;
+<a name="l00063"></a>00063         tdp_source.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().SlowFast(<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">IDs::kNotApplicable</a>);
+<a name="l00064"></a>00064         tdp_source.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a1a47ac68ee49dc0ae5d319c79644ac94">GetGeneratorID</a>();
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066         <span class="keywordflow">if</span>(ch-&gt;<a class="code" href="classIDs_1_1channel.html#a42a3ac122222a5ff54dc421da9401912" title="Check if this channel ID is for a fast channel.">isFast</a>()) {
+<a name="l00067"></a>00067             <span class="comment">// fast channels go first</span>
+<a name="l00068"></a>00068             <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.insert(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a>(tdp_source, i_source-&gt;first,partner,generator));
+<a name="l00069"></a>00069         }<span class="keywordflow">else</span>{ 
+<a name="l00070"></a>00070             <span class="comment">// slow channels go second</span>
+<a name="l00071"></a>00071             <span class="comment">// if both fast and slow are the same then later there will be</span>
+<a name="l00072"></a>00072             <span class="comment">// nothing to do.</span>
+<a name="l00073"></a>00073             <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.insert(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8ae">Detector_t</a>(tdp_source, partner,i_source-&gt;first,generator));
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075     }
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077     <span class="comment">// setup gDetectorPulseMap to contain all pulse lists for each TDP source</span>
+<a name="l00078"></a>00078     <span class="keywordflow">for</span>( <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelPairing_t::iterator</a> i=<a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.begin();i!=<a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.end();i++){
+<a name="l00079"></a>00079         <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>[i-&gt;source];
+<a name="l00080"></a>00080         <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00081"></a>00081             std::cout&lt;&lt;<span class="stringliteral">&quot;Paired: &quot;</span>&lt;&lt;i-&gt;fast&lt;&lt;<span class="stringliteral">&quot; with &quot;</span>&lt;&lt;i-&gt;slow&lt;&lt;<span class="stringliteral">&quot; processed by: &quot;</span>&lt;&lt;i-&gt;generator-&gt;GetGeneratorID()&lt;&lt;std::endl;
+<a name="l00082"></a>00082         }
+<a name="l00083"></a>00083     }
+<a name="l00084"></a>00084     <span class="keywordflow">return</span> 0;
+<a name="l00085"></a>00085 }
 </pre></div></p>
 
 </div>
@@ -308,7 +317,7 @@ Inheritance diagram for MakeDetectorPulses:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00088">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00189">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00136">MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00102">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>, and <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00189">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00102">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00090">PulseViewer::ProcessEntry()</a>, and <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -331,18 +340,18 @@ Inheritance diagram for MakeDetectorPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00147">147</a> of file <a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00156">156</a> of file <a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00147"></a>00147                                                                             {
-<a name="l00148"></a>00148     std::cout&lt;&lt;<span class="stringliteral">&quot;gAnalysedPulseMap contains:&quot;</span>&lt;&lt;std::endl;
-<a name="l00149"></a>00149     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> it=aMap.begin();
-<a name="l00150"></a>00150             it!=aMap.end(); it++){
-<a name="l00151"></a>00151         cout&lt;&lt;it-&gt;first&lt;&lt;<span class="stringliteral">&quot; contains &quot;</span>&lt;&lt;it-&gt;second.size()&lt;&lt;<span class="stringliteral">&quot; TAPs&quot;</span>&lt;&lt;endl;
-<a name="l00152"></a>00152     }
-<a name="l00153"></a>00153 
-<a name="l00154"></a>00154 }
+<p><div class="fragment"><pre class="fragment"><a name="l00156"></a>00156                                                                             {
+<a name="l00157"></a>00157     std::cout&lt;&lt;<span class="stringliteral">&quot;gAnalysedPulseMap contains:&quot;</span>&lt;&lt;std::endl;
+<a name="l00158"></a>00158     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> it=aMap.begin();
+<a name="l00159"></a>00159             it!=aMap.end(); it++){
+<a name="l00160"></a>00160         cout&lt;&lt;it-&gt;first&lt;&lt;<span class="stringliteral">&quot; contains &quot;</span>&lt;&lt;it-&gt;second.size()&lt;&lt;<span class="stringliteral">&quot; TAPs&quot;</span>&lt;&lt;endl;
+<a name="l00161"></a>00161     }
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163 }
 </pre></div></p>
 
 </div>
@@ -483,22 +492,22 @@ Inheritance diagram for MakeDetectorPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00136">136</a> of file <a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">145</a> of file <a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a>.</p>
 
 <p>References <a class="el" href="TemplateFactory_8tpl_source.html#l00023">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TDPGeneratorFactory_8h_source.html#l00018">TDPGeneratorFactory::Instance()</a>, and <a class="el" href="TVDetectorPulseGenerator_8h_source.html#l00033">TVDetectorPulseGenerator::SetDebug()</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">BeforeFirstEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00136"></a>00136                                                                                                                      {
-<a name="l00137"></a>00137     <span class="comment">// Select the generator type</span>
-<a name="l00138"></a>00138     <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* generator=<a class="code" href="classTDPGeneratorFactory.html#a94491216243b0befb389ed2f53f13c2f">TDPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
-<a name="l00139"></a>00139     <span class="keywordflow">if</span> (!generator){
-<a name="l00140"></a>00140         <span class="keywordflow">return</span> NULL;
-<a name="l00141"></a>00141     }
-<a name="l00142"></a>00142     <span class="comment">// setup some options on the generator</span>
-<a name="l00143"></a>00143     generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>());
-<a name="l00144"></a>00144     <span class="keywordflow">return</span> generator;
-<a name="l00145"></a>00145 }
+<p><div class="fragment"><pre class="fragment"><a name="l00145"></a>00145                                                                                                                      {
+<a name="l00146"></a>00146     <span class="comment">// Select the generator type</span>
+<a name="l00147"></a>00147     <a class="code" href="classTVDetectorPulseGenerator.html">TVDetectorPulseGenerator</a>* generator=<a class="code" href="classTDPGeneratorFactory.html#a94491216243b0befb389ed2f53f13c2f">TDPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
+<a name="l00148"></a>00148     <span class="keywordflow">if</span> (!generator){
+<a name="l00149"></a>00149         <span class="keywordflow">return</span> NULL;
+<a name="l00150"></a>00150     }
+<a name="l00151"></a>00151     <span class="comment">// setup some options on the generator</span>
+<a name="l00152"></a>00152     generator-&gt;<a class="code" href="classTVDetectorPulseGenerator.html#a372a1e63834c70752d0843466a68f40a">SetDebug</a>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>());
+<a name="l00153"></a>00153     <span class="keywordflow">return</span> generator;
+<a name="l00154"></a>00154 }
 </pre></div></p>
 
 </div>
@@ -638,67 +647,67 @@ Inheritance diagram for MakeDetectorPulses:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">78</a> of file <a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">87</a> of file <a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00147">DumpgAnalysedPulseMap()</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00058">fFastSlowPairs</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00073">gDetectorPulseMap</a>, <a class="el" href="IdChannel_8h_source.html#l00018">IDs::kAnyDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00039">IDs::kNotApplicable</a>, and <a class="el" href="IdSource_8h_source.html#l00024">IDs::source::source()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00156">DumpgAnalysedPulseMap()</a>, <a class="el" href="MakeDetectorPulses_8h_source.html#l00058">fFastSlowPairs</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="main_8cpp_source.html#l00073">gDetectorPulseMap</a>, <a class="el" href="IdChannel_8h_source.html#l00018">IDs::kAnyDetector</a>, <a class="el" href="IdChannel_8h_source.html#l00039">IDs::kNotApplicable</a>, and <a class="el" href="IdSource_8h_source.html#l00024">IDs::source::source()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00078"></a>00078                                                                                 {
-<a name="l00079"></a>00079     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> detector(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea33981dd0a0c16b3cc64c6680e15225de">IDs::kAnyDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">IDs::kNotApplicable</a>);
-<a name="l00080"></a>00080     <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> source;
-<a name="l00081"></a>00081     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow_pulses;
-<a name="l00082"></a>00082     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *fast_pulses;
-<a name="l00083"></a>00083     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> current;
-<a name="l00084"></a>00084     <span class="comment">//DetectorPulseList *detectorPulses;</span>
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086     <span class="comment">// Loop through paired channels</span>
-<a name="l00087"></a>00087     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ChannelPairing_t::const_iterator</a> i_detector = <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.begin();
-<a name="l00088"></a>00088             i_detector != <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.end(); i_detector++) {
-<a name="l00089"></a>00089         detector=i_detector-&gt;fast.Channel();
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091         <span class="comment">// find the list of analyzed pulses for the fast channel</span>
-<a name="l00092"></a>00092         current=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find(i_detector-&gt;fast);
-<a name="l00093"></a>00093         <span class="keywordflow">if</span>(current==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
-<a name="l00094"></a>00094             std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find source for fast channel: &quot;</span>&lt;&lt;i_detector-&gt;fast&lt;&lt;std::endl;
-<a name="l00095"></a>00095             <a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">DumpgAnalysedPulseMap</a>(<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>);
-<a name="l00096"></a>00096             <span class="keywordflow">return</span> 1;
-<a name="l00097"></a>00097         }
-<a name="l00098"></a>00098         fast_pulses=&amp;(current-&gt;second);
+<p><div class="fragment"><pre class="fragment"><a name="l00087"></a>00087                                                                                 {
+<a name="l00088"></a>00088     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> detector(<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea33981dd0a0c16b3cc64c6680e15225de">IDs::kAnyDetector</a>,<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a681e98882a8133802fa8beb7ff789aae">IDs::kNotApplicable</a>);
+<a name="l00089"></a>00089     <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> source;
+<a name="l00090"></a>00090     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *slow_pulses;
+<a name="l00091"></a>00091     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> *fast_pulses;
+<a name="l00092"></a>00092     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceAnalPulseMap::const_iterator</a> current;
+<a name="l00093"></a>00093     <span class="comment">//DetectorPulseList *detectorPulses;</span>
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095     <span class="comment">// Loop through paired channels</span>
+<a name="l00096"></a>00096     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ChannelPairing_t::const_iterator</a> i_detector = <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.begin();
+<a name="l00097"></a>00097             i_detector != <a class="code" href="classMakeDetectorPulses.html#a1c7536841ac11295627b93927ec5038c">fFastSlowPairs</a>.end(); i_detector++) {
+<a name="l00098"></a>00098         detector=i_detector-&gt;fast.Channel();
 <a name="l00099"></a>00099 
-<a name="l00100"></a>00100         <span class="comment">// check if the fast_pulses is empty</span>
-<a name="l00101"></a>00101         <span class="keywordflow">if</span>(fast_pulses-&gt;empty()) {
-<a name="l00102"></a>00102             <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout&lt;&lt; <span class="stringliteral">&quot;List of TAPs for &quot;</span>&lt;&lt;i_detector-&gt;fast&lt;&lt;<span class="stringliteral">&quot; is empty.&quot;</span>&lt;&lt;endl;
-<a name="l00103"></a>00103             <span class="keywordflow">continue</span>;
-<a name="l00104"></a>00104         }
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106         <span class="comment">// if the fast and slow sources are the same then pass the slow channel</span>
-<a name="l00107"></a>00107         <span class="comment">// as NULL</span>
-<a name="l00108"></a>00108         <span class="keywordflow">if</span>(i_detector-&gt;fast==i_detector-&gt;slow) slow_pulses=NULL;
-<a name="l00109"></a>00109         <span class="keywordflow">else</span>{
-<a name="l00110"></a>00110             current=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find(i_detector-&gt;slow);
-<a name="l00111"></a>00111             <span class="keywordflow">if</span>(current==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
-<a name="l00112"></a>00112                 std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find source for slow channel: &quot;</span>&lt;&lt;i_detector-&gt;slow&lt;&lt;std::endl;
-<a name="l00113"></a>00113                 <a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">DumpgAnalysedPulseMap</a>(<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>);
-<a name="l00114"></a>00114                 <span class="keywordflow">return</span> 1;
-<a name="l00115"></a>00115             }
-<a name="l00116"></a>00116             slow_pulses=&amp;(current-&gt;second);
-<a name="l00117"></a>00117             <span class="comment">// check if the fast_pulses is empty</span>
-<a name="l00118"></a>00118             <span class="keywordflow">if</span>(slow_pulses-&gt;empty()) {
-<a name="l00119"></a>00119                 <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>())
-<a name="l00120"></a>00120                 cout&lt;&lt; <span class="stringliteral">&quot;List of TAPs for &quot;</span>&lt;&lt;i_detector-&gt;slow&lt;&lt;<span class="stringliteral">&quot; is empty.&quot;</span>&lt;&lt;endl;
-<a name="l00121"></a>00121                 <span class="keywordflow">continue</span>;
-<a name="l00122"></a>00122             }
-<a name="l00123"></a>00123         }
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125         <span class="comment">// Set the channel</span>
-<a name="l00126"></a>00126         i_detector-&gt;generator-&gt;SetChannel(detector);
-<a name="l00127"></a>00127         <span class="comment">// Set the pulse lists</span>
-<a name="l00128"></a>00128         i_detector-&gt;generator-&gt;SetPulseLists(fast_pulses,slow_pulses);
-<a name="l00129"></a>00129         <span class="comment">// Process the pulses</span>
-<a name="l00130"></a>00130         source=i_detector-&gt;<a class="code" href="classIDs_1_1source.html#ac69f24988db57102546a6ebf1b2575f7">source</a>;
-<a name="l00131"></a>00131         i_detector-&gt;generator-&gt;ProcessPulses(<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.at(source));
-<a name="l00132"></a>00132     }
-<a name="l00133"></a>00133     <span class="keywordflow">return</span> 0;
-<a name="l00134"></a>00134 }
+<a name="l00100"></a>00100         <span class="comment">// find the list of analyzed pulses for the fast channel</span>
+<a name="l00101"></a>00101         current=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find(i_detector-&gt;fast);
+<a name="l00102"></a>00102         <span class="keywordflow">if</span>(current==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
+<a name="l00103"></a>00103             std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find source for fast channel: &quot;</span>&lt;&lt;i_detector-&gt;fast&lt;&lt;std::endl;
+<a name="l00104"></a>00104             <a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">DumpgAnalysedPulseMap</a>(<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>);
+<a name="l00105"></a>00105             <span class="keywordflow">return</span> 1;
+<a name="l00106"></a>00106         }
+<a name="l00107"></a>00107         fast_pulses=&amp;(current-&gt;second);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109         <span class="comment">// check if the fast_pulses is empty</span>
+<a name="l00110"></a>00110         <span class="keywordflow">if</span>(fast_pulses-&gt;empty()) {
+<a name="l00111"></a>00111             <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout&lt;&lt; <span class="stringliteral">&quot;List of TAPs for &quot;</span>&lt;&lt;i_detector-&gt;fast&lt;&lt;<span class="stringliteral">&quot; is empty.&quot;</span>&lt;&lt;endl;
+<a name="l00112"></a>00112             <span class="keywordflow">continue</span>;
+<a name="l00113"></a>00113         }
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115         <span class="comment">// if the fast and slow sources are the same then pass the slow channel</span>
+<a name="l00116"></a>00116         <span class="comment">// as NULL</span>
+<a name="l00117"></a>00117         <span class="keywordflow">if</span>(i_detector-&gt;fast==i_detector-&gt;slow) slow_pulses=NULL;
+<a name="l00118"></a>00118         <span class="keywordflow">else</span>{
+<a name="l00119"></a>00119             current=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find(i_detector-&gt;slow);
+<a name="l00120"></a>00120             <span class="keywordflow">if</span>(current==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
+<a name="l00121"></a>00121                 std::cout&lt;&lt;<span class="stringliteral">&quot;Unable to find source for slow channel: &quot;</span>&lt;&lt;i_detector-&gt;slow&lt;&lt;std::endl;
+<a name="l00122"></a>00122                 <a class="code" href="classMakeDetectorPulses.html#a4a7b18fbf5c39ccb66cef4b4897c9bb9">DumpgAnalysedPulseMap</a>(<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>);
+<a name="l00123"></a>00123                 <span class="keywordflow">return</span> 1;
+<a name="l00124"></a>00124             }
+<a name="l00125"></a>00125             slow_pulses=&amp;(current-&gt;second);
+<a name="l00126"></a>00126             <span class="comment">// check if the fast_pulses is empty</span>
+<a name="l00127"></a>00127             <span class="keywordflow">if</span>(slow_pulses-&gt;empty()) {
+<a name="l00128"></a>00128                 <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>())
+<a name="l00129"></a>00129                 cout&lt;&lt; <span class="stringliteral">&quot;List of TAPs for &quot;</span>&lt;&lt;i_detector-&gt;slow&lt;&lt;<span class="stringliteral">&quot; is empty.&quot;</span>&lt;&lt;endl;
+<a name="l00130"></a>00130                 <span class="keywordflow">continue</span>;
+<a name="l00131"></a>00131             }
+<a name="l00132"></a>00132         }
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134         <span class="comment">// Set the channel</span>
+<a name="l00135"></a>00135         i_detector-&gt;generator-&gt;SetChannel(detector);
+<a name="l00136"></a>00136         <span class="comment">// Set the pulse lists</span>
+<a name="l00137"></a>00137         i_detector-&gt;generator-&gt;SetPulseLists(fast_pulses,slow_pulses);
+<a name="l00138"></a>00138         <span class="comment">// Process the pulses</span>
+<a name="l00139"></a>00139         source=i_detector-&gt;<a class="code" href="classIDs_1_1source.html#ac69f24988db57102546a6ebf1b2575f7">source</a>;
+<a name="l00140"></a>00140         i_detector-&gt;generator-&gt;ProcessPulses(<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.at(source));
+<a name="l00141"></a>00141     }
+<a name="l00142"></a>00142     <span class="keywordflow">return</span> 0;
+<a name="l00143"></a>00143 }
 </pre></div></p>
 
 </div>
@@ -894,7 +903,7 @@ Inheritance diagram for MakeDetectorPulses:</div>
 
 <p>Definition at line <a class="el" href="MakeDetectorPulses_8h_source.html#l00058">58</a> of file <a class="el" href="MakeDetectorPulses_8h_source.html">MakeDetectorPulses.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">BeforeFirstEntry()</a>, and <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00078">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">BeforeFirstEntry()</a>, and <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -971,7 +980,7 @@ Inheritance diagram for MakeDetectorPulses:</div>
 <li>rootana/src/TDP_generators/<a class="el" href="MakeDetectorPulses_8cpp_source.html">MakeDetectorPulses.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Aug 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Aug 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
