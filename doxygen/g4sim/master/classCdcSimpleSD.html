@@ -49,9 +49,9 @@ Inheritance diagram for CdcSimpleSD:</div>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a67849ae226d0094fc7364f0bc397cea6">EndOfEvent</a> (G4HCofThisEvent *)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a31ec288c16cc3aabef689ac32cbf31dd">SetBranch</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a514e2845f4f28719a228cf624e76a20c">ReadOutputCard</a> (G4String filename)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCdcGeometryParameter.html">CdcGeometryParameter</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#af395304a16964db4efabd940e60157d1">get_GeometryParameter</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#ac8fe90fcfda0f65ed26cea26ea69361c">get_GeometryParameter</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#af478172660afa9687e4695b885a3b78d">Get_nHits</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a9e966e7d786b849375f25c0728b3d20b">set_GeometryParameter</a> (<a class="el" href="classCdcGeometryParameter.html">CdcGeometryParameter</a> *val)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a43d91a75fbecd9bcc1d6fae72ecdd3c2">set_GeometryParameter</a> (<a class="el" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a> *val)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySD.html#a7e3bfaf3d0fc360c50edc4cf9dec5055">SetVerbose</a> (int val)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">G4String&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySD.html#abbdee82965f4324960721d12086a0e84">get_VolName</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySD.html#aed31464ded2ee8ed19f6113bd407146a">get_VerboseLevel</a> ()</td></tr>
@@ -61,7 +61,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a608da4288345dfc75909b63f5fd64783">ReSet</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#acdc43743ac402fe08fc7cd43ee32e5f8">ShowOutCard</a> ()</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCdcGeometryParameter.html">CdcGeometryParameter</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#ac3a24c47964766d56d843e86d7b25806">hitPointer</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#ad3c579f8533fbdefa778df48acfb341e">m_x</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCdcSimpleSD.html#a22ce44bfc61e684135a8de3557dc443a">m_y</a></td></tr>
@@ -156,12 +156,12 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00052"></a>00052 :<a class="code" href="classMySD.html#a6857dad42b4f02f8c52f5b643800a067">MySD</a>(name, pointer)
 <a name="l00053"></a>00053 {
-<a name="l00054"></a>00054         <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>= <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCdcGeometryParameter.html">CdcGeometryParameter</a>*<span class="keyword">&gt;</span> (pointer);
-<a name="l00055"></a>00055         <span class="keywordflow">if</span> (!<a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>){
-<a name="l00056"></a>00056                 <span class="comment">//              std::cout&lt;&lt;&quot;In CdcSimpleSD::CdcSimpleSD, cannot get CdcGeometryParameter pointer!!!&quot;&lt;&lt;std::endl;</span>
+<a name="l00054"></a>00054         <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>= <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a>*<span class="keyword">&gt;</span> (pointer);
+<a name="l00055"></a>00055         <span class="keywordflow">if</span> (!<a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>){
+<a name="l00056"></a>00056                 <span class="comment">//              std::cout&lt;&lt;&quot;In CdcSimpleSD::CdcSimpleSD, cannot get CdcCellGeometryParameter pointer!!!&quot;&lt;&lt;std::endl;</span>
 <a name="l00057"></a>00057                 G4Exception(<span class="stringliteral">&quot;CdcSimpleSD::CdcSimpleSD()&quot;</span>,
 <a name="l00058"></a>00058                                 <span class="stringliteral">&quot;InvalidSetup&quot;</span>, FatalException,
-<a name="l00059"></a>00059                                 <span class="stringliteral">&quot;cannot get CdcGeometryParameter pointer&quot;</span>);
+<a name="l00059"></a>00059                                 <span class="stringliteral">&quot;cannot get CdcCellGeometryParameter pointer&quot;</span>);
 <a name="l00060"></a>00060         }
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062         <span class="comment">//name of related Digiteizer module</span>
@@ -224,12 +224,12 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 </div>
 </div>
-<a class="anchor" id="af395304a16964db4efabd940e60157d1"></a><!-- doxytag: member="CdcSimpleSD::get_GeometryParameter" ref="af395304a16964db4efabd940e60157d1" args="()" -->
+<a class="anchor" id="ac8fe90fcfda0f65ed26cea26ea69361c"></a><!-- doxytag: member="CdcSimpleSD::get_GeometryParameter" ref="ac8fe90fcfda0f65ed26cea26ea69361c" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCdcGeometryParameter.html">CdcGeometryParameter</a>* CdcSimpleSD::get_GeometryParameter </td>
+          <td class="memname"><a class="el" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a>* CdcSimpleSD::get_GeometryParameter </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -245,7 +245,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 <p>References <a class="el" href="CdcSimpleSD_8hh_source.html#l00053">m_GeometryParameter</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00040"></a>00040 { <span class="keywordflow">return</span> <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00040"></a>00040 { <span class="keywordflow">return</span> <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>; }
 </pre></div></p>
 
 </div>
@@ -293,7 +293,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 <p>References <a class="el" href="MySD_8hh_source.html#l00035">MySD::fVerboseLevel</a>.</p>
 
-<p>Referenced by <a class="el" href="CdcIonSD_8cc_source.html#l00508">CdcIonSD::CalculateHitInfo()</a>, <a class="el" href="CdcSD_8cc_source.html#l00699">CdcSD::FindClosestPoint()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00307">ProcessHits()</a>, <a class="el" href="CdcSD_8cc_source.html#l00441">CdcSD::ProcessHits()</a>, <a class="el" href="CdcIonSD_8cc_source.html#l00323">CdcIonSD::ProcessHits()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00275">ShowOutCard()</a>, and <a class="el" href="CdcSD_8cc_source.html#l00396">CdcSD::ShowOutCard()</a>.</p>
+<p>Referenced by <a class="el" href="CdcIonSD_8cc_source.html#l00508">CdcIonSD::CalculateHitInfo()</a>, <a class="el" href="CdcCellSD_8cc_source.html#l00699">CdcCellSD::FindClosestPoint()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00307">ProcessHits()</a>, <a class="el" href="CdcSD_8cc_source.html#l00428">CdcSD::ProcessHits()</a>, <a class="el" href="CdcIonSD_8cc_source.html#l00323">CdcIonSD::ProcessHits()</a>, <a class="el" href="CdcCellSD_8cc_source.html#l00441">CdcCellSD::ProcessHits()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00275">ShowOutCard()</a>, <a class="el" href="CdcSD_8cc_source.html#l00386">CdcSD::ShowOutCard()</a>, and <a class="el" href="CdcCellSD_8cc_source.html#l00396">CdcCellSD::ShowOutCard()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027 { <span class="keywordflow">return</span> <a class="code" href="classMySD.html#ad3f4600426734ee88a66e519158505ac">fVerboseLevel</a>; }
 </pre></div></p>
@@ -319,7 +319,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 <p>References <a class="el" href="MySD_8hh_source.html#l00037">MySD::m_VolumeName</a>.</p>
 
-<p>Referenced by <a class="el" href="MonitorSD_8cc_source.html#l00162">MonitorSD::ReadOutputCard()</a>, <a class="el" href="KillerSD_8cc_source.html#l00061">KillerSD::ReadOutputCard()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00130">ReadOutputCard()</a>, <a class="el" href="CdcSD_8cc_source.html#l00178">CdcSD::ReadOutputCard()</a>, <a class="el" href="CdcLayerSD_8cc_source.html#l00115">CdcLayerSD::ReadOutputCard()</a>, <a class="el" href="CdcIonSD_8cc_source.html#l00145">CdcIonSD::ReadOutputCard()</a>, <a class="el" href="MonitorSD_8cc_source.html#l00113">MonitorSD::SetBranch()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00109">SetBranch()</a>, <a class="el" href="CdcSD_8cc_source.html#l00139">CdcSD::SetBranch()</a>, <a class="el" href="CdcLayerSD_8cc_source.html#l00093">CdcLayerSD::SetBranch()</a>, <a class="el" href="CdcIonSD_8cc_source.html#l00122">CdcIonSD::SetBranch()</a>, <a class="el" href="MonitorSD_8cc_source.html#l00434">MonitorSD::ShowOutCard()</a>, <a class="el" href="KillerSD_8cc_source.html#l00169">KillerSD::ShowOutCard()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00275">ShowOutCard()</a>, <a class="el" href="CdcSD_8cc_source.html#l00396">CdcSD::ShowOutCard()</a>, <a class="el" href="CdcLayerSD_8cc_source.html#l00264">CdcLayerSD::ShowOutCard()</a>, and <a class="el" href="CdcIonSD_8cc_source.html#l00292">CdcIonSD::ShowOutCard()</a>.</p>
+<p>Referenced by <a class="el" href="MonitorSD_8cc_source.html#l00162">MonitorSD::ReadOutputCard()</a>, <a class="el" href="KillerSD_8cc_source.html#l00061">KillerSD::ReadOutputCard()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00130">ReadOutputCard()</a>, <a class="el" href="CdcSD_8cc_source.html#l00172">CdcSD::ReadOutputCard()</a>, <a class="el" href="CdcLayerSD_8cc_source.html#l00115">CdcLayerSD::ReadOutputCard()</a>, <a class="el" href="CdcIonSD_8cc_source.html#l00145">CdcIonSD::ReadOutputCard()</a>, <a class="el" href="CdcCellSD_8cc_source.html#l00178">CdcCellSD::ReadOutputCard()</a>, <a class="el" href="MonitorSD_8cc_source.html#l00113">MonitorSD::SetBranch()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00109">SetBranch()</a>, <a class="el" href="CdcSD_8cc_source.html#l00136">CdcSD::SetBranch()</a>, <a class="el" href="CdcLayerSD_8cc_source.html#l00093">CdcLayerSD::SetBranch()</a>, <a class="el" href="CdcIonSD_8cc_source.html#l00122">CdcIonSD::SetBranch()</a>, <a class="el" href="CdcCellSD_8cc_source.html#l00139">CdcCellSD::SetBranch()</a>, <a class="el" href="MonitorSD_8cc_source.html#l00434">MonitorSD::ShowOutCard()</a>, <a class="el" href="KillerSD_8cc_source.html#l00169">KillerSD::ShowOutCard()</a>, <a class="el" href="CdcSimpleSD_8cc_source.html#l00275">ShowOutCard()</a>, <a class="el" href="CdcSD_8cc_source.html#l00386">CdcSD::ShowOutCard()</a>, <a class="el" href="CdcLayerSD_8cc_source.html#l00264">CdcLayerSD::ShowOutCard()</a>, <a class="el" href="CdcIonSD_8cc_source.html#l00292">CdcIonSD::ShowOutCard()</a>, and <a class="el" href="CdcCellSD_8cc_source.html#l00396">CdcCellSD::ShowOutCard()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00026"></a>00026 { <span class="keywordflow">return</span> <a class="code" href="classMySD.html#a67c16f16dddcf2135e7dabe52290bbeb">m_VolumeName</a>; }
 </pre></div></p>
@@ -344,13 +344,13 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 <p>Definition at line <a class="el" href="CdcSimpleSD_8cc_source.html#l00076">76</a> of file <a class="el" href="CdcSimpleSD_8cc_source.html">CdcSimpleSD.cc</a>.</p>
 
-<p>References <a class="el" href="CdcSimpleSD_8hh_source.html#l00090">cdc_nHits</a>, <a class="el" href="CdcGeometryParameter_8hh_source.html#l00127">CdcGeometryParameter::get_layer_cell_num()</a>, <a class="el" href="CdcGeometryParameter_8hh_source.html#l00101">CdcGeometryParameter::get_LayerNo()</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00055">hitPointer</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00068">m_cellID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00065">m_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00066">m_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00053">m_GeometryParameter</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00067">m_layerID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00070">m_pid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00062">m_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00063">m_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00064">m_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00061">m_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00069">m_tid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00058">m_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00059">m_y</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00060">m_z</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00114">nTracks</a>, and <a class="el" href="CdcSimpleSD_8hh_source.html#l00115">prevTrackID</a>.</p>
+<p>References <a class="el" href="CdcSimpleSD_8hh_source.html#l00090">cdc_nHits</a>, <a class="el" href="CdcCellGeometryParameter_8hh_source.html#l00127">CdcCellGeometryParameter::get_layer_cell_num()</a>, <a class="el" href="CdcCellGeometryParameter_8hh_source.html#l00101">CdcCellGeometryParameter::get_LayerNo()</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00055">hitPointer</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00068">m_cellID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00065">m_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00066">m_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00053">m_GeometryParameter</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00067">m_layerID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00070">m_pid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00062">m_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00063">m_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00064">m_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00061">m_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00069">m_tid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00058">m_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00059">m_y</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00060">m_z</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00114">nTracks</a>, and <a class="el" href="CdcSimpleSD_8hh_source.html#l00115">prevTrackID</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00077"></a>00077 {
-<a name="l00078"></a>00078         <span class="keywordtype">int</span> LayerNo = <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a34400fb38d72d0250e9898083bad84be">get_LayerNo</a>();
+<a name="l00078"></a>00078         <span class="keywordtype">int</span> LayerNo = <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#acf53267aefc6d5199e8b751e53e7a0cb">get_LayerNo</a>();
 <a name="l00079"></a>00079         <a class="code" href="classCdcSimpleSD.html#ac3a24c47964766d56d843e86d7b25806">hitPointer</a>.resize(LayerNo);
 <a name="l00080"></a>00080         <span class="keywordflow">for</span>( <span class="keywordtype">int</span>  i = 0; i &lt; LayerNo; i++ ){
-<a name="l00081"></a>00081                 <span class="keywordtype">int</span> CellNo = <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a2705ced46db6861d942bc0e28122a799">get_layer_cell_num</a>(i);
+<a name="l00081"></a>00081                 <span class="keywordtype">int</span> CellNo = <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a53e0958b49e6295114319f807238ca5f">get_layer_cell_num</a>(i);
 <a name="l00082"></a>00082                 <a class="code" href="classCdcSimpleSD.html#ac3a24c47964766d56d843e86d7b25806">hitPointer</a>[i].resize(CellNo);
 <a name="l00083"></a>00083                 <span class="keywordflow">for</span>( <span class="keywordtype">int</span> j = 0; j &lt; CellNo; j++ ){
 <a name="l00084"></a>00084                         <a class="code" href="classCdcSimpleSD.html#ac3a24c47964766d56d843e86d7b25806">hitPointer</a>[i][j] = -1;
@@ -406,7 +406,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 <p>Definition at line <a class="el" href="CdcSimpleSD_8cc_source.html#l00307">307</a> of file <a class="el" href="CdcSimpleSD_8cc_source.html">CdcSimpleSD.cc</a>.</p>
 
-<p>References <a class="el" href="CdcSimpleSD_8hh_source.html#l00090">cdc_nHits</a>, <a class="el" href="DEBUG_8hh_source.html#l00051">CDCSD_LINEINFO</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00102">flag_cellID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00099">flag_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00100">flag_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00101">flag_layerID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00104">flag_pid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00096">flag_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00097">flag_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00098">flag_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00095">flag_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00103">flag_tid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00092">flag_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00093">flag_y</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00094">flag_z</a>, <a class="el" href="CdcGeometryParameter_8hh_source.html#l00147">CdcGeometryParameter::get_layerIdcellId()</a>, <a class="el" href="MySD_8hh_source.html#l00027">MySD::get_VerboseLevel()</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00055">hitPointer</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00068">m_cellID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00065">m_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00066">m_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00053">m_GeometryParameter</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00067">m_layerID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00070">m_pid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00062">m_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00063">m_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00064">m_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00061">m_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00069">m_tid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00058">m_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00059">m_y</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00060">m_z</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00108">maxn</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00112">maxt</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00113">minedep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00107">minp</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00111">mint</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00110">neutralCut</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00109">ntracks</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00114">nTracks</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00115">prevTrackID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00106">Switch</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00078">unit_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00079">unit_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00075">unit_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00076">unit_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00077">unit_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00074">unit_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00071">unit_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00072">unit_y</a>, and <a class="el" href="CdcSimpleSD_8hh_source.html#l00073">unit_z</a>.</p>
+<p>References <a class="el" href="CdcSimpleSD_8hh_source.html#l00090">cdc_nHits</a>, <a class="el" href="DEBUG_8hh_source.html#l00051">CDCSD_LINEINFO</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00102">flag_cellID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00099">flag_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00100">flag_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00101">flag_layerID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00104">flag_pid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00096">flag_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00097">flag_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00098">flag_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00095">flag_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00103">flag_tid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00092">flag_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00093">flag_y</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00094">flag_z</a>, <a class="el" href="CdcCellGeometryParameter_8hh_source.html#l00147">CdcCellGeometryParameter::get_layerIdcellId()</a>, <a class="el" href="MySD_8hh_source.html#l00027">MySD::get_VerboseLevel()</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00055">hitPointer</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00068">m_cellID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00065">m_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00066">m_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00053">m_GeometryParameter</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00067">m_layerID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00070">m_pid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00062">m_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00063">m_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00064">m_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00061">m_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00069">m_tid</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00058">m_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00059">m_y</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00060">m_z</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00108">maxn</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00112">maxt</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00113">minedep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00107">minp</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00111">mint</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00110">neutralCut</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00109">ntracks</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00114">nTracks</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00115">prevTrackID</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00106">Switch</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00078">unit_e</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00079">unit_edep</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00075">unit_px</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00076">unit_py</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00077">unit_pz</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00074">unit_t</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00071">unit_x</a>, <a class="el" href="CdcSimpleSD_8hh_source.html#l00072">unit_y</a>, and <a class="el" href="CdcSimpleSD_8hh_source.html#l00073">unit_z</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00308"></a>00308 {
 <a name="l00309"></a>00309 
@@ -435,7 +435,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 <a name="l00332"></a>00332         <span class="keyword">const</span> G4VTouchable *touchable = prePoint-&gt;GetTouchable();
 <a name="l00333"></a>00333         G4int ReplicaNo = touchable-&gt;GetReplicaNumber(0);
 <a name="l00334"></a>00334         G4int layerId, cellId;
-<a name="l00335"></a>00335         status = <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a2ef7d21235c10f1a7cbb4f561e1eeb73">get_layerIdcellId</a>(ReplicaNo, &amp;layerId, &amp;cellId);
+<a name="l00335"></a>00335         status = <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a597a99317f1102b5786a7f2630b193fd">get_layerIdcellId</a>(ReplicaNo, &amp;layerId, &amp;cellId);
 <a name="l00336"></a>00336         <span class="keywordflow">if</span>(status){
 <a name="l00337"></a>00337                 std::cout&lt;&lt;<span class="stringliteral">&quot;In CdcSimpleSD::ProcessHits(), unknown ReplicaNo = &quot;</span>&lt;&lt;ReplicaNo&lt;&lt;<span class="stringliteral">&quot;!!! Will not generate hit&quot;</span>&lt;&lt;std::endl;
 <a name="l00338"></a>00338                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -732,14 +732,14 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 </div>
 </div>
-<a class="anchor" id="a9e966e7d786b849375f25c0728b3d20b"></a><!-- doxytag: member="CdcSimpleSD::set_GeometryParameter" ref="a9e966e7d786b849375f25c0728b3d20b" args="(CdcGeometryParameter *val)" -->
+<a class="anchor" id="a43d91a75fbecd9bcc1d6fae72ecdd3c2"></a><!-- doxytag: member="CdcSimpleSD::set_GeometryParameter" ref="a43d91a75fbecd9bcc1d6fae72ecdd3c2" args="(CdcCellGeometryParameter *val)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void CdcSimpleSD::set_GeometryParameter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCdcGeometryParameter.html">CdcGeometryParameter</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a> *&nbsp;</td>
           <td class="paramname"> <em>val</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [inline]</code></td>
@@ -752,7 +752,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 <p>References <a class="el" href="CdcSimpleSD_8hh_source.html#l00053">m_GeometryParameter</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044 { <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a> = val; }
+<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044 { <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a> = val; }
 </pre></div></p>
 
 </div>
@@ -1248,12 +1248,12 @@ Inheritance diagram for CdcSimpleSD:</div>
 
 </div>
 </div>
-<a class="anchor" id="a0af595d074026aeb66ab124cf80393ca"></a><!-- doxytag: member="CdcSimpleSD::m_GeometryParameter" ref="a0af595d074026aeb66ab124cf80393ca" args="" -->
+<a class="anchor" id="af18713bb1d1b72fa841c54763de7d2e6"></a><!-- doxytag: member="CdcSimpleSD::m_GeometryParameter" ref="af18713bb1d1b72fa841c54763de7d2e6" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCdcGeometryParameter.html">CdcGeometryParameter</a>* <a class="el" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">CdcSimpleSD::m_GeometryParameter</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a>* <a class="el" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">CdcSimpleSD::m_GeometryParameter</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -1918,7 +1918,7 @@ Inheritance diagram for CdcSimpleSD:</div>
 <li>src/<a class="el" href="CdcSimpleSD_8cc_source.html">CdcSimpleSD.cc</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Aug 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Aug 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -53,7 +53,7 @@
 <a name="l00029"></a>00029 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00030"></a>00030 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="CdcGeometryParameter_8hh.html">CdcGeometryParameter.hh</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="CdcCellGeometryParameter_8hh.html">CdcCellGeometryParameter.hh</a>&quot;</span>
 <a name="l00033"></a>00033 <span class="comment">//#include &quot;CdcDigitizer.hh&quot;</span>
 <a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="CdcIonHit_8hh.html">CdcIonHit.hh</a>&quot;</span>
 <a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="MyRoot_8hh.html">MyRoot.hh</a>&quot;</span>
@@ -65,19 +65,19 @@
 <a name="l00041"></a>00041 <span class="preprocessor">#include &quot;<a class="code" href="CdcIonSD_8hh.html">CdcIonSD.hh</a>&quot;</span>
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043 <span class="preprocessor">#ifndef ENABLE_BACKWARDS_COMPATIBILITY</span>
-<a name="l00044"></a><a class="code" href="CdcIonSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">00044</a> <span class="preprocessor"></span><span class="keyword">typedef</span> HepGeom::Point3D&lt;double&gt; <a class="code" href="CdcIonSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">HepPoint3D</a>;
-<a name="l00045"></a><a class="code" href="CdcIonSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">00045</a> <span class="keyword">typedef</span> HepGeom::Vector3D&lt;double&gt; <a class="code" href="CdcIonSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">HepVector3D</a>;
+<a name="l00044"></a><a class="code" href="CdcIonSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">00044</a> <span class="preprocessor"></span><span class="keyword">typedef</span> HepGeom::Point3D&lt;double&gt; <a class="code" href="CdcCellSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">HepPoint3D</a>;
+<a name="l00045"></a><a class="code" href="CdcIonSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">00045</a> <span class="keyword">typedef</span> HepGeom::Vector3D&lt;double&gt; <a class="code" href="CdcCellSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">HepVector3D</a>;
 <a name="l00046"></a>00046 <span class="preprocessor">#endif</span>
 <a name="l00047"></a>00047 <span class="preprocessor"></span>
 <a name="l00048"></a><a class="code" href="classCdcIonSD.html#a7fda00026e8f06b6edfca2c390db0351">00048</a> <a class="code" href="classCdcIonSD.html#a7fda00026e8f06b6edfca2c390db0351">CdcIonSD::CdcIonSD</a>(G4String name, <a class="code" href="classMyVGeometryParameter.html">MyVGeometryParameter</a>* pointer)
 <a name="l00049"></a>00049 :<a class="code" href="classMySD.html">MySD</a>(name, pointer), hitsCollection(0)
 <a name="l00050"></a>00050 {
-<a name="l00051"></a>00051   <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>= <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCdcGeometryParameter.html">CdcGeometryParameter</a>*<span class="keyword">&gt;</span> (pointer);
-<a name="l00052"></a>00052   <span class="keywordflow">if</span> (!<a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>){
-<a name="l00053"></a>00053 <span class="comment">//              std::cout&lt;&lt;&quot;In CdcIonSD::CdcIonSD, cannot get CdcGeometryParameter pointer!!!&quot;&lt;&lt;std::endl;</span>
+<a name="l00051"></a>00051   <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>= <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a>*<span class="keyword">&gt;</span> (pointer);
+<a name="l00052"></a>00052   <span class="keywordflow">if</span> (!<a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>){
+<a name="l00053"></a>00053 <span class="comment">//              std::cout&lt;&lt;&quot;In CdcIonSD::CdcIonSD, cannot get CdcCellGeometryParameter pointer!!!&quot;&lt;&lt;std::endl;</span>
 <a name="l00054"></a>00054     G4Exception(<span class="stringliteral">&quot;CdcIonSD::CdcIonSD()&quot;</span>,
 <a name="l00055"></a>00055         <span class="stringliteral">&quot;InvalidSetup&quot;</span>, FatalException,
-<a name="l00056"></a>00056         <span class="stringliteral">&quot;cannot get CdcGeometryParameter pointer&quot;</span>);
+<a name="l00056"></a>00056         <span class="stringliteral">&quot;cannot get CdcCellGeometryParameter pointer&quot;</span>);
 <a name="l00057"></a>00057   }
 <a name="l00058"></a>00058 
 <a name="l00059"></a>00059         <span class="comment">//name of related Digiteizer module</span>
@@ -107,11 +107,11 @@
 <a name="l00083"></a>00083                                 <span class="stringliteral">&quot;Cann not find hitsCollection of this event&quot;</span>);
 <a name="l00084"></a>00084         }
 <a name="l00085"></a>00085         HCE-&gt;AddHitsCollection( HCID, <a class="code" href="classCdcIonSD.html#a4925009770a6ec5f56d368395c3b387d">hitsCollection</a> );
-<a name="l00086"></a>00086         <span class="keywordtype">int</span> LayerNo = <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a34400fb38d72d0250e9898083bad84be">get_LayerNo</a>();
+<a name="l00086"></a>00086         <span class="keywordtype">int</span> LayerNo = <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#acf53267aefc6d5199e8b751e53e7a0cb">get_LayerNo</a>();
 <a name="l00087"></a>00087         <a class="code" href="classCdcIonSD.html#aad4585acf4432c8ddfad121b5bd2b1bc">hitPointer</a>.resize(LayerNo);
 <a name="l00088"></a>00088         <a class="code" href="classCdcIonSD.html#a0e4f5e549b5f3f0252a8b5f917a3e3d3">hitTime</a>.resize(LayerNo);
 <a name="l00089"></a>00089         <span class="keywordflow">for</span>( <span class="keywordtype">int</span>  i = 0; i &lt; LayerNo; i++ ){
-<a name="l00090"></a>00090                 <span class="keywordtype">int</span> CellNo = <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a2705ced46db6861d942bc0e28122a799">get_layer_cell_num</a>(i);
+<a name="l00090"></a>00090                 <span class="keywordtype">int</span> CellNo = <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a53e0958b49e6295114319f807238ca5f">get_layer_cell_num</a>(i);
 <a name="l00091"></a>00091                 <a class="code" href="classCdcIonSD.html#aad4585acf4432c8ddfad121b5bd2b1bc">hitPointer</a>[i].resize(CellNo);
 <a name="l00092"></a>00092                 <a class="code" href="classCdcIonSD.html#a0e4f5e549b5f3f0252a8b5f917a3e3d3">hitTime</a>[i].resize(CellNo);
 <a name="l00093"></a>00093                 <span class="keywordflow">for</span>( <span class="keywordtype">int</span> j = 0; j &lt; CellNo; j++ ){
@@ -375,7 +375,7 @@
 <a name="l00351"></a>00351   <span class="keyword">const</span> G4VTouchable *touchable = prePoint-&gt;GetTouchable();
 <a name="l00352"></a>00352   G4int ReplicaNo = touchable-&gt;GetVolume(0)-&gt;GetCopyNo();
 <a name="l00353"></a>00353   G4int layerId, cellId;
-<a name="l00354"></a>00354   status = <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a2ef7d21235c10f1a7cbb4f561e1eeb73">get_layerIdcellId</a>(ReplicaNo, &amp;layerId, &amp;cellId);
+<a name="l00354"></a>00354   status = <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a597a99317f1102b5786a7f2630b193fd">get_layerIdcellId</a>(ReplicaNo, &amp;layerId, &amp;cellId);
 <a name="l00355"></a>00355   <span class="keywordflow">if</span>(status){
 <a name="l00356"></a>00356                 std::cout&lt;&lt;<span class="stringliteral">&quot;In CdcIonSD::ProcessHits(), unknown ReplicaNo = &quot;</span>&lt;&lt;ReplicaNo&lt;&lt;<span class="stringliteral">&quot;!!! Will not generate hit&quot;</span>&lt;&lt;std::endl;
 <a name="l00357"></a>00357                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -533,14 +533,14 @@
 <a name="l00509"></a>00509 
 <a name="l00510"></a>00510         <span class="comment">//Get position of signal wire</span>
 <a name="l00511"></a>00511         G4double wire_pos_R, wire_pos_phi;
-<a name="l00512"></a>00512         G4double alpha = <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a1ecbda417aaded1125d1153ecbe366d0">get_layer_angle4rotate</a>(layerId)/2;
-<a name="l00513"></a>00513         wire_pos_R = <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a97ece91b191849afd720b07821bf7317">get_layer_RMid</a>(layerId)*cos(alpha/2);
-<a name="l00514"></a>00514         wire_pos_phi = <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a24ae909c83c4dc3dceccf319d5d1524b">get_layer_cell_phi</a>(layerId, cellId);
+<a name="l00512"></a>00512         G4double alpha = <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a053280bfb60359060469303f6fbf243e">get_layer_angle4rotate</a>(layerId)/2;
+<a name="l00513"></a>00513         wire_pos_R = <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#ac293a6413313c24a2591c0b2a982148a">get_layer_RMid</a>(layerId)*cos(alpha/2);
+<a name="l00514"></a>00514         wire_pos_phi = <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a93129cdc7154aa25da24c4d528d5e6d0">get_layer_cell_phi</a>(layerId, cellId);
 <a name="l00515"></a>00515         G4ThreeVector wire_pos(1.,1.,1.);
 <a name="l00516"></a>00516         wire_pos.setMag(wire_pos_R);
 <a name="l00517"></a>00517         wire_pos.setTheta(pi/2);
 <a name="l00518"></a>00518         wire_pos.setPhi(wire_pos_phi-alpha);<span class="comment">//careful with the sign</span>
-<a name="l00519"></a>00519         G4double layer_halfzlen = <a class="code" href="classCdcIonSD.html#a88f7b32ac384cf85bc2ba36853e46d43">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a4204d2830faa48602f8144dfe602007f">get_layer_length</a>(layerId)/2.; <span class="comment">//In Geant4, soild has central-symmetry </span>
+<a name="l00519"></a>00519         G4double layer_halfzlen = <a class="code" href="classCdcIonSD.html#ad277a300f00a46d4df7b4dc2494211f6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a687aee3c9098622e0195dae62e99d2b2">get_layer_length</a>(layerId)/2.; <span class="comment">//In Geant4, soild has central-symmetry </span>
 <a name="l00520"></a>00520         G4double alpha_RMid = alpha/2;
 <a name="l00521"></a>00521         G4double wire_theta = atan(wire_pos_R*sin(alpha_RMid)/layer_halfzlen);
 <a name="l00522"></a>00522         G4ThreeVector wire_direction(1.,1.,1.);
@@ -823,7 +823,7 @@
 <a name="l00799"></a>00799         <span class="keywordflow">return</span> val;
 <a name="l00800"></a>00800 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Aug 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Aug 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

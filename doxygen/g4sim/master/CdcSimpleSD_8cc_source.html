@@ -55,7 +55,7 @@
 <a name="l00031"></a>00031 
 <a name="l00032"></a>00032 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="CdcGeometryParameter_8hh.html">CdcGeometryParameter.hh</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="CdcCellGeometryParameter_8hh.html">CdcCellGeometryParameter.hh</a>&quot;</span>
 <a name="l00035"></a>00035 <span class="comment">//#include &quot;CdcDigitizer.hh&quot;</span>
 <a name="l00036"></a>00036 <span class="preprocessor">#include &quot;<a class="code" href="MyRoot_8hh.html">MyRoot.hh</a>&quot;</span>
 <a name="l00037"></a>00037 <span class="preprocessor">#include &quot;<a class="code" href="MySD_8hh.html">MySD.hh</a>&quot;</span>
@@ -68,19 +68,19 @@
 <a name="l00044"></a>00044 <span class="preprocessor">#include &quot;<a class="code" href="DEBUG_8hh.html">DEBUG.hh</a>&quot;</span>
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046 <span class="preprocessor">#ifndef ENABLE_BACKWARDS_COMPATIBILITY</span>
-<a name="l00047"></a><a class="code" href="CdcSimpleSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">00047</a> <span class="preprocessor"></span><span class="keyword">typedef</span> HepGeom::Point3D&lt;double&gt; <a class="code" href="CdcIonSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">HepPoint3D</a>;
-<a name="l00048"></a><a class="code" href="CdcSimpleSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">00048</a> <span class="keyword">typedef</span> HepGeom::Vector3D&lt;double&gt; <a class="code" href="CdcIonSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">HepVector3D</a>;
+<a name="l00047"></a><a class="code" href="CdcSimpleSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">00047</a> <span class="preprocessor"></span><span class="keyword">typedef</span> HepGeom::Point3D&lt;double&gt; <a class="code" href="CdcCellSD_8cc.html#a188faf2fae63125a32fe38f0567026bc">HepPoint3D</a>;
+<a name="l00048"></a><a class="code" href="CdcSimpleSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">00048</a> <span class="keyword">typedef</span> HepGeom::Vector3D&lt;double&gt; <a class="code" href="CdcCellSD_8cc.html#a4dd0ddb84b6afda59a6cb91f7c548772">HepVector3D</a>;
 <a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
 <a name="l00050"></a>00050 <span class="preprocessor"></span>
 <a name="l00051"></a><a class="code" href="classCdcSimpleSD.html#a367053e7322c5604d78327e3a68d87f4">00051</a>         <a class="code" href="classCdcSimpleSD.html#a367053e7322c5604d78327e3a68d87f4">CdcSimpleSD::CdcSimpleSD</a>(G4String name, <a class="code" href="classMyVGeometryParameter.html">MyVGeometryParameter</a>* pointer)
 <a name="l00052"></a>00052 :<a class="code" href="classMySD.html">MySD</a>(name, pointer)
 <a name="l00053"></a>00053 {
-<a name="l00054"></a>00054         <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>= <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCdcGeometryParameter.html">CdcGeometryParameter</a>*<span class="keyword">&gt;</span> (pointer);
-<a name="l00055"></a>00055         <span class="keywordflow">if</span> (!<a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>){
-<a name="l00056"></a>00056                 <span class="comment">//              std::cout&lt;&lt;&quot;In CdcSimpleSD::CdcSimpleSD, cannot get CdcGeometryParameter pointer!!!&quot;&lt;&lt;std::endl;</span>
+<a name="l00054"></a>00054         <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>= <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classCdcCellGeometryParameter.html">CdcCellGeometryParameter</a>*<span class="keyword">&gt;</span> (pointer);
+<a name="l00055"></a>00055         <span class="keywordflow">if</span> (!<a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>){
+<a name="l00056"></a>00056                 <span class="comment">//              std::cout&lt;&lt;&quot;In CdcSimpleSD::CdcSimpleSD, cannot get CdcCellGeometryParameter pointer!!!&quot;&lt;&lt;std::endl;</span>
 <a name="l00057"></a>00057                 G4Exception(<span class="stringliteral">&quot;CdcSimpleSD::CdcSimpleSD()&quot;</span>,
 <a name="l00058"></a>00058                                 <span class="stringliteral">&quot;InvalidSetup&quot;</span>, FatalException,
-<a name="l00059"></a>00059                                 <span class="stringliteral">&quot;cannot get CdcGeometryParameter pointer&quot;</span>);
+<a name="l00059"></a>00059                                 <span class="stringliteral">&quot;cannot get CdcCellGeometryParameter pointer&quot;</span>);
 <a name="l00060"></a>00060         }
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062         <span class="comment">//name of related Digiteizer module</span>
@@ -99,10 +99,10 @@
 <a name="l00075"></a>00075 <span class="comment">//Will be called by geant4 automatically at the beginning of each event</span>
 <a name="l00076"></a><a class="code" href="classCdcSimpleSD.html#a5ff343b0bf12cdb9142a862d5e91ffe5">00076</a> <span class="keywordtype">void</span> <a class="code" href="classCdcSimpleSD.html#a5ff343b0bf12cdb9142a862d5e91ffe5">CdcSimpleSD::Initialize</a>(G4HCofThisEvent* HCE)
 <a name="l00077"></a>00077 {
-<a name="l00078"></a>00078         <span class="keywordtype">int</span> LayerNo = <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a34400fb38d72d0250e9898083bad84be">get_LayerNo</a>();
+<a name="l00078"></a>00078         <span class="keywordtype">int</span> LayerNo = <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#acf53267aefc6d5199e8b751e53e7a0cb">get_LayerNo</a>();
 <a name="l00079"></a>00079         <a class="code" href="classCdcSimpleSD.html#ac3a24c47964766d56d843e86d7b25806">hitPointer</a>.resize(LayerNo);
 <a name="l00080"></a>00080         <span class="keywordflow">for</span>( <span class="keywordtype">int</span>  i = 0; i &lt; LayerNo; i++ ){
-<a name="l00081"></a>00081                 <span class="keywordtype">int</span> CellNo = <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a2705ced46db6861d942bc0e28122a799">get_layer_cell_num</a>(i);
+<a name="l00081"></a>00081                 <span class="keywordtype">int</span> CellNo = <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a53e0958b49e6295114319f807238ca5f">get_layer_cell_num</a>(i);
 <a name="l00082"></a>00082                 <a class="code" href="classCdcSimpleSD.html#ac3a24c47964766d56d843e86d7b25806">hitPointer</a>[i].resize(CellNo);
 <a name="l00083"></a>00083                 <span class="keywordflow">for</span>( <span class="keywordtype">int</span> j = 0; j &lt; CellNo; j++ ){
 <a name="l00084"></a>00084                         <a class="code" href="classCdcSimpleSD.html#ac3a24c47964766d56d843e86d7b25806">hitPointer</a>[i][j] = -1;
@@ -356,7 +356,7 @@
 <a name="l00332"></a>00332         <span class="keyword">const</span> G4VTouchable *touchable = prePoint-&gt;GetTouchable();
 <a name="l00333"></a>00333         G4int ReplicaNo = touchable-&gt;GetReplicaNumber(0);
 <a name="l00334"></a>00334         G4int layerId, cellId;
-<a name="l00335"></a>00335         status = <a class="code" href="classCdcSimpleSD.html#a0af595d074026aeb66ab124cf80393ca">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcGeometryParameter.html#a2ef7d21235c10f1a7cbb4f561e1eeb73">get_layerIdcellId</a>(ReplicaNo, &amp;layerId, &amp;cellId);
+<a name="l00335"></a>00335         status = <a class="code" href="classCdcSimpleSD.html#af18713bb1d1b72fa841c54763de7d2e6">m_GeometryParameter</a>-&gt;<a class="code" href="classCdcCellGeometryParameter.html#a597a99317f1102b5786a7f2630b193fd">get_layerIdcellId</a>(ReplicaNo, &amp;layerId, &amp;cellId);
 <a name="l00336"></a>00336         <span class="keywordflow">if</span>(status){
 <a name="l00337"></a>00337                 std::cout&lt;&lt;<span class="stringliteral">&quot;In CdcSimpleSD::ProcessHits(), unknown ReplicaNo = &quot;</span>&lt;&lt;ReplicaNo&lt;&lt;<span class="stringliteral">&quot;!!! Will not generate hit&quot;</span>&lt;&lt;std::endl;
 <a name="l00338"></a>00338                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -438,7 +438,7 @@
 <a name="l00414"></a><a class="code" href="classCdcSimpleSD.html#a67849ae226d0094fc7364f0bc397cea6">00414</a> <span class="keywordtype">void</span> <a class="code" href="classCdcSimpleSD.html#a67849ae226d0094fc7364f0bc397cea6">CdcSimpleSD::EndOfEvent</a>(G4HCofThisEvent*){
 <a name="l00415"></a>00415 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Aug 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 28 Aug 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
