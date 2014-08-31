@@ -124,65 +124,67 @@
 <a name="l00069"></a>00069                                 &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pY&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>  
 <a name="l00070"></a>00070                                 &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pZ&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
 <a name="l00071"></a>00071                                 &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;KineE&quot;</span>     &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00072"></a>00072                                 &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;dEStep&quot;</span>    &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00073"></a>00073                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;StepLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00074"></a>00074                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;TrakLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00075"></a>00075                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Volume&quot;</span>    &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00076"></a>00076                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Process&quot;</span>   &lt;&lt; std::endl;             
-<a name="l00077"></a>00077                 }
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079                 std::cout &lt;&lt; std::setw( 6) &lt;&lt; fTrack-&gt;GetCurrentStepNumber() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00080"></a>00080                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().x(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00081"></a>00081                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().y(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00082"></a>00082                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().z(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00083"></a>00083                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetGlobalTime(),<span class="stringliteral">&quot;Time&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00084"></a>00084                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().x(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00085"></a>00085                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().y(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00086"></a>00086                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().z(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00087"></a>00087                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetKineticEnergy(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00088"></a>00088                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fStep-&gt;GetTotalEnergyDeposit(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00089"></a>00089                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fStep-&gt;GetStepLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00090"></a>00090                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fTrack-&gt;GetTrackLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00091"></a>00091                         &lt;&lt; std::setw(10) &lt;&lt; fTrack-&gt;GetVolume()-&gt;GetName()&lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093                 <span class="keyword">const</span> G4VProcess* process 
-<a name="l00094"></a>00094                         = fStep-&gt;GetPostStepPoint()-&gt;GetProcessDefinedStep();
-<a name="l00095"></a>00095                 G4String procName = <span class="stringliteral">&quot; UserLimit&quot;</span>;
-<a name="l00096"></a>00096                 <span class="keywordflow">if</span> (process) procName = process-&gt;GetProcessName();
-<a name="l00097"></a>00097                 <span class="keywordflow">if</span> (fStepStatus == fWorldBoundary) procName = <span class="stringliteral">&quot;OutOfWorld&quot;</span>;
-<a name="l00098"></a>00098                 std::cout &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt; std::setw(10) &lt;&lt; procName;
-<a name="l00099"></a>00099                 std::cout &lt;&lt; std::endl;
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101                 <span class="keywordflow">if</span>( verboseLevel == 2 ){
-<a name="l00102"></a>00102                         G4int tN2ndariesTot = fN2ndariesAtRestDoIt +
-<a name="l00103"></a>00103                                 fN2ndariesAlongStepDoIt +
-<a name="l00104"></a>00104                                 fN2ndariesPostStepDoIt;
-<a name="l00105"></a>00105                         <span class="keywordflow">if</span>(tN2ndariesTot&gt;0){
-<a name="l00106"></a>00106                                 std::cout &lt;&lt; <span class="stringliteral">&quot;\n    :----- List of secondaries ----------------&quot;</span>
-<a name="l00107"></a>00107                                         &lt;&lt; std::endl;
-<a name="l00108"></a>00108                                 std::cout.precision(4);
-<a name="l00109"></a>00109                                 <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> lp1=(*fSecondary).size()-tN2ndariesTot; 
-<a name="l00110"></a>00110                                                 lp1&lt;(*fSecondary).size(); lp1++){
-<a name="l00111"></a>00111                                         std::cout &lt;&lt; <span class="stringliteral">&quot;   &quot;</span>
-<a name="l00112"></a>00112                                                 &lt;&lt; std::setw(13)                 
-<a name="l00113"></a>00113                                                 &lt;&lt; (*fSecondary)[lp1]-&gt;GetDefinition()-&gt;GetParticleName()         
-<a name="l00114"></a>00114                                                 &lt;&lt; <span class="stringliteral">&quot;:  energy =&quot;</span>
-<a name="l00115"></a>00115                                                 &lt;&lt; std::setw(6)
-<a name="l00116"></a>00116                                                 &lt;&lt; G4BestUnit((*fSecondary)[lp1]-&gt;GetKineticEnergy(),<span class="stringliteral">&quot;Energy&quot;</span>)   
-<a name="l00117"></a>00117                                                 &lt;&lt; <span class="stringliteral">&quot;  time =&quot;</span>
-<a name="l00118"></a>00118                                                 &lt;&lt; std::setw(6)
-<a name="l00119"></a>00119                                                 &lt;&lt; G4BestUnit((*fSecondary)[lp1]-&gt;GetGlobalTime(),<span class="stringliteral">&quot;Time&quot;</span>);                               
-<a name="l00120"></a>00120                                         std::cout &lt;&lt; std::endl;
-<a name="l00121"></a>00121                                 }
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123                                 std::cout &lt;&lt; <span class="stringliteral">&quot;    :------------------------------------------\n&quot;</span>
-<a name="l00124"></a>00124                                         &lt;&lt; std::endl;
-<a name="l00125"></a>00125                         }
-<a name="l00126"></a>00126                 }
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128         }
-<a name="l00129"></a>00129         std::cout.precision(prec);
-<a name="l00130"></a>00130 }
+<a name="l00072"></a>00072                                 &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;dEtot&quot;</span>     &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00073"></a>00073                                 &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;dEIon&quot;</span>     &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00074"></a>00074                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;StepLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00075"></a>00075                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;TrakLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00076"></a>00076                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Volume&quot;</span>    &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00077"></a>00077                                 &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Process&quot;</span>   &lt;&lt; std::endl;             
+<a name="l00078"></a>00078                 }
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080                 std::cout &lt;&lt; std::setw( 6) &lt;&lt; fTrack-&gt;GetCurrentStepNumber() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00081"></a>00081                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().x(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00082"></a>00082                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().y(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00083"></a>00083                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().z(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00084"></a>00084                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetGlobalTime(),<span class="stringliteral">&quot;Time&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00085"></a>00085                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().x(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00086"></a>00086                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().y(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00087"></a>00087                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().z(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00088"></a>00088                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetKineticEnergy(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00089"></a>00089                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fStep-&gt;GetTotalEnergyDeposit(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00090"></a>00090                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fStep-&gt;GetTotalEnergyDeposit()-fStep-&gt;GetNonIonizingEnergyDeposit(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00091"></a>00091                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fStep-&gt;GetStepLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00092"></a>00092                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fTrack-&gt;GetTrackLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00093"></a>00093                         &lt;&lt; std::setw(10) &lt;&lt; fTrack-&gt;GetVolume()-&gt;GetName()&lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095                 <span class="keyword">const</span> G4VProcess* process 
+<a name="l00096"></a>00096                         = fStep-&gt;GetPostStepPoint()-&gt;GetProcessDefinedStep();
+<a name="l00097"></a>00097                 G4String procName = <span class="stringliteral">&quot; UserLimit&quot;</span>;
+<a name="l00098"></a>00098                 <span class="keywordflow">if</span> (process) procName = process-&gt;GetProcessName();
+<a name="l00099"></a>00099                 <span class="keywordflow">if</span> (fStepStatus == fWorldBoundary) procName = <span class="stringliteral">&quot;OutOfWorld&quot;</span>;
+<a name="l00100"></a>00100                 std::cout &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt; std::setw(10) &lt;&lt; procName;
+<a name="l00101"></a>00101                 std::cout &lt;&lt; std::endl;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103                 <span class="keywordflow">if</span>( verboseLevel == 2 ){
+<a name="l00104"></a>00104                         G4int tN2ndariesTot = fN2ndariesAtRestDoIt +
+<a name="l00105"></a>00105                                 fN2ndariesAlongStepDoIt +
+<a name="l00106"></a>00106                                 fN2ndariesPostStepDoIt;
+<a name="l00107"></a>00107                         <span class="keywordflow">if</span>(tN2ndariesTot&gt;0){
+<a name="l00108"></a>00108                                 std::cout &lt;&lt; <span class="stringliteral">&quot;\n    :----- List of secondaries ----------------&quot;</span>
+<a name="l00109"></a>00109                                         &lt;&lt; std::endl;
+<a name="l00110"></a>00110                                 std::cout.precision(4);
+<a name="l00111"></a>00111                                 <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> lp1=(*fSecondary).size()-tN2ndariesTot; 
+<a name="l00112"></a>00112                                                 lp1&lt;(*fSecondary).size(); lp1++){
+<a name="l00113"></a>00113                                         std::cout &lt;&lt; <span class="stringliteral">&quot;   &quot;</span>
+<a name="l00114"></a>00114                                                 &lt;&lt; std::setw(13)                 
+<a name="l00115"></a>00115                                                 &lt;&lt; (*fSecondary)[lp1]-&gt;GetDefinition()-&gt;GetParticleName()         
+<a name="l00116"></a>00116                                                 &lt;&lt; <span class="stringliteral">&quot;:  energy =&quot;</span>
+<a name="l00117"></a>00117                                                 &lt;&lt; std::setw(6)
+<a name="l00118"></a>00118                                                 &lt;&lt; G4BestUnit((*fSecondary)[lp1]-&gt;GetKineticEnergy(),<span class="stringliteral">&quot;Energy&quot;</span>)   
+<a name="l00119"></a>00119                                                 &lt;&lt; <span class="stringliteral">&quot;  time =&quot;</span>
+<a name="l00120"></a>00120                                                 &lt;&lt; std::setw(6)
+<a name="l00121"></a>00121                                                 &lt;&lt; G4BestUnit((*fSecondary)[lp1]-&gt;GetGlobalTime(),<span class="stringliteral">&quot;Time&quot;</span>);                               
+<a name="l00122"></a>00122                                         std::cout &lt;&lt; std::endl;
+<a name="l00123"></a>00123                                 }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125                                 std::cout &lt;&lt; <span class="stringliteral">&quot;    :------------------------------------------\n&quot;</span>
+<a name="l00126"></a>00126                                         &lt;&lt; std::endl;
+<a name="l00127"></a>00127                         }
+<a name="l00128"></a>00128                 }
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130         }
+<a name="l00131"></a>00131         std::cout.precision(prec);
+<a name="l00132"></a>00132 }
 </pre></div></p>
 
 </div>
@@ -202,46 +204,48 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SteppingVerbose_8cc_source.html#l00134">134</a> of file <a class="el" href="SteppingVerbose_8cc_source.html">SteppingVerbose.cc</a>.</p>
+<p>Definition at line <a class="el" href="SteppingVerbose_8cc_source.html#l00136">136</a> of file <a class="el" href="SteppingVerbose_8cc_source.html">SteppingVerbose.cc</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00135"></a>00135 {
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137         CopyState();
-<a name="l00138"></a>00138         G4int prec = std::cout.precision(3);
-<a name="l00139"></a>00139         <span class="keywordflow">if</span>( verboseLevel &gt; 0 ){
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141                 std::cout &lt;&lt; std::setw( 6) &lt;&lt; <span class="stringliteral">&quot;#Step#&quot;</span> &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00142"></a>00142                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;X&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00143"></a>00143                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;Y&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>  
-<a name="l00144"></a>00144                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;Z&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00145"></a>00145                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;t&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00146"></a>00146                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pX&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00147"></a>00147                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pY&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>  
-<a name="l00148"></a>00148                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pZ&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00149"></a>00149                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;KineE&quot;</span>     &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00150"></a>00150                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;dEStep&quot;</span>    &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00151"></a>00151                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;StepLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00152"></a>00152                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;TrakLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00153"></a>00153                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Volume&quot;</span>    &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00154"></a>00154                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Process&quot;</span>   &lt;&lt; std::endl;             
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156                 std::cout &lt;&lt; std::setw(6) &lt;&lt; fTrack-&gt;GetCurrentStepNumber() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00157"></a>00157                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().x(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00158"></a>00158                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().y(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00159"></a>00159                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().z(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00160"></a>00160                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetGlobalTime(),<span class="stringliteral">&quot;Time&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00161"></a>00161                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().x(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00162"></a>00162                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().y(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00163"></a>00163                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().z(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00164"></a>00164                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetKineticEnergy(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00165"></a>00165                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fStep-&gt;GetTotalEnergyDeposit(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00166"></a>00166                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fStep-&gt;GetStepLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00167"></a>00167                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fTrack-&gt;GetTrackLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00168"></a>00168                         &lt;&lt; std::setw(10) &lt;&lt; fTrack-&gt;GetVolume()-&gt;GetName()&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
-<a name="l00169"></a>00169                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;   initStep&quot;</span> &lt;&lt; std::endl; 
-<a name="l00170"></a>00170         }
-<a name="l00171"></a>00171         std::cout.precision(prec);
-<a name="l00172"></a>00172 }
+<p><div class="fragment"><pre class="fragment"><a name="l00137"></a>00137 {
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139         CopyState();
+<a name="l00140"></a>00140         G4int prec = std::cout.precision(3);
+<a name="l00141"></a>00141         <span class="keywordflow">if</span>( verboseLevel &gt; 0 ){
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143                 std::cout &lt;&lt; std::setw( 6) &lt;&lt; <span class="stringliteral">&quot;#Step#&quot;</span> &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00144"></a>00144                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;X&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00145"></a>00145                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;Y&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>  
+<a name="l00146"></a>00146                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;Z&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00147"></a>00147                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;t&quot;</span>         &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00148"></a>00148                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pX&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00149"></a>00149                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pY&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>  
+<a name="l00150"></a>00150                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;pZ&quot;</span>        &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00151"></a>00151                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;KineE&quot;</span>     &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00152"></a>00152                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;dEtot&quot;</span>     &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00153"></a>00153                         &lt;&lt; std::setw( 9) &lt;&lt; <span class="stringliteral">&quot;dEIon&quot;</span>     &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00154"></a>00154                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;StepLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00155"></a>00155                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;TrakLeng&quot;</span>  &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00156"></a>00156                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Volume&quot;</span>    &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00157"></a>00157                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;Process&quot;</span>   &lt;&lt; std::endl;             
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159                 std::cout &lt;&lt; std::setw(6) &lt;&lt; fTrack-&gt;GetCurrentStepNumber() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00160"></a>00160                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().x(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00161"></a>00161                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().y(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00162"></a>00162                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetPosition().z(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00163"></a>00163                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetGlobalTime(),<span class="stringliteral">&quot;Time&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00164"></a>00164                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().x(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00165"></a>00165                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().y(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00166"></a>00166                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetMomentum().z(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00167"></a>00167                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fTrack-&gt;GetKineticEnergy(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00168"></a>00168                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fStep-&gt;GetTotalEnergyDeposit(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00169"></a>00169                         &lt;&lt; std::setw( 9) &lt;&lt; G4BestUnit(fStep-&gt;GetTotalEnergyDeposit()-fStep-&gt;GetNonIonizingEnergyDeposit(),<span class="stringliteral">&quot;Energy&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00170"></a>00170                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fStep-&gt;GetStepLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00171"></a>00171                         &lt;&lt; std::setw(10) &lt;&lt; G4BestUnit(fTrack-&gt;GetTrackLength(),<span class="stringliteral">&quot;Length&quot;</span>)&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00172"></a>00172                         &lt;&lt; std::setw(10) &lt;&lt; fTrack-&gt;GetVolume()-&gt;GetName()&lt;&lt; <span class="stringliteral">&quot; &quot;</span>
+<a name="l00173"></a>00173                         &lt;&lt; std::setw(10) &lt;&lt; <span class="stringliteral">&quot;   initStep&quot;</span> &lt;&lt; std::endl; 
+<a name="l00174"></a>00174         }
+<a name="l00175"></a>00175         std::cout.precision(prec);
+<a name="l00176"></a>00176 }
 </pre></div></p>
 
 </div>
@@ -251,7 +255,7 @@
 <li>src/<a class="el" href="SteppingVerbose_8cc_source.html">SteppingVerbose.cc</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 30 Aug 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 31 Aug 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
