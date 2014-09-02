@@ -47,211 +47,214 @@
 <a name="l00020"></a>00020 
 <a name="l00021"></a><a class="code" href="classMakeAnalysedPulses.html#a936d423d7958ae78b90ac678fad71e0c">00021</a> <a class="code" href="classMakeAnalysedPulses.html#a936d423d7958ae78b90ac678fad71e0c">MakeAnalysedPulses::MakeAnalysedPulses</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
 <a name="l00022"></a>00022   <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;MakeAnalysedPulses&quot;</span>,opts,false),
-<a name="l00023"></a>00023   fSlowGeneratorType(opts-&gt;GetString(<span class="stringliteral">&quot;default_slow_generator&quot;</span>,<span class="stringliteral">&quot;MaxBin&quot;</span>)), fFastGeneratorType(opts-&gt;GetString(<span class="stringliteral">&quot;default_fast_generator&quot;</span>,<span class="stringliteral">&quot;MaxBin&quot;</span>)),
-<a name="l00024"></a>00024   fChannelsToAnalyse(), fOptions(opts), fDefaultOpts(new <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(<span class="stringliteral">&quot;default generator options&quot;</span>)) {
-<a name="l00025"></a>00025   opts-&gt;<a class="code" href="classmodules_1_1options.html#a9f11dd3ca576849e2f4c500794edd9dc" title="Fill a vector of strings with whitespace delimited tokens found in the named option...">GetVectorStringsByWhiteSpace</a>(<span class="stringliteral">&quot;analyse_channels&quot;</span>,<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>);
-<a name="l00026"></a>00026   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) <a class="code" href="classMakeAnalysedPulses.html#aa5186e2930dc83658dcc5d633b574b39">fDefaultOpts</a>-&gt;<a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(<span class="stringliteral">&quot;debug&quot;</span>,<span class="stringliteral">&quot;true&quot;</span>);
-<a name="l00027"></a>00027 }
-<a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">00029</a> <a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">MakeAnalysedPulses::~MakeAnalysedPulses</a>(){
+<a name="l00023"></a>00023   fSlowGeneratorType(opts-&gt;GetString(<span class="stringliteral">&quot;default_slow_generator&quot;</span>,<span class="stringliteral">&quot;MaxBin&quot;</span>)),
+<a name="l00024"></a>00024   fFastGeneratorType(opts-&gt;GetString(<span class="stringliteral">&quot;default_fast_generator&quot;</span>,<span class="stringliteral">&quot;MaxBin&quot;</span>)),
+<a name="l00025"></a>00025   fChannelsToAnalyse(),
+<a name="l00026"></a>00026   fOptions(opts),
+<a name="l00027"></a>00027   fDefaultOpts(new <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(<span class="stringliteral">&quot;default generator options&quot;</span>)) {
+<a name="l00028"></a>00028   opts-&gt;<a class="code" href="classmodules_1_1options.html#a9f11dd3ca576849e2f4c500794edd9dc" title="Fill a vector of strings with whitespace delimited tokens found in the named option...">GetVectorStringsByWhiteSpace</a>(<span class="stringliteral">&quot;analyse_channels&quot;</span>,<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>);
+<a name="l00029"></a>00029   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) <a class="code" href="classMakeAnalysedPulses.html#aa5186e2930dc83658dcc5d633b574b39">fDefaultOpts</a>-&gt;<a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(<span class="stringliteral">&quot;debug&quot;</span>,<span class="stringliteral">&quot;true&quot;</span>);
 <a name="l00030"></a>00030 }
 <a name="l00031"></a>00031 
-<a name="l00032"></a><a class="code" href="classMakeAnalysedPulses.html#aa3b0fee1356a7a295f1aafbbe1f0ae9c">00032</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#aa3b0fee1356a7a295f1aafbbe1f0ae9c">MakeAnalysedPulses::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup){
-<a name="l00033"></a>00033     <span class="comment">// Loop over every named detector channel in TSetupData</span>
-<a name="l00034"></a>00034     std::vector&lt;std::string&gt; <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>;
-<a name="l00035"></a>00035     setup-&gt;<a class="code" href="classTSetupData.html#ac3d446e50498906f011af9ac8a62367c">GetAllDetectors</a>(detectors);
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037     <span class="comment">// do we analyse all channels?</span>
-<a name="l00038"></a>00038     <span class="keywordtype">bool</span> analyse_all=<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.empty();
-<a name="l00039"></a>00039     <span class="keywordflow">if</span>(!analyse_all){
-<a name="l00040"></a>00040         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.size();i++){
-<a name="l00041"></a>00041             <span class="keywordflow">if</span> (<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>[i]==<span class="stringliteral">&quot;all&quot;</span>){
-<a name="l00042"></a>00042                 analyse_all=<span class="keyword">true</span>;
-<a name="l00043"></a>00043                 <span class="keywordflow">break</span>;
-<a name="l00044"></a>00044             }
-<a name="l00045"></a>00045         }
-<a name="l00046"></a>00046     }
-<a name="l00047"></a>00047     std::cout&lt;&lt;<span class="stringliteral">&quot;Will analyse &quot;</span>;
-<a name="l00048"></a>00048     <span class="keywordflow">if</span>(analyse_all) std::cout&lt;&lt;<span class="stringliteral">&quot;all &quot;</span>;
-<a name="l00049"></a>00049     <span class="keywordflow">else</span> std::cout&lt;&lt;<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.size()&lt;&lt;<span class="stringliteral">&quot; of &quot;</span>;
-<a name="l00050"></a>00050     std::cout&lt;&lt;detectors.size()&lt;&lt;<span class="stringliteral">&quot; channels&quot;</span>&lt;&lt;std::endl;
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052     <span class="comment">// For each channel:</span>
-<a name="l00053"></a>00053     <span class="keywordtype">bool</span> skip_detector=<span class="keyword">false</span>;
-<a name="l00054"></a>00054     std::string des_gen;
-<a name="l00055"></a>00055     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;std::string&gt;::const_iterator</a> det=detectors.begin();
-<a name="l00056"></a>00056             det!=detectors.end(); det++){
-<a name="l00057"></a>00057         <span class="comment">// if we should not analyse det, leave generator as NULL</span>
-<a name="l00058"></a>00058         skip_detector=<span class="keyword">false</span>;
-<a name="l00059"></a>00059         <span class="keywordflow">if</span>(! analyse_all ){
-<a name="l00060"></a>00060             <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;std::string&gt;::const_iterator</a> it_chan;
-<a name="l00061"></a>00061             <span class="keywordflow">for</span>(it_chan=<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.begin();
-<a name="l00062"></a>00062                     it_chan!=<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.end();
-<a name="l00063"></a>00063                     it_chan++){
-<a name="l00064"></a>00064                 <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>((*it_chan), (*det)) )<span class="keywordflow">break</span>;
-<a name="l00065"></a>00065             }
-<a name="l00066"></a>00066             <span class="keywordflow">if</span>(it_chan== <a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.end() ) skip_detector=<span class="keyword">true</span>;
-<a name="l00067"></a>00067         }
-<a name="l00068"></a>00068         <span class="keywordflow">if</span>(skip_detector)
-<a name="l00069"></a>00069           <span class="keywordflow">continue</span>;
-<a name="l00070"></a>00070         <span class="comment">// else find the right generator to build</span>
-<a name="l00071"></a>00071         <span class="keywordflow">if</span>(<a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(*det)){
-<a name="l00072"></a>00072             <span class="comment">// If this channel is named explicitly, use that generator type</span>
-<a name="l00073"></a>00073             <span class="comment">// Get a vector for the generator(s) that we want to use for this detector</span>
-<a name="l00074"></a>00074             std::vector&lt;std::string&gt; generatorList;
-<a name="l00075"></a>00075             <a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(*det,generatorList);
-<a name="l00076"></a>00076             <span class="keywordtype">bool</span> success=<a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">ParseGeneratorList</a>(*det,generatorList);
-<a name="l00077"></a>00077             <span class="keywordflow">if</span>(! success) <span class="keywordflow">return</span> 1;
-<a name="l00078"></a>00078         } <span class="keywordflow">else</span>{
-<a name="l00079"></a>00079             <span class="comment">// else use default value for this type of channel (fast or slow)</span>
-<a name="l00080"></a>00080             <span class="keywordflow">if</span>(<a class="code" href="classTSetupData.html#aef90c2c9b47ceba7f4e1ade81206dbcf">TSetupData::IsFast</a>(*det)){
-<a name="l00081"></a>00081                 std::vector&lt;std::string&gt; generatorList;
-<a name="l00082"></a>00082                 <a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(<span class="stringliteral">&quot;default_fast_generator&quot;</span>,generatorList);
-<a name="l00083"></a>00083                 <span class="keywordtype">bool</span> success=<a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">ParseGeneratorList</a>(*det,generatorList);
-<a name="l00084"></a>00084                 <span class="keywordflow">if</span>(!success) <span class="keywordflow">return</span> 1;
-<a name="l00085"></a>00085             } <span class="keywordflow">else</span> {
-<a name="l00086"></a>00086                 std::vector&lt;std::string&gt; generatorList;
-<a name="l00087"></a>00087                 <a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(<span class="stringliteral">&quot;default_slow_generator&quot;</span>,generatorList);
-<a name="l00088"></a>00088                 <span class="keywordtype">bool</span> success=<a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">ParseGeneratorList</a>(*det,generatorList);
-<a name="l00089"></a>00089                 <span class="keywordflow">if</span>(!success) <span class="keywordflow">return</span> 1;
-<a name="l00090"></a>00090             }
-<a name="l00091"></a>00091         }
-<a name="l00092"></a>00092     }
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094     <span class="comment">// now make an entry in gAnalysedPulseMap for each generator added</span>
-<a name="l00095"></a>00095     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ChannelGenerators_t::const_iterator</a> i_gen=<a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin();
-<a name="l00096"></a>00096             i_gen!=<a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end();i_gen++){
-<a name="l00097"></a>00097         <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[(*i_gen)-&gt;GetSource()];
-<a name="l00098"></a>00098     }
-<a name="l00099"></a>00099     <span class="keywordflow">return</span> 0;
-<a name="l00100"></a>00100 }
-<a name="l00101"></a>00101 
-<a name="l00102"></a><a class="code" href="classMakeAnalysedPulses.html#a63c2b9b6838f06c18e93fd4d58bc1a2e">00102</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a63c2b9b6838f06c18e93fd4d58bc1a2e" title="The big kahuna. Overload this in the derived class and it will be called for each...">MakeAnalysedPulses::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
-<a name="l00103"></a>00103     <span class="comment">// Generator just receives a bunch of TPIs and must return a list of TAPs</span>
+<a name="l00032"></a><a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">00032</a> <a class="code" href="classMakeAnalysedPulses.html#a9b8525c98f580a2c578d0a3571e69fea">MakeAnalysedPulses::~MakeAnalysedPulses</a>(){
+<a name="l00033"></a>00033 }
+<a name="l00034"></a>00034 
+<a name="l00035"></a><a class="code" href="classMakeAnalysedPulses.html#aa3b0fee1356a7a295f1aafbbe1f0ae9c">00035</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#aa3b0fee1356a7a295f1aafbbe1f0ae9c">MakeAnalysedPulses::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* setup){
+<a name="l00036"></a>00036     <span class="comment">// Loop over every named detector channel in TSetupData</span>
+<a name="l00037"></a>00037     std::vector&lt;std::string&gt; <a class="code" href="MMuSCTimeDifferences_8cpp.html#a2f992bb8697d31ab979c5923fc0c8be0">detectors</a>;
+<a name="l00038"></a>00038     setup-&gt;<a class="code" href="classTSetupData.html#ac3d446e50498906f011af9ac8a62367c">GetAllDetectors</a>(detectors);
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="comment">// do we analyse all channels?</span>
+<a name="l00041"></a>00041     <span class="keywordtype">bool</span> analyse_all=<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.empty();
+<a name="l00042"></a>00042     <span class="keywordflow">if</span>(!analyse_all){
+<a name="l00043"></a>00043         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.size();i++){
+<a name="l00044"></a>00044             <span class="keywordflow">if</span> (<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>[i]==<span class="stringliteral">&quot;all&quot;</span>){
+<a name="l00045"></a>00045                 analyse_all=<span class="keyword">true</span>;
+<a name="l00046"></a>00046                 <span class="keywordflow">break</span>;
+<a name="l00047"></a>00047             }
+<a name="l00048"></a>00048         }
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050     std::cout&lt;&lt;<span class="stringliteral">&quot;Will analyse &quot;</span>;
+<a name="l00051"></a>00051     <span class="keywordflow">if</span>(analyse_all) std::cout&lt;&lt;<span class="stringliteral">&quot;all &quot;</span>;
+<a name="l00052"></a>00052     <span class="keywordflow">else</span> std::cout&lt;&lt;<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.size()&lt;&lt;<span class="stringliteral">&quot; of &quot;</span>;
+<a name="l00053"></a>00053     std::cout&lt;&lt;detectors.size()&lt;&lt;<span class="stringliteral">&quot; channels&quot;</span>&lt;&lt;std::endl;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055     <span class="comment">// For each channel:</span>
+<a name="l00056"></a>00056     <span class="keywordtype">bool</span> skip_detector=<span class="keyword">false</span>;
+<a name="l00057"></a>00057     std::string des_gen;
+<a name="l00058"></a>00058     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;std::string&gt;::const_iterator</a> det=detectors.begin();
+<a name="l00059"></a>00059             det!=detectors.end(); det++){
+<a name="l00060"></a>00060         <span class="comment">// if we should not analyse det, leave generator as NULL</span>
+<a name="l00061"></a>00061         skip_detector=<span class="keyword">false</span>;
+<a name="l00062"></a>00062         <span class="keywordflow">if</span>(! analyse_all ){
+<a name="l00063"></a>00063             <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;std::string&gt;::const_iterator</a> it_chan;
+<a name="l00064"></a>00064             <span class="keywordflow">for</span>(it_chan=<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.begin();
+<a name="l00065"></a>00065                     it_chan!=<a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.end();
+<a name="l00066"></a>00066                     it_chan++){
+<a name="l00067"></a>00067                 <span class="keywordflow">if</span>(<a class="code" href="namespacemodules_1_1parser.html#a870925217045b5a748226daebb5328bf">modules::parser::iequals</a>((*it_chan), (*det)) )<span class="keywordflow">break</span>;
+<a name="l00068"></a>00068             }
+<a name="l00069"></a>00069             <span class="keywordflow">if</span>(it_chan== <a class="code" href="classMakeAnalysedPulses.html#ab8d616dbba14bd74b2864e695c643735">fChannelsToAnalyse</a>.end() ) skip_detector=<span class="keyword">true</span>;
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071         <span class="keywordflow">if</span>(skip_detector)
+<a name="l00072"></a>00072           <span class="keywordflow">continue</span>;
+<a name="l00073"></a>00073         <span class="comment">// else find the right generator to build</span>
+<a name="l00074"></a>00074         <span class="keywordflow">if</span>(<a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(*det)){
+<a name="l00075"></a>00075             <span class="comment">// If this channel is named explicitly, use that generator type</span>
+<a name="l00076"></a>00076             <span class="comment">// Get a vector for the generator(s) that we want to use for this detector</span>
+<a name="l00077"></a>00077             std::vector&lt;std::string&gt; generatorList;
+<a name="l00078"></a>00078             <a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(*det,generatorList);
+<a name="l00079"></a>00079             <span class="keywordtype">bool</span> success=<a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">ParseGeneratorList</a>(*det,generatorList);
+<a name="l00080"></a>00080             <span class="keywordflow">if</span>(! success) <span class="keywordflow">return</span> 1;
+<a name="l00081"></a>00081         } <span class="keywordflow">else</span>{
+<a name="l00082"></a>00082             <span class="comment">// else use default value for this type of channel (fast or slow)</span>
+<a name="l00083"></a>00083             <span class="keywordflow">if</span>(<a class="code" href="classTSetupData.html#aef90c2c9b47ceba7f4e1ade81206dbcf">TSetupData::IsFast</a>(*det)){
+<a name="l00084"></a>00084                 std::vector&lt;std::string&gt; generatorList;
+<a name="l00085"></a>00085                 <a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(<span class="stringliteral">&quot;default_fast_generator&quot;</span>,generatorList);
+<a name="l00086"></a>00086                 <span class="keywordtype">bool</span> success=<a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">ParseGeneratorList</a>(*det,generatorList);
+<a name="l00087"></a>00087                 <span class="keywordflow">if</span>(!success) <span class="keywordflow">return</span> 1;
+<a name="l00088"></a>00088             } <span class="keywordflow">else</span> {
+<a name="l00089"></a>00089                 std::vector&lt;std::string&gt; generatorList;
+<a name="l00090"></a>00090                 <a class="code" href="classMakeAnalysedPulses.html#a0bb7db84bd77f72384826aaa7d4efa1f">fOptions</a>-&gt;<a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(<span class="stringliteral">&quot;default_slow_generator&quot;</span>,generatorList);
+<a name="l00091"></a>00091                 <span class="keywordtype">bool</span> success=<a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">ParseGeneratorList</a>(*det,generatorList);
+<a name="l00092"></a>00092                 <span class="keywordflow">if</span>(!success) <span class="keywordflow">return</span> 1;
+<a name="l00093"></a>00093             }
+<a name="l00094"></a>00094         }
+<a name="l00095"></a>00095     }
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097     <span class="comment">// now make an entry in gAnalysedPulseMap for each generator added</span>
+<a name="l00098"></a>00098     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ChannelGenerators_t::const_iterator</a> i_gen=<a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin();
+<a name="l00099"></a>00099             i_gen!=<a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end();i_gen++){
+<a name="l00100"></a>00100         <a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>[(*i_gen)-&gt;GetSource()];
+<a name="l00101"></a>00101     }
+<a name="l00102"></a>00102     <span class="keywordflow">return</span> 0;
+<a name="l00103"></a>00103 }
 <a name="l00104"></a>00104 
-<a name="l00105"></a>00105     <span class="comment">// Loop over each generator</span>
-<a name="l00106"></a>00106     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> detector;
-<a name="l00107"></a>00107     <span class="keywordtype">string</span> bankname;
-<a name="l00108"></a>00108     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* thePulseIslands;
-<a name="l00109"></a>00109     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelGenerators_t::iterator</a> generator;
-<a name="l00110"></a>00110     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> theAnalysedPulses;
-<a name="l00111"></a>00111     <span class="keywordtype">int</span> retVal=0;
-<a name="l00112"></a>00112     <span class="keywordflow">for</span>(generator = <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin(); generator != <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end(); generator++){
-<a name="l00113"></a>00113         <span class="comment">// Get the bank name</span>
-<a name="l00114"></a>00114         detector = (*generator)-&gt;GetChannel().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>();
-<a name="l00115"></a>00115         bankname = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">GetBank</a>(detector);
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117         <span class="comment">// Get the TPIs</span>
-<a name="l00118"></a>00118         thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[bankname];
-<a name="l00119"></a>00119         <span class="keywordflow">if</span>(thePulseIslands-&gt;empty() ){
-<a name="l00120"></a>00120           <span class="keywordflow">if</span>( <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout &lt;&lt; <span class="stringliteral">&quot;Event No: &quot;</span> 
-<a name="l00121"></a>00121                             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() 
-<a name="l00122"></a>00122                             &lt;&lt;<span class="stringliteral">&quot;: List of TPIs for &apos;&quot;</span>&lt;&lt; detector 
-<a name="l00123"></a>00123                             &lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt; endl;
-<a name="l00124"></a>00124           <span class="keywordflow">continue</span>;
-<a name="l00125"></a>00125         }
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127         <span class="comment">// clear the list of analyse_pulses from the last iteration</span>
-<a name="l00128"></a>00128         theAnalysedPulses.clear();
+<a name="l00105"></a><a class="code" href="classMakeAnalysedPulses.html#a63c2b9b6838f06c18e93fd4d58bc1a2e">00105</a> <span class="keywordtype">int</span> <a class="code" href="classMakeAnalysedPulses.html#a63c2b9b6838f06c18e93fd4d58bc1a2e" title="The big kahuna. Overload this in the derived class and it will be called for each...">MakeAnalysedPulses::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a> *<a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>, <span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9" title="Hardware information about digitizers and detectors to be used during alcapana stage...">gSetup</a>){
+<a name="l00106"></a>00106     <span class="comment">// Generator just receives a bunch of TPIs and must return a list of TAPs</span>
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="comment">// Loop over each generator</span>
+<a name="l00109"></a>00109     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> detector;
+<a name="l00110"></a>00110     <span class="keywordtype">string</span> bankname;
+<a name="l00111"></a>00111     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* thePulseIslands;
+<a name="l00112"></a>00112     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelGenerators_t::iterator</a> generator;
+<a name="l00113"></a>00113     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> theAnalysedPulses;
+<a name="l00114"></a>00114     <span class="keywordtype">int</span> retVal=0;
+<a name="l00115"></a>00115     <span class="keywordflow">for</span>(generator = <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin(); generator != <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end(); generator++){
+<a name="l00116"></a>00116         <span class="comment">// Get the bank name</span>
+<a name="l00117"></a>00117         detector = (*generator)-&gt;GetChannel().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>();
+<a name="l00118"></a>00118         bankname = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">GetBank</a>(detector);
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120         <span class="comment">// Get the TPIs</span>
+<a name="l00121"></a>00121         thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[bankname];
+<a name="l00122"></a>00122         <span class="keywordflow">if</span>(thePulseIslands-&gt;empty() ){
+<a name="l00123"></a>00123           <span class="keywordflow">if</span>( <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout &lt;&lt; <span class="stringliteral">&quot;Event No: &quot;</span> 
+<a name="l00124"></a>00124                             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() 
+<a name="l00125"></a>00125                             &lt;&lt;<span class="stringliteral">&quot;: List of TPIs for &apos;&quot;</span>&lt;&lt; detector 
+<a name="l00126"></a>00126                             &lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt; endl;
+<a name="l00127"></a>00127           <span class="keywordflow">continue</span>;
+<a name="l00128"></a>00128         }
 <a name="l00129"></a>00129 
-<a name="l00130"></a>00130         <span class="comment">// generate the new list of analyse_pulses</span>
-<a name="l00131"></a>00131         (*generator)-&gt;SetPulseList(thePulseIslands);
-<a name="l00132"></a>00132         retVal=(*generator)-&gt;ProcessPulses( *thePulseIslands,theAnalysedPulses);
-<a name="l00133"></a>00133         <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
-<a name="l00134"></a>00134 
-<a name="l00135"></a>00135         <span class="comment">// find the pulse list in gAnalysedPulseMap</span>
-<a name="l00136"></a>00136         <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> it=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find((*generator)-&gt;GetSource());
-<a name="l00137"></a>00137         <span class="keywordflow">if</span>(it==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
-<a name="l00138"></a>00138             <span class="comment">// source doesn&apos;t seem to exist in gAnalysedPulseMap</span>
-<a name="l00139"></a>00139           cout &lt;&lt;<span class="stringliteral">&quot;Error: New TAP source \&quot;&quot;</span> &lt;&lt; (*generator)-&gt;GetSource() 
-<a name="l00140"></a>00140                &lt;&lt;<span class="stringliteral">&quot;\&quot; seems to have been created during processing of pulses.&quot;</span>
-<a name="l00141"></a>00141                &lt;&lt;endl;
-<a name="l00142"></a>00142             <span class="keywordflow">return</span> 1;
-<a name="l00143"></a>00143         }
-<a name="l00144"></a>00144         <span class="comment">// add the pulses into the map</span>
-<a name="l00145"></a>00145         it-&gt;second=theAnalysedPulses;
-<a name="l00146"></a>00146     }
-<a name="l00147"></a>00147     <span class="keywordflow">return</span> 0;
-<a name="l00148"></a>00148 }
-<a name="l00149"></a>00149 
-<a name="l00150"></a>00150 <span class="comment">// Creates a generator for each one in the list</span>
-<a name="l00151"></a>00151 <span class="comment">// Returns true on success or false if there was a problem</span>
-<a name="l00152"></a><a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">00152</a> <span class="keywordtype">bool</span> <a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">MakeAnalysedPulses::ParseGeneratorList</a>(std::string detector,
-<a name="l00153"></a>00153         <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; generatorList){
-<a name="l00154"></a>00154 
-<a name="l00155"></a>00155     <span class="comment">//scan to next item in the list</span>
-<a name="l00156"></a>00156     <span class="keywordtype">size_t</span> start_br=0;
-<a name="l00157"></a>00157     <span class="keywordtype">size_t</span> end_br=std::string::npos;
-<a name="l00158"></a>00158     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;std::string&gt;::const_iterator</a> gen;
-<a name="l00159"></a>00159     std::string arg,generator;
-<a name="l00160"></a>00160     <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts;
-<a name="l00161"></a>00161     <span class="keywordtype">bool</span> still_good=<span class="keyword">true</span>;
-<a name="l00162"></a>00162     <span class="keywordflow">for</span>(gen=generatorList.begin();gen!= generatorList.end();gen++){
-<a name="l00163"></a>00163       <span class="comment">// check if we have options for this generator</span>
-<a name="l00164"></a>00164       start_br=gen-&gt;find(<span class="charliteral">&apos;(&apos;</span>);
-<a name="l00165"></a>00165       generator=<a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">GetOneWord</a>(*gen,0,start_br);
-<a name="l00166"></a>00166       <span class="keywordflow">if</span>(start_br!=std::string::npos){
-<a name="l00167"></a>00167         std::stringstream sstream;
-<a name="l00168"></a>00168         <span class="comment">// There are options for this generator</span>
-<a name="l00169"></a>00169         ++start_br; <span class="comment">// Move to first character after &apos;(&apos;</span>
-<a name="l00170"></a>00170         end_br=gen-&gt;find(<span class="charliteral">&apos;)&apos;</span>);
-<a name="l00171"></a>00171         sstream.str(gen-&gt;substr(start_br,end_br-start_br));
-<a name="l00172"></a>00172         opts=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(generator);
-<a name="l00173"></a>00173         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> count=0; std::getline(sstream, arg,<span class="charliteral">&apos;,&apos;</span>); count++){
-<a name="l00174"></a>00174           opts-&gt;<a class="code" href="classTAPGeneratorOptions.html#a27d3382e52e45b0b3565e042abf27515" title="Set the value of an argument.">AddArgument</a>(count,arg);
-<a name="l00175"></a>00175         }
-<a name="l00176"></a>00176       }
-<a name="l00177"></a>00177       still_good = <a class="code" href="classMakeAnalysedPulses.html#a0c4953230bbd9ccd90bd4e7e401a1dc4">AddGenerator</a>(detector,generator,opts);
-<a name="l00178"></a>00178       <span class="comment">// Is everything ok to continue?</span>
-<a name="l00179"></a>00179       <span class="keywordflow">if</span> (!still_good) {
-<a name="l00180"></a>00180         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00181"></a>00181       }
-<a name="l00182"></a>00182       <span class="comment">// Get ready for next iteration</span>
-<a name="l00183"></a>00183       opts=NULL;
-<a name="l00184"></a>00184     }
-<a name="l00185"></a>00185     <span class="comment">// Everything went ok, return true</span>
-<a name="l00186"></a>00186     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00187"></a>00187 }
-<a name="l00188"></a>00188 
-<a name="l00189"></a><a class="code" href="classMakeAnalysedPulses.html#a0c4953230bbd9ccd90bd4e7e401a1dc4">00189</a> <span class="keywordtype">bool</span> <a class="code" href="classMakeAnalysedPulses.html#a0c4953230bbd9ccd90bd4e7e401a1dc4">MakeAnalysedPulses::AddGenerator</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; detector,<span class="keywordtype">string</span> generatorType,<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts){
-<a name="l00190"></a>00190     <span class="comment">// If generatorType is &apos;!FAST!&apos; or &apos;!SLOW!&apos; replace with default value</span>
-<a name="l00191"></a>00191     <span class="keyword">enum</span> {<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>, <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>, kArbitrary} requestType;
-<a name="l00192"></a>00192     <span class="keywordflow">if</span>(generatorType==<span class="stringliteral">&quot;!FAST!&quot;</span>) {
-<a name="l00193"></a>00193         generatorType=<a class="code" href="classMakeAnalysedPulses.html#adc3c0a2e345217c39fc2775b37425d55">fFastGeneratorType</a>;
-<a name="l00194"></a>00194         requestType=<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>;
-<a name="l00195"></a>00195     }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(generatorType==<span class="stringliteral">&quot;!SLOW!&quot;</span>){
-<a name="l00196"></a>00196         generatorType=<a class="code" href="classMakeAnalysedPulses.html#aed9a93b88d93ddc273735e5a011ba620">fSlowGeneratorType</a>;
-<a name="l00197"></a>00197         requestType=<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>;
-<a name="l00198"></a>00198     }<span class="keywordflow">else</span> requestType=kArbitrary;
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200     <span class="comment">// Make sure opts is not null</span>
-<a name="l00201"></a>00201     <span class="keywordflow">if</span>(!opts) opts=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(*<a class="code" href="classMakeAnalysedPulses.html#aa5186e2930dc83658dcc5d633b574b39">fDefaultOpts</a>);
-<a name="l00202"></a>00202     opts-&gt;<a class="code" href="classTAPGeneratorOptions.html#a1bb2dcf4fbdadf4c29acb17f3a74d083">SetChannel</a>(detector);
-<a name="l00203"></a>00203 
-<a name="l00204"></a>00204     <span class="comment">// Get the requested generator</span>
-<a name="l00205"></a>00205     <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>* generator=
-<a name="l00206"></a>00206         <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">TAPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
-<a name="l00207"></a>00207     <span class="keywordflow">if</span>(!generator) <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209     <span class="comment">// print something</span>
-<a name="l00210"></a>00210     <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00211"></a>00211         cout&lt;&lt;detector&lt;&lt;<span class="stringliteral">&quot;: using &quot;</span>;
-<a name="l00212"></a>00212         <span class="keywordflow">if</span> (requestType ==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>) cout&lt;&lt;<span class="stringliteral">&quot;default fast: &quot;</span>;
-<a name="l00213"></a>00213         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (requestType ==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>) cout&lt;&lt;<span class="stringliteral">&quot;default slow: &quot;</span>;
-<a name="l00214"></a>00214         <span class="keywordflow">else</span> cout&lt;&lt;<span class="stringliteral">&quot;generator: &quot;</span>;
-<a name="l00215"></a>00215         cout&lt;&lt;generatorType ;
-<a name="l00216"></a>00216         <span class="keywordflow">if</span>(opts) cout&lt;&lt;<span class="stringliteral">&quot; with &quot;</span>&lt;&lt;opts-&gt;<a class="code" href="classmodules_1_1options.html#a7025f09d60a8166fada9df7f2186b388" title="Get the number of options managed by this options list.">GetNumOptions</a>()&lt;&lt;<span class="stringliteral">&quot; option(s).&quot;</span>;
-<a name="l00217"></a>00217         cout&lt;&lt;endl;
-<a name="l00218"></a>00218     }
-<a name="l00219"></a>00219 
-<a name="l00220"></a>00220     <span class="comment">// Add this generator to the list for the required detector</span>
-<a name="l00221"></a>00221     <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.push_back(generator);
-<a name="l00222"></a>00222     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00223"></a>00223 }
-<a name="l00224"></a>00224 
-<a name="l00225"></a>00225 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>,slow_gen,fast_gen);
+<a name="l00130"></a>00130         <span class="comment">// clear the list of analyse_pulses from the last iteration</span>
+<a name="l00131"></a>00131         theAnalysedPulses.clear();
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133         <span class="comment">// generate the new list of analyse_pulses</span>
+<a name="l00134"></a>00134         (*generator)-&gt;SetPulseList(thePulseIslands);
+<a name="l00135"></a>00135         retVal=(*generator)-&gt;ProcessPulses( *thePulseIslands,theAnalysedPulses);
+<a name="l00136"></a>00136         <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138         <span class="comment">// find the pulse list in gAnalysedPulseMap</span>
+<a name="l00139"></a>00139         <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> it=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find((*generator)-&gt;GetSource());
+<a name="l00140"></a>00140         <span class="keywordflow">if</span>(it==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
+<a name="l00141"></a>00141             <span class="comment">// source doesn&apos;t seem to exist in gAnalysedPulseMap</span>
+<a name="l00142"></a>00142           cout &lt;&lt;<span class="stringliteral">&quot;Error: New TAP source \&quot;&quot;</span> &lt;&lt; (*generator)-&gt;GetSource() 
+<a name="l00143"></a>00143                &lt;&lt;<span class="stringliteral">&quot;\&quot; seems to have been created during processing of pulses.&quot;</span>
+<a name="l00144"></a>00144                &lt;&lt;endl;
+<a name="l00145"></a>00145             <span class="keywordflow">return</span> 1;
+<a name="l00146"></a>00146         }
+<a name="l00147"></a>00147         <span class="comment">// add the pulses into the map</span>
+<a name="l00148"></a>00148         it-&gt;second=theAnalysedPulses;
+<a name="l00149"></a>00149     }
+<a name="l00150"></a>00150     <span class="keywordflow">return</span> 0;
+<a name="l00151"></a>00151 }
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 <span class="comment">// Creates a generator for each one in the list</span>
+<a name="l00154"></a>00154 <span class="comment">// Returns true on success or false if there was a problem</span>
+<a name="l00155"></a><a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">00155</a> <span class="keywordtype">bool</span> <a class="code" href="classMakeAnalysedPulses.html#a8be37cd3979ad4abc1fa95b155ebd20d">MakeAnalysedPulses::ParseGeneratorList</a>(std::string detector,
+<a name="l00156"></a>00156         <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; generatorList){
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158     <span class="comment">//scan to next item in the list</span>
+<a name="l00159"></a>00159     <span class="keywordtype">size_t</span> start_br=0;
+<a name="l00160"></a>00160     <span class="keywordtype">size_t</span> end_br=std::string::npos;
+<a name="l00161"></a>00161     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::vector&lt;std::string&gt;::const_iterator</a> gen;
+<a name="l00162"></a>00162     std::string arg,generator;
+<a name="l00163"></a>00163     <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts;
+<a name="l00164"></a>00164     <span class="keywordtype">bool</span> still_good=<span class="keyword">true</span>;
+<a name="l00165"></a>00165     <span class="keywordflow">for</span>(gen=generatorList.begin();gen!= generatorList.end();gen++){
+<a name="l00166"></a>00166       <span class="comment">// check if we have options for this generator</span>
+<a name="l00167"></a>00167       start_br=gen-&gt;find(<span class="charliteral">&apos;(&apos;</span>);
+<a name="l00168"></a>00168       generator=<a class="code" href="namespacemodules_1_1parser.html#a3cc0cfd303bf4d491d90501804232ce5">GetOneWord</a>(*gen,0,start_br);
+<a name="l00169"></a>00169       <span class="keywordflow">if</span>(start_br!=std::string::npos){
+<a name="l00170"></a>00170         std::stringstream sstream;
+<a name="l00171"></a>00171         <span class="comment">// There are options for this generator</span>
+<a name="l00172"></a>00172         ++start_br; <span class="comment">// Move to first character after &apos;(&apos;</span>
+<a name="l00173"></a>00173         end_br=gen-&gt;find(<span class="charliteral">&apos;)&apos;</span>);
+<a name="l00174"></a>00174         sstream.str(gen-&gt;substr(start_br,end_br-start_br));
+<a name="l00175"></a>00175         opts=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(generator);
+<a name="l00176"></a>00176         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> count=0; std::getline(sstream, arg,<span class="charliteral">&apos;,&apos;</span>); count++){
+<a name="l00177"></a>00177           opts-&gt;<a class="code" href="classTAPGeneratorOptions.html#a27d3382e52e45b0b3565e042abf27515" title="Set the value of an argument.">AddArgument</a>(count,arg);
+<a name="l00178"></a>00178         }
+<a name="l00179"></a>00179       }
+<a name="l00180"></a>00180       still_good = <a class="code" href="classMakeAnalysedPulses.html#a0c4953230bbd9ccd90bd4e7e401a1dc4">AddGenerator</a>(detector,generator,opts);
+<a name="l00181"></a>00181       <span class="comment">// Is everything ok to continue?</span>
+<a name="l00182"></a>00182       <span class="keywordflow">if</span> (!still_good) {
+<a name="l00183"></a>00183         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00184"></a>00184       }
+<a name="l00185"></a>00185       <span class="comment">// Get ready for next iteration</span>
+<a name="l00186"></a>00186       opts=NULL;
+<a name="l00187"></a>00187     }
+<a name="l00188"></a>00188     <span class="comment">// Everything went ok, return true</span>
+<a name="l00189"></a>00189     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00190"></a>00190 }
+<a name="l00191"></a>00191 
+<a name="l00192"></a><a class="code" href="classMakeAnalysedPulses.html#a0c4953230bbd9ccd90bd4e7e401a1dc4">00192</a> <span class="keywordtype">bool</span> <a class="code" href="classMakeAnalysedPulses.html#a0c4953230bbd9ccd90bd4e7e401a1dc4">MakeAnalysedPulses::AddGenerator</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; detector,<span class="keywordtype">string</span> generatorType,<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>* opts){
+<a name="l00193"></a>00193     <span class="comment">// If generatorType is &apos;!FAST!&apos; or &apos;!SLOW!&apos; replace with default value</span>
+<a name="l00194"></a>00194     <span class="keyword">enum</span> {<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>, <a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>, kArbitrary} requestType;
+<a name="l00195"></a>00195     <span class="keywordflow">if</span>(generatorType==<span class="stringliteral">&quot;!FAST!&quot;</span>) {
+<a name="l00196"></a>00196         generatorType=<a class="code" href="classMakeAnalysedPulses.html#adc3c0a2e345217c39fc2775b37425d55">fFastGeneratorType</a>;
+<a name="l00197"></a>00197         requestType=<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>;
+<a name="l00198"></a>00198     }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(generatorType==<span class="stringliteral">&quot;!SLOW!&quot;</span>){
+<a name="l00199"></a>00199         generatorType=<a class="code" href="classMakeAnalysedPulses.html#aed9a93b88d93ddc273735e5a011ba620">fSlowGeneratorType</a>;
+<a name="l00200"></a>00200         requestType=<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>;
+<a name="l00201"></a>00201     }<span class="keywordflow">else</span> requestType=kArbitrary;
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203     <span class="comment">// Make sure opts is not null</span>
+<a name="l00204"></a>00204     <span class="keywordflow">if</span>(!opts) opts=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(*<a class="code" href="classMakeAnalysedPulses.html#aa5186e2930dc83658dcc5d633b574b39">fDefaultOpts</a>);
+<a name="l00205"></a>00205     opts-&gt;<a class="code" href="classTAPGeneratorOptions.html#a1bb2dcf4fbdadf4c29acb17f3a74d083">SetChannel</a>(detector);
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207     <span class="comment">// Get the requested generator</span>
+<a name="l00208"></a>00208     <a class="code" href="classTVAnalysedPulseGenerator.html" title="The intended ancestor of all TAnalysedPulse generators, used to create TAPs from...">TVAnalysedPulseGenerator</a>* generator=
+<a name="l00209"></a>00209         <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">TAPGeneratorFactory::Instance</a>()-&gt;<a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(generatorType,opts);
+<a name="l00210"></a>00210     <span class="keywordflow">if</span>(!generator) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212     <span class="comment">// print something</span>
+<a name="l00213"></a>00213     <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00214"></a>00214         cout&lt;&lt;detector&lt;&lt;<span class="stringliteral">&quot;: using &quot;</span>;
+<a name="l00215"></a>00215         <span class="keywordflow">if</span> (requestType ==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31aed3c6c495b6b1d50820412dca0e1f0cd">kFast</a>) cout&lt;&lt;<span class="stringliteral">&quot;default fast: &quot;</span>;
+<a name="l00216"></a>00216         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (requestType ==<a class="code" href="namespaceIDs.html#aecc6c6a922921188b481adeeb91f2e31a964c16a4b0c67d0c2a46515829d4b441">kSlow</a>) cout&lt;&lt;<span class="stringliteral">&quot;default slow: &quot;</span>;
+<a name="l00217"></a>00217         <span class="keywordflow">else</span> cout&lt;&lt;<span class="stringliteral">&quot;generator: &quot;</span>;
+<a name="l00218"></a>00218         cout&lt;&lt;generatorType ;
+<a name="l00219"></a>00219         <span class="keywordflow">if</span>(opts) cout&lt;&lt;<span class="stringliteral">&quot; with &quot;</span>&lt;&lt;opts-&gt;<a class="code" href="classmodules_1_1options.html#a7025f09d60a8166fada9df7f2186b388" title="Get the number of options managed by this options list.">GetNumOptions</a>()&lt;&lt;<span class="stringliteral">&quot; option(s).&quot;</span>;
+<a name="l00220"></a>00220         cout&lt;&lt;endl;
+<a name="l00221"></a>00221     }
+<a name="l00222"></a>00222 
+<a name="l00223"></a>00223     <span class="comment">// Add this generator to the list for the required detector</span>
+<a name="l00224"></a>00224     <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.push_back(generator);
+<a name="l00225"></a>00225     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00226"></a>00226 }
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>,slow_gen,fast_gen);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

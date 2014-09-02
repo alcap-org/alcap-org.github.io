@@ -46,7 +46,7 @@
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00026">26</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00027">27</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3fadc5d8e9fcb5ae4ec1c24a162b2f62"></a><!-- doxytag: member="Algorithm::MaxBinTime::MaxBinTime" ref="a3fadc5d8e9fcb5ae4ec1c24a162b2f62" args="(int trig_pol, double clk_tick, double t_shift)" -->
 <div class="memitem">
@@ -79,9 +79,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00028">28</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00029">29</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029     :<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a>(trig_pol), <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a8fae6673e313edca1ba5346297d2ff4b">clock_tick_in_ns</a>(clk_tick), <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a6b72506e253c9558d1f60deb216375e6">time_shift</a>(t_shift){}
+<p><div class="fragment"><pre class="fragment"><a name="l00030"></a>00030     :<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a>(trig_pol), <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a8fae6673e313edca1ba5346297d2ff4b">clock_tick_in_ns</a>(clk_tick), <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a6b72506e253c9558d1f60deb216375e6">time_shift</a>(t_shift){}
 </pre></div></p>
 
 </div>
@@ -103,27 +103,27 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00028">28</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00030">30</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00033">clock_tick_in_ns</a>, <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00062">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00034">time_shift</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00032">trigger_polarity</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00034">clock_tick_in_ns</a>, <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00062">TPulseIsland::GetTimeStamp()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00035">time_shift</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00033">trigger_polarity</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00028"></a>00028                                                                      {
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030   <span class="comment">// Get the samples and get an iterator ready to find the peak sample</span>
-<a name="l00031"></a>00031   std::vector&lt;int&gt; pulseSamples = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();  
-<a name="l00032"></a>00032   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034   <span class="comment">// Find the position of the peak samples</span>
-<a name="l00035"></a>00035   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a> == 1)
-<a name="l00036"></a>00036     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00037"></a>00037   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a> == -1)
-<a name="l00038"></a>00038     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040   <span class="comment">// Now calculate the time</span>
-<a name="l00041"></a>00041   <span class="keywordtype">double</span> time = ((tpi-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a8fae6673e313edca1ba5346297d2ff4b">clock_tick_in_ns</a>) - <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a6b72506e253c9558d1f60deb216375e6">time_shift</a>;
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043   <span class="keywordflow">return</span> time;
-<a name="l00044"></a>00044 }
+<p><div class="fragment"><pre class="fragment"><a name="l00030"></a>00030                                                                      {
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032   <span class="comment">// Get the samples and get an iterator ready to find the peak sample</span>
+<a name="l00033"></a>00033   std::vector&lt;int&gt; pulseSamples = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();  
+<a name="l00034"></a>00034   <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">std::vector&lt;int&gt;::iterator</a> peak_sample_pos;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036   <span class="comment">// Find the position of the peak samples</span>
+<a name="l00037"></a>00037   <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a> == 1)
+<a name="l00038"></a>00038     peak_sample_pos = std::max_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00039"></a>00039   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="structAlgorithm_1_1MaxBinTime.html#a4eabb9d1a1d9a1f3e0c173f6728ade68">trigger_polarity</a> == -1)
+<a name="l00040"></a>00040     peak_sample_pos = std::min_element(pulseSamples.begin(), pulseSamples.end());
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042   <span class="comment">// Now calculate the time</span>
+<a name="l00043"></a>00043   <span class="keywordtype">double</span> time = ((tpi-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>() + (peak_sample_pos - pulseSamples.begin())) * <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a8fae6673e313edca1ba5346297d2ff4b">clock_tick_in_ns</a>) - <a class="code" href="structAlgorithm_1_1MaxBinTime.html#a6b72506e253c9558d1f60deb216375e6">time_shift</a>;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045   <span class="keywordflow">return</span> time;
+<a name="l00046"></a>00046 }
 </pre></div></p>
 
 </div>
@@ -140,9 +140,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00033">33</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00034">34</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00028">operator()()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00030">operator()()</a>.</p>
 
 </div>
 </div>
@@ -157,9 +157,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00034">34</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00035">35</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00028">operator()()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00030">operator()()</a>.</p>
 
 </div>
 </div>
@@ -174,9 +174,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00032">32</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00033">33</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00028">operator()()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8cpp_source.html#l00030">operator()()</a>.</p>
 
 </div>
 </div>
@@ -185,7 +185,7 @@
 <li>rootana/src/TAP_generators/utils/<a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

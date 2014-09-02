@@ -38,6 +38,7 @@
 <code>#include &quot;<a class="el" href="debug__tools_8h_source.html">debug_tools.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="IdSource_8h_source.html">IdSource.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="TIntegralRatioAnalysedPulse_8h_source.html">TIntegralRatioAnalysedPulse.h</a>&quot;</code><br/>
 <code>#include &lt;TFormula.h&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
@@ -45,13 +46,47 @@
 
 <p><a href="PulseViewer_8cpp_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="PulseViewer_8cpp.html#a03df0d1a4b6582ceeffa3806dc4b1d64">GetVals</a>(array, pulse)</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="PulseViewer_8cpp.html#a372026ed7b9370f8f3beb8233a6bfad3">ALCAP_REGISTER_MODULE</a> (<a class="el" href="classPulseViewer.html">PulseViewer</a>, source, trigger, summarize)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="PulseViewer_8cpp.html#a334379c0262e39a76419c2cb0c5dffae">ALCAP_REGISTER_MODULE</a> (<a class="el" href="classPulseViewer.html">PulseViewer</a>, source, trigger, pulse_type, summarize)</td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#adc3cbc99ad11168a78d5115c09fff778">SourceAnalPulseMap</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="PulseViewer_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a></td></tr>
 </table>
+<hr/><h2>Define Documentation</h2>
+<a class="anchor" id="a03df0d1a4b6582ceeffa3806dc4b1d64"></a><!-- doxytag: member="PulseViewer.cpp::GetVals" ref="a03df0d1a4b6582ceeffa3806dc4b1d64" args="(array, pulse)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GetVals</td>
+          <td>(</td>
+          <td class="paramtype">array, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pulse&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ParameterKeys::const_iterator</a> i_key=fAvailableParams.begin(); \
+              i_key!=fAvailableParams.end();++i_key){\
+               array[i_key-&gt;second]=GetParameterValue(pulse,i_key-&gt;second);\
+            }
+</pre></div>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00024">24</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00213">PulseViewer::ConsiderDrawing()</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a372026ed7b9370f8f3beb8233a6bfad3"></a><!-- doxytag: member="PulseViewer.cpp::ALCAP_REGISTER_MODULE" ref="a372026ed7b9370f8f3beb8233a6bfad3" args="(PulseViewer, source, trigger, summarize)" -->
+<a class="anchor" id="a334379c0262e39a76419c2cb0c5dffae"></a><!-- doxytag: member="PulseViewer.cpp::ALCAP_REGISTER_MODULE" ref="a334379c0262e39a76419c2cb0c5dffae" args="(PulseViewer, source, trigger, pulse_type, summarize)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -71,6 +106,12 @@
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">trigger&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pulse_type&nbsp;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -107,7 +148,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

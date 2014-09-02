@@ -63,18 +63,10 @@ Inheritance diagram for PulseViewer:</div>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b">GetDirectory</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the TDirectory for this module.  <a href="#ae753140da9952cb8caea03082294ce5b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#a42cecf27b0fc6c68efa06630358ce66b">GetDirectory</a> (const std::string &amp;name=&quot;&quot;)</td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a></td></tr>
 <tr><td colspan="2"><h2>Private Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520">TriggerType</a> { <br/>
-&nbsp;&nbsp;<a class="el" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520a60245420bc524a45293fce4b55872692">kE</a>, 
-<a class="el" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520a4a6632cbdc7b21256ab827637256fd85">kG</a>, 
-<a class="el" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520a2c378b1e74ac701c081d73679faa2005">kL</a>, 
-<a class="el" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520ae574c181f947b350c79191a317280931">kGE</a>, 
-<br/>
-&nbsp;&nbsp;<a class="el" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520ad6afce6a6eb5130d53714fcb17c69d25">kLE</a>
-<br/>
- }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fe">ParameterType</a> { <br/>
 &nbsp;&nbsp;<a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea7d1d1352a2279adb658b240db29b578a">kAmplitude</a>, 
 <a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea6664dbaa38821050bcc1b802734aed95">kTime</a>, 
@@ -83,8 +75,15 @@ Inheritance diagram for PulseViewer:</div>
 <br/>
 &nbsp;&nbsp;<a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea66f3747dcb147215777e4ec6056b7bfe">kEnergy</a>, 
 <a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea5ba9439378d912319960b5dd2e1b32e5">kPedestal</a>, 
-<a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>
+<a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>, 
+<a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea8db9627f5fec02aaaf342fe4322e369e">kEventNo</a>, 
 <br/>
+&nbsp;&nbsp;<a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea30417f58ad83740fcc1a666d09cc5e31">kIntegralRatio</a>, 
+<a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766feaebbf0903b6b53c95caa46b7887b68e4f">kIntegralTail</a>
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9">PulseType</a> { <a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2">kTAP</a>, 
+<a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2">kIntegralRatioAP</a>
  }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#ac4348bc40e71897d2951940638d0c715">TPulseIslandID</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a5292c12666e20b47318b7b8d528374f2">TAnalysedPulseID</a></td></tr>
@@ -95,6 +94,8 @@ Inheritance diagram for PulseViewer:</div>
 <a class="el" href="classPulseViewer.html#a062a92bf9be4a1b798aa9299d8f1aab1">PulseIDList_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a3fbd2cfa2be3f035fd5731e8772bdb35">EventPulseIDList_t</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak"/>
 <a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fe">ParameterType</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a8d67833f01aa7e56247049e93a2af533">ParameterKeys</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <br class="typebreak"/>
+<a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9">PulseType</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a565d9bb5ddf69a8422d056e29cfb4517">PulseKeys</a></td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a442f4d8b64b155948adba50822dc03fa">ProcessEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="group__MV1724ProcessRaw.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The big kahuna. Overload this in the derived class and it will be called for each event.  <a href="#a442f4d8b64b155948adba50822dc03fa"></a><br/></td></tr>
@@ -103,29 +104,37 @@ Inheritance diagram for PulseViewer:</div>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43">GetSource</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the channel as a string.  <a href="#a2ae7217b4995cc6b3475d01137671b43"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a4333085549d7bc43ee8ad0543f463e48">ConsiderDrawing</a> (const <a class="el" href="classPulseViewer.html#a5292c12666e20b47318b7b8d528374f2">TAnalysedPulseID</a> &amp;id, const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> *i_pulse)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#ac28c5dba92a665c49451584e117e8855">GetParameterValue</a> (const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> &amp;pulse, const <a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fe">ParameterType</a> &amp;parameter)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the value of interest from pulse.  <a href="#ac28c5dba92a665c49451584e117e8855"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a62932a42a320a29612318ee35387724f">GetParameterValue</a> (const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> *pulse, const <a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fe">ParameterType</a> &amp;parameter)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the value of interest from pulse.  <a href="#a62932a42a320a29612318ee35387724f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a472a3a98f279e27a105a74e9ff903b95">GetParameterValue</a> (const <a class="el" href="classTIntegralRatioAnalysedPulse.html">TIntegralRatioAnalysedPulse</a> *pulse, const <a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fe">ParameterType</a> &amp;parameter)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a2afa77a9cac7dbda2bb88f95b1765bce">ParseTriggerString</a> (const std::string &amp;trigger_condition)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#ac79a6033e4ce721a9faea7b066f60825">CheckPulseType</a> (const std::string &amp;pulse_type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#ac739f5e0baf99dbdffdf91647d240e9e">TestPulseType</a> (const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> *pulse_type)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#aa68d4fa41145adf6cc3b11127fc23a7a">SummarisePlots</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dump a summary of what was done.  <a href="#aa68d4fa41145adf6cc3b11127fc23a7a"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1source.html">IDs::source</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9">PulseType</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a01f28038580d662ab14373fbf3615b77">fPulseType</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#aa9bad830afb0de024ef6bba5e1cd97fc">fRequestedPulseType</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a7fb20f53dabdc0297d56f8279ab852e7">fMaxToPlot</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#adcc353b8662d657d3f1e4e1f01f1ebca">fMaxToPlotPerEvent</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a095262ff0ce3cbfbb192e8f5f3756c4c">fSummarize</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a0929b7d3097087b6663d63acf04e4f55">fStopAtMax</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPulseViewer.html#a3fbd2cfa2be3f035fd5731e8772bdb35">EventPulseIDList_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TFormula *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#aed8df4064c59b9184e0b4a31559fec3a">fEvent</a></td></tr>
 <tr><td colspan="2"><h2>Static Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classPulseViewer.html#a8d67833f01aa7e56247049e93a2af533">ParameterKeys</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classPulseViewer.html#a565d9bb5ddf69a8422d056e29cfb4517">PulseKeys</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Module to plot pulses meeting a certain criteria. </p>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="https://github.com/alcap-org/AlcapDAQ/wiki/rootana-module-PulseViewer">https://github.com/alcap-org/AlcapDAQ/wiki/rootana-module-PulseViewer</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00013">13</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00014">14</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 <hr/><h2>Member Typedef Documentation</h2>
 <a class="anchor" id="ad8a2f150ee839bbb87bb32196f236667"></a><!-- doxytag: member="PulseViewer::EventID_t" ref="ad8a2f150ee839bbb87bb32196f236667" args="" -->
 <div class="memitem">
@@ -138,7 +147,7 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00016">16</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00017">17</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
 </div>
 </div>
@@ -153,7 +162,7 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00018">18</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00019">19</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
 </div>
 </div>
@@ -168,7 +177,7 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00068">68</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00081">81</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
 </div>
 </div>
@@ -183,7 +192,22 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00017">17</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00018">18</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a565d9bb5ddf69a8422d056e29cfb4517"></a><!-- doxytag: member="PulseViewer::PulseKeys" ref="a565d9bb5ddf69a8422d056e29cfb4517" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string,<a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9">PulseType</a>&gt; <a class="el" href="classPulseViewer.html#a565d9bb5ddf69a8422d056e29cfb4517">PulseViewer::PulseKeys</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00084">84</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
 </div>
 </div>
@@ -198,7 +222,7 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00015">15</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00016">16</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
 </div>
 </div>
@@ -213,7 +237,7 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00014">14</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00015">15</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
 </div>
 </div>
@@ -243,53 +267,59 @@ Inheritance diagram for PulseViewer:</div>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456"></a><!-- doxytag: member="kTriggerTime" ref="a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456" args="" -->kTriggerTime</em>&nbsp;</td><td>
 </td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a9ef8fdbbd34e9f861fea5dbd4bc766fea8db9627f5fec02aaaf342fe4322e369e"></a><!-- doxytag: member="kEventNo" ref="a9ef8fdbbd34e9f861fea5dbd4bc766fea8db9627f5fec02aaaf342fe4322e369e" args="" -->kEventNo</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a9ef8fdbbd34e9f861fea5dbd4bc766fea30417f58ad83740fcc1a666d09cc5e31"></a><!-- doxytag: member="kIntegralRatio" ref="a9ef8fdbbd34e9f861fea5dbd4bc766fea30417f58ad83740fcc1a666d09cc5e31" args="" -->kIntegralRatio</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a9ef8fdbbd34e9f861fea5dbd4bc766feaebbf0903b6b53c95caa46b7887b68e4f"></a><!-- doxytag: member="kIntegralTail" ref="a9ef8fdbbd34e9f861fea5dbd4bc766feaebbf0903b6b53c95caa46b7887b68e4f" args="" -->kIntegralTail</em>&nbsp;</td><td>
+</td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00022">22</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00021">21</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00022"></a>00022                         {
-<a name="l00023"></a>00023         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea7d1d1352a2279adb658b240db29b578a">kAmplitude</a>,
-<a name="l00024"></a>00024         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea6664dbaa38821050bcc1b802734aed95">kTime</a>,
-<a name="l00025"></a>00025         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea4bb8fa056cd083d9650d4200321775e4">kIntegral</a>,
-<a name="l00026"></a>00026         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea825d41f3c272051d9a1ccda2a40ae494">kTPILength</a>,
-<a name="l00027"></a>00027         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea66f3747dcb147215777e4ec6056b7bfe">kEnergy</a>,
-<a name="l00028"></a>00028         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea5ba9439378d912319960b5dd2e1b32e5">kPedestal</a>,
-<a name="l00029"></a>00029         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>
-<a name="l00030"></a>00030     };
+<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                         {
+<a name="l00022"></a>00022         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea7d1d1352a2279adb658b240db29b578a">kAmplitude</a>,
+<a name="l00023"></a>00023         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea6664dbaa38821050bcc1b802734aed95">kTime</a>,
+<a name="l00024"></a>00024         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea4bb8fa056cd083d9650d4200321775e4">kIntegral</a>,
+<a name="l00025"></a>00025         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea825d41f3c272051d9a1ccda2a40ae494">kTPILength</a>,
+<a name="l00026"></a>00026         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea66f3747dcb147215777e4ec6056b7bfe">kEnergy</a>,
+<a name="l00027"></a>00027         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea5ba9439378d912319960b5dd2e1b32e5">kPedestal</a>,
+<a name="l00028"></a>00028         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>,
+<a name="l00029"></a>00029         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea8db9627f5fec02aaaf342fe4322e369e">kEventNo</a>,
+<a name="l00030"></a>00030         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea30417f58ad83740fcc1a666d09cc5e31">kIntegralRatio</a>,
+<a name="l00031"></a>00031         <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766feaebbf0903b6b53c95caa46b7887b68e4f">kIntegralTail</a>
+<a name="l00032"></a>00032     };
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a81e727eaee97b1c2a623c4b2cb30e520"></a><!-- doxytag: member="PulseViewer::TriggerType" ref="a81e727eaee97b1c2a623c4b2cb30e520" args="" -->
+<a class="anchor" id="a4bc938524b309afdffd8fcdefadafee9"></a><!-- doxytag: member="PulseViewer::PulseType" ref="a4bc938524b309afdffd8fcdefadafee9" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520">PulseViewer::TriggerType</a><code> [private]</code></td>
+          <td class="memname">enum <a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9">PulseViewer::PulseType</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a81e727eaee97b1c2a623c4b2cb30e520a60245420bc524a45293fce4b55872692"></a><!-- doxytag: member="kE" ref="a81e727eaee97b1c2a623c4b2cb30e520a60245420bc524a45293fce4b55872692" args="" -->kE</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2"></a><!-- doxytag: member="kTAP" ref="a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2" args="" -->kTAP</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a81e727eaee97b1c2a623c4b2cb30e520a4a6632cbdc7b21256ab827637256fd85"></a><!-- doxytag: member="kG" ref="a81e727eaee97b1c2a623c4b2cb30e520a4a6632cbdc7b21256ab827637256fd85" args="" -->kG</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a81e727eaee97b1c2a623c4b2cb30e520a2c378b1e74ac701c081d73679faa2005"></a><!-- doxytag: member="kL" ref="a81e727eaee97b1c2a623c4b2cb30e520a2c378b1e74ac701c081d73679faa2005" args="" -->kL</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a81e727eaee97b1c2a623c4b2cb30e520ae574c181f947b350c79191a317280931"></a><!-- doxytag: member="kGE" ref="a81e727eaee97b1c2a623c4b2cb30e520ae574c181f947b350c79191a317280931" args="" -->kGE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a81e727eaee97b1c2a623c4b2cb30e520ad6afce6a6eb5130d53714fcb17c69d25"></a><!-- doxytag: member="kLE" ref="a81e727eaee97b1c2a623c4b2cb30e520ad6afce6a6eb5130d53714fcb17c69d25" args="" -->kLE</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2"></a><!-- doxytag: member="kIntegralRatioAP" ref="a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2" args="" -->kIntegralRatioAP</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00020">20</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00034">34</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00020"></a>00020 {<a class="code" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520a60245420bc524a45293fce4b55872692">kE</a>, <a class="code" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520a4a6632cbdc7b21256ab827637256fd85">kG</a>, <a class="code" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520a2c378b1e74ac701c081d73679faa2005">kL</a>, <a class="code" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520ae574c181f947b350c79191a317280931">kGE</a>, <a class="code" href="classPulseViewer.html#a81e727eaee97b1c2a623c4b2cb30e520ad6afce6a6eb5130d53714fcb17c69d25">kLE</a>};
+<p><div class="fragment"><pre class="fragment"><a name="l00034"></a>00034                   {
+<a name="l00035"></a>00035         <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2">kTAP</a>,
+<a name="l00036"></a>00036         <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2">kIntegralRatioAP</a>
+<a name="l00037"></a>00037     };
 </pre></div></p>
 
 </div>
@@ -311,19 +341,21 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00026">26</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00035">35</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="PulseViewer_8h_source.html#l00063">fMaxToPlot</a>, <a class="el" href="PulseViewer_8h_source.html#l00061">fRequestedSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00056">fSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00064">fStopAtMax</a>, <a class="el" href="PulseViewer_8h_source.html#l00064">fSummarize</a>, <a class="el" href="PulseViewer_8h_source.html#l00060">fTriggerCondition</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00078">modules::options::GetBool()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00050">modules::options::GetInt()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00067">modules::options::GetString()</a>.</p>
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="PulseViewer_8h_source.html#l00075">fMaxToPlot</a>, <a class="el" href="PulseViewer_8h_source.html#l00075">fMaxToPlotPerEvent</a>, <a class="el" href="PulseViewer_8h_source.html#l00073">fRequestedPulseType</a>, <a class="el" href="PulseViewer_8h_source.html#l00070">fRequestedSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00066">fSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00076">fStopAtMax</a>, <a class="el" href="PulseViewer_8h_source.html#l00076">fSummarize</a>, <a class="el" href="PulseViewer_8h_source.html#l00071">fTriggerCondition</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00078">modules::options::GetBool()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00243">modules::options::GetFlag()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00050">modules::options::GetInt()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00067">modules::options::GetString()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00026"></a>00026                                             :
-<a name="l00027"></a>00027     <a class="code" href="classBaseModule.html#a828d4e27c72536894e03b3cf330ba8c6" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;PulseViewer&quot;</span>,opts),<a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>(0),<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>(NULL){
-<a name="l00028"></a>00028         <a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;source&quot;</span>); 
-<a name="l00029"></a>00029         <a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=<a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a>;
-<a name="l00030"></a>00030         <a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;trigger&quot;</span>); 
-<a name="l00031"></a>00031         <a class="code" href="classPulseViewer.html#a095262ff0ce3cbfbb192e8f5f3756c4c">fSummarize</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#afd05ff40baf1d5b42f47da2521615f58" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;summarize&quot;</span>); 
-<a name="l00032"></a>00032         <a class="code" href="classPulseViewer.html#a7fb20f53dabdc0297d56f8279ab852e7">fMaxToPlot</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a2077430d97f034189c3f775ceefb8191" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;max_plots&quot;</span>,-1);
-<a name="l00033"></a>00033         <a class="code" href="classPulseViewer.html#a0929b7d3097087b6663d63acf04e4f55">fStopAtMax</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#afd05ff40baf1d5b42f47da2521615f58" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;stop_at_max_plots&quot;</span>,<span class="keyword">true</span>);
-<a name="l00034"></a>00034     }
+<p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035                                             :
+<a name="l00036"></a>00036     <a class="code" href="classBaseModule.html#a828d4e27c72536894e03b3cf330ba8c6" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;PulseViewer&quot;</span>,opts),<a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>(0),<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>(NULL),<a class="code" href="classPulseViewer.html#aed8df4064c59b9184e0b4a31559fec3a">fEvent</a>(0){
+<a name="l00037"></a>00037         <a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;source&quot;</span>); 
+<a name="l00038"></a>00038         <a class="code" href="classPulseViewer.html#aa9bad830afb0de024ef6bba5e1cd97fc">fRequestedPulseType</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;pulse_type&quot;</span>,<span class="stringliteral">&quot;TAnalysedPulse&quot;</span>); 
+<a name="l00039"></a>00039         <a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=<a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a>;
+<a name="l00040"></a>00040         <a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;trigger&quot;</span>); 
+<a name="l00041"></a>00041         <a class="code" href="classPulseViewer.html#a095262ff0ce3cbfbb192e8f5f3756c4c">fSummarize</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#afd85b5a7cd2ac4dbe59d5b07d83397d6" title="Check if a flag option has been set.">GetFlag</a>(<span class="stringliteral">&quot;summarize&quot;</span>); 
+<a name="l00042"></a>00042         <a class="code" href="classPulseViewer.html#a7fb20f53dabdc0297d56f8279ab852e7">fMaxToPlot</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a2077430d97f034189c3f775ceefb8191" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;max_plots&quot;</span>,-1);
+<a name="l00043"></a>00043         <a class="code" href="classPulseViewer.html#adcc353b8662d657d3f1e4e1f01f1ebca">fMaxToPlotPerEvent</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a2077430d97f034189c3f775ceefb8191" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;max_plots_event&quot;</span>,-1);
+<a name="l00044"></a>00044         <a class="code" href="classPulseViewer.html#a0929b7d3097087b6663d63acf04e4f55">fStopAtMax</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#afd05ff40baf1d5b42f47da2521615f58" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;stop_at_max_plots&quot;</span>,<span class="keyword">true</span>);
+<a name="l00045"></a>00045     }
 
 </pre></div></p>
 
@@ -344,13 +376,13 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00036">36</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00047">47</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="PulseViewer_8h_source.html#l00066">fFormula</a>.</p>
+<p>References <a class="el" href="PulseViewer_8h_source.html#l00078">fFormula</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00036"></a>00036                          {
-<a name="l00037"></a>00037     <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>) <span class="keyword">delete</span> <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>;
-<a name="l00038"></a>00038 }
+<p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047                          {
+<a name="l00048"></a>00048     <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>) <span class="keyword">delete</span> <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>;
+<a name="l00049"></a>00049 }
 </pre></div></p>
 
 </div>
@@ -385,36 +417,37 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00186">186</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00243">243</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="PulseViewer_8h_source.html#l00065">fPulsesPlotted</a>, <a class="el" href="PulseViewer_8h_source.html#l00056">fSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00062">fTotalPlotted</a>, <a class="el" href="PulseViewer_8h_source.html#l00060">fTriggerCondition</a>, and <a class="el" href="PulseViewer_8h_source.html#l00056">SummarisePlots()</a>.</p>
+<p>References <a class="el" href="PulseViewer_8h_source.html#l00077">fPulsesPlotted</a>, <a class="el" href="PulseViewer_8h_source.html#l00066">fSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00074">fTotalPlotted</a>, <a class="el" href="PulseViewer_8h_source.html#l00071">fTriggerCondition</a>, and <a class="el" href="PulseViewer_8h_source.html#l00066">SummarisePlots()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00186"></a>00186                                                                           {
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188   <span class="comment">// Print extra info if we&apos;re requested to summarize the found pulses</span>
-<a name="l00189"></a>00189   <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#aa68d4fa41145adf6cc3b11127fc23a7a" title="Dump a summary of what was done.">SummarisePlots</a>()){
-<a name="l00190"></a>00190       <span class="keyword">const</span> std::string prefix=<span class="stringliteral">&quot;     &quot;</span>;
-<a name="l00191"></a>00191       cout&lt;&lt;<span class="stringliteral">&quot;Summary for pulse criteria: (&quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a> &lt;&lt;<span class="stringliteral">&quot;) on channel &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>&lt;&lt;endl;
-<a name="l00192"></a>00192       <span class="keywordflow">if</span>(!<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>.empty()){
-<a name="l00193"></a>00193           cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot; Event | Pulses drawn (times requested)&quot;</span>&lt;&lt;endl;
-<a name="l00194"></a>00194           cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot; ----- | ------------ &quot;</span>&lt;&lt;endl;
-<a name="l00195"></a>00195           <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">EventPulseIDList_t::const_iterator</a> i_event=<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>.begin();
-<a name="l00196"></a>00196                   i_event!=<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>.end();i_event++){
-<a name="l00197"></a>00197               cout&lt;&lt;prefix&lt;&lt;std::setw(6)&lt;&lt; i_event-&gt;first&lt;&lt;<span class="stringliteral">&quot; | &quot;</span>;
-<a name="l00198"></a>00198               <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIDList_t::const_iterator</a> i_pulse=i_event-&gt;second.begin();
-<a name="l00199"></a>00199                       i_pulse!=i_event-&gt;second.end();i_pulse++){
-<a name="l00200"></a>00200                   cout&lt;&lt;std::setw(2)&lt;&lt; i_pulse-&gt;first&lt;&lt;<span class="stringliteral">&quot;(&quot;</span>&lt;&lt; i_pulse-&gt;second&lt;&lt;<span class="stringliteral">&quot;)&quot;</span>&lt;&lt;<span class="stringliteral">&quot;, &quot;</span>;
-<a name="l00201"></a>00201               }
-<a name="l00202"></a>00202               cout&lt;&lt;endl;
-<a name="l00203"></a>00203           }
-<a name="l00204"></a>00204           cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot; ----- | ------------ &quot;</span>&lt;&lt;endl;
-<a name="l00205"></a>00205       }
-<a name="l00206"></a>00206       cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot;Total pulses plotted = &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>&lt;&lt;endl;
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208   }
-<a name="l00209"></a>00209 
-<a name="l00210"></a>00210   <span class="keywordflow">return</span> 0;
-<a name="l00211"></a>00211 }
+<p><div class="fragment"><pre class="fragment"><a name="l00243"></a>00243                                                                           {
+<a name="l00244"></a>00244 
+<a name="l00245"></a>00245   <span class="comment">// Print extra info if we&apos;re requested to summarize the found pulses</span>
+<a name="l00246"></a>00246   <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#aa68d4fa41145adf6cc3b11127fc23a7a" title="Dump a summary of what was done.">SummarisePlots</a>()){
+<a name="l00247"></a>00247       <span class="keyword">const</span> std::string prefix=<span class="stringliteral">&quot;     &quot;</span>;
+<a name="l00248"></a>00248       cout&lt;&lt;<span class="stringliteral">&quot;Summary for pulse criteria: (&quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a> &lt;&lt;<span class="stringliteral">&quot;) on channel &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>&lt;&lt;endl;
+<a name="l00249"></a>00249       <span class="keywordflow">if</span>(!<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>.empty()){
+<a name="l00250"></a>00250           cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot; Event | Pulse IDs drawn (sub_pulse ID)&quot;</span>&lt;&lt;endl;
+<a name="l00251"></a>00251           cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot; ----- | ------------ &quot;</span>&lt;&lt;endl;
+<a name="l00252"></a>00252           <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">EventPulseIDList_t::const_iterator</a> i_event=<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>.begin();
+<a name="l00253"></a>00253                   i_event!=<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>.end();i_event++){
+<a name="l00254"></a>00254               cout&lt;&lt;prefix&lt;&lt;std::setw(6)&lt;&lt; i_event-&gt;first&lt;&lt;<span class="stringliteral">&quot; | &quot;</span>;
+<a name="l00255"></a>00255               <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIDList_t::const_iterator</a> i_pulse=i_event-&gt;second.begin();
+<a name="l00256"></a>00256                       i_pulse!=i_event-&gt;second.end();i_pulse++){
+<a name="l00257"></a>00257                   cout&lt;&lt;std::setw(2)&lt;&lt; i_pulse-&gt;first &lt;&lt;<span class="stringliteral">&quot;(&quot;</span>&lt;&lt; i_pulse-&gt;second&lt;&lt;<span class="stringliteral">&quot;)&quot;</span> &lt;&lt;<span class="stringliteral">&quot;, &quot;</span>;
+<a name="l00258"></a>00258               }
+<a name="l00259"></a>00259               cout&lt;&lt;endl;
+<a name="l00260"></a>00260           }
+<a name="l00261"></a>00261           cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot; ----- | ------------ &quot;</span>&lt;&lt;endl;
+<a name="l00262"></a>00262       }
+<a name="l00263"></a>00263       cout&lt;&lt;prefix&lt;&lt;<span class="stringliteral">&quot;Total pulses plotted = &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>&lt;&lt;endl;
+<a name="l00264"></a>00264       cout&lt;&lt;<span class="stringliteral">&quot;Summary for pulse criteria: (&quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a> &lt;&lt;<span class="stringliteral">&quot;) on channel &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>&lt;&lt;endl;
+<a name="l00265"></a>00265 
+<a name="l00266"></a>00266   }
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268   <span class="keywordflow">return</span> 0;
+<a name="l00269"></a>00269 }
 </pre></div></p>
 
 </div>
@@ -448,38 +481,93 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00040">40</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00051">51</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="PulseViewer_8h_source.html#l00069">fAvailableParams</a>, <a class="el" href="PulseViewer_8h_source.html#l00061">fRequestedSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00056">fSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00060">fTriggerCondition</a>, <a class="el" href="ExportPulse_8h_source.html#l00131">ExportPulse::Instance()</a>, <a class="el" href="PulseViewer_8h_source.html#l00023">kAmplitude</a>, <a class="el" href="PulseViewer_8h_source.html#l00027">kEnergy</a>, <a class="el" href="PulseViewer_8h_source.html#l00025">kIntegral</a>, <a class="el" href="PulseViewer_8h_source.html#l00028">kPedestal</a>, <a class="el" href="PulseViewer_8h_source.html#l00024">kTime</a>, <a class="el" href="PulseViewer_8h_source.html#l00026">kTPILength</a>, <a class="el" href="PulseViewer_8h_source.html#l00029">kTriggerTime</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00069">ParseTriggerString()</a>.</p>
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00089">CheckPulseType()</a>, <a class="el" href="PulseViewer_8h_source.html#l00082">fAvailableParams</a>, <a class="el" href="PulseViewer_8h_source.html#l00085">fAvailablePulseTypes</a>, <a class="el" href="PulseViewer_8h_source.html#l00073">fRequestedPulseType</a>, <a class="el" href="PulseViewer_8h_source.html#l00070">fRequestedSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00066">fSource</a>, <a class="el" href="PulseViewer_8h_source.html#l00071">fTriggerCondition</a>, <a class="el" href="ExportPulse_8h_source.html#l00131">ExportPulse::Instance()</a>, <a class="el" href="PulseViewer_8h_source.html#l00022">kAmplitude</a>, <a class="el" href="PulseViewer_8h_source.html#l00026">kEnergy</a>, <a class="el" href="PulseViewer_8h_source.html#l00029">kEventNo</a>, <a class="el" href="PulseViewer_8h_source.html#l00024">kIntegral</a>, <a class="el" href="PulseViewer_8h_source.html#l00036">kIntegralRatioAP</a>, <a class="el" href="PulseViewer_8h_source.html#l00027">kPedestal</a>, <a class="el" href="PulseViewer_8h_source.html#l00035">kTAP</a>, <a class="el" href="PulseViewer_8h_source.html#l00023">kTime</a>, <a class="el" href="PulseViewer_8h_source.html#l00025">kTPILength</a>, <a class="el" href="PulseViewer_8h_source.html#l00028">kTriggerTime</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00110">ParseTriggerString()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00040"></a>00040                                                                             {
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042    <span class="comment">// Check we&apos;re also running with the ExportPulse module</span>
-<a name="l00043"></a>00043    <span class="keywordflow">if</span>(!<a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">ExportPulse::Instance</a>()){
-<a name="l00044"></a>00044            cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer: Error: You need to run with ExportPulse to use PulseViewer module&quot;</span>&lt;&lt;std::endl;
-<a name="l00045"></a>00045            <span class="keywordflow">return</span> 1;
-<a name="l00046"></a>00046    }
-<a name="l00047"></a>00047    
-<a name="l00048"></a>00048    <span class="comment">// Check the channel is valid</span>
-<a name="l00049"></a>00049    <span class="keywordflow">if</span>(!<a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().isValid()){
-<a name="l00050"></a>00050            cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer: Error: No detector called &apos;&quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a>&lt;&lt;<span class="stringliteral">&quot;&apos; exists&quot;</span>&lt;&lt;endl;
-<a name="l00051"></a>00051            <span class="keywordflow">return</span> 2;
-<a name="l00052"></a>00052    }
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054    <span class="comment">// setup the possible parameters</span>
-<a name="l00055"></a>00055    <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.empty()){
-<a name="l00056"></a>00056      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;amplitude&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea7d1d1352a2279adb658b240db29b578a">kAmplitude</a>;
-<a name="l00057"></a>00057      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;time&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea6664dbaa38821050bcc1b802734aed95">kTime</a>;
-<a name="l00058"></a>00058      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;TPI_length&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea825d41f3c272051d9a1ccda2a40ae494">kTPILength</a>;
-<a name="l00059"></a>00059      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;integral&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea4bb8fa056cd083d9650d4200321775e4">kIntegral</a>;
-<a name="l00060"></a>00060      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;energy&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea66f3747dcb147215777e4ec6056b7bfe">kEnergy</a>;
-<a name="l00061"></a>00061      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;pedestal&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea5ba9439378d912319960b5dd2e1b32e5">kPedestal</a>;
-<a name="l00062"></a>00062      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;trigger_time&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>;
+<p><div class="fragment"><pre class="fragment"><a name="l00051"></a>00051                                                                             {
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053    <span class="comment">// Check we&apos;re also running with the ExportPulse module</span>
+<a name="l00054"></a>00054    <span class="keywordflow">if</span>(!<a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">ExportPulse::Instance</a>()){
+<a name="l00055"></a>00055            cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer: Error: You need to run with ExportPulse to use PulseViewer module&quot;</span>&lt;&lt;std::endl;
+<a name="l00056"></a>00056            <span class="keywordflow">return</span> 1;
+<a name="l00057"></a>00057    }
+<a name="l00058"></a>00058    
+<a name="l00059"></a>00059    <span class="comment">// Check the channel is valid</span>
+<a name="l00060"></a>00060    <span class="keywordflow">if</span>(!<a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().isValid()){
+<a name="l00061"></a>00061            cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer: Error: No detector called &apos;&quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a2ca5f2fda977db1ca4cda27bb6ba1b3d">fRequestedSource</a>&lt;&lt;<span class="stringliteral">&quot;&apos; exists&quot;</span>&lt;&lt;endl;
+<a name="l00062"></a>00062            <span class="keywordflow">return</span> 2;
 <a name="l00063"></a>00063    }
 <a name="l00064"></a>00064 
-<a name="l00065"></a>00065    <span class="comment">// Parse the trigger string</span>
-<a name="l00066"></a>00066    <span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a2afa77a9cac7dbda2bb88f95b1765bce">ParseTriggerString</a>(<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>);
-<a name="l00067"></a>00067 }
+<a name="l00065"></a>00065    <span class="comment">// setup the possible parameters</span>
+<a name="l00066"></a>00066    <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.empty()){
+<a name="l00067"></a>00067      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;amplitude&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea7d1d1352a2279adb658b240db29b578a">kAmplitude</a>;
+<a name="l00068"></a>00068      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;time&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea6664dbaa38821050bcc1b802734aed95">kTime</a>;
+<a name="l00069"></a>00069      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;TPI_length&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea825d41f3c272051d9a1ccda2a40ae494">kTPILength</a>;
+<a name="l00070"></a>00070      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;integral&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea4bb8fa056cd083d9650d4200321775e4">kIntegral</a>;
+<a name="l00071"></a>00071      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;energy&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea66f3747dcb147215777e4ec6056b7bfe">kEnergy</a>;
+<a name="l00072"></a>00072      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;pedestal&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea5ba9439378d912319960b5dd2e1b32e5">kPedestal</a>;
+<a name="l00073"></a>00073      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;trigger_time&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>;
+<a name="l00074"></a>00074      <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;event_no&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea8db9627f5fec02aaaf342fe4322e369e">kEventNo</a>;
+<a name="l00075"></a>00075    }
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077    <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a>.empty()){
+<a name="l00078"></a>00078      <a class="code" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a>[<span class="stringliteral">&quot;TAnalysedPulse&quot;</span>]=<a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2">kTAP</a>;
+<a name="l00079"></a>00079      <a class="code" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a>[<span class="stringliteral">&quot;IntegralRatioAP&quot;</span>]=<a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2">kIntegralRatioAP</a>;
+<a name="l00080"></a>00080    }
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082    <span class="keywordtype">int</span> ret_val= <a class="code" href="classPulseViewer.html#ac79a6033e4ce721a9faea7b066f60825">CheckPulseType</a>(<a class="code" href="classPulseViewer.html#aa9bad830afb0de024ef6bba5e1cd97fc">fRequestedPulseType</a>);
+<a name="l00083"></a>00083    <span class="keywordflow">if</span>(ret_val) <span class="keywordflow">return</span> ret_val;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085    <span class="comment">// Parse the trigger string</span>
+<a name="l00086"></a>00086    <span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a2afa77a9cac7dbda2bb88f95b1765bce">ParseTriggerString</a>(<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>);
+<a name="l00087"></a>00087 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ac79a6033e4ce721a9faea7b066f60825"></a><!-- doxytag: member="PulseViewer::CheckPulseType" ref="ac79a6033e4ce721a9faea7b066f60825" args="(const std::string &amp;pulse_type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PulseViewer::CheckPulseType </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>pulse_type</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00089">89</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+
+<p>References <a class="el" href="PulseViewer_8h_source.html#l00082">fAvailableParams</a>, <a class="el" href="PulseViewer_8h_source.html#l00085">fAvailablePulseTypes</a>, <a class="el" href="PulseViewer_8h_source.html#l00072">fPulseType</a>, <a class="el" href="PulseViewer_8h_source.html#l00030">kIntegralRatio</a>, <a class="el" href="PulseViewer_8h_source.html#l00036">kIntegralRatioAP</a>, <a class="el" href="PulseViewer_8h_source.html#l00031">kIntegralTail</a>, and <a class="el" href="PulseViewer_8h_source.html#l00035">kTAP</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00089"></a>00089                                                           {
+<a name="l00090"></a>00090    <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseKeys::const_iterator</a> i_type=<a class="code" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a>.find(pulse_type);
+<a name="l00091"></a>00091    <span class="keywordflow">if</span>(i_type==<a class="code" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a>.end()) {
+<a name="l00092"></a>00092       cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer::CheckPulseType: Error: Bad pulse_type: &quot;</span>&lt;&lt;pulse_type&lt;&lt;endl;
+<a name="l00093"></a>00093      <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseKeys::const_iterator</a> it=<a class="code" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a>.begin();
+<a name="l00094"></a>00094              it!=<a class="code" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">fAvailablePulseTypes</a>.end(); it++){
+<a name="l00095"></a>00095          cout&lt;&lt;<span class="stringliteral">&quot;    |-&quot;</span>&lt;&lt;it-&gt;first&lt;&lt;endl;
+<a name="l00096"></a>00096      }
+<a name="l00097"></a>00097      <span class="keywordflow">return</span> 1;
+<a name="l00098"></a>00098    }
+<a name="l00099"></a>00099    <a class="code" href="classPulseViewer.html#a01f28038580d662ab14373fbf3615b77">fPulseType</a>=i_type-&gt;second;
+<a name="l00100"></a>00100    <span class="keywordflow">switch</span>(<a class="code" href="classPulseViewer.html#a01f28038580d662ab14373fbf3615b77">fPulseType</a>){
+<a name="l00101"></a>00101       <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2">kTAP</a>: <span class="keywordflow">break</span>;
+<a name="l00102"></a>00102       <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2">kIntegralRatioAP</a>:
+<a name="l00103"></a>00103          <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;Integral_ratio&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea30417f58ad83740fcc1a666d09cc5e31">kIntegralRatio</a>;
+<a name="l00104"></a>00104          <a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>[<span class="stringliteral">&quot;Integral_tail&quot;</span>]=<a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766feaebbf0903b6b53c95caa46b7887b68e4f">kIntegralTail</a>;
+<a name="l00105"></a>00105       <span class="keywordflow">break</span>;
+<a name="l00106"></a>00106    }
+<a name="l00107"></a>00107    <span class="keywordflow">return</span> 0;
+<a name="l00108"></a>00108 }
 </pre></div></p>
 
 </div>
@@ -511,37 +599,41 @@ Inheritance diagram for PulseViewer:</div>
 <p>Ask <a class="el" href="classExportPulse.html">ExportPulse</a> to draw this pulse if it matches the trigger criteria </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on success, non-zero otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00160">160</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00213">213</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="ExportPulse_8h_source.html#l00135">ExportPulse::AddToExportList()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="EventNavigator_8h_source.html#l00093">EventNavigator::EntryNo()</a>, <a class="el" href="PulseViewer_8h_source.html#l00069">fAvailableParams</a>, <a class="el" href="PulseViewer_8h_source.html#l00066">fFormula</a>, <a class="el" href="PulseViewer_8h_source.html#l00065">fPulsesPlotted</a>, <a class="el" href="PulseViewer_8h_source.html#l00062">fTotalPlotted</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00132">GetParameterValue()</a>, <a class="el" href="ExportPulse_8h_source.html#l00131">ExportPulse::Instance()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>.</p>
+<p>References <a class="el" href="ExportPulse_8h_source.html#l00135">ExportPulse::AddToExportList()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="EventNavigator_8h_source.html#l00093">EventNavigator::EntryNo()</a>, <a class="el" href="PulseViewer_8h_source.html#l00082">fAvailableParams</a>, <a class="el" href="PulseViewer_8h_source.html#l00078">fFormula</a>, <a class="el" href="PulseViewer_8h_source.html#l00077">fPulsesPlotted</a>, <a class="el" href="PulseViewer_8h_source.html#l00072">fPulseType</a>, <a class="el" href="PulseViewer_8h_source.html#l00074">fTotalPlotted</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00024">GetVals</a>, <a class="el" href="ExportPulse_8h_source.html#l00131">ExportPulse::Instance()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>, <a class="el" href="PulseViewer_8h_source.html#l00036">kIntegralRatioAP</a>, and <a class="el" href="PulseViewer_8h_source.html#l00035">kTAP</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00090">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00160"></a>00160                                                                                        {
-<a name="l00161"></a>00161   <span class="comment">// Check pulse passes trigger condition</span>
-<a name="l00162"></a>00162     <span class="keywordtype">double</span> vals[<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.size()];
-<a name="l00163"></a>00163     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ParameterKeys::const_iterator</a> i_key=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.begin();
-<a name="l00164"></a>00164             i_key!=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.end();++i_key){
-<a name="l00165"></a>00165         vals[i_key-&gt;second]=<a class="code" href="classPulseViewer.html#ac28c5dba92a665c49451584e117e8855" title="Get the value of interest from pulse.">GetParameterValue</a>(*pulse,i_key-&gt;second);
-<a name="l00166"></a>00166     }
-<a name="l00167"></a>00167     <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;SetParameters(vals);
-<a name="l00168"></a>00168     <span class="keywordtype">double</span> value=<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;Eval(0);
-<a name="l00169"></a>00169   <span class="keywordflow">if</span>(!value) <span class="keywordflow">return</span> 0;
-<a name="l00170"></a>00170   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00171"></a>00171     cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer: Event: &quot;</span>&lt;&lt;<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>()
-<a name="l00172"></a>00172         &lt;&lt;<span class="stringliteral">&quot; Plotting pulse &quot;</span>&lt;&lt;<span class="keywordtype">id</span>&lt;&lt;<span class="stringliteral">&quot; [ &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;GetExpFormula(<span class="stringliteral">&quot;P&quot;</span>)&lt;&lt;<span class="stringliteral">&quot; ]&quot;</span>&lt;&lt;endl;
-<a name="l00173"></a>00173   }
-<a name="l00174"></a>00174   
-<a name="l00175"></a>00175   <span class="comment">// If it does, ask ExportPulse to draw it</span>
-<a name="l00176"></a>00176   <span class="comment">// We&apos;re safe to assume Instance will return becuase we test it&apos;s</span>
-<a name="l00177"></a>00177   <span class="comment">// existence in BeforeFirstEntry</span>
-<a name="l00178"></a>00178   <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>[<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().EntryNo()].count(<span class="keywordtype">id</span>)==0){
-<a name="l00179"></a>00179       <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">ExportPulse::Instance</a>()-&gt;<a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(pulse);
-<a name="l00180"></a>00180       <a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>++;
-<a name="l00181"></a>00181   }
-<a name="l00182"></a>00182   <a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>[<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>()][id]++;
-<a name="l00183"></a>00183   <span class="keywordflow">return</span> 0;
-<a name="l00184"></a>00184 }
+<p><div class="fragment"><pre class="fragment"><a name="l00213"></a>00213                                                                                        {
+<a name="l00214"></a>00214   <span class="comment">// Check pulse passes trigger condition</span>
+<a name="l00215"></a>00215     <span class="keywordtype">double</span> vals[<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.size()];
+<a name="l00216"></a>00216     <span class="keywordflow">switch</span> (<a class="code" href="classPulseViewer.html#a01f28038580d662ab14373fbf3615b77">fPulseType</a>){
+<a name="l00217"></a>00217        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2">kTAP</a>: <a class="code" href="PulseViewer_8cpp.html#a03df0d1a4b6582ceeffa3806dc4b1d64">GetVals</a>(vals,pulse); <span class="keywordflow">break</span>;
+<a name="l00218"></a>00218        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2">kIntegralRatioAP</a>: 
+<a name="l00219"></a>00219             <span class="keyword">const</span> <a class="code" href="classTIntegralRatioAnalysedPulse.html">TIntegralRatioAnalysedPulse</a>* ir_pulse
+<a name="l00220"></a>00220               =<span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code" href="classTIntegralRatioAnalysedPulse.html">TIntegralRatioAnalysedPulse</a>*<span class="keyword">&gt;</span>(pulse);
+<a name="l00221"></a>00221             <a class="code" href="PulseViewer_8cpp.html#a03df0d1a4b6582ceeffa3806dc4b1d64">GetVals</a>(vals,ir_pulse);
+<a name="l00222"></a>00222             <span class="keywordflow">break</span>;
+<a name="l00223"></a>00223     }
+<a name="l00224"></a>00224     <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;SetParameters(vals);
+<a name="l00225"></a>00225     <span class="keywordtype">double</span> value=<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;Eval(0);
+<a name="l00226"></a>00226   <span class="keywordflow">if</span>(!value) <span class="keywordflow">return</span> 0;
+<a name="l00227"></a>00227   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00228"></a>00228     cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer: Event: &quot;</span>&lt;&lt;<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>()
+<a name="l00229"></a>00229         &lt;&lt;<span class="stringliteral">&quot; Plotting pulse &quot;</span>&lt;&lt;<span class="keywordtype">id</span>&lt;&lt;<span class="stringliteral">&quot; [ &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;GetExpFormula(<span class="stringliteral">&quot;P&quot;</span>)&lt;&lt;<span class="stringliteral">&quot; ]&quot;</span>&lt;&lt;endl;
+<a name="l00230"></a>00230   }
+<a name="l00231"></a>00231   
+<a name="l00232"></a>00232   <span class="comment">// If it does, ask ExportPulse to draw it</span>
+<a name="l00233"></a>00233   <span class="comment">// We&apos;re safe to assume Instance will return becuase we test it&apos;s</span>
+<a name="l00234"></a>00234   <span class="comment">// existence in BeforeFirstEntry</span>
+<a name="l00235"></a>00235   <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>[<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().EntryNo()].count(<span class="keywordtype">id</span>)==0){
+<a name="l00236"></a>00236       <a class="code" href="classExportPulse.html#a8bd12c1f63c4f87d2570b6b397781f31">ExportPulse::Instance</a>()-&gt;<a class="code" href="classExportPulse.html#a7a001fad67f614c81c3c78dd686fe015" title="Log a request to draw a given TPI.">AddToExportList</a>(pulse);
+<a name="l00237"></a>00237       <a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>++;
+<a name="l00238"></a>00238   }
+<a name="l00239"></a>00239   <a class="code" href="classPulseViewer.html#a8c58c64e0967e29d523e4b7d6a823112">fPulsesPlotted</a>[<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>()][id]++;
+<a name="l00240"></a>00240   <span class="keywordflow">return</span> 0;
+<a name="l00241"></a>00241 }
 </pre></div></p>
 
 </div>
@@ -565,9 +657,9 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00071">71</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00088">BaseModule::fDebug</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00089">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00189">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00102">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00090">ProcessEntry()</a>, and <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">TemplateCreator::AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>, and <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -592,11 +684,41 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00063">63</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fAlias</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00092">BaseModule::fAlias</a>.</p>
 
 <p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00063"></a>00063 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#ae19cdbdf544a783be4cdd4505ae31fb9">fAlias</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a42cecf27b0fc6c68efa06630358ce66b"></a><!-- doxytag: member="PulseViewer::GetDirectory" ref="a42cecf27b0fc6c68efa06630358ce66b" args="(const std::string &amp;name=&quot;&quot;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TDirectory * BaseModule::GetDirectory </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>name</em> = <code>&quot;&quot;</code></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00077">77</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
+
+<p>References <a class="el" href="BaseModule_8h_source.html#l00098">BaseModule::dir</a>, and <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fDirectory</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00077"></a>00077                                                          {
+<a name="l00078"></a>00078   <span class="keywordflow">if</span>(name.empty()) <span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>;
+<a name="l00079"></a>00079   TDirectory* <a class="code" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a>=<a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>-&gt;GetDirectory(name.c_str());
+<a name="l00080"></a>00080   <span class="keywordflow">if</span>(dir) <span class="keywordflow">return</span> dir;
+<a name="l00081"></a>00081   <span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>-&gt;mkdir(name.c_str());
+<a name="l00082"></a>00082 }
 </pre></div></p>
 
 </div>
@@ -620,7 +742,7 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00074">74</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fDirectory</a>.</p>
 
 <p>Referenced by <a class="el" href="SavePulses_8cpp_source.html#l00074">SavePulses::AfterLastEntry()</a>, and <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>.</p>
 
@@ -648,7 +770,7 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00066">66</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00089">BaseModule::fName</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fName</a>.</p>
 
 <p>Referenced by <a class="el" href="SavePulses_8cpp_source.html#l00029">SavePulses::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="PlotTAP__Time_8cpp_source.html#l00033">PlotTAP_Time::ProcessEntry()</a>, <a class="el" href="PlotTAP__Amplitude_8cpp_source.html#l00037">PlotTAP_Amplitude::ProcessEntry()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00135">LoopSequence::Run()</a>.</p>
 
@@ -657,14 +779,56 @@ Inheritance diagram for PulseViewer:</div>
 
 </div>
 </div>
-<a class="anchor" id="ac28c5dba92a665c49451584e117e8855"></a><!-- doxytag: member="PulseViewer::GetParameterValue" ref="ac28c5dba92a665c49451584e117e8855" args="(const TAnalysedPulse &amp;pulse, const ParameterType &amp;parameter)" -->
+<a class="anchor" id="a472a3a98f279e27a105a74e9ff903b95"></a><!-- doxytag: member="PulseViewer::GetParameterValue" ref="a472a3a98f279e27a105a74e9ff903b95" args="(const TIntegralRatioAnalysedPulse *pulse, const ParameterType &amp;parameter)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">double PulseViewer::GetParameterValue </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="classTIntegralRatioAnalysedPulse.html">TIntegralRatioAnalysedPulse</a> *&nbsp;</td>
+          <td class="paramname"> <em>pulse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fe">ParameterType</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>parameter</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00203">203</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+
+<p>References <a class="el" href="TIntegralRatioAnalysedPulse_8h_source.html#l00025">TIntegralRatioAnalysedPulse::GetIntegralRatio()</a>, <a class="el" href="TIntegralRatioAnalysedPulse_8h_source.html#l00024">TIntegralRatioAnalysedPulse::GetIntegralSmall()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00186">GetParameterValue()</a>, <a class="el" href="PulseViewer_8h_source.html#l00030">kIntegralRatio</a>, and <a class="el" href="PulseViewer_8h_source.html#l00031">kIntegralTail</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00203"></a>00203                                                                                                             {
+<a name="l00204"></a>00204    <span class="keywordtype">double</span> retVal=0;
+<a name="l00205"></a>00205    <span class="keywordflow">switch</span> (parameter){
+<a name="l00206"></a>00206        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766feaebbf0903b6b53c95caa46b7887b68e4f">kIntegralTail</a>: retVal=pulse-&gt;<a class="code" href="classTIntegralRatioAnalysedPulse.html#a4410e903e710c3ccb94f21a6a8012da4">GetIntegralSmall</a>(); <span class="keywordflow">break</span>;
+<a name="l00207"></a>00207        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea30417f58ad83740fcc1a666d09cc5e31">kIntegralRatio</a>: retVal=pulse-&gt;<a class="code" href="classTIntegralRatioAnalysedPulse.html#acc6b806d9f62c515bdb21a297275dc58">GetIntegralRatio</a>(); <span class="keywordflow">break</span>;
+<a name="l00208"></a>00208        <span class="keywordflow">default</span>: retVal=<a class="code" href="classPulseViewer.html#a62932a42a320a29612318ee35387724f" title="Get the value of interest from pulse.">GetParameterValue</a>( static_cast&lt;const TAnalysedPulse*&gt;(pulse),parameter);
+<a name="l00209"></a>00209     }
+<a name="l00210"></a>00210     <span class="keywordflow">return</span> retVal;
+<a name="l00211"></a>00211 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a62932a42a320a29612318ee35387724f"></a><!-- doxytag: member="PulseViewer::GetParameterValue" ref="a62932a42a320a29612318ee35387724f" args="(const TAnalysedPulse *pulse, const ParameterType &amp;parameter)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PulseViewer::GetParameterValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> *&nbsp;</td>
           <td class="paramname"> <em>pulse</em>, </td>
         </tr>
         <tr>
@@ -684,39 +848,28 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Get the value of interest from pulse. </p>
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00132">132</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00186">186</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="TAnalysedPulse_8h_source.html#l00084">TAnalysedPulse::GetAmplitude()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00087">TAnalysedPulse::GetEnergy()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00086">TAnalysedPulse::GetIntegral()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00088">TAnalysedPulse::GetPedestal()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00085">TAnalysedPulse::GetTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00083">TAnalysedPulse::GetTPILength()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00089">TAnalysedPulse::GetTriggerTime()</a>, <a class="el" href="PulseViewer_8h_source.html#l00023">kAmplitude</a>, <a class="el" href="PulseViewer_8h_source.html#l00027">kEnergy</a>, <a class="el" href="PulseViewer_8h_source.html#l00025">kIntegral</a>, <a class="el" href="PulseViewer_8h_source.html#l00028">kPedestal</a>, <a class="el" href="PulseViewer_8h_source.html#l00024">kTime</a>, <a class="el" href="PulseViewer_8h_source.html#l00026">kTPILength</a>, and <a class="el" href="PulseViewer_8h_source.html#l00029">kTriggerTime</a>.</p>
+<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, <a class="el" href="PulseViewer_8h_source.html#l00079">fEvent</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00084">TAnalysedPulse::GetAmplitude()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00087">TAnalysedPulse::GetEnergy()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00086">TAnalysedPulse::GetIntegral()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00088">TAnalysedPulse::GetPedestal()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00085">TAnalysedPulse::GetTime()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00083">TAnalysedPulse::GetTPILength()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00089">TAnalysedPulse::GetTriggerTime()</a>, <a class="el" href="PulseViewer_8h_source.html#l00022">kAmplitude</a>, <a class="el" href="PulseViewer_8h_source.html#l00026">kEnergy</a>, <a class="el" href="PulseViewer_8h_source.html#l00029">kEventNo</a>, <a class="el" href="PulseViewer_8h_source.html#l00024">kIntegral</a>, <a class="el" href="PulseViewer_8h_source.html#l00027">kPedestal</a>, <a class="el" href="PulseViewer_8h_source.html#l00023">kTime</a>, <a class="el" href="PulseViewer_8h_source.html#l00025">kTPILength</a>, and <a class="el" href="PulseViewer_8h_source.html#l00028">kTriggerTime</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00160">ConsiderDrawing()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00203">GetParameterValue()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00132"></a>00132                                                                                                {
-<a name="l00133"></a>00133         <span class="keywordtype">double</span> retVal=0;
-<a name="l00134"></a>00134         <span class="keywordflow">switch</span> (parameter){
-<a name="l00135"></a>00135         <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea7d1d1352a2279adb658b240db29b578a">kAmplitude</a>:
-<a name="l00136"></a>00136                 retVal=pulse.<a class="code" href="classTAnalysedPulse.html#a150ba2a52e91e4bd347b1e126663ac04">GetAmplitude</a>();
-<a name="l00137"></a>00137                 <span class="keywordflow">break</span>;
-<a name="l00138"></a>00138         <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea6664dbaa38821050bcc1b802734aed95">kTime</a>:
-<a name="l00139"></a>00139                 retVal=pulse.<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>();
-<a name="l00140"></a>00140                 <span class="keywordflow">break</span>;
-<a name="l00141"></a>00141         <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea4bb8fa056cd083d9650d4200321775e4">kIntegral</a>:
-<a name="l00142"></a>00142                 retVal=pulse.<a class="code" href="classTAnalysedPulse.html#a997c6f426f2ba7d78eae4de3dda0e6dc">GetIntegral</a>();
-<a name="l00143"></a>00143                 <span class="keywordflow">break</span>;
-<a name="l00144"></a>00144         <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea825d41f3c272051d9a1ccda2a40ae494">kTPILength</a>:
-<a name="l00145"></a>00145         retVal=pulse.<a class="code" href="classTAnalysedPulse.html#ae9aa165eb7bcc51598de7691988b3ce3">GetTPILength</a>();
-<a name="l00146"></a>00146         <span class="keywordflow">break</span>;
-<a name="l00147"></a>00147     <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea66f3747dcb147215777e4ec6056b7bfe">kEnergy</a>:
-<a name="l00148"></a>00148         retVal=pulse.<a class="code" href="classTAnalysedPulse.html#a871a8f670b5c61257894d0f934793ed0">GetEnergy</a>();
-<a name="l00149"></a>00149         <span class="keywordflow">break</span>;
-<a name="l00150"></a>00150     <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea5ba9439378d912319960b5dd2e1b32e5">kPedestal</a>:
-<a name="l00151"></a>00151         retVal=pulse.<a class="code" href="classTAnalysedPulse.html#a64c823903b64043d1a549f3fb1d5d563">GetPedestal</a>();
-<a name="l00152"></a>00152         <span class="keywordflow">break</span>;
-<a name="l00153"></a>00153     <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>:
-<a name="l00154"></a>00154         retVal=pulse.<a class="code" href="classTAnalysedPulse.html#a81e2c8ce2ff55451c664fa1b34c3691b">GetTriggerTime</a>();
-<a name="l00155"></a>00155         <span class="keywordflow">break</span>;
-<a name="l00156"></a>00156     }
-<a name="l00157"></a>00157     <span class="keywordflow">return</span> retVal;
-<a name="l00158"></a>00158 }
+<p><div class="fragment"><pre class="fragment"><a name="l00186"></a>00186                                                                                                {
+<a name="l00187"></a>00187    <span class="keywordtype">double</span> retVal=0;
+<a name="l00188"></a>00188    <span class="keywordflow">switch</span> (parameter){
+<a name="l00189"></a>00189        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea7d1d1352a2279adb658b240db29b578a">kAmplitude</a>: retVal=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a150ba2a52e91e4bd347b1e126663ac04">GetAmplitude</a>(); <span class="keywordflow">break</span>;
+<a name="l00190"></a>00190        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea6664dbaa38821050bcc1b802734aed95">kTime</a>: retVal=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a7b65482ae7b27ce601c6fdfc2120b2c7">GetTime</a>(); <span class="keywordflow">break</span>;
+<a name="l00191"></a>00191        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea4bb8fa056cd083d9650d4200321775e4">kIntegral</a>: retVal=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a997c6f426f2ba7d78eae4de3dda0e6dc">GetIntegral</a>(); <span class="keywordflow">break</span>;
+<a name="l00192"></a>00192        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea825d41f3c272051d9a1ccda2a40ae494">kTPILength</a>: retVal=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#ae9aa165eb7bcc51598de7691988b3ce3">GetTPILength</a>(); <span class="keywordflow">break</span>;
+<a name="l00193"></a>00193        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea66f3747dcb147215777e4ec6056b7bfe">kEnergy</a>: retVal=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a871a8f670b5c61257894d0f934793ed0">GetEnergy</a>(); <span class="keywordflow">break</span>;
+<a name="l00194"></a>00194        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea5ba9439378d912319960b5dd2e1b32e5">kPedestal</a>: retVal=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a64c823903b64043d1a549f3fb1d5d563">GetPedestal</a>(); <span class="keywordflow">break</span>;
+<a name="l00195"></a>00195        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea59aa100c0685891c831867d5a7f4c456">kTriggerTime</a>: retVal=pulse-&gt;<a class="code" href="classTAnalysedPulse.html#a81e2c8ce2ff55451c664fa1b34c3691b">GetTriggerTime</a>(); <span class="keywordflow">break</span>;
+<a name="l00196"></a>00196        <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a9ef8fdbbd34e9f861fea5dbd4bc766fea8db9627f5fec02aaaf342fe4322e369e">kEventNo</a>: retVal=<a class="code" href="classPulseViewer.html#aed8df4064c59b9184e0b4a31559fec3a">fEvent</a>; <span class="keywordflow">break</span>;
+<a name="l00197"></a>00197        <span class="keywordflow">default</span>: retVal=<a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00198"></a>00198            cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer::GetParameterValue: Error: Cannot get param: &quot;</span>&lt;&lt;parameter&lt;&lt;<span class="stringliteral">&quot; from a TAnalysedPulse&quot;</span>&lt;&lt;endl;
+<a name="l00199"></a>00199     }
+<a name="l00200"></a>00200     <span class="keywordflow">return</span> retVal;
+<a name="l00201"></a>00201 }
 </pre></div></p>
 
 </div>
@@ -738,13 +891,13 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Get the channel as a string. </p>
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00042">42</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00049">49</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>References <a class="el" href="PulseViewer_8h_source.html#l00056">fSource</a>.</p>
+<p>References <a class="el" href="PulseViewer_8h_source.html#l00066">fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00090">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00042"></a>00042 {<span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049 {<span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a45feb840618deb54f30a0a5bd94f6cbb">fSource</a>;};
 </pre></div></p>
 
 </div>
@@ -767,32 +920,32 @@ Inheritance diagram for PulseViewer:</div>
 <p>Parse a trigger condition and set up the values needed to handle it </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>0 on success, non-zero otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00069">69</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00110">110</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="PulseViewer_8h_source.html#l00069">fAvailableParams</a>, <a class="el" href="PulseViewer_8h_source.html#l00066">fFormula</a>, <a class="el" href="PulseViewer_8h_source.html#l00060">fTriggerCondition</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00098">modules::parser::ReplaceWords()</a>.</p>
+<p>References <a class="el" href="PulseViewer_8h_source.html#l00082">fAvailableParams</a>, <a class="el" href="PulseViewer_8h_source.html#l00078">fFormula</a>, <a class="el" href="PulseViewer_8h_source.html#l00071">fTriggerCondition</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00098">modules::parser::ReplaceWords()</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00040">BeforeFirstEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00069"></a>00069                                                                      {
-<a name="l00070"></a>00070     std::string expression =<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>;
-<a name="l00071"></a>00071     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ParameterKeys::const_iterator</a> i_key=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.begin();
-<a name="l00072"></a>00072             i_key!=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.end();i_key++){
-<a name="l00073"></a>00073         <a class="code" href="namespacemodules_1_1parser.html#ac83fc850969d329daa4bf8be8ace2468">modules::parser::ReplaceWords</a>(expression,i_key-&gt;first,Form(<span class="stringliteral">&quot;[%d]&quot;</span>,i_key-&gt;second));
-<a name="l00074"></a>00074     }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076     <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>=<span class="keyword">new</span> TFormula(<span class="stringliteral">&quot;PulseViewerTrigger&quot;</span>,expression.c_str());
-<a name="l00077"></a>00077     <span class="keywordtype">int</span> ret= <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;Compile();
-<a name="l00078"></a>00078     <span class="keywordflow">if</span>(ret){
-<a name="l00079"></a>00079         cout&lt;&lt;<span class="stringliteral">&quot;Error: Bad trigger expression: &apos;&quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;endl;
-<a name="l00080"></a>00080         cout&lt;&lt;<span class="stringliteral">&quot;   Only use parameters from&quot;</span>&lt;&lt;endl;
-<a name="l00081"></a>00081         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ParameterKeys::const_iterator</a> it=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.begin();
-<a name="l00082"></a>00082                 it!=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.end();
-<a name="l00083"></a>00083                 it++){
-<a name="l00084"></a>00084             cout&lt;&lt;<span class="stringliteral">&quot;    |-&quot;</span>&lt;&lt;it-&gt;first&lt;&lt;endl;
-<a name="l00085"></a>00085         }
-<a name="l00086"></a>00086     }
-<a name="l00087"></a>00087     <span class="keywordflow">return</span> ret;
-<a name="l00088"></a>00088 }
+<p><div class="fragment"><pre class="fragment"><a name="l00110"></a>00110                                                                      {
+<a name="l00111"></a>00111     std::string expression =<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>;
+<a name="l00112"></a>00112     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ParameterKeys::const_iterator</a> i_key=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.begin();
+<a name="l00113"></a>00113             i_key!=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.end();i_key++){
+<a name="l00114"></a>00114         <a class="code" href="namespacemodules_1_1parser.html#ac83fc850969d329daa4bf8be8ace2468">modules::parser::ReplaceWords</a>(expression,i_key-&gt;first,Form(<span class="stringliteral">&quot;[%d]&quot;</span>,i_key-&gt;second));
+<a name="l00115"></a>00115     }
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117     <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>=<span class="keyword">new</span> TFormula(<span class="stringliteral">&quot;PulseViewerTrigger&quot;</span>,expression.c_str());
+<a name="l00118"></a>00118     <span class="keywordtype">int</span> ret= <a class="code" href="classPulseViewer.html#a887b04b38e665e9954daa3507d960db6">fFormula</a>-&gt;Compile();
+<a name="l00119"></a>00119     <span class="keywordflow">if</span>(ret){
+<a name="l00120"></a>00120         cout&lt;&lt;<span class="stringliteral">&quot;Error: Bad trigger expression: &apos;&quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#af16f71ee83be0c5ab7a62e36b88b8f8d">fTriggerCondition</a>&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;endl;
+<a name="l00121"></a>00121         cout&lt;&lt;<span class="stringliteral">&quot;   Only use parameters from&quot;</span>&lt;&lt;endl;
+<a name="l00122"></a>00122         <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ParameterKeys::const_iterator</a> it=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.begin();
+<a name="l00123"></a>00123                 it!=<a class="code" href="classPulseViewer.html#a4ccde5ef12387bbca27d3b9fd98da922">fAvailableParams</a>.end();
+<a name="l00124"></a>00124                 it++){
+<a name="l00125"></a>00125             cout&lt;&lt;<span class="stringliteral">&quot;    |-&quot;</span>&lt;&lt;it-&gt;first&lt;&lt;endl;
+<a name="l00126"></a>00126         }
+<a name="l00127"></a>00127     }
+<a name="l00128"></a>00128     <span class="keywordflow">return</span> ret;
+<a name="l00129"></a>00129 }
 </pre></div></p>
 
 </div>
@@ -828,7 +981,7 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00066">66</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
 
-<p>References <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule::AfterLastEntry()</a>, and <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>.</p>
+<p>References <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule::AfterLastEntry()</a>, and <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fDirectory</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00120">LoopSequence::Postprocess()</a>.</p>
 
@@ -877,7 +1030,7 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00055">55</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
 
-<p>References <a class="el" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BaseModule::BeforeFirstEntry()</a>, and <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>.</p>
+<p>References <a class="el" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BaseModule::BeforeFirstEntry()</a>, and <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fDirectory</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00075">LoopSequence::Preprocess()</a>.</p>
 
@@ -932,51 +1085,56 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00090">90</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00131">131</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="PulseViewer_8cpp_source.html#l00160">ConsiderDrawing()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="PulseViewer_8h_source.html#l00063">fMaxToPlot</a>, <a class="el" href="PulseViewer_8h_source.html#l00064">fStopAtMax</a>, <a class="el" href="PulseViewer_8h_source.html#l00062">fTotalPlotted</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, and <a class="el" href="PulseViewer_8h_source.html#l00042">GetSource()</a>.</p>
+<p>References <a class="el" href="PulseViewer_8cpp_source.html#l00213">ConsiderDrawing()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="PulseViewer_8h_source.html#l00079">fEvent</a>, <a class="el" href="PulseViewer_8h_source.html#l00075">fMaxToPlot</a>, <a class="el" href="PulseViewer_8h_source.html#l00076">fStopAtMax</a>, <a class="el" href="PulseViewer_8h_source.html#l00074">fTotalPlotted</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="PulseViewer_8h_source.html#l00049">GetSource()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00178">TestPulseType()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00090"></a>00090                                                                         {
-<a name="l00091"></a>00091     <span class="comment">// Have we drawn the number of pulses we were meant to?</span>
-<a name="l00092"></a>00092     <span class="keywordflow">if</span>(fMaxToPlot&lt;0 || fTotalPlotted&gt;=<a class="code" href="classPulseViewer.html#a7fb20f53dabdc0297d56f8279ab852e7">fMaxToPlot</a>){
-<a name="l00093"></a>00093         <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a0929b7d3097087b6663d63acf04e4f55">fStopAtMax</a>){
-<a name="l00094"></a>00094             cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer::ProcessEntry: &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>&lt;&lt;<span class="stringliteral">&quot; pulses have already been drawn which &quot;</span>
-<a name="l00095"></a>00095                 &lt;&lt;<span class="stringliteral">&quot;is greater than the limit of &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a7fb20f53dabdc0297d56f8279ab852e7">fMaxToPlot</a>&lt;&lt;<span class="stringliteral">&quot; so I&apos;m stopping execution.\n&quot;</span>;
-<a name="l00096"></a>00096             <span class="comment">//cout&lt;&lt;&quot;You can probably ignore any of the immediate errors that follow this.&quot;&lt;&lt;endl;</span>
-<a name="l00097"></a>00097             <span class="keywordflow">return</span> 1;
-<a name="l00098"></a>00098         }
-<a name="l00099"></a>00099         <span class="keywordflow">return</span> 0;
-<a name="l00100"></a>00100     }
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102     <span class="comment">// Get the TAPs for this channel</span>
-<a name="l00103"></a>00103     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* allTAPs=NULL;
-<a name="l00104"></a>00104     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> i_source=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
-<a name="l00105"></a>00105             i_source!=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); ++i_source){
-<a name="l00106"></a>00106         <span class="keywordflow">if</span>(i_source-&gt;first.matches(<a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43" title="Get the channel as a string.">GetSource</a>())){
-<a name="l00107"></a>00107             allTAPs=&amp;i_source-&gt;second;
-<a name="l00108"></a>00108             <span class="keywordflow">break</span>;
-<a name="l00109"></a>00109         }
-<a name="l00110"></a>00110     }
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112     <span class="keywordflow">if</span>(!allTAPs){
-<a name="l00113"></a>00113        cout&lt;&lt;<span class="stringliteral">&quot;Problem getting TAP list for &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43" title="Get the channel as a string.">GetSource</a>()&lt;&lt;endl;
-<a name="l00114"></a>00114             <span class="keywordflow">return</span> 1;
-<a name="l00115"></a>00115     }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(allTAPs-&gt;empty() ){
-<a name="l00116"></a>00116        <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;List of TAPS for &apos;&quot;</span>&lt;&lt; <a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43" title="Get the channel as a string.">GetSource</a>()&lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt;endl;
-<a name="l00117"></a>00117        <span class="keywordflow">return</span> 0;
-<a name="l00118"></a>00118     }
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120     <span class="comment">// Check each TAP against trigger</span>
-<a name="l00121"></a>00121     <span class="keywordtype">int</span> retVal=0;
-<a name="l00122"></a>00122     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">AnalysedPulseList::iterator</a> i_pulse=allTAPs-&gt;begin();
-<a name="l00123"></a>00123                 i_pulse!=allTAPs-&gt;end() &amp;&amp; retVal==0;
-<a name="l00124"></a>00124                 i_pulse++){
-<a name="l00125"></a>00125             retVal=<a class="code" href="classPulseViewer.html#a4333085549d7bc43ee8ad0543f463e48">ConsiderDrawing</a>((*i_pulse)-&gt;GetParentID() ,*i_pulse);
-<a name="l00126"></a>00126     }
-<a name="l00127"></a>00127     <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129   <span class="keywordflow">return</span> 0;
-<a name="l00130"></a>00130 }
+<p><div class="fragment"><pre class="fragment"><a name="l00131"></a>00131                                                                         {
+<a name="l00132"></a>00132     <span class="comment">// Have we drawn the number of pulses we were meant to?</span>
+<a name="l00133"></a>00133     <span class="keywordflow">if</span>(fMaxToPlot&lt;0 || fTotalPlotted&gt;=<a class="code" href="classPulseViewer.html#a7fb20f53dabdc0297d56f8279ab852e7">fMaxToPlot</a>){
+<a name="l00134"></a>00134         <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#a0929b7d3097087b6663d63acf04e4f55">fStopAtMax</a>){
+<a name="l00135"></a>00135             cout&lt;&lt;<span class="stringliteral">&quot;PulseViewer::ProcessEntry: &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a51f11f2219b434c19e67ee7692f15b66">fTotalPlotted</a>&lt;&lt;<span class="stringliteral">&quot; pulses have already been drawn which &quot;</span>
+<a name="l00136"></a>00136                 &lt;&lt;<span class="stringliteral">&quot;is greater than the limit of &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a7fb20f53dabdc0297d56f8279ab852e7">fMaxToPlot</a>&lt;&lt;<span class="stringliteral">&quot; so I&apos;m stopping execution.\n&quot;</span>;
+<a name="l00137"></a>00137             <span class="comment">//cout&lt;&lt;&quot;You can probably ignore any of the immediate errors that follow this.&quot;&lt;&lt;endl;</span>
+<a name="l00138"></a>00138             <span class="keywordflow">return</span> 1;
+<a name="l00139"></a>00139         }
+<a name="l00140"></a>00140         <span class="keywordflow">return</span> 0;
+<a name="l00141"></a>00141     }
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143     <span class="comment">// Get the TAPs for this channel</span>
+<a name="l00144"></a>00144     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>* allTAPs=NULL;
+<a name="l00145"></a>00145     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> i_source=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.begin();
+<a name="l00146"></a>00146             i_source!=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end(); ++i_source){
+<a name="l00147"></a>00147         <span class="keywordflow">if</span>(i_source-&gt;first.matches(<a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43" title="Get the channel as a string.">GetSource</a>())){
+<a name="l00148"></a>00148             allTAPs=&amp;i_source-&gt;second;
+<a name="l00149"></a>00149             <span class="keywordflow">break</span>;
+<a name="l00150"></a>00150         }
+<a name="l00151"></a>00151     }
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153     <span class="keywordflow">if</span>(!allTAPs){
+<a name="l00154"></a>00154        cout&lt;&lt;<span class="stringliteral">&quot;Problem getting TAP list for &quot;</span>&lt;&lt;<a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43" title="Get the channel as a string.">GetSource</a>()&lt;&lt;endl;
+<a name="l00155"></a>00155             <span class="keywordflow">return</span> 1;
+<a name="l00156"></a>00156     }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(allTAPs-&gt;empty() ){
+<a name="l00157"></a>00157        <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;List of TAPS for &apos;&quot;</span>&lt;&lt; <a class="code" href="classPulseViewer.html#a2ae7217b4995cc6b3475d01137671b43" title="Get the channel as a string.">GetSource</a>()&lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt;endl;
+<a name="l00158"></a>00158        <span class="keywordflow">return</span> 0;
+<a name="l00159"></a>00159     }
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161     <span class="comment">// Check each TAP against trigger</span>
+<a name="l00162"></a>00162     <span class="keywordtype">int</span> retVal=0;
+<a name="l00163"></a>00163     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">AnalysedPulseList::iterator</a> i_pulse=allTAPs-&gt;begin();
+<a name="l00164"></a>00164                 i_pulse!=allTAPs-&gt;end() &amp;&amp; retVal==0;
+<a name="l00165"></a>00165                 i_pulse++){
+<a name="l00166"></a>00166             <span class="keywordflow">if</span>(<a class="code" href="classPulseViewer.html#aed8df4064c59b9184e0b4a31559fec3a">fEvent</a>==0){
+<a name="l00167"></a>00167                 retVal=<a class="code" href="classPulseViewer.html#ac739f5e0baf99dbdffdf91647d240e9e">TestPulseType</a>(*i_pulse);
+<a name="l00168"></a>00168             }
+<a name="l00169"></a>00169             retVal=<a class="code" href="classPulseViewer.html#a4333085549d7bc43ee8ad0543f463e48">ConsiderDrawing</a>((*i_pulse)-&gt;GetParentID() ,*i_pulse);
+<a name="l00170"></a>00170     }
+<a name="l00171"></a>00171     <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173     <a class="code" href="classPulseViewer.html#aed8df4064c59b9184e0b4a31559fec3a">fEvent</a>++;
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175   <span class="keywordflow">return</span> 0;
+<a name="l00176"></a>00176 }
 </pre></div></p>
 
 </div>
@@ -1010,7 +1168,7 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8cpp_source.html#l00044">44</a> of file <a class="el" href="BaseModule_8cpp_source.html">BaseModule.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00090">BaseModule::fDirectory</a>, and <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule::ProcessEntry()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fDirectory</a>, and <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule::ProcessEntry()</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>.</p>
 
@@ -1047,7 +1205,7 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00059">59</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fAlias</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00092">BaseModule::fAlias</a>.</p>
 
 <p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>.</p>
 
@@ -1073,13 +1231,46 @@ Inheritance diagram for PulseViewer:</div>
 
 <p>Dump a summary of what was done. </p>
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00056">56</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00066">66</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>References <a class="el" href="PulseViewer_8h_source.html#l00064">fSummarize</a>.</p>
+<p>References <a class="el" href="PulseViewer_8h_source.html#l00076">fSummarize</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00186">AfterLastEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00243">AfterLastEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00056"></a>00056 {<span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a095262ff0ce3cbfbb192e8f5f3756c4c">fSummarize</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066 {<span class="keywordflow">return</span> <a class="code" href="classPulseViewer.html#a095262ff0ce3cbfbb192e8f5f3756c4c">fSummarize</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ac739f5e0baf99dbdffdf91647d240e9e"></a><!-- doxytag: member="PulseViewer::TestPulseType" ref="ac739f5e0baf99dbdffdf91647d240e9e" args="(const TAnalysedPulse *pulse_type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PulseViewer::TestPulseType </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTAnalysedPulse.html">TAnalysedPulse</a> *&nbsp;</td>
+          <td class="paramname"> <em>pulse_type</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8cpp_source.html#l00178">178</a> of file <a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a>.</p>
+
+<p>References <a class="el" href="PulseViewer_8h_source.html#l00072">fPulseType</a>, <a class="el" href="PulseViewer_8h_source.html#l00036">kIntegralRatioAP</a>, and <a class="el" href="PulseViewer_8h_source.html#l00035">kTAP</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00178"></a>00178                                                           {
+<a name="l00179"></a>00179   <span class="keywordflow">switch</span>(<a class="code" href="classPulseViewer.html#a01f28038580d662ab14373fbf3615b77">fPulseType</a>){
+<a name="l00180"></a>00180     <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9afeb2271296cf4bfb5f0d1d08cfc97dd2">kTAP</a>: <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00181"></a>00181     <span class="keywordflow">case</span> <a class="code" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9aea1343acd2246ea96c9e0c21004b4ff2">kIntegralRatioAP</a>: <span class="keywordflow">return</span> <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code" href="classTIntegralRatioAnalysedPulse.html">TIntegralRatioAnalysedPulse</a>*<span class="keyword">&gt;</span>(pulse);
+<a name="l00182"></a>00182   }
+<a name="l00183"></a>00183   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00184"></a>00184 }
 </pre></div></p>
 
 </div>
@@ -1097,9 +1288,9 @@ Inheritance diagram for PulseViewer:</div>
 <div class="memdoc">
 <p>Many <a class="el" href="namespacemodules.html">modules</a> use 'dir' still which was the old protected pointer to the <a class="el" href="namespacemodules.html">modules</a> directory. To prevent things being broken so soon, we keep this pointer available, but be warned that it will be removed shortly... </p>
 
-<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00097">97</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
+<p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00098">98</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00031">ExportPulse::ExportPulse()</a>, <a class="el" href="FastSlowCompare_8cpp_source.html#l00026">FastSlowCompare::FastSlowCompare()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, and <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>.</p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00031">ExportPulse::ExportPulse()</a>, <a class="el" href="FastSlowCompare_8cpp_source.html#l00026">FastSlowCompare::FastSlowCompare()</a>, <a class="el" href="BaseModule_8cpp_source.html#l00077">BaseModule::GetDirectory()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, and <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>.</p>
 
 </div>
 </div>
@@ -1114,9 +1305,43 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00069">69</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00082">82</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00040">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">ConsiderDrawing()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00069">ParseTriggerString()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00089">CheckPulseType()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">ConsiderDrawing()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00110">ParseTriggerString()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e228f8b3eee83f6a322dc53d043eddb"></a><!-- doxytag: member="PulseViewer::fAvailablePulseTypes" ref="a6e228f8b3eee83f6a322dc53d043eddb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPulseViewer.html#a565d9bb5ddf69a8422d056e29cfb4517">PulseViewer::PulseKeys</a> <a class="el" href="classPulseViewer.html#a6e228f8b3eee83f6a322dc53d043eddb">PulseViewer::fAvailablePulseTypes</a><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00085">85</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00089">CheckPulseType()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed8df4064c59b9184e0b4a31559fec3a"></a><!-- doxytag: member="PulseViewer::fEvent" ref="aed8df4064c59b9184e0b4a31559fec3a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classPulseViewer.html#aed8df4064c59b9184e0b4a31559fec3a">PulseViewer::fEvent</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00079">79</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00186">GetParameterValue()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -1131,9 +1356,9 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00066">66</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00078">78</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00160">ConsiderDrawing()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00069">ParseTriggerString()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00036">~PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00213">ConsiderDrawing()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00110">ParseTriggerString()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00047">~PulseViewer()</a>.</p>
 
 </div>
 </div>
@@ -1148,9 +1373,26 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00063">63</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00075">75</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00090">ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcc353b8662d657d3f1e4e1f01f1ebca"></a><!-- doxytag: member="PulseViewer::fMaxToPlotPerEvent" ref="adcc353b8662d657d3f1e4e1f01f1ebca" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long int <a class="el" href="classPulseViewer.html#adcc353b8662d657d3f1e4e1f01f1ebca">PulseViewer::fMaxToPlotPerEvent</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00075">75</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>.</p>
 
 </div>
 </div>
@@ -1165,9 +1407,43 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00065">65</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00077">77</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00186">AfterLastEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00160">ConsiderDrawing()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00243">AfterLastEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00213">ConsiderDrawing()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a01f28038580d662ab14373fbf3615b77"></a><!-- doxytag: member="PulseViewer::fPulseType" ref="a01f28038580d662ab14373fbf3615b77" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPulseViewer.html#a4bc938524b309afdffd8fcdefadafee9">PulseType</a> <a class="el" href="classPulseViewer.html#a01f28038580d662ab14373fbf3615b77">PulseViewer::fPulseType</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00072">72</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00089">CheckPulseType()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">ConsiderDrawing()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00178">TestPulseType()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9bad830afb0de024ef6bba5e1cd97fc"></a><!-- doxytag: member="PulseViewer::fRequestedPulseType" ref="aa9bad830afb0de024ef6bba5e1cd97fc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classPulseViewer.html#aa9bad830afb0de024ef6bba5e1cd97fc">PulseViewer::fRequestedPulseType</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00073">73</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>.</p>
 
 </div>
 </div>
@@ -1182,9 +1458,9 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00061">61</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00070">70</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00040">BeforeFirstEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>.</p>
 
 </div>
 </div>
@@ -1199,9 +1475,9 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00056">56</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00066">66</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00186">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00040">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8h_source.html#l00042">GetSource()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00243">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8h_source.html#l00049">GetSource()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>.</p>
 
 </div>
 </div>
@@ -1216,9 +1492,9 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00064">64</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00076">76</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00090">ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>.</p>
 
 </div>
 </div>
@@ -1233,9 +1509,9 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00064">64</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00076">76</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer()</a>, and <a class="el" href="PulseViewer_8h_source.html#l00056">SummarisePlots()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>, and <a class="el" href="PulseViewer_8h_source.html#l00066">SummarisePlots()</a>.</p>
 
 </div>
 </div>
@@ -1250,9 +1526,9 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00062">62</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00074">74</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00186">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00160">ConsiderDrawing()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00090">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00243">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">ConsiderDrawing()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00131">ProcessEntry()</a>.</p>
 
 </div>
 </div>
@@ -1267,9 +1543,9 @@ Inheritance diagram for PulseViewer:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00060">60</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="PulseViewer_8h_source.html#l00071">71</a> of file <a class="el" href="PulseViewer_8h_source.html">PulseViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00186">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00040">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00069">ParseTriggerString()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00026">PulseViewer()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00243">AfterLastEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00051">BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00110">ParseTriggerString()</a>, and <a class="el" href="PulseViewer_8cpp_source.html#l00035">PulseViewer()</a>.</p>
 
 </div>
 </div>
@@ -1278,7 +1554,7 @@ Inheritance diagram for PulseViewer:</div>
 <li>rootana/src/plotters/<a class="el" href="PulseViewer_8cpp_source.html">PulseViewer.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 2 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
