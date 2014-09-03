@@ -24,5 +24,11 @@
 [Run Planning 2012](https://muon.npl.washington.edu/elog/mu2e/Capture2012/)
 
 ## Files
+[DropBox](https://www.dropbox.com/home/AlCap) (Deprecated)
 
-[DropBox](https://www.dropbox.com/home/AlCap)
+[OwnCloud](https://marie.npl.washington.edu/owncloud/)
+
+
+## Plan
+
+![AlCap Roadmap](AlCap.png)
