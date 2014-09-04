@@ -33,103 +33,92 @@
 <a name="l00009"></a>00009 <span class="comment">//#define DEBUG_MYDETM //MyDetectorManager</span>
 <a name="l00010"></a><a class="code" href="DEBUG_8hh.html#a4dbeb842c618108c4d73f744d13092fd">00010</a> <span class="preprocessor">#define DEBUG_EM //G4EventManager</span>
 <a name="l00011"></a>00011 <span class="preprocessor"></span><span class="comment">//#define DEBUG_MAT // MaterialSvc</span>
-<a name="l00012"></a>00012 <span class="comment">//#define DEBUG_CDCSD //CdcSD</span>
-<a name="l00013"></a>00013 <span class="comment">//#define DEBUG_MTA //MyTrackingAction</span>
-<a name="l00014"></a>00014 <span class="comment">//#define DEBUG_SA //SteppingAction</span>
-<a name="l00015"></a>00015 <span class="comment">//#define DEBUG_EA //EventAction</span>
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="DEBUG_8hh.html#a90f1f4bfbc9fdce6bdd951fd5e9b2b2e">00017</a> <span class="preprocessor">#define SHOWTIME() if(1){\</span>
-<a name="l00018"></a>00018 <span class="preprocessor">        struct timeval tv;\</span>
-<a name="l00019"></a>00019 <span class="preprocessor">        gettimeofday(&amp;tv,NULL);\</span>
-<a name="l00020"></a>00020 <span class="preprocessor">        double timesys = (double)clock();\</span>
-<a name="l00021"></a>00021 <span class="preprocessor">        timesys *= 1000000./CLOCKS_PER_SEC;\</span>
-<a name="l00022"></a>00022 <span class="preprocessor">        printf(&quot;%u:%u,%f&quot;,tv.tv_sec,tv.tv_usec,timesys);\</span>
-<a name="l00023"></a>00023 <span class="preprocessor">}</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="comment">//#define GETMYTIME( var ) if(1){time_t GETMYTIME_t = time(0); strftime( var, sizeof(var), &quot;%Y/%m/%d %X %A&quot;,localtime(&amp;GETMYTIME_t) );}</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#ifdef DEBUG_MYTRI</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00028"></a>00028 <span class="preprocessor">        #define MYTRI_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00029"></a>00029 <span class="preprocessor">        #define MYTRI_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00030"></a>00030 <span class="preprocessor">#else</span>
-<a name="l00031"></a><a class="code" href="DEBUG_8hh.html#a2e3f1f3ff9ec7ec3756eaba14d2e0d00">00031</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINEINFO()</span>
-<a name="l00032"></a><a class="code" href="DEBUG_8hh.html#a8e40b84f33ac1645c4f4a42cc7349496">00032</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINEVAR( var )</span>
-<a name="l00033"></a><a class="code" href="DEBUG_8hh.html#ac52315358f284dfed08dc77d5f3462d1">00033</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINECONT( var )</span>
-<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00035"></a>00035 <span class="preprocessor"></span>
-<a name="l00036"></a>00036 <span class="preprocessor">#ifdef DEBUG_MYDETM</span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00038"></a>00038 <span class="preprocessor">        #define MYDETM_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00039"></a>00039 <span class="preprocessor">        #define MYDETM_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00040"></a>00040 <span class="preprocessor">#else</span>
-<a name="l00041"></a><a class="code" href="DEBUG_8hh.html#ad1773c9fd1921ce560c83977bcc4a09b">00041</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINEINFO()</span>
-<a name="l00042"></a><a class="code" href="DEBUG_8hh.html#a39b4e7cbec542f5a224e5bdca35e1ace">00042</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINEVAR( var )</span>
-<a name="l00043"></a><a class="code" href="DEBUG_8hh.html#acee11bcf1a254b041342ed7ee67d816d">00043</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINECONT( var )</span>
-<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00045"></a>00045 <span class="preprocessor"></span>
-<a name="l00046"></a>00046 <span class="preprocessor">#ifdef DEBUG_CDCSD</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">        #define CDCSD_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00048"></a>00048 <span class="preprocessor">        #define CDCSD_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00049"></a>00049 <span class="preprocessor">        #define CDCSD_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00050"></a>00050 <span class="preprocessor">#else</span>
-<a name="l00051"></a><a class="code" href="DEBUG_8hh.html#a1975b4dc75db90d795705d759eaac7cf">00051</a> <span class="preprocessor"></span><span class="preprocessor">        #define CDCSD_LINEINFO()</span>
-<a name="l00052"></a><a class="code" href="DEBUG_8hh.html#a8f6882530c1fca30bc56178f7fb921ac">00052</a> <span class="preprocessor"></span><span class="preprocessor">        #define CDCSD_LINEVAR( var )</span>
-<a name="l00053"></a><a class="code" href="DEBUG_8hh.html#afd2263174d68ba23e573dc466deebf60">00053</a> <span class="preprocessor"></span><span class="preprocessor">        #define CDCSD_LINECONT( var )</span>
-<a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00055"></a>00055 <span class="preprocessor"></span>
-<a name="l00056"></a>00056 <span class="preprocessor">#ifdef DEBUG_EM</span>
-<a name="l00057"></a><a class="code" href="DEBUG_8hh.html#aa3a44843b33cd8159e8c79d72ad3b80e">00057</a> <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00058"></a><a class="code" href="DEBUG_8hh.html#a7ce5fc6f678d38e78e63b7f2998646eb">00058</a> <span class="preprocessor">        #define EM_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00059"></a><a class="code" href="DEBUG_8hh.html#aef4885b833ee7bb1d5cb9ae55fb7e1ce">00059</a> <span class="preprocessor">        #define EM_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00060"></a>00060 <span class="preprocessor">#else</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINEINFO()</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINEVAR( var )</span>
-<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINECONT( var )</span>
-<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span>
-<a name="l00066"></a>00066 <span class="preprocessor">#ifdef DEBUG_MAT</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00068"></a>00068 <span class="preprocessor">        #define MAT_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00069"></a>00069 <span class="preprocessor">        #define MAT_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00070"></a>00070 <span class="preprocessor">#else</span>
-<a name="l00071"></a><a class="code" href="DEBUG_8hh.html#aa61ae44667f5eabc66cb97cd24d7e259">00071</a> <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINEINFO()</span>
-<a name="l00072"></a><a class="code" href="DEBUG_8hh.html#ab74d648979f474e827ffe7b055ff7cf9">00072</a> <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINEVAR( var )</span>
-<a name="l00073"></a><a class="code" href="DEBUG_8hh.html#a470d1be4b3d1af47ba70aa8fdad52cc2">00073</a> <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINECONT( var )</span>
-<a name="l00074"></a>00074 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00075"></a>00075 <span class="preprocessor"></span>
-<a name="l00076"></a>00076 <span class="preprocessor">#ifdef DEBUG_MTA</span>
-<a name="l00077"></a>00077 <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00078"></a>00078 <span class="preprocessor">        #define MTA_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00079"></a>00079 <span class="preprocessor">        #define MTA_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00080"></a>00080 <span class="preprocessor">#else</span>
-<a name="l00081"></a><a class="code" href="DEBUG_8hh.html#ad50c6c70b3067631fc5870c0e4e78f5b">00081</a> <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINEINFO()</span>
-<a name="l00082"></a><a class="code" href="DEBUG_8hh.html#ab902940f41cf9feafa7d1344e566c527">00082</a> <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINEVAR( var )</span>
-<a name="l00083"></a><a class="code" href="DEBUG_8hh.html#ab2ae14edae1a1fd3285a0e103450cfbc">00083</a> <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINECONT( var )</span>
-<a name="l00084"></a>00084 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00085"></a>00085 <span class="preprocessor"></span>
-<a name="l00086"></a>00086 <span class="preprocessor">#ifdef DEBUG_SA</span>
-<a name="l00087"></a>00087 <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00088"></a>00088 <span class="preprocessor">        #define SA_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00089"></a>00089 <span class="preprocessor">        #define SA_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00090"></a>00090 <span class="preprocessor">#else</span>
-<a name="l00091"></a><a class="code" href="DEBUG_8hh.html#a1755e74a8f5ab269ba353f8ce0c2f3a7">00091</a> <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINEINFO()</span>
-<a name="l00092"></a><a class="code" href="DEBUG_8hh.html#a25ce426e02551f7e7c460635c82ae4f8">00092</a> <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINEVAR( var )</span>
-<a name="l00093"></a><a class="code" href="DEBUG_8hh.html#a3c389a641f774f5a2f1cbb32028a0eb5">00093</a> <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINECONT( var )</span>
-<a name="l00094"></a>00094 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00095"></a>00095 <span class="preprocessor"></span>
-<a name="l00096"></a>00096 <span class="preprocessor">#ifdef DEBUG_EA</span>
-<a name="l00097"></a>00097 <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
-<a name="l00098"></a>00098 <span class="preprocessor">        #define EA_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00099"></a>00099 <span class="preprocessor">        #define EA_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
-<a name="l00100"></a>00100 <span class="preprocessor">#else</span>
-<a name="l00101"></a><a class="code" href="DEBUG_8hh.html#aed81e6dd11cc74acc8f7b0c86f5c80bc">00101</a> <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINEINFO()</span>
-<a name="l00102"></a><a class="code" href="DEBUG_8hh.html#a765c0d2b20e78c2b9a29942f04fbe89a">00102</a> <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINEVAR( var )</span>
-<a name="l00103"></a><a class="code" href="DEBUG_8hh.html#a6f9afca4e9c01e09665c4e75f06062d4">00103</a> <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINECONT( var )</span>
-<a name="l00104"></a>00104 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00105"></a>00105 <span class="preprocessor"></span>
-<a name="l00106"></a>00106 <span class="preprocessor">#endif</span>
+<a name="l00012"></a>00012 <span class="comment">//#define DEBUG_MTA //MyTrackingAction</span>
+<a name="l00013"></a>00013 <span class="comment">//#define DEBUG_SA //SteppingAction</span>
+<a name="l00014"></a>00014 <span class="comment">//#define DEBUG_EA //EventAction</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a><a class="code" href="DEBUG_8hh.html#a90f1f4bfbc9fdce6bdd951fd5e9b2b2e">00016</a> <span class="preprocessor">#define SHOWTIME() if(1){\</span>
+<a name="l00017"></a>00017 <span class="preprocessor">        struct timeval tv;\</span>
+<a name="l00018"></a>00018 <span class="preprocessor">        gettimeofday(&amp;tv,NULL);\</span>
+<a name="l00019"></a>00019 <span class="preprocessor">        double timesys = (double)clock();\</span>
+<a name="l00020"></a>00020 <span class="preprocessor">        timesys *= 1000000./CLOCKS_PER_SEC;\</span>
+<a name="l00021"></a>00021 <span class="preprocessor">        printf(&quot;%u:%u,%f&quot;,tv.tv_sec,tv.tv_usec,timesys);\</span>
+<a name="l00022"></a>00022 <span class="preprocessor">}</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="comment">//#define GETMYTIME( var ) if(1){time_t GETMYTIME_t = time(0); strftime( var, sizeof(var), &quot;%Y/%m/%d %X %A&quot;,localtime(&amp;GETMYTIME_t) );}</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#ifdef DEBUG_MYTRI</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
+<a name="l00027"></a>00027 <span class="preprocessor">        #define MYTRI_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00028"></a>00028 <span class="preprocessor">        #define MYTRI_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00029"></a>00029 <span class="preprocessor">#else</span>
+<a name="l00030"></a><a class="code" href="DEBUG_8hh.html#a2e3f1f3ff9ec7ec3756eaba14d2e0d00">00030</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINEINFO()</span>
+<a name="l00031"></a><a class="code" href="DEBUG_8hh.html#a8e40b84f33ac1645c4f4a42cc7349496">00031</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINEVAR( var )</span>
+<a name="l00032"></a><a class="code" href="DEBUG_8hh.html#ac52315358f284dfed08dc77d5f3462d1">00032</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYTRI_LINECONT( var )</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>
+<a name="l00035"></a>00035 <span class="preprocessor">#ifdef DEBUG_MYDETM</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
+<a name="l00037"></a>00037 <span class="preprocessor">        #define MYDETM_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00038"></a>00038 <span class="preprocessor">        #define MYDETM_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00039"></a>00039 <span class="preprocessor">#else</span>
+<a name="l00040"></a><a class="code" href="DEBUG_8hh.html#ad1773c9fd1921ce560c83977bcc4a09b">00040</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINEINFO()</span>
+<a name="l00041"></a><a class="code" href="DEBUG_8hh.html#a39b4e7cbec542f5a224e5bdca35e1ace">00041</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINEVAR( var )</span>
+<a name="l00042"></a><a class="code" href="DEBUG_8hh.html#acee11bcf1a254b041342ed7ee67d816d">00042</a> <span class="preprocessor"></span><span class="preprocessor">        #define MYDETM_LINECONT( var )</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="preprocessor">#ifdef DEBUG_EM</span>
+<a name="l00046"></a><a class="code" href="DEBUG_8hh.html#aa3a44843b33cd8159e8c79d72ad3b80e">00046</a> <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
+<a name="l00047"></a><a class="code" href="DEBUG_8hh.html#a7ce5fc6f678d38e78e63b7f2998646eb">00047</a> <span class="preprocessor">        #define EM_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00048"></a><a class="code" href="DEBUG_8hh.html#aef4885b833ee7bb1d5cb9ae55fb7e1ce">00048</a> <span class="preprocessor">        #define EM_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00049"></a>00049 <span class="preprocessor">#else</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINEINFO()</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINEVAR( var )</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">        #define EM_LINECONT( var )</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00054"></a>00054 <span class="preprocessor"></span>
+<a name="l00055"></a>00055 <span class="preprocessor">#ifdef DEBUG_MAT</span>
+<a name="l00056"></a>00056 <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
+<a name="l00057"></a>00057 <span class="preprocessor">        #define MAT_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00058"></a>00058 <span class="preprocessor">        #define MAT_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00059"></a>00059 <span class="preprocessor">#else</span>
+<a name="l00060"></a><a class="code" href="DEBUG_8hh.html#aa61ae44667f5eabc66cb97cd24d7e259">00060</a> <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINEINFO()</span>
+<a name="l00061"></a><a class="code" href="DEBUG_8hh.html#ab74d648979f474e827ffe7b055ff7cf9">00061</a> <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINEVAR( var )</span>
+<a name="l00062"></a><a class="code" href="DEBUG_8hh.html#a470d1be4b3d1af47ba70aa8fdad52cc2">00062</a> <span class="preprocessor"></span><span class="preprocessor">        #define MAT_LINECONT( var )</span>
+<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span>
+<a name="l00065"></a>00065 <span class="preprocessor">#ifdef DEBUG_MTA</span>
+<a name="l00066"></a>00066 <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
+<a name="l00067"></a>00067 <span class="preprocessor">        #define MTA_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00068"></a>00068 <span class="preprocessor">        #define MTA_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00069"></a>00069 <span class="preprocessor">#else</span>
+<a name="l00070"></a><a class="code" href="DEBUG_8hh.html#ad50c6c70b3067631fc5870c0e4e78f5b">00070</a> <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINEINFO()</span>
+<a name="l00071"></a><a class="code" href="DEBUG_8hh.html#ab902940f41cf9feafa7d1344e566c527">00071</a> <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINEVAR( var )</span>
+<a name="l00072"></a><a class="code" href="DEBUG_8hh.html#ab2ae14edae1a1fd3285a0e103450cfbc">00072</a> <span class="preprocessor"></span><span class="preprocessor">        #define MTA_LINECONT( var )</span>
+<a name="l00073"></a>00073 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00074"></a>00074 <span class="preprocessor"></span>
+<a name="l00075"></a>00075 <span class="preprocessor">#ifdef DEBUG_SA</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
+<a name="l00077"></a>00077 <span class="preprocessor">        #define SA_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00078"></a>00078 <span class="preprocessor">        #define SA_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00079"></a>00079 <span class="preprocessor">#else</span>
+<a name="l00080"></a><a class="code" href="DEBUG_8hh.html#a1755e74a8f5ab269ba353f8ce0c2f3a7">00080</a> <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINEINFO()</span>
+<a name="l00081"></a><a class="code" href="DEBUG_8hh.html#a25ce426e02551f7e7c460635c82ae4f8">00081</a> <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINEVAR( var )</span>
+<a name="l00082"></a><a class="code" href="DEBUG_8hh.html#a3c389a641f774f5a2f1cbb32028a0eb5">00082</a> <span class="preprocessor"></span><span class="preprocessor">        #define SA_LINECONT( var )</span>
+<a name="l00083"></a>00083 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span>
+<a name="l00085"></a>00085 <span class="preprocessor">#ifdef DEBUG_EA</span>
+<a name="l00086"></a>00086 <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINEINFO() if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot; &lt;&lt; std::endl;}
+<a name="l00087"></a>00087 <span class="preprocessor">        #define EA_LINEVAR( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; #var &lt;&lt; &quot; = &quot; &lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00088"></a>00088 <span class="preprocessor">        #define EA_LINECONT( var ) if (1) {std::cout &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __FUNCTION__ &lt;&lt; &quot;[&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;] </span><span class="stringliteral">@&quot;; SHOWTIME(); std::cout&lt;&lt;&quot;</span>: &quot;&lt;&lt; var &lt;&lt; std::endl;}
+<a name="l00089"></a>00089 <span class="preprocessor">#else</span>
+<a name="l00090"></a><a class="code" href="DEBUG_8hh.html#aed81e6dd11cc74acc8f7b0c86f5c80bc">00090</a> <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINEINFO()</span>
+<a name="l00091"></a><a class="code" href="DEBUG_8hh.html#a765c0d2b20e78c2b9a29942f04fbe89a">00091</a> <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINEVAR( var )</span>
+<a name="l00092"></a><a class="code" href="DEBUG_8hh.html#a6f9afca4e9c01e09665c4e75f06062d4">00092</a> <span class="preprocessor"></span><span class="preprocessor">        #define EA_LINECONT( var )</span>
+<a name="l00093"></a>00093 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span>
+<a name="l00095"></a>00095 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Sep 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Sep 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
