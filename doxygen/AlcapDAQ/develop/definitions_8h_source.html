@@ -68,9 +68,23 @@
 <a name="l00043"></a><a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">00043</a>     <span class="keyword">enum</span> { <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">DefaultValue</a>=-99999 };
 <a name="l00044"></a>00044 }
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="preprocessor">#endif // DEFINITIONS_H_</span>
+<a name="l00046"></a>00046 <span class="keyword">namespace </span>Except{
+<a name="l00047"></a>00047     <span class="keyword">class </span>Base;
+<a name="l00048"></a>00048 }
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="namespacealcap.html">00050</a> <span class="keyword">namespace </span>alcap{
+<a name="l00051"></a>00051    <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ExceptType, <span class="keyword">typename</span> KeyType, <span class="keyword">typename</span> ValueType&gt;
+<a name="l00052"></a><a class="code" href="namespacealcap.html#ae702fa675cc409cb6e3f24c9bf64ffb3">00052</a>        <span class="keyword">const</span> ValueType&amp; <a class="code" href="namespacealcap.html#ae702fa675cc409cb6e3f24c9bf64ffb3">at</a>(<span class="keyword">const</span> std::map&lt;KeyType,ValueType&gt;&amp; map, <span class="keyword">const</span> KeyType&amp; key, <span class="keyword">const</span> <span class="keywordtype">char</span>* msg=<span class="stringliteral">&quot;&quot;</span>){
+<a name="l00053"></a>00053            <span class="keyword">typedef</span> std::map&lt;KeyType,ValueType&gt; MapType;
+<a name="l00054"></a>00054            <span class="keyword">typename</span> <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">MapType::const_iterator</a> it=map.find(key);
+<a name="l00055"></a>00055            <span class="keywordflow">if</span>(it==map.end()) <span class="keywordflow">throw</span> ExceptType(msg);
+<a name="l00056"></a>00056            <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00057"></a>00057        }
+<a name="l00058"></a>00058 }
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="preprocessor">#endif // DEFINITIONS_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
