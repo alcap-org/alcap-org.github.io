@@ -29,6 +29,4 @@
 [OwnCloud](https://marie.npl.washington.edu/owncloud/)
 
 
-## Plan
-
-![AlCap Roadmap](AlCap.png)
+## [Plan](https://github.com/alcap-org/AlcapDAQ/wiki/Master-Plan)
