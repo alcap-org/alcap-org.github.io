@@ -158,52 +158,55 @@
 <a name="l00149"></a>00149 <span class="preprocessor"></span>
 <a name="l00150"></a>00150         <span class="keywordflow">if</span> (argc!=1)   <span class="comment">// batch mode</span>
 <a name="l00151"></a>00151         {
-<a name="l00152"></a>00152                 G4String command = <span class="stringliteral">&quot;/control/execute &quot;</span>;
-<a name="l00153"></a>00153                 G4String fileName = argv[1];
-<a name="l00154"></a>00154                 UImanager-&gt;ApplyCommand(command+fileName);
-<a name="l00155"></a>00155         }
-<a name="l00156"></a>00156         <span class="keywordflow">else</span>
-<a name="l00157"></a>00157         {  <span class="comment">// interactive mode : define UI session</span>
-<a name="l00158"></a>00158 <span class="preprocessor">#ifdef G4UI_USE</span>
-<a name="l00159"></a>00159 <span class="preprocessor"></span>                G4UIExecutive* ui = <span class="keyword">new</span> G4UIExecutive(argc, argv);
-<a name="l00160"></a>00160                 G4String macros_dir = getenv(<span class="stringliteral">&quot;MACROSCOMMONROOT&quot;</span>);
-<a name="l00161"></a>00161 <span class="preprocessor">#ifdef G4VIS_USE</span>
-<a name="l00162"></a>00162 <span class="preprocessor"></span>                <span class="comment">// Initialize visualization</span>
-<a name="l00163"></a>00163                 visManager-&gt;Initialize();
-<a name="l00164"></a>00164                 UImanager-&gt;ApplyCommand(<span class="stringliteral">&quot;/control/execute &quot;</span>+macros_dir+<span class="stringliteral">&quot;/vis.mac&quot;</span>); 
-<a name="l00165"></a>00165 <span class="preprocessor">#endif</span>
-<a name="l00166"></a>00166 <span class="preprocessor"></span>                <span class="keywordflow">if</span> (ui-&gt;IsGUI())
-<a name="l00167"></a>00167                         UImanager-&gt;ApplyCommand(<span class="stringliteral">&quot;/control/execute &quot;</span>+macros_dir+<span class="stringliteral">&quot;/gui.mac&quot;</span>);
-<a name="l00168"></a>00168                 ui-&gt;SessionStart();
-<a name="l00169"></a>00169                 <span class="keyword">delete</span> ui;
-<a name="l00170"></a>00170 <span class="preprocessor">#endif</span>
-<a name="l00171"></a>00171 <span class="preprocessor"></span>        }
-<a name="l00172"></a>00172 
-<a name="l00173"></a>00173         <span class="comment">// Job termination</span>
-<a name="l00174"></a>00174         <span class="comment">// Free the store: user actions, physics_list and detector_description are</span>
-<a name="l00175"></a>00175         <span class="comment">//                 owned and deleted by the run manager, so they should not</span>
-<a name="l00176"></a>00176         <span class="comment">//                 be deleted in the main() program !</span>
-<a name="l00177"></a>00177 <span class="preprocessor">#ifdef G4VIS_USE</span>
-<a name="l00178"></a>00178 <span class="preprocessor"></span>        <span class="keyword">delete</span> visManager;
-<a name="l00179"></a>00179         std::cout&lt;&lt;<span class="stringliteral">&quot;visManager deleted!!&quot;</span>&lt;&lt;std::endl;
-<a name="l00180"></a>00180 <span class="preprocessor">#endif</span>
-<a name="l00181"></a>00181 <span class="preprocessor"></span>
-<a name="l00182"></a>00182         <span class="comment">//  delete myRoot;</span>
-<a name="l00183"></a>00183         std::cout&lt;&lt;<span class="stringliteral">&quot;myRoot deleted!!&quot;</span>&lt;&lt;std::endl;
-<a name="l00184"></a>00184         <span class="comment">//delete myAnalysisSvc;</span>
-<a name="l00185"></a>00185         <span class="comment">//std::cout&lt;&lt;&quot;myAnalysisSvc deleted!!&quot;&lt;&lt;std::endl;</span>
-<a name="l00186"></a>00186 
-<a name="l00187"></a>00187         <span class="keyword">delete</span> runManager;
-<a name="l00188"></a>00188         std::cout&lt;&lt;<span class="stringliteral">&quot;runManager deleted!!&quot;</span>&lt;&lt;std::endl;
+<a name="l00152"></a>00152 <span class="preprocessor">#ifdef G4VIS_USE</span>
+<a name="l00153"></a>00153 <span class="preprocessor"></span>          visManager-&gt;Initialize();
+<a name="l00154"></a>00154 <span class="preprocessor">#endif</span>
+<a name="l00155"></a>00155 <span class="preprocessor"></span>                G4String command = <span class="stringliteral">&quot;/control/execute &quot;</span>;
+<a name="l00156"></a>00156                 G4String fileName = argv[1];
+<a name="l00157"></a>00157                 UImanager-&gt;ApplyCommand(command+fileName);
+<a name="l00158"></a>00158         }
+<a name="l00159"></a>00159         <span class="keywordflow">else</span>
+<a name="l00160"></a>00160         {  <span class="comment">// interactive mode : define UI session</span>
+<a name="l00161"></a>00161 <span class="preprocessor">#ifdef G4UI_USE</span>
+<a name="l00162"></a>00162 <span class="preprocessor"></span>                G4UIExecutive* ui = <span class="keyword">new</span> G4UIExecutive(argc, argv);
+<a name="l00163"></a>00163                 G4String macros_dir = getenv(<span class="stringliteral">&quot;MACROSCOMMONROOT&quot;</span>);
+<a name="l00164"></a>00164 <span class="preprocessor">#ifdef G4VIS_USE</span>
+<a name="l00165"></a>00165 <span class="preprocessor"></span>                <span class="comment">// Initialize visualization</span>
+<a name="l00166"></a>00166                 visManager-&gt;Initialize();
+<a name="l00167"></a>00167                 UImanager-&gt;ApplyCommand(<span class="stringliteral">&quot;/control/execute &quot;</span>+macros_dir+<span class="stringliteral">&quot;/vis.mac&quot;</span>); 
+<a name="l00168"></a>00168 <span class="preprocessor">#endif</span>
+<a name="l00169"></a>00169 <span class="preprocessor"></span>                <span class="keywordflow">if</span> (ui-&gt;IsGUI())
+<a name="l00170"></a>00170                         UImanager-&gt;ApplyCommand(<span class="stringliteral">&quot;/control/execute &quot;</span>+macros_dir+<span class="stringliteral">&quot;/gui.mac&quot;</span>);
+<a name="l00171"></a>00171                 ui-&gt;SessionStart();
+<a name="l00172"></a>00172                 <span class="keyword">delete</span> ui;
+<a name="l00173"></a>00173 <span class="preprocessor">#endif</span>
+<a name="l00174"></a>00174 <span class="preprocessor"></span>        }
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176         <span class="comment">// Job termination</span>
+<a name="l00177"></a>00177         <span class="comment">// Free the store: user actions, physics_list and detector_description are</span>
+<a name="l00178"></a>00178         <span class="comment">//                 owned and deleted by the run manager, so they should not</span>
+<a name="l00179"></a>00179         <span class="comment">//                 be deleted in the main() program !</span>
+<a name="l00180"></a>00180 <span class="preprocessor">#ifdef G4VIS_USE</span>
+<a name="l00181"></a>00181 <span class="preprocessor"></span>        <span class="keyword">delete</span> visManager;
+<a name="l00182"></a>00182         std::cout&lt;&lt;<span class="stringliteral">&quot;visManager deleted!!&quot;</span>&lt;&lt;std::endl;
+<a name="l00183"></a>00183 <span class="preprocessor">#endif</span>
+<a name="l00184"></a>00184 <span class="preprocessor"></span>
+<a name="l00185"></a>00185         <span class="comment">//  delete myRoot;</span>
+<a name="l00186"></a>00186         std::cout&lt;&lt;<span class="stringliteral">&quot;myRoot deleted!!&quot;</span>&lt;&lt;std::endl;
+<a name="l00187"></a>00187         <span class="comment">//delete myAnalysisSvc;</span>
+<a name="l00188"></a>00188         <span class="comment">//std::cout&lt;&lt;&quot;myAnalysisSvc deleted!!&quot;&lt;&lt;std::endl;</span>
 <a name="l00189"></a>00189 
-<a name="l00190"></a>00190         <span class="keywordflow">return</span> 0;
-<a name="l00191"></a>00191 }
+<a name="l00190"></a>00190         <span class="keyword">delete</span> runManager;
+<a name="l00191"></a>00191         std::cout&lt;&lt;<span class="stringliteral">&quot;runManager deleted!!&quot;</span>&lt;&lt;std::endl;
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193         <span class="keywordflow">return</span> 0;
+<a name="l00194"></a>00194 }
 </pre></div></p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Sep 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
