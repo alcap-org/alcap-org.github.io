@@ -42,23 +42,25 @@
 <a name="l00015"></a>00015  <span class="keyword">public</span>:
 <a name="l00016"></a>00016    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classIntegralRatioAPGenerator.html#a4b3e06ebb3af049062d0793bb4107174" title="This method is called on each vector of pulses from a MIDAS event.">ProcessPulses</a>( <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp;,<a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a>&amp;);
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018    <span class="comment">// This function should return true if this generator could break up a TPI</span>
-<a name="l00019"></a>00019    <span class="comment">// into more than one TAP</span>
-<a name="l00020"></a><a class="code" href="classIntegralRatioAPGenerator.html#a469d90885290989b430f65b35d31c2dc">00020</a>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classIntegralRatioAPGenerator.html#a469d90885290989b430f65b35d31c2dc">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
-<a name="l00021"></a>00021  <span class="keyword">private</span>:
-<a name="l00022"></a>00022         <span class="keywordtype">bool</span> <a class="code" href="classIntegralRatioAPGenerator.html#a135b4f8a6e0f4c7bda740efc4a39efa3">fStartTailAsFraction</a>;
-<a name="l00023"></a><a class="code" href="classIntegralRatioAPGenerator.html#a391071ca3fa953912a918a8eb90f231f">00023</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a391071ca3fa953912a918a8eb90f231f">fStartIntegral</a>;
-<a name="l00024"></a><a class="code" href="classIntegralRatioAPGenerator.html#a2a8bf1d13223855812c78ddad5867af9">00024</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a2a8bf1d13223855812c78ddad5867af9">fStopIntegral</a>;
-<a name="l00025"></a><a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">00025</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">fStartTail</a>;
-<a name="l00026"></a><a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">00026</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a>;
-<a name="l00027"></a><a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">00027</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a>;
-<a name="l00028"></a><a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">00028</a>         <a class="code" href="structAlgorithm_1_1IntegralRatio.html">Algorithm::IntegralRatio</a> <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>;
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 };
+<a name="l00018"></a>00018    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classIntegralRatioAPGenerator.html#a80f1ba51a82f404b81691a7715feda39">TapType</a>();
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020    <span class="comment">// This function should return true if this generator could break up a TPI</span>
+<a name="l00021"></a>00021    <span class="comment">// into more than one TAP</span>
+<a name="l00022"></a><a class="code" href="classIntegralRatioAPGenerator.html#a469d90885290989b430f65b35d31c2dc">00022</a>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classIntegralRatioAPGenerator.html#a469d90885290989b430f65b35d31c2dc">MayDivideTPIs</a>(){<span class="keywordflow">return</span> <span class="keyword">false</span>;};
+<a name="l00023"></a>00023  <span class="keyword">private</span>:
+<a name="l00024"></a>00024         <span class="keywordtype">bool</span> <a class="code" href="classIntegralRatioAPGenerator.html#a135b4f8a6e0f4c7bda740efc4a39efa3">fStartTailAsFraction</a>;
+<a name="l00025"></a><a class="code" href="classIntegralRatioAPGenerator.html#a391071ca3fa953912a918a8eb90f231f">00025</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a391071ca3fa953912a918a8eb90f231f">fStartIntegral</a>;
+<a name="l00026"></a><a class="code" href="classIntegralRatioAPGenerator.html#a2a8bf1d13223855812c78ddad5867af9">00026</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a2a8bf1d13223855812c78ddad5867af9">fStopIntegral</a>;
+<a name="l00027"></a><a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">00027</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">fStartTail</a>;
+<a name="l00028"></a><a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">00028</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a>;
+<a name="l00029"></a><a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">00029</a>         <span class="keywordtype">double</span> <a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a>;
+<a name="l00030"></a><a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">00030</a>         <a class="code" href="structAlgorithm_1_1IntegralRatio.html">Algorithm::IntegralRatio</a> <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>;
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="preprocessor">#endif //INTEGRALRATIO_H__</span>
+<a name="l00032"></a>00032 };
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="preprocessor">#endif //INTEGRALRATIO_H__</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

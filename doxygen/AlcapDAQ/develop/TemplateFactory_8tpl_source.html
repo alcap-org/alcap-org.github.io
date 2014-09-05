@@ -37,83 +37,85 @@
 <a name="l00010"></a>00010 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
 <a name="l00011"></a><a class="code" href="classTemplateFactory.html#a953dbc0185c3b09275d890eb0a7346a9">00011</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a953dbc0185c3b09275d890eb0a7346a9">TemplateFactory&lt;BaseModule,OptionsType&gt;::addArgument</a>(
 <a name="l00012"></a>00012        <span class="keyword">const</span> std::string&amp; <a class="code" href="Template__module_8cpp.html#ae0c09ec33102122f67514a5f5e50f22f">module</a>,<span class="keyword">const</span> std::string&amp; argument){
-<a name="l00013"></a>00013     <a class="code" href="classTemplateFactory.html#a07ad22f65f6f6eb3b0e8e3a4eab3b874">fModuleArguments</a>[module].push_back(argument);
+<a name="l00013"></a>00013     <a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>[module].arguments.push_back(argument);
 <a name="l00014"></a>00014 }
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
 <a name="l00017"></a><a class="code" href="classTemplateFactory.html#ab7f4a3590f8e414d317ea0230098fadd">00017</a> <span class="keyword">inline</span> std::string <a class="code" href="classTemplateFactory.html#ab7f4a3590f8e414d317ea0230098fadd">TemplateFactory&lt;BaseModule,OptionsType&gt;::GetArgumentName</a>(
 <a name="l00018"></a>00018         <span class="keyword">const</span> std::string&amp; <a class="code" href="Template__module_8cpp.html#ae0c09ec33102122f67514a5f5e50f22f">module</a>,<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; argument){
-<a name="l00019"></a>00019         <span class="keywordflow">return</span> <a class="code" href="classTemplateFactory.html#a07ad22f65f6f6eb3b0e8e3a4eab3b874">fModuleArguments</a>.at(module).at(argument);
+<a name="l00019"></a>00019         <span class="keywordflow">return</span> <a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>.at(module).arguments.at(argument);
 <a name="l00020"></a>00020 }
 <a name="l00021"></a>00021 
 <a name="l00022"></a>00022 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
-<a name="l00023"></a><a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e">00023</a> <a class="code" href="classBaseModule.html">BaseModule</a>* <a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">TemplateFactory&lt;BaseModule,OptionsType&gt;::createModule</a>(
+<a name="l00023"></a><a class="code" href="classTemplateFactory.html#a8655e2f33066b25a2123fcd827ec21fe">00023</a> <a class="code" href="classBaseModule.html">BaseModule</a>* <a class="code" href="classTemplateFactory.html#a8655e2f33066b25a2123fcd827ec21fe" title="Create a module with options.">TemplateFactory&lt;BaseModule,OptionsType&gt;::createModule</a>(
 <a name="l00024"></a>00024         <span class="keyword">const</span> std::string&amp; name, OptionsType* opts){
 <a name="l00025"></a>00025     <span class="comment">// get the maker for the requested module</span>
 <a name="l00026"></a>00026     <a class="code" href="classBaseModule.html">BaseModule</a>* <a class="code" href="Template__module_8cpp.html#ae0c09ec33102122f67514a5f5e50f22f">module</a>=NULL;
-<a name="l00027"></a>00027     <span class="keyword">typename</span> <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">MakersList::iterator</a> it  = <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>.find(name);
-<a name="l00028"></a>00028     <span class="keywordflow">if</span>(it != <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>.end() ){
-<a name="l00029"></a>00029         <span class="comment">// make the module</span>
-<a name="l00030"></a>00030         <a class="code" href="classTemplateFactory.html#ab01df25a7b8fc74d493c8cad339a53f7">maker</a> make= it-&gt;second;
-<a name="l00031"></a>00031         <span class="keywordflow">try</span>{
-<a name="l00032"></a>00032             module=make(opts);
-<a name="l00033"></a>00033         }<span class="keywordflow">catch</span>(<a class="code" href="structmodules_1_1missing__option.html">modules::missing_option</a>&amp; e){
-<a name="l00034"></a>00034             std::cout&lt;&lt;<a class="code" href="classTemplateFactory.html#a029ec46b7932960c130415b77e051bd7">fName</a>&lt;&lt;<span class="stringliteral">&quot;::createModule: Error: &quot;</span>&lt;&lt;e.what()&lt;&lt;std::endl;
-<a name="l00035"></a>00035             <span class="keywordflow">return</span> NULL;
-<a name="l00036"></a>00036         }<span class="keywordflow">catch</span>(<a class="code" href="structmodules_1_1bad__value.html">modules::bad_value</a>&amp; e){
-<a name="l00037"></a>00037             std::cout&lt;&lt;<a class="code" href="classTemplateFactory.html#a029ec46b7932960c130415b77e051bd7">fName</a>&lt;&lt;<span class="stringliteral">&quot;::createModule: Error: &quot;</span>&lt;&lt;e.what()&lt;&lt;std::endl;
-<a name="l00038"></a>00038             <span class="keywordflow">return</span> NULL;
-<a name="l00039"></a>00039         }
-<a name="l00040"></a>00040     }<span class="keywordflow">else</span>{
-<a name="l00041"></a>00041         std::cout&lt;&lt;<a class="code" href="classTemplateFactory.html#a029ec46b7932960c130415b77e051bd7">fName</a>&lt;&lt;<span class="stringliteral">&quot;::createModule: Error: Unknown module requested: &quot;</span>&lt;&lt;name&lt;&lt;std::endl;
-<a name="l00042"></a>00042         <span class="keywordflow">return</span> NULL;
-<a name="l00043"></a>00043     }
-<a name="l00044"></a>00044     <span class="keywordflow">return</span> module;
-<a name="l00045"></a>00045 }
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
-<a name="l00048"></a><a class="code" href="classTemplateFactory.html#a6e49707e6ed4004dea0feefcfe807a2d">00048</a> <a class="code" href="classBaseModule.html">BaseModule</a>* <a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">TemplateFactory&lt;BaseModule,OptionsType&gt;::createModule</a>(<span class="keyword">const</span> std::string&amp; name){
-<a name="l00049"></a>00049     <span class="comment">// get the options for this module</span>
-<a name="l00050"></a>00050     <span class="keyword">typename</span> <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">OptionsList::iterator</a> it_opt=<a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">fModuleOptions</a>.find(name);
-<a name="l00051"></a>00051     OptionsType* opts = NULL;
-<a name="l00052"></a>00052     <span class="keywordflow">if</span>(it_opt != <a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">fModuleOptions</a>.end()) opts=it_opt-&gt;second;
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054     <span class="comment">// make the module</span>
-<a name="l00055"></a>00055     <span class="keywordflow">return</span> <a class="code" href="classTemplateFactory.html#ae258400de742fcbeb8cc3f208c32219e" title="Create a module with options.">createModule</a>(name,opts);
-<a name="l00056"></a>00056 }
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
-<a name="l00059"></a><a class="code" href="classTemplateFactory.html#aa67c27ebcd62f064ba369eeec672d950">00059</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#aa67c27ebcd62f064ba369eeec672d950" title="Add a maker function to the list of makers.">TemplateFactory&lt;BaseModule,OptionsType&gt;::registerModule</a>(
-<a name="l00060"></a>00060          <span class="keyword">const</span> std::string&amp; name, <a class="code" href="classTemplateFactory.html">TemplateFactory&lt;BaseModule,OptionsType&gt;::maker</a> make){
-<a name="l00061"></a>00061     <a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>[name]=make;
-<a name="l00062"></a>00062     <a class="code" href="classTemplateFactory.html#adb1680a268b42ae5c441a9451a1e935d">fMostRecentRegister</a>=name;
-<a name="l00063"></a>00063 }
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
-<a name="l00066"></a><a class="code" href="classTemplateFactory.html#a0bfa2fe7e4a4a4af46098fe79a82c3ed">00066</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a0bfa2fe7e4a4a4af46098fe79a82c3ed">TemplateFactory&lt;BaseModule,OptionsType&gt;::addOptions</a>(
-<a name="l00067"></a>00067          <span class="keyword">const</span> std::string&amp; name, OptionsType *opts){
-<a name="l00068"></a>00068     <a class="code" href="classTemplateFactory.html#a8fe07ce5f71cc10b3662b9b7e58eed70">fModuleOptions</a>[name]=opts;
-<a name="l00069"></a>00069 }
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
-<a name="l00072"></a><a class="code" href="classTemplateFactory.html#a2876c6b4e885a0bc6a7500539aef11ae">00072</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a2876c6b4e885a0bc6a7500539aef11ae">TemplateFactory&lt;BaseModule,OptionsType&gt;::addArguments</a>(<span class="keyword">const</span> std::string&amp; all_args){
-<a name="l00073"></a>00073     std::vector&lt;std::string&gt; args;
-<a name="l00074"></a>00074     <a class="code" href="namespacemodules_1_1parser.html#aac3ab68267d1ab53ce441b360e72b49b">modules::parser::TokeniseByDelimiter</a>(all_args,args,<span class="stringliteral">&quot;, &quot;</span>);
-<a name="l00075"></a>00075     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;args.size();i++){
-<a name="l00076"></a>00076         <a class="code" href="classTemplateFactory.html#a953dbc0185c3b09275d890eb0a7346a9">addArgument</a>(args[i]);
-<a name="l00077"></a>00077     }
-<a name="l00078"></a>00078 }
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
-<a name="l00081"></a><a class="code" href="classTemplateFactory.html#a56ecd5ec5c7a9cfdf3b5804a922aebee">00081</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a56ecd5ec5c7a9cfdf3b5804a922aebee">TemplateFactory&lt;BaseModule,OptionsType&gt;::PrintPossibleModules</a>()<span class="keyword">const</span>{
-<a name="l00082"></a>00082   std::cout&lt;&lt;<span class="stringliteral">&quot;Available modules are:&quot;</span>&lt;&lt;std::endl;
-<a name="l00083"></a>00083   <span class="keywordflow">for</span>(<span class="keyword">typename</span> <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">MakersList::const_iterator</a> it=<a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>.begin();
-<a name="l00084"></a>00084                                  it!=<a class="code" href="classTemplateFactory.html#a476d4f08a98625aa918b2b356bd26f76">fModuleMakers</a>.end(); it++){
-<a name="l00085"></a>00085                                  std::cout&lt;&lt;<span class="stringliteral">&quot;  &quot;</span>&lt;&lt;it-&gt;first&lt;&lt;std::endl;
-<a name="l00086"></a>00086  }
-<a name="l00087"></a>00087 }
+<a name="l00027"></a>00027     <span class="keyword">const</span> <a class="code" href="structTemplateFactory_1_1PerModule.html">PerModule</a>&amp; details=<a class="code" href="classTemplateFactory.html#a5b01aba458e5dbf8c764fbb8347fa00d">GetModuleDetails</a>(name);
+<a name="l00028"></a>00028     <span class="comment">// make the module</span>
+<a name="l00029"></a>00029     <span class="keywordflow">try</span>{
+<a name="l00030"></a>00030         module=details.<a class="code" href="structTemplateFactory_1_1PerModule.html#afeb4e60af9234b266043ad57f82b4e92">maker</a>(opts?opts:details.<a class="code" href="structTemplateFactory_1_1PerModule.html#aead02bbcfe91c12d2be08c8c6c95563f">opts</a>);
+<a name="l00031"></a>00031     }<span class="keywordflow">catch</span>(<a class="code" href="structmodules_1_1missing__option.html">modules::missing_option</a>&amp; e){
+<a name="l00032"></a>00032         std::cout&lt;&lt;<a class="code" href="classTemplateFactory.html#a029ec46b7932960c130415b77e051bd7">fName</a>&lt;&lt;<span class="stringliteral">&quot;::createModule: Error: &quot;</span>&lt;&lt;e.what()&lt;&lt;std::endl;
+<a name="l00033"></a>00033         <span class="keywordflow">return</span> NULL;
+<a name="l00034"></a>00034     }<span class="keywordflow">catch</span>(<a class="code" href="structmodules_1_1bad__value.html">modules::bad_value</a>&amp; e){
+<a name="l00035"></a>00035         std::cout&lt;&lt;<a class="code" href="classTemplateFactory.html#a029ec46b7932960c130415b77e051bd7">fName</a>&lt;&lt;<span class="stringliteral">&quot;::createModule: Error: &quot;</span>&lt;&lt;e.what()&lt;&lt;std::endl;
+<a name="l00036"></a>00036         <span class="keywordflow">return</span> NULL;
+<a name="l00037"></a>00037     }
+<a name="l00038"></a>00038     <span class="keywordflow">return</span> module;
+<a name="l00039"></a>00039 }
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
+<a name="l00042"></a><a class="code" href="classTemplateFactory.html#a1328d57dca7344eeef9dbee8f4df600d">00042</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a1328d57dca7344eeef9dbee8f4df600d" title="Add a ModuleMaker function to the list of makers.">TemplateFactory&lt;BaseModule,OptionsType&gt;::registerModule</a>(
+<a name="l00043"></a>00043          <span class="keyword">const</span> std::string&amp; name,
+<a name="l00044"></a>00044      <a class="code" href="classTemplateFactory.html">TemplateFactory&lt;BaseModule,OptionsType&gt;::ModuleMaker</a> make,
+<a name="l00045"></a>00045      <span class="keyword">const</span> std::string&amp; out){
+<a name="l00046"></a>00046     <a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>[name].maker=make;
+<a name="l00047"></a>00047     <a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>[name].product=out;
+<a name="l00048"></a>00048     <a class="code" href="classTemplateFactory.html#adb1680a268b42ae5c441a9451a1e935d">fMostRecentRegister</a>=name;
+<a name="l00049"></a>00049 }
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
+<a name="l00052"></a><a class="code" href="classTemplateFactory.html#ab0bc2f6b97b20fd8ee442d28092585fc">00052</a> std::string <a class="code" href="classTemplateFactory.html#ab0bc2f6b97b20fd8ee442d28092585fc">TemplateFactory&lt;BaseModule,OptionsType&gt;::GetProduct</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="Template__module_8cpp.html#ae0c09ec33102122f67514a5f5e50f22f">module</a>){
+<a name="l00053"></a>00053     <span class="keywordflow">return</span> <a class="code" href="classTemplateFactory.html#a5b01aba458e5dbf8c764fbb8347fa00d">GetModuleDetails</a>(module).<a class="code" href="structTemplateFactory_1_1PerModule.html#ac7fefb33c1e7b530d893baa94fa1b401">product</a>;
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
+<a name="l00057"></a><a class="code" href="classTemplateFactory.html#a5b01aba458e5dbf8c764fbb8347fa00d">00057</a> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="structTemplateFactory_1_1PerModule.html">TemplateFactory&lt;BaseModule,OptionsType&gt;::PerModule</a>&amp; <a class="code" href="classTemplateFactory.html#a5b01aba458e5dbf8c764fbb8347fa00d">TemplateFactory&lt;BaseModule,OptionsType&gt;::GetModuleDetails</a>(
+<a name="l00058"></a>00058      <span class="keyword">const</span> std::string&amp; name)<span class="keyword">const</span>{
+<a name="l00059"></a>00059     <span class="keyword">typename</span> <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ModuleList::const_iterator</a> it  = <a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>.find(name);
+<a name="l00060"></a>00060     <span class="keywordflow">if</span>(it == <a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>.end() ){
+<a name="l00061"></a>00061         std::cout&lt;&lt;<a class="code" href="classTemplateFactory.html#a029ec46b7932960c130415b77e051bd7">fName</a>&lt;&lt;<span class="stringliteral">&quot;::GetModuleDetails: Error: Unknown module requested: &quot;</span>&lt;&lt;name&lt;&lt;std::endl;
+<a name="l00062"></a>00062         <span class="keywordflow">throw</span> std::out_of_range((<span class="stringliteral">&quot;unknown module &quot;</span>+name).c_str());
+<a name="l00063"></a>00063     }
+<a name="l00064"></a>00064     <span class="keywordflow">return</span> it-&gt;second;
+<a name="l00065"></a>00065 }
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
+<a name="l00068"></a><a class="code" href="classTemplateFactory.html#a0bfa2fe7e4a4a4af46098fe79a82c3ed">00068</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a0bfa2fe7e4a4a4af46098fe79a82c3ed">TemplateFactory&lt;BaseModule,OptionsType&gt;::addOptions</a>(
+<a name="l00069"></a>00069          <span class="keyword">const</span> std::string&amp; name, OptionsType *opts){
+<a name="l00070"></a>00070     <a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>[name].opts=opts;
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
+<a name="l00074"></a><a class="code" href="classTemplateFactory.html#a2876c6b4e885a0bc6a7500539aef11ae">00074</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a2876c6b4e885a0bc6a7500539aef11ae">TemplateFactory&lt;BaseModule,OptionsType&gt;::addArguments</a>(<span class="keyword">const</span> std::string&amp; all_args){
+<a name="l00075"></a>00075     std::vector&lt;std::string&gt; args;
+<a name="l00076"></a>00076     <a class="code" href="namespacemodules_1_1parser.html#aac3ab68267d1ab53ce441b360e72b49b">modules::parser::TokeniseByDelimiter</a>(all_args,args,<span class="stringliteral">&quot;, &quot;</span>);
+<a name="l00077"></a>00077     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;args.size();i++){
+<a name="l00078"></a>00078         <a class="code" href="classTemplateFactory.html#a953dbc0185c3b09275d890eb0a7346a9">addArgument</a>(args[i]);
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080 }
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseModule, <span class="keyword">typename</span> OptionsType&gt;
+<a name="l00083"></a><a class="code" href="classTemplateFactory.html#a56ecd5ec5c7a9cfdf3b5804a922aebee">00083</a> <span class="keywordtype">void</span> <a class="code" href="classTemplateFactory.html#a56ecd5ec5c7a9cfdf3b5804a922aebee">TemplateFactory&lt;BaseModule,OptionsType&gt;::PrintPossibleModules</a>()<span class="keyword">const</span>{
+<a name="l00084"></a>00084   std::cout&lt;&lt;<span class="stringliteral">&quot;Available modules are:&quot;</span>&lt;&lt;std::endl;
+<a name="l00085"></a>00085   <span class="keywordflow">for</span>(<span class="keyword">typename</span> <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">ModuleList::const_iterator</a> it=<a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>.begin();
+<a name="l00086"></a>00086                                  it!=<a class="code" href="classTemplateFactory.html#a669d44d3e3a91afdfef280ebecdb2538">fModules</a>.end(); it++){
+<a name="l00087"></a>00087                                  std::cout&lt;&lt;<span class="stringliteral">&quot;  &quot;</span>&lt;&lt;it-&gt;first&lt;&lt;std::endl;
+<a name="l00088"></a>00088  }
+<a name="l00089"></a>00089 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

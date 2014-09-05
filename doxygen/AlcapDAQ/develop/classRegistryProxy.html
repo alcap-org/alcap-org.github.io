@@ -35,16 +35,16 @@
 <p><a href="classRegistryProxy-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRegistryProxy.html#ae2325a2c46a6a6b6614eb6bdf1d916f3">RegistryProxy</a> (const char *Name, const char *ArgumentNames)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRegistryProxy.html#a4190a2a95efac1bd0a9d367a7e363031">RegistryProxy</a> (const char *Name, const char *ArgumentNames, const char *Product=&quot;&quot;)</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <h3>template&lt;typename ConcreteClass, typename BaseClass, typename Options, typename Factory&gt;<br/>
  class RegistryProxy&lt; ConcreteClass, BaseClass, Options, Factory &gt;</h3>
 
 
-<p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00079">79</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00082">82</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae2325a2c46a6a6b6614eb6bdf1d916f3"></a><!-- doxytag: member="RegistryProxy::RegistryProxy" ref="ae2325a2c46a6a6b6614eb6bdf1d916f3" args="(const char *Name, const char *ArgumentNames)" -->
+<a class="anchor" id="a4190a2a95efac1bd0a9d367a7e363031"></a><!-- doxytag: member="RegistryProxy::RegistryProxy" ref="a4190a2a95efac1bd0a9d367a7e363031" args="(const char *Name, const char *ArgumentNames, const char *Product=&quot;&quot;)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -60,7 +60,13 @@ template&lt;typename ConcreteClass , typename BaseClass , typename Options , typ
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&nbsp;</td>
-          <td class="paramname"> <em>ArgumentNames</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>ArgumentNames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>Product</em> = <code>&quot;&quot;</code></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -71,14 +77,14 @@ template&lt;typename ConcreteClass , typename BaseClass , typename Options , typ
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00081">81</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFactory_8h_source.html#l00084">84</a> of file <a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00082"></a>00082     { 
-<a name="l00083"></a>00083       Factory *f = Factory::Instance(); 
-<a name="l00084"></a>00084       f-&gt;registerModule( Name , &amp;RegistryProxyMaker&lt;ConcreteClass,BaseClass,Options&gt;); 
-<a name="l00085"></a>00085       <span class="comment">/* Add all the arguments to the manager */</span>
-<a name="l00086"></a>00086       f-&gt;addArguments( ArgumentNames);
-<a name="l00087"></a>00087     }
+<p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085     { 
+<a name="l00086"></a>00086       Factory *f = Factory::Instance(); 
+<a name="l00087"></a>00087       f-&gt;registerModule( Name , &amp;RegistryProxyMaker&lt;ConcreteClass,BaseClass,Options&gt;, Product); 
+<a name="l00088"></a>00088       <span class="comment">// Add all the arguments to the manager </span>
+<a name="l00089"></a>00089       f-&gt;addArguments( ArgumentNames);
+<a name="l00090"></a>00090     }
 </pre></div></p>
 
 </div>
@@ -87,7 +93,7 @@ template&lt;typename ConcreteClass , typename BaseClass , typename Options , typ
 <li>rootana/src/framework/<a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

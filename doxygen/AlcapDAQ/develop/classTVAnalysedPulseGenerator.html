@@ -72,6 +72,8 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1channel.html">IDs::channel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484">GetSource</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the source id for this generator being used on the current channel.  <a href="#a1287e301f1b02e8b9821a8eeda30e484"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a63fc78543a84775eeeac6d293c09bb09">TapType</a> ()</td></tr>
 <tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a96d9ffc0889d659fb376ae93bb17ca76">SetChannel</a> (const std::string &amp;det)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the channel for this generator. Should NOT be called by user code.  <a href="#a96d9ffc0889d659fb376ae93bb17ca76"></a><br/></td></tr>
@@ -90,7 +92,7 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 <dl class="author"><dt><b>Author:</b></dt><dd>Ben Krikler</dd></dl>
 <p>All TAP generators should be derived from this, and have their ProcessPulses and MayDivideTPIs methods defined. </p>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00025">25</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00027">27</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5a325342073385877a496219778acde4"></a><!-- doxytag: member="TVAnalysedPulseGenerator::TVAnalysedPulseGenerator" ref="a5a325342073385877a496219778acde4" args="(const char *name, TAPGeneratorOptions *opts)" -->
 <div class="memitem">
@@ -117,17 +119,17 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00028">28</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00030">30</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00114">fDebug</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">fSource</a>, <a class="el" href="IdSource_8h_source.html#l00085">IDs::source::Generator()</a>, <a class="el" href="TAPGeneratorOptions_8h_source.html#l00019">TAPGeneratorOptions::GetChannel()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00239">modules::options::HasOption()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">SetChannel()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00141">modules::options::StringDescription()</a>.</p>
+<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00118">fDebug</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">fSource</a>, <a class="el" href="IdSource_8h_source.html#l00085">IDs::source::Generator()</a>, <a class="el" href="TAPGeneratorOptions_8h_source.html#l00019">TAPGeneratorOptions::GetChannel()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00239">modules::options::HasOption()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">SetChannel()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00141">modules::options::StringDescription()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00028"></a>00028                                                                              {
-<a name="l00029"></a>00029             <span class="keywordflow">if</span>(opts){
-<a name="l00030"></a>00030                 <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d" title="Debug flagged set from modules file. Used, for example, in deciding whether or not...">fDebug</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>);
-<a name="l00031"></a>00031             }
-<a name="l00032"></a>00032             <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>(name,opts-&gt;<a class="code" href="classmodules_1_1options.html#a1a31371148b8b031d749d62f7fc275a4" title="Flatten all options into a string.">StringDescription</a>());
-<a name="l00033"></a>00033             <a class="code" href="classTVAnalysedPulseGenerator.html#a96d9ffc0889d659fb376ae93bb17ca76" title="Set the channel for this generator. Should NOT be called by user code.">SetChannel</a>(opts-&gt;<a class="code" href="classTAPGeneratorOptions.html#a6d3cf647ba4979f42991fb7c44e74741">GetChannel</a>());
-<a name="l00034"></a>00034         };
+<p><div class="fragment"><pre class="fragment"><a name="l00030"></a>00030                                                                              {
+<a name="l00031"></a>00031             <span class="keywordflow">if</span>(opts){
+<a name="l00032"></a>00032                 <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d" title="Debug flagged set from modules file. Used, for example, in deciding whether or not...">fDebug</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#af08184dda8d5bd80865f9380ac3f43fb" title="Check if a named option has been set.">HasOption</a>(<span class="stringliteral">&quot;debug&quot;</span>);
+<a name="l00033"></a>00033             }
+<a name="l00034"></a>00034             <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>(name,opts-&gt;<a class="code" href="classmodules_1_1options.html#a1a31371148b8b031d749d62f7fc275a4" title="Flatten all options into a string.">StringDescription</a>());
+<a name="l00035"></a>00035             <a class="code" href="classTVAnalysedPulseGenerator.html#a96d9ffc0889d659fb376ae93bb17ca76" title="Set the channel for this generator. Should NOT be called by user code.">SetChannel</a>(opts-&gt;<a class="code" href="classTAPGeneratorOptions.html#a6d3cf647ba4979f42991fb7c44e74741">GetChannel</a>());
+<a name="l00036"></a>00036         };
 </pre></div></p>
 
 </div>
@@ -147,9 +149,9 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00035">35</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00037">37</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035 {};
+<p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037 {};
 </pre></div></p>
 
 </div>
@@ -170,13 +172,13 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00080">80</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00082">82</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00114">fDebug</a>.</p>
+<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00118">fDebug</a>.</p>
 
 <p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">GaussFitAPGenerator::FitPulse()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">IntegralRatioAPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00080"></a>00080 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d" title="Debug flagged set from modules file. Used, for example, in deciding whether or not...">fDebug</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00082"></a>00082 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d" title="Debug flagged set from modules file. Used, for example, in deciding whether or not...">fDebug</a>;};
 </pre></div></p>
 
 </div>
@@ -197,13 +199,13 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 <div class="memdoc">
 <p>A convenience method for analysis to get the channel ID of the channel being analysed </p>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00084">84</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00086">86</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">fSource</a>.</p>
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">fSource</a>.</p>
 
 <p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00083">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">IntegralRatioAPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00084"></a>00084 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
+<p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
 </pre></div></p>
 
 </div>
@@ -226,11 +228,13 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 <p>Get the source id for this generator being used on the current channel. </p>
 <p>Useful for a generator to know the full source much like in the above GetChannel method, but this could also be useful for checking that this generator is the one that made a given TAP in later analysis by comparing this value to that stored in the TAP itself. </p>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00093">93</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00095">95</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">MakeNewTAP()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">IntegralRatioAPGenerator::ProcessPulses()</a>.</p>
+<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">fSource</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00093"></a>00093 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>;};
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00125">MakeNewTAP()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">IntegralRatioAPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00095"></a>00095 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>;};
 </pre></div></p>
 
 </div>
@@ -251,11 +255,11 @@ Inheritance diagram for TVAnalysedPulseGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00076">76</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00078">78</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00076"></a>00076                                                          {
-<a name="l00077"></a>00077             <span class="keywordflow">return</span> MakeNewTAP&lt;TAnalysedPulse&gt;(parent_index);
-<a name="l00078"></a>00078         }
+<p><div class="fragment"><pre class="fragment"><a name="l00078"></a>00078                                                          {
+<a name="l00079"></a>00079             <span class="keywordflow">return</span> MakeNewTAP&lt;TAnalysedPulse&gt;(parent_index);
+<a name="l00080"></a>00080         }
 </pre></div></p>
 
 </div>
@@ -296,18 +300,18 @@ template&lt;typename TypeOfTAP &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">121</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00125">125</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00117">fPulseList</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00093">GetSource()</a>.</p>
+<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">fPulseList</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00095">GetSource()</a>.</p>
 
 <p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00017">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00031">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00030">CFTimeMBAmpAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00031">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121                                                                            {
-<a name="l00122"></a>00122     TypeOfTAP* pulse=NULL;
-<a name="l00123"></a>00123     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>-&gt;at(parent_index);
-<a name="l00124"></a>00124     pulse=<span class="keyword">new</span> TypeOfTAP(<a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>(),parent_index,parent);
-<a name="l00125"></a>00125     <span class="keywordflow">return</span> pulse;
-<a name="l00126"></a>00126 }
+<p><div class="fragment"><pre class="fragment"><a name="l00125"></a>00125                                                                            {
+<a name="l00126"></a>00126     TypeOfTAP* pulse=NULL;
+<a name="l00127"></a>00127     <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* parent = <a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>-&gt;at(parent_index);
+<a name="l00128"></a>00128     pulse=<span class="keyword">new</span> TypeOfTAP(<a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>(),parent_index,parent);
+<a name="l00129"></a>00129     <span class="keywordflow">return</span> pulse;
+<a name="l00130"></a>00130 }
 </pre></div></p>
 
 </div>
@@ -389,13 +393,13 @@ template&lt;typename TypeOfTAP &gt; </div>
 <p>Set the channel for this generator. Should NOT be called by user code. </p>
 <p>Called by <a class="el" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a> to tell this generator what channel it is looking at. </p>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">103</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">107</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">fSource</a>.</p>
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00028">TVAnalysedPulseGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00030">TVAnalysedPulseGenerator()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00103"></a>00103 {<a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=det;};
+<p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107 {<a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=det;};
 </pre></div></p>
 
 </div>
@@ -416,11 +420,35 @@ template&lt;typename TypeOfTAP &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00047">47</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00049">49</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00117">fPulseList</a>.</p>
+<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">fPulseList</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047 {<a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>=<a class="code" href="namespacemodules.html#ad4b4c82a2af83370510aa8b5006283f3">list</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049 {<a class="code" href="classTVAnalysedPulseGenerator.html#a8babd0263da73f145432f8865d918fe9" title="The vector of TPIs being processed.">fPulseList</a>=<a class="code" href="namespacemodules.html#ad4b4c82a2af83370510aa8b5006283f3">list</a>;};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a63fc78543a84775eeeac6d293c09bb09"></a><!-- doxytag: member="TVAnalysedPulseGenerator::TapType" ref="a63fc78543a84775eeeac6d293c09bb09" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* TVAnalysedPulseGenerator::TapType </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classGaussFitAPGenerator.html#a55a3518b24f124e1f7e802e24c852d1b">GaussFitAPGenerator</a>, and <a class="el" href="classIntegralRatioAPGenerator.html#a80f1ba51a82f404b81691a7715feda39">IntegralRatioAPGenerator</a>.</p>
+
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00097">97</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00097"></a>00097 {<span class="keywordflow">return</span> TAnalysedPulse::Class()-&gt;GetName();}
 </pre></div></p>
 
 </div>
@@ -437,7 +465,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00093">93</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00100">100</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -455,9 +483,9 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Debug flagged set from <a class="el" href="namespacemodules.html">modules</a> file. Used, for example, in deciding whether or not to print helpful messages. </p>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00114">114</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00118">118</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00080">Debug()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00028">TVAnalysedPulseGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00082">Debug()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00030">TVAnalysedPulseGenerator()</a>.</p>
 
 </div>
 </div>
@@ -474,9 +502,9 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>The vector of TPIs being processed. </p>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00117">117</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">121</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">MakeNewTAP()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00047">SetPulseList()</a>.</p>
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00125">MakeNewTAP()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00049">SetPulseList()</a>.</p>
 
 </div>
 </div>
@@ -493,9 +521,9 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>The source identifying the generator and detector being processed. </p>
 
-<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">103</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">107</a> of file <a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00084">GetChannel()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00103">SetChannel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00028">TVAnalysedPulseGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00086">GetChannel()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00095">GetSource()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">SetChannel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00030">TVAnalysedPulseGenerator()</a>.</p>
 
 </div>
 </div>
@@ -503,7 +531,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <li>rootana/src/TAP_generators/<a class="el" href="TVAnalysedPulseGenerator_8h_source.html">TVAnalysedPulseGenerator.h</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

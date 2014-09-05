@@ -28,13 +28,16 @@
 </div>
 <div class="contents">
 <h1>rootana/src/TAP_generators/TAPGeneratorFactory.h File Reference</h1><code>#include &quot;<a class="el" href="TemplateFactory_8h_source.html">TemplateFactory.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="IdSource_8h_source.html">IdSource.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>&quot;</code><br/>
 
 <p><a href="TAPGeneratorFactory_8h_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a></td></tr>
 <tr><td colspan="2"><h2>Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(NAME,...)&nbsp;&nbsp;&nbsp;<a class="el" href="classRegistryProxy.html">RegistryProxy</a>&lt;NAME##APGenerator,<a class="el" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a>,<a class="el" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>,<a class="el" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>&gt; p_AP##NAME(#NAME, #__VA_ARGS__);</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TAPGeneratorFactory_8h.html#a1258735f1fda675c59867178bde91bf3">ALCAP_TAP_GENERATOR__</a>(NAME, CLASS, <a class="el" href="structARGUMENTS.html">ARGUMENTS</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">ALCAP_TAP_GENERATOR</a>(NAME,...)&nbsp;&nbsp;&nbsp;ALCAP_TAP_GENERATOR__(#NAME, NAME##APGenerator, #__VA_ARGS__)</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
 <a class="anchor" id="ac00ce38389aad30fdef2d3332be92194"></a><!-- doxytag: member="TAPGeneratorFactory.h::ALCAP_TAP_GENERATOR" ref="ac00ce38389aad30fdef2d3332be92194" args="(NAME,...)" -->
@@ -52,18 +55,50 @@
           <td class="paramtype"> <em>...</em>&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<a class="el" href="classRegistryProxy.html">RegistryProxy</a>&lt;NAME##APGenerator,<a class="el" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a>,<a class="el" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>,<a class="el" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>&gt; p_AP##NAME(#NAME, #__VA_ARGS__);</td>
+          <td>&nbsp;&nbsp;&nbsp;ALCAP_TAP_GENERATOR__(#NAME, NAME##APGenerator, #__VA_ARGS__)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPGeneratorFactory_8h_source.html#l00026">26</a> of file <a class="el" href="TAPGeneratorFactory_8h_source.html">TAPGeneratorFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPGeneratorFactory_8h_source.html#l00042">42</a> of file <a class="el" href="TAPGeneratorFactory_8h_source.html">TAPGeneratorFactory.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1258735f1fda675c59867178bde91bf3"></a><!-- doxytag: member="TAPGeneratorFactory.h::ALCAP_TAP_GENERATOR__" ref="a1258735f1fda675c59867178bde91bf3" args="(NAME, CLASS, ARGUMENTS)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ALCAP_TAP_GENERATOR__</td>
+          <td>(</td>
+          <td class="paramtype">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CLASS, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structARGUMENTS.html">ARGUMENTS</a>&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="classRegistryProxy.html">RegistryProxy&lt;CLASS,TVAnalysedPulseGenerator,TAPGeneratorOptions,TAPGeneratorFactory&gt;</a> \
+   p_##CLASS(NAME, <a class="code" href="structARGUMENTS.html">ARGUMENTS</a>, CLASS::TapType() );
+</pre></div>
+<p>Definition at line <a class="el" href="TAPGeneratorFactory_8h_source.html#l00038">38</a> of file <a class="el" href="TAPGeneratorFactory_8h_source.html">TAPGeneratorFactory.h</a>.</p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
