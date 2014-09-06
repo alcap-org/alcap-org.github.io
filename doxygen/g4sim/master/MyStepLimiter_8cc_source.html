@@ -61,38 +61,39 @@
 <a name="l00037"></a>00037         <a class="code" href="classMyStepLimiter.html#a3154ef6ad44c8891db31502a2b6ddcaf">wasActivated</a> = <span class="keyword">true</span>;
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039         G4PhysicsListHelper* ph = G4PhysicsListHelper::GetPhysicsListHelper();
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041         <span class="comment">// add limit process</span>
-<a name="l00042"></a>00042         theParticleIterator-&gt;reset();
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044         <a class="code" href="classMyStepLimiter.html#a955bef4f9eb05d91d8c2171a693a1b63">fStepLimiter</a> = <span class="keyword">new</span> G4StepLimiter();
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <span class="keywordflow">while</span> ((*theParticleIterator)()){
-<a name="l00047"></a>00047                 G4ParticleDefinition *particle     = theParticleIterator-&gt;value();
-<a name="l00048"></a>00048                 G4ProcessManager     *pmanager     = particle-&gt;GetProcessManager();
-<a name="l00049"></a>00049                 G4String              particleName = particle-&gt;GetParticleName();
-<a name="l00050"></a>00050 <span class="comment">//              if (particleName == &quot;e-&quot; ||</span>
-<a name="l00051"></a>00051 <span class="comment">//                              particleName == &quot;e+&quot; ||</span>
-<a name="l00052"></a>00052 <span class="comment">//                              particleName == &quot;mu-&quot; ||</span>
-<a name="l00053"></a>00053 <span class="comment">//                              particleName == &quot;mu+&quot; ||</span>
-<a name="l00054"></a>00054 <span class="comment">//                              particleName == &quot;proton&quot;</span>
-<a name="l00055"></a>00055 <span class="comment">//                 ) {</span>
-<a name="l00056"></a>00056                 <span class="keywordflow">if</span> (particleName != <span class="stringliteral">&quot;gamma&quot;</span>
-<a name="l00057"></a>00057                         &amp;&amp; particleName != <span class="stringliteral">&quot;geantino&quot;</span>
-<a name="l00058"></a>00058                         &amp;&amp; particleName != <span class="stringliteral">&quot;chargedgeantino&quot;</span>
-<a name="l00059"></a>00059                         &amp;&amp; particleName != <span class="stringliteral">&quot;nu_e&quot;</span>
-<a name="l00060"></a>00060                         &amp;&amp; particleName != <span class="stringliteral">&quot;nu_mu&quot;</span>
-<a name="l00061"></a>00061                         &amp;&amp; particleName != <span class="stringliteral">&quot;nu_tau&quot;</span>
-<a name="l00062"></a>00062                         &amp;&amp; particleName != <span class="stringliteral">&quot;anti_nu_e&quot;</span>
-<a name="l00063"></a>00063                         &amp;&amp; particleName != <span class="stringliteral">&quot;anti_nu_mu&quot;</span>
-<a name="l00064"></a>00064                         &amp;&amp; particleName != <span class="stringliteral">&quot;anti_nu_tau&quot;</span>
-<a name="l00065"></a>00065                    ) {
-<a name="l00066"></a>00066                         pmanager-&gt;AddDiscreteProcess(<a class="code" href="classMyStepLimiter.html#a955bef4f9eb05d91d8c2171a693a1b63">fStepLimiter</a>);
-<a name="l00067"></a>00067                 }   
-<a name="l00068"></a>00068         } 
-<a name="l00069"></a>00069 }
+<a name="l00040"></a>00040         G4ParticleTable::G4PTblDicIterator* theParticleIterator
+<a name="l00041"></a>00041           = G4ParticleTable::GetParticleTable()-&gt;GetIterator();
+<a name="l00042"></a>00042         <span class="comment">// add limit process</span>
+<a name="l00043"></a>00043         theParticleIterator-&gt;reset();
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045         <a class="code" href="classMyStepLimiter.html#a955bef4f9eb05d91d8c2171a693a1b63">fStepLimiter</a> = <span class="keyword">new</span> G4StepLimiter();
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047         <span class="keywordflow">while</span> ((*theParticleIterator)()){
+<a name="l00048"></a>00048                 G4ParticleDefinition *particle     = theParticleIterator-&gt;value();
+<a name="l00049"></a>00049                 G4ProcessManager     *pmanager     = particle-&gt;GetProcessManager();
+<a name="l00050"></a>00050                 G4String              particleName = particle-&gt;GetParticleName();
+<a name="l00051"></a>00051 <span class="comment">//              if (particleName == &quot;e-&quot; ||</span>
+<a name="l00052"></a>00052 <span class="comment">//                              particleName == &quot;e+&quot; ||</span>
+<a name="l00053"></a>00053 <span class="comment">//                              particleName == &quot;mu-&quot; ||</span>
+<a name="l00054"></a>00054 <span class="comment">//                              particleName == &quot;mu+&quot; ||</span>
+<a name="l00055"></a>00055 <span class="comment">//                              particleName == &quot;proton&quot;</span>
+<a name="l00056"></a>00056 <span class="comment">//                 ) {</span>
+<a name="l00057"></a>00057                 <span class="keywordflow">if</span> (particleName != <span class="stringliteral">&quot;gamma&quot;</span>
+<a name="l00058"></a>00058                         &amp;&amp; particleName != <span class="stringliteral">&quot;geantino&quot;</span>
+<a name="l00059"></a>00059                         &amp;&amp; particleName != <span class="stringliteral">&quot;chargedgeantino&quot;</span>
+<a name="l00060"></a>00060                         &amp;&amp; particleName != <span class="stringliteral">&quot;nu_e&quot;</span>
+<a name="l00061"></a>00061                         &amp;&amp; particleName != <span class="stringliteral">&quot;nu_mu&quot;</span>
+<a name="l00062"></a>00062                         &amp;&amp; particleName != <span class="stringliteral">&quot;nu_tau&quot;</span>
+<a name="l00063"></a>00063                         &amp;&amp; particleName != <span class="stringliteral">&quot;anti_nu_e&quot;</span>
+<a name="l00064"></a>00064                         &amp;&amp; particleName != <span class="stringliteral">&quot;anti_nu_mu&quot;</span>
+<a name="l00065"></a>00065                         &amp;&amp; particleName != <span class="stringliteral">&quot;anti_nu_tau&quot;</span>
+<a name="l00066"></a>00066                    ) {
+<a name="l00067"></a>00067                         pmanager-&gt;AddDiscreteProcess(<a class="code" href="classMyStepLimiter.html#a955bef4f9eb05d91d8c2171a693a1b63">fStepLimiter</a>);
+<a name="l00068"></a>00068                 }   
+<a name="l00069"></a>00069         } 
+<a name="l00070"></a>00070 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 5 Sep 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Sep 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
