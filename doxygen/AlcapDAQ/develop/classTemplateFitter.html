@@ -37,7 +37,7 @@
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a6c63d31a4cb15615695c759ce8e2889e">TemplateFitter</a> (std::string detname, int refine_factor)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a715078aa65e3a3336cd889eb8f85831e">~TemplateFitter</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a6fd0d5c2699caf263b413be137eb332d">FitPulseToTemplate</a> (TH1D *hTemplate, TH1D *hPulse, std::string bankname)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#abe7194b952be4a7324ee310623e7bd66">FitPulseToTemplate</a> (const <a class="el" href="classTTemplate.html">TTemplate</a> *hTemplate, const TH1D *hPulse, const std::string &amp;bankname)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a41bd10fa7c79ff511d40d1cbfb05b37e">GetPedestalOffset</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#ada514f391e62893b1f1871999d7b3e18">GetAmplitudeScaleFactor</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a86d696026efbc9cf8693507102b61a06">GetTimeOffset</a> ()</td></tr>
@@ -45,6 +45,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#ac4ededa0c92c72573a8a9f97fa801766">GetNDoF</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a2a9fa840754b74eb4014e383c62ad35d">SetInitialParameterEstimates</a> (double pedestal, double amplitude, double time)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the intial estimates for the template fitter.  <a href="#a2a9fa840754b74eb4014e383c62ad35d"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a981e44aa8298bc59bd4b5686e496eb4d">operator=</a> (const <a class="el" href="classTemplateFitter.html">TemplateFitter</a> &amp;)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TFitterMinuit *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIDs_1_1channel.html">IDs::channel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateFitter.html#a138a69da2705ce3c15433dd6ff7f235d">fChannel</a></td></tr>
@@ -96,18 +98,18 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00008">8</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00009">9</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00016">fMinuitFitter</a>, <a class="el" href="TemplateFitter_8h_source.html#l00058">fRefineFactor</a>, and <a class="el" href="HistogramFitFCN_8h_source.html#l00049">HistogramFitFCN::SetRefineFactor()</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00016">fMinuitFitter</a>, <a class="el" href="TemplateFitter_8h_source.html#l00059">fRefineFactor</a>, and <a class="el" href="HistogramFitFCN_8h_source.html#l00049">HistogramFitFCN::SetRefineFactor()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00008"></a>00008                                                                   : <a class="code" href="classTemplateFitter.html#a138a69da2705ce3c15433dd6ff7f235d">fChannel</a>(detname), <a class="code" href="classTemplateFitter.html#aa90fca3e65370d9904562802d978d74d">fRefineFactor</a>(refine_factor) {
-<a name="l00009"></a>00009 
-<a name="l00010"></a>00010   <a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>* fcn = <span class="keyword">new</span> <a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>();
-<a name="l00011"></a>00011   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a> = <span class="keyword">new</span> TFitterMinuit(2); <span class="comment">//  Two (2) parameters to modify (amplitude, pedestal). We will try and do the time one ourselves</span>
-<a name="l00012"></a>00012   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetMinuitFCN(fcn);
-<a name="l00013"></a>00013   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetPrintLevel(-1); <span class="comment">// set the debug level to quiet (-1=quiet, 0=normal, 1=verbose)</span>
-<a name="l00014"></a>00014   fcn-&gt;<a class="code" href="classHistogramFitFCN.html#aac2ba4cd3aebae47f00067db7a52cdc9">SetRefineFactor</a>(<a class="code" href="classTemplateFitter.html#aa90fca3e65370d9904562802d978d74d">fRefineFactor</a>);
-<a name="l00015"></a>00015 }
+<p><div class="fragment"><pre class="fragment"><a name="l00009"></a>00009                                                                   : <a class="code" href="classTemplateFitter.html#a138a69da2705ce3c15433dd6ff7f235d">fChannel</a>(detname), <a class="code" href="classTemplateFitter.html#aa90fca3e65370d9904562802d978d74d">fRefineFactor</a>(refine_factor) {
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011   <a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>* fcn = <span class="keyword">new</span> <a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>();
+<a name="l00012"></a>00012   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a> = <span class="keyword">new</span> TFitterMinuit(2); <span class="comment">//  Two (2) parameters to modify (amplitude, pedestal). We will try and do the time one ourselves</span>
+<a name="l00013"></a>00013   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetMinuitFCN(fcn);
+<a name="l00014"></a>00014   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetPrintLevel(-1); <span class="comment">// set the debug level to quiet (-1=quiet, 0=normal, 1=verbose)</span>
+<a name="l00015"></a>00015   fcn-&gt;<a class="code" href="classHistogramFitFCN.html#aac2ba4cd3aebae47f00067db7a52cdc9">SetRefineFactor</a>(<a class="code" href="classTemplateFitter.html#aa90fca3e65370d9904562802d978d74d">fRefineFactor</a>);
+<a name="l00016"></a>00016 }
 </pre></div></p>
 
 </div>
@@ -127,35 +129,35 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00017">17</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00018">18</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00017"></a>00017                                 {
-<a name="l00018"></a>00018 }
+<p><div class="fragment"><pre class="fragment"><a name="l00018"></a>00018                                 {
+<a name="l00019"></a>00019 }
 </pre></div></p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a6fd0d5c2699caf263b413be137eb332d"></a><!-- doxytag: member="TemplateFitter::FitPulseToTemplate" ref="a6fd0d5c2699caf263b413be137eb332d" args="(TH1D *hTemplate, TH1D *hPulse, std::string bankname)" -->
+<a class="anchor" id="abe7194b952be4a7324ee310623e7bd66"></a><!-- doxytag: member="TemplateFitter::FitPulseToTemplate" ref="abe7194b952be4a7324ee310623e7bd66" args="(const TTemplate *hTemplate, const TH1D *hPulse, const std::string &amp;bankname)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int TemplateFitter::FitPulseToTemplate </td>
           <td>(</td>
-          <td class="paramtype">TH1D *&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="classTTemplate.html">TTemplate</a> *&nbsp;</td>
           <td class="paramname"> <em>hTemplate</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">TH1D *&nbsp;</td>
+          <td class="paramtype">const TH1D *&nbsp;</td>
           <td class="paramname"> <em>hPulse</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>bankname</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -167,143 +169,141 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00020">20</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00021">21</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00029">fAmplitudeScaleFactor</a>, <a class="el" href="TemplateFitter_8h_source.html#l00037">fAmplitudeScaleFactor_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00049">fAmplitudeScaleFactor_maximum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00043">fAmplitudeScaleFactor_minimum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00031">fChi2</a>, <a class="el" href="TemplateFitter_8h_source.html#l00016">fMinuitFitter</a>, <a class="el" href="TemplateFitter_8h_source.html#l00032">fNDoF</a>, <a class="el" href="TemplateFitter_8h_source.html#l00028">fPedestalOffset</a>, <a class="el" href="TemplateFitter_8h_source.html#l00036">fPedestalOffset_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00048">fPedestalOffset_maximum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00042">fPedestalOffset_minimum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00058">fRefineFactor</a>, <a class="el" href="TemplateFitter_8h_source.html#l00030">fTimeOffset</a>, <a class="el" href="TemplateFitter_8h_source.html#l00038">fTimeOffset_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00050">fTimeOffset_maximum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00044">fTimeOffset_minimum</a>, <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, <a class="el" href="HistogramFitFCN_8h_source.html#l00037">HistogramFitFCN::GetNDoF()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="HistogramFitFCN_8cpp_source.html#l00016">HistogramFitFCN::SetPulseHist()</a>, <a class="el" href="HistogramFitFCN_8cpp_source.html#l00012">HistogramFitFCN::SetTemplateHist()</a>, and <a class="el" href="HistogramFitFCN_8cpp_source.html#l00020">HistogramFitFCN::SetTimeOffset()</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00030">fAmplitudeScaleFactor</a>, <a class="el" href="TemplateFitter_8h_source.html#l00038">fAmplitudeScaleFactor_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00050">fAmplitudeScaleFactor_maximum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00044">fAmplitudeScaleFactor_minimum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00032">fChi2</a>, <a class="el" href="TemplateFitter_8h_source.html#l00016">fMinuitFitter</a>, <a class="el" href="TemplateFitter_8h_source.html#l00033">fNDoF</a>, <a class="el" href="TemplateFitter_8h_source.html#l00029">fPedestalOffset</a>, <a class="el" href="TemplateFitter_8h_source.html#l00037">fPedestalOffset_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00049">fPedestalOffset_maximum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00043">fPedestalOffset_minimum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00059">fRefineFactor</a>, <a class="el" href="TemplateFitter_8h_source.html#l00031">fTimeOffset</a>, <a class="el" href="TemplateFitter_8h_source.html#l00039">fTimeOffset_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00051">fTimeOffset_maximum</a>, <a class="el" href="TemplateFitter_8h_source.html#l00045">fTimeOffset_minimum</a>, <a class="el" href="TTemplate_8h_source.html#l00035">TTemplate::GetHisto()</a>, <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, <a class="el" href="HistogramFitFCN_8h_source.html#l00037">HistogramFitFCN::GetNDoF()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, <a class="el" href="HistogramFitFCN_8cpp_source.html#l00016">HistogramFitFCN::SetPulseHist()</a>, <a class="el" href="HistogramFitFCN_8cpp_source.html#l00012">HistogramFitFCN::SetTemplateHist()</a>, and <a class="el" href="HistogramFitFCN_8cpp_source.html#l00020">HistogramFitFCN::SetTimeOffset()</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00020"></a>00020                                                                                         {
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022   <span class="keywordtype">int</span> status; <span class="comment">// the status of the minimisation</span>
-<a name="l00023"></a>00023   <span class="keyword">static</span> <span class="keywordtype">int</span> print_dbg = <span class="keyword">false</span>;
-<a name="l00024"></a>00024 
+<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                                                                                                                {
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023   <span class="keywordtype">int</span> status; <span class="comment">// the status of the minimisation</span>
+<a name="l00024"></a>00024   <span class="keyword">static</span> <span class="keywordtype">int</span> print_dbg = <span class="keyword">false</span>;
 <a name="l00025"></a>00025 
-<a name="l00026"></a>00026   <span class="comment">// Calculate the max ADC value</span>
-<a name="l00027"></a>00027   <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
-<a name="l00028"></a>00028   <span class="keywordtype">double</span> max_adc_value = std::pow(2, n_bits);
-<a name="l00029"></a>00029 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027   <span class="comment">// Calculate the max ADC value</span>
+<a name="l00028"></a>00028   <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
+<a name="l00029"></a>00029   <span class="keywordtype">double</span> max_adc_value = std::pow(2, n_bits);
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031   <span class="comment">// Prepare for minimizations</span>
-<a name="l00032"></a>00032   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;Clear();
-<a name="l00033"></a>00033   <a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>* fcn = (<a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>*)<a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;GetMinuitFCN();
-<a name="l00034"></a>00034   fcn-&gt;<a class="code" href="classHistogramFitFCN.html#ad89b1981039c0aa54c469b4d4b07b733">SetTemplateHist</a>(hTemplate);
-<a name="l00035"></a>00035   fcn-&gt;<a class="code" href="classHistogramFitFCN.html#a1186229c6091ad7a4b41ced17da840f9">SetPulseHist</a>(hPulse);
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037   <span class="comment">//  fMinuitFitter-&gt;SetParameter(2, &quot;TimeOffset&quot;, fTimeOffset, 1., -10, 10); // Timing should have step size no smaller than binning,</span>
-<a name="l00038"></a>00038                                                     <span class="comment">// *IF* the fourth argument is step size this is okay,</span>
-<a name="l00039"></a>00039                                                     <span class="comment">// or later implement some interpolation method, note</span>
-<a name="l00040"></a>00040                                                     <span class="comment">// *DERIVATIVES* at bounderies of interpolation may cause</span>
-<a name="l00041"></a>00041                                                     <span class="comment">// problems since MIGRAD (the default method) relies on</span>
-<a name="l00042"></a>00042                                                     <span class="comment">// these heavily.</span>
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044   <span class="comment">// Loop through some time offsets ourselved</span>
-<a name="l00045"></a>00045   <span class="keywordtype">double</span> max_time_offset = 4*<a class="code" href="classTemplateFitter.html#aa90fca3e65370d9904562802d978d74d">fRefineFactor</a>; <span class="comment">// maximum distance to go from the initial estimate</span>
-<a name="l00046"></a>00046   <span class="keywordtype">double</span> best_time_offset = 0;
-<a name="l00047"></a>00047   <span class="keywordtype">double</span> best_pedestal_offset = 0;
-<a name="l00048"></a>00048   <span class="keywordtype">double</span> best_amplitude_scale_factor = 0;
-<a name="l00049"></a>00049   <span class="keywordtype">double</span> best_chi2 = 99999999999;
-<a name="l00050"></a>00050   <span class="keywordtype">int</span> best_status = -10000;
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052   <span class="comment">// Calculate the bounds of the parameters</span>
-<a name="l00053"></a>00053   <a class="code" href="classTemplateFitter.html#a243717b6cb886404827fe03017a4f66e">fTimeOffset_minimum</a> = <a class="code" href="classTemplateFitter.html#a382cf43121ddb64ce1e8eb70b68e94a0">fTimeOffset_estimate</a> - max_time_offset;
-<a name="l00054"></a>00054   <a class="code" href="classTemplateFitter.html#a463e446c6a5461d2ebfa58c704d94dca">fTimeOffset_maximum</a> = <a class="code" href="classTemplateFitter.html#a382cf43121ddb64ce1e8eb70b68e94a0">fTimeOffset_estimate</a> + max_time_offset;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056   <a class="code" href="classTemplateFitter.html#a650b71d96d0db410417801953f660ff0" title="Store the minimum parameter bounds.">fPedestalOffset_minimum</a> = 0;
-<a name="l00057"></a>00057   <a class="code" href="classTemplateFitter.html#a83e9202f77d54d39e549185146a1eddb" title="Store the maximum parameter bounds.">fPedestalOffset_maximum</a> = max_adc_value;
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059   <a class="code" href="classTemplateFitter.html#a54d64ef0a8ae1958d2f8fcc5ae159e72">fAmplitudeScaleFactor_minimum</a> = 0.1;
-<a name="l00060"></a>00060   <a class="code" href="classTemplateFitter.html#af42279e97ec901f7f9cb227ea1552589">fAmplitudeScaleFactor_maximum</a> = 100;
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062   <span class="keywordflow">for</span> (<span class="keywordtype">double</span> time_offset = <a class="code" href="classTemplateFitter.html#a243717b6cb886404827fe03017a4f66e">fTimeOffset_minimum</a>; time_offset &lt;= <a class="code" href="classTemplateFitter.html#a463e446c6a5461d2ebfa58c704d94dca">fTimeOffset_maximum</a>; ++time_offset) {
-<a name="l00063"></a>00063     <span class="keywordflow">if</span> (print_dbg) {
-<a name="l00064"></a>00064       std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateFitter: Checking time_offset = &quot;</span> &lt;&lt; time_offset &lt;&lt; std::endl;
-<a name="l00065"></a>00065     }
-<a name="l00066"></a>00066     fcn-&gt;<a class="code" href="classHistogramFitFCN.html#a713735e9b5513bd872aa8033cc8c715c">SetTimeOffset</a>(time_offset);
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <span class="comment">// Reset the estimates</span>
-<a name="l00069"></a>00069     <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> = <a class="code" href="classTemplateFitter.html#a708ca2a5ae293471758f018af818711e" title="Store the initial estimates for the parameters.">fPedestalOffset_estimate</a>;
-<a name="l00070"></a>00070     <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> = <a class="code" href="classTemplateFitter.html#aa07570f7af8762616689ec61f5d9e129">fAmplitudeScaleFactor_estimate</a>;
-<a name="l00071"></a>00071     <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetParameter(0, <span class="stringliteral">&quot;PedestalOffset&quot;</span>, <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>, 0.1, <a class="code" href="classTemplateFitter.html#a650b71d96d0db410417801953f660ff0" title="Store the minimum parameter bounds.">fPedestalOffset_minimum</a>, <a class="code" href="classTemplateFitter.html#a83e9202f77d54d39e549185146a1eddb" title="Store the maximum parameter bounds.">fPedestalOffset_maximum</a>);
-<a name="l00072"></a>00072     <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetParameter(1, <span class="stringliteral">&quot;AmplitudeScaleFactor&quot;</span>, <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>, 0.1, <a class="code" href="classTemplateFitter.html#a54d64ef0a8ae1958d2f8fcc5ae159e72">fAmplitudeScaleFactor_minimum</a>, <a class="code" href="classTemplateFitter.html#af42279e97ec901f7f9cb227ea1552589">fAmplitudeScaleFactor_maximum</a>);
-<a name="l00073"></a>00073     <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;CreateMinimizer(TFitterMinuit::kMigrad);
-<a name="l00074"></a>00074 
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032   <span class="comment">// Prepare for minimizations</span>
+<a name="l00033"></a>00033   <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;Clear();
+<a name="l00034"></a>00034   <a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>* fcn = (<a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a>*)<a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;GetMinuitFCN();
+<a name="l00035"></a>00035   fcn-&gt;<a class="code" href="classHistogramFitFCN.html#a8ffc9c64a4c8f890e5c56cd67a8fcb7c">SetTemplateHist</a>(hTemplate-&gt;<a class="code" href="classTTemplate.html#a4c7173497805f59239f92e5d3860e4e7">GetHisto</a>());
+<a name="l00036"></a>00036   fcn-&gt;<a class="code" href="classHistogramFitFCN.html#a28d0def347c40e95babd65464a8c898e">SetPulseHist</a>(hPulse);
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038   <span class="comment">//  fMinuitFitter-&gt;SetParameter(2, &quot;TimeOffset&quot;, fTimeOffset, 1., -10, 10); // Timing should have step size no smaller than binning,</span>
+<a name="l00039"></a>00039                                                     <span class="comment">// *IF* the fourth argument is step size this is okay,</span>
+<a name="l00040"></a>00040                                                     <span class="comment">// or later implement some interpolation method, note</span>
+<a name="l00041"></a>00041                                                     <span class="comment">// *DERIVATIVES* at bounderies of interpolation may cause</span>
+<a name="l00042"></a>00042                                                     <span class="comment">// problems since MIGRAD (the default method) relies on</span>
+<a name="l00043"></a>00043                                                     <span class="comment">// these heavily.</span>
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045   <span class="comment">// Loop through some time offsets ourselved</span>
+<a name="l00046"></a>00046   <span class="keywordtype">double</span> max_time_offset = 4*<a class="code" href="classTemplateFitter.html#aa90fca3e65370d9904562802d978d74d">fRefineFactor</a>; <span class="comment">// maximum distance to go from the initial estimate</span>
+<a name="l00047"></a>00047   <span class="keywordtype">double</span> best_time_offset = 0;
+<a name="l00048"></a>00048   <span class="keywordtype">double</span> best_pedestal_offset = 0;
+<a name="l00049"></a>00049   <span class="keywordtype">double</span> best_amplitude_scale_factor = 0;
+<a name="l00050"></a>00050   <span class="keywordtype">double</span> best_chi2 = 99999999999;
+<a name="l00051"></a>00051   <span class="keywordtype">int</span> best_status = -10000;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053   <span class="comment">// Calculate the bounds of the parameters</span>
+<a name="l00054"></a>00054   <a class="code" href="classTemplateFitter.html#a243717b6cb886404827fe03017a4f66e">fTimeOffset_minimum</a> = <a class="code" href="classTemplateFitter.html#a382cf43121ddb64ce1e8eb70b68e94a0">fTimeOffset_estimate</a> - max_time_offset;
+<a name="l00055"></a>00055   <a class="code" href="classTemplateFitter.html#a463e446c6a5461d2ebfa58c704d94dca">fTimeOffset_maximum</a> = <a class="code" href="classTemplateFitter.html#a382cf43121ddb64ce1e8eb70b68e94a0">fTimeOffset_estimate</a> + max_time_offset;
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057   <a class="code" href="classTemplateFitter.html#a650b71d96d0db410417801953f660ff0" title="Store the minimum parameter bounds.">fPedestalOffset_minimum</a> = 0;
+<a name="l00058"></a>00058   <a class="code" href="classTemplateFitter.html#a83e9202f77d54d39e549185146a1eddb" title="Store the maximum parameter bounds.">fPedestalOffset_maximum</a> = max_adc_value;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060   <a class="code" href="classTemplateFitter.html#a54d64ef0a8ae1958d2f8fcc5ae159e72">fAmplitudeScaleFactor_minimum</a> = 0.1;
+<a name="l00061"></a>00061   <a class="code" href="classTemplateFitter.html#af42279e97ec901f7f9cb227ea1552589">fAmplitudeScaleFactor_maximum</a> = 100;
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063   <span class="keywordflow">for</span> (<span class="keywordtype">double</span> time_offset = <a class="code" href="classTemplateFitter.html#a243717b6cb886404827fe03017a4f66e">fTimeOffset_minimum</a>; time_offset &lt;= <a class="code" href="classTemplateFitter.html#a463e446c6a5461d2ebfa58c704d94dca">fTimeOffset_maximum</a>; ++time_offset) {
+<a name="l00064"></a>00064     <span class="keywordflow">if</span> (print_dbg) {
+<a name="l00065"></a>00065       std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateFitter: Checking time_offset = &quot;</span> &lt;&lt; time_offset &lt;&lt; std::endl;
+<a name="l00066"></a>00066     }
+<a name="l00067"></a>00067     fcn-&gt;<a class="code" href="classHistogramFitFCN.html#a713735e9b5513bd872aa8033cc8c715c">SetTimeOffset</a>(time_offset);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <span class="comment">// Reset the estimates</span>
+<a name="l00070"></a>00070     <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> = <a class="code" href="classTemplateFitter.html#a708ca2a5ae293471758f018af818711e" title="Store the initial estimates for the parameters.">fPedestalOffset_estimate</a>;
+<a name="l00071"></a>00071     <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> = <a class="code" href="classTemplateFitter.html#aa07570f7af8762616689ec61f5d9e129">fAmplitudeScaleFactor_estimate</a>;
+<a name="l00072"></a>00072     <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetParameter(0, <span class="stringliteral">&quot;PedestalOffset&quot;</span>, <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>, 0.1, <a class="code" href="classTemplateFitter.html#a650b71d96d0db410417801953f660ff0" title="Store the minimum parameter bounds.">fPedestalOffset_minimum</a>, <a class="code" href="classTemplateFitter.html#a83e9202f77d54d39e549185146a1eddb" title="Store the maximum parameter bounds.">fPedestalOffset_maximum</a>);
+<a name="l00073"></a>00073     <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;SetParameter(1, <span class="stringliteral">&quot;AmplitudeScaleFactor&quot;</span>, <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>, 0.1, <a class="code" href="classTemplateFitter.html#a54d64ef0a8ae1958d2f8fcc5ae159e72">fAmplitudeScaleFactor_minimum</a>, <a class="code" href="classTemplateFitter.html#af42279e97ec901f7f9cb227ea1552589">fAmplitudeScaleFactor_maximum</a>);
+<a name="l00074"></a>00074     <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;CreateMinimizer(TFitterMinuit::kMigrad);
 <a name="l00075"></a>00075 
-<a name="l00076"></a>00076     <span class="comment">// Minimize and notify if there was a problem</span>
-<a name="l00077"></a>00077     status = <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;Minimize(1000); <span class="comment">// set limit of 1000 calls to FCN</span>
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079     <span class="keywordflow">if</span> (print_dbg) {
-<a name="l00080"></a>00080       <span class="keywordflow">if</span> (status != 0)
-<a name="l00081"></a>00081         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: Problem with fit (&quot;</span> &lt;&lt; status &lt;&lt; <span class="stringliteral">&quot;)!&quot;</span> &lt;&lt; std::endl;
-<a name="l00082"></a>00082     }
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     <span class="comment">// Get the fitted values</span>
-<a name="l00085"></a>00085     <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> = <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;GetParameter(0);
-<a name="l00086"></a>00086     <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> = <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;GetParameter(1);
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088     <span class="keywordtype">double</span> delta_ped_offset_error = 1; <span class="comment">// if the given parameter is within this much of the boundaries, then we will ignore it</span>
-<a name="l00089"></a>00089     <span class="keywordtype">double</span> delta_amp_sf_error = 0.001;
-<a name="l00090"></a>00090     <span class="keywordflow">if</span> ( (fPedestalOffset &lt; fPedestalOffset_minimum + delta_ped_offset_error &amp;&amp; fPedestalOffset &gt; <a class="code" href="classTemplateFitter.html#a650b71d96d0db410417801953f660ff0" title="Store the minimum parameter bounds.">fPedestalOffset_minimum</a> - delta_ped_offset_error) ||
-<a name="l00091"></a>00091          (fPedestalOffset &lt; fPedestalOffset_maximum + delta_ped_offset_error &amp;&amp; fPedestalOffset &gt; <a class="code" href="classTemplateFitter.html#a83e9202f77d54d39e549185146a1eddb" title="Store the maximum parameter bounds.">fPedestalOffset_maximum</a> - delta_ped_offset_error) ) {
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093       <span class="keywordflow">if</span> (print_dbg) {
-<a name="l00094"></a>00094         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: PedestalOffset has hit a boundary (&quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
-<a name="l00095"></a>00095       }
-<a name="l00096"></a>00096       status = -9999;
-<a name="l00097"></a>00097     }
-<a name="l00098"></a>00098     <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( (fAmplitudeScaleFactor &lt; fAmplitudeScaleFactor_minimum + delta_amp_sf_error &amp;&amp; fAmplitudeScaleFactor &gt; <a class="code" href="classTemplateFitter.html#a54d64ef0a8ae1958d2f8fcc5ae159e72">fAmplitudeScaleFactor_minimum</a> - delta_amp_sf_error) ||
-<a name="l00099"></a>00099               (fAmplitudeScaleFactor &lt; fAmplitudeScaleFactor_maximum + delta_amp_sf_error &amp;&amp; fAmplitudeScaleFactor &gt; <a class="code" href="classTemplateFitter.html#af42279e97ec901f7f9cb227ea1552589">fAmplitudeScaleFactor_maximum</a> - delta_amp_sf_error) ) {
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101       <span class="keywordflow">if</span> (print_dbg) {
-<a name="l00102"></a>00102         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: AmplitudeScaleFactor has hit a boundary (&quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
-<a name="l00103"></a>00103       }
-<a name="l00104"></a>00104       status = -9999;
-<a name="l00105"></a>00105     }
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107     <span class="comment">//    fTimeOffset = fMinuitFitter-&gt;GetParameter(2);</span>
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109     <span class="comment">// Store the Chi2, and then we can delete the pulse</span>
-<a name="l00110"></a>00110     std::vector&lt;double&gt; params; 
-<a name="l00111"></a>00111     params.push_back(<a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>); 
-<a name="l00112"></a>00112     params.push_back(<a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>); 
-<a name="l00113"></a>00113     <span class="comment">//    params.push_back(fTimeOffset); </span>
-<a name="l00114"></a>00114     <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> = (*fcn)(params);
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116     <a class="code" href="classTemplateFitter.html#adbb0a4181d8b2c7c674fcd432f99f708">fNDoF</a> = fcn-&gt;<a class="code" href="classHistogramFitFCN.html#a0e39b9380bd07f8d9cb6c24c4eca1bbf">GetNDoF</a>();
-<a name="l00117"></a>00117 
-<a name="l00118"></a>00118     <span class="keywordflow">if</span> (status == 0 &amp;&amp; <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> &lt; best_chi2) {
-<a name="l00119"></a>00119       best_time_offset = time_offset;
-<a name="l00120"></a>00120       best_pedestal_offset = <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>;
-<a name="l00121"></a>00121       best_amplitude_scale_factor = <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>;
-<a name="l00122"></a>00122       best_chi2 = <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a>;
-<a name="l00123"></a>00123       best_status = status;
-<a name="l00124"></a>00124     }
-<a name="l00125"></a>00125 
-<a name="l00126"></a>00126     <span class="keywordflow">if</span> (print_dbg) {
-<a name="l00127"></a>00127       std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateFitter::FitPulseToTemplate(): Fit:\tChi2 &quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> &lt;&lt; <span class="stringliteral">&quot;\tP &quot;</span>
-<a name="l00128"></a>00128                 &lt;&lt; <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> &lt;&lt; <span class="stringliteral">&quot;\tA &quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> &lt;&lt; <span class="stringliteral">&quot;\tT &quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a> 
-<a name="l00129"></a>00129                 &lt;&lt; <span class="stringliteral">&quot;, ndof = &quot;</span> &lt;&lt; fNDoF &lt;&lt; <span class="stringliteral">&quot;, prob = &quot;</span> &lt;&lt; TMath::Prob(<a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a>, fNDoF) &lt;&lt; std::endl;
-<a name="l00130"></a>00130     }
-<a name="l00131"></a>00131   }
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133   <span class="comment">// Store the final best values</span>
-<a name="l00134"></a>00134   <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> = best_chi2;
-<a name="l00135"></a>00135   <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a> = best_time_offset;
-<a name="l00136"></a>00136   <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> = best_pedestal_offset;
-<a name="l00137"></a>00137   <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> = best_amplitude_scale_factor;
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139   <span class="keywordtype">double</span> delta_time_offset_error = 1;
-<a name="l00140"></a>00140   <span class="keywordflow">if</span> ( (fTimeOffset &lt; fTimeOffset_minimum + delta_time_offset_error &amp;&amp; fTimeOffset &gt; <a class="code" href="classTemplateFitter.html#a243717b6cb886404827fe03017a4f66e">fTimeOffset_minimum</a> - delta_time_offset_error) ||
-<a name="l00141"></a>00141        (fTimeOffset &lt; fTimeOffset_maximum + delta_time_offset_error &amp;&amp; fTimeOffset &gt; <a class="code" href="classTemplateFitter.html#a463e446c6a5461d2ebfa58c704d94dca">fTimeOffset_maximum</a> - delta_time_offset_error) ) {
-<a name="l00142"></a>00142 
-<a name="l00143"></a>00143       <span class="keywordflow">if</span> (print_dbg) {
-<a name="l00144"></a>00144         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: TimeOffset has hit a boundary (&quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
-<a name="l00145"></a>00145       }
-<a name="l00146"></a>00146       best_status = -9999;
-<a name="l00147"></a>00147   }
-<a name="l00148"></a>00148 
-<a name="l00149"></a>00149   <span class="keywordflow">return</span> best_status; <span class="comment">// return status for the calling module to look at</span>
-<a name="l00150"></a>00150 }
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077     <span class="comment">// Minimize and notify if there was a problem</span>
+<a name="l00078"></a>00078     status = <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;Minimize(1000); <span class="comment">// set limit of 1000 calls to FCN</span>
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080     <span class="keywordflow">if</span> (print_dbg) {
+<a name="l00081"></a>00081       <span class="keywordflow">if</span> (status != 0)
+<a name="l00082"></a>00082         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: Problem with fit (&quot;</span> &lt;&lt; status &lt;&lt; <span class="stringliteral">&quot;)!&quot;</span> &lt;&lt; std::endl;
+<a name="l00083"></a>00083     }
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085     <span class="comment">// Get the fitted values</span>
+<a name="l00086"></a>00086     <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> = <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;GetParameter(0);
+<a name="l00087"></a>00087     <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> = <a class="code" href="classTemplateFitter.html#ac23842be82a73ac50c17f7648a75de77">fMinuitFitter</a>-&gt;GetParameter(1);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     <span class="keywordtype">double</span> delta_ped_offset_error = 1; <span class="comment">// if the given parameter is within this much of the boundaries, then we will ignore it</span>
+<a name="l00090"></a>00090     <span class="keywordtype">double</span> delta_amp_sf_error = 0.001;
+<a name="l00091"></a>00091     <span class="keywordflow">if</span> ( (fPedestalOffset &lt; fPedestalOffset_minimum + delta_ped_offset_error &amp;&amp; fPedestalOffset &gt; <a class="code" href="classTemplateFitter.html#a650b71d96d0db410417801953f660ff0" title="Store the minimum parameter bounds.">fPedestalOffset_minimum</a> - delta_ped_offset_error) ||
+<a name="l00092"></a>00092          (fPedestalOffset &lt; fPedestalOffset_maximum + delta_ped_offset_error &amp;&amp; fPedestalOffset &gt; <a class="code" href="classTemplateFitter.html#a83e9202f77d54d39e549185146a1eddb" title="Store the maximum parameter bounds.">fPedestalOffset_maximum</a> - delta_ped_offset_error) ) {
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094       <span class="keywordflow">if</span> (print_dbg) {
+<a name="l00095"></a>00095         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: PedestalOffset has hit a boundary (&quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
+<a name="l00096"></a>00096       }
+<a name="l00097"></a>00097       status = -9999;
+<a name="l00098"></a>00098     }
+<a name="l00099"></a>00099     <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( (fAmplitudeScaleFactor &lt; fAmplitudeScaleFactor_minimum + delta_amp_sf_error &amp;&amp; fAmplitudeScaleFactor &gt; <a class="code" href="classTemplateFitter.html#a54d64ef0a8ae1958d2f8fcc5ae159e72">fAmplitudeScaleFactor_minimum</a> - delta_amp_sf_error) ||
+<a name="l00100"></a>00100               (fAmplitudeScaleFactor &lt; fAmplitudeScaleFactor_maximum + delta_amp_sf_error &amp;&amp; fAmplitudeScaleFactor &gt; <a class="code" href="classTemplateFitter.html#af42279e97ec901f7f9cb227ea1552589">fAmplitudeScaleFactor_maximum</a> - delta_amp_sf_error) ) {
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102       <span class="keywordflow">if</span> (print_dbg) {
+<a name="l00103"></a>00103         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: AmplitudeScaleFactor has hit a boundary (&quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
+<a name="l00104"></a>00104       }
+<a name="l00105"></a>00105       status = -9999;
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="comment">//    fTimeOffset = fMinuitFitter-&gt;GetParameter(2);</span>
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110     <span class="comment">// Store the Chi2, and then we can delete the pulse</span>
+<a name="l00111"></a>00111     std::vector&lt;double&gt; params; 
+<a name="l00112"></a>00112     params.push_back(<a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>); 
+<a name="l00113"></a>00113     params.push_back(<a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>); 
+<a name="l00114"></a>00114     <span class="comment">//    params.push_back(fTimeOffset); </span>
+<a name="l00115"></a>00115     <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> = (*fcn)(params);
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117     <a class="code" href="classTemplateFitter.html#adbb0a4181d8b2c7c674fcd432f99f708">fNDoF</a> = fcn-&gt;<a class="code" href="classHistogramFitFCN.html#a0e39b9380bd07f8d9cb6c24c4eca1bbf">GetNDoF</a>();
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119     <span class="keywordflow">if</span> (status == 0 &amp;&amp; <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> &lt; best_chi2) {
+<a name="l00120"></a>00120       best_time_offset = time_offset;
+<a name="l00121"></a>00121       best_pedestal_offset = <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>;
+<a name="l00122"></a>00122       best_amplitude_scale_factor = <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>;
+<a name="l00123"></a>00123       best_chi2 = <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a>;
+<a name="l00124"></a>00124       best_status = status;
+<a name="l00125"></a>00125     }
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127     <span class="keywordflow">if</span> (print_dbg) {
+<a name="l00128"></a>00128       std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateFitter::FitPulseToTemplate(): Fit:\tChi2 &quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> &lt;&lt; <span class="stringliteral">&quot;\tP &quot;</span>
+<a name="l00129"></a>00129                 &lt;&lt; <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> &lt;&lt; <span class="stringliteral">&quot;\tA &quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> &lt;&lt; <span class="stringliteral">&quot;\tT &quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a> 
+<a name="l00130"></a>00130                 &lt;&lt; <span class="stringliteral">&quot;, ndof = &quot;</span> &lt;&lt; fNDoF &lt;&lt; <span class="stringliteral">&quot;, prob = &quot;</span> &lt;&lt; TMath::Prob(<a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a>, fNDoF) &lt;&lt; std::endl;
+<a name="l00131"></a>00131     }
+<a name="l00132"></a>00132   }
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134   <span class="comment">// Store the final best values</span>
+<a name="l00135"></a>00135   <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a> = best_chi2;
+<a name="l00136"></a>00136   <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a> = best_time_offset;
+<a name="l00137"></a>00137   <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a> = best_pedestal_offset;
+<a name="l00138"></a>00138   <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a> = best_amplitude_scale_factor;
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140   <span class="keywordtype">double</span> delta_time_offset_error = 1;
+<a name="l00141"></a>00141   <span class="keywordflow">if</span> ( (fTimeOffset &lt; fTimeOffset_minimum + delta_time_offset_error &amp;&amp; fTimeOffset &gt; <a class="code" href="classTemplateFitter.html#a243717b6cb886404827fe03017a4f66e">fTimeOffset_minimum</a> - delta_time_offset_error) ||
+<a name="l00142"></a>00142        (fTimeOffset &lt; fTimeOffset_maximum + delta_time_offset_error &amp;&amp; fTimeOffset &gt; <a class="code" href="classTemplateFitter.html#a463e446c6a5461d2ebfa58c704d94dca">fTimeOffset_maximum</a> - delta_time_offset_error) ) {
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144       <span class="keywordflow">if</span> (print_dbg) {
+<a name="l00145"></a>00145         std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: TimeOffset has hit a boundary (&quot;</span> &lt;&lt; <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
+<a name="l00146"></a>00146       }
+<a name="l00147"></a>00147       best_status = -9999;
+<a name="l00148"></a>00148   }
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150   <span class="keywordflow">return</span> best_status; <span class="comment">// return status for the calling module to look at</span>
+<a name="l00151"></a>00151 }
 </pre></div></p>
 
 </div>
@@ -323,13 +323,13 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00021">21</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00022">22</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00029">fAmplitudeScaleFactor</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00030">fAmplitudeScaleFactor</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00403">TemplateCreator::CorrectSampleValue()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">TemplateCreator::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00022"></a>00022 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#aad8006d773f1396f96924861d323796d">fAmplitudeScaleFactor</a>; }
 </pre></div></p>
 
 </div>
@@ -349,13 +349,11 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00023">23</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00024">24</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00031">fChi2</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00032">fChi2</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00023"></a>00023 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#a1e7b2113ea07cfe1bb2bbb63dd24c7cd">fChi2</a>; }
 </pre></div></p>
 
 </div>
@@ -375,13 +373,11 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00024">24</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00025">25</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00032">fNDoF</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00033">fNDoF</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00024"></a>00024 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#adbb0a4181d8b2c7c674fcd432f99f708">fNDoF</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00025"></a>00025 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#adbb0a4181d8b2c7c674fcd432f99f708">fNDoF</a>; }
 </pre></div></p>
 
 </div>
@@ -401,13 +397,13 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00020">20</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00021">21</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00028">fPedestalOffset</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00029">fPedestalOffset</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00403">TemplateCreator::CorrectSampleValue()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">TemplateCreator::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00020"></a>00020 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#a947aca75147c66f24f4897712800ffd8">fPedestalOffset</a>; }
 </pre></div></p>
 
 </div>
@@ -427,14 +423,32 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00022">22</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00023">23</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00030">fTimeOffset</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00031">fTimeOffset</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00353">TemplateCreator::AddPulseToTemplate()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">TemplateCreator::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00022"></a>00022 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00023"></a>00023 { <span class="keywordflow">return</span> <a class="code" href="classTemplateFitter.html#a48a2b0efefb5d2cfe3d6a5aa3c82e05a">fTimeOffset</a>; }
 </pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a981e44aa8298bc59bd4b5686e496eb4d"></a><!-- doxytag: member="TemplateFitter::operator=" ref="a981e44aa8298bc59bd4b5686e496eb4d" args="(const TemplateFitter &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TemplateFitter::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTemplateFitter.html">TemplateFitter</a> &amp;&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -471,17 +485,15 @@
 
 <p>Sets the intial estimates for the template fitter. </p>
 
-<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00164">164</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8cpp_source.html#l00165">165</a> of file <a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a>.</p>
 
-<p>References <a class="el" href="TemplateFitter_8h_source.html#l00037">fAmplitudeScaleFactor_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00036">fPedestalOffset_estimate</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00038">fTimeOffset_estimate</a>.</p>
+<p>References <a class="el" href="TemplateFitter_8h_source.html#l00038">fAmplitudeScaleFactor_estimate</a>, <a class="el" href="TemplateFitter_8h_source.html#l00037">fPedestalOffset_estimate</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00039">fTimeOffset_estimate</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00164"></a>00164                                                                                                 {
-<a name="l00165"></a>00165   <a class="code" href="classTemplateFitter.html#a708ca2a5ae293471758f018af818711e" title="Store the initial estimates for the parameters.">fPedestalOffset_estimate</a> = pedestal;
-<a name="l00166"></a>00166   <a class="code" href="classTemplateFitter.html#aa07570f7af8762616689ec61f5d9e129">fAmplitudeScaleFactor_estimate</a> = amplitude;
-<a name="l00167"></a>00167   <a class="code" href="classTemplateFitter.html#a382cf43121ddb64ce1e8eb70b68e94a0">fTimeOffset_estimate</a> = time;
-<a name="l00168"></a>00168 }
+<p><div class="fragment"><pre class="fragment"><a name="l00165"></a>00165                                                                                                 {
+<a name="l00166"></a>00166   <a class="code" href="classTemplateFitter.html#a708ca2a5ae293471758f018af818711e" title="Store the initial estimates for the parameters.">fPedestalOffset_estimate</a> = pedestal;
+<a name="l00167"></a>00167   <a class="code" href="classTemplateFitter.html#aa07570f7af8762616689ec61f5d9e129">fAmplitudeScaleFactor_estimate</a> = amplitude;
+<a name="l00168"></a>00168   <a class="code" href="classTemplateFitter.html#a382cf43121ddb64ce1e8eb70b68e94a0">fTimeOffset_estimate</a> = time;
+<a name="l00169"></a>00169 }
 </pre></div></p>
 
 </div>
@@ -498,9 +510,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00029">29</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00030">30</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00021">GetAmplitudeScaleFactor()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00022">GetAmplitudeScaleFactor()</a>.</p>
 
 </div>
 </div>
@@ -515,9 +527,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00037">37</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00038">38</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00164">SetInitialParameterEstimates()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00165">SetInitialParameterEstimates()</a>.</p>
 
 </div>
 </div>
@@ -532,9 +544,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00049">49</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00050">50</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>.</p>
 
 </div>
 </div>
@@ -549,9 +561,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00043">43</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00044">44</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>.</p>
 
 </div>
 </div>
@@ -566,7 +578,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00027">27</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00028">28</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
 </div>
 </div>
@@ -581,9 +593,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00031">31</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00032">32</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00023">GetChi2()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00024">GetChi2()</a>.</p>
 
 </div>
 </div>
@@ -600,7 +612,7 @@
 
 <p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00016">16</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00008">TemplateFitter()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00009">TemplateFitter()</a>.</p>
 
 </div>
 </div>
@@ -615,9 +627,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00032">32</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00033">33</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00024">GetNDoF()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00025">GetNDoF()</a>.</p>
 
 </div>
 </div>
@@ -632,9 +644,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00028">28</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00029">29</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00020">GetPedestalOffset()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00021">GetPedestalOffset()</a>.</p>
 
 </div>
 </div>
@@ -651,9 +663,9 @@
 
 <p>Store the initial estimates for the parameters. </p>
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00036">36</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00037">37</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00164">SetInitialParameterEstimates()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00165">SetInitialParameterEstimates()</a>.</p>
 
 </div>
 </div>
@@ -670,9 +682,9 @@
 
 <p>Store the maximum parameter bounds. </p>
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00048">48</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00049">49</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>.</p>
 
 </div>
 </div>
@@ -689,9 +701,9 @@
 
 <p>Store the minimum parameter bounds. </p>
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00042">42</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00043">43</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>.</p>
 
 </div>
 </div>
@@ -706,9 +718,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00058">58</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00059">59</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00008">TemplateFitter()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00009">TemplateFitter()</a>.</p>
 
 </div>
 </div>
@@ -723,9 +735,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00030">30</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00031">31</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00022">GetTimeOffset()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00023">GetTimeOffset()</a>.</p>
 
 </div>
 </div>
@@ -740,9 +752,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00038">38</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00039">39</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00164">SetInitialParameterEstimates()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00165">SetInitialParameterEstimates()</a>.</p>
 
 </div>
 </div>
@@ -757,9 +769,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00050">50</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00051">51</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>.</p>
 
 </div>
 </div>
@@ -774,18 +786,18 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00044">44</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateFitter_8h_source.html#l00045">45</a> of file <a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00020">FitPulseToTemplate()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateFitter_8cpp_source.html#l00021">FitPulseToTemplate()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>rootana/src/TAP_generators/utils/<a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a></li>
-<li>rootana/src/TAP_generators/utils/<a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a></li>
+<li>rootana/src/TAP_generators/template_fitting/<a class="el" href="TemplateFitter_8h_source.html">TemplateFitter.h</a></li>
+<li>rootana/src/TAP_generators/template_fitting/<a class="el" href="TemplateFitter_8cpp_source.html">TemplateFitter.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

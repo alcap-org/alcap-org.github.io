@@ -46,6 +46,7 @@
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classTSetupData.html">TSetupData</a> *const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventNavigator.html#a2c61e5fb29f625bc1bd817e5c2c6ea92">GetSetupData</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classSetupRecord.html">SetupRecord</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventNavigator.html#a367fbff11a84f03d8c4b80f9bcb5b700">GetSetupRecord</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classLoopSequence.html">LoopSequence</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventNavigator.html#a372d8a054bd465b922246436a28e5893">GetLoopSequence</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventNavigator.html#a75fca8fa8d33e08e399c052461db1206">GetOutputFileName</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classLoopSequence.html">LoopSequence</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventNavigator.html#ad009a7feece0bfeb66c715d1247f2763">MakeLoopSequence</a> (const <a class="el" href="structARGUMENTS.html">ARGUMENTS</a> &amp;args)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Bool_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventNavigator.html#a15a0e8a870b53499f07f115eaef80fb6">ConnectInput</a> (const char *input_name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Bool_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventNavigator.html#a1421e28fc29753d8ad4161aef39b4801">ConnectOutput</a> (const char *output_name, <a class="el" href="classEventNavigator.html#add960fa12166d26ce1a5a5cbdcf08ee3">OutputMode</a> mode=kOverwrite)</td></tr>
@@ -276,7 +277,7 @@ Ownership</a></h2>
 
 <p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00059">59</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00239">fOutput</a>, and <a class="el" href="EventNavigator_8h_source.html#l00236">fRawInput</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00241">fOutput</a>, and <a class="el" href="EventNavigator_8h_source.html#l00238">fRawInput</a>.</p>
 
 <p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00036">InitInstance()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00050">Instance()</a>.</p>
 
@@ -335,9 +336,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00228">228</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00230">230</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00228"></a>00228 {};
+<p><div class="fragment"><pre class="fragment"><a name="l00230"></a>00230 {};
 </pre></div></p>
 
 </div>
@@ -580,16 +581,16 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00353">353</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00358">358</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00239">fOutput</a>, and <a class="el" href="EventNavigator_8h_source.html#l00236">fRawInput</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00241">fOutput</a>, and <a class="el" href="EventNavigator_8h_source.html#l00238">fRawInput</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00166">Finish()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00354"></a>00354 {
-<a name="l00355"></a>00355   <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d" title="Input ROOT file, raw format.">fRawInput</a>) <a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d" title="Input ROOT file, raw format.">fRawInput</a>-&gt;Close();
-<a name="l00356"></a>00356   <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>) <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>-&gt;Close();
-<a name="l00357"></a>00357 }
+<p><div class="fragment"><pre class="fragment"><a name="l00359"></a>00359 {
+<a name="l00360"></a>00360   <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d" title="Input ROOT file, raw format.">fRawInput</a>) <a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d" title="Input ROOT file, raw format.">fRawInput</a>-&gt;Close();
+<a name="l00361"></a>00361   <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>) <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>-&gt;Close();
+<a name="l00362"></a>00362 }
 </pre></div></p>
 
 </div>
@@ -611,34 +612,34 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Opens an input file and connects to the trees therein. Returns true if file exists, is a ROOT file, and contains at least one EACH of setup and event trees that we recognise. Else false. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00110">110</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00115">115</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00136">ConnectRawData()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00192">ConnectSetupData()</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">AlCapFormat::Raw::DataTreeName</a>, <a class="el" href="EventNavigator_8h_source.html#l00242">fEntryNo</a>, <a class="el" href="EventNavigator_8h_source.html#l00248">fSetupTree</a>, and <a class="el" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">AlCapFormat::Raw::SetupTreeName</a>.</p>
+<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00141">ConnectRawData()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00197">ConnectSetupData()</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">AlCapFormat::Raw::DataTreeName</a>, <a class="el" href="EventNavigator_8h_source.html#l00244">fEntryNo</a>, <a class="el" href="EventNavigator_8h_source.html#l00250">fSetupTree</a>, and <a class="el" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">AlCapFormat::Raw::SetupTreeName</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00076">main()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00111"></a>00111 {
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113   TFile* ifile = TFile::Open(input_name, <span class="stringliteral">&quot;READ&quot;</span>);
-<a name="l00114"></a>00114   <span class="keywordflow">if</span> (!ifile) <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00115"></a>00115   TList* lok = ifile-&gt;GetListOfKeys();
-<a name="l00116"></a>00116   <span class="keywordtype">bool</span> success_data = <span class="keyword">false</span>;
-<a name="l00117"></a>00117   <span class="keywordtype">bool</span> success_meta = <span class="keyword">false</span>;
-<a name="l00118"></a>00118   <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a> = 0x0;
-<a name="l00119"></a>00119   <span class="keywordflow">if</span> (lok-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">Format::Raw::SetupTreeName</a>) ) {
-<a name="l00120"></a>00120     <span class="keywordflow">if</span> ( <a class="code" href="classEventNavigator.html#a023e71979ba2bf0ad5e002846bb7e287">ConnectSetupData</a>(ifile) != 0x0)
-<a name="l00121"></a>00121       success_meta = <span class="keyword">true</span>;
-<a name="l00122"></a>00122   }
-<a name="l00123"></a>00123   <span class="comment">//TTree* raw_tree = 0x0;</span>
-<a name="l00124"></a>00124   <span class="keywordflow">if</span> (lok-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">Format::Raw::DataTreeName</a>) ) {
-<a name="l00125"></a>00125     <span class="keywordflow">if</span> ( <a class="code" href="classEventNavigator.html#a5520a774fe5b5c51c9e63501ba51fe69">ConnectRawData</a>(ifile) != 0x0)
-<a name="l00126"></a>00126       success_data = <span class="keyword">true</span>;
+<p><div class="fragment"><pre class="fragment"><a name="l00116"></a>00116 {
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118   TFile* ifile = TFile::Open(input_name, <span class="stringliteral">&quot;READ&quot;</span>);
+<a name="l00119"></a>00119   <span class="keywordflow">if</span> (!ifile) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00120"></a>00120   TList* lok = ifile-&gt;GetListOfKeys();
+<a name="l00121"></a>00121   <span class="keywordtype">bool</span> success_data = <span class="keyword">false</span>;
+<a name="l00122"></a>00122   <span class="keywordtype">bool</span> success_meta = <span class="keyword">false</span>;
+<a name="l00123"></a>00123   <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a> = 0x0;
+<a name="l00124"></a>00124   <span class="keywordflow">if</span> (lok-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">Format::Raw::SetupTreeName</a>) ) {
+<a name="l00125"></a>00125     <span class="keywordflow">if</span> ( <a class="code" href="classEventNavigator.html#a023e71979ba2bf0ad5e002846bb7e287">ConnectSetupData</a>(ifile) != 0x0)
+<a name="l00126"></a>00126       success_meta = <span class="keyword">true</span>;
 <a name="l00127"></a>00127   }
-<a name="l00128"></a>00128   <span class="comment">//if (TODO: lok contians other trees)</span>
-<a name="l00129"></a>00129 
-<a name="l00130"></a>00130   <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a> = 0;
-<a name="l00131"></a>00131   <span class="keywordflow">return</span> success_data &amp;&amp; success_meta;
-<a name="l00132"></a>00132 }
+<a name="l00128"></a>00128   <span class="comment">//TTree* raw_tree = 0x0;</span>
+<a name="l00129"></a>00129   <span class="keywordflow">if</span> (lok-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">Format::Raw::DataTreeName</a>) ) {
+<a name="l00130"></a>00130     <span class="keywordflow">if</span> ( <a class="code" href="classEventNavigator.html#a5520a774fe5b5c51c9e63501ba51fe69">ConnectRawData</a>(ifile) != 0x0)
+<a name="l00131"></a>00131       success_data = <span class="keyword">true</span>;
+<a name="l00132"></a>00132   }
+<a name="l00133"></a>00133   <span class="comment">//if (TODO: lok contians other trees)</span>
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135   <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a> = 0;
+<a name="l00136"></a>00136   <span class="keywordflow">return</span> success_data &amp;&amp; success_meta;
+<a name="l00137"></a>00137 }
 </pre></div></p>
 
 </div>
@@ -669,22 +670,22 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Opens an output file to put trees and histograms in. By default this overites any existing file with the same name but we can change it to fail instead. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00242">242</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00247">247</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00233">fCopyRaw</a>, <a class="el" href="EventNavigator_8h_source.html#l00239">fOutput</a>, <a class="el" href="EventNavigator_8h_source.html#l00255">fRawData</a>, <a class="el" href="EventNavigator_8h_source.html#l00245">fRawTree</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00258">MirrorRawInputFormat()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00235">fCopyRaw</a>, <a class="el" href="EventNavigator_8h_source.html#l00241">fOutput</a>, <a class="el" href="EventNavigator_8h_source.html#l00257">fRawData</a>, <a class="el" href="EventNavigator_8h_source.html#l00247">fRawTree</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00263">MirrorRawInputFormat()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00243"></a>00243 {
-<a name="l00244"></a>00244   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* output_mode[3] = {<span class="stringliteral">&quot;NEW&quot;</span>, <span class="stringliteral">&quot;RECREATE&quot;</span>, <span class="stringliteral">&quot;UPDATE&quot;</span>};
-<a name="l00245"></a>00245   TFile* ofile = TFile::Open(output_name, output_mode[mode]);
-<a name="l00246"></a>00246   <span class="keywordflow">if</span> (!ofile) <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00247"></a>00247   
-<a name="l00248"></a>00248   <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a> = ofile;
-<a name="l00249"></a>00249 <span class="preprocessor">#ifdef DEFER</span>
-<a name="l00250"></a>00250 <span class="preprocessor"></span>  <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a> &amp;&amp; <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> &amp;&amp; <a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">fCopyRaw</a>) <a class="code" href="classEventNavigator.html#a04ec0be5cd638b6354d088216cd57d25" title="Copy the input raw data tree (TGlobalData) to the output file.">MirrorRawInputFormat</a>();
-<a name="l00251"></a>00251 <span class="preprocessor">#endif</span>
-<a name="l00252"></a>00252 <span class="preprocessor"></span>
-<a name="l00253"></a>00253   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00254"></a>00254 }
+<p><div class="fragment"><pre class="fragment"><a name="l00248"></a>00248 {
+<a name="l00249"></a>00249   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* output_mode[3] = {<span class="stringliteral">&quot;NEW&quot;</span>, <span class="stringliteral">&quot;RECREATE&quot;</span>, <span class="stringliteral">&quot;UPDATE&quot;</span>};
+<a name="l00250"></a>00250   TFile* ofile = TFile::Open(output_name, output_mode[mode]);
+<a name="l00251"></a>00251   <span class="keywordflow">if</span> (!ofile) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00252"></a>00252   
+<a name="l00253"></a>00253   <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a> = ofile;
+<a name="l00254"></a>00254 <span class="preprocessor">#ifdef DEFER</span>
+<a name="l00255"></a>00255 <span class="preprocessor"></span>  <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a> &amp;&amp; <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> &amp;&amp; <a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">fCopyRaw</a>) <a class="code" href="classEventNavigator.html#a04ec0be5cd638b6354d088216cd57d25" title="Copy the input raw data tree (TGlobalData) to the output file.">MirrorRawInputFormat</a>();
+<a name="l00256"></a>00256 <span class="preprocessor">#endif</span>
+<a name="l00257"></a>00257 <span class="preprocessor"></span>
+<a name="l00258"></a>00258   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00259"></a>00259 }
 </pre></div></p>
 
 </div>
@@ -715,22 +716,22 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Opens an output file. By default this overwrites the output file Appending not yet implemented </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00313">313</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00318">318</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00239">fOutput</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00241">fOutput</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00315"></a>00315 {
-<a name="l00316"></a>00316   <span class="comment">//Not very careful about tidying up after failures or repeat attempts</span>
-<a name="l00317"></a>00317   <span class="comment">//here.  Probably doesen&apos;t matter since the program is likely to</span>
-<a name="l00318"></a>00318   <span class="comment">//abort shortly afterward.  Revisit if that is not true.</span>
-<a name="l00319"></a>00319   TFile* prev_output = <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>;
-<a name="l00320"></a>00320 
-<a name="l00321"></a>00321   <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a> = TFile::Open(output_file_name, (append ? <span class="stringliteral">&quot;UPDATE&quot;</span> : <span class="stringliteral">&quot;RECREATE&quot;</span>));
-<a name="l00322"></a>00322   <span class="keywordflow">if</span> (!<a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a> || <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>-&gt;IsZombie()) <span class="keywordflow">return</span> <span class="keyword">false</span>; 
-<a name="l00323"></a>00323   
-<a name="l00324"></a>00324   prev_output-&gt;cd();
-<a name="l00325"></a>00325   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00326"></a>00326 }
+<p><div class="fragment"><pre class="fragment"><a name="l00320"></a>00320 {
+<a name="l00321"></a>00321   <span class="comment">//Not very careful about tidying up after failures or repeat attempts</span>
+<a name="l00322"></a>00322   <span class="comment">//here.  Probably doesen&apos;t matter since the program is likely to</span>
+<a name="l00323"></a>00323   <span class="comment">//abort shortly afterward.  Revisit if that is not true.</span>
+<a name="l00324"></a>00324   TFile* prev_output = <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>;
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326   <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a> = TFile::Open(output_file_name, (append ? <span class="stringliteral">&quot;UPDATE&quot;</span> : <span class="stringliteral">&quot;RECREATE&quot;</span>));
+<a name="l00327"></a>00327   <span class="keywordflow">if</span> (!<a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a> || <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>-&gt;IsZombie()) <span class="keywordflow">return</span> <span class="keyword">false</span>; 
+<a name="l00328"></a>00328   
+<a name="l00329"></a>00329   prev_output-&gt;cd();
+<a name="l00330"></a>00330   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00331"></a>00331 }
 </pre></div></p>
 
 </div>
@@ -752,36 +753,36 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Attach a raw data tree (found in raw_file). If sucessful will load the zeroth entry return a non-null pointer </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00136">136</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00141">141</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a56d11c5d0d29e43448d37d44d7956f26">AlCapFormat::Raw::DataBranchName</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">AlCapFormat::Raw::DataTreeName</a>, <a class="el" href="EventNavigator_8h_source.html#l00255">fRawData</a>, <a class="el" href="EventNavigator_8h_source.html#l00245">fRawTree</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00164">VerifyRawData()</a>.</p>
+<p>References <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a56d11c5d0d29e43448d37d44d7956f26">AlCapFormat::Raw::DataBranchName</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">AlCapFormat::Raw::DataTreeName</a>, <a class="el" href="EventNavigator_8h_source.html#l00257">fRawData</a>, <a class="el" href="EventNavigator_8h_source.html#l00247">fRawTree</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00169">VerifyRawData()</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00110">ConnectInput()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00115">ConnectInput()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00137"></a>00137 {
-<a name="l00138"></a>00138   raw_file-&gt;GetObject(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">Format::Raw::DataTreeName</a>, <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>);
-<a name="l00139"></a>00139   <span class="keywordflow">if</span> ( !<a class="code" href="classEventNavigator.html#a1c0db27028fe4016832fbcef76d0c418">VerifyRawData</a>(<a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>) ){
-<a name="l00140"></a>00140     raw_file-&gt;Delete(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">Format::Raw::DataTreeName</a>);
-<a name="l00141"></a>00141     <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a> = 0x0;
-<a name="l00142"></a>00142     <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> = 0x0;
-<a name="l00143"></a>00143     <span class="keywordflow">return</span> 0x0;
-<a name="l00144"></a>00144   }
-<a name="l00145"></a>00145 
-<a name="l00146"></a>00146   <span class="comment">//Allocate memory locations to hold branches</span>
-<a name="l00147"></a>00147   <span class="comment">//TGlobalData* raw_data(0x0);</span>
-<a name="l00148"></a>00148   <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> = <span class="keyword">new</span> <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>;
-<a name="l00149"></a>00149   <span class="keywordtype">int</span> status = <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>-&gt;SetBranchAddress(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a56d11c5d0d29e43448d37d44d7956f26">Format::Raw::DataBranchName</a>,
-<a name="l00150"></a>00150                                           &amp;<a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>);
-<a name="l00151"></a>00151   <span class="keywordflow">if</span> (status!=0){
-<a name="l00152"></a>00152     <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a> = 0x0;
-<a name="l00153"></a>00153     <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> = 0x0;
-<a name="l00154"></a>00154     <span class="keywordflow">return</span> 0x0;
-<a name="l00155"></a>00155   }
-<a name="l00156"></a>00156   
-<a name="l00157"></a>00157   this-&gt;<a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(0);
-<a name="l00158"></a>00158   
-<a name="l00159"></a>00159   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;
-<a name="l00160"></a>00160 }
+<p><div class="fragment"><pre class="fragment"><a name="l00142"></a>00142 {
+<a name="l00143"></a>00143   raw_file-&gt;GetObject(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">Format::Raw::DataTreeName</a>, <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>);
+<a name="l00144"></a>00144   <span class="keywordflow">if</span> ( !<a class="code" href="classEventNavigator.html#a1c0db27028fe4016832fbcef76d0c418">VerifyRawData</a>(<a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>) ){
+<a name="l00145"></a>00145     raw_file-&gt;Delete(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a370cbbf5150670659d29cc90309ae6b8">Format::Raw::DataTreeName</a>);
+<a name="l00146"></a>00146     <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a> = 0x0;
+<a name="l00147"></a>00147     <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> = 0x0;
+<a name="l00148"></a>00148     <span class="keywordflow">return</span> 0x0;
+<a name="l00149"></a>00149   }
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151   <span class="comment">//Allocate memory locations to hold branches</span>
+<a name="l00152"></a>00152   <span class="comment">//TGlobalData* raw_data(0x0);</span>
+<a name="l00153"></a>00153   <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> = <span class="keyword">new</span> <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>;
+<a name="l00154"></a>00154   <span class="keywordtype">int</span> status = <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>-&gt;SetBranchAddress(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a56d11c5d0d29e43448d37d44d7956f26">Format::Raw::DataBranchName</a>,
+<a name="l00155"></a>00155                                           &amp;<a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>);
+<a name="l00156"></a>00156   <span class="keywordflow">if</span> (status!=0){
+<a name="l00157"></a>00157     <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a> = 0x0;
+<a name="l00158"></a>00158     <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a> = 0x0;
+<a name="l00159"></a>00159     <span class="keywordflow">return</span> 0x0;
+<a name="l00160"></a>00160   }
+<a name="l00161"></a>00161   
+<a name="l00162"></a>00162   this-&gt;<a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(0);
+<a name="l00163"></a>00163   
+<a name="l00164"></a>00164   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;
+<a name="l00165"></a>00165 }
 </pre></div></p>
 
 </div>
@@ -803,35 +804,35 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Attach a setup data tree (found in raw_file). If sucessful will load the SetupDAta into memory, which can be accesed via fSetupData (depricated) or fSetupRecord (preferred) </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00192">192</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00197">197</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00257">fSetupData</a>, <a class="el" href="EventNavigator_8h_source.html#l00259">fSetupRecord</a>, <a class="el" href="EventNavigator_8h_source.html#l00248">fSetupTree</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">AlCapFormat::Raw::SetupBranchName</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">AlCapFormat::Raw::SetupTreeName</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00219">VerifySetupData()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00259">fSetupData</a>, <a class="el" href="EventNavigator_8h_source.html#l00261">fSetupRecord</a>, <a class="el" href="EventNavigator_8h_source.html#l00250">fSetupTree</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">AlCapFormat::Raw::SetupBranchName</a>, <a class="el" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">AlCapFormat::Raw::SetupTreeName</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00224">VerifySetupData()</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00110">ConnectInput()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00115">ConnectInput()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00193"></a>00193 {
-<a name="l00194"></a>00194   raw_file-&gt;GetObject(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">Format::Raw::SetupTreeName</a>, <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>);
-<a name="l00195"></a>00195   <span class="keywordflow">if</span> ( !<a class="code" href="classEventNavigator.html#a8128323cd18f2c27493cb88886827e0d">VerifySetupData</a>(<a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>) ){
-<a name="l00196"></a>00196     raw_file-&gt;Delete(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">Format::Raw::SetupTreeName</a>);
-<a name="l00197"></a>00197     <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a> = 0x0;
-<a name="l00198"></a>00198     <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a> = 0x0;
-<a name="l00199"></a>00199     <span class="keywordflow">return</span> 0x0;
-<a name="l00200"></a>00200   }
-<a name="l00201"></a>00201   <span class="comment">//Allocate memory locations to hold branches</span>
-<a name="l00202"></a>00202   <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a> = <span class="keyword">new</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>;
-<a name="l00203"></a>00203   <span class="keywordtype">int</span> status = <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>-&gt;SetBranchAddress(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a>,
-<a name="l00204"></a>00204                                             &amp;<a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>);
-<a name="l00205"></a>00205   <span class="keywordflow">if</span> (status!=0){
-<a name="l00206"></a>00206     <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a> = 0x0;
-<a name="l00207"></a>00207     <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a> = 0x0;
-<a name="l00208"></a>00208     <span class="keywordflow">return</span> 0x0;
-<a name="l00209"></a>00209   }
-<a name="l00210"></a>00210 
-<a name="l00211"></a>00211   <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>-&gt;GetEntry(0);
-<a name="l00212"></a>00212   <a class="code" href="classEventNavigator.html#afd89c8300274a7e72fc9c6f063add60a">fSetupRecord</a> = <span class="keyword">new</span> <a class="code" href="classSetupRecord.html">SetupRecord</a>(<a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>);
-<a name="l00213"></a>00213   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>;
-<a name="l00214"></a>00214 
-<a name="l00215"></a>00215 }
+<p><div class="fragment"><pre class="fragment"><a name="l00198"></a>00198 {
+<a name="l00199"></a>00199   raw_file-&gt;GetObject(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">Format::Raw::SetupTreeName</a>, <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>);
+<a name="l00200"></a>00200   <span class="keywordflow">if</span> ( !<a class="code" href="classEventNavigator.html#a8128323cd18f2c27493cb88886827e0d">VerifySetupData</a>(<a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>) ){
+<a name="l00201"></a>00201     raw_file-&gt;Delete(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#aca19f2f8deae7548050645b023307470">Format::Raw::SetupTreeName</a>);
+<a name="l00202"></a>00202     <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a> = 0x0;
+<a name="l00203"></a>00203     <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a> = 0x0;
+<a name="l00204"></a>00204     <span class="keywordflow">return</span> 0x0;
+<a name="l00205"></a>00205   }
+<a name="l00206"></a>00206   <span class="comment">//Allocate memory locations to hold branches</span>
+<a name="l00207"></a>00207   <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a> = <span class="keyword">new</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>;
+<a name="l00208"></a>00208   <span class="keywordtype">int</span> status = <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>-&gt;SetBranchAddress(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a>,
+<a name="l00209"></a>00209                                             &amp;<a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>);
+<a name="l00210"></a>00210   <span class="keywordflow">if</span> (status!=0){
+<a name="l00211"></a>00211     <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a> = 0x0;
+<a name="l00212"></a>00212     <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a> = 0x0;
+<a name="l00213"></a>00213     <span class="keywordflow">return</span> 0x0;
+<a name="l00214"></a>00214   }
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216   <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>-&gt;GetEntry(0);
+<a name="l00217"></a>00217   <a class="code" href="classEventNavigator.html#afd89c8300274a7e72fc9c6f063add60a">fSetupRecord</a> = <span class="keyword">new</span> <a class="code" href="classSetupRecord.html">SetupRecord</a>(<a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>);
+<a name="l00218"></a>00218   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>;
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220 }
 </pre></div></p>
 
 </div>
@@ -853,13 +854,13 @@ Ownership</a></h2>
 
 <p>Returns the current event number. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00093">93</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00095">95</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00242">fEntryNo</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00244">fEntryNo</a>.</p>
 
-<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00213">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00083">FirstCompleteAPGenerator::DrawPulse()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="PulseViewer_8cpp_source.html#l00213">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00083">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00093"></a>00093 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;}
+<p><div class="fragment"><pre class="fragment"><a name="l00095"></a>00095 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;}
 </pre></div></p>
 
 </div>
@@ -881,15 +882,15 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Load the branches for a particular entry from the input file. Random access probably only make sense if it output is not being written. Return values are same as for <a class="el" href="classEventNavigator.html#a0e8dbcce3705564ebf29f67e960e4bc6">NextEntry()</a> </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00121">121</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00123">123</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00258">MirrorRawInputFormat()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00075">LoopSequence::Preprocess()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00263">MirrorRawInputFormat()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00075">LoopSequence::Preprocess()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121                                        {
-<a name="l00122"></a>00122     <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(entry);
-<a name="l00123"></a>00123   }
+<p><div class="fragment"><pre class="fragment"><a name="l00123"></a>00123                                        {
+<a name="l00124"></a>00124     <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(entry);
+<a name="l00125"></a>00125   }
 </pre></div></p>
 
 </div>
@@ -910,13 +911,13 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Returns the number of entries in the input file. TODO revisit this with multiple inputs?? </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00097">97</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00099">99</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00245">fRawTree</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00247">fRawTree</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00063">LoopSequence::Init()</a>, and <a class="el" href="main_8cpp_source.html#l00177">Main_event_loop()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00097"></a>00097 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>-&gt;GetEntriesFast();}
+<p><div class="fragment"><pre class="fragment"><a name="l00099"></a>00099 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>-&gt;GetEntriesFast();}
 </pre></div></p>
 
 </div>
@@ -937,11 +938,11 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Returns the total number of entries selected for processing, assuming no errors </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00107">107</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00109">109</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00096">GetStartEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00103">GetStopEntry()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00101">GetStartEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00108">GetStopEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00108"></a>00108   { <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a01d371ded62709b94705bfaaeea82647" title="Returns the past-the-end entry processing stops at.">GetStopEntry</a>() - <a class="code" href="classEventNavigator.html#a58dd6e92a567cfdc6c156b70b17a77e0" title="Returns the entry processing starts from.">GetStartEntry</a>(); }
+<p><div class="fragment"><pre class="fragment"><a name="l00110"></a>00110   { <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a01d371ded62709b94705bfaaeea82647" title="Returns the past-the-end entry processing stops at.">GetStopEntry</a>() - <a class="code" href="classEventNavigator.html#a58dd6e92a567cfdc6c156b70b17a77e0" title="Returns the entry processing starts from.">GetStartEntry</a>(); }
 </pre></div></p>
 
 </div>
@@ -964,14 +965,40 @@ Ownership</a></h2>
 
 <p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00079">79</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00261">fLoopSequence</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00263">fLoopSequence</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00096">GetStartEntry()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00103">GetStopEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00086">MakeLoopSequence()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00101">GetStartEntry()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00108">GetStopEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00086">MakeLoopSequence()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00080"></a>00080 {
 <a name="l00081"></a>00081   <span class="keywordflow">if</span> (!<a class="code" href="classEventNavigator.html#ab0875b6ae48b9db6de94b42edae4bb5e">fLoopSequence</a>) <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;No LoopSequence&quot;</span>);
 <a name="l00082"></a>00082   <span class="keywordflow">return</span> *<a class="code" href="classEventNavigator.html#ab0875b6ae48b9db6de94b42edae4bb5e">fLoopSequence</a>;
 <a name="l00083"></a>00083 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a75fca8fa8d33e08e399c052461db1206"></a><!-- doxytag: member="EventNavigator::GetOutputFileName" ref="a75fca8fa8d33e08e399c052461db1206" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * EventNavigator::GetOutputFileName </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00096">96</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00241">fOutput</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00096"></a>00096                                                   {
+<a name="l00097"></a>00097   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>? <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>-&gt;GetName():<span class="stringliteral">&quot;&quot;</span>;
+<a name="l00098"></a>00098 }
 </pre></div></p>
 
 </div>
@@ -991,13 +1018,13 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00196">196</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00198">198</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00255">fRawData</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00257">fRawData</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00177">Main_event_loop()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00120">LoopSequence::Postprocess()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00075">LoopSequence::Preprocess()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00196"></a>00196 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;}
+<p><div class="fragment"><pre class="fragment"><a name="l00198"></a>00198 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;}
 </pre></div></p>
 
 </div>
@@ -1017,13 +1044,13 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00197">197</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00199">199</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00245">fRawTree</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00247">fRawTree</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00076">main()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00197"></a>00197 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>;}
+<p><div class="fragment"><pre class="fragment"><a name="l00199"></a>00199 {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>;}
 </pre></div></p>
 
 </div>
@@ -1046,7 +1073,7 @@ Ownership</a></h2>
 
 <p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00062">62</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00257">fSetupData</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00259">fSetupData</a>.</p>
 
 <p>Referenced by <a class="el" href="LoopSequence_8cpp_source.html#l00120">LoopSequence::Postprocess()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00075">LoopSequence::Preprocess()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>.</p>
 
@@ -1073,7 +1100,7 @@ Ownership</a></h2>
 
 <p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00066">66</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00259">fSetupRecord</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00261">fSetupRecord</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066 {<span class="keywordflow">return</span> *<a class="code" href="classEventNavigator.html#afd89c8300274a7e72fc9c6f063add60a">fSetupRecord</a>;}
 </pre></div></p>
@@ -1097,15 +1124,15 @@ Ownership</a></h2>
 
 <p>Returns the entry processing starts from. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00096">96</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00101">101</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
 <p>References <a class="el" href="EventNavigator_8cpp_source.html#l00079">GetLoopSequence()</a>, and <a class="el" href="LoopSequence_8h_source.html#l00019">LoopSequence::StartEntry()</a>.</p>
 
-<p>Referenced by <a class="el" href="LoadPulses_8cpp_source.html#l00032">LoadPulses::BeforeFirstEntry()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00107">GetLoopNEntries()</a>.</p>
+<p>Referenced by <a class="el" href="LoadPulses_8cpp_source.html#l00032">LoadPulses::BeforeFirstEntry()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00109">GetLoopNEntries()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00097"></a>00097 {
-<a name="l00098"></a>00098   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a372d8a054bd465b922246436a28e5893">GetLoopSequence</a>().<a class="code" href="classLoopSequence.html#a29b169b354796c34dcef37a753e4fc96">StartEntry</a>();
-<a name="l00099"></a>00099 }  
+<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102 {
+<a name="l00103"></a>00103   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a372d8a054bd465b922246436a28e5893">GetLoopSequence</a>().<a class="code" href="classLoopSequence.html#a29b169b354796c34dcef37a753e4fc96">StartEntry</a>();
+<a name="l00104"></a>00104 }  
 </pre></div></p>
 
 </div>
@@ -1127,15 +1154,15 @@ Ownership</a></h2>
 
 <p>Returns the past-the-end entry processing stops at. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00103">103</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00108">108</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
 <p>References <a class="el" href="EventNavigator_8cpp_source.html#l00079">GetLoopSequence()</a>, and <a class="el" href="LoopSequence_8h_source.html#l00020">LoopSequence::StopEntry()</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8h_source.html#l00107">GetLoopNEntries()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8h_source.html#l00109">GetLoopNEntries()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00104"></a>00104 {
-<a name="l00105"></a>00105   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a372d8a054bd465b922246436a28e5893">GetLoopSequence</a>().<a class="code" href="classLoopSequence.html#a0ba16a5d7cd358706dcb2fca420a6d48">StopEntry</a>();
-<a name="l00106"></a>00106 }
+<p><div class="fragment"><pre class="fragment"><a name="l00109"></a>00109 {
+<a name="l00110"></a>00110   <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a372d8a054bd465b922246436a28e5893">GetLoopSequence</a>().<a class="code" href="classLoopSequence.html#a0ba16a5d7cd358706dcb2fca420a6d48">StopEntry</a>();
+<a name="l00111"></a>00111 }
 </pre></div></p>
 
 </div>
@@ -1158,7 +1185,7 @@ Ownership</a></h2>
 
 <p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00036">36</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00231">fInstance</a>.</p>
+<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00233">fInstance</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037 {
 <a name="l00038"></a>00038   <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#a4504a00783ac59e23c4f9054d02310c7">fInstance</a>) {
@@ -1194,9 +1221,9 @@ Ownership</a></h2>
 
 <p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00050">50</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00231">fInstance</a>.</p>
+<p>References <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00233">fInstance</a>.</p>
 
-<p>Referenced by <a class="el" href="LoadPulses_8cpp_source.html#l00032">LoadPulses::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00083">FirstCompleteAPGenerator::DrawPulse()</a>, <a class="el" href="main_8cpp_source.html#l00166">Finish()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00063">LoopSequence::Init()</a>, <a class="el" href="main_8cpp_source.html#l00076">main()</a>, <a class="el" href="main_8cpp_source.html#l00177">Main_event_loop()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00120">LoopSequence::Postprocess()</a>, <a class="el" href="main_8cpp_source.html#l00313">PrepareSingletonObjects()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00075">LoopSequence::Preprocess()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">TemplateCreator::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00110">ExportPulse::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00081">TemplateCreator::BeforeFirstEntry()</a>, <a class="el" href="LoadPulses_8cpp_source.html#l00032">LoadPulses::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00083">FirstCompleteAPGenerator::DrawPulse()</a>, <a class="el" href="main_8cpp_source.html#l00166">Finish()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00063">LoopSequence::Init()</a>, <a class="el" href="main_8cpp_source.html#l00076">main()</a>, <a class="el" href="main_8cpp_source.html#l00177">Main_event_loop()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00120">LoopSequence::Postprocess()</a>, <a class="el" href="main_8cpp_source.html#l00313">PrepareSingletonObjects()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00075">LoopSequence::Preprocess()</a>, <a class="el" href="LoopSequence_8cpp_source.html#l00091">LoopSequence::Process()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, and <a class="el" href="ExportPulse_8cpp_source.html#l00116">ExportPulse::ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00051"></a>00051 {
 <a name="l00052"></a>00052   <span class="keywordflow">if</span> (!<a class="code" href="classEventNavigator.html#a4504a00783ac59e23c4f9054d02310c7">fInstance</a>){
@@ -1226,26 +1253,26 @@ Ownership</a></h2>
 
 <p>Implementation for loading an entry. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00329">329</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00334">334</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">TGlobalData::Clear()</a>, <a class="el" href="EventNavigator_8h_source.html#l00242">fEntryNo</a>, <a class="el" href="EventNavigator_8h_source.html#l00251">fEventTree</a>, <a class="el" href="EventNavigator_8h_source.html#l00255">fRawData</a>, and <a class="el" href="EventNavigator_8h_source.html#l00245">fRawTree</a>.</p>
+<p>References <a class="el" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">TGlobalData::Clear()</a>, <a class="el" href="EventNavigator_8h_source.html#l00244">fEntryNo</a>, <a class="el" href="EventNavigator_8h_source.html#l00253">fEventTree</a>, <a class="el" href="EventNavigator_8h_source.html#l00257">fRawData</a>, and <a class="el" href="EventNavigator_8h_source.html#l00247">fRawTree</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00136">ConnectRawData()</a>, <a class="el" href="EventNavigator_8h_source.html#l00121">GetEntry()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00258">MirrorRawInputFormat()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00114">NextEntry()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00141">ConnectRawData()</a>, <a class="el" href="EventNavigator_8h_source.html#l00123">GetEntry()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00263">MirrorRawInputFormat()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00116">NextEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00330"></a>00330 {
-<a name="l00331"></a>00331   Int_t nBytes = 0;
-<a name="l00332"></a>00332   <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>){
-<a name="l00333"></a>00333     <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>();
-<a name="l00334"></a>00334     nBytes = <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>-&gt;GetEntry(entry);
-<a name="l00335"></a>00335   } 
-<a name="l00336"></a>00336   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">fEventTree</a>) {
-<a name="l00337"></a>00337     nBytes = <a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">fEventTree</a>-&gt;GetEntry(entry);
-<a name="l00338"></a>00338   }
-<a name="l00339"></a>00339   <span class="keywordflow">else</span> <span class="keywordflow">return</span> 0;
-<a name="l00340"></a>00340   <span class="keywordflow">if</span> (nBytes &lt; 0) <span class="keywordflow">throw</span> <a class="code" href="classio__error.html" title="This shoud get a proper home and some more flexability.">io_error</a>();
-<a name="l00341"></a>00341   <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a> = entry;
-<a name="l00342"></a>00342   <span class="keywordflow">return</span> nBytes;
-<a name="l00343"></a>00343 }
+<p><div class="fragment"><pre class="fragment"><a name="l00335"></a>00335 {
+<a name="l00336"></a>00336   Int_t nBytes = 0;
+<a name="l00337"></a>00337   <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>){
+<a name="l00338"></a>00338     <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>-&gt;<a class="code" href="classTGlobalData.html#a75ab79e5634f47cae79638c4b0fcaa16">Clear</a>();
+<a name="l00339"></a>00339     nBytes = <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>-&gt;GetEntry(entry);
+<a name="l00340"></a>00340   } 
+<a name="l00341"></a>00341   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">fEventTree</a>) {
+<a name="l00342"></a>00342     nBytes = <a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">fEventTree</a>-&gt;GetEntry(entry);
+<a name="l00343"></a>00343   }
+<a name="l00344"></a>00344   <span class="keywordflow">else</span> <span class="keywordflow">return</span> 0;
+<a name="l00345"></a>00345   <span class="keywordflow">if</span> (nBytes &lt; 0) <span class="keywordflow">throw</span> <a class="code" href="classio__error.html" title="This shoud get a proper home and some more flexability.">io_error</a>();
+<a name="l00346"></a>00346   <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a> = entry;
+<a name="l00347"></a>00347   <span class="keywordflow">return</span> nBytes;
+<a name="l00348"></a>00348 }
 </pre></div></p>
 
 </div>
@@ -1269,7 +1296,7 @@ Ownership</a></h2>
 
 <p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00086">86</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00261">fLoopSequence</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00079">GetLoopSequence()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00263">fLoopSequence</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00079">GetLoopSequence()</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00177">Main_event_loop()</a>.</p>
 
@@ -1438,55 +1465,55 @@ Ownership</a></h2>
 
 <p>Copy the input raw data tree (<a class="el" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>) to the output file. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00258">258</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00263">263</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00242">fEntryNo</a>, <a class="el" href="EventNavigator_8h_source.html#l00253">fOutputTreeTPI</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="EventNavigator_8h_source.html#l00255">fRawData</a>, <a class="el" href="EventNavigator_8h_source.html#l00121">GetEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00244">fEntryNo</a>, <a class="el" href="EventNavigator_8h_source.html#l00255">fOutputTreeTPI</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="EventNavigator_8h_source.html#l00257">fRawData</a>, <a class="el" href="EventNavigator_8h_source.html#l00123">GetEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00242">ConnectOutput()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00247">ConnectOutput()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00259"></a>00259 {
-<a name="l00260"></a>00260   <span class="keywordtype">int</span> prev_entry_no = <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;
-<a name="l00261"></a>00261   <span class="comment">//loop untill we find an entry in which the object is filled (should</span>
-<a name="l00262"></a>00262   <span class="comment">//be the first one)</span>
-<a name="l00263"></a>00263   <span class="keywordtype">int</span> nBytes = 0;
-<a name="l00264"></a>00264   <span class="keywordtype">int</span> entry = <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;
-<a name="l00265"></a>00265   <span class="keywordflow">while</span> (( nBytes = <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(++entry) )){
-<a name="l00266"></a>00266     <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.size() &gt; 0) <span class="keywordflow">break</span>;
-<a name="l00267"></a>00267   }
-<a name="l00268"></a>00268   <span class="keywordflow">if</span> (nBytes &lt;= 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00269"></a>00269  
-<a name="l00270"></a>00270   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a> = <span class="keyword">new</span> TTree(<span class="stringliteral">&quot;TPI&quot;</span>,<span class="stringliteral">&quot;TPulseIslands&quot;</span>);
-<a name="l00271"></a>00271   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;SetAutoSave(3000000);
-<a name="l00272"></a>00272 
-<a name="l00273"></a>00273   <span class="keyword">typedef</span> <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> raw_map_iter;
-<a name="l00274"></a>00274   <a class="code" href="definitions_8h.html#a848e7d8148f5d52d30147ca5847f847e">StringPulseIslandMap</a>&amp; rawBanks = <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>; 
-<a name="l00275"></a>00275   <span class="comment">//fBufferTPI = new PulseIslandList*[rawBanks.size()];</span>
-<a name="l00276"></a>00276 
-<a name="l00277"></a>00277   TObjArray* obj_arr = <span class="keyword">new</span> TObjArray(rawBanks.size());
-<a name="l00278"></a>00278   <span class="comment">//obj_arr = new TObjArray(rawBanks.size());</span>
-<a name="l00279"></a>00279   <span class="comment">//raw_map_iter b_it = fRawData-&gt;fPulseIslandToChannelMap.begin();</span>
-<a name="l00280"></a>00280   Int_t element =0;
-<a name="l00281"></a>00281   <span class="keywordflow">for</span> (raw_map_iter b_it = rawBanks.begin(); b_it != rawBanks.end(); ++b_it) {
-<a name="l00282"></a>00282     std::string bank_name = b_it-&gt;first;
-<a name="l00283"></a>00283     <span class="comment">//fBufferTPI[element] = new PulseIslandList;</span>
-<a name="l00284"></a>00284     <span class="comment">//fRecordTPI.insert(make_pair(bank_name, fBufferTPI[element]));</span>
-<a name="l00285"></a>00285     <span class="comment">//fRecordTPI[bank_Name] = fBufferTPI[element]</span>
-<a name="l00286"></a>00286     <span class="comment">//fOutputTreeTPI-&gt;Branch(bank_name.c_str(), &amp;fBufferTPI[element]);</span>
-<a name="l00287"></a>00287     ++element;
-<a name="l00288"></a>00288     
-<a name="l00289"></a>00289     <span class="comment">//TNamed* foo = new TNamed((bank_name + &quot;_name&quot;).c_str(), (bank_name + &quot;_title&quot;).c_str());</span>
-<a name="l00290"></a>00290     <a class="code" href="classBankBranch.html">BankBranch&lt;PulseIslandList&gt;</a>* foo = 
-<a name="l00291"></a>00291       <span class="keyword">new</span> <a class="code" href="classBankBranch.html">BankBranch&lt;PulseIslandList&gt;</a>(<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>(bank_name));
-<a name="l00292"></a>00292     obj_arr-&gt;Add(foo);
-<a name="l00293"></a>00293   }
-<a name="l00294"></a>00294   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Branch(obj_arr);
-<a name="l00295"></a>00295 
-<a name="l00296"></a>00296   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Print();
-<a name="l00297"></a>00297  
-<a name="l00298"></a>00298   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Write();
-<a name="l00299"></a>00299   <a class="code" href="classEventNavigator.html#a5da6407eb896903dd5f2852c6384aebe">GetEntry</a>(prev_entry_no);
-<a name="l00300"></a>00300   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00301"></a>00301 }
+<p><div class="fragment"><pre class="fragment"><a name="l00264"></a>00264 {
+<a name="l00265"></a>00265   <span class="keywordtype">int</span> prev_entry_no = <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;
+<a name="l00266"></a>00266   <span class="comment">//loop untill we find an entry in which the object is filled (should</span>
+<a name="l00267"></a>00267   <span class="comment">//be the first one)</span>
+<a name="l00268"></a>00268   <span class="keywordtype">int</span> nBytes = 0;
+<a name="l00269"></a>00269   <span class="keywordtype">int</span> entry = <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;
+<a name="l00270"></a>00270   <span class="keywordflow">while</span> (( nBytes = <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(++entry) )){
+<a name="l00271"></a>00271     <span class="keywordflow">if</span> (<a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.size() &gt; 0) <span class="keywordflow">break</span>;
+<a name="l00272"></a>00272   }
+<a name="l00273"></a>00273   <span class="keywordflow">if</span> (nBytes &lt;= 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00274"></a>00274  
+<a name="l00275"></a>00275   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a> = <span class="keyword">new</span> TTree(<span class="stringliteral">&quot;TPI&quot;</span>,<span class="stringliteral">&quot;TPulseIslands&quot;</span>);
+<a name="l00276"></a>00276   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;SetAutoSave(3000000);
+<a name="l00277"></a>00277 
+<a name="l00278"></a>00278   <span class="keyword">typedef</span> <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> raw_map_iter;
+<a name="l00279"></a>00279   <a class="code" href="definitions_8h.html#a848e7d8148f5d52d30147ca5847f847e">StringPulseIslandMap</a>&amp; rawBanks = <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>; 
+<a name="l00280"></a>00280   <span class="comment">//fBufferTPI = new PulseIslandList*[rawBanks.size()];</span>
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282   TObjArray* obj_arr = <span class="keyword">new</span> TObjArray(rawBanks.size());
+<a name="l00283"></a>00283   <span class="comment">//obj_arr = new TObjArray(rawBanks.size());</span>
+<a name="l00284"></a>00284   <span class="comment">//raw_map_iter b_it = fRawData-&gt;fPulseIslandToChannelMap.begin();</span>
+<a name="l00285"></a>00285   Int_t element =0;
+<a name="l00286"></a>00286   <span class="keywordflow">for</span> (raw_map_iter b_it = rawBanks.begin(); b_it != rawBanks.end(); ++b_it) {
+<a name="l00287"></a>00287     std::string bank_name = b_it-&gt;first;
+<a name="l00288"></a>00288     <span class="comment">//fBufferTPI[element] = new PulseIslandList;</span>
+<a name="l00289"></a>00289     <span class="comment">//fRecordTPI.insert(make_pair(bank_name, fBufferTPI[element]));</span>
+<a name="l00290"></a>00290     <span class="comment">//fRecordTPI[bank_Name] = fBufferTPI[element]</span>
+<a name="l00291"></a>00291     <span class="comment">//fOutputTreeTPI-&gt;Branch(bank_name.c_str(), &amp;fBufferTPI[element]);</span>
+<a name="l00292"></a>00292     ++element;
+<a name="l00293"></a>00293     
+<a name="l00294"></a>00294     <span class="comment">//TNamed* foo = new TNamed((bank_name + &quot;_name&quot;).c_str(), (bank_name + &quot;_title&quot;).c_str());</span>
+<a name="l00295"></a>00295     <a class="code" href="classBankBranch.html">BankBranch&lt;PulseIslandList&gt;</a>* foo = 
+<a name="l00296"></a>00296       <span class="keyword">new</span> <a class="code" href="classBankBranch.html">BankBranch&lt;PulseIslandList&gt;</a>(<a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>(bank_name));
+<a name="l00297"></a>00297     obj_arr-&gt;Add(foo);
+<a name="l00298"></a>00298   }
+<a name="l00299"></a>00299   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Branch(obj_arr);
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Print();
+<a name="l00302"></a>00302  
+<a name="l00303"></a>00303   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Write();
+<a name="l00304"></a>00304   <a class="code" href="classEventNavigator.html#a5da6407eb896903dd5f2852c6384aebe">GetEntry</a>(prev_entry_no);
+<a name="l00305"></a>00305   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00306"></a>00306 }
 </pre></div></p>
 
 </div>
@@ -1507,13 +1534,13 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Load the next entry in the input tree. Returns the number of bytes if sucessful, 0 if reached the end or there is no input tree. Throws an exception for an underlying I/O error </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00114">114</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00116">116</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00242">fEntryNo</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00244">fEntryNo</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00114"></a>00114                            {
-<a name="l00115"></a>00115     <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(<a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a> + 1);
-<a name="l00116"></a>00116   }
+<p><div class="fragment"><pre class="fragment"><a name="l00116"></a>00116                            {
+<a name="l00117"></a>00117     <span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(<a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a> + 1);
+<a name="l00118"></a>00118   }
 </pre></div></p>
 
 </div>
@@ -1534,9 +1561,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00229">229</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00231">231</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00229"></a>00229 {<span class="keywordflow">return</span> *<span class="keyword">this</span>;}
+<p><div class="fragment"><pre class="fragment"><a name="l00231"></a>00231 {<span class="keywordflow">return</span> *<span class="keyword">this</span>;}
 </pre></div></p>
 
 </div>
@@ -1558,11 +1585,11 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Save (or not) TPulseIslands in output file. By default they are not saved, call this method to enable saving. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00130">130</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00132">132</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00233">fCopyRaw</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00235">fCopyRaw</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00130"></a>00130 {<a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">fCopyRaw</a> =save;};
+<p><div class="fragment"><pre class="fragment"><a name="l00132"></a>00132 {<a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">fCopyRaw</a> =save;};
 </pre></div></p>
 
 </div>
@@ -1584,31 +1611,31 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Verifies that the raw data tree found conforms to the expected format. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00164">164</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00169">169</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
 <p>References <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a56d11c5d0d29e43448d37d44d7956f26">AlCapFormat::Raw::DataBranchName</a>, and <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">AlCapFormat::Raw::SetupBranchName</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00136">ConnectRawData()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00141">ConnectRawData()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00165"></a>00165 {
-<a name="l00166"></a>00166   <span class="keywordflow">if</span> ( !raw_tree ){
-<a name="l00167"></a>00167     std::cerr &lt;&lt; <span class="stringliteral">&quot;No raw data tree in file&quot;</span> &lt;&lt; std::endl;
-<a name="l00168"></a>00168     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00169"></a>00169   }
-<a name="l00170"></a>00170   <span class="keywordflow">if</span> ( raw_tree-&gt;GetEntriesFast() == 0 ){
-<a name="l00171"></a>00171     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; raw_tree-&gt;GetName() &lt;&lt; <span class="stringliteral">&quot; is empty!&quot;</span> 
-<a name="l00172"></a>00172               &lt;&lt; std::endl;
+<p><div class="fragment"><pre class="fragment"><a name="l00170"></a>00170 {
+<a name="l00171"></a>00171   <span class="keywordflow">if</span> ( !raw_tree ){
+<a name="l00172"></a>00172     std::cerr &lt;&lt; <span class="stringliteral">&quot;No raw data tree in file&quot;</span> &lt;&lt; std::endl;
 <a name="l00173"></a>00173     <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00174"></a>00174   }
-<a name="l00175"></a>00175   TObjArray* lob = raw_tree-&gt;GetListOfBranches(); 
-<a name="l00176"></a>00176   <span class="keywordflow">if</span> ( !lob-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a56d11c5d0d29e43448d37d44d7956f26">Format::Raw::DataBranchName</a> ) ){
-<a name="l00177"></a>00177     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; raw_tree-&gt;GetName()
-<a name="l00178"></a>00178               &lt;&lt; <span class="stringliteral">&quot; has no branch &quot;</span> &lt;&lt; <a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a>
-<a name="l00179"></a>00179               &lt;&lt; <span class="stringliteral">&quot;!&quot;</span> &lt;&lt; std::endl;    
-<a name="l00180"></a>00180     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00181"></a>00181   }
-<a name="l00182"></a>00182   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00183"></a>00183 }
+<a name="l00175"></a>00175   <span class="keywordflow">if</span> ( raw_tree-&gt;GetEntriesFast() == 0 ){
+<a name="l00176"></a>00176     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; raw_tree-&gt;GetName() &lt;&lt; <span class="stringliteral">&quot; is empty!&quot;</span> 
+<a name="l00177"></a>00177               &lt;&lt; std::endl;
+<a name="l00178"></a>00178     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00179"></a>00179   }
+<a name="l00180"></a>00180   TObjArray* lob = raw_tree-&gt;GetListOfBranches(); 
+<a name="l00181"></a>00181   <span class="keywordflow">if</span> ( !lob-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a56d11c5d0d29e43448d37d44d7956f26">Format::Raw::DataBranchName</a> ) ){
+<a name="l00182"></a>00182     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; raw_tree-&gt;GetName()
+<a name="l00183"></a>00183               &lt;&lt; <span class="stringliteral">&quot; has no branch &quot;</span> &lt;&lt; <a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a>
+<a name="l00184"></a>00184               &lt;&lt; <span class="stringliteral">&quot;!&quot;</span> &lt;&lt; std::endl;    
+<a name="l00185"></a>00185     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00186"></a>00186   }
+<a name="l00187"></a>00187   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00188"></a>00188 }
 </pre></div></p>
 
 </div>
@@ -1630,31 +1657,31 @@ Ownership</a></h2>
 <div class="memdoc">
 <p>Verifies that the setup data tree found conforms to the expected format. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00219">219</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00224">224</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
 <p>References <a class="el" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">AlCapFormat::Raw::SetupBranchName</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00192">ConnectSetupData()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00197">ConnectSetupData()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00220"></a>00220 {
-<a name="l00221"></a>00221   <span class="keywordflow">if</span> ( !setup_tree ){
-<a name="l00222"></a>00222     std::cerr &lt;&lt; <span class="stringliteral">&quot;No &apos;Setup&apos; tree in file&quot;</span> &lt;&lt; std::endl;
-<a name="l00223"></a>00223     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00224"></a>00224   }
-<a name="l00225"></a>00225   <span class="keywordflow">if</span> ( setup_tree-&gt;GetEntriesFast() == 0 ){
-<a name="l00226"></a>00226     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; setup_tree-&gt;GetName() &lt;&lt; <span class="stringliteral">&quot; is empty!&quot;</span> 
-<a name="l00227"></a>00227               &lt;&lt; std::endl;
+<p><div class="fragment"><pre class="fragment"><a name="l00225"></a>00225 {
+<a name="l00226"></a>00226   <span class="keywordflow">if</span> ( !setup_tree ){
+<a name="l00227"></a>00227     std::cerr &lt;&lt; <span class="stringliteral">&quot;No &apos;Setup&apos; tree in file&quot;</span> &lt;&lt; std::endl;
 <a name="l00228"></a>00228     <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00229"></a>00229   }
-<a name="l00230"></a>00230   TObjArray* lob = setup_tree-&gt;GetListOfBranches();
-<a name="l00231"></a>00231   <span class="keywordflow">if</span> ( !lob-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a> ) ){
-<a name="l00232"></a>00232     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; setup_tree-&gt;GetName() 
-<a name="l00233"></a>00233               &lt;&lt; <span class="stringliteral">&quot; has no branch &quot;</span> &lt;&lt; <a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a>
-<a name="l00234"></a>00234               &lt;&lt; <span class="stringliteral">&quot;!&quot;</span> &lt;&lt; std::endl;
-<a name="l00235"></a>00235     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00236"></a>00236   }
-<a name="l00237"></a>00237   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00238"></a>00238 }
+<a name="l00230"></a>00230   <span class="keywordflow">if</span> ( setup_tree-&gt;GetEntriesFast() == 0 ){
+<a name="l00231"></a>00231     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; setup_tree-&gt;GetName() &lt;&lt; <span class="stringliteral">&quot; is empty!&quot;</span> 
+<a name="l00232"></a>00232               &lt;&lt; std::endl;
+<a name="l00233"></a>00233     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00234"></a>00234   }
+<a name="l00235"></a>00235   TObjArray* lob = setup_tree-&gt;GetListOfBranches();
+<a name="l00236"></a>00236   <span class="keywordflow">if</span> ( !lob-&gt;Contains(<a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a> ) ){
+<a name="l00237"></a>00237     std::cerr &lt;&lt; <span class="stringliteral">&quot;Tree &quot;</span> &lt;&lt; setup_tree-&gt;GetName() 
+<a name="l00238"></a>00238               &lt;&lt; <span class="stringliteral">&quot; has no branch &quot;</span> &lt;&lt; <a class="code" href="namespaceAlCapFormat_1_1Raw.html#a946830a7e3928b0c311c0c7f7898ae9f">Format::Raw::SetupBranchName</a>
+<a name="l00239"></a>00239               &lt;&lt; <span class="stringliteral">&quot;!&quot;</span> &lt;&lt; std::endl;
+<a name="l00240"></a>00240     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00241"></a>00241   }
+<a name="l00242"></a>00242   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00243"></a>00243 }
 </pre></div></p>
 
 </div>
@@ -1674,14 +1701,14 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00346">346</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8cpp_source.html#l00351">351</a> of file <a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="EventNavigator_8h_source.html#l00253">fOutputTreeTPI</a>.</p>
+<p>References <a class="el" href="EventNavigator_8h_source.html#l00255">fOutputTreeTPI</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00347"></a>00347 {
-<a name="l00348"></a>00348   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Fill();
-<a name="l00349"></a>00349   <span class="keywordflow">return</span> 0;
-<a name="l00350"></a>00350 }
+<p><div class="fragment"><pre class="fragment"><a name="l00352"></a>00352 {
+<a name="l00353"></a>00353   <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>-&gt;Fill();
+<a name="l00354"></a>00354   <span class="keywordflow">return</span> 0;
+<a name="l00355"></a>00355 }
 </pre></div></p>
 
 </div>
@@ -1698,9 +1725,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00233">233</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00235">235</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00242">ConnectOutput()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00130">SetSavePulseIslands()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00247">ConnectOutput()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00132">SetSavePulseIslands()</a>.</p>
 
 </div>
 </div>
@@ -1717,9 +1744,9 @@ Ownership</a></h2>
 
 <p>The current entry number. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00242">242</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00244">244</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00110">ConnectInput()</a>, <a class="el" href="EventNavigator_8h_source.html#l00093">EntryNo()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00258">MirrorRawInputFormat()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00114">NextEntry()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00115">ConnectInput()</a>, <a class="el" href="EventNavigator_8h_source.html#l00095">EntryNo()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00263">MirrorRawInputFormat()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00116">NextEntry()</a>.</p>
 
 </div>
 </div>
@@ -1734,9 +1761,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00251">251</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00253">253</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>.</p>
 
 </div>
 </div>
@@ -1751,7 +1778,7 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00231">231</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00233">233</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
 <p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00036">InitInstance()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00050">Instance()</a>.</p>
 
@@ -1768,7 +1795,7 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00261">261</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00263">263</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
 <p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00079">GetLoopSequence()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00086">MakeLoopSequence()</a>.</p>
 
@@ -1787,9 +1814,9 @@ Ownership</a></h2>
 
 <p>Output ROOT file (may be same as input file). </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00239">239</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00241">241</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00353">Close()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00242">ConnectOutput()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00313">ConnectOutputFile()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00358">Close()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00247">ConnectOutput()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00318">ConnectOutputFile()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00096">GetOutputFileName()</a>.</p>
 
 </div>
 </div>
@@ -1804,9 +1831,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00253">253</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00255">255</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00258">MirrorRawInputFormat()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00346">WriteCurrentEntry()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00263">MirrorRawInputFormat()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00351">WriteCurrentEntry()</a>.</p>
 
 </div>
 </div>
@@ -1821,9 +1848,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00255">255</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00257">257</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00242">ConnectOutput()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00136">ConnectRawData()</a>, <a class="el" href="EventNavigator_8h_source.html#l00196">GetRawData()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00258">MirrorRawInputFormat()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00247">ConnectOutput()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00141">ConnectRawData()</a>, <a class="el" href="EventNavigator_8h_source.html#l00198">GetRawData()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00263">MirrorRawInputFormat()</a>.</p>
 
 </div>
 </div>
@@ -1840,9 +1867,9 @@ Ownership</a></h2>
 
 <p>Input ROOT file, raw format. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00236">236</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00238">238</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00353">Close()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00358">Close()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00059">EventNavigator()</a>.</p>
 
 </div>
 </div>
@@ -1859,9 +1886,9 @@ Ownership</a></h2>
 
 <p>Input Raw Data (Event) Tree. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00245">245</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00247">247</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00242">ConnectOutput()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00136">ConnectRawData()</a>, <a class="el" href="EventNavigator_8h_source.html#l00097">GetInputNEntries()</a>, <a class="el" href="EventNavigator_8h_source.html#l00197">GetRawTree()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00329">LoadEntry()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00247">ConnectOutput()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00141">ConnectRawData()</a>, <a class="el" href="EventNavigator_8h_source.html#l00099">GetInputNEntries()</a>, <a class="el" href="EventNavigator_8h_source.html#l00199">GetRawTree()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00334">LoadEntry()</a>.</p>
 
 </div>
 </div>
@@ -1876,9 +1903,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00257">257</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00259">259</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00192">ConnectSetupData()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00062">GetSetupData()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00197">ConnectSetupData()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00062">GetSetupData()</a>.</p>
 
 </div>
 </div>
@@ -1893,9 +1920,9 @@ Ownership</a></h2>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00259">259</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00261">261</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00192">ConnectSetupData()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00066">GetSetupRecord()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00197">ConnectSetupData()</a>, and <a class="el" href="EventNavigator_8h_source.html#l00066">GetSetupRecord()</a>.</p>
 
 </div>
 </div>
@@ -1912,9 +1939,9 @@ Ownership</a></h2>
 
 <p>Input Setup Tree. </p>
 
-<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00248">248</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="EventNavigator_8h_source.html#l00250">250</a> of file <a class="el" href="EventNavigator_8h_source.html">EventNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00110">ConnectInput()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00192">ConnectSetupData()</a>.</p>
+<p>Referenced by <a class="el" href="EventNavigator_8cpp_source.html#l00115">ConnectInput()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00197">ConnectSetupData()</a>.</p>
 
 </div>
 </div>
@@ -1923,7 +1950,7 @@ Ownership</a></h2>
 <li>rootana/src/framework/<a class="el" href="EventNavigator_8cpp_source.html">EventNavigator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

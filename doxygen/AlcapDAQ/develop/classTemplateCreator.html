@@ -44,6 +44,8 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p><a href="classTemplateCreator-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTemplateCreator_1_1ChannelSet.html">ChannelSet</a></td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a14f9890eadec9e00bb37a97b7c4f4c13">TemplateCreator</a> (<a class="el" href="classmodules_1_1options.html">modules::options</a> *opts)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a50828894e8aa3da51f3c543cd955a4ab">~TemplateCreator</a> ()</td></tr>
@@ -63,41 +65,65 @@ Inheritance diagram for TemplateCreator:</div>
 <tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#a42cecf27b0fc6c68efa06630358ce66b">GetDirectory</a> (const std::string &amp;name=&quot;&quot;)</td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TDirectory *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseModule.html#aa00f24e65a18c1d08149965da0fa1a22">dir</a></td></tr>
+<tr><td colspan="2"><h2>Private Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="structTemplateCreator_1_1ChannelSet.html">ChannelSet</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a91f63dfa6f21cdb31efdb33ab66c5fe8">ChannelList</a></td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#af011c57b324263249b1dd323861f9cff">ProcessEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *<a class="el" href="group__MV1724ProcessRaw.html#gaad8aa5d5fe566b2f8f6ca3000b09f0e9">gSetup</a>)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The big kahuna. Overload this in the derived class and it will be called for each event.  <a href="#af011c57b324263249b1dd323861f9cff"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a1465faef6f2c4f5de31794c64d5a3515">BeforeFirstEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#ae5f5a731f66c274dd42f17dc9e4ed738">AfterLastEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a2647c24a64b10feab30ad6f6a14aa7eb">AddPulseToTemplate</a> (TH1D *&amp;hTemplate, TH1D *&amp;hPulse, std::string bankname)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a8eec6677365132e4b6e6801c26055c42">AddPulseToTemplate</a> (<a class="el" href="structTemplateCreator_1_1ChannelSet.html">ChannelSet</a> &amp;current, TH1D *&amp;hPulse)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#ae474ec35dd56e9e85907c46b62a36ec0">CorrectSampleValue</a> (double old_value, double template_pedestal)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Corrects a given sample value.  <a href="#ae474ec35dd56e9e85907c46b62a36ec0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">TH1D *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a9d86bec851ae360f33dae893909dd210">CreateRefinedPulseHistogram</a> (const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *pulse, std::string histname, std::string histtitle, bool interpolate)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a refined histogram for a given <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>.  <a href="#a9d86bec851ae360f33dae893909dd210"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a7acb96f059573934f28afcac346954e7">CheckConvergence</a> (TH1D *hTemplate, std::string bankname)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Checks if the template has converged and that adding a new pulse has not effect on the template Returns: true if converged.  <a href="#a7acb96f059573934f28afcac346954e7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#addd3ae860e7cc93b63aed6963188671b">CheckConvergence</a> (<a class="el" href="structTemplateCreator_1_1ChannelSet.html">ChannelSet</a> &amp;current)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Checks if the template has converged and that adding a new pulse has not effect on the template Returns: true if converged.  <a href="#addd3ae860e7cc93b63aed6963188671b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a6b803bc7b0c76bb86a678b5dcbcd4fb2">HasPulseOverflowed</a> (const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *pulse, const std::string &amp;bankname)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Check if any part of the pulse' waveform has ADC overflow.  <a href="#a6b803bc7b0c76bb86a678b5dcbcd4fb2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TH1D *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a4f556c5b90e7384d4bfe9d8a9b79d008">StartTemplate</a> (int pulseID, const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *pulse, const std::string &amp;detname)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Init the template using the first valid pulse.  <a href="#a4f556c5b90e7384d4bfe9d8a9b79d008"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodules_1_1options.html">modules::options</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8">fOpts</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Store the options for use in ProcessEntry.  <a href="#ab91fb1b10be88f3939523ab2ffac70b8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTemplateArchive.html">TemplateArchive</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a709aaa4766e09fd861045a5034ead608">fNFitAttempts</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A map of the number of fit attempts on each detector.  <a href="#a709aaa4766e09fd861045a5034ead608"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aae144704087b2e7c69fa77118782c7ea">fNSuccessfulFits</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A map of the number of successful fits on each detector.  <a href="#aae144704087b2e7c69fa77118782c7ea"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a1ea48f4538fcc4c529efd94c23c8f674">fNPulsesInTemplate</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A map of the number of pulses in the template.  <a href="#a1ea48f4538fcc4c529efd94c23c8f674"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH1D * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844">fTemplates</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A map of the template histograms.  <a href="#a7daa2d3230fa7389eb7459526cf43844"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724">fRefineFactor</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The factor that we scale the number of bins in the template histogram by.  <a href="#a54b5408e48da1688055b6c4ed7a70724"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTemplateFitter.html">TemplateFitter</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmodules_1_1options.html">modules::options</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8">fOpts</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Store the options for use in ProcessEntry.  <a href="#ab91fb1b10be88f3939523ab2ffac70b8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aff185729a609ddba8226b2f28ce88a4c">fArchiveName</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTemplateArchive.html">TemplateArchive</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921">fPulseDebug</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">If true, then print out all pulses that get added to the templates and also print out certain templates as we go along.  <a href="#afdc3d19a0799435e5f210a531ca60921"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, TH1D * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">fErrorVsPulseAddedHistograms</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, bool &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#adbe66fc2148450c6a5f34a852132af73">fConvergedStatuses</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a16b3d73d8c5a9d951b70e78609f32c4e">fAnalyseAllChannels</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTemplateCreator.html#a91f63dfa6f21cdb31efdb33ab66c5fe8">ChannelList</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">fChannels</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a180966a471ab741148c112714d0d1ccb">fRequestedChannels</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a25c993f38e35c5ea87da827dff4e10b4">fCutIntegralRatio</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aceeae6047f2968c6cfe2b5ca533c8848">fIntegralMax</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aaf4f6b5ef4b8608d5cfc1da845e609ef">fIntegralMin</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aa5bc6cbd2cfdde88ee9262f57e0c04eb">fIntegralRatioMax</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a8675d24f63bf2aa7044aed42df658f7b">fIntegralRatioMin</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a690d4256ed3229fdb0085d3d734e5b62">fStartIntegral</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#a0dc5c74bc4c4e9eb52f70e063677fc8e">fStopIntegral</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplateCreator.html#aff678607be5dff82c2c631edeaa21307">fStartTail</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00013">13</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00016">16</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a91f63dfa6f21cdb31efdb33ab66c5fe8"></a><!-- doxytag: member="TemplateCreator::ChannelList" ref="a91f63dfa6f21cdb31efdb33ab66c5fe8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="structTemplateCreator_1_1ChannelSet.html">ChannelSet</a>&gt; <a class="el" href="classTemplateCreator.html#a91f63dfa6f21cdb31efdb33ab66c5fe8">TemplateCreator::ChannelList</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00032">32</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a14f9890eadec9e00bb37a97b7c4f4c13"></a><!-- doxytag: member="TemplateCreator::TemplateCreator" ref="a14f9890eadec9e00bb37a97b7c4f4c13" args="(modules::options *opts)" -->
 <div class="memitem">
@@ -117,14 +143,28 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00022">22</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
 
-<p>References <a class="el" href="TemplateCreator_8h_source.html#l00064">fPulseDebug</a>, <a class="el" href="TemplateCreator_8h_source.html#l00057">fRefineFactor</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00078">modules::options::GetBool()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00050">modules::options::GetInt()</a>.</p>
+<p>References <a class="el" href="TemplateCreator_8h_source.html#l00083">fAnalyseAllChannels</a>, <a class="el" href="TemplateCreator_8h_source.html#l00076">fArchiveName</a>, <a class="el" href="TemplateCreator_8h_source.html#l00087">fCutIntegralRatio</a>, <a class="el" href="TemplateCreator_8h_source.html#l00088">fIntegralMax</a>, <a class="el" href="TemplateCreator_8h_source.html#l00088">fIntegralMin</a>, <a class="el" href="TemplateCreator_8h_source.html#l00089">fIntegralRatioMax</a>, <a class="el" href="TemplateCreator_8h_source.html#l00089">fIntegralRatioMin</a>, <a class="el" href="TemplateCreator_8h_source.html#l00082">fPulseDebug</a>, <a class="el" href="TemplateCreator_8h_source.html#l00070">fRefineFactor</a>, <a class="el" href="TemplateCreator_8h_source.html#l00085">fRequestedChannels</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00078">modules::options::GetBool()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00057">modules::options::GetDouble()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00050">modules::options::GetInt()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00067">modules::options::GetString()</a>, and <a class="el" href="ModulesOptions_8cpp_source.html#l00092">modules::options::GetVectorStringsByDelimiter()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00022"></a>00022                                                     :
-<a name="l00023"></a>00023   <a class="code" href="classBaseModule.html#a828d4e27c72536894e03b3cf330ba8c6" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;TemplateCreator&quot;</span>,opts), <a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>(opts){
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025   <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#a2077430d97f034189c3f775ceefb8191" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;refine_factor&quot;</span>, 5);
-<a name="l00026"></a>00026   <a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921" title="If true, then print out all pulses that get added to the templates and also print...">fPulseDebug</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#afd05ff40baf1d5b42f47da2521615f58" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;pulse_debug&quot;</span>, <span class="keyword">false</span>);
-<a name="l00027"></a>00027 }
+<a name="l00023"></a>00023   <a class="code" href="classBaseModule.html#a828d4e27c72536894e03b3cf330ba8c6" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;TemplateCreator&quot;</span>,opts), <a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>(opts),
+<a name="l00024"></a>00024   <a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921" title="If true, then print out all pulses that get added to the templates and also print...">fPulseDebug</a>(<span class="keyword">false</span>), <a class="code" href="classTemplateCreator.html#a16b3d73d8c5a9d951b70e78609f32c4e">fAnalyseAllChannels</a>(<span class="keyword">false</span>)
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026   <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#a2077430d97f034189c3f775ceefb8191" title="Get the named option as an int.">GetInt</a>(<span class="stringliteral">&quot;refine_factor&quot;</span>, 5);
+<a name="l00027"></a>00027   <a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921" title="If true, then print out all pulses that get added to the templates and also print...">fPulseDebug</a> = opts-&gt;<a class="code" href="classmodules_1_1options.html#afd05ff40baf1d5b42f47da2521615f58" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;pulse_debug&quot;</span>, <span class="keyword">false</span>);
+<a name="l00028"></a>00028   opts-&gt;<a class="code" href="classmodules_1_1options.html#a9feb6f6c4fab9df5b9f2c8fa5edf3998" title="Fill a vector of strings with tokens found in the named option @ Uses strtok so not...">GetVectorStringsByDelimiter</a>(<span class="stringliteral">&quot;channels&quot;</span>,<a class="code" href="classTemplateCreator.html#a180966a471ab741148c112714d0d1ccb">fRequestedChannels</a>);
+<a name="l00029"></a>00029   <a class="code" href="classTemplateCreator.html#aff185729a609ddba8226b2f28ce88a4c">fArchiveName</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;file_name&quot;</span>,<span class="stringliteral">&quot;templates.root&quot;</span>);
+<a name="l00030"></a>00030   <span class="keywordflow">if</span>(<a class="code" href="classTemplateCreator.html#a180966a471ab741148c112714d0d1ccb">fRequestedChannels</a>.empty()) <a class="code" href="classTemplateCreator.html#a16b3d73d8c5a9d951b70e78609f32c4e">fAnalyseAllChannels</a>=<span class="keyword">true</span>;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032   <span class="comment">// Prepare integral ratio cuts</span>
+<a name="l00033"></a>00033   <a class="code" href="classTemplateCreator.html#a25c993f38e35c5ea87da827dff4e10b4">fCutIntegralRatio</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#afd05ff40baf1d5b42f47da2521615f58" title="Get the named option as a bool.">GetBool</a>(<span class="stringliteral">&quot;use_IR_cut&quot;</span>,<span class="keyword">false</span>);
+<a name="l00034"></a>00034   <span class="keywordflow">if</span>(<a class="code" href="classTemplateCreator.html#a25c993f38e35c5ea87da827dff4e10b4">fCutIntegralRatio</a>){
+<a name="l00035"></a>00035     <a class="code" href="classTemplateCreator.html#aceeae6047f2968c6cfe2b5ca533c8848">fIntegralMax</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;max_integral&quot;</span>);
+<a name="l00036"></a>00036     <a class="code" href="classTemplateCreator.html#aaf4f6b5ef4b8608d5cfc1da845e609ef">fIntegralMin</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;min_integral&quot;</span>);
+<a name="l00037"></a>00037     <a class="code" href="classTemplateCreator.html#aa5bc6cbd2cfdde88ee9262f57e0c04eb">fIntegralRatioMax</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;max_ratio&quot;</span>);
+<a name="l00038"></a>00038     <a class="code" href="classTemplateCreator.html#a8675d24f63bf2aa7044aed42df658f7b">fIntegralRatioMin</a>=opts-&gt;<a class="code" href="classmodules_1_1options.html#ae5dc83034f14668946edafd54a7d3131" title="Get the named option as a double.">GetDouble</a>(<span class="stringliteral">&quot;min_ratio&quot;</span>);
+<a name="l00039"></a>00039   }
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 }
 
 </pre></div></p>
 
@@ -145,36 +185,33 @@ Inheritance diagram for TemplateCreator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00029">29</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+<p><p>delete fTemplateArchive; fChannels.clear(); </p>
+</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                                  {
-<a name="l00030"></a>00030 }
+<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00043">43</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00043"></a>00043                                  {
+<a name="l00046"></a>00046 }
 </pre></div></p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2647c24a64b10feab30ad6f6a14aa7eb"></a><!-- doxytag: member="TemplateCreator::AddPulseToTemplate" ref="a2647c24a64b10feab30ad6f6a14aa7eb" args="(TH1D *&amp;hTemplate, TH1D *&amp;hPulse, std::string bankname)" -->
+<a class="anchor" id="a8eec6677365132e4b6e6801c26055c42"></a><!-- doxytag: member="TemplateCreator::AddPulseToTemplate" ref="a8eec6677365132e4b6e6801c26055c42" args="(ChannelSet &amp;current, TH1D *&amp;hPulse)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void TemplateCreator::AddPulseToTemplate </td>
           <td>(</td>
-          <td class="paramtype">TH1D *&amp;&nbsp;</td>
-          <td class="paramname"> <em>hTemplate</em>, </td>
+          <td class="paramtype"><a class="el" href="structTemplateCreator_1_1ChannelSet.html">ChannelSet</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>current</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">TH1D *&amp;&nbsp;</td>
-          <td class="paramname"> <em>hPulse</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>bankname</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>hPulse</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -184,66 +221,6 @@ Inheritance diagram for TemplateCreator:</div>
       </table>
 </div>
 <div class="memdoc">
-<p><a class="el" href="classTemplateCreator.html#a2647c24a64b10feab30ad6f6a14aa7eb">AddPulseToTemplate()</a> Adds the given pulse to the template </p>
-
-<p><p>...and new bin error </p>
-</p>
-
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00353">353</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
-
-<p>References <a class="el" href="TemplateCreator_8cpp_source.html#l00403">CorrectSampleValue()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TemplateCreator_8h_source.html#l00041">fNPulsesInTemplate</a>, <a class="el" href="TemplateCreator_8h_source.html#l00059">fTemplateFitter</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="TemplateFitter_8h_source.html#l00022">TemplateFitter::GetTimeOffset()</a>, and <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>.</p>
-
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00353"></a>00353                                                                                               {
-<a name="l00354"></a>00354 
-<a name="l00355"></a>00355   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
-<a name="l00356"></a>00356 
-<a name="l00357"></a>00357   <span class="keywordtype">int</span> n_pulses = <a class="code" href="classTemplateCreator.html#a1ea48f4538fcc4c529efd94c23c8f674" title="A map of the number of pulses in the template.">fNPulsesInTemplate</a>.at(detname);
-<a name="l00358"></a>00358   <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00359"></a>00359     std::cout &lt;&lt; <span class="stringliteral">&quot;AddPulseToTemplate(): n_pulses = &quot;</span> &lt;&lt; n_pulses &lt;&lt; std::endl;
-<a name="l00360"></a>00360   }
-<a name="l00361"></a>00361 
-<a name="l00362"></a>00362   <span class="keywordtype">double</span> template_pedestal = hTemplate-&gt;GetBinContent(1);
-<a name="l00363"></a>00363 
-<a name="l00364"></a>00364   <span class="comment">// Loop through the pulse histogram</span>
-<a name="l00365"></a>00365   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iPulseBin = 1; iPulseBin &lt; hPulse-&gt;GetNbinsX(); ++iPulseBin) {
-<a name="l00366"></a>00366 
-<a name="l00367"></a>00367     <span class="comment">// First, get the corrected sample value based on the fitted parameters</span>
-<a name="l00368"></a>00368     <span class="keywordtype">double</span> uncorrected_value = hPulse-&gt;GetBinContent(iPulseBin);
-<a name="l00369"></a>00369     <span class="keywordtype">double</span> corrected_value = <a class="code" href="classTemplateCreator.html#ae474ec35dd56e9e85907c46b62a36ec0" title="Corrects a given sample value.">CorrectSampleValue</a>(uncorrected_value, template_pedestal);
-<a name="l00370"></a>00370 
-<a name="l00371"></a>00371     <span class="comment">// Get the corrected bin number based on the fitted time offset</span>
-<a name="l00372"></a>00372     <span class="keywordtype">int</span> bin_number = iPulseBin + 0.5 - <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a86d696026efbc9cf8693507102b61a06">GetTimeOffset</a>(); <span class="comment">// +0.5 so that we round to the nearest integer and subtract time offset because this value might not want to go direct into the template</span>
-<a name="l00373"></a>00373 
-<a name="l00374"></a>00374     <span class="comment">// Only change the bin contents of bins within the range of the template histogram</span>
-<a name="l00375"></a>00375     <span class="keywordflow">if</span> (bin_number &lt; 1 || bin_number &gt; hTemplate-&gt;GetNbinsX()) {
-<a name="l00376"></a>00376       <span class="keywordflow">continue</span>;
-<a name="l00377"></a>00377     }
-<a name="l00378"></a>00378 
-<a name="l00379"></a>00379     <span class="comment">// Store the old bin content and error for later</span>
-<a name="l00380"></a>00380     <span class="keywordtype">double</span> old_bin_content = hTemplate-&gt;GetBinContent(bin_number);
-<a name="l00381"></a>00381     <span class="keywordtype">double</span> old_bin_error = hTemplate-&gt;GetBinError(bin_number);
-<a name="l00382"></a>00382 
-<a name="l00383"></a>00383     <span class="comment">// Calculate the new bin content...</span>
-<a name="l00384"></a>00384     <span class="keywordtype">double</span> new_bin_content = n_pulses * old_bin_content + corrected_value;
-<a name="l00385"></a>00385     new_bin_content /= (n_pulses + 1);
-<a name="l00386"></a>00386 
-<a name="l00388"></a>00388     <span class="keywordtype">double</span> new_bin_error = ((n_pulses - 1)*old_bin_error*old_bin_error) + (corrected_value - old_bin_content)*(corrected_value - new_bin_content);
-<a name="l00389"></a>00389     new_bin_error = std::sqrt(new_bin_error / n_pulses);
-<a name="l00390"></a>00390 
-<a name="l00391"></a>00391     <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00392"></a>00392       std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator::AddPulseToTemplate(): Bin #&quot;</span> &lt;&lt; bin_number &lt;&lt; <span class="stringliteral">&quot;: Corrected Sample Value = &quot;</span> &lt;&lt; corrected_value &lt;&lt; std::endl
-<a name="l00393"></a>00393                 &lt;&lt; <span class="stringliteral">&quot;\t\t\tOld Value (Error) = &quot;</span> &lt;&lt; old_bin_content &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; old_bin_error &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl
-<a name="l00394"></a>00394                 &lt;&lt; <span class="stringliteral">&quot;\t\t\tNew Value (Error) = &quot;</span> &lt;&lt; new_bin_content &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; new_bin_error &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
-<a name="l00395"></a>00395     }
-<a name="l00396"></a>00396 
-<a name="l00397"></a>00397     <span class="comment">// Set the new bin content and error of the template</span>
-<a name="l00398"></a>00398     hTemplate-&gt;SetBinContent(bin_number, new_bin_content);
-<a name="l00399"></a>00399     hTemplate-&gt;SetBinError(bin_number, new_bin_error);
-<a name="l00400"></a>00400   }
-<a name="l00401"></a>00401 }
-</pre></div></p>
 
 </div>
 </div>
@@ -276,65 +253,37 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#adce5c0d504fe9daf1d4d77b8c0522a7c">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00295">295</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00271">271</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TemplateCreator_8h_source.html#l00033">fNFitAttempts</a>, <a class="el" href="TemplateCreator_8h_source.html#l00037">fNSuccessfulFits</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TemplateCreator_8h_source.html#l00027">fTemplateArchive</a>, <a class="el" href="TemplateCreator_8h_source.html#l00045">fTemplates</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, and <a class="el" href="TemplateArchive_8cpp_source.html#l00024">TemplateArchive::SaveTemplate()</a>.</p>
+<p>References <a class="el" href="TemplateCreator_8h_source.html#l00084">fChannels</a>, <a class="el" href="TemplateCreator_8h_source.html#l00077">fTemplateArchive</a>, <a class="el" href="BaseModule_8h_source.html#l00074">BaseModule::GetDirectory()</a>, and <a class="el" href="TemplateArchive_8cpp_source.html#l00028">TemplateArchive::SaveTemplate()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00295"></a>00295                                                                               {
-<a name="l00296"></a>00296 
-<a name="l00297"></a>00297   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00298"></a>00298   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00299"></a>00299      cout&lt;&lt;<span class="stringliteral">&quot;-----I&apos;m debugging TemplateCreator::AfterLastEntry()&quot;</span>&lt;&lt;endl;
-<a name="l00300"></a>00300   }
-<a name="l00301"></a>00301 
-<a name="l00302"></a>00302   <span class="comment">// Print to stdout the percentage of successful fit for each channel</span>
-<a name="l00303"></a>00303   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
-<a name="l00304"></a>00304   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
-<a name="l00305"></a>00305     std::string bankname = it-&gt;first;
-<a name="l00306"></a>00306     std::string detname = setup-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
-<a name="l00307"></a>00307 
-<a name="l00308"></a>00308     TH1D* hTemplate = <a class="code" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844" title="A map of the template histograms.">fTemplates</a>[detname];
-<a name="l00309"></a>00309     
-<a name="l00310"></a>00310     <span class="keywordflow">if</span> (!hTemplate) { <span class="comment">// if there&apos;s no template been created for this channel</span>
-<a name="l00311"></a>00311       <span class="keywordflow">continue</span>;
-<a name="l00312"></a>00312     }
-<a name="l00313"></a>00313     
-<a name="l00314"></a>00314     <span class="keywordtype">int</span>&amp; n_fit_attempts = <a class="code" href="classTemplateCreator.html#a709aaa4766e09fd861045a5034ead608" title="A map of the number of fit attempts on each detector.">fNFitAttempts</a>[detname]; <span class="comment">// number of pulses we try to fit to</span>
-<a name="l00315"></a>00315     <span class="keywordtype">int</span>&amp; n_successful_fits = <a class="code" href="classTemplateCreator.html#aae144704087b2e7c69fa77118782c7ea" title="A map of the number of successful fits on each detector.">fNSuccessfulFits</a>[detname];
-<a name="l00316"></a>00316     std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: &quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; n_fit_attempts &lt;&lt; <span class="stringliteral">&quot; fits attempted with &quot;</span> &lt;&lt; n_successful_fits &lt;&lt; <span class="stringliteral">&quot; successful (&quot;</span> &lt;&lt; ((double)n_successful_fits/(<span class="keywordtype">double</span>)n_fit_attempts)*100 &lt;&lt; &quot;%)&quot; &lt;&lt; std::endl;
-<a name="l00317"></a>00317 
-<a name="l00318"></a>00318     <span class="comment">// Normalise the template so that it has pedestal=0 and amplitude=1</span>
-<a name="l00319"></a>00319     <span class="comment">// Work out the pedestal of the template from the first 5 bins</span>
-<a name="l00320"></a>00320     <span class="keywordtype">int</span> n_bins_for_template_pedestal = 5;
-<a name="l00321"></a>00321     <span class="keywordtype">double</span> total = 0;
-<a name="l00322"></a>00322     for (<span class="keywordtype">int</span> iBin = 1; iBin &lt;= n_bins_for_template_pedestal; ++iBin) {
-<a name="l00323"></a>00323       total += hTemplate-&gt;GetBinContent(iBin);
-<a name="l00324"></a>00324     }
-<a name="l00325"></a>00325     <span class="keywordtype">double</span> template_pedestal = total / n_bins_for_template_pedestal;
-<a name="l00326"></a>00326     <span class="comment">//    std::cout &lt;&lt; detname &lt;&lt; &quot;: Template Pedestal = &quot; &lt;&lt; template_pedestal &lt;&lt; std::endl;</span>
-<a name="l00327"></a>00327    
-<a name="l00328"></a>00328     <span class="comment">// Subtract off the pedesal</span>
-<a name="l00329"></a>00329     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iBin = 1; iBin &lt;= hTemplate-&gt;GetNbinsX(); ++iBin) {
-<a name="l00330"></a>00330       <span class="keywordtype">double</span> old_value = hTemplate-&gt;GetBinContent(iBin);
-<a name="l00331"></a>00331       <span class="keywordtype">double</span> new_value = old_value - template_pedestal;
-<a name="l00332"></a>00332 
-<a name="l00333"></a>00333       hTemplate-&gt;SetBinContent(iBin, new_value);
-<a name="l00334"></a>00334     }
-<a name="l00335"></a>00335 
-<a name="l00336"></a>00336     <span class="comment">// Integrate over the histogram and scale to give an area of 1</span>
-<a name="l00337"></a>00337     <span class="keywordtype">double</span> integral = std::fabs(hTemplate-&gt;Integral()); <span class="comment">// want the absolute value for the integral because of the negative polarity pulses</span>
-<a name="l00338"></a>00338     hTemplate-&gt;Scale(1.0/integral);
-<a name="l00339"></a>00339     integral = std::fabs(hTemplate-&gt;Integral());
-<a name="l00340"></a>00340 
-<a name="l00341"></a>00341     <span class="comment">// Save the template to the file</span>
-<a name="l00342"></a>00342     <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>-&gt;<a class="code" href="classTemplateArchive.html#ad96d5464324433d3c00aa1481227b815" title="Takes the given histogram and saves it to the ROOT file.">SaveTemplate</a>(hTemplate);
-<a name="l00343"></a>00343   }
-<a name="l00344"></a>00344 
-<a name="l00345"></a>00345   <span class="comment">// Clean up the template archive</span>
-<a name="l00346"></a>00346   <span class="keyword">delete</span> <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>;
-<a name="l00347"></a>00347 
-<a name="l00348"></a>00348   <span class="keywordflow">return</span> 0;
-<a name="l00349"></a>00349 }
+<p><div class="fragment"><pre class="fragment"><a name="l00271"></a>00271                                                                               {
+<a name="l00272"></a>00272 
+<a name="l00273"></a>00273   <span class="comment">// Print to stdout the percentage of successful fit for each channel</span>
+<a name="l00274"></a>00274   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelList::iterator</a> i_ch=<a class="code" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">fChannels</a>.begin(); i_ch!=<a class="code" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">fChannels</a>.end(); ++i_ch){
+<a name="l00275"></a>00275 
+<a name="l00276"></a>00276     <span class="keywordflow">if</span> (i_ch-&gt;template_pulse-&gt;Empty()) { <span class="comment">// if there&apos;s no template been created for this channel</span>
+<a name="l00277"></a>00277       <span class="keywordflow">continue</span>;
+<a name="l00278"></a>00278     }
+<a name="l00279"></a>00279     
+<a name="l00280"></a>00280     cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: &quot;</span> &lt;&lt; i_ch-&gt;detname 
+<a name="l00281"></a>00281          &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; i_ch-&gt;fit_attempts &lt;&lt; <span class="stringliteral">&quot; fits attempted with &quot;</span>
+<a name="l00282"></a>00282          &lt;&lt; i_ch-&gt;fit_successes &lt;&lt; <span class="stringliteral">&quot; successful (&quot;</span> 
+<a name="l00283"></a>00283          &lt;&lt; ((double)i_ch-&gt;fit_successes/(<span class="keywordtype">double</span>)i_ch-&gt;fit_attempts)*100 &lt;&lt; <span class="stringliteral">&quot;%)&quot;</span> &lt;&lt; endl;
+<a name="l00284"></a>00284 
+<a name="l00285"></a>00285     <span class="comment">// Normalise the templates</span>
+<a name="l00286"></a>00286     i_ch-&gt;template_pulse-&gt;Normalise();
+<a name="l00287"></a>00287     i_ch-&gt;template_pulse-&gt;AddToDirectory(<a class="code" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b" title="Get the TDirectory for this module.">GetDirectory</a>());
+<a name="l00288"></a>00288 
+<a name="l00289"></a>00289     <span class="comment">// Save the template to the file</span>
+<a name="l00290"></a>00290     <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a>-&gt;<a class="code" href="classTemplateArchive.html#a5c00541506c4a2d3e1a829a76f60d1cd" title="Takes the given histogram and saves it to the ROOT file.">SaveTemplate</a>(i_ch-&gt;template_pulse);
+<a name="l00291"></a>00291     
+<a name="l00292"></a>00292     <span class="comment">// tidy up</span>
+<a name="l00293"></a>00293     i_ch-&gt;Clear();
+<a name="l00294"></a>00294   }
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296   <span class="keywordflow">return</span> 0;
+<a name="l00297"></a>00297 }
 </pre></div></p>
 
 </div>
@@ -368,103 +317,56 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#a2c043d991a87450829025075284f5519">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00035">35</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00081">81</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TemplateCreator_8h_source.html#l00071">fConvergedStatuses</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TemplateCreator_8h_source.html#l00027">fTemplateArchive</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, and <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TemplateCreator_8h_source.html#l00083">fAnalyseAllChannels</a>, <a class="el" href="TemplateCreator_8h_source.html#l00076">fArchiveName</a>, <a class="el" href="TemplateCreator_8h_source.html#l00084">fChannels</a>, <a class="el" href="TemplateCreator_8h_source.html#l00074">fOpts</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TemplateCreator_8h_source.html#l00070">fRefineFactor</a>, <a class="el" href="TemplateCreator_8h_source.html#l00085">fRequestedChannels</a>, <a class="el" href="TemplateCreator_8h_source.html#l00077">fTemplateArchive</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="BaseModule_8h_source.html#l00074">BaseModule::GetDirectory()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, and <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035                                                                                 {
-<a name="l00036"></a>00036   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00037"></a>00037   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00038"></a>00038      cout&lt;&lt;<span class="stringliteral">&quot;-----I&apos;m debugging TemplateCreator::BeforeFirstEntry() &quot;</span>&lt;&lt;endl;
-<a name="l00039"></a>00039   }
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041   <span class="comment">// Prepare the template archive</span>
-<a name="l00042"></a>00042   <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a> = <span class="keyword">new</span> <a class="code" href="classTemplateArchive.html" title="Utility class that manages reading and writing template histograms to a ROOT file...">TemplateArchive</a>(<span class="stringliteral">&quot;templates.root&quot;</span>, <span class="stringliteral">&quot;RECREATE&quot;</span>);
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044   <span class="comment">// Set all the converged statuses to false</span>
-<a name="l00045"></a>00045   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
-<a name="l00046"></a>00046   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
-<a name="l00047"></a>00047     std::string bankname = it-&gt;first;
-<a name="l00048"></a>00048     std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050     <a class="code" href="classTemplateCreator.html#adbe66fc2148450c6a5f34a852132af73">fConvergedStatuses</a>[detname] = <span class="keyword">false</span>;
-<a name="l00051"></a>00051   }
-<a name="l00052"></a>00052   <span class="keywordflow">return</span> 0;
-<a name="l00053"></a>00053 }
+<p><div class="fragment"><pre class="fragment"><a name="l00081"></a>00081                                                                                 {
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083   <span class="comment">// Prepare the template archive</span>
+<a name="l00084"></a>00084   <span class="keywordflow">if</span>(<a class="code" href="classTemplateCreator.html#aff185729a609ddba8226b2f28ce88a4c">fArchiveName</a>==<a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().GetOutputFileName()){
+<a name="l00085"></a>00085     <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a> = <span class="keyword">new</span> <a class="code" href="classTemplateArchive.html" title="Utility class that manages reading and writing template histograms to a ROOT file...">TemplateArchive</a>(<a class="code" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b" title="Get the TDirectory for this module.">GetDirectory</a>());
+<a name="l00086"></a>00086   } <span class="keywordflow">else</span>{
+<a name="l00087"></a>00087     <a class="code" href="classTemplateCreator.html#aa768b7261101542440cbc87440b9fe63">fTemplateArchive</a> = <span class="keyword">new</span> <a class="code" href="classTemplateArchive.html" title="Utility class that manages reading and writing template histograms to a ROOT file...">TemplateArchive</a>(<a class="code" href="classTemplateCreator.html#aff185729a609ddba8226b2f28ce88a4c">fArchiveName</a>.c_str(), <span class="stringliteral">&quot;RECREATE&quot;</span>);
+<a name="l00088"></a>00088   }
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090   <span class="comment">// Set all the converged statuses to false</span>
+<a name="l00091"></a>00091   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
+<a name="l00092"></a>00092   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
+<a name="l00093"></a>00093        <span class="keyword">const</span> std::string bankname = it-&gt;first;
+<a name="l00094"></a>00094        <span class="keyword">const</span> std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00095"></a>00095        <span class="keywordflow">if</span>(!<a class="code" href="classTemplateCreator.html#a16b3d73d8c5a9d951b70e78609f32c4e">fAnalyseAllChannels</a> &amp;&amp;
+<a name="l00096"></a>00096           std::find(<a class="code" href="classTemplateCreator.html#a180966a471ab741148c112714d0d1ccb">fRequestedChannels</a>.begin(), <a class="code" href="classTemplateCreator.html#a180966a471ab741148c112714d0d1ccb">fRequestedChannels</a>.end(), detname)
+<a name="l00097"></a>00097               ==<a class="code" href="classTemplateCreator.html#a180966a471ab741148c112714d0d1ccb">fRequestedChannels</a>.end()) {
+<a name="l00098"></a>00098            <span class="keywordflow">continue</span>;
+<a name="l00099"></a>00099        }
+<a name="l00100"></a>00100        <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout&lt;&lt;<span class="stringliteral">&quot;TemplateCreator::BeforeFirstEntry: Will make template for &apos;&quot;</span>&lt;&lt;detname&lt;&lt;<span class="stringliteral">&quot;&apos;&quot;</span>&lt;&lt;endl;
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102        <a class="code" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">fChannels</a>.push_back(ChannelSet(detname,bankname,<a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>,<a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>));
+<a name="l00103"></a>00103   }
+<a name="l00104"></a>00104   <span class="keywordflow">return</span> 0;
+<a name="l00105"></a>00105 }
 </pre></div></p>
 
 </div>
 </div>
-<a class="anchor" id="a7acb96f059573934f28afcac346954e7"></a><!-- doxytag: member="TemplateCreator::CheckConvergence" ref="a7acb96f059573934f28afcac346954e7" args="(TH1D *hTemplate, std::string bankname)" -->
+<a class="anchor" id="addd3ae860e7cc93b63aed6963188671b"></a><!-- doxytag: member="TemplateCreator::CheckConvergence" ref="addd3ae860e7cc93b63aed6963188671b" args="(ChannelSet &amp;current)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool TemplateCreator::CheckConvergence </td>
           <td>(</td>
-          <td class="paramtype">TH1D *&nbsp;</td>
-          <td class="paramname"> <em>hTemplate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>bankname</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [private]</code></td>
+          <td class="paramtype"><a class="el" href="structTemplateCreator_1_1ChannelSet.html">ChannelSet</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>current</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>Checks if the template has converged and that adding a new pulse has not effect on the template Returns: true if converged. </p>
-
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00456">456</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
-
-<p>References <a class="el" href="TemplateCreator_8h_source.html#l00070">fErrorVsPulseAddedHistograms</a>, <a class="el" href="TemplateCreator_8h_source.html#l00041">fNPulsesInTemplate</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="TSetupData_8h_source.html#l00083">TSetupData::GetTriggerPolarity()</a>, and <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>.</p>
-
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00456"></a>00456                                                                           {
-<a name="l00457"></a>00457 
-<a name="l00458"></a>00458   std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
-<a name="l00459"></a>00459   <span class="keywordtype">int</span> n_pulses_in_template = <a class="code" href="classTemplateCreator.html#a1ea48f4538fcc4c529efd94c23c8f674" title="A map of the number of pulses in the template.">fNPulsesInTemplate</a>[detname];
-<a name="l00460"></a>00460   <span class="keywordtype">int</span> trigger_polarity = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(bankname);
-<a name="l00461"></a>00461 
-<a name="l00462"></a>00462   TH1D* error_histogram = <a class="code" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">fErrorVsPulseAddedHistograms</a>[detname];
-<a name="l00463"></a>00463   <span class="keywordtype">double</span> error = 0;
-<a name="l00464"></a>00464   <span class="keywordflow">if</span> (trigger_polarity == -1) {
-<a name="l00465"></a>00465     error = hTemplate-&gt;GetBinError(hTemplate-&gt;GetMinimumBin());
-<a name="l00466"></a>00466   }
-<a name="l00467"></a>00467   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (trigger_polarity == 1) {
-<a name="l00468"></a>00468     error = hTemplate-&gt;GetBinError(hTemplate-&gt;GetMaximumBin());
-<a name="l00469"></a>00469   }
-<a name="l00470"></a>00470   error_histogram-&gt;Fill(n_pulses_in_template, error);
-<a name="l00471"></a>00471 
-<a name="l00472"></a>00472   <span class="comment">// Check the difference between this iteration and previous ones and, if it&apos;s small, the template has converged</span>
-<a name="l00473"></a>00473   <span class="keywordtype">int</span> n_bins_to_check = 10;
-<a name="l00474"></a>00474   <span class="keywordtype">double</span> convergence_limit = 0.1;
-<a name="l00475"></a>00475   <span class="keywordtype">bool</span> converged = <span class="keyword">false</span>;
-<a name="l00476"></a>00476   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iPrevBin = 0; iPrevBin &lt; n_bins_to_check; ++iPrevBin) {
-<a name="l00477"></a>00477     <span class="keywordtype">double</span> previous_error = error_histogram-&gt;GetBinContent(n_pulses_in_template-iPrevBin); <span class="comment">// we have just added error to bin number n_pulses_in_template+1</span>
-<a name="l00478"></a>00478 
-<a name="l00479"></a>00479     <span class="keywordflow">if</span> ( std::fabs(previous_error - error) &lt; convergence_limit) {
-<a name="l00480"></a>00480       converged = <span class="keyword">true</span>;
-<a name="l00481"></a>00481     }
-<a name="l00482"></a>00482     <span class="keywordflow">else</span> {
-<a name="l00483"></a>00483       converged = <span class="keyword">false</span>;
-<a name="l00484"></a>00484       <span class="keywordflow">break</span>;
-<a name="l00485"></a>00485     }
-<a name="l00486"></a>00486   }
-<a name="l00487"></a>00487 
-<a name="l00488"></a>00488   <span class="keywordflow">return</span> converged;
-<a name="l00489"></a>00489   <span class="comment">//  std::cout &lt;&lt; detname &lt;&lt; &quot;: #&quot; &lt;&lt; n_pulses_in_template &lt;&lt; &quot;, Error (Inserted) = &quot; &lt;&lt; error &lt;&lt; &quot;, Error (Retrieved) = &quot; &lt;&lt; error_histogram-&gt;GetBinContent(n_pulses_in_template+1) &lt;&lt; std::endl;</span>
-<a name="l00490"></a>00490 
-<a name="l00491"></a>00491 }
-</pre></div></p>
 
 </div>
 </div>
@@ -494,22 +396,6 @@ Inheritance diagram for TemplateCreator:</div>
 <div class="memdoc">
 
 <p>Corrects a given sample value. </p>
-
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00403">403</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
-
-<p>References <a class="el" href="TemplateCreator_8h_source.html#l00059">fTemplateFitter</a>, <a class="el" href="TemplateFitter_8h_source.html#l00021">TemplateFitter::GetAmplitudeScaleFactor()</a>, and <a class="el" href="TemplateFitter_8h_source.html#l00020">TemplateFitter::GetPedestalOffset()</a>.</p>
-
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00353">AddPulseToTemplate()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
-
-<p><div class="fragment"><pre class="fragment"><a name="l00403"></a>00403                                                                                      {
-<a name="l00404"></a>00404 
-<a name="l00405"></a>00405   <span class="keywordtype">double</span> new_value = old_value - <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a41bd10fa7c79ff511d40d1cbfb05b37e">GetPedestalOffset</a>();
-<a name="l00406"></a>00406   new_value /= <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#ada514f391e62893b1f1871999d7b3e18">GetAmplitudeScaleFactor</a>();
-<a name="l00407"></a>00407   new_value += template_pedestal;
-<a name="l00408"></a>00408 
-<a name="l00409"></a>00409   <span class="keywordflow">return</span> new_value;
-<a name="l00410"></a>00410 }
-</pre></div></p>
 
 </div>
 </div>
@@ -552,53 +438,57 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>Creates a refined histogram for a given <a class="el" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>. </p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00413">413</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00300">300</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
 
-<p>References <a class="el" href="TemplateCreator_8h_source.html#l00057">fRefineFactor</a>, <a class="el" href="TPulseIsland_8h_source.html#l00063">TPulseIsland::GetBankName()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00216">SetupNavigator::GetNoise()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00077">SetupNavigator::Instance()</a>.</p>
+<p>References <a class="el" href="TemplateCreator_8h_source.html#l00070">fRefineFactor</a>, <a class="el" href="TPulseIsland_8h_source.html#l00063">TPulseIsland::GetBankName()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00228">SetupNavigator::GetNoise()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00081">SetupNavigator::Instance()</a>, and <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00370">StartTemplate()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00413"></a>00413                                                                                                                                        {
-<a name="l00414"></a>00414 
-<a name="l00415"></a>00415   <span class="comment">// Get a few things first</span>
-<a name="l00416"></a>00416   std::string bankname = pulse-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
-<a name="l00417"></a>00417   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
-<a name="l00418"></a>00418   <span class="keywordtype">int</span> n_samples = theSamples.size();
-<a name="l00419"></a>00419   <span class="keywordtype">int</span> n_bins = <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>*n_samples; <span class="comment">// number of bins in the template</span>
-<a name="l00420"></a>00420 
-<a name="l00421"></a>00421   <span class="comment">// Create the higher resolution histogram</span>
-<a name="l00422"></a>00422   TH1D* hist = <span class="keyword">new</span> TH1D(histname.c_str(), histtitle.c_str(), n_bins, 0, n_samples);
-<a name="l00423"></a>00423 
-<a name="l00424"></a>00424   <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a548c02124ff047e7460ca5d7c83a3304" title="Gets the error on the pedestal from the SQLite database.">GetNoise</a>(bankname);
-<a name="l00425"></a>00425 
-<a name="l00426"></a>00426   <span class="comment">// Go through the bins in the high-resolution histogram</span>
-<a name="l00427"></a>00427   <span class="comment">// NB sample numbers go grom 0 to n-1 and bins go from 1 to n</span>
-<a name="l00428"></a>00428   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n_bins; ++i) {
-<a name="l00429"></a>00429     <span class="keywordtype">int</span> bin = i+1; <span class="comment">// bins go from 1 to n rather than 0 to n-1</span>
-<a name="l00430"></a>00430     <span class="keywordtype">int</span> sample_number = i / <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>;
-<a name="l00431"></a>00431     <span class="keywordtype">double</span> remainder = i % <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>;
-<a name="l00432"></a>00432     <span class="keywordtype">double</span> sample_value;
-<a name="l00433"></a>00433 
-<a name="l00434"></a>00434     <span class="comment">// We may want to interpolate between the samples in the samples vector</span>
-<a name="l00435"></a>00435     <span class="keywordflow">if</span> (interpolate) {
-<a name="l00436"></a>00436       <span class="keywordflow">try</span> {
-<a name="l00437"></a>00437         sample_value = theSamples.at(sample_number) + (remainder / <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>)*(theSamples.at(sample_number+1) - theSamples.at(sample_number));
-<a name="l00438"></a>00438       }
-<a name="l00439"></a>00439       <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range&amp; oor) { <span class="comment">// if we&apos;ll be going out of range of the samples vector</span>
-<a name="l00440"></a>00440         sample_value = theSamples.at(sample_number);
-<a name="l00441"></a>00441       }
-<a name="l00442"></a>00442     }
-<a name="l00443"></a>00443     <span class="keywordflow">else</span> {
-<a name="l00444"></a>00444       sample_value = theSamples.at(sample_number);
-<a name="l00445"></a>00445     }
-<a name="l00446"></a>00446 
-<a name="l00447"></a>00447     <span class="comment">// Set the bin contents and bin error</span>
-<a name="l00448"></a>00448     hist-&gt;SetBinContent( bin, sample_value);
-<a name="l00449"></a>00449     hist-&gt;SetBinError( bin, pedestal_error);
-<a name="l00450"></a>00450   }
-<a name="l00451"></a>00451 
-<a name="l00452"></a>00452   <span class="keywordflow">return</span> hist;
-<a name="l00453"></a>00453 }
+<p><div class="fragment"><pre class="fragment"><a name="l00302"></a>00302                                             {
+<a name="l00303"></a>00303 
+<a name="l00304"></a>00304   <span class="comment">// Get a few things first</span>
+<a name="l00305"></a>00305   <span class="keyword">const</span> std::string&amp; bankname = pulse-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
+<a name="l00306"></a>00306   <span class="keyword">const</span> std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00307"></a>00307   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
+<a name="l00308"></a>00308   <span class="keywordtype">int</span> n_samples = theSamples.size();
+<a name="l00309"></a>00309   <span class="keywordtype">int</span> n_bins = <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>*n_samples; <span class="comment">// number of bins in the template</span>
+<a name="l00310"></a>00310 
+<a name="l00311"></a>00311   <span class="comment">// Create the higher resolution histogram</span>
+<a name="l00312"></a>00312   TH1D* hist = <span class="keyword">new</span> TH1D(histname.c_str(), histtitle.c_str(), n_bins, 0, n_samples);
+<a name="l00313"></a>00313 
+<a name="l00314"></a>00314   <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a548c02124ff047e7460ca5d7c83a3304" title="Gets the error on the pedestal from the SQLite database.">GetNoise</a>(detname);
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316   <span class="comment">// Go through the bins in the high-resolution histogram</span>
+<a name="l00317"></a>00317   <span class="comment">// NB sample numbers go grom 0 to n-1 and bins go from 1 to n</span>
+<a name="l00318"></a>00318   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n_bins; ++i) {
+<a name="l00319"></a>00319     <span class="keywordtype">int</span> bin = i+1; <span class="comment">// bins go from 1 to n rather than 0 to n-1</span>
+<a name="l00320"></a>00320     <span class="keywordtype">int</span> sample_number = i / <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>;
+<a name="l00321"></a>00321     <span class="keywordtype">double</span> remainder = i % <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>;
+<a name="l00322"></a>00322     <span class="keywordtype">double</span> sample_value;
+<a name="l00323"></a>00323 
+<a name="l00324"></a>00324     <span class="comment">// We may want to interpolate between the samples in the samples vector</span>
+<a name="l00325"></a>00325     <span class="keywordflow">if</span> (interpolate) {
+<a name="l00326"></a>00326       <span class="keywordflow">try</span> {
+<a name="l00327"></a>00327     sample_value = theSamples.at(sample_number) 
+<a name="l00328"></a>00328                      + (remainder / <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>)*(theSamples.at(sample_number+1) 
+<a name="l00329"></a>00329                      - theSamples.at(sample_number));
+<a name="l00330"></a>00330       }
+<a name="l00331"></a>00331       <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range&amp; oor) { <span class="comment">// if we&apos;ll be going out of range of the samples vector</span>
+<a name="l00332"></a>00332     sample_value = theSamples.at(sample_number);
+<a name="l00333"></a>00333       }
+<a name="l00334"></a>00334     }
+<a name="l00335"></a>00335     <span class="keywordflow">else</span> {
+<a name="l00336"></a>00336       sample_value = theSamples.at(sample_number);
+<a name="l00337"></a>00337     }
+<a name="l00338"></a>00338 
+<a name="l00339"></a>00339     <span class="comment">// Set the bin contents and bin error</span>
+<a name="l00340"></a>00340     hist-&gt;SetBinContent( bin, sample_value);
+<a name="l00341"></a>00341     hist-&gt;SetBinError( bin, pedestal_error);
+<a name="l00342"></a>00342   }
+<a name="l00343"></a>00343   hist-&gt;SetDirectory(0);
+<a name="l00344"></a>00344 
+<a name="l00345"></a>00345   <span class="keywordflow">return</span> hist;
+<a name="l00346"></a>00346 }
 </pre></div></p>
 
 </div>
@@ -624,7 +514,7 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00089">BaseModule::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00353">AddPulseToTemplate()</a>, <a class="el" href="ExportPulse_8h_source.html#l00139">ExportPulse::AddToExportList()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00295">AfterLastEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00035">BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00212">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00131">PulseViewer::ProcessEntry()</a>, and <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="ExportPulse_8h_source.html#l00146">ExportPulse::AddToExportList()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00102">PulseCandidateFinder_InvestigateParameters::AfterLastEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00233">PlotTDPs::AfterLastEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00103">PlotTDP_TDiff::AfterLastEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00086">IslandLength::AfterLastEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00140">IslandAmplitude::AfterLastEntry()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00027">PulseCandidateFinder_InvestigateParameters::BeforeFirstEntry()</a>, <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00034">PlotTPI_PedestalAndNoise::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="IslandLength_8cpp_source.html#l00032">IslandLength::BeforeFirstEntry()</a>, <a class="el" href="IslandAmplitude_8cpp_source.html#l00035">IslandAmplitude::BeforeFirstEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00213">PulseViewer::ConsiderDrawing()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00145">MakeDetectorPulses::MakeGenerator()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00218">ExportPulse::PlotTPI()</a>, <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00087">MakeDetectorPulses::ProcessEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder__InvestigateParameters_8cpp_source.html#l00038">PulseCandidateFinder_InvestigateParameters::ProcessEntry()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00131">PulseViewer::ProcessEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00065">PlotTDP_TDiff::ProcessEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00370">StartTemplate()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#adb0c35fcbccea0bc732476b59c5b64ca">fDebug</a>;};
 </pre></div></p>
@@ -709,7 +599,7 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>References <a class="el" href="BaseModule_8h_source.html#l00091">BaseModule::fDirectory</a>.</p>
 
-<p>Referenced by <a class="el" href="SavePulses_8cpp_source.html#l00076">SavePulses::AfterLastEntry()</a>, and <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00271">AfterLastEntry()</a>, <a class="el" href="SavePulses_8cpp_source.html#l00076">SavePulses::AfterLastEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00218">ExportPulse::PlotTPI()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00074"></a>00074 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a836fa9d2af26eb8a0041e0478c8fa9f0">fDirectory</a>;}
 </pre></div></p>
@@ -740,6 +630,64 @@ Inheritance diagram for TemplateCreator:</div>
 <p>Referenced by <a class="el" href="SavePulses_8cpp_source.html#l00030">SavePulses::BeforeFirstEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PlotTDP__TDiff_8cpp_source.html#l00034">PlotTDP_TDiff::BeforeFirstEntry()</a>, <a class="el" href="PlotTAP__Time_8cpp_source.html#l00033">PlotTAP_Time::ProcessEntry()</a>, <a class="el" href="PlotTAP__Amplitude_8cpp_source.html#l00037">PlotTAP_Amplitude::ProcessEntry()</a>, and <a class="el" href="LoopSequence_8cpp_source.html#l00135">LoopSequence::Run()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066 {<span class="keywordflow">return</span> <a class="code" href="classBaseModule.html#a743cac6481efcd5dea914e1d28813dfe">fName</a>.c_str();};
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a6b803bc7b0c76bb86a678b5dcbcd4fb2"></a><!-- doxytag: member="TemplateCreator::HasPulseOverflowed" ref="a6b803bc7b0c76bb86a678b5dcbcd4fb2" args="(const TPulseIsland *pulse, const std::string &amp;bankname)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TemplateCreator::HasPulseOverflowed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *&nbsp;</td>
+          <td class="paramname"> <em>pulse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>bankname</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Check if any part of the pulse' waveform has ADC overflow. </p>
+
+<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00348">348</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+
+<p>References <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, and <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00348"></a>00348                                                                                            {
+<a name="l00349"></a>00349     <span class="comment">// Get the samples so we can check for digitiser overflow</span>
+<a name="l00350"></a>00350     <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = (pulse)-&gt;GetSamples();
+<a name="l00351"></a>00351     <span class="keywordtype">int</span> n_samples = theSamples.size();
+<a name="l00352"></a>00352 
+<a name="l00353"></a>00353     <span class="comment">// Calculate the maximum ADC value for this digitiser</span>
+<a name="l00354"></a>00354     <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
+<a name="l00355"></a>00355     <span class="keywordtype">double</span> max_adc_value = std::pow(2, n_bits);
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
+<a name="l00358"></a>00358       <span class="keywordtype">int</span> sample_value = theSamples.at(i);
+<a name="l00359"></a>00359       <span class="keywordflow">if</span> (sample_value &gt;= max_adc_value-1 &amp;&amp; sample_value &lt;= max_adc_value+1) {
+<a name="l00360"></a>00360          <span class="keywordflow">return</span> 1;
+<a name="l00361"></a>00361       }
+<a name="l00362"></a>00362       <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sample_value == 0) {
+<a name="l00363"></a>00363          <span class="keywordflow">return</span> -1;
+<a name="l00364"></a>00364       }
+<a name="l00365"></a>00365     }
+<a name="l00366"></a>00366     <span class="comment">// no under or overflow</span>
+<a name="l00367"></a>00367     <span class="keywordflow">return</span> 0;
+<a name="l00368"></a>00368 }
 </pre></div></p>
 
 </div>
@@ -879,244 +827,168 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>Implements <a class="el" href="classBaseModule.html#aa4f8e8bc97c131fa8a97091ac7b7232f">BaseModule</a>.</p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00057">57</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00109">109</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
 
-<p>References <a class="el" href="TemplateCreator_8cpp_source.html#l00353">AddPulseToTemplate()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00456">CheckConvergence()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00403">CorrectSampleValue()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00413">CreateRefinedPulseHistogram()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="EventNavigator_8h_source.html#l00093">EventNavigator::EntryNo()</a>, <a class="el" href="TemplateCreator_8h_source.html#l00071">fConvergedStatuses</a>, <a class="el" href="TemplateCreator_8h_source.html#l00070">fErrorVsPulseAddedHistograms</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00043">PulseCandidateFinder::FindPulseCandidates()</a>, <a class="el" href="TemplateFitter_8cpp_source.html#l00020">TemplateFitter::FitPulseToTemplate()</a>, <a class="el" href="TemplateCreator_8h_source.html#l00033">fNFitAttempts</a>, <a class="el" href="TemplateCreator_8h_source.html#l00041">fNPulsesInTemplate</a>, <a class="el" href="TemplateCreator_8h_source.html#l00037">fNSuccessfulFits</a>, <a class="el" href="TemplateCreator_8h_source.html#l00025">fOpts</a>, <a class="el" href="TemplateCreator_8h_source.html#l00064">fPulseDebug</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TemplateCreator_8h_source.html#l00057">fRefineFactor</a>, <a class="el" href="TemplateCreator_8h_source.html#l00059">fTemplateFitter</a>, <a class="el" href="TemplateCreator_8h_source.html#l00045">fTemplates</a>, <a class="el" href="TemplateFitter_8h_source.html#l00021">TemplateFitter::GetAmplitudeScaleFactor()</a>, <a class="el" href="TemplateFitter_8h_source.html#l00023">TemplateFitter::GetChi2()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="TSetupData_8h_source.html#l00075">TSetupData::GetNBits()</a>, <a class="el" href="TemplateFitter_8h_source.html#l00024">TemplateFitter::GetNDoF()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00216">SetupNavigator::GetNoise()</a>, <a class="el" href="PulseCandidateFinder_8h_source.html#l00068">PulseCandidateFinder::GetNPulseCandidates()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00090">TPulseIsland::GetPeakSample()</a>, <a class="el" href="TemplateFitter_8h_source.html#l00020">TemplateFitter::GetPedestalOffset()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TemplateFitter_8h_source.html#l00022">TemplateFitter::GetTimeOffset()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00077">SetupNavigator::Instance()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, and <a class="el" href="TemplateFitter_8cpp_source.html#l00164">TemplateFitter::SetInitialParameterEstimates()</a>.</p>
+<p>References <a class="el" href="TemplateCreator_8cpp_source.html#l00300">CreateRefinedPulseHistogram()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, <a class="el" href="TemplateCreator_8h_source.html#l00084">fChannels</a>, <a class="el" href="TemplateCreator_8h_source.html#l00087">fCutIntegralRatio</a>, <a class="el" href="TemplateCreator_8h_source.html#l00082">fPulseDebug</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="TemplateCreator_8h_source.html#l00072">fTemplateFitter</a>, <a class="el" href="TemplateFitter_8h_source.html#l00022">TemplateFitter::GetAmplitudeScaleFactor()</a>, <a class="el" href="BaseModule_8h_source.html#l00074">BaseModule::GetDirectory()</a>, <a class="el" href="TemplateFitter_8h_source.html#l00021">TemplateFitter::GetPedestalOffset()</a>, <a class="el" href="TemplateFitter_8h_source.html#l00023">TemplateFitter::GetTimeOffset()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00348">HasPulseOverflowed()</a>, <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00370">StartTemplate()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00057"></a>00057                                                                             {
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059   <span class="comment">// Prepare a few variables</span>
-<a name="l00060"></a>00060   std::string bankname, detname;
-<a name="l00061"></a>00061   <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a> thePulseIslands;
-<a name="l00062"></a>00062   <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">StringPulseIslandMap::const_iterator</a> it;
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064   <span class="comment">// Loop over each detector</span>
-<a name="l00065"></a>00065   <span class="keywordflow">for</span>(it = gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.begin(); it != gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.end(); ++it){
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067     <span class="comment">// Get the bank and detector names for this detector</span>
-<a name="l00068"></a>00068     bankname = it-&gt;first;
-<a name="l00069"></a>00069     detname = setup-&gt;GetDetectorName(bankname);
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071     <span class="comment">// See if we already have a converged template for this detector</span>
-<a name="l00072"></a>00072     <span class="keywordflow">if</span> (<a class="code" href="classTemplateCreator.html#adbe66fc2148450c6a5f34a852132af73">fConvergedStatuses</a>[detname] == <span class="keyword">true</span>) {
-<a name="l00073"></a>00073       <span class="keywordflow">continue</span>;
-<a name="l00074"></a>00074     }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076     <span class="comment">// Create the pulse candidate finder for this detector</span>
-<a name="l00077"></a>00077     <a class="code" href="classPulseCandidateFinder.html" title="Utility class to find pulse candidates on a TPulseIsland.">PulseCandidateFinder</a>* pulse_candidate_finder = <span class="keyword">new</span> <a class="code" href="classPulseCandidateFinder.html" title="Utility class to find pulse candidates on a TPulseIsland.">PulseCandidateFinder</a>(detname, <a class="code" href="classTemplateCreator.html#ab91fb1b10be88f3939523ab2ffac70b8" title="Store the options for use in ProcessEntry.">fOpts</a>);
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079     <span class="comment">// Create the TemplateFitter that we will use for this channel</span>
-<a name="l00080"></a>00080     <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a> = <span class="keyword">new</span> <a class="code" href="classTemplateFitter.html">TemplateFitter</a>(detname, <a class="code" href="classTemplateCreator.html#a54b5408e48da1688055b6c4ed7a70724" title="The factor that we scale the number of bins in the template histogram by.">fRefineFactor</a>);
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082     <span class="comment">// Get the TPIs</span>
-<a name="l00083"></a>00083     thePulseIslands = it-&gt;second;
-<a name="l00084"></a>00084     <span class="keywordflow">if</span> (thePulseIslands.size() == 0) <span class="keywordflow">continue</span>; <span class="comment">// no pulses here..</span>
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086     <span class="comment">// Try and get the template (it may have been created in a previous event)</span>
-<a name="l00087"></a>00087     std::string template_name = <span class="stringliteral">&quot;hTemplate_&quot;</span> + detname;
-<a name="l00088"></a>00088     TH1D* hTemplate = NULL;
-<a name="l00089"></a>00089     <span class="keywordflow">if</span> (<a class="code" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844" title="A map of the template histograms.">fTemplates</a>.find(detname) != <a class="code" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844" title="A map of the template histograms.">fTemplates</a>.end()) {
-<a name="l00090"></a>00090       hTemplate = <a class="code" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844" title="A map of the template histograms.">fTemplates</a>[detname];
-<a name="l00091"></a>00091     }
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093     <span class="comment">// Store a couple of numbers to get an idea of how many successful fits there are</span>
-<a name="l00094"></a>00094     <span class="keywordtype">int</span>&amp; n_fit_attempts = <a class="code" href="classTemplateCreator.html#a709aaa4766e09fd861045a5034ead608" title="A map of the number of fit attempts on each detector.">fNFitAttempts</a>[detname]; <span class="comment">// number of pulses we try to fit to</span>
-<a name="l00095"></a>00095     <span class="keywordtype">int</span>&amp; n_successful_fits = <a class="code" href="classTemplateCreator.html#aae144704087b2e7c69fa77118782c7ea" title="A map of the number of successful fits on each detector.">fNSuccessfulFits</a>[detname];
-<a name="l00096"></a>00096     <span class="keywordtype">int</span>&amp; n_pulses_in_template = <a class="code" href="classTemplateCreator.html#a1ea48f4538fcc4c529efd94c23c8f674" title="A map of the number of pulses in the template.">fNPulsesInTemplate</a>[detname];
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098     <span class="comment">// Loop through all the pulses</span>
-<a name="l00099"></a>00099     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">PulseIslandList::iterator</a> pulseIter = thePulseIslands.begin(); pulseIter != thePulseIslands.end(); ++pulseIter) {
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101       <span class="comment">// First we will see how many candidate pulses there are on the TPI</span>
-<a name="l00102"></a>00102       pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a10fb4c59b22a1b8a5c618c62407e2a48" title="Find the pulse candidates on the given TPulseIsland.">FindPulseCandidates</a>(*pulseIter);
-<a name="l00103"></a>00103       <span class="keywordtype">int</span> n_pulse_candidates = pulse_candidate_finder-&gt;<a class="code" href="classPulseCandidateFinder.html#a705d5fe0bff87dffdc9f465180362f02" title="Returns the number of pulse candidates that were found.">GetNPulseCandidates</a>();
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105       <span class="comment">// only continue if there is one pulse candidate on the TPI</span>
-<a name="l00106"></a>00106       <span class="keywordflow">if</span> (n_pulse_candidates == 1) {
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108         <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse = *pulseIter;
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110         <span class="comment">// Add the first pulse directly to the template (although we may try and choose a random pulse to start with)</span>
-<a name="l00111"></a>00111         <span class="keywordflow">if</span> (hTemplate == NULL) {
-<a name="l00112"></a>00112           std::string histname = <span class="stringliteral">&quot;hTemplate_&quot;</span> + detname;
-<a name="l00113"></a>00113           std::string histtitle = <span class="stringliteral">&quot;Template Histogram for the &quot;</span> + detname + <span class="stringliteral">&quot; channel&quot;</span>;
+<p><div class="fragment"><pre class="fragment"><a name="l00109"></a>00109                                                                             {
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111   <span class="comment">// Loop over each detector</span>
+<a name="l00112"></a>00112   <span class="keywordtype">unsigned</span> no_converged=0;
+<a name="l00113"></a>00113   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelList::iterator</a> i_ch=<a class="code" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">fChannels</a>.begin(); i_ch!=<a class="code" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">fChannels</a>.end(); ++i_ch){
 <a name="l00114"></a>00114 
-<a name="l00115"></a>00115           <span class="keywordtype">int</span> pulse_length = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>().size();
-<a name="l00116"></a>00116           <span class="keywordflow">if</span> (pulse-&gt;<a class="code" href="classTPulseIsland.html#a1b722ca51d1ce3f7de191b5f070945e7">GetPeakSample</a>() &gt;= pulse_length - pulse_length/5.0) {
-<a name="l00117"></a>00117             <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00118"></a>00118               std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; is too close to one end of the island and so won&apos;t be used as the first pulse in the template.&quot;</span> &lt;&lt; std::endl;
-<a name="l00119"></a>00119             }
-<a name="l00120"></a>00120             <span class="keywordflow">continue</span>;
-<a name="l00121"></a>00121           }
-<a name="l00122"></a>00122           hTemplate = <a class="code" href="classTemplateCreator.html#a9d86bec851ae360f33dae893909dd210" title="Creates a refined histogram for a given TPulseIsland.">CreateRefinedPulseHistogram</a>(pulse, histname.c_str(), histtitle.c_str(), <span class="keyword">true</span>);
-<a name="l00123"></a>00123           ++n_pulses_in_template;
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125           <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00126"></a>00126             std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Adding &quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot; Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; directly to the template&quot;</span> &lt;&lt; std::endl;
-<a name="l00127"></a>00127           }
-<a name="l00128"></a>00128           <a class="code" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844" title="A map of the template histograms.">fTemplates</a>[detname] = hTemplate;
-<a name="l00129"></a>00129           <span class="keywordflow">continue</span>;
-<a name="l00130"></a>00130         }
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132         <span class="comment">// Get the samples so we can check for digitiser overflow</span>
-<a name="l00133"></a>00133         <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = (pulse)-&gt;GetSamples();
-<a name="l00134"></a>00134         <span class="keywordtype">int</span> n_samples = theSamples.size();
+<a name="l00115"></a>00115     <span class="comment">// See if we already have a converged template for this detector</span>
+<a name="l00116"></a>00116     <span class="keywordflow">if</span> (i_ch-&gt;template_pulse-&gt;HasConverged()) {
+<a name="l00117"></a>00117       no_converged++;
+<a name="l00118"></a>00118       <span class="keywordflow">continue</span>;
+<a name="l00119"></a>00119     }
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121     <span class="comment">// Get the bank and detector names for this detector</span>
+<a name="l00122"></a>00122     <span class="keyword">const</span> std::string&amp; bankname = i_ch-&gt;bankname;
+<a name="l00123"></a>00123     <span class="keyword">const</span> std::string&amp; detname = i_ch-&gt;detname;
+<a name="l00124"></a>00124     <span class="keyword">const</span> <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>&amp; thePulseIslands= gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>.at(bankname);
+<a name="l00125"></a>00125     <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>=i_ch-&gt;fitter;
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127     <span class="comment">// Get the TPIs</span>
+<a name="l00128"></a>00128     <span class="keywordflow">if</span> (thePulseIslands.size() == 0) <span class="keywordflow">continue</span>; <span class="comment">// no pulses here..</span>
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130     <span class="comment">// Loop through all the pulses</span>
+<a name="l00131"></a>00131     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> pulseIter = thePulseIslands.begin();
+<a name="l00132"></a>00132           pulseIter != thePulseIslands.end(); ++pulseIter) {
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134       <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* pulse = *pulseIter;
 <a name="l00135"></a>00135 
-<a name="l00136"></a>00136         <span class="comment">// Calculate the maximum ADC value for this digitiser</span>
-<a name="l00137"></a>00137         <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(bankname);
-<a name="l00138"></a>00138         <span class="keywordtype">double</span> max_adc_value = std::pow(2, n_bits);
-<a name="l00139"></a>00139 
-<a name="l00140"></a>00140         <span class="comment">// Loop through the samples and check for digitizer overflow</span>
-<a name="l00141"></a>00141         <span class="keywordtype">bool</span> overflowed = <span class="keyword">false</span>;
-<a name="l00142"></a>00142         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n_samples; ++i) {
-<a name="l00143"></a>00143           <span class="keywordtype">int</span> sample_value = theSamples.at(i);
-<a name="l00144"></a>00144           <span class="keywordflow">if</span> (sample_value &gt;= max_adc_value-1 &amp;&amp; sample_value &lt;= max_adc_value+1) {
-<a name="l00145"></a>00145             <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00146"></a>00146               std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; has overflowed the digitizer and won&apos;t be added to the template&quot;</span> &lt;&lt; std::endl;
-<a name="l00147"></a>00147             }
-<a name="l00148"></a>00148             overflowed = <span class="keyword">true</span>;
-<a name="l00149"></a>00149             <span class="keywordflow">break</span>;
-<a name="l00150"></a>00150           }
-<a name="l00151"></a>00151           <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sample_value == 0) {
-<a name="l00152"></a>00152             <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00153"></a>00153               std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; has underflowed the digitizer and won&apos;t be added to the template&quot;</span> &lt;&lt; std::endl;
-<a name="l00154"></a>00154             }
-<a name="l00155"></a>00155             overflowed = <span class="keyword">true</span>;
-<a name="l00156"></a>00156             <span class="keywordflow">break</span>;
-<a name="l00157"></a>00157           }
-<a name="l00158"></a>00158         }
-<a name="l00159"></a>00159         <span class="keywordflow">if</span> (overflowed) {
-<a name="l00160"></a>00160           <span class="keywordflow">continue</span>; <span class="comment">// skip this pulse</span>
-<a name="l00161"></a>00161         }
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163         <span class="comment">// Create the refined pulse waveform</span>
-<a name="l00164"></a>00164         TH1D* hPulseToFit = <a class="code" href="classTemplateCreator.html#a9d86bec851ae360f33dae893909dd210" title="Creates a refined histogram for a given TPulseIsland.">CreateRefinedPulseHistogram</a>(pulse, <span class="stringliteral">&quot;hPulseToFit&quot;</span>, <span class="stringliteral">&quot;hPulseToFit&quot;</span>, <span class="keyword">false</span>);
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166         <span class="comment">// Create some histograms that monitor the progression of the template</span>
-<a name="l00167"></a>00167         <span class="keywordflow">if</span> (<a class="code" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">fErrorVsPulseAddedHistograms</a>.find(detname) == <a class="code" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">fErrorVsPulseAddedHistograms</a>.end()) {
-<a name="l00168"></a>00168           std::string error_histname = <span class="stringliteral">&quot;hErrorVsPulseAdded_&quot;</span> + detname;
-<a name="l00169"></a>00169           std::string error_histtitle = <span class="stringliteral">&quot;Plot of the Error as each new Pulse is added to the template for the &quot;</span> + detname + <span class="stringliteral">&quot; channel&quot;</span>;
-<a name="l00170"></a>00170           <span class="keywordtype">int</span> n_bins = 10000;
-<a name="l00171"></a>00171           TH1D* error_hist = <span class="keyword">new</span> TH1D(error_histname.c_str(), error_histtitle.c_str(), n_bins,0,n_bins);
-<a name="l00172"></a>00172           <a class="code" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">fErrorVsPulseAddedHistograms</a>[detname] = error_hist;
-<a name="l00173"></a>00173         }
-<a name="l00174"></a>00174 
-<a name="l00175"></a>00175         <span class="comment">// all the other pulses will be fitted to the template and then added to it</span>
-<a name="l00176"></a>00176         <span class="comment">// Get some initial estimates for the fitter</span>
-<a name="l00177"></a>00177         <span class="keywordtype">double</span> template_pedestal = hTemplate-&gt;GetBinContent(1);
-<a name="l00178"></a>00178         <span class="keywordtype">double</span> template_amplitude;
-<a name="l00179"></a>00179         <span class="keywordtype">double</span> template_time;
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181         <span class="keywordtype">double</span> pulse_pedestal = hPulseToFit-&gt;GetBinContent(1);
-<a name="l00182"></a>00182         <span class="keywordtype">double</span> pulse_amplitude;
-<a name="l00183"></a>00183         <span class="keywordtype">double</span> pulse_time;
-<a name="l00184"></a>00184 
-<a name="l00185"></a>00185         <span class="keywordtype">double</span> pedestal_offset_estimate = pulse_pedestal; <span class="comment">// now we&apos;re dealing with actual pulses since we subtract the template_pedestal in the transformation</span>
-<a name="l00186"></a>00186         <span class="keywordtype">double</span> amplitude_scale_factor_estimate;
-<a name="l00187"></a>00187         <span class="keywordtype">double</span> time_offset_estimate;
-<a name="l00188"></a>00188         <span class="keywordflow">if</span> (<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetTriggerPolarity(bankname) == 1) { 
-<a name="l00189"></a>00189           template_amplitude = (hTemplate-&gt;GetMaximum() - template_pedestal);
-<a name="l00190"></a>00190           template_time = hTemplate-&gt;GetMaximumBin() - 1; <span class="comment">// go from bin numbering (1, n_samples) to clock ticks (0, n_samples-1)</span>
+<a name="l00136"></a>00136       <span class="keywordflow">if</span>(i_ch-&gt;pulse_finder){
+<a name="l00137"></a>00137          <span class="comment">// First we will see how many candidate pulses there are on the TPI</span>
+<a name="l00138"></a>00138          i_ch-&gt;pulse_finder-&gt;FindPulseCandidates(pulse);
+<a name="l00139"></a>00139          <span class="keywordtype">int</span> n_pulse_candidates = i_ch-&gt;pulse_finder-&gt;GetNPulseCandidates();
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141          <span class="comment">// only continue if there is one pulse candidate on the TPI</span>
+<a name="l00142"></a>00142          <span class="keywordflow">if</span> (n_pulse_candidates != 1) <span class="keywordflow">continue</span>;
+<a name="l00143"></a>00143       }
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145       <span class="keywordflow">if</span>(<a class="code" href="classTemplateCreator.html#a25c993f38e35c5ea87da827dff4e10b4">fCutIntegralRatio</a>){
+<a name="l00146"></a>00146          <span class="keywordflow">try</span>{
+<a name="l00147"></a>00147            (*i_ch-&gt;integralRatio)(pulse);
+<a name="l00148"></a>00148          }<span class="keywordflow">catch</span>(std::out_of_range&amp; e){
+<a name="l00149"></a>00149            <span class="keywordflow">continue</span>;
+<a name="l00150"></a>00150          }
+<a name="l00151"></a>00151          <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; integral=i_ch-&gt;integralRatio-&gt;GetTotal();
+<a name="l00152"></a>00152          <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; ratio=i_ch-&gt;integralRatio-&gt;GetRatio();
+<a name="l00153"></a>00153          <span class="keywordflow">if</span>( fIntegralMax &lt; integral || fIntegralMin &gt; integral
+<a name="l00154"></a>00154              || fIntegralRatioMax &lt; ratio || fIntegralRatioMin &gt; ratio) {
+<a name="l00155"></a>00155              <span class="keywordflow">continue</span>;
+<a name="l00156"></a>00156          }
+<a name="l00157"></a>00157       }
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159       <span class="comment">// Loop through the samples and check for digitizer overflow</span>
+<a name="l00160"></a>00160       <span class="keywordtype">int</span> over_under_flow=<a class="code" href="classTemplateCreator.html#a6b803bc7b0c76bb86a678b5dcbcd4fb2" title="Check if any part of the pulse&amp;#39; waveform has ADC overflow.">HasPulseOverflowed</a>(pulse,i_ch-&gt;bankname);
+<a name="l00161"></a>00161       <span class="keywordflow">if</span>(over_under_flow!=0){
+<a name="l00162"></a>00162           <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00163"></a>00163             cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot; has &quot;</span>;
+<a name="l00164"></a>00164             <span class="keywordflow">if</span>(over_under_flow&gt;0) cout &lt;&lt; <span class="stringliteral">&quot;overflowed&quot;</span>;
+<a name="l00165"></a>00165             <span class="keywordflow">else</span> cout&lt;&lt;<span class="stringliteral">&quot;undeflowed&quot;</span>;
+<a name="l00166"></a>00166             cout &lt;&lt;<span class="stringliteral">&quot; the digitizer and won&apos;t be added to the template&quot;</span> &lt;&lt; endl;
+<a name="l00167"></a>00167           }
+<a name="l00168"></a>00168         <span class="keywordflow">continue</span>; <span class="comment">// skip this pulse</span>
+<a name="l00169"></a>00169       }
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171       <span class="comment">// Add the first pulse directly to the template (although we may try and choose a random pulse to start with)</span>
+<a name="l00172"></a>00172       <span class="keywordflow">if</span> (i_ch-&gt;template_pulse-&gt;Empty()) {
+<a name="l00173"></a>00173         <span class="comment">// Create the refined pulse waveform</span>
+<a name="l00174"></a>00174         <span class="keywordtype">int</span> pulseID=pulseIter- thePulseIslands.begin();
+<a name="l00175"></a>00175         TH1D* tpl=<a class="code" href="classTemplateCreator.html#a4f556c5b90e7384d4bfe9d8a9b79d008" title="Init the template using the first valid pulse.">StartTemplate</a>(pulseID, pulse,i_ch-&gt;detname);
+<a name="l00176"></a>00176         <span class="keywordflow">if</span>(tpl) i_ch-&gt;template_pulse-&gt;Initialize(pulseID,tpl,<a class="code" href="classBaseModule.html#ae753140da9952cb8caea03082294ce5b" title="Get the TDirectory for this module.">GetDirectory</a>());
+<a name="l00177"></a>00177         <span class="keywordflow">continue</span>;
+<a name="l00178"></a>00178       }
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180       <span class="comment">// Create the refined pulse waveform</span>
+<a name="l00181"></a>00181       TH1D* hPulseToFit = <a class="code" href="classTemplateCreator.html#a9d86bec851ae360f33dae893909dd210" title="Creates a refined histogram for a given TPulseIsland.">CreateRefinedPulseHistogram</a>(pulse, <span class="stringliteral">&quot;hPulseToFit&quot;</span>, <span class="stringliteral">&quot;hPulseToFit&quot;</span>, <span class="keyword">false</span>);
+<a name="l00182"></a>00182 
+<a name="l00183"></a>00183       <span class="comment">// all the other pulses will be fitted to the template and then added to it</span>
+<a name="l00184"></a>00184       <span class="comment">// Get some initial estimates for the fitter</span>
+<a name="l00185"></a>00185       <span class="keywordtype">double</span> template_amplitude = i_ch-&gt;template_pulse-&gt;GetAmplitude();
+<a name="l00186"></a>00186       <span class="keywordtype">double</span> template_time = i_ch-&gt;template_pulse-&gt;GetTime();
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188       <span class="keywordtype">double</span> pulse_pedestal = hPulseToFit-&gt;GetBinContent(1);
+<a name="l00189"></a>00189       <span class="keywordtype">double</span> pulse_amplitude = <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00190"></a>00190       <span class="keywordtype">double</span> pulse_time = <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
 <a name="l00191"></a>00191 
-<a name="l00192"></a>00192           pulse_amplitude = (hPulseToFit-&gt;GetMaximum() - pulse_pedestal);
-<a name="l00193"></a>00193           pulse_time = hPulseToFit-&gt;GetMaximumBin() - 1;
-<a name="l00194"></a>00194 
-<a name="l00195"></a>00195           amplitude_scale_factor_estimate = pulse_amplitude / template_amplitude;  <span class="comment">// estimated scale factor</span>
-<a name="l00196"></a>00196           time_offset_estimate = pulse_time - template_time;
-<a name="l00197"></a>00197         }
-<a name="l00198"></a>00198         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetTriggerPolarity(bankname) == -1) {
-<a name="l00199"></a>00199           template_amplitude = (template_pedestal - hTemplate-&gt;GetMinimum());
-<a name="l00200"></a>00200           template_time = hTemplate-&gt;GetMinimumBin() - 1; <span class="comment">// go from bin numbering (1, n_samples) to clock ticks (0, n_samples-1)</span>
-<a name="l00201"></a>00201 
-<a name="l00202"></a>00202           pulse_amplitude = (pulse_pedestal - hPulseToFit-&gt;GetMinimum());
-<a name="l00203"></a>00203           pulse_time = hPulseToFit-&gt;GetMinimumBin() - 1; <span class="comment">// go from bin numbering (1, n_samples) to clock ticks (0, n_samples-1)</span>
-<a name="l00204"></a>00204 
-<a name="l00205"></a>00205           amplitude_scale_factor_estimate = pulse_amplitude / template_amplitude;  <span class="comment">// estimated scale factor</span>
-<a name="l00206"></a>00206           time_offset_estimate = pulse_time - template_time;
-<a name="l00207"></a>00207         }
+<a name="l00192"></a>00192       <span class="comment">// now we&apos;re dealing with actual pulses since we subtract the template_pedestal in the transformation</span>
+<a name="l00193"></a>00193       <span class="keywordtype">double</span> pedestal_offset_estimate = pulse_pedestal; 
+<a name="l00194"></a>00194       <span class="keywordtype">double</span> amplitude_scale_factor_estimate = <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00195"></a>00195       <span class="keywordtype">double</span> time_offset_estimate = <a class="code" href="namespacedefinitions.html#a8c37d3c2a778ef71b48da7f894d3de4ba1652c8432d984e035a5cf9333367fb94">definitions::DefaultValue</a>;
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197       <span class="comment">// Define the values to scale and shift things by </span>
+<a name="l00198"></a>00198       <span class="keywordflow">if</span> (<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetTriggerPolarity(bankname) &gt;0) { 
+<a name="l00199"></a>00199         pulse_amplitude = (hPulseToFit-&gt;GetMaximum() - pulse_pedestal);
+<a name="l00200"></a>00200         pulse_time = hPulseToFit-&gt;GetMaximumBin() - 1;
+<a name="l00201"></a>00201       }
+<a name="l00202"></a>00202       <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetTriggerPolarity(bankname) &lt;0) {
+<a name="l00203"></a>00203         pulse_amplitude = (pulse_pedestal - hPulseToFit-&gt;GetMinimum());
+<a name="l00204"></a>00204         pulse_time = hPulseToFit-&gt;GetMinimumBin() - 1; <span class="comment">// go from bin numbering (1, n_samples) to clock ticks (0, n_samples-1)</span>
+<a name="l00205"></a>00205       }
+<a name="l00206"></a>00206       amplitude_scale_factor_estimate = pulse_amplitude / template_amplitude;  <span class="comment">// estimated scale factor</span>
+<a name="l00207"></a>00207       time_offset_estimate = pulse_time - template_time;
 <a name="l00208"></a>00208 
-<a name="l00209"></a>00209         <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a2a9fa840754b74eb4014e383c62ad35d" title="Sets the intial estimates for the template fitter.">SetInitialParameterEstimates</a>(pedestal_offset_estimate, amplitude_scale_factor_estimate, time_offset_estimate);
-<a name="l00210"></a>00210         
-<a name="l00211"></a>00211         <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00212"></a>00212           std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: &quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; bankname &lt;&lt; <span class="stringliteral">&quot;): Pulse #&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; std::endl
-<a name="l00213"></a>00213                     &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Template: pedestal = &quot;</span> &lt;&lt; template_pedestal &lt;&lt; <span class="stringliteral">&quot;, amplitude = &quot;</span> &lt;&lt; template_amplitude &lt;&lt; <span class="stringliteral">&quot;, time = &quot;</span> &lt;&lt; template_time &lt;&lt; std::endl
-<a name="l00214"></a>00214                     &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Pulse: pedestal = &quot;</span> &lt;&lt; pulse_pedestal &lt;&lt; <span class="stringliteral">&quot;, amplitude = &quot;</span> &lt;&lt; pulse_amplitude &lt;&lt; <span class="stringliteral">&quot;, time = &quot;</span> &lt;&lt; pulse_time &lt;&lt; std::endl
-<a name="l00215"></a>00215                     &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Initial Estimates: pedestal = &quot;</span> &lt;&lt; pedestal_offset_estimate &lt;&lt; <span class="stringliteral">&quot;, amplitude = &quot;</span> &lt;&lt; amplitude_scale_factor_estimate 
-<a name="l00216"></a>00216                     &lt;&lt; <span class="stringliteral">&quot;, time = &quot;</span> &lt;&lt; time_offset_estimate &lt;&lt; std::endl;
-<a name="l00217"></a>00217         }
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219         <span class="keywordtype">int</span> fit_status = <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a6fd0d5c2699caf263b413be137eb332d">FitPulseToTemplate</a>(hTemplate, hPulseToFit, bankname);
-<a name="l00220"></a>00220         ++n_fit_attempts;
-<a name="l00221"></a>00221         <span class="keywordflow">if</span> (fit_status != 0) {
-<a name="l00222"></a>00222           <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00223"></a>00223             std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Problem with fit (status = &quot;</span> &lt;&lt; fit_status &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
-<a name="l00224"></a>00224           }
-<a name="l00225"></a>00225           <span class="keyword">delete</span> hPulseToFit; <span class="comment">// delete this here since it is no longer needed</span>
-<a name="l00226"></a>00226           <span class="keywordflow">continue</span>;
-<a name="l00227"></a>00227         }
-<a name="l00228"></a>00228         ++n_successful_fits;
-<a name="l00229"></a>00229 
-<a name="l00230"></a>00230         <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00231"></a>00231           std::cout &lt;&lt; <span class="stringliteral">&quot;Template Creator: Fitted Parameters: PedOffset = &quot;</span> &lt;&lt; <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a41bd10fa7c79ff511d40d1cbfb05b37e">GetPedestalOffset</a>() &lt;&lt; <span class="stringliteral">&quot;, AmpScaleFactor = &quot;</span> &lt;&lt; <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#ada514f391e62893b1f1871999d7b3e18">GetAmplitudeScaleFactor</a>()
-<a name="l00232"></a>00232                     &lt;&lt; <span class="stringliteral">&quot;, TimeOffset = &quot;</span> &lt;&lt; <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a86d696026efbc9cf8693507102b61a06">GetTimeOffset</a>() &lt;&lt; <span class="stringliteral">&quot;, Chi2 = &quot;</span> &lt;&lt; <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a22097373e1403836163fc9aef1ebf9c1">GetChi2</a>() &lt;&lt; <span class="stringliteral">&quot;, NDoF = &quot;</span> &lt;&lt; <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#ac4ededa0c92c72573a8a9f97fa801766">GetNDoF</a>() 
-<a name="l00233"></a>00233                     &lt;&lt; <span class="stringliteral">&quot;, Prob = &quot;</span> &lt;&lt; TMath::Prob(<a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a22097373e1403836163fc9aef1ebf9c1">GetChi2</a>(), <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#ac4ededa0c92c72573a8a9f97fa801766">GetNDoF</a>()) &lt;&lt; std::endl &lt;&lt; std::endl;
-<a name="l00234"></a>00234         }
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236         <span class="keywordflow">if</span> (<a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921" title="If true, then print out all pulses that get added to the templates and also print...">fPulseDebug</a>) {
-<a name="l00237"></a>00237           <span class="comment">// Print out some templates as we go along</span>
-<a name="l00238"></a>00238           <span class="keywordflow">if</span> (n_pulses_in_template &lt;= 10 || 
-<a name="l00239"></a>00239               (n_pulses_in_template &lt;= 100 &amp;&amp; n_pulses_in_template%10 == 0) ||
-<a name="l00240"></a>00240               (n_pulses_in_template%100 == 0) ) {
-<a name="l00241"></a>00241             std::stringstream newhistname;
-<a name="l00242"></a>00242             newhistname &lt;&lt; <span class="stringliteral">&quot;hTemplate_&quot;</span> &lt;&lt; n_pulses_in_template &lt;&lt; <span class="stringliteral">&quot;Pulses_&quot;</span> &lt;&lt; detname;
-<a name="l00243"></a>00243             TH1D* new_template = (TH1D*) hTemplate-&gt;Clone(newhistname.str().c_str());
-<a name="l00244"></a>00244           }
-<a name="l00245"></a>00245         }
-<a name="l00246"></a>00246 
-<a name="l00247"></a>00247         <span class="comment">// Add the pulse to the template (we&apos;ll do correct the sample values there)</span>
-<a name="l00248"></a>00248         <a class="code" href="classTemplateCreator.html#a2647c24a64b10feab30ad6f6a14aa7eb">AddPulseToTemplate</a>(hTemplate, hPulseToFit, bankname);
-<a name="l00249"></a>00249         ++n_pulses_in_template;
-<a name="l00250"></a>00250         
-<a name="l00251"></a>00251 
-<a name="l00252"></a>00252         <span class="keywordflow">if</span> (<a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921" title="If true, then print out all pulses that get added to the templates and also print...">fPulseDebug</a>) {
-<a name="l00253"></a>00253           <span class="comment">// Print out the uncorrected and corrected pulse that has been added to the template</span>
-<a name="l00254"></a>00254 
-<a name="l00255"></a>00255           <span class="comment">// Create the histograms that we will use to plot the corrected and uncorrected pulses</span>
-<a name="l00256"></a>00256           std::stringstream histname;
-<a name="l00257"></a>00257           histname &lt;&lt; template_name &lt;&lt; <span class="stringliteral">&quot;_Event&quot;</span> &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() &lt;&lt; <span class="stringliteral">&quot;_Pulse&quot;</span> &lt;&lt; pulseIter - thePulseIslands.begin() &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; n_pulses_in_template &lt;&lt; <span class="stringliteral">&quot;Added&quot;</span>;
-<a name="l00258"></a>00258           TH1D* hUncorrectedPulse = (TH1D*) hPulseToFit-&gt;Clone(histname.str().c_str());
-<a name="l00259"></a>00259           histname &lt;&lt; <span class="stringliteral">&quot;_Corrected&quot;</span>;
-<a name="l00260"></a>00260           TH1D* hCorrectedPulse = (TH1D*) hPulseToFit-&gt;Clone(histname.str().c_str());
-<a name="l00261"></a>00261           hCorrectedPulse-&gt;SetEntries(0); <span class="comment">// set entries back to 0</span>
-<a name="l00262"></a>00262           
-<a name="l00263"></a>00263           <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a548c02124ff047e7460ca5d7c83a3304" title="Gets the error on the pedestal from the SQLite database.">GetNoise</a>(bankname);
+<a name="l00209"></a>00209       i_ch-&gt;fitter-&gt;SetInitialParameterEstimates(pedestal_offset_estimate, amplitude_scale_factor_estimate, time_offset_estimate);
+<a name="l00210"></a>00210       
+<a name="l00211"></a>00211       <span class="keywordtype">int</span> fit_status = i_ch-&gt;fitter-&gt;FitPulseToTemplate(i_ch-&gt;template_pulse, hPulseToFit, bankname);
+<a name="l00212"></a>00212       ++i_ch-&gt;fit_attempts;
+<a name="l00213"></a>00213       <span class="keywordflow">if</span> (fit_status != 0) {
+<a name="l00214"></a>00214         <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00215"></a>00215           std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Problem with fit (status = &quot;</span> &lt;&lt; fit_status &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;
+<a name="l00216"></a>00216         }
+<a name="l00217"></a>00217         <span class="keyword">delete</span> hPulseToFit; <span class="comment">// delete this here since it is no longer needed</span>
+<a name="l00218"></a>00218         <span class="keywordflow">continue</span>;
+<a name="l00219"></a>00219       }
+<a name="l00220"></a>00220       ++i_ch-&gt;fit_successes;
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00223"></a>00223         cout &lt;&lt; <span class="stringliteral">&quot;Template Creator: Fitted Parameters: PedOffset = &quot;</span> 
+<a name="l00224"></a>00224              &lt;&lt; i_ch-&gt;fitter-&gt;GetPedestalOffset() &lt;&lt; <span class="stringliteral">&quot;, AmpScaleFactor = &quot;</span>
+<a name="l00225"></a>00225              &lt;&lt; i_ch-&gt;fitter-&gt;GetAmplitudeScaleFactor() &lt;&lt; <span class="stringliteral">&quot;, TimeOffset = &quot;</span>
+<a name="l00226"></a>00226              &lt;&lt; i_ch-&gt;fitter-&gt;GetTimeOffset() &lt;&lt; <span class="stringliteral">&quot;, Chi2 = &quot;</span>
+<a name="l00227"></a>00227              &lt;&lt; i_ch-&gt;fitter-&gt;GetChi2() &lt;&lt; <span class="stringliteral">&quot;, NDoF = &quot;</span>
+<a name="l00228"></a>00228              &lt;&lt; i_ch-&gt;fitter-&gt;GetNDoF() &lt;&lt; <span class="stringliteral">&quot;, Prob = &quot;</span>
+<a name="l00229"></a>00229              &lt;&lt; TMath::Prob(i_ch-&gt;fitter-&gt;GetChi2(), i_ch-&gt;fitter-&gt;GetNDoF()) &lt;&lt; std::endl &lt;&lt; std::endl;
+<a name="l00230"></a>00230       }
+<a name="l00231"></a>00231 
+<a name="l00232"></a>00232       <span class="keywordflow">if</span> (<a class="code" href="classTemplateCreator.html#afdc3d19a0799435e5f210a531ca60921" title="If true, then print out all pulses that get added to the templates and also print...">fPulseDebug</a>) {
+<a name="l00233"></a>00233         <span class="comment">// Print out some templates as we go along</span>
+<a name="l00234"></a>00234         <span class="keywordflow">if</span> (i_ch-&gt;template_pulse-&gt;PulsesMerged() &lt;= 10 
+<a name="l00235"></a>00235              || ( i_ch-&gt;template_pulse-&gt;PulsesMerged() &lt;= 100 
+<a name="l00236"></a>00236                      &amp;&amp; i_ch-&gt;template_pulse-&gt;PulsesMerged()%10 == 0)
+<a name="l00237"></a>00237              || ( i_ch-&gt;template_pulse-&gt;PulsesMerged()%100 == 0) ) {
+<a name="l00238"></a>00238           std::stringstream newhistname;
+<a name="l00239"></a>00239           newhistname &lt;&lt; <span class="stringliteral">&quot;hTemplate_&quot;</span> &lt;&lt; i_ch-&gt;template_pulse-&gt;PulsesMerged() &lt;&lt; <span class="stringliteral">&quot;Pulses_&quot;</span> &lt;&lt; detname;
+<a name="l00240"></a>00240           i_ch-&gt;template_pulse-&gt;Clone(newhistname.str().c_str());
+<a name="l00241"></a>00241         }
+<a name="l00242"></a>00242       }
+<a name="l00243"></a>00243 
+<a name="l00244"></a>00244       <span class="comment">// Add the pulse to the template (we&apos;ll do correct the sample values there)</span>
+<a name="l00245"></a>00245       i_ch-&gt;template_pulse-&gt;AddPulse(
+<a name="l00246"></a>00246                   <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a86d696026efbc9cf8693507102b61a06">GetTimeOffset</a>(),
+<a name="l00247"></a>00247                   <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#ada514f391e62893b1f1871999d7b3e18">GetAmplitudeScaleFactor</a>(),
+<a name="l00248"></a>00248                   <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a41bd10fa7c79ff511d40d1cbfb05b37e">GetPedestalOffset</a>(),
+<a name="l00249"></a>00249                   hPulseToFit);
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251       <span class="comment">// we keep on adding pulses until adding pulses has no effect on the template</span>
+<a name="l00252"></a>00252       <span class="keywordflow">if</span> (i_ch-&gt;template_pulse-&gt;CheckConverged()) {
+<a name="l00253"></a>00253         cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: &quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot; template terminated containing &quot;</span> 
+<a name="l00254"></a>00254              &lt;&lt; i_ch-&gt;template_pulse-&gt;PulsesMerged() &lt;&lt;<span class="stringliteral">&quot; pulses &quot;</span>&lt;&lt; std::endl;
+<a name="l00255"></a>00255         <span class="keywordflow">break</span>; <span class="comment">// break from the for loop</span>
+<a name="l00256"></a>00256       }
+<a name="l00257"></a>00257     } <span class="comment">// end for loop over TPIs</span>
+<a name="l00258"></a>00258   } <span class="comment">//end for loop through channels</span>
+<a name="l00259"></a>00259   
+<a name="l00260"></a>00260   <span class="keywordflow">if</span>(no_converged==<a class="code" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">fChannels</a>.size()){
+<a name="l00261"></a>00261   cout&lt;&lt;<span class="stringliteral">&quot;All channels converged so end run&quot;</span>&lt;&lt;endl;
+<a name="l00262"></a>00262   <span class="keywordflow">return</span> -1;
+<a name="l00263"></a>00263   }
 <a name="l00264"></a>00264 
-<a name="l00265"></a>00265           <span class="comment">// Loop through the bins of the uncorrected pulse and set the values in the corrected pulse histogram</span>
-<a name="l00266"></a>00266           <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iPulseBin = 1; iPulseBin &lt;= hPulseToFit-&gt;GetNbinsX(); ++iPulseBin) {
-<a name="l00267"></a>00267             
-<a name="l00268"></a>00268             <span class="keywordtype">double</span> uncorrected_value = hPulseToFit-&gt;GetBinContent(iPulseBin);
-<a name="l00269"></a>00269             <span class="keywordtype">double</span> corrected_value = <a class="code" href="classTemplateCreator.html#ae474ec35dd56e9e85907c46b62a36ec0" title="Corrects a given sample value.">CorrectSampleValue</a>(uncorrected_value, template_pedestal);
-<a name="l00270"></a>00270             
-<a name="l00271"></a>00271             hCorrectedPulse-&gt;SetBinContent(iPulseBin +0.5 - <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a86d696026efbc9cf8693507102b61a06">GetTimeOffset</a>(), corrected_value); 
-<a name="l00272"></a>00272             hCorrectedPulse-&gt;SetBinError(iPulseBin +0.5 - <a class="code" href="classTemplateCreator.html#a253ff352f3af4b5c91e3430071178816">fTemplateFitter</a>-&gt;<a class="code" href="classTemplateFitter.html#a86d696026efbc9cf8693507102b61a06">GetTimeOffset</a>(), pedestal_error);
-<a name="l00273"></a>00273           }
-<a name="l00274"></a>00274         }
-<a name="l00275"></a>00275 
-<a name="l00276"></a>00276         <span class="keyword">delete</span> hPulseToFit;
-<a name="l00277"></a>00277 
-<a name="l00278"></a>00278         <span class="comment">// we keep on adding pulses until adding pulses has no effect on the template</span>
-<a name="l00279"></a>00279         <span class="keywordtype">bool</span> converged = <a class="code" href="classTemplateCreator.html#a7acb96f059573934f28afcac346954e7" title="Checks if the template has converged and that adding a new pulse has not effect on...">CheckConvergence</a>(hTemplate, bankname);
-<a name="l00280"></a>00280         <span class="keywordflow">if</span> (converged) {
-<a name="l00281"></a>00281           <a class="code" href="classTemplateCreator.html#adbe66fc2148450c6a5f34a852132af73">fConvergedStatuses</a>[detname] = <span class="keyword">true</span>;
-<a name="l00282"></a>00282           std::cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: &quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot; template terminated at iteration &quot;</span> &lt;&lt; n_pulses_in_template &lt;&lt; std::endl;
-<a name="l00283"></a>00283           <span class="keywordflow">break</span>; <span class="comment">// break from the for loop</span>
-<a name="l00284"></a>00284         }
-<a name="l00285"></a>00285       } <span class="comment">// end if only one pulse candidate</span>
-<a name="l00286"></a>00286     } <span class="comment">//end for loop through channels</span>
-<a name="l00287"></a>00287   }
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289   <span class="keywordflow">return</span> 0;
-<a name="l00290"></a>00290 }
+<a name="l00265"></a>00265   <span class="keywordflow">return</span> 0;
+<a name="l00266"></a>00266 }
 </pre></div></p>
 
 </div>
@@ -1196,6 +1068,70 @@ Inheritance diagram for TemplateCreator:</div>
 
 </div>
 </div>
+<a class="anchor" id="a4f556c5b90e7384d4bfe9d8a9b79d008"></a><!-- doxytag: member="TemplateCreator::StartTemplate" ref="a4f556c5b90e7384d4bfe9d8a9b79d008" args="(int pulseID, const TPulseIsland *pulse, const std::string &amp;detname)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TH1D * TemplateCreator::StartTemplate </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pulseID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *&nbsp;</td>
+          <td class="paramname"> <em>pulse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>detname</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Init the template using the first valid pulse. </p>
+
+<p>Definition at line <a class="el" href="TemplateCreator_8cpp_source.html#l00370">370</a> of file <a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a>.</p>
+
+<p>References <a class="el" href="TemplateCreator_8cpp_source.html#l00300">CreateRefinedPulseHistogram()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TPulseIsland_8cpp_source.html#l00090">TPulseIsland::GetPeakSample()</a>, and <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00370"></a>00370                                                                                                    {
+<a name="l00371"></a>00371 
+<a name="l00372"></a>00372   <span class="comment">// check this pulse is safely within the waveform</span>
+<a name="l00373"></a>00373   <span class="keywordtype">int</span> pulse_length = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>().size();
+<a name="l00374"></a>00374   <span class="keywordflow">if</span> (pulse-&gt;<a class="code" href="classTPulseIsland.html#a1b722ca51d1ce3f7de191b5f070945e7">GetPeakSample</a>() &gt;= pulse_length - pulse_length/5.0) {
+<a name="l00375"></a>00375     <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00376"></a>00376       cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Pulse #&quot;</span> &lt;&lt; pulseID
+<a name="l00377"></a>00377            &lt;&lt; <span class="stringliteral">&quot; is too close to one end of the island and so won&apos;t be used as &quot;</span>
+<a name="l00378"></a>00378               <span class="stringliteral">&quot;the first pulse in the template.&quot;</span> &lt;&lt; endl;
+<a name="l00379"></a>00379     }
+<a name="l00380"></a>00380     <span class="keywordflow">return</span> NULL;
+<a name="l00381"></a>00381   }
+<a name="l00382"></a>00382   <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00383"></a>00383     cout &lt;&lt; <span class="stringliteral">&quot;TemplateCreator: Adding &quot;</span> &lt;&lt; detname &lt;&lt; <span class="stringliteral">&quot; Pulse #&quot;</span> 
+<a name="l00384"></a>00384          &lt;&lt; pulseID &lt;&lt; <span class="stringliteral">&quot; directly to the template&quot;</span> &lt;&lt; endl;
+<a name="l00385"></a>00385   }
+<a name="l00386"></a>00386 
+<a name="l00387"></a>00387   std::string histname = <span class="stringliteral">&quot;hTemplate_&quot;</span> + detname;
+<a name="l00388"></a>00388   std::string histtitle = <span class="stringliteral">&quot;Template Histogram for the &quot;</span> + detname + <span class="stringliteral">&quot; channel&quot;</span>;
+<a name="l00389"></a>00389   <span class="keywordflow">return</span> <a class="code" href="classTemplateCreator.html#a9d86bec851ae360f33dae893909dd210" title="Creates a refined histogram for a given TPulseIsland.">CreateRefinedPulseHistogram</a>(pulse, histname.c_str(), histtitle.c_str(), <span class="keyword">true</span>);
+<a name="l00390"></a>00390 }
+</pre></div></p>
+
+</div>
+</div>
 <hr/><h2>Member Data Documentation</h2>
 <a class="anchor" id="aa00f24e65a18c1d08149965da0fa1a22"></a><!-- doxytag: member="TemplateCreator::dir" ref="aa00f24e65a18c1d08149965da0fa1a22" args="" -->
 <div class="memitem">
@@ -1211,98 +1147,143 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>Definition at line <a class="el" href="BaseModule_8h_source.html#l00098">98</a> of file <a class="el" href="BaseModule_8h_source.html">BaseModule.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="ExportPulse_8cpp_source.html#l00031">ExportPulse::ExportPulse()</a>, <a class="el" href="FastSlowCompare_8cpp_source.html#l00026">FastSlowCompare::FastSlowCompare()</a>, <a class="el" href="BaseModule_8cpp_source.html#l00077">BaseModule::GetDirectory()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, and <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>.</p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="FastSlowCompare_8cpp_source.html#l00026">FastSlowCompare::FastSlowCompare()</a>, <a class="el" href="BaseModule_8cpp_source.html#l00077">BaseModule::GetDirectory()</a>, <a class="el" href="MakeMuonEvents_8cpp_source.html#l00023">MakeMuonEvents::MakeMuonEvents()</a>, and <a class="el" href="PlotAmpVsTDiff_8cpp_source.html#l00025">PlotAmpVsTDiff::PlotAmpVsTDiff()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adbe66fc2148450c6a5f34a852132af73"></a><!-- doxytag: member="TemplateCreator::fConvergedStatuses" ref="adbe66fc2148450c6a5f34a852132af73" args="" -->
+<a class="anchor" id="a16b3d73d8c5a9d951b70e78609f32c4e"></a><!-- doxytag: member="TemplateCreator::fAnalyseAllChannels" ref="a16b3d73d8c5a9d951b70e78609f32c4e" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, bool&gt; <a class="el" href="classTemplateCreator.html#adbe66fc2148450c6a5f34a852132af73">TemplateCreator::fConvergedStatuses</a><code> [private]</code></td>
+          <td class="memname">bool <a class="el" href="classTemplateCreator.html#a16b3d73d8c5a9d951b70e78609f32c4e">TemplateCreator::fAnalyseAllChannels</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00071">71</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00083">83</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00035">BeforeFirstEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aef83f91b42b54e7e76c05472b66f7483"></a><!-- doxytag: member="TemplateCreator::fErrorVsPulseAddedHistograms" ref="aef83f91b42b54e7e76c05472b66f7483" args="" -->
+<a class="anchor" id="aff185729a609ddba8226b2f28ce88a4c"></a><!-- doxytag: member="TemplateCreator::fArchiveName" ref="aff185729a609ddba8226b2f28ce88a4c" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, TH1D*&gt; <a class="el" href="classTemplateCreator.html#aef83f91b42b54e7e76c05472b66f7483">TemplateCreator::fErrorVsPulseAddedHistograms</a><code> [private]</code></td>
+          <td class="memname">std::string <a class="el" href="classTemplateCreator.html#aff185729a609ddba8226b2f28ce88a4c">TemplateCreator::fArchiveName</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00070">70</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00076">76</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00456">CheckConvergence()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a709aaa4766e09fd861045a5034ead608"></a><!-- doxytag: member="TemplateCreator::fNFitAttempts" ref="a709aaa4766e09fd861045a5034ead608" args="" -->
+<a class="anchor" id="ae1db2c8226ddf1ea148879ecd1ddd342"></a><!-- doxytag: member="TemplateCreator::fChannels" ref="ae1db2c8226ddf1ea148879ecd1ddd342" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, int&gt; <a class="el" href="classTemplateCreator.html#a709aaa4766e09fd861045a5034ead608">TemplateCreator::fNFitAttempts</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="classTemplateCreator.html#a91f63dfa6f21cdb31efdb33ab66c5fe8">ChannelList</a> <a class="el" href="classTemplateCreator.html#ae1db2c8226ddf1ea148879ecd1ddd342">TemplateCreator::fChannels</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>A map of the number of fit attempts on each detector. </p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00084">84</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00033">33</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00295">AfterLastEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00271">AfterLastEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1ea48f4538fcc4c529efd94c23c8f674"></a><!-- doxytag: member="TemplateCreator::fNPulsesInTemplate" ref="a1ea48f4538fcc4c529efd94c23c8f674" args="" -->
+<a class="anchor" id="a25c993f38e35c5ea87da827dff4e10b4"></a><!-- doxytag: member="TemplateCreator::fCutIntegralRatio" ref="a25c993f38e35c5ea87da827dff4e10b4" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, int&gt; <a class="el" href="classTemplateCreator.html#a1ea48f4538fcc4c529efd94c23c8f674">TemplateCreator::fNPulsesInTemplate</a><code> [private]</code></td>
+          <td class="memname">bool <a class="el" href="classTemplateCreator.html#a25c993f38e35c5ea87da827dff4e10b4">TemplateCreator::fCutIntegralRatio</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>A map of the number of pulses in the template. </p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00087">87</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00041">41</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00353">AddPulseToTemplate()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00456">CheckConvergence()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aae144704087b2e7c69fa77118782c7ea"></a><!-- doxytag: member="TemplateCreator::fNSuccessfulFits" ref="aae144704087b2e7c69fa77118782c7ea" args="" -->
+<a class="anchor" id="aceeae6047f2968c6cfe2b5ca533c8848"></a><!-- doxytag: member="TemplateCreator::fIntegralMax" ref="aceeae6047f2968c6cfe2b5ca533c8848" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, int&gt; <a class="el" href="classTemplateCreator.html#aae144704087b2e7c69fa77118782c7ea">TemplateCreator::fNSuccessfulFits</a><code> [private]</code></td>
+          <td class="memname">double <a class="el" href="classTemplateCreator.html#aceeae6047f2968c6cfe2b5ca533c8848">TemplateCreator::fIntegralMax</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>A map of the number of successful fits on each detector. </p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00088">88</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00037">37</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00295">AfterLastEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aaf4f6b5ef4b8608d5cfc1da845e609ef"></a><!-- doxytag: member="TemplateCreator::fIntegralMin" ref="aaf4f6b5ef4b8608d5cfc1da845e609ef" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classTemplateCreator.html#aaf4f6b5ef4b8608d5cfc1da845e609ef">TemplateCreator::fIntegralMin</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00088">88</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5bc6cbd2cfdde88ee9262f57e0c04eb"></a><!-- doxytag: member="TemplateCreator::fIntegralRatioMax" ref="aa5bc6cbd2cfdde88ee9262f57e0c04eb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classTemplateCreator.html#aa5bc6cbd2cfdde88ee9262f57e0c04eb">TemplateCreator::fIntegralRatioMax</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00089">89</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8675d24f63bf2aa7044aed42df658f7b"></a><!-- doxytag: member="TemplateCreator::fIntegralRatioMin" ref="a8675d24f63bf2aa7044aed42df658f7b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classTemplateCreator.html#a8675d24f63bf2aa7044aed42df658f7b">TemplateCreator::fIntegralRatioMin</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00089">89</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
 
 </div>
 </div>
@@ -1319,9 +1300,9 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>Store the options for use in ProcessEntry. </p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00025">25</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00074">74</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>.</p>
 
 </div>
 </div>
@@ -1338,9 +1319,9 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>If true, then print out all pulses that get added to the templates and also print out certain templates as we go along. </p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00064">64</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00082">82</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
 
 </div>
 </div>
@@ -1357,9 +1338,71 @@ Inheritance diagram for TemplateCreator:</div>
 
 <p>The factor that we scale the number of bins in the template histogram by. </p>
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00057">57</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00070">70</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00413">CreateRefinedPulseHistogram()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00300">CreateRefinedPulseHistogram()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a180966a471ab741148c112714d0d1ccb"></a><!-- doxytag: member="TemplateCreator::fRequestedChannels" ref="a180966a471ab741148c112714d0d1ccb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; <a class="el" href="classTemplateCreator.html#a180966a471ab741148c112714d0d1ccb">TemplateCreator::fRequestedChannels</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00085">85</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a690d4256ed3229fdb0085d3d734e5b62"></a><!-- doxytag: member="TemplateCreator::fStartIntegral" ref="a690d4256ed3229fdb0085d3d734e5b62" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classTemplateCreator.html#a690d4256ed3229fdb0085d3d734e5b62">TemplateCreator::fStartIntegral</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00090">90</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aff678607be5dff82c2c631edeaa21307"></a><!-- doxytag: member="TemplateCreator::fStartTail" ref="aff678607be5dff82c2c631edeaa21307" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classTemplateCreator.html#aff678607be5dff82c2c631edeaa21307">TemplateCreator::fStartTail</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00090">90</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0dc5c74bc4c4e9eb52f70e063677fc8e"></a><!-- doxytag: member="TemplateCreator::fStopIntegral" ref="a0dc5c74bc4c4e9eb52f70e063677fc8e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classTemplateCreator.html#a0dc5c74bc4c4e9eb52f70e063677fc8e">TemplateCreator::fStopIntegral</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00090">90</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
 </div>
 </div>
@@ -1374,9 +1417,9 @@ Inheritance diagram for TemplateCreator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00027">27</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00077">77</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00295">AfterLastEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00035">BeforeFirstEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00271">AfterLastEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00081">BeforeFirstEntry()</a>.</p>
 
 </div>
 </div>
@@ -1391,37 +1434,18 @@ Inheritance diagram for TemplateCreator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00059">59</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
+<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00072">72</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00353">AddPulseToTemplate()</a>, <a class="el" href="TemplateCreator_8cpp_source.html#l00403">CorrectSampleValue()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7daa2d3230fa7389eb7459526cf43844"></a><!-- doxytag: member="TemplateCreator::fTemplates" ref="a7daa2d3230fa7389eb7459526cf43844" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::string, TH1D*&gt; <a class="el" href="classTemplateCreator.html#a7daa2d3230fa7389eb7459526cf43844">TemplateCreator::fTemplates</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>A map of the template histograms. </p>
-
-<p>Definition at line <a class="el" href="TemplateCreator_8h_source.html#l00045">45</a> of file <a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00295">AfterLastEntry()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00057">ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TemplateCreator_8cpp_source.html#l00109">ProcessEntry()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>rootana/src/TAP_generators/<a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a></li>
-<li>rootana/src/TAP_generators/<a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a></li>
+<li>rootana/src/TAP_generators/template_fitting/<a class="el" href="TemplateCreator_8h_source.html">TemplateCreator.h</a></li>
+<li>rootana/src/TAP_generators/template_fitting/<a class="el" href="TemplateCreator_8cpp_source.html">TemplateCreator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

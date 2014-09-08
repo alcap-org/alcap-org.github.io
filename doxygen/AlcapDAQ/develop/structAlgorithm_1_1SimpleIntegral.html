@@ -48,6 +48,8 @@
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1SimpleIntegral.html#af5a9e99064f5765fce9514fc571d6df0">SetStop</a> (int v)</td></tr>
 <tr><td colspan="2"><h2>Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1SimpleIntegral.html#aea76a02d841a5d8791c566ae87dc907e">trigger_polarity</a></td></tr>
+<tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1SimpleIntegral.html#a60c4365c872fd5b2d1706fdd80616852">operator=</a> (const <a class="el" href="structAlgorithm_1_1SimpleIntegral.html">SimpleIntegral</a> &amp;rhs)</td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAlgorithm_1_1SimpleIntegral.html#a93558e64f8be5f2620b5c0a6a326bb27">start</a></td></tr>
@@ -158,7 +160,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00066">66</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00072">pedestal</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00075">pedestal</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066 {<span class="keywordflow">return</span> <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a>;};
 </pre></div></p>
@@ -182,7 +184,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00067">67</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00076">start</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00077">start</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00067"></a>00067 {<span class="keywordflow">return</span> <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a93558e64f8be5f2620b5c0a6a326bb27">start</a>;};
 </pre></div></p>
@@ -206,7 +208,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00068">68</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00077">stop</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00078">stop</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00068"></a>00068 {<span class="keywordflow">return</span> <a class="code" href="structAlgorithm_1_1SimpleIntegral.html#adbbad3a2e251d2c98aa47f1b354ea8b9">stop</a>;};
 </pre></div></p>
@@ -231,7 +233,7 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8cpp_source.html#l00066">66</a> of file <a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a>.</p>
 
-<p>References <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00072">pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00076">start</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00077">stop</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00064">trigger_polarity</a>.</p>
+<p>References <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00075">pedestal</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00077">start</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00078">stop</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00064">trigger_polarity</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00066"></a>00066                                                                         {
 <a name="l00067"></a>00067   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; samples = tpi-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
@@ -255,6 +257,29 @@
 
 </div>
 </div>
+<a class="anchor" id="a60c4365c872fd5b2d1706fdd80616852"></a><!-- doxytag: member="Algorithm::SimpleIntegral::operator=" ref="a60c4365c872fd5b2d1706fdd80616852" args="(const SimpleIntegral &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Algorithm::SimpleIntegral::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structAlgorithm_1_1SimpleIntegral.html">SimpleIntegral</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>rhs</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00075">75</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00075"></a>00075 {};
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a9ecf670ea46532fba0024602bf8fd235"></a><!-- doxytag: member="Algorithm::SimpleIntegral::SetPedestal" ref="a9ecf670ea46532fba0024602bf8fd235" args="(double v)" -->
 <div class="memitem">
 <div class="memproto">
@@ -273,9 +298,9 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00070">70</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00072">pedestal</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00075">pedestal</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00092">Algorithm::IntegralRatio::SetPedestal()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00093">Algorithm::IntegralRatio::SetPedestal()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00070"></a>00070 {<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#ade1deba3c0c3dd3fe07c66ca2f86bd33">pedestal</a>=v;};
 </pre></div></p>
@@ -300,9 +325,9 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00071">71</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00076">start</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00077">start</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00091">Algorithm::IntegralRatio::SetTailStart()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00092">Algorithm::IntegralRatio::SetTailStart()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00071"></a>00071 {<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#a93558e64f8be5f2620b5c0a6a326bb27">start</a>=v;};
 </pre></div></p>
@@ -327,9 +352,9 @@
 
 <p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00072">72</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
-<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00077">stop</a>.</p>
+<p>References <a class="el" href="TAPAlgorithms_8h_source.html#l00078">stop</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00091">Algorithm::IntegralRatio::SetTailStart()</a>.</p>
+<p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00092">Algorithm::IntegralRatio::SetTailStart()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00072"></a>00072 {<a class="code" href="structAlgorithm_1_1SimpleIntegral.html#adbbad3a2e251d2c98aa47f1b354ea8b9">stop</a>=v;};
 </pre></div></p>
@@ -348,7 +373,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00072">72</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00075">75</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00066">GetPedestal()</a>, <a class="el" href="TAPAlgorithms_8cpp_source.html#l00066">operator()()</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00070">SetPedestal()</a>.</p>
 
@@ -365,7 +390,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00076">76</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00077">77</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00067">GetStart()</a>, <a class="el" href="TAPAlgorithms_8cpp_source.html#l00066">operator()()</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00071">SetStart()</a>.</p>
 
@@ -382,7 +407,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00077">77</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPAlgorithms_8h_source.html#l00078">78</a> of file <a class="el" href="TAPAlgorithms_8h_source.html">TAPAlgorithms.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TAPAlgorithms_8h_source.html#l00068">GetStop()</a>, <a class="el" href="TAPAlgorithms_8cpp_source.html#l00066">operator()()</a>, and <a class="el" href="TAPAlgorithms_8h_source.html#l00072">SetStop()</a>.</p>
 
@@ -410,7 +435,7 @@
 <li>rootana/src/TAP_generators/utils/<a class="el" href="TAPAlgorithms_8cpp_source.html">TAPAlgorithms.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

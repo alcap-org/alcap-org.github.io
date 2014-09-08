@@ -56,35 +56,39 @@
 <a name="l00039"></a>00039   <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a4f23792f6016431e960a372a355d0ae0">SetPedestalAndNoise</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; channel, <span class="keywordtype">double</span> pedestal, <span class="keywordtype">double</span> noise);
 <a name="l00040"></a>00040   <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a6538c76e50628b0f4d6c75bbf3229f71">SetCoarseTimeOffset</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; src, <span class="keywordtype">double</span> dt);
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042  <span class="keyword">private</span>:
-<a name="l00043"></a><a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">00043</a>   <span class="keyword">static</span> <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
-<a name="l00044"></a><a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">00044</a>   <a class="code" href="structARGUMENTS.html">ARGUMENTS</a> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>;
-<a name="l00045"></a>00045 
-<a name="l00048"></a><a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37">00048</a>   std::string <a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>;
-<a name="l00049"></a><a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">00049</a>   TSQLiteServer* <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>;
-<a name="l00050"></a><a class="code" href="classSetupNavigator.html#a322fdb73ae6f5518f7166e1e1e212185">00050</a>   std::string <a class="code" href="classSetupNavigator.html#a322fdb73ae6f5518f7166e1e1e212185">fPedestalNoiseTableName</a>;
-<a name="l00051"></a><a class="code" href="classSetupNavigator.html#a39d98b702e3cc3d927027b61e3b34fd4">00051</a>   std::string <a class="code" href="classSetupNavigator.html#a39d98b702e3cc3d927027b61e3b34fd4">fCoarseTimeOffsetTableName</a>;
-<a name="l00052"></a>00052 
-<a name="l00055"></a><a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1">00055</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>;
-<a name="l00058"></a><a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a">00058</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>;
-<a name="l00061"></a><a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5">00061</a>   <span class="keyword">static</span> std::map&lt;IDs::source, double&gt; <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>;
-<a name="l00062"></a>00062 
-<a name="l00065"></a>00065   <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a17b8c3f7a2855ae6368bd513c9af300c" title="Reads the pedestal and pedestal error values.">ReadPedestalAndNoiseValues</a>();
-<a name="l00068"></a>00068   <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a3a2e821214dfcca56df4b68396a4dc0d" title="Reads the gross time offset values.">ReadCoarseTimeOffsetValues</a>();
-<a name="l00071"></a>00071   std::vector&lt;std::string&gt; <a class="code" href="classSetupNavigator.html#abb6d1ee74fba92234e4ed4b35f1af1e7" title="Read in gross time offset columns determining what TAP generators we&amp;#39;re ready...">GetCoarseTimeOffsetColumns</a>();
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073   <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a32b43d3e956f8730959f2c8e8095f676">OutputCalibCSV</a>();
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075 };
-<a name="l00076"></a>00076 
-<a name="l00077"></a><a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">00077</a> <span class="keyword">inline</span> <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>(){
-<a name="l00078"></a>00078   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
-<a name="l00079"></a>00079   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
-<a name="l00080"></a>00080 }
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="preprocessor">#endif //SETUPNAVIGATOR_H_</span>
+<a name="l00042"></a>00042 <span class="keyword">private</span>:
+<a name="l00043"></a>00043 
+<a name="l00046"></a>00046   <span class="keywordtype">bool</span> <a class="code" href="classSetupNavigator.html#a278270398c2772ff5d713d9ebacc8b40" title="Reads the pedestal and pedestal error values.">ReadPedestalAndNoiseValues</a>();
+<a name="l00049"></a>00049   <span class="keywordtype">bool</span> <a class="code" href="classSetupNavigator.html#aaebfd203b0cf62d60cbcaef5f98b2fcb" title="Reads the gross time offset values.">ReadCoarseTimeOffsetValues</a>();
+<a name="l00052"></a>00052   std::vector&lt;std::string&gt; <a class="code" href="classSetupNavigator.html#abb6d1ee74fba92234e4ed4b35f1af1e7" title="Read in gross time offset columns determining what TAP generators we&amp;#39;re ready...">GetCoarseTimeOffsetColumns</a>();
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054   <span class="keywordtype">void</span> <a class="code" href="classSetupNavigator.html#a32b43d3e956f8730959f2c8e8095f676">OutputCalibCSV</a>();
+<a name="l00055"></a>00055   
+<a name="l00056"></a><a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">00056</a>   <span class="keywordtype">bool</span> <a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">IsCalibRun</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a008aa96291442ff9a8eabe7aff3f2960">calib</a>;}
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058  <span class="keyword">private</span>:
+<a name="l00059"></a><a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">00059</a>   <span class="keyword">static</span> <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
+<a name="l00060"></a><a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">00060</a>   <a class="code" href="structARGUMENTS.html">ARGUMENTS</a> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>;
+<a name="l00061"></a>00061 
+<a name="l00064"></a><a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37">00064</a>   std::string <a class="code" href="classSetupNavigator.html#a4aaa2eaab628ed3a0b774e5ec777cc37" title="The SQLite filename, the SQLite server object and the current table name.">fSQLiteFilename</a>;
+<a name="l00065"></a><a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">00065</a>   TSQLiteServer* <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>;
+<a name="l00066"></a><a class="code" href="classSetupNavigator.html#a322fdb73ae6f5518f7166e1e1e212185">00066</a>   std::string <a class="code" href="classSetupNavigator.html#a322fdb73ae6f5518f7166e1e1e212185">fPedestalNoiseTableName</a>;
+<a name="l00067"></a><a class="code" href="classSetupNavigator.html#a39d98b702e3cc3d927027b61e3b34fd4">00067</a>   std::string <a class="code" href="classSetupNavigator.html#a39d98b702e3cc3d927027b61e3b34fd4">fCoarseTimeOffsetTableName</a>;
+<a name="l00068"></a>00068 
+<a name="l00071"></a><a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1">00071</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>;
+<a name="l00074"></a><a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a">00074</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>;
+<a name="l00077"></a><a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5">00077</a>   <span class="keyword">static</span> std::map&lt;IDs::source, double&gt; <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>;
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">00081</a> <span class="keyword">inline</span> <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>(){
+<a name="l00082"></a>00082   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
+<a name="l00083"></a>00083   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
+<a name="l00084"></a>00084 }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="preprocessor">#endif //SETUPNAVIGATOR_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 8 Sep 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 9 Sep 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
