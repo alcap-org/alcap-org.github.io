@@ -633,11 +633,11 @@
 <a name="l00609"></a>00609         <span class="keywordtype">double</span> stop_time = 0;
 <a name="l00610"></a>00610         <span class="keywordtype">bool</span> killed = <span class="keyword">false</span>;
 <a name="l00611"></a>00611         <span class="keywordtype">double</span> kill_time = 0;
-<a name="l00612"></a>00612         <span class="keywordflow">if</span> (fTrackStatus == fStopButAlive){
+<a name="l00612"></a>00612         <span class="keywordflow">if</span> (fTrackStatus == fStopButAlive || fTrackStatus == fStopAndKill){
 <a name="l00613"></a>00613                 stopped = <span class="keyword">true</span>;
 <a name="l00614"></a>00614                 stop_time = pointIn_time;
 <a name="l00615"></a>00615         }
-<a name="l00616"></a>00616         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fTrackStatus == fStopAndKill || fTrackStatus == fKillTrackAndSecondaries){
+<a name="l00616"></a>00616         <span class="keywordflow">if</span> (fTrackStatus == fStopAndKill || fTrackStatus == fKillTrackAndSecondaries){
 <a name="l00617"></a>00617                 killed = <span class="keyword">true</span>;
 <a name="l00618"></a>00618                 kill_time = pointIn_time;
 <a name="l00619"></a>00619         }
@@ -844,7 +844,7 @@
 <a name="l00820"></a>00820         }
 <a name="l00821"></a>00821 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 11 Sep 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Sep 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
