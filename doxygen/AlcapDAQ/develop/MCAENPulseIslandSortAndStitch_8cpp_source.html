@@ -155,29 +155,30 @@
 <a name="l00144"></a>00144 
 <a name="l00162"></a><a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gae49c79d95ba90643cc64554f51eb035a">00162</a> <span class="keywordtype">void</span> <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#gae49c79d95ba90643cc64554f51eb035a" title="Stitch islands together if second of two that are time ordered is less than expected...">pulse_islands_stitch</a>(std::vector&lt;TPulseIsland*&gt;&amp; pulses, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nSamples) {
 <a name="l00163"></a>00163   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nPulses = pulses.size();
-<a name="l00164"></a>00164   std::vector&lt;int&gt; next_samples, current_samples;
-<a name="l00165"></a>00165   <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* temp_pulse;
-<a name="l00166"></a>00166   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iPulse = 0; iPulse &lt; nPulses - 1; ++iPulse) {
-<a name="l00167"></a>00167     next_samples = pulses[iPulse + 1]-&gt;GetSamples();
-<a name="l00168"></a>00168     <span class="comment">// If the next pulse is less than the set number of samples,</span>
-<a name="l00169"></a>00169     <span class="comment">// it&apos;s a continuation of this pulse</span>
-<a name="l00170"></a>00170     <span class="keywordflow">while</span> (next_samples.size() &lt; nSamples) {
-<a name="l00171"></a>00171       current_samples = pulses[iPulse]-&gt;GetSamples();
-<a name="l00172"></a>00172       <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; next_samples.size(); ++i)
-<a name="l00173"></a>00173         current_samples.push_back(next_samples[i]);
-<a name="l00174"></a>00174       temp_pulse = pulses[iPulse];
-<a name="l00175"></a>00175       pulses[iPulse] = <span class="keyword">new</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>(temp_pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>(), current_samples, temp_pulse-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
-<a name="l00176"></a>00176       <span class="keyword">delete</span> temp_pulse;
-<a name="l00177"></a>00177       <span class="keyword">delete</span> pulses[iPulse + 1];
-<a name="l00178"></a>00178       pulses.erase(pulses.begin() + iPulse + 1);
-<a name="l00179"></a>00179       <span class="keywordflow">if</span> (!(iPulse &lt; --nPulses - 1)) <span class="keywordflow">break</span>;
-<a name="l00180"></a>00180       next_samples = pulses[iPulse + 1]-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
-<a name="l00181"></a>00181     }
-<a name="l00182"></a>00182   }
-<a name="l00183"></a>00183 }
-<a name="l00184"></a>00184 
+<a name="l00164"></a>00164   <span class="keywordflow">if</span> (nPulses == 0) <span class="keywordflow">return</span>;
+<a name="l00165"></a>00165   std::vector&lt;int&gt; next_samples, current_samples;
+<a name="l00166"></a>00166   <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>* temp_pulse;
+<a name="l00167"></a>00167   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iPulse = 0; iPulse &lt; nPulses - 1; ++iPulse) {
+<a name="l00168"></a>00168     next_samples = pulses[iPulse + 1]-&gt;GetSamples();
+<a name="l00169"></a>00169     <span class="comment">// If the next pulse is less than the set number of samples,</span>
+<a name="l00170"></a>00170     <span class="comment">// it&apos;s a continuation of this pulse</span>
+<a name="l00171"></a>00171     <span class="keywordflow">while</span> (next_samples.size() &lt; nSamples) {
+<a name="l00172"></a>00172       current_samples = pulses[iPulse]-&gt;GetSamples();
+<a name="l00173"></a>00173       <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; next_samples.size(); ++i)
+<a name="l00174"></a>00174         current_samples.push_back(next_samples[i]);
+<a name="l00175"></a>00175       temp_pulse = pulses[iPulse];
+<a name="l00176"></a>00176       pulses[iPulse] = <span class="keyword">new</span> <a class="code" href="classTPulseIsland.html" title="A uniform format for data from many different detectors.">TPulseIsland</a>(temp_pulse-&gt;<a class="code" href="classTPulseIsland.html#af77ffa4ff59644151fed060663690bcf">GetTimeStamp</a>(), current_samples, temp_pulse-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>());
+<a name="l00177"></a>00177       <span class="keyword">delete</span> temp_pulse;
+<a name="l00178"></a>00178       <span class="keyword">delete</span> pulses[iPulse + 1];
+<a name="l00179"></a>00179       pulses.erase(pulses.begin() + iPulse + 1);
+<a name="l00180"></a>00180       <span class="keywordflow">if</span> (!(iPulse &lt; --nPulses - 1)) <span class="keywordflow">break</span>;
+<a name="l00181"></a>00181       next_samples = pulses[iPulse + 1]-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
+<a name="l00182"></a>00182     }
+<a name="l00183"></a>00183   }
+<a name="l00184"></a>00184 }
+<a name="l00185"></a>00185 
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Oct 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Oct 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

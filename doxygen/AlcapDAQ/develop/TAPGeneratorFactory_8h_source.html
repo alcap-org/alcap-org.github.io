@@ -47,32 +47,36 @@
 <a name="l00020"></a>00020         }
 <a name="l00021"></a>00021 
 <a name="l00022"></a><a class="code" href="classTAPGeneratorFactory.html#af38b6c1fc0a4b7a506ea2a366a744cbc">00022</a>         std::string <a class="code" href="classTAPGeneratorFactory.html#af38b6c1fc0a4b7a506ea2a366a744cbc">GetTAPType</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>&amp; g){ 
-<a name="l00023"></a>00023             <span class="keywordflow">return</span> <a class="code" href="classTemplateFactory.html#ab0bc2f6b97b20fd8ee442d28092585fc">GetProduct</a>(g.<a class="code" href="classIDs_1_1generator.html#a54b9c64ade53e75798aca80ee0cf3e71" title="Returns the type of generator that this ID represents.">Type</a>());
-<a name="l00024"></a>00024         }
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026                 <span class="comment">// Get the single instance of this class</span>
-<a name="l00027"></a>00027                 <span class="keyword">static</span> <a class="code" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>* <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">Instance</a>();
-<a name="l00028"></a>00028 };
+<a name="l00023"></a>00023             std::string gen=g.<a class="code" href="classIDs_1_1generator.html#a54b9c64ade53e75798aca80ee0cf3e71" title="Returns the type of generator that this ID represents.">Type</a>();
+<a name="l00024"></a>00024             <span class="keywordtype">size_t</span> n_subtract=gen.find(<span class="stringliteral">&quot;APGenerator&quot;</span>);
+<a name="l00025"></a>00025             <span class="keywordflow">if</span>(n_subtract!=std::string::npos)
+<a name="l00026"></a>00026                gen.erase(n_subtract); <span class="comment">//remove APGenerator part</span>
+<a name="l00027"></a>00027             <span class="keywordflow">return</span> <a class="code" href="classTemplateFactory.html#ab0bc2f6b97b20fd8ee442d28092585fc">GetProduct</a>(gen);
+<a name="l00028"></a>00028         }
 <a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">00030</a> <span class="keyword">inline</span> <a class="code" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>* <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">TAPGeneratorFactory::Instance</a>(){
-<a name="l00031"></a>00031     <span class="keyword">static</span> <a class="code" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>* instance=NULL;
-<a name="l00032"></a>00032     <span class="keywordflow">if</span>(!instance) {
-<a name="l00033"></a>00033         instance=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorFactory.html#a2cb7d5a0058eb73d4d2bad166a65a87a">TAPGeneratorFactory</a>();
-<a name="l00034"></a>00034     }
-<a name="l00035"></a>00035     <span class="keywordflow">return</span> instance;
-<a name="l00036"></a>00036 }
-<a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="TAPGeneratorFactory_8h.html#a1258735f1fda675c59867178bde91bf3">00038</a> <span class="preprocessor">#define ALCAP_TAP_GENERATOR__(NAME, CLASS, ARGUMENTS) \</span>
-<a name="l00039"></a>00039 <span class="preprocessor">RegistryProxy&lt;CLASS,TVAnalysedPulseGenerator,TAPGeneratorOptions,TAPGeneratorFactory&gt; \</span>
-<a name="l00040"></a>00040 <span class="preprocessor">   p_##CLASS(NAME, ARGUMENTS, CLASS::TapType() );</span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span>
-<a name="l00042"></a><a class="code" href="TAPGeneratorFactory_8h.html#ac00ce38389aad30fdef2d3332be92194">00042</a> <span class="preprocessor">#define ALCAP_TAP_GENERATOR( NAME , ... ) \</span>
-<a name="l00043"></a>00043 <span class="preprocessor">    ALCAP_TAP_GENERATOR__(#NAME, NAME##APGenerator, #__VA_ARGS__)</span>
-<a name="l00044"></a>00044 <span class="preprocessor"></span>
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="preprocessor">#endif // TAPGENERATORFACTORY__HH_</span>
+<a name="l00030"></a>00030                 <span class="comment">// Get the single instance of this class</span>
+<a name="l00031"></a>00031                 <span class="keyword">static</span> <a class="code" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>* <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">Instance</a>();
+<a name="l00032"></a>00032 };
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">00034</a> <span class="keyword">inline</span> <a class="code" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>* <a class="code" href="classTAPGeneratorFactory.html#a746eadffb06804e854ae893d03d97b2b">TAPGeneratorFactory::Instance</a>(){
+<a name="l00035"></a>00035     <span class="keyword">static</span> <a class="code" href="classTAPGeneratorFactory.html">TAPGeneratorFactory</a>* instance=NULL;
+<a name="l00036"></a>00036     <span class="keywordflow">if</span>(!instance) {
+<a name="l00037"></a>00037         instance=<span class="keyword">new</span> <a class="code" href="classTAPGeneratorFactory.html#a2cb7d5a0058eb73d4d2bad166a65a87a">TAPGeneratorFactory</a>();
+<a name="l00038"></a>00038     }
+<a name="l00039"></a>00039     <span class="keywordflow">return</span> instance;
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 
+<a name="l00042"></a><a class="code" href="TAPGeneratorFactory_8h.html#a1258735f1fda675c59867178bde91bf3">00042</a> <span class="preprocessor">#define ALCAP_TAP_GENERATOR__( NAME, CLASS, ARGUMENTS) \</span>
+<a name="l00043"></a>00043 <span class="preprocessor">RegistryProxy&lt;CLASS,TVAnalysedPulseGenerator,TAPGeneratorOptions,TAPGeneratorFactory&gt; \</span>
+<a name="l00044"></a>00044 <span class="preprocessor">   p_##CLASS(NAME, ARGUMENTS, CLASS::TapType() );</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span>
+<a name="l00046"></a><a class="code" href="TAPGeneratorFactory_8h.html#aaf040ef727941ba3edb17ca52cee89ef">00046</a> <span class="preprocessor">#define ALCAP_TAP_GENERATOR( CLASS , ... ) \</span>
+<a name="l00047"></a>00047 <span class="preprocessor">    ALCAP_TAP_GENERATOR__( #CLASS, CLASS##APGenerator, #__VA_ARGS__)</span>
+<a name="l00048"></a>00048 <span class="preprocessor"></span>
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="preprocessor">#endif // TAPGENERATORFACTORY__HH_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Oct 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Oct 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

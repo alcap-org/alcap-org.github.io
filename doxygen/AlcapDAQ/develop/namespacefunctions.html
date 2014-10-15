@@ -28,10 +28,66 @@
 </div>
 <div class="contents">
 <h1>functions Namespace Reference</h1><table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfunctions_1_1QuadraticFit.html">QuadraticFit</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Functor(-ish) class to calculate fit of a quadratic to N data-points.  <a href="classfunctions_1_1QuadraticFit.html#_details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefunctions.html#a48ad2093bab751a54f30a963e3fbf993">gauss_lin</a> (double *x, double *par)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TH1D *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefunctions.html#a7a3497de6dab041186f27c619e786ddb">InterpolatePulse</a> (const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *pulse, std::string histname, std::string histtitle, bool interpolate, int refine)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefunctions.html#a0c8d56c6b27e9736c23998ac43d36372">FillBinLabels</a> (double *labels, int size, int start=-1, int increment=1)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename ValueType &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">TH1F *&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefunctions.html#a75728e08a5c14ffffd264789d80d67cc">VectorToHist</a> (const std::vector&lt; ValueType &gt; &amp;vect, std::string name, std::string title)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a0c8d56c6b27e9736c23998ac43d36372"></a><!-- doxytag: member="functions::FillBinLabels" ref="a0c8d56c6b27e9736c23998ac43d36372" args="(double *labels, int size, int start=&#45;1, int increment=1)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void functions::FillBinLabels </td>
+          <td>(</td>
+          <td class="paramtype">double *&nbsp;</td>
+          <td class="paramname"> <em>labels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>start</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>increment</em> = <code>1</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="InterpolatePulse_8cpp_source.html#l00067">67</a> of file <a class="el" href="InterpolatePulse_8cpp_source.html">InterpolatePulse.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="InterpolatePulse_8h_source.html#l00018">VectorToHist()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00067"></a>00067                                                                                {
+<a name="l00068"></a>00068    unique_n uniq(start,increment);
+<a name="l00069"></a>00069    std::generate_n(labels,size, uniq);
+<a name="l00070"></a>00070 }
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a48ad2093bab751a54f30a963e3fbf993"></a><!-- doxytag: member="functions::gauss_lin" ref="a48ad2093bab751a54f30a963e3fbf993" args="(double *x, double *par)" -->
 <div class="memitem">
 <div class="memproto">
@@ -77,8 +133,158 @@
 
 </div>
 </div>
+<a class="anchor" id="a7a3497de6dab041186f27c619e786ddb"></a><!-- doxytag: member="functions::InterpolatePulse" ref="a7a3497de6dab041186f27c619e786ddb" args="(const TPulseIsland *pulse, std::string histname, std::string histtitle, bool interpolate, int refine)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TH1D * functions::InterpolatePulse </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTPulseIsland.html">TPulseIsland</a> *&nbsp;</td>
+          <td class="paramname"> <em>pulse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>histname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>histtitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramname"> <em>interpolate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>refine</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Oct 2014 for AlcapDAQ by&nbsp;
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="InterpolatePulse_8cpp_source.html#l00010">10</a> of file <a class="el" href="InterpolatePulse_8cpp_source.html">InterpolatePulse.cpp</a>.</p>
+
+<p>References <a class="el" href="TPulseIsland_8h_source.html#l00063">TPulseIsland::GetBankName()</a>, <a class="el" href="TSetupData_8h_source.html#l00058">TSetupData::GetDetectorName()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00255">SetupNavigator::GetNoise()</a>, <a class="el" href="TPulseIsland_8h_source.html#l00061">TPulseIsland::GetSamples()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00094">SetupNavigator::Instance()</a>, and <a class="el" href="analyzer_8cpp_source.html#l00085">TSetupData::Instance()</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateCreator_8h_source.html#l00052">TemplateCreator::CreateRefinedPulseHistogram()</a>, and <a class="el" href="TemplateFitAPGenerator_8cpp_source.html#l00092">TemplateFitAPGenerator::ProcessPulses()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00012"></a>00012                                                         {
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014   <span class="comment">// Get a few things first</span>
+<a name="l00015"></a>00015   <span class="keyword">const</span> std::string&amp; bankname = pulse-&gt;<a class="code" href="classTPulseIsland.html#acb8996d3388a3b4e6226edc251dea614">GetBankName</a>();
+<a name="l00016"></a>00016   <span class="keyword">const</span> std::string detname = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a796d0707e015edf53fd58b34ac2d823e">GetDetectorName</a>(bankname);
+<a name="l00017"></a>00017   <span class="keyword">const</span> std::vector&lt;int&gt;&amp; theSamples = pulse-&gt;<a class="code" href="classTPulseIsland.html#a5e70c9bdef03512673fe2f7b90f42a63">GetSamples</a>();
+<a name="l00018"></a>00018   <span class="keywordtype">int</span> n_samples = theSamples.size();
+<a name="l00019"></a>00019   <span class="keywordtype">int</span> n_bins = refine*n_samples; <span class="comment">// number of bins in the template</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021   <span class="comment">// Create the higher resolution histogram</span>
+<a name="l00022"></a>00022   TH1D* hist = <span class="keyword">new</span> TH1D(histname.c_str(), histtitle.c_str(), n_bins, 0, n_samples);
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024   <span class="keywordtype">double</span> pedestal_error = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a548c02124ff047e7460ca5d7c83a3304" title="Gets the error on the pedestal from the SQLite database.">GetNoise</a>(detname);
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026   <span class="comment">// Go through the bins in the high-resolution histogram</span>
+<a name="l00027"></a>00027   <span class="comment">// NB sample numbers go grom 0 to n-1 and bins go from 1 to n</span>
+<a name="l00028"></a>00028   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n_bins; ++i) {
+<a name="l00029"></a>00029     <span class="keywordtype">int</span> bin = i+1; <span class="comment">// bins go from 1 to n rather than 0 to n-1</span>
+<a name="l00030"></a>00030     <span class="keywordtype">int</span> sample_number = i / refine;
+<a name="l00031"></a>00031     <span class="keywordtype">double</span> remainder = i % refine;
+<a name="l00032"></a>00032     <span class="keywordtype">double</span> sample_value;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034     <span class="comment">// We may want to interpolate between the samples in the samples vector</span>
+<a name="l00035"></a>00035     <span class="keywordflow">if</span> (interpolate) {
+<a name="l00036"></a>00036       <span class="keywordflow">try</span> {
+<a name="l00037"></a>00037         sample_value = theSamples.at(sample_number) 
+<a name="l00038"></a>00038                      + (remainder / refine)*(theSamples.at(sample_number+1) 
+<a name="l00039"></a>00039                                                      - theSamples.at(sample_number));
+<a name="l00040"></a>00040       }
+<a name="l00041"></a>00041       <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range&amp; oor) { <span class="comment">// if we&apos;ll be going out of range of the samples vector</span>
+<a name="l00042"></a>00042         sample_value = theSamples.at(sample_number);
+<a name="l00043"></a>00043       }
+<a name="l00044"></a>00044     }
+<a name="l00045"></a>00045     <span class="keywordflow">else</span> {
+<a name="l00046"></a>00046       sample_value = theSamples.at(sample_number);
+<a name="l00047"></a>00047     }
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <span class="comment">// Set the bin contents and bin error</span>
+<a name="l00050"></a>00050     hist-&gt;SetBinContent( bin, sample_value);
+<a name="l00051"></a>00051     hist-&gt;SetBinError( bin, pedestal_error);
+<a name="l00052"></a>00052   }
+<a name="l00053"></a>00053   hist-&gt;SetDirectory(0);
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055   <span class="keywordflow">return</span> hist;
+<a name="l00056"></a>00056 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a75728e08a5c14ffffd264789d80d67cc"></a><!-- doxytag: member="functions::VectorToHist" ref="a75728e08a5c14ffffd264789d80d67cc" args="(const std::vector&lt; ValueType &gt; &amp;vect, std::string name, std::string title)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">TH1F* functions::VectorToHist </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; ValueType &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>vect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>title</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="InterpolatePulse_8h_source.html#l00018">18</a> of file <a class="el" href="InterpolatePulse_8h_source.html">InterpolatePulse.h</a>.</p>
+
+<p>References <a class="el" href="InterpolatePulse_8cpp_source.html#l00067">FillBinLabels()</a>.</p>
+
+<p>Referenced by <a class="el" href="TemplateConvolver_8cpp_source.html#l00121">TemplateConvolver::CharacteriseTemplate()</a>, and <a class="el" href="TTemplateConvolveAnalysedPulse_8cpp_source.html#l00022">TTemplateConvolveAnalysedPulse::Draw()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019                      {
+<a name="l00020"></a>00020    <span class="keyword">const</span> <span class="keywordtype">int</span> size=vect.size();
+<a name="l00021"></a>00021    <span class="keywordtype">double</span> labels[size];
+<a name="l00022"></a>00022    <a class="code" href="namespacefunctions.html#a0c8d56c6b27e9736c23998ac43d36372">FillBinLabels</a>(labels,size);
+<a name="l00023"></a>00023    TH1F* hist=<span class="keyword">new</span> TH1F(name.c_str(),title.c_str(), size,0,size);
+<a name="l00024"></a>00024    hist-&gt;FillN(size,labels,vect.data());
+<a name="l00025"></a>00025    hist-&gt;SetDirectory(0);
+<a name="l00026"></a>00026    <span class="keywordflow">return</span> hist;
+<a name="l00027"></a>00027 }
+</pre></div></p>
+
+</div>
+</div>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Oct 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -73,23 +73,21 @@
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00029">29</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00218">SetupNavigator::SetCoarseTimeOffset()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00245">SetupNavigator::SetCoarseTimeOffset()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029                                                                {
-<a name="l00030"></a>00030   <span class="keyword">const</span> <span class="keywordtype">char</span>* strs[2] = {<span class="stringliteral">&quot;{no_time_shift=true}&quot;</span>, <span class="stringliteral">&quot;{no_time_shift=false}&quot;</span>};
-<a name="l00031"></a>00031   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 2; ++i) {
-<a name="l00032"></a>00032     std::size_t pos = con.find(strs[i]);
-<a name="l00033"></a>00033     <span class="keywordflow">if</span> (pos != std::string::npos)
-<a name="l00034"></a>00034       con.replace(pos, std::char_traits&lt;char&gt;::length(strs[i]),<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00035"></a>00035   }
-<a name="l00036"></a>00036   <span class="keywordflow">return</span> con;
-<a name="l00037"></a>00037 }
+<a name="l00030"></a>00030   <span class="keyword">const</span> <span class="keywordtype">char</span> *start = <span class="stringliteral">&quot;{no_time_shift=&quot;</span>, *end = <span class="stringliteral">&quot;}&quot;</span>;
+<a name="l00031"></a>00031   std::size_t pos;
+<a name="l00032"></a>00032   <span class="keywordflow">while</span> ( (pos=con.find(start)) != std::string::npos)
+<a name="l00033"></a>00033     con.replace(pos, con.find(end, pos)-pos+1, <span class="stringliteral">&quot;&quot;</span>);
+<a name="l00034"></a>00034   <span class="keywordflow">return</span> con;
+<a name="l00035"></a>00035 }
 </pre></div></p>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Oct 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Oct 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -35,50 +35,39 @@
 <a name="l00008"></a>00008 
 <a name="l00009"></a><a class="code" href="classHistogramFitFCN.html">00009</a> <span class="keyword">class </span><a class="code" href="classHistogramFitFCN.html">HistogramFitFCN</a> : <span class="keyword">public</span> ROOT::Minuit2::FCNBase {
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011  <span class="keyword">private</span>:
-<a name="l00012"></a><a class="code" href="classHistogramFitFCN.html#a4c8dfa07f697ac60c6bf33aa82630ebc">00012</a>   <span class="keyword">const</span> TH1D* <a class="code" href="classHistogramFitFCN.html#a4c8dfa07f697ac60c6bf33aa82630ebc">fTemplateHist</a>; <span class="comment">// The template</span>
-<a name="l00013"></a><a class="code" href="classHistogramFitFCN.html#a92bed00f04a485894a035e11a723f42a">00013</a>   <span class="keyword">const</span> TH1D* <a class="code" href="classHistogramFitFCN.html#a92bed00f04a485894a035e11a723f42a">fPulseHist</a>; <span class="comment">// The histogram to fit</span>
+<a name="l00011"></a>00011  <span class="keyword">public</span>:
+<a name="l00012"></a>00012   <a class="code" href="classHistogramFitFCN.html#a4147aa6f4fe3409ba0110d9a29d110c3">HistogramFitFCN</a>(<span class="keyword">const</span> TH1D* = NULL,<span class="keyword">const</span>  TH1D* = NULL);
+<a name="l00013"></a>00013   <a class="code" href="classHistogramFitFCN.html#a1e38082cb00a65768a3bbe8771eb8fff">~HistogramFitFCN</a>();
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015  <span class="keyword">public</span>:
-<a name="l00016"></a>00016   <a class="code" href="classHistogramFitFCN.html#a4147aa6f4fe3409ba0110d9a29d110c3">HistogramFitFCN</a>(<span class="keyword">const</span> TH1D* = NULL,<span class="keyword">const</span>  TH1D* = NULL);
-<a name="l00017"></a>00017   <a class="code" href="classHistogramFitFCN.html#a1e38082cb00a65768a3bbe8771eb8fff">~HistogramFitFCN</a>();
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#a8ffc9c64a4c8f890e5c56cd67a8fcb7c">SetTemplateHist</a>(<span class="keyword">const</span> TH1D*);
-<a name="l00020"></a>00020   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#a28d0def347c40e95babd65464a8c898e">SetPulseHist</a>(<span class="keyword">const</span> TH1D*);
+<a name="l00015"></a>00015   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#adc4583c27941cbf38eba1d97f64372a5">SetTemplateHist</a>(<span class="keyword">const</span> TH1D*,<span class="keywordtype">double</span> ped=-1);
+<a name="l00016"></a>00016   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#a28d0def347c40e95babd65464a8c898e">SetPulseHist</a>(<span class="keyword">const</span> TH1D*);
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="classHistogramFitFCN.html#aac2ba4cd3aebae47f00067db7a52cdc9">00018</a>   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#aac2ba4cd3aebae47f00067db7a52cdc9">SetRefineFactor</a>(<span class="keywordtype">int</span> refine_factor) {<a class="code" href="classHistogramFitFCN.html#a0298fcbe923db11f7bf35e278b8890d8">fRefineFactor</a> = refine_factor;}
+<a name="l00019"></a>00019   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#a713735e9b5513bd872aa8033cc8c715c">SetTimeOffset</a>(<span class="keywordtype">double</span> time_offset);
+<a name="l00020"></a>00020 
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022   <span class="comment">// Used for calls with parameters</span>
-<a name="l00023"></a>00023   <span class="comment">// The return value is the chi squared</span>
-<a name="l00024"></a>00024   <span class="comment">// weighted by errors in fTemplateHist</span>
-<a name="l00025"></a>00025   <span class="comment">// Parameters:</span>
-<a name="l00026"></a>00026   <span class="comment">// 1. Pedestal</span>
-<a name="l00027"></a>00027   <span class="comment">// 2. Amplitude</span>
-<a name="l00028"></a>00028   <span class="comment">// 3. Timing</span>
-<a name="l00029"></a>00029   <span class="keywordtype">double</span> <a class="code" href="classHistogramFitFCN.html#a3badf6fb8bd32e25fb685c81d21181d4">operator() </a>(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; par) <span class="keyword">const</span>;
-<a name="l00030"></a>00030   <span class="comment">// Used for error... somehow?</span>
-<a name="l00031"></a>00031   <span class="keywordtype">double</span> <a class="code" href="classHistogramFitFCN.html#aab557b8a86920fc965212a2c348003f5">Up</a>() <span class="keyword">const</span>;
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033  <span class="keyword">private</span>:
-<a name="l00034"></a><a class="code" href="classHistogramFitFCN.html#af720dcb0e47accd7ef72b12078595aba">00034</a>   <span class="keyword">mutable</span> <span class="keywordtype">int</span> <a class="code" href="classHistogramFitFCN.html#af720dcb0e47accd7ef72b12078595aba">fNDoF</a>; <span class="comment">// record this for TemplateFitter to retrieve later (NB mutable so that it can be set in operator(), which is const)</span>
-<a name="l00035"></a>00035   
-<a name="l00036"></a>00036  <span class="keyword">public</span>:
-<a name="l00037"></a><a class="code" href="classHistogramFitFCN.html#a0e39b9380bd07f8d9cb6c24c4eca1bbf">00037</a>   <span class="keywordtype">int</span> <a class="code" href="classHistogramFitFCN.html#a0e39b9380bd07f8d9cb6c24c4eca1bbf">GetNDoF</a>() { <span class="keywordflow">return</span> <a class="code" href="classHistogramFitFCN.html#af720dcb0e47accd7ef72b12078595aba">fNDoF</a>; }
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039  <span class="keyword">private</span>:
-<a name="l00040"></a><a class="code" href="classHistogramFitFCN.html#aa6a0ae3dec9b3fe960faed39b1e83e9d">00040</a>   <span class="keywordtype">double</span> <a class="code" href="classHistogramFitFCN.html#aa6a0ae3dec9b3fe960faed39b1e83e9d">fTimeOffset</a>; <span class="comment">// the time offset to use</span>
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042  <span class="keyword">public</span>:
-<a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#a713735e9b5513bd872aa8033cc8c715c">SetTimeOffset</a>(<span class="keywordtype">double</span> time_offset);
+<a name="l00029"></a>00029   <span class="keywordtype">double</span> <a class="code" href="classHistogramFitFCN.html#a3badf6fb8bd32e25fb685c81d21181d4" title="Used for calls with parameters The return value is the chi squared weighted by errors...">operator() </a>(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; par) <span class="keyword">const</span>;
+<a name="l00030"></a>00030 
+<a name="l00032"></a>00032   <span class="keywordtype">double</span> <a class="code" href="classHistogramFitFCN.html#aab557b8a86920fc965212a2c348003f5" title="Used for error... somehow?">Up</a>() <span class="keyword">const</span>;
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="classHistogramFitFCN.html#a0e39b9380bd07f8d9cb6c24c4eca1bbf">00034</a>   <span class="keywordtype">int</span> <a class="code" href="classHistogramFitFCN.html#a0e39b9380bd07f8d9cb6c24c4eca1bbf">GetNDoF</a>() { <span class="keywordflow">return</span> <a class="code" href="classHistogramFitFCN.html#af720dcb0e47accd7ef72b12078595aba">fNDoF</a>; }
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036  <span class="keyword">private</span>:
+<a name="l00039"></a><a class="code" href="classHistogramFitFCN.html#af720dcb0e47accd7ef72b12078595aba">00039</a>   <span class="keyword">mutable</span> <span class="keywordtype">int</span> <a class="code" href="classHistogramFitFCN.html#af720dcb0e47accd7ef72b12078595aba">fNDoF</a>;
+<a name="l00040"></a>00040   
+<a name="l00042"></a><a class="code" href="classHistogramFitFCN.html#aa6a0ae3dec9b3fe960faed39b1e83e9d">00042</a>   <span class="keywordtype">double</span> <a class="code" href="classHistogramFitFCN.html#aa6a0ae3dec9b3fe960faed39b1e83e9d" title="the time offset to use">fTimeOffset</a>;
+<a name="l00043"></a><a class="code" href="classHistogramFitFCN.html#a83ab0a38e39de2d43eae68edf8e99e9a">00043</a>   <span class="keywordtype">double</span> <a class="code" href="classHistogramFitFCN.html#a83ab0a38e39de2d43eae68edf8e99e9a">fTemplatePedestal</a>;
 <a name="l00044"></a>00044 
-<a name="l00045"></a>00045  <span class="keyword">private</span>:
-<a name="l00046"></a><a class="code" href="classHistogramFitFCN.html#a0298fcbe923db11f7bf35e278b8890d8">00046</a>   <span class="keywordtype">int</span> <a class="code" href="classHistogramFitFCN.html#a0298fcbe923db11f7bf35e278b8890d8">fRefineFactor</a>;
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048  <span class="keyword">public</span>:
-<a name="l00049"></a><a class="code" href="classHistogramFitFCN.html#aac2ba4cd3aebae47f00067db7a52cdc9">00049</a>   <span class="keywordtype">void</span> <a class="code" href="classHistogramFitFCN.html#aac2ba4cd3aebae47f00067db7a52cdc9">SetRefineFactor</a>(<span class="keywordtype">int</span> refine_factor) {<a class="code" href="classHistogramFitFCN.html#a0298fcbe923db11f7bf35e278b8890d8">fRefineFactor</a> = refine_factor;}
+<a name="l00045"></a><a class="code" href="classHistogramFitFCN.html#a0298fcbe923db11f7bf35e278b8890d8">00045</a>   <span class="keywordtype">int</span> <a class="code" href="classHistogramFitFCN.html#a0298fcbe923db11f7bf35e278b8890d8">fRefineFactor</a>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="classHistogramFitFCN.html#a4c8dfa07f697ac60c6bf33aa82630ebc">00047</a>   <span class="keyword">const</span> TH1D* <a class="code" href="classHistogramFitFCN.html#a4c8dfa07f697ac60c6bf33aa82630ebc">fTemplateHist</a>; <span class="comment">// The template</span>
+<a name="l00048"></a><a class="code" href="classHistogramFitFCN.html#a92bed00f04a485894a035e11a723f42a">00048</a>   <span class="keyword">const</span> TH1D* <a class="code" href="classHistogramFitFCN.html#a92bed00f04a485894a035e11a723f42a">fPulseHist</a>; <span class="comment">// The histogram to fit</span>
+<a name="l00049"></a>00049 
 <a name="l00050"></a>00050 };
 <a name="l00051"></a>00051 
 <a name="l00052"></a>00052 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Oct 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Oct 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

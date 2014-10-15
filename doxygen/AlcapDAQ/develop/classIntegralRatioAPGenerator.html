@@ -72,6 +72,7 @@ Inheritance diagram for IntegralRatioAPGenerator:</div>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAlgorithm_1_1IntegralRatio.html">Algorithm::IntegralRatio</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html">Algorithm::MaxBinAmplitude</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIntegralRatioAPGenerator.html#af900b525752bcd98f4454c82ff10adb7">fMaxBinAmplitude</a></td></tr>
 <tr><td colspan="2"><h2>Friends</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVAnalysedPulseGenerator.html#a32411abab614529fa147b2ce1736199e">MakeAnalysedPulses</a></td></tr>
 </table>
@@ -106,10 +107,14 @@ Inheritance diagram for IntegralRatioAPGenerator:</div>
 <a name="l00021"></a>00021                                   <a class="code" href="classIntegralRatioAPGenerator.html#a135b4f8a6e0f4c7bda740efc4a39efa3">fStartTailAsFraction</a>?
 <a name="l00022"></a>00022                                   <span class="stringliteral">&quot;x&lt;1 &amp;&amp; x&gt;0&quot;</span>:
 <a name="l00023"></a>00023                                   Form(<span class="stringliteral">&quot;x&gt;%g&quot;</span>,<a class="code" href="classIntegralRatioAPGenerator.html#a391071ca3fa953912a918a8eb90f231f">fStartIntegral</a>))),
-<a name="l00024"></a>00024         <a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().<a class="code" href="classIDs_1_1channel.html#a42a3ac122222a5ff54dc421da9401912" title="Check if this channel ID is for a fast channel.">isFast</a>()?900:2728),
-<a name="l00025"></a>00025         <a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().<a class="code" href="classIDs_1_1channel.html#a42a3ac122222a5ff54dc421da9401912" title="Check if this channel ID is for a fast channel.">isFast</a>()?1:-1),
-<a name="l00026"></a>00026         <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>( <a class="code" href="classIntegralRatioAPGenerator.html#a391071ca3fa953912a918a8eb90f231f">fStartIntegral</a>, <a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">fStartTail</a>, <a class="code" href="classIntegralRatioAPGenerator.html#a2a8bf1d13223855812c78ddad5867af9">fStopIntegral</a>,  <a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a>,<a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a>){
-<a name="l00027"></a>00027     }
+<a name="l00024"></a>00024         <span class="comment">//fPedestal(GetChannel().isFast()?900:2728),</span>
+<a name="l00025"></a>00025         <a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a3e6c67867e2620a812177e4633feeb44" title="Gets the pedestal from the SQLite database.">GetPedestal</a>(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>())),
+<a name="l00026"></a>00026         <span class="comment">//fPolarity(GetChannel().isFast()?1:-1),</span>
+<a name="l00027"></a>00027         <a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a>(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a282bc8db865c9f95cd7b39a9ebe34c45" title="Pulse polarity.">GetTriggerPolarity</a>(<a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;GetBankName(<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().str()))),
+<a name="l00028"></a>00028         <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>( <a class="code" href="classIntegralRatioAPGenerator.html#a391071ca3fa953912a918a8eb90f231f">fStartIntegral</a>, <a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">fStartTail</a>, <a class="code" href="classIntegralRatioAPGenerator.html#a2a8bf1d13223855812c78ddad5867af9">fStopIntegral</a>,  <a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a>,<a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a>),
+<a name="l00029"></a>00029         <a class="code" href="classIntegralRatioAPGenerator.html#af900b525752bcd98f4454c82ff10adb7">fMaxBinAmplitude</a>(<a class="code" href="classIntegralRatioAPGenerator.html#a525c2db4f74f552190c263388e15c2b1">fPedestal</a>,<a class="code" href="classIntegralRatioAPGenerator.html#a94575d5b3503253ee0e0500653b791a7">fPolarity</a>) 
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031 }
 
 </pre></div></p>
 
@@ -130,9 +135,9 @@ Inheritance diagram for IntegralRatioAPGenerator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00029">29</a> of file <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html">IntegralRatioAPGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00033">33</a> of file <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html">IntegralRatioAPGenerator.cpp</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029 {}
+<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033 {}
 </pre></div></p>
 
 </div>
@@ -157,7 +162,7 @@ Inheritance diagram for IntegralRatioAPGenerator:</div>
 
 <p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00118">TVAnalysedPulseGenerator::fDebug</a>.</p>
 
-<p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">GaussFitAPGenerator::FitPulse()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="GaussFitAPGenerator_8cpp_source.html#l00074">GaussFitAPGenerator::FitPulse()</a>, <a class="el" href="TemplateConvolveAPGenerator_8cpp_source.html#l00054">TemplateConvolveAPGenerator::ProcessPulses()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00082"></a>00082 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a1892af1970a49cef5366930bf764dc7d" title="Debug flagged set from modules file. Used, for example, in deciding whether or not...">fDebug</a>;};
 </pre></div></p>
@@ -184,7 +189,7 @@ Inheritance diagram for IntegralRatioAPGenerator:</div>
 
 <p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">TVAnalysedPulseGenerator::fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00083">FirstCompleteAPGenerator::DrawPulse()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00081">FirstCompleteAPGenerator::DrawPulse()</a>, <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">ProcessPulses()</a>, <a class="el" href="TemplateConvolveAPGenerator_8cpp_source.html#l00016">TemplateConvolveAPGenerator::TemplateConvolveAPGenerator()</a>, and <a class="el" href="TemplateFitAPGenerator_8cpp_source.html#l00016">TemplateFitAPGenerator::TemplateFitAPGenerator()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>();};
 </pre></div></p>
@@ -213,7 +218,7 @@ Inheritance diagram for IntegralRatioAPGenerator:</div>
 
 <p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00107">TVAnalysedPulseGenerator::fSource</a>.</p>
 
-<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00125">TVAnalysedPulseGenerator::MakeNewTAP()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00125">TVAnalysedPulseGenerator::MakeNewTAP()</a>, and <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00095"></a>00095 {<span class="keywordflow">return</span> <a class="code" href="classTVAnalysedPulseGenerator.html#a11fa0f36e3fe2db1aca5c963132e5a69" title="The source identifying the generator and detector being processed.">fSource</a>;};
 </pre></div></p>
@@ -285,7 +290,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00121">TVAnalysedPulseGenerator::fPulseList</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00095">TVAnalysedPulseGenerator::GetSource()</a>.</p>
 
-<p>Referenced by <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00017">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00031">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00036">FirstCompleteAPGenerator::ProcessPulses()</a>, <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00030">CFTimeMBAmpAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00031">CFTimeAPGenerator::ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00061">FirstCompleteAPGenerator::AnalyseOneTpi()</a>, <a class="el" href="SimpIntAPGenerator_8cpp_source.html#l00017">SimpIntAPGenerator::ProcessPulses()</a>, <a class="el" href="MaxBinAPGenerator_8cpp_source.html#l00031">MaxBinAPGenerator::ProcessPulses()</a>, <a class="el" href="CFTimeMBAmpAPGenerator_8cpp_source.html#l00030">CFTimeMBAmpAPGenerator::ProcessPulses()</a>, and <a class="el" href="CFTimeAPGenerator_8cpp_source.html#l00031">CFTimeAPGenerator::ProcessPulses()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00125"></a>00125                                                                            {
 <a name="l00126"></a>00126     TypeOfTAP* pulse=NULL;
@@ -358,53 +363,57 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Implements <a class="el" href="classTVAnalysedPulseGenerator.html#a1099fae9972c00150ef6687e067e5a10">TVAnalysedPulseGenerator</a>.</p>
 
-<p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">31</a> of file <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html">IntegralRatioAPGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">35</a> of file <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html">IntegralRatioAPGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00082">TVAnalysedPulseGenerator::Debug()</a>, <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00030">fIntegralRatioAlgo</a>, <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00027">fStartTail</a>, <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00022">fStartTailAsFraction</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00086">TVAnalysedPulseGenerator::GetChannel()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00088">Algorithm::IntegralRatio::GetRatio()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00095">TVAnalysedPulseGenerator::GetSource()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00090">Algorithm::IntegralRatio::GetTail()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00089">Algorithm::IntegralRatio::GetTotal()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00106">TAnalysedPulse::SetIntegral()</a>, <a class="el" href="TIntegralRatioAnalysedPulse_8h_source.html#l00032">TIntegralRatioAnalysedPulse::SetIntegralRatio()</a>, <a class="el" href="TIntegralRatioAnalysedPulse_8h_source.html#l00031">TIntegralRatioAnalysedPulse::SetIntegralSmall()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00092">Algorithm::IntegralRatio::SetTailStart()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
+<p>References <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00082">TVAnalysedPulseGenerator::Debug()</a>, <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00030">fIntegralRatioAlgo</a>, <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00031">fMaxBinAmplitude</a>, <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00027">fStartTail</a>, <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00022">fStartTailAsFraction</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00023">Algorithm::MaxBinAmplitude::GetAmplitude()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00086">TVAnalysedPulseGenerator::GetChannel()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00093">Algorithm::IntegralRatio::GetRatio()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00095">TVAnalysedPulseGenerator::GetSource()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00095">Algorithm::IntegralRatio::GetTail()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00022">Algorithm::MaxBinAmplitude::GetTime()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00094">Algorithm::IntegralRatio::GetTotal()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00120">TAnalysedPulse::SetAmplitude()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00122">TAnalysedPulse::SetIntegral()</a>, <a class="el" href="TIntegralRatioAnalysedPulse_8h_source.html#l00032">TIntegralRatioAnalysedPulse::SetIntegralRatio()</a>, <a class="el" href="TIntegralRatioAnalysedPulse_8h_source.html#l00031">TIntegralRatioAnalysedPulse::SetIntegralSmall()</a>, <a class="el" href="TAPAlgorithms_8cpp_source.html#l00086">Algorithm::IntegralRatio::SetPedestalToMinimum()</a>, <a class="el" href="TAPAlgorithms_8h_source.html#l00097">Algorithm::IntegralRatio::SetTailStart()</a>, <a class="el" href="TAnalysedPulse_8h_source.html#l00121">TAnalysedPulse::SetTime()</a>, <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033                                         {
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035     <span class="comment">// Loop over all the TPIs given to us</span>
-<a name="l00036"></a>00036     <span class="keywordtype">int</span> start_tail;
-<a name="l00037"></a>00037     <a class="code" href="classTIntegralRatioAnalysedPulse.html">TIntegralRatioAnalysedPulse</a>* tap;
-<a name="l00038"></a>00038     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> tpi=pulseList.begin();
-<a name="l00039"></a>00039             tpi!=pulseList.end(); tpi++){
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041         <span class="keywordflow">if</span>(<a class="code" href="classIntegralRatioAPGenerator.html#a135b4f8a6e0f4c7bda740efc4a39efa3">fStartTailAsFraction</a>){
-<a name="l00042"></a>00042            start_tail=<a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">fStartTail</a>*(*tpi)-&gt;GetPulseLength();
-<a name="l00043"></a>00043            <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#ad1f35888a70688b3e4bf776efb83f3de">SetTailStart</a>(start_tail);
-<a name="l00044"></a>00044         }
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <span class="comment">// Analyse each TPI</span>
-<a name="l00047"></a>00047         <span class="keywordflow">try</span>{
-<a name="l00048"></a>00048             <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>(*tpi);
-<a name="l00049"></a>00049         }<span class="keywordflow">catch</span>(std::out_of_range&amp; e){
-<a name="l00050"></a>00050             <span class="keywordflow">continue</span>;
-<a name="l00051"></a>00051         }
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053         <span class="comment">// Now that we&apos;ve found the information we were looking for make a TAP to</span>
-<a name="l00054"></a>00054         <span class="comment">// hold it.  This method makes a TAP and sets the parent TPI info.  It needs</span>
-<a name="l00055"></a>00055         <span class="comment">// the index of the parent TPI in the container as an argument</span>
-<a name="l00056"></a>00056         tap = MakeNewTAP&lt;TIntegralRatioAnalysedPulse&gt;(tpi-pulseList.begin());
-<a name="l00057"></a>00057         tap-&gt;<a class="code" href="classTAnalysedPulse.html#a344fa582147a1071867aa5447adba82e">SetIntegral</a>(<a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#af3648d5626cf023cdbdb90a6b35a3f8c">GetTotal</a>());
-<a name="l00058"></a>00058         tap-&gt;<a class="code" href="classTIntegralRatioAnalysedPulse.html#a909159209da0bc83747c662189ace980">SetIntegralSmall</a>(<a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#af49068e2493128a84d544b666f1abf95">GetTail</a>());
-<a name="l00059"></a>00059         tap-&gt;<a class="code" href="classTIntegralRatioAnalysedPulse.html#a391be18127c182ca3f17b3e1e174c4e8">SetIntegralRatio</a>(<a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#a8b568d96aa03cd45747934f231c9a3de">GetRatio</a>());
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061         <span class="comment">// Finally add the new TAP to the output list</span>
-<a name="l00062"></a>00062         analysedList.push_back(tap);
-<a name="l00063"></a>00063     }
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065     <span class="comment">// Generators have a Debug method similar to modules</span>
-<a name="l00066"></a>00066     <span class="keywordflow">if</span>(<a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">Debug</a>()){
-<a name="l00067"></a>00067         <span class="comment">// They also have a unique ID, retrievable by GetSource and</span>
-<a name="l00068"></a>00068         <span class="comment">// a GetChannel method to get the ID of just the channel</span>
-<a name="l00069"></a>00069         cout&lt;&lt;<span class="stringliteral">&quot;Now running source: &quot;</span>&lt;&lt;<a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>()&lt;&lt;<span class="stringliteral">&quot; which looks for TAPs on &quot;</span>
-<a name="l00070"></a>00070             <span class="stringliteral">&quot;channel: &quot;</span>&lt;&lt;<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>()&lt;&lt;<span class="charliteral">&apos;\n&apos;</span>;
+<p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037                                         {
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <span class="comment">// Loop over all the TPIs given to us</span>
+<a name="l00040"></a>00040     <span class="keywordtype">int</span> start_tail;
+<a name="l00041"></a>00041     <a class="code" href="classTIntegralRatioAnalysedPulse.html">TIntegralRatioAnalysedPulse</a>* tap;
+<a name="l00042"></a>00042     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">PulseIslandList::const_iterator</a> tpi=pulseList.begin();
+<a name="l00043"></a>00043             tpi!=pulseList.end(); tpi++){
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045         <span class="keywordflow">if</span>(<a class="code" href="classIntegralRatioAPGenerator.html#a135b4f8a6e0f4c7bda740efc4a39efa3">fStartTailAsFraction</a>){
+<a name="l00046"></a>00046            start_tail=<a class="code" href="classIntegralRatioAPGenerator.html#a99d6de66279f85ce753ef4d40fff03da">fStartTail</a>*(*tpi)-&gt;GetPulseLength();
+<a name="l00047"></a>00047            <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#ad1f35888a70688b3e4bf776efb83f3de">SetTailStart</a>(start_tail);
+<a name="l00048"></a>00048         }
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050         <span class="comment">// Analyse each TPI</span>
+<a name="l00051"></a>00051         <span class="keywordflow">try</span>{
+<a name="l00052"></a>00052             <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#a9813d43050fb0de752f05d310e6401c5">SetPedestalToMinimum</a>(*tpi);
+<a name="l00053"></a>00053             <a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>(*tpi);
+<a name="l00054"></a>00054         }<span class="keywordflow">catch</span>(std::out_of_range&amp; e){
+<a name="l00055"></a>00055             <span class="keywordflow">continue</span>;
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057         <a class="code" href="classIntegralRatioAPGenerator.html#af900b525752bcd98f4454c82ff10adb7">fMaxBinAmplitude</a>(*tpi);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="comment">// Now that we&apos;ve found the information we were looking for make a TAP to</span>
+<a name="l00060"></a>00060         <span class="comment">// hold it.  This method makes a TAP and sets the parent TPI info.  It needs</span>
+<a name="l00061"></a>00061         <span class="comment">// the index of the parent TPI in the container as an argument</span>
+<a name="l00062"></a>00062         tap = MakeNewTAP&lt;TIntegralRatioAnalysedPulse&gt;(tpi-pulseList.begin());
+<a name="l00063"></a>00063         tap-&gt;<a class="code" href="classTAnalysedPulse.html#a344fa582147a1071867aa5447adba82e">SetIntegral</a>(<a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#af3648d5626cf023cdbdb90a6b35a3f8c">GetTotal</a>());
+<a name="l00064"></a>00064         tap-&gt;<a class="code" href="classTIntegralRatioAnalysedPulse.html#a909159209da0bc83747c662189ace980">SetIntegralSmall</a>(<a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#af49068e2493128a84d544b666f1abf95">GetTail</a>());
+<a name="l00065"></a>00065         tap-&gt;<a class="code" href="classTIntegralRatioAnalysedPulse.html#a391be18127c182ca3f17b3e1e174c4e8">SetIntegralRatio</a>(<a class="code" href="classIntegralRatioAPGenerator.html#ab99b4d9bc636adb410591387344f5f24">fIntegralRatioAlgo</a>.<a class="code" href="structAlgorithm_1_1IntegralRatio.html#a8b568d96aa03cd45747934f231c9a3de">GetRatio</a>());
+<a name="l00066"></a>00066         tap-&gt;<a class="code" href="classTAnalysedPulse.html#a742835f893719699c939dee49e9cf68a">SetAmplitude</a>(<a class="code" href="classIntegralRatioAPGenerator.html#af900b525752bcd98f4454c82ff10adb7">fMaxBinAmplitude</a>.<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a35a137f73caac3a3379509150ad90109">GetAmplitude</a>());
+<a name="l00067"></a>00067         tap-&gt;<a class="code" href="classTAnalysedPulse.html#a7924392fb4dda29840ee2e569e8919fd">SetTime</a>(<a class="code" href="classIntegralRatioAPGenerator.html#af900b525752bcd98f4454c82ff10adb7">fMaxBinAmplitude</a>.<a class="code" href="structAlgorithm_1_1MaxBinAmplitude.html#a63d9b52f8b2523149d0bf29b17fa2619">GetTime</a>());
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069         <span class="comment">// Finally add the new TAP to the output list</span>
+<a name="l00070"></a>00070         analysedList.push_back(tap);
 <a name="l00071"></a>00071     }
 <a name="l00072"></a>00072 
-<a name="l00073"></a>00073     <span class="comment">// returning 0 tells the caller that we were successful, return non-zero if not</span>
-<a name="l00074"></a>00074     <span class="keywordflow">return</span> 0;
-<a name="l00075"></a>00075 }
+<a name="l00073"></a>00073     <span class="comment">// Generators have a Debug method similar to modules</span>
+<a name="l00074"></a>00074     <span class="keywordflow">if</span>(<a class="code" href="classTVAnalysedPulseGenerator.html#ab435ccf776a3bf0dd6d2177d0ec09908">Debug</a>()){
+<a name="l00075"></a>00075         <span class="comment">// They also have a unique ID, retrievable by GetSource and</span>
+<a name="l00076"></a>00076         <span class="comment">// a GetChannel method to get the ID of just the channel</span>
+<a name="l00077"></a>00077         cout&lt;&lt;<span class="stringliteral">&quot;Now running source: &quot;</span>&lt;&lt;<a class="code" href="classTVAnalysedPulseGenerator.html#a1287e301f1b02e8b9821a8eeda30e484" title="Get the source id for this generator being used on the current channel.">GetSource</a>().<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>()&lt;&lt;<span class="stringliteral">&quot; which looks for TAPs on &quot;</span>
+<a name="l00078"></a>00078             <span class="stringliteral">&quot;channel: &quot;</span>&lt;&lt;<a class="code" href="classTVAnalysedPulseGenerator.html#a87aeb155c4b4394fafe6b35992105faf">GetChannel</a>().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>()&lt;&lt;<span class="charliteral">&apos;\n&apos;</span>;
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081     <span class="comment">// returning 0 tells the caller that we were successful, return non-zero if not</span>
+<a name="l00082"></a>00082     <span class="keywordflow">return</span> 0;
+<a name="l00083"></a>00083 }
 </pre></div></p>
 
 </div>
@@ -481,11 +490,11 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Reimplemented from <a class="el" href="classTVAnalysedPulseGenerator.html#a63fc78543a84775eeeac6d293c09bb09">TVAnalysedPulseGenerator</a>.</p>
 
-<p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00077">77</a> of file <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html">IntegralRatioAPGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00085">85</a> of file <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html">IntegralRatioAPGenerator.cpp</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00077"></a>00077                                               {
-<a name="l00078"></a>00078     <span class="keywordflow">return</span> TIntegralRatioAnalysedPulse::Class()-&gt;GetName();
-<a name="l00079"></a>00079 }
+<p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085                                               {
+<a name="l00086"></a>00086     <span class="keywordflow">return</span> TIntegralRatioAnalysedPulse::Class()-&gt;GetName();
+<a name="l00087"></a>00087 }
 </pre></div></p>
 
 </div>
@@ -520,7 +529,24 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00030">30</a> of file <a class="el" href="IntegralRatioAPGenerator_8h_source.html">IntegralRatioAPGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">ProcessPulses()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af900b525752bcd98f4454c82ff10adb7"></a><!-- doxytag: member="IntegralRatioAPGenerator::fMaxBinAmplitude" ref="af900b525752bcd98f4454c82ff10adb7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structAlgorithm_1_1MaxBinAmplitude.html">Algorithm::MaxBinAmplitude</a> <a class="el" href="classIntegralRatioAPGenerator.html#af900b525752bcd98f4454c82ff10adb7">IntegralRatioAPGenerator::fMaxBinAmplitude</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00031">31</a> of file <a class="el" href="IntegralRatioAPGenerator_8h_source.html">IntegralRatioAPGenerator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -582,7 +608,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00027">27</a> of file <a class="el" href="IntegralRatioAPGenerator_8h_source.html">IntegralRatioAPGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -599,7 +625,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 
 <p>Definition at line <a class="el" href="IntegralRatioAPGenerator_8h_source.html#l00022">22</a> of file <a class="el" href="IntegralRatioAPGenerator_8h_source.html">IntegralRatioAPGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00031">ProcessPulses()</a>.</p>
+<p>Referenced by <a class="el" href="IntegralRatioAPGenerator_8cpp_source.html#l00035">ProcessPulses()</a>.</p>
 
 </div>
 </div>
@@ -623,7 +649,7 @@ template&lt;typename TypeOfTAP &gt; </div>
 <li>rootana/src/TAP_generators/<a class="el" href="IntegralRatioAPGenerator_8cpp_source.html">IntegralRatioAPGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Oct 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Oct 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
