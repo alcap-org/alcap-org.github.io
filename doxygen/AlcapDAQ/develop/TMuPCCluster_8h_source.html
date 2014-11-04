@@ -29,40 +29,39 @@
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define TMuPCCluster_h</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;TObject.h&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="TSetupData_8h.html">TSetupData.h</a>&quot;</span>
-<a name="l00006"></a>00006 
-<a name="l00014"></a><a class="code" href="classTMuPCCluster.html">00014</a> <span class="keyword">class </span><a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a> : <span class="keyword">public</span> <a class="code" href="classTObject.html">TObject</a> {
-<a name="l00015"></a>00015  <span class="keyword">private</span>:
-<a name="l00017"></a><a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe">00017</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe" title="The time, in sample clock ticks, of the hit.">fTimeStamp</a>;
-<a name="l00019"></a><a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b">00019</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b" title="The (average) wire number hit.">fWireNumberX</a>;
-<a name="l00020"></a><a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">00020</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">fWireNumberY</a>;
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022  <span class="keyword">public</span>:
-<a name="l00024"></a>00024   <a class="code" href="classTMuPCCluster.html#a6956717c9779e1bce2821e21ccf8f2c8" title="This default constructor I believe exists so ROOT can load these from file and is...">TMuPCCluster</a>();
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026   <a class="code" href="classTMuPCCluster.html#a6956717c9779e1bce2821e21ccf8f2c8" title="This default constructor I believe exists so ROOT can load these from file and is...">TMuPCCluster</a>(<span class="keywordtype">double</span> timestamp, <span class="keywordtype">double</span> wire_number_x, <span class="keywordtype">double</span> wire_number_y);
-<a name="l00027"></a>00027 
-<a name="l00029"></a>00029   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#a484ba6152f85176ffbe4ed1db9a8a4ff" title="Goes to the state the default constructor would set it to. Not generally used.">Reset</a>(Option_t* o = <span class="stringliteral">&quot;&quot;</span>);
-<a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="classTMuPCCluster.html#a1b05e9c949554d8d7ce76fae7cb5de82">00031</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a1b05e9c949554d8d7ce76fae7cb5de82">GetTimeStamp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe" title="The time, in sample clock ticks, of the hit.">fTimeStamp</a>; }
-<a name="l00032"></a><a class="code" href="classTMuPCCluster.html#a23d5a200a3d22eca5df19407caf06c69">00032</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a23d5a200a3d22eca5df19407caf06c69">GetWireNumberX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b" title="The (average) wire number hit.">fWireNumberX</a>; }
-<a name="l00033"></a><a class="code" href="classTMuPCCluster.html#aaf6a94de10974dc15e672343023e828c">00033</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#aaf6a94de10974dc15e672343023e828c">GetWireNumberY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">fWireNumberY</a>; }
-<a name="l00034"></a>00034 
-<a name="l00035"></a><a class="code" href="classTMuPCCluster.html#a3d4aba312140c8e0661902af8fe859da">00035</a>   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#a3d4aba312140c8e0661902af8fe859da">SetTimeStamp</a>(<span class="keywordtype">double</span> t ){<a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe" title="The time, in sample clock ticks, of the hit.">fTimeStamp</a>=t;}
-<a name="l00036"></a><a class="code" href="classTMuPCCluster.html#ac6da0b3b74898284aa57746a420cc5a9">00036</a>   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#ac6da0b3b74898284aa57746a420cc5a9">SetWireNumberX</a>(<span class="keywordtype">double</span> wx ){<a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b" title="The (average) wire number hit.">fWireNumberX</a>=wx;}
-<a name="l00037"></a><a class="code" href="classTMuPCCluster.html#a687a0ee411a84234839bda7eeb4973ee">00037</a>   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#a687a0ee411a84234839bda7eeb4973ee">SetWireNumberY</a>(<span class="keywordtype">double</span> wy ){<a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">fWireNumberY</a>=wy;}
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039  <span class="keyword">private</span>:
-<a name="l00041"></a>00041   <a class="code" href="classTMuPCCluster.html#a6956717c9779e1bce2821e21ccf8f2c8" title="This default constructor I believe exists so ROOT can load these from file and is...">TMuPCCluster</a>(<span class="keyword">const</span> <a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a>&amp; src);
-<a name="l00043"></a>00043   <a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a> <a class="code" href="classTMuPCCluster.html#a1346ea2b5082873adb19e647b9cc2caf" title="Assignment is made explicitly private since we do not need it yet.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a>&amp; rhs); 
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045   <a class="code" href="classTMuPCCluster.html#a7d7c49d0e2f170cb0591d4f6a21afaad">ClassDef</a>(<a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a>, 1);
-<a name="l00046"></a>00046 };
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 <span class="preprocessor">#endif</span>
-<a name="l00049"></a>00049 <span class="preprocessor"></span>
+<a name="l00005"></a>00005 
+<a name="l00013"></a><a class="code" href="classTMuPCCluster.html">00013</a> <span class="keyword">class </span><a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a> : <span class="keyword">public</span> <a class="code" href="classTObject.html">TObject</a> {
+<a name="l00014"></a>00014  <span class="keyword">private</span>:
+<a name="l00016"></a><a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe">00016</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe" title="The time, in sample clock ticks, of the hit.">fTimeStamp</a>;
+<a name="l00018"></a><a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b">00018</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b" title="The (average) wire number hit.">fWireNumberX</a>;
+<a name="l00019"></a><a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">00019</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">fWireNumberY</a>;
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021  <span class="keyword">public</span>:
+<a name="l00023"></a>00023   <a class="code" href="classTMuPCCluster.html#a6956717c9779e1bce2821e21ccf8f2c8" title="This default constructor I believe exists so ROOT can load these from file and is...">TMuPCCluster</a>();
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025   <a class="code" href="classTMuPCCluster.html#a6956717c9779e1bce2821e21ccf8f2c8" title="This default constructor I believe exists so ROOT can load these from file and is...">TMuPCCluster</a>(<span class="keywordtype">double</span> timestamp, <span class="keywordtype">double</span> wire_number_x, <span class="keywordtype">double</span> wire_number_y);
+<a name="l00026"></a>00026 
+<a name="l00028"></a>00028   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#a484ba6152f85176ffbe4ed1db9a8a4ff" title="Goes to the state the default constructor would set it to. Not generally used.">Reset</a>(Option_t* o = <span class="stringliteral">&quot;&quot;</span>);
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="classTMuPCCluster.html#a1b05e9c949554d8d7ce76fae7cb5de82">00030</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a1b05e9c949554d8d7ce76fae7cb5de82">GetTimeStamp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe" title="The time, in sample clock ticks, of the hit.">fTimeStamp</a>; }
+<a name="l00031"></a><a class="code" href="classTMuPCCluster.html#a23d5a200a3d22eca5df19407caf06c69">00031</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#a23d5a200a3d22eca5df19407caf06c69">GetWireNumberX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b" title="The (average) wire number hit.">fWireNumberX</a>; }
+<a name="l00032"></a><a class="code" href="classTMuPCCluster.html#aaf6a94de10974dc15e672343023e828c">00032</a>   <span class="keywordtype">double</span> <a class="code" href="classTMuPCCluster.html#aaf6a94de10974dc15e672343023e828c">GetWireNumberY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">fWireNumberY</a>; }
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="classTMuPCCluster.html#a3d4aba312140c8e0661902af8fe859da">00034</a>   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#a3d4aba312140c8e0661902af8fe859da">SetTimeStamp</a>(<span class="keywordtype">double</span> t ){<a class="code" href="classTMuPCCluster.html#a9c11631b53366316a61c71b1190ff7fe" title="The time, in sample clock ticks, of the hit.">fTimeStamp</a>=t;}
+<a name="l00035"></a><a class="code" href="classTMuPCCluster.html#ac6da0b3b74898284aa57746a420cc5a9">00035</a>   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#ac6da0b3b74898284aa57746a420cc5a9">SetWireNumberX</a>(<span class="keywordtype">double</span> wx ){<a class="code" href="classTMuPCCluster.html#a677fafd22b3e0d9839df806e3f2d608b" title="The (average) wire number hit.">fWireNumberX</a>=wx;}
+<a name="l00036"></a><a class="code" href="classTMuPCCluster.html#a687a0ee411a84234839bda7eeb4973ee">00036</a>   <span class="keywordtype">void</span> <a class="code" href="classTMuPCCluster.html#a687a0ee411a84234839bda7eeb4973ee">SetWireNumberY</a>(<span class="keywordtype">double</span> wy ){<a class="code" href="classTMuPCCluster.html#a28788ad66e20deebbbe2eb63f2af80fc">fWireNumberY</a>=wy;}
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038  <span class="keyword">private</span>:
+<a name="l00040"></a>00040   <a class="code" href="classTMuPCCluster.html#a6956717c9779e1bce2821e21ccf8f2c8" title="This default constructor I believe exists so ROOT can load these from file and is...">TMuPCCluster</a>(<span class="keyword">const</span> <a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a>&amp; src);
+<a name="l00042"></a>00042   <a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a> <a class="code" href="classTMuPCCluster.html#a1346ea2b5082873adb19e647b9cc2caf" title="Assignment is made explicitly private since we do not need it yet.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a>&amp; rhs); 
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044   <a class="code" href="classTMuPCCluster.html#a7d7c49d0e2f170cb0591d4f6a21afaad">ClassDef</a>(<a class="code" href="classTMuPCCluster.html" title="Simple format for delivering muPC data. Included are the timestamp and x, y wire...">TMuPCCluster</a>, 1);
+<a name="l00045"></a>00045 };
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 <span class="preprocessor">#endif</span>
+<a name="l00048"></a>00048 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
