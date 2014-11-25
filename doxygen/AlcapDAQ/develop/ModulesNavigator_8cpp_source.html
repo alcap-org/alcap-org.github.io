@@ -34,7 +34,7 @@
 <a name="l00007"></a>00007 <span class="keyword">using</span> std::cout;
 <a name="l00008"></a>00008 <span class="keyword">using</span> std::endl;
 <a name="l00009"></a>00009 
-<a name="l00010"></a><a class="code" href="classmodules_1_1navigator.html#a517ceb71375b4325050309de8b3e030b">00010</a> <a class="code" href="classmodules_1_1navigator.html#a517ceb71375b4325050309de8b3e030b">modules::navigator::navigator</a>():fModulesLoaded(false),fModulesMade(false),fDebug(false),fOutFile(NULL){};
+<a name="l00010"></a><a class="code" href="classmodules_1_1navigator.html#a517ceb71375b4325050309de8b3e030b">00010</a> <a class="code" href="classmodules_1_1navigator.html#a517ceb71375b4325050309de8b3e030b">modules::navigator::navigator</a>():fModulesLoaded(false),fModulesMade(false),fDebug(false),fDumpInputFile(false),fOutFile(NULL){};
 <a name="l00011"></a>00011 
 <a name="l00012"></a><a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">00012</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ac77bf24a79189f86729e491674652a99">modules::navigator::LoadConfigFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename){
 <a name="l00013"></a>00013     <span class="comment">// Check we haven&apos;t already opened a modules file</span>
@@ -45,110 +45,113 @@
 <a name="l00018"></a>00018     <span class="comment">// Read in the file and dump the processed options</span>
 <a name="l00019"></a>00019     <span class="keywordtype">int</span> retVal=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a9eee56a882e395d91f0b3b3f1a2de835">ReadFile</a>(filename);
 <a name="l00020"></a>00020     <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022     <span class="comment">// Check the file contained at least one module</span>
-<a name="l00023"></a>00023     <span class="keywordtype">size_t</span> num_modules=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
-<a name="l00024"></a>00024     <span class="keywordflow">if</span>(num_modules==0){
-<a name="l00025"></a>00025             cout&lt;&lt;<span class="stringliteral">&quot;Warning: No modules were requested for use, so there&apos;s nothing to be done!&quot;</span>&lt;&lt;endl;
-<a name="l00026"></a>00026             <span class="keywordflow">return</span> 2;
-<a name="l00027"></a>00027     }
-<a name="l00028"></a>00028     cout&lt;&lt;<span class="stringliteral">&quot;Number of modules requested: &quot;</span>&lt;&lt;num_modules&lt;&lt;endl;
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030     <span class="comment">// Everything finished ok</span>
-<a name="l00031"></a>00031     <a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>=<span class="keyword">true</span>;
-<a name="l00032"></a>00032     <span class="keywordflow">return</span> 0;
-<a name="l00033"></a>00033 }
-<a name="l00034"></a>00034 
-<a name="l00035"></a><a class="code" href="classmodules_1_1navigator.html#ac041604bec24ffa32b94a5fec3469055">00035</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ac041604bec24ffa32b94a5fec3469055">modules::navigator::MakeModules</a>(){
-<a name="l00036"></a>00036     <span class="comment">// Check we&apos;ve been given a valid output file</span>
-<a name="l00037"></a>00037     <span class="keywordflow">if</span>(! (<a class="code" href="classmodules_1_1navigator.html#a23fb4dc12f042cdc5d6ae02146af44f9">fOutFile</a> &amp;&amp; <a class="code" href="classmodules_1_1navigator.html#a23fb4dc12f042cdc5d6ae02146af44f9">fOutFile</a>-&gt;IsWritable()) ){
-<a name="l00038"></a>00038             cout&lt;&lt;<span class="stringliteral">&quot;Error: Output file is not useable&quot;</span>&lt;&lt;endl;
-<a name="l00039"></a>00039             <span class="keywordflow">return</span> 1;
-<a name="l00040"></a>00040     }
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042     <span class="comment">// Check that we&apos;ve already opened a modules file</span>
-<a name="l00043"></a>00043     <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>) {
-<a name="l00044"></a>00044             cout&lt;&lt;<span class="stringliteral">&quot;Error: MakeModules(): Cannot make modules until you load a Modules file.&quot;</span>&lt;&lt;endl;
-<a name="l00045"></a>00045             <span class="keywordflow">return</span> 1;
-<a name="l00046"></a>00046     }
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048     <span class="comment">// Check that we&apos;ve not already called this method</span>
-<a name="l00049"></a>00049     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#a4d527804152c998eed25d1681029e4d9">fModulesMade</a>) {
-<a name="l00050"></a>00050             cout&lt;&lt;<span class="stringliteral">&quot;Error: MakeModules(): You&apos;ve already called MakeModules.&quot;</span>&lt;&lt;endl;
-<a name="l00051"></a>00051             <span class="keywordflow">return</span> 1;
-<a name="l00052"></a>00052     }
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054     <span class="comment">// Loop over each requested module and build it</span>
-<a name="l00055"></a>00055     <span class="comment">// If we have any problems making a module then stop running</span>
-<a name="l00056"></a>00056     <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::factory::Instance</a>();
-<a name="l00057"></a>00057     std::string name;
-<a name="l00058"></a>00058     <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
-<a name="l00059"></a>00059     <a class="code" href="classBaseModule.html">BaseModule</a>* mod=NULL;
-<a name="l00060"></a>00060     <span class="keywordtype">size_t</span> num_modules=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
-<a name="l00061"></a>00061     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;num_modules;i++){
-<a name="l00062"></a>00062             name = <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
-<a name="l00063"></a>00063             opts =  <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
-<a name="l00064"></a>00064         <span class="keywordflow">if</span>(mgr-&gt;<a class="code" href="classTemplateFactory.html#a209702d4c41a4dc49299df4d9aca04c3" title="Check if a module with this name has been registered.">canCreate</a>(name)){
-<a name="l00065"></a>00065             <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#abf0e22d7f6b51cf3f2eadac79c313aca">Debug</a>()){
-<a name="l00066"></a>00066                 cout&lt;&lt;<span class="stringliteral">&quot;Creating module: &quot;</span>&lt;&lt;name&lt;&lt;endl;
-<a name="l00067"></a>00067                 cout&lt;&lt;<span class="stringliteral">&quot;With options:&quot;</span>&lt;&lt;endl;
-<a name="l00068"></a>00068                 opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
-<a name="l00069"></a>00069             }
-<a name="l00070"></a>00070             gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
-<a name="l00071"></a>00071             mod = mgr-&gt;<a class="code" href="classTemplateFactory.html#a8655e2f33066b25a2123fcd827ec21fe" title="Create a module with options.">createModule</a>(name,opts);
-<a name="l00072"></a>00072             gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
-<a name="l00073"></a>00073             <span class="keywordflow">if</span>(mod){
-<a name="l00074"></a>00074                 <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">AddModule</a>(name, mod);
-<a name="l00075"></a>00075             }
-<a name="l00076"></a>00076             <span class="keywordflow">else</span> <span class="keywordflow">return</span> 3;
-<a name="l00077"></a>00077         }<span class="keywordflow">else</span> {
-<a name="l00078"></a>00078             std::cout&lt;&lt;<span class="stringliteral">&quot;Unknown module requested: &quot;</span>&lt;&lt;name&lt;&lt;std::endl;
-<a name="l00079"></a>00079             <span class="keywordflow">return</span> 4;
-<a name="l00080"></a>00080         }
-<a name="l00081"></a>00081     }
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083     <span class="comment">// Everything finished ok</span>
-<a name="l00084"></a>00084     <a class="code" href="classmodules_1_1navigator.html#a4d527804152c998eed25d1681029e4d9">fModulesMade</a>=<span class="keyword">true</span>;
-<a name="l00085"></a>00085     <span class="keywordflow">return</span> 0;
-<a name="l00086"></a>00086 }
-<a name="l00087"></a>00087 
-<a name="l00088"></a><a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">00088</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">modules::navigator::AddModule</a>(<span class="keyword">const</span> std::string&amp; name, <a class="code" href="classBaseModule.html">BaseModule</a>* mod){
-<a name="l00089"></a>00089     <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.push_back(std::make_pair(name,mod));
-<a name="l00090"></a>00090     <a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.insert(std::make_pair(name,mod));
-<a name="l00091"></a>00091 }
-<a name="l00092"></a>00092 
-<a name="l00093"></a><a class="code" href="classmodules_1_1navigator.html#ab4aa6fef641e87be429a926e8f9617fe">00093</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ab4aa6fef641e87be429a926e8f9617fe" title="Get the number of instances that the named module has been requested.">modules::navigator::HowMany</a>(<span class="keyword">const</span> std::string&amp; name)<span class="keyword">const</span>{
-<a name="l00094"></a>00094     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#a4d527804152c998eed25d1681029e4d9">fModulesMade</a>) <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.count(name);
-<a name="l00095"></a>00095     <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a5eb0341128146b396e5b42a6a42243e2">HowMany</a>(name);
-<a name="l00096"></a>00096 }
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098 <span class="keyword">namespace</span>{
-<a name="l00099"></a>00099     <span class="keyword">struct </span>first_in_pair_equals{
-<a name="l00100"></a>00100     <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> <a class="code" href="namespacemodules.html#a8f8af8f3adedddf3e21af93f5785dd4d">modules::ordered_element</a>&amp; element){
-<a name="l00101"></a>00101         <span class="keywordflow">return</span> element.first==comp;
-<a name="l00102"></a>00102     }
-<a name="l00103"></a>00103     std::string comp;
-<a name="l00104"></a>00104     first_in_pair_equals(<span class="keyword">const</span> std::string&amp; c):comp(c){};
-<a name="l00105"></a>00105     };
-<a name="l00106"></a>00106 }
-<a name="l00107"></a>00107 
-<a name="l00108"></a><a class="code" href="classmodules_1_1navigator.html#a87506598ca1d5c731cf258f34252c703">00108</a> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1navigator.html#a87506598ca1d5c731cf258f34252c703">modules::navigator::Before</a>(<span class="keyword">const</span> std::string&amp; first, <span class="keyword">const</span> std::string&amp; second)<span class="keyword">const</span>{
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">modules::const_iterator</a> i_first= std::find_if(<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin(),<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end(),first_in_pair_equals(first));
-<a name="l00111"></a>00111     <span class="keywordflow">if</span>(i_first==<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end()){
-<a name="l00112"></a>00112         cout&lt;&lt;<span class="stringliteral">&quot;Error: Unable to find module &quot;</span>&lt;&lt;first&lt;&lt;endl;
-<a name="l00113"></a>00113         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00114"></a>00114     } 
-<a name="l00115"></a>00115     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">modules::const_iterator</a> i_second= std::find_if(<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin(),<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end(),first_in_pair_equals(second));
-<a name="l00116"></a>00116     <span class="keywordflow">if</span>(i_second==<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end()){
-<a name="l00117"></a>00117         cout&lt;&lt;<span class="stringliteral">&quot;Error: Unable to find module &quot;</span>&lt;&lt;second&lt;&lt;endl;
-<a name="l00118"></a>00118         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00119"></a>00119     }
-<a name="l00120"></a>00120     <span class="keywordtype">int</span> dist=std::distance(i_first,i_second);
-<a name="l00121"></a>00121     <span class="keywordflow">return</span> dist&gt;0;
-<a name="l00122"></a>00122 }
+<a name="l00021"></a>00021     
+<a name="l00022"></a>00022     <span class="comment">// check if we were asked to dump the input file&apos;s contents</span>
+<a name="l00023"></a>00023     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a04642de4d5268de6cdbac97cf22d5975">DumpInputFile</a>()) <a class="code" href="classmodules_1_1navigator.html#ae0de3979688267dc903a9c020152d1aa">fDumpInputFile</a>=<span class="keyword">true</span>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025     <span class="comment">// Check the file contained at least one module</span>
+<a name="l00026"></a>00026     <span class="keywordtype">size_t</span> num_modules=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
+<a name="l00027"></a>00027     <span class="keywordflow">if</span>(num_modules==0){
+<a name="l00028"></a>00028             cout&lt;&lt;<span class="stringliteral">&quot;Warning: No modules were requested for use, so there&apos;s nothing to be done!&quot;</span>&lt;&lt;endl;
+<a name="l00029"></a>00029             <span class="keywordflow">return</span> 2;
+<a name="l00030"></a>00030     }
+<a name="l00031"></a>00031     cout&lt;&lt;<span class="stringliteral">&quot;Number of modules requested: &quot;</span>&lt;&lt;num_modules&lt;&lt;endl;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033     <span class="comment">// Everything finished ok</span>
+<a name="l00034"></a>00034     <a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>=<span class="keyword">true</span>;
+<a name="l00035"></a>00035     <span class="keywordflow">return</span> 0;
+<a name="l00036"></a>00036 }
+<a name="l00037"></a>00037 
+<a name="l00038"></a><a class="code" href="classmodules_1_1navigator.html#ac041604bec24ffa32b94a5fec3469055">00038</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ac041604bec24ffa32b94a5fec3469055">modules::navigator::MakeModules</a>(){
+<a name="l00039"></a>00039     <span class="comment">// Check we&apos;ve been given a valid output file</span>
+<a name="l00040"></a>00040     <span class="keywordflow">if</span>(! (<a class="code" href="classmodules_1_1navigator.html#a23fb4dc12f042cdc5d6ae02146af44f9">fOutFile</a> &amp;&amp; <a class="code" href="classmodules_1_1navigator.html#a23fb4dc12f042cdc5d6ae02146af44f9">fOutFile</a>-&gt;IsWritable()) ){
+<a name="l00041"></a>00041             cout&lt;&lt;<span class="stringliteral">&quot;Error: Output file is not useable&quot;</span>&lt;&lt;endl;
+<a name="l00042"></a>00042             <span class="keywordflow">return</span> 1;
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045     <span class="comment">// Check that we&apos;ve already opened a modules file</span>
+<a name="l00046"></a>00046     <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#abaf47c544b51d8c2b70b04e41d09e4bb">fModulesLoaded</a>) {
+<a name="l00047"></a>00047             cout&lt;&lt;<span class="stringliteral">&quot;Error: MakeModules(): Cannot make modules until you load a Modules file.&quot;</span>&lt;&lt;endl;
+<a name="l00048"></a>00048             <span class="keywordflow">return</span> 1;
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051     <span class="comment">// Check that we&apos;ve not already called this method</span>
+<a name="l00052"></a>00052     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#a4d527804152c998eed25d1681029e4d9">fModulesMade</a>) {
+<a name="l00053"></a>00053             cout&lt;&lt;<span class="stringliteral">&quot;Error: MakeModules(): You&apos;ve already called MakeModules.&quot;</span>&lt;&lt;endl;
+<a name="l00054"></a>00054             <span class="keywordflow">return</span> 1;
+<a name="l00055"></a>00055     }
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057     <span class="comment">// Loop over each requested module and build it</span>
+<a name="l00058"></a>00058     <span class="comment">// If we have any problems making a module then stop running</span>
+<a name="l00059"></a>00059     <a class="code" href="classmodules_1_1factory.html">modules::factory</a>* mgr = <a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::factory::Instance</a>();
+<a name="l00060"></a>00060     std::string name;
+<a name="l00061"></a>00061     <a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts;
+<a name="l00062"></a>00062     <a class="code" href="classBaseModule.html">BaseModule</a>* mod=NULL;
+<a name="l00063"></a>00063     <span class="keywordtype">size_t</span> num_modules=<a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a0e83e9b5dbd897b1432ab54fc259ea77">GetNumModules</a>();
+<a name="l00064"></a>00064     <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i=0;i&lt;num_modules;i++){
+<a name="l00065"></a>00065             name = <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a78ab35df881e93a42b5744c69d90af5b">GetModule</a>(i);
+<a name="l00066"></a>00066             opts =  <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a68a531b1ad0584f102086149fd588079">GetOptions</a>(i);
+<a name="l00067"></a>00067         <span class="keywordflow">if</span>(mgr-&gt;<a class="code" href="classTemplateFactory.html#a209702d4c41a4dc49299df4d9aca04c3" title="Check if a module with this name has been registered.">canCreate</a>(name)){
+<a name="l00068"></a>00068             <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#abf0e22d7f6b51cf3f2eadac79c313aca">Debug</a>()){
+<a name="l00069"></a>00069                 cout&lt;&lt;<span class="stringliteral">&quot;Creating module: &quot;</span>&lt;&lt;name&lt;&lt;endl;
+<a name="l00070"></a>00070                 cout&lt;&lt;<span class="stringliteral">&quot;With options:&quot;</span>&lt;&lt;endl;
+<a name="l00071"></a>00071                 opts-&gt;<a class="code" href="classmodules_1_1options.html#a50375d69bc7c6d45cb4d6faf3eb38d74" title="Print all options managed by this list to cout.">DumpOptions</a>(<span class="stringliteral">&quot;  &quot;</span>);
+<a name="l00072"></a>00072             }
+<a name="l00073"></a>00073             gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00074"></a>00074             mod = mgr-&gt;<a class="code" href="classTemplateFactory.html#a8655e2f33066b25a2123fcd827ec21fe" title="Create a module with options.">createModule</a>(name,opts);
+<a name="l00075"></a>00075             gDirectory-&gt;cd(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00076"></a>00076             <span class="keywordflow">if</span>(mod){
+<a name="l00077"></a>00077                 <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">AddModule</a>(name, mod);
+<a name="l00078"></a>00078             }
+<a name="l00079"></a>00079             <span class="keywordflow">else</span> <span class="keywordflow">return</span> 3;
+<a name="l00080"></a>00080         }<span class="keywordflow">else</span> {
+<a name="l00081"></a>00081             std::cout&lt;&lt;<span class="stringliteral">&quot;Unknown module requested: &quot;</span>&lt;&lt;name&lt;&lt;std::endl;
+<a name="l00082"></a>00082             <span class="keywordflow">return</span> 4;
+<a name="l00083"></a>00083         }
+<a name="l00084"></a>00084     }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086     <span class="comment">// Everything finished ok</span>
+<a name="l00087"></a>00087     <a class="code" href="classmodules_1_1navigator.html#a4d527804152c998eed25d1681029e4d9">fModulesMade</a>=<span class="keyword">true</span>;
+<a name="l00088"></a>00088     <span class="keywordflow">return</span> 0;
+<a name="l00089"></a>00089 }
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">00091</a> <span class="keywordtype">void</span> <a class="code" href="classmodules_1_1navigator.html#a75a50e4d4197e7f6fa9e9557936fb743">modules::navigator::AddModule</a>(<span class="keyword">const</span> std::string&amp; name, <a class="code" href="classBaseModule.html">BaseModule</a>* mod){
+<a name="l00092"></a>00092     <a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.push_back(std::make_pair(name,mod));
+<a name="l00093"></a>00093     <a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.insert(std::make_pair(name,mod));
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="classmodules_1_1navigator.html#ab4aa6fef641e87be429a926e8f9617fe">00096</a> <span class="keywordtype">int</span> <a class="code" href="classmodules_1_1navigator.html#ab4aa6fef641e87be429a926e8f9617fe" title="Get the number of instances that the named module has been requested.">modules::navigator::HowMany</a>(<span class="keyword">const</span> std::string&amp; name)<span class="keyword">const</span>{
+<a name="l00097"></a>00097     <span class="keywordflow">if</span>(<a class="code" href="classmodules_1_1navigator.html#a4d527804152c998eed25d1681029e4d9">fModulesMade</a>) <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#ab2f1e8c8a65f076bed6f2bb0c451c88c">fModulesSearch</a>.count(name);
+<a name="l00098"></a>00098     <span class="keywordflow">return</span> <a class="code" href="classmodules_1_1navigator.html#a4cfee1bb010550947dad534db0b08e5f">fModulesFile</a>.<a class="code" href="classmodules_1_1reader.html#a5eb0341128146b396e5b42a6a42243e2">HowMany</a>(name);
+<a name="l00099"></a>00099 }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="keyword">namespace</span>{
+<a name="l00102"></a>00102     <span class="keyword">struct </span>first_in_pair_equals{
+<a name="l00103"></a>00103     <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> <a class="code" href="namespacemodules.html#a8f8af8f3adedddf3e21af93f5785dd4d">modules::ordered_element</a>&amp; element){
+<a name="l00104"></a>00104         <span class="keywordflow">return</span> element.first==comp;
+<a name="l00105"></a>00105     }
+<a name="l00106"></a>00106     std::string comp;
+<a name="l00107"></a>00107     first_in_pair_equals(<span class="keyword">const</span> std::string&amp; c):comp(c){};
+<a name="l00108"></a>00108     };
+<a name="l00109"></a>00109 }
+<a name="l00110"></a>00110 
+<a name="l00111"></a><a class="code" href="classmodules_1_1navigator.html#a87506598ca1d5c731cf258f34252c703">00111</a> <span class="keywordtype">bool</span> <a class="code" href="classmodules_1_1navigator.html#a87506598ca1d5c731cf258f34252c703">modules::navigator::Before</a>(<span class="keyword">const</span> std::string&amp; first, <span class="keyword">const</span> std::string&amp; second)<span class="keyword">const</span>{
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">modules::const_iterator</a> i_first= std::find_if(<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin(),<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end(),first_in_pair_equals(first));
+<a name="l00114"></a>00114     <span class="keywordflow">if</span>(i_first==<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end()){
+<a name="l00115"></a>00115         cout&lt;&lt;<span class="stringliteral">&quot;Error: Unable to find module &quot;</span>&lt;&lt;first&lt;&lt;endl;
+<a name="l00116"></a>00116         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00117"></a>00117     } 
+<a name="l00118"></a>00118     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">modules::const_iterator</a> i_second= std::find_if(<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.begin(),<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end(),first_in_pair_equals(second));
+<a name="l00119"></a>00119     <span class="keywordflow">if</span>(i_second==<a class="code" href="classmodules_1_1navigator.html#a416a618300a107d30c3326c773757b8a">fModules</a>.end()){
+<a name="l00120"></a>00120         cout&lt;&lt;<span class="stringliteral">&quot;Error: Unable to find module &quot;</span>&lt;&lt;second&lt;&lt;endl;
+<a name="l00121"></a>00121         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00122"></a>00122     }
+<a name="l00123"></a>00123     <span class="keywordtype">int</span> dist=std::distance(i_first,i_second);
+<a name="l00124"></a>00124     <span class="keywordflow">return</span> dist&gt;0;
+<a name="l00125"></a>00125 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

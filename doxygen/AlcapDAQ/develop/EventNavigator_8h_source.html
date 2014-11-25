@@ -170,70 +170,71 @@
 <a name="l00195"></a>00195 
 <a name="l00196"></a>00196   <span class="keywordtype">void</span> <a class="code" href="classEventNavigator.html#ae26a52b832649c2202600dae37de2177">Close</a>();
 <a name="l00197"></a>00197 
-<a name="l00198"></a><a class="code" href="classEventNavigator.html#a06c65cb62dfd52792738fba1c646236b">00198</a>   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="classEventNavigator.html#a06c65cb62dfd52792738fba1c646236b">GetRawData</a>() {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;}
-<a name="l00199"></a><a class="code" href="classEventNavigator.html#ab351140ba5524c5652c0e8ba0d078248">00199</a>   TTree* <a class="code" href="classEventNavigator.html#ab351140ba5524c5652c0e8ba0d078248">GetRawTree</a>() {<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>;}
-<a name="l00200"></a>00200 
-<a name="l00201"></a>00201 <span class="keyword">protected</span>:
-<a name="l00204"></a>00204   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="classEventNavigator.html#a5520a774fe5b5c51c9e63501ba51fe69">ConnectRawData</a>(TFile* raw_file);
-<a name="l00205"></a>00205 
-<a name="l00208"></a>00208   Bool_t <a class="code" href="classEventNavigator.html#a1c0db27028fe4016832fbcef76d0c418">VerifyRawData</a>(TTree* raw_tree);
-<a name="l00209"></a>00209 
-<a name="l00213"></a>00213   <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classEventNavigator.html#a023e71979ba2bf0ad5e002846bb7e287">ConnectSetupData</a>(TFile* raw_file);
-<a name="l00214"></a>00214 
-<a name="l00217"></a>00217   Bool_t <a class="code" href="classEventNavigator.html#a8128323cd18f2c27493cb88886827e0d">VerifySetupData</a>(TTree* setup_tree);
-<a name="l00218"></a>00218 
+<a name="l00198"></a><a class="code" href="classEventNavigator.html#a3079169611e3e9b1b6a502e78962aec4">00198</a>   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="classEventNavigator.html#a3079169611e3e9b1b6a502e78962aec4">GetRawData</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;}
+<a name="l00199"></a><a class="code" href="classEventNavigator.html#a8cd9c7f2c7b9f2f020e4530f19056a03">00199</a>   TTree* <a class="code" href="classEventNavigator.html#a8cd9c7f2c7b9f2f020e4530f19056a03">GetRawTree</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>;}
+<a name="l00200"></a>00200   <span class="keywordtype">void</span> <a class="code" href="classEventNavigator.html#a099f9590ea5b8726514b7506ba32793a">DumpRawTree</a>()<span class="keyword">const</span>;
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202 <span class="keyword">protected</span>:
+<a name="l00205"></a>00205   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="classEventNavigator.html#a5520a774fe5b5c51c9e63501ba51fe69">ConnectRawData</a>(TFile* raw_file);
+<a name="l00206"></a>00206 
+<a name="l00209"></a>00209   Bool_t <a class="code" href="classEventNavigator.html#a1c0db27028fe4016832fbcef76d0c418">VerifyRawData</a>(TTree* raw_tree);
+<a name="l00210"></a>00210 
+<a name="l00214"></a>00214   <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classEventNavigator.html#a023e71979ba2bf0ad5e002846bb7e287">ConnectSetupData</a>(TFile* raw_file);
+<a name="l00215"></a>00215 
+<a name="l00218"></a>00218   Bool_t <a class="code" href="classEventNavigator.html#a8128323cd18f2c27493cb88886827e0d">VerifySetupData</a>(TTree* setup_tree);
 <a name="l00219"></a>00219 
-<a name="l00221"></a>00221   Bool_t <a class="code" href="classEventNavigator.html#a04ec0be5cd638b6354d088216cd57d25" title="Copy the input raw data tree (TGlobalData) to the output file.">MirrorRawInputFormat</a>();
-<a name="l00222"></a>00222 
-<a name="l00224"></a>00224   Int_t <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(Long64_t entry);
-<a name="l00225"></a>00225 
+<a name="l00220"></a>00220 
+<a name="l00222"></a>00222   Bool_t <a class="code" href="classEventNavigator.html#a04ec0be5cd638b6354d088216cd57d25" title="Copy the input raw data tree (TGlobalData) to the output file.">MirrorRawInputFormat</a>();
+<a name="l00223"></a>00223 
+<a name="l00225"></a>00225   Int_t <a class="code" href="classEventNavigator.html#abe999dd9dec40e8b8ee346f0fb499285" title="Implementation for loading an entry.">LoadEntry</a>(Long64_t entry);
 <a name="l00226"></a>00226 
-<a name="l00227"></a>00227 <span class="keyword">private</span>: 
-<a name="l00228"></a>00228   <a class="code" href="classEventNavigator.html#a12c2821a014d04b400fecb68ead343d9">EventNavigator</a>();
-<a name="l00229"></a>00229   <a class="code" href="classEventNavigator.html#a12c2821a014d04b400fecb68ead343d9">EventNavigator</a>(<span class="keyword">const</span> <a class="code" href="structARGUMENTS.html">ARGUMENTS</a>&amp; command_line);
-<a name="l00230"></a><a class="code" href="classEventNavigator.html#a8ca9ef4d381cb79ef5a34c2b1149d2d0">00230</a>   <a class="code" href="classEventNavigator.html#a8ca9ef4d381cb79ef5a34c2b1149d2d0">EventNavigator</a>(<span class="keyword">const</span> <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; src){};
-<a name="l00231"></a><a class="code" href="classEventNavigator.html#a0545f7f1cccf44ee9478eecf1198d51a">00231</a>   <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; <a class="code" href="classEventNavigator.html#a0545f7f1cccf44ee9478eecf1198d51a">operator=</a>(<span class="keyword">const</span> <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; rhs){<span class="keywordflow">return</span> *<span class="keyword">this</span>;}
-<a name="l00232"></a>00232 
-<a name="l00233"></a><a class="code" href="classEventNavigator.html#a4504a00783ac59e23c4f9054d02310c7">00233</a>   <span class="keyword">static</span> <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>* <a class="code" href="classEventNavigator.html#a4504a00783ac59e23c4f9054d02310c7">fInstance</a>; 
-<a name="l00234"></a>00234 
-<a name="l00235"></a><a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">00235</a>   Bool_t <a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">fCopyRaw</a>;
-<a name="l00236"></a>00236 
-<a name="l00238"></a><a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d">00238</a>   TFile* <a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d" title="Input ROOT file, raw format.">fRawInput</a>;
-<a name="l00239"></a>00239 
-<a name="l00241"></a><a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb">00241</a>   TFile* <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>;
-<a name="l00242"></a>00242 
-<a name="l00244"></a><a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00">00244</a>   Int_t <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;
-<a name="l00245"></a>00245 
-<a name="l00247"></a><a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e">00247</a>   TTree* <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>;
-<a name="l00248"></a>00248 
-<a name="l00250"></a><a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d">00250</a>   TTree* <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>;
-<a name="l00251"></a>00251 
-<a name="l00253"></a><a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">00253</a>   TTree* <a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">fEventTree</a>;
-<a name="l00254"></a>00254 
-<a name="l00255"></a><a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">00255</a>   TTree* <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>;
-<a name="l00256"></a>00256 
-<a name="l00257"></a><a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">00257</a>   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;
-<a name="l00258"></a>00258   
-<a name="l00259"></a><a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">00259</a>   <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>;
-<a name="l00260"></a>00260 
-<a name="l00261"></a><a class="code" href="classEventNavigator.html#afd89c8300274a7e72fc9c6f063add60a">00261</a>   <a class="code" href="classSetupRecord.html">SetupRecord</a>* <a class="code" href="classEventNavigator.html#afd89c8300274a7e72fc9c6f063add60a">fSetupRecord</a>;
-<a name="l00262"></a>00262 
-<a name="l00263"></a><a class="code" href="classEventNavigator.html#ab0875b6ae48b9db6de94b42edae4bb5e">00263</a>   <a class="code" href="classLoopSequence.html">LoopSequence</a>* <a class="code" href="classEventNavigator.html#ab0875b6ae48b9db6de94b42edae4bb5e">fLoopSequence</a>;
-<a name="l00264"></a>00264 
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228 <span class="keyword">private</span>: 
+<a name="l00229"></a>00229   <a class="code" href="classEventNavigator.html#a12c2821a014d04b400fecb68ead343d9">EventNavigator</a>();
+<a name="l00230"></a>00230   <a class="code" href="classEventNavigator.html#a12c2821a014d04b400fecb68ead343d9">EventNavigator</a>(<span class="keyword">const</span> <a class="code" href="structARGUMENTS.html">ARGUMENTS</a>&amp; command_line);
+<a name="l00231"></a><a class="code" href="classEventNavigator.html#a8ca9ef4d381cb79ef5a34c2b1149d2d0">00231</a>   <a class="code" href="classEventNavigator.html#a8ca9ef4d381cb79ef5a34c2b1149d2d0">EventNavigator</a>(<span class="keyword">const</span> <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; src){};
+<a name="l00232"></a><a class="code" href="classEventNavigator.html#a0545f7f1cccf44ee9478eecf1198d51a">00232</a>   <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; <a class="code" href="classEventNavigator.html#a0545f7f1cccf44ee9478eecf1198d51a">operator=</a>(<span class="keyword">const</span> <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>&amp; rhs){<span class="keywordflow">return</span> *<span class="keyword">this</span>;}
+<a name="l00233"></a>00233 
+<a name="l00234"></a><a class="code" href="classEventNavigator.html#a4504a00783ac59e23c4f9054d02310c7">00234</a>   <span class="keyword">static</span> <a class="code" href="classEventNavigator.html" title="The EventNavigator class provides acess to all the collections in the (MIDAS) Event...">EventNavigator</a>* <a class="code" href="classEventNavigator.html#a4504a00783ac59e23c4f9054d02310c7">fInstance</a>; 
+<a name="l00235"></a>00235 
+<a name="l00236"></a><a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">00236</a>   Bool_t <a class="code" href="classEventNavigator.html#aa9f41a78e0609dfb801d5389e43977d8">fCopyRaw</a>;
+<a name="l00237"></a>00237 
+<a name="l00239"></a><a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d">00239</a>   TFile* <a class="code" href="classEventNavigator.html#ab5923f377477b9bdf1ef3533333e3d3d" title="Input ROOT file, raw format.">fRawInput</a>;
+<a name="l00240"></a>00240 
+<a name="l00242"></a><a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb">00242</a>   TFile* <a class="code" href="classEventNavigator.html#ab605936f35e3558c8e31474d177f4eeb" title="Output ROOT file (may be same as input file).">fOutput</a>;
+<a name="l00243"></a>00243 
+<a name="l00245"></a><a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00">00245</a>   Int_t <a class="code" href="classEventNavigator.html#a29d93580e3b3f2b7932581166af0ca00" title="The current entry number.">fEntryNo</a>;
+<a name="l00246"></a>00246 
+<a name="l00248"></a><a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e">00248</a>   TTree* <a class="code" href="classEventNavigator.html#aec23f14882d74cd71c62d4f455e60c0e" title="Input Raw Data (Event) Tree.">fRawTree</a>;
+<a name="l00249"></a>00249 
+<a name="l00251"></a><a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d">00251</a>   TTree* <a class="code" href="classEventNavigator.html#acb0ba90acb7e0819d9a21579a95d5d4d" title="Input Setup Tree.">fSetupTree</a>;
+<a name="l00252"></a>00252 
+<a name="l00254"></a><a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">00254</a>   TTree* <a class="code" href="classEventNavigator.html#a96346039846a4c17469dc412eb573e39">fEventTree</a>;
+<a name="l00255"></a>00255 
+<a name="l00256"></a><a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">00256</a>   TTree* <a class="code" href="classEventNavigator.html#a7d400ce214e1f25a22cd04bee5d24715">fOutputTreeTPI</a>;
+<a name="l00257"></a>00257 
+<a name="l00258"></a><a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">00258</a>   <a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="classEventNavigator.html#a95e50e99267ce24151a9d13f064344c7">fRawData</a>;
+<a name="l00259"></a>00259   
+<a name="l00260"></a><a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">00260</a>   <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a>* <a class="code" href="classEventNavigator.html#a6a6dcf05d912f64b4d897f98af8eff07">fSetupData</a>;
+<a name="l00261"></a>00261 
+<a name="l00262"></a><a class="code" href="classEventNavigator.html#afd89c8300274a7e72fc9c6f063add60a">00262</a>   <a class="code" href="classSetupRecord.html">SetupRecord</a>* <a class="code" href="classEventNavigator.html#afd89c8300274a7e72fc9c6f063add60a">fSetupRecord</a>;
+<a name="l00263"></a>00263 
+<a name="l00264"></a><a class="code" href="classEventNavigator.html#ab0875b6ae48b9db6de94b42edae4bb5e">00264</a>   <a class="code" href="classLoopSequence.html">LoopSequence</a>* <a class="code" href="classEventNavigator.html#ab0875b6ae48b9db6de94b42edae4bb5e">fLoopSequence</a>;
 <a name="l00265"></a>00265 
-<a name="l00266"></a>00266 };
-<a name="l00267"></a>00267 
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267 };
 <a name="l00268"></a>00268 
-<a name="l00269"></a>00269 <span class="comment">//inline Int_t EventNavigator::NextEntry() {return LoadEntry(fEntryNo + 1);}</span>
-<a name="l00270"></a>00270 
-<a name="l00271"></a>00271 <span class="preprocessor">#endif //EVENTNAVIGATOR_H</span>
-<a name="l00272"></a>00272 <span class="preprocessor"></span>
-<a name="l00273"></a>00273 <span class="comment">// emacs metadata</span>
-<a name="l00274"></a>00274 <span class="comment">// Local Variables:</span>
-<a name="l00275"></a>00275 <span class="comment">// mode: c++</span>
-<a name="l00276"></a>00276 <span class="comment">// End:</span>
+<a name="l00269"></a>00269 
+<a name="l00270"></a>00270 <span class="comment">//inline Int_t EventNavigator::NextEntry() {return LoadEntry(fEntryNo + 1);}</span>
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272 <span class="preprocessor">#endif //EVENTNAVIGATOR_H</span>
+<a name="l00273"></a>00273 <span class="preprocessor"></span>
+<a name="l00274"></a>00274 <span class="comment">// emacs metadata</span>
+<a name="l00275"></a>00275 <span class="comment">// Local Variables:</span>
+<a name="l00276"></a>00276 <span class="comment">// mode: c++</span>
+<a name="l00277"></a>00277 <span class="comment">// End:</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -47,17 +47,20 @@
 <a name="l00050"></a>00050         <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classCheckTMEs.html#a95e24e523e01dd00737128788c6042c8" title="What needes to be done before each run? Don&amp;#39;t hesitate to repeat what was said...">BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
 <a name="l00056"></a>00056         <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classCheckTMEs.html#abc60b669b4f2ffb44d847aaac97b0805" title="What needs to be done after each run? Don&amp;#39;t hesitate to repeat what was said...">AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* gData,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup);
 <a name="l00057"></a>00057 
-<a name="l00058"></a><a class="code" href="classCheckTMEs.html#a2f9f82a0205a63eee176f5a5e9df8258">00058</a>         <span class="keyword">typedef</span> std::vector&lt;IDs::channel&gt; <a class="code" href="classCheckTMEs.html#a2f9f82a0205a63eee176f5a5e9df8258">DetectorList</a>;
-<a name="l00059"></a><a class="code" href="classCheckTMEs.html#a33a18b4d4f470daf7f89a4625aa0815e">00059</a>         <a class="code" href="classCheckTMEs.html#a2f9f82a0205a63eee176f5a5e9df8258">DetectorList</a> <a class="code" href="classCheckTMEs.html#a33a18b4d4f470daf7f89a4625aa0815e">fDetectors</a>;
-<a name="l00060"></a>00060 
-<a name="l00061"></a><a class="code" href="classCheckTMEs.html#a574de36eaf4eb5d6ed33cdb239d00349">00061</a>         TH1F *<a class="code" href="classCheckTMEs.html#a574de36eaf4eb5d6ed33cdb239d00349">fTotalPulses</a>;
-<a name="l00062"></a><a class="code" href="classCheckTMEs.html#a8a2472d2ea91f8b57c2761c1d9fb76ea">00062</a>         TH2F *<a class="code" href="classCheckTMEs.html#a8a2472d2ea91f8b57c2761c1d9fb76ea">fPulsesPerDetector</a>;
-<a name="l00063"></a><a class="code" href="classCheckTMEs.html#ad921cd3e0963715f41b67ae84bba5a36">00063</a>         TH1F *<a class="code" href="classCheckTMEs.html#ad921cd3e0963715f41b67ae84bba5a36">fFlags</a>;
-<a name="l00064"></a>00064 };
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="preprocessor">#endif //CHECKTMES_H_</span>
+<a name="l00058"></a><a class="code" href="classCheckTMEs.html#a63ae7ec106b4267b64bca167578246c5">00058</a>         <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="classCheckTMEs.html#abc5a8bcc7069187810d3de2ae1316e94">fNullCount</a>, <a class="code" href="classCheckTMEs.html#a63ae7ec106b4267b64bca167578246c5">fTdpCount</a>;
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="classCheckTMEs.html#a2f9f82a0205a63eee176f5a5e9df8258">00060</a>         <span class="keyword">typedef</span> std::vector&lt;IDs::channel&gt; <a class="code" href="classCheckTMEs.html#a2f9f82a0205a63eee176f5a5e9df8258">DetectorList</a>;
+<a name="l00061"></a><a class="code" href="classCheckTMEs.html#a33a18b4d4f470daf7f89a4625aa0815e">00061</a>         <a class="code" href="classCheckTMEs.html#a2f9f82a0205a63eee176f5a5e9df8258">DetectorList</a> <a class="code" href="classCheckTMEs.html#a33a18b4d4f470daf7f89a4625aa0815e">fDetectors</a>;
+<a name="l00062"></a>00062 
+<a name="l00063"></a><a class="code" href="classCheckTMEs.html#a574de36eaf4eb5d6ed33cdb239d00349">00063</a>         TH1F *<a class="code" href="classCheckTMEs.html#a574de36eaf4eb5d6ed33cdb239d00349">fTotalPulses</a>;
+<a name="l00064"></a><a class="code" href="classCheckTMEs.html#a8a2472d2ea91f8b57c2761c1d9fb76ea">00064</a>         TH2F *<a class="code" href="classCheckTMEs.html#a8a2472d2ea91f8b57c2761c1d9fb76ea">fPulsesPerDetector</a>;
+<a name="l00065"></a><a class="code" href="classCheckTMEs.html#aaf515e5c624f841c9d58d1b5cc110e2a">00065</a>         TH2F *<a class="code" href="classCheckTMEs.html#aaf515e5c624f841c9d58d1b5cc110e2a">fTDiffPerDetector</a>;
+<a name="l00066"></a><a class="code" href="classCheckTMEs.html#ad921cd3e0963715f41b67ae84bba5a36">00066</a>         TH1F *<a class="code" href="classCheckTMEs.html#ad921cd3e0963715f41b67ae84bba5a36">fFlags</a>;
+<a name="l00067"></a>00067 };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="preprocessor">#endif //CHECKTMES_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

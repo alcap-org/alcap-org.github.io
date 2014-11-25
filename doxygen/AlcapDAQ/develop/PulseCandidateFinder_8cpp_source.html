@@ -42,7 +42,7 @@
 <a name="l00015"></a>00015 <span class="preprocessor">#include &lt;TSQLiteRow.h&gt;</span>
 <a name="l00016"></a>00016 
 <a name="l00017"></a><a class="code" href="classExcept_1_1PulseCandidateFinder.html#ad15f22581689655cf8ba710c6cb0a842">00017</a> <a class="code" href="AlcapExcept_8h.html#a020f7674f2dcfff452980456e6405864">MAKE_EXCEPTION</a>(<a class="code" href="classExcept_1_1PulseCandidateFinder.html">PulseCandidateFinder</a>, <a class="code" href="classExcept_1_1Base.html">Base</a>);
-<a name="l00018"></a><a class="code" href="classExcept_1_1InvalidDetector.html#a710efe570e1472465892a723777e5026">00018</a> <a class="code" href="AlcapExcept_8h.html#a020f7674f2dcfff452980456e6405864">MAKE_EXCEPTION</a>(<a class="code" href="classExcept_1_1InvalidDetector.html">InvalidDetector</a>,<a class="code" href="classExcept_1_1PulseCandidateFinder.html">PulseCandidateFinder</a>);
+<a name="l00018"></a><a class="code" href="classExcept_1_1UnspecifiedChannel.html#a8832c85da3ac1d82a4361f84eea8e7aa">00018</a> <a class="code" href="AlcapExcept_8h.html#a020f7674f2dcfff452980456e6405864">MAKE_EXCEPTION</a>(<a class="code" href="classExcept_1_1UnspecifiedChannel.html">UnspecifiedChannel</a>,<a class="code" href="classExcept_1_1PulseCandidateFinder.html">PulseCandidateFinder</a>);
 <a name="l00019"></a>00019 
 <a name="l00021"></a><a class="code" href="classPulseCandidateFinder.html#ab78f55dce8d59571924105afd18cd2ad">00021</a> <a class="code" href="classPulseCandidateFinder.html#ab78f55dce8d59571924105afd18cd2ad" title="Default constructor, make sure to set the channel name with SetChannel if you use...">PulseCandidateFinder::PulseCandidateFinder</a>():
 <a name="l00022"></a>00022     fChannel(IDs::<a class="code" href="namespaceIDs.html#aa179f67aeac8473d1a57daaa59b4e8aea38728be74fd95e96902f1d545b2b26c7">kErrorDetector</a>),
@@ -98,7 +98,7 @@
 <a name="l00075"></a>00075     <span class="keywordflow">if</span>(!<a class="code" href="classPulseCandidateFinder.html#ae70628aad4452fa0cc414a56b090cd9a" title="The channel that this PulseCandidateFinder works on.">fChannel</a>.<a class="code" href="classIDs_1_1channel.html#abfa36ae308e4159c91055e508334c38e" title="Check there there have been no errors creating this channel ID.">isValid</a>()){
 <a name="l00076"></a>00076         std::cout&lt;&lt;<span class="stringliteral">&quot;Channel for PCF is not set, make sure to use &quot;</span>
 <a name="l00077"></a>00077                    <span class="stringliteral">&quot;SetChannel() if you used the defualt constructor&quot;</span>&lt;&lt;std::endl;
-<a name="l00078"></a>00078         <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1InvalidDetector.html">Except::InvalidDetector</a>();
+<a name="l00078"></a>00078         <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1UnspecifiedChannel.html">Except::UnspecifiedChannel</a>();
 <a name="l00079"></a>00079     }
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081   <span class="comment">// Clear the vector of pulse candidate locations first since it will still contain them from previous pulses</span>
@@ -310,7 +310,7 @@
 <a name="l00298"></a><a class="code" href="classPulseCandidateFinder.html#a860548ff5a2ced2024d376ecce77b07e">00298</a> <span class="keywordtype">void</span> <a class="code" href="classPulseCandidateFinder.html#a860548ff5a2ced2024d376ecce77b07e" title="Called in the constructor if fDefaultParameterValues is empty, so that it can be...">PulseCandidateFinder::SetDefaultParameterValues</a>() {
 <a name="l00299"></a>00299 
 <a name="l00300"></a>00300   <span class="comment">// Set all the default values for the fast channels</span>
-<a name="l00301"></a>00301   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muSc&quot;</span>)] = 300;
+<a name="l00301"></a>00301   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muSc&quot;</span>)] = 230;
 <a name="l00302"></a>00302   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muScA&quot;</span>)] = 100;
 <a name="l00303"></a>00303   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;NDet&quot;</span>)] = 100;
 <a name="l00304"></a>00304   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;NDet2&quot;</span>)] = 100;
@@ -350,7 +350,7 @@
 <a name="l00338"></a>00338   <a class="code" href="classPulseCandidateFinder.html#a413f325b3625c12806bc34f8e5716e2d" title="The map that stores the default parameter values in case there isn&amp;#39;t one specified...">fDefaultParameterValues</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;SiR1-4-S&quot;</span>)] = 62;
 <a name="l00339"></a>00339 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

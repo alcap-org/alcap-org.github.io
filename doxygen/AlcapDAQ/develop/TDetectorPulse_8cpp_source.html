@@ -54,19 +54,21 @@
 <a name="l00027"></a>00027   <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aabb973a1a3960c8d48fc93aabf8752755">kSlow</a>]=s_parentID;
 <a name="l00028"></a>00028   <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">kFast</a>]=f_parentID;
 <a name="l00029"></a>00029   <a class="code" href="classTDetectorPulse.html#a48eab0090d8f947e688e5ea98510199b">fSource</a>=sourceID;
-<a name="l00030"></a>00030 }
-<a name="l00031"></a>00031 
-<a name="l00032"></a><a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">00032</a> <span class="keywordtype">void</span> <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">TDetectorPulse::Reset</a>(Option_t* o) {
-<a name="l00033"></a>00033     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>;++i){
-<a name="l00034"></a>00034         <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[i] = NULL;
-<a name="l00035"></a>00035         <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[i]=-1;
-<a name="l00036"></a>00036         <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[i].<a class="code" href="classFlyWeight.html#a68d535fdb5896735a367c1a7466adb0e">Reset</a>();
-<a name="l00037"></a>00037     }
-<a name="l00038"></a>00038     <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>=<span class="keyword">false</span>;
-<a name="l00039"></a>00039     <a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>=<span class="keyword">false</span>;
-<a name="l00040"></a>00040 }
+<a name="l00030"></a>00030   <a class="code" href="classTDetectorPulse.html#a8cab0f344fe9e87f2ebc9d754ea6c65d">fCouldBePaired</a>=(<a class="code" href="classTDetectorPulse.html#a8705fa60d3ba37d581b7308088419f85">GetSource</a>().<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().Type()!=<span class="stringliteral">&quot;PassThrough&quot;</span>);
+<a name="l00031"></a>00031 }
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">00033</a> <span class="keywordtype">void</span> <a class="code" href="classTDetectorPulse.html#a8c9526d03796d4b31aec26d8cee77371">TDetectorPulse::Reset</a>(Option_t* o) {
+<a name="l00034"></a>00034     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aa550908f70cb6c53a64ebfbeb45940543">kNumParents</a>;++i){
+<a name="l00035"></a>00035         <a class="code" href="classTDetectorPulse.html#a214b845376d7e155e00df73f0bd28c84">fParentPulse</a>[i] = NULL;
+<a name="l00036"></a>00036         <a class="code" href="classTDetectorPulse.html#af5bee8070b7895917fd7b1852a53e488">fParentID</a>[i]=-1;
+<a name="l00037"></a>00037         <a class="code" href="classTDetectorPulse.html#a7a184d970b8da7cb881b3f943a178aa2">fParentSource</a>[i].<a class="code" href="classFlyWeight.html#a68d535fdb5896735a367c1a7466adb0e">Reset</a>();
+<a name="l00038"></a>00038     }
+<a name="l00039"></a>00039     <a class="code" href="classTDetectorPulse.html#a0cfdf20090e8159ee47b9149b77e0ac0">fCheckedForPileUp</a>=<span class="keyword">false</span>;
+<a name="l00040"></a>00040     <a class="code" href="classTDetectorPulse.html#aedc2828002c42a649a01630925253e58">fPileUpSafe</a>=<span class="keyword">false</span>;
+<a name="l00041"></a>00041     <a class="code" href="classTDetectorPulse.html#a8cab0f344fe9e87f2ebc9d754ea6c65d">fCouldBePaired</a>=<span class="keyword">false</span>;
+<a name="l00042"></a>00042 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

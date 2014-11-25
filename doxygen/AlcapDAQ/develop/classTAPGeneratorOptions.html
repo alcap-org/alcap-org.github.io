@@ -58,6 +58,8 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the value of an argument.  <a href="#a27d3382e52e45b0b3565e042abf27515"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAPGeneratorOptions.html#a6d3cf647ba4979f42991fb7c44e74741">GetChannel</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAPGeneratorOptions.html#a1bb2dcf4fbdadf4c29acb17f3a74d083">SetChannel</a> (const std::string &amp;ch)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAPGeneratorOptions.html#ae308ccff089d994d44ef3ecf9d0bdb8f">Debug</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAPGeneratorOptions.html#ad69521d51fc33ce5d4418004968596ca">Debug</a> (bool v)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a1a31371148b8b031d749d62f7fc275a4">StringDescription</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Flatten all <a class="el" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">options</a> into a string.  <a href="#a1a31371148b8b031d749d62f7fc275a4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56">SetOption</a> (const std::string &amp;key, const std::string &amp;value)</td></tr>
@@ -109,6 +111,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodules_1_1options.html#a8b161c9d2db12e7955bb3255a5c2bd0c">fModuleName</a></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAPGeneratorOptions.html#a7e6500bbef91ff5ff7f27bd00895c4d3">fChannel</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Class to handle options for a TAP generator Inherite from the options class for <a class="el" href="namespacemodules.html">modules</a> to share the implementation and interface. </p>
@@ -169,8 +172,8 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 <p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00013">13</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00013"></a>00013                                            :
-<a name="l00014"></a>00014   <a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">modules::options</a>(name){};
-  ~<a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>(){};
+<a name="l00014"></a>00014   <a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">modules::options</a>(name),<a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a>(<span class="keyword">false</span>){};
+  <a class="code" href="classTAPGeneratorOptions.html#a9abc50ee8db360d57887ae3a14a8afff">~TAPGeneratorOptions</a>(){};
 </pre></div></p>
 
 </div>
@@ -291,7 +294,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>References <a class="el" href="ModulesOptions_8h_source.html#l00223">modules::options::fOptions</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00192">modules::reader::AddOption()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00193">modules::reader::AddOption()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00124"></a>00124                                                                                  {
 <a name="l00125"></a>00125     <span class="comment">// Get the option </span>
@@ -336,6 +339,57 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
+<a class="anchor" id="ad69521d51fc33ce5d4418004968596ca"></a><!-- doxytag: member="TAPGeneratorOptions::Debug" ref="ad69521d51fc33ce5d4418004968596ca" args="(bool v)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TAPGeneratorOptions::Debug </td>
+          <td>(</td>
+          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramname"> <em>v</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00027">27</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
+
+<p>References <a class="el" href="TAPGeneratorOptions_8h_source.html#l00031">fDebug</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027 {<a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a>=v;}
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="ae308ccff089d994d44ef3ecf9d0bdb8f"></a><!-- doxytag: member="TAPGeneratorOptions::Debug" ref="ae308ccff089d994d44ef3ecf9d0bdb8f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TAPGeneratorOptions::Debug </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00026">26</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
+
+<p>References <a class="el" href="TAPGeneratorOptions_8h_source.html#l00031">fDebug</a>.</p>
+
+<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">MakeAnalysedPulses::AddGenerator()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00015">FirstCompleteAPGenerator::FirstCompleteAPGenerator()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00030">TVAnalysedPulseGenerator::TVAnalysedPulseGenerator()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00026"></a>00026 {<span class="keywordflow">return</span> <a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a>;}
+</pre></div></p>
+
+</div>
+</div>
 <a class="anchor" id="a50375d69bc7c6d45cb4d6faf3eb38d74"></a><!-- doxytag: member="TAPGeneratorOptions::DumpOptions" ref="a50375d69bc7c6d45cb4d6faf3eb38d74" args="(const std::string &amp;prefix=&quot;     &quot;) const " -->
 <div class="memitem">
 <div class="memproto">
@@ -364,7 +418,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>References <a class="el" href="ModulesOptions_8h_source.html#l00224">modules::options::fOrder</a>.</p>
 
-<p>Referenced by <a class="el" href="CommandLine_8cpp_source.html#l00251">load_config_file()</a>, and <a class="el" href="ModulesNavigator_8cpp_source.html#l00035">modules::navigator::MakeModules()</a>.</p>
+<p>Referenced by <a class="el" href="CommandLine_8cpp_source.html#l00251">load_config_file()</a>, and <a class="el" href="ModulesNavigator_8cpp_source.html#l00038">modules::navigator::MakeModules()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00105"></a>00105                                                             {
 <a name="l00106"></a>00106     <span class="comment">//std::cout&lt;&lt;&quot;key  &quot;&lt;&lt;&quot; = &quot;&lt;&lt;&quot; value &quot;&lt;&lt;std::endl;</span>
@@ -511,7 +565,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>References <a class="el" href="ModulesOptions_8cpp_source.html#l00067">modules::options::GetString()</a>, and <a class="el" href="ModulesParser_8cpp_source.html#l00182">modules::parser::IsTrue()</a>.</p>
 
-<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00243">modules::options::GetFlag()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00037">PulseViewer::PulseViewer()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator::TemplateCreator()</a>.</p>
+<p>Referenced by <a class="el" href="BaseModule_8cpp_source.html#l00007">BaseModule::BaseModule()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00015">FirstCompleteAPGenerator::FirstCompleteAPGenerator()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00243">modules::options::GetFlag()</a>, <a class="el" href="PulseViewer_8cpp_source.html#l00037">PulseViewer::PulseViewer()</a>, and <a class="el" href="TemplateCreator_8cpp_source.html#l00022">TemplateCreator::TemplateCreator()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00078"></a>00078                                                                   {
 <a name="l00079"></a>00079     <span class="keywordflow">return</span> <a class="code" href="namespacemodules_1_1parser.html#ae62fb294d079f5dc6d6b170a9d110632">modules::parser::IsTrue</a>(<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(name,Form(<span class="stringliteral">&quot;%d&quot;</span>,defVal)));
@@ -537,7 +591,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00019">19</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
 
-<p>References <a class="el" href="TAPGeneratorOptions_8h_source.html#l00027">fChannel</a>.</p>
+<p>References <a class="el" href="TAPGeneratorOptions_8h_source.html#l00030">fChannel</a>.</p>
 
 <p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00030">TVAnalysedPulseGenerator::TVAnalysedPulseGenerator()</a>.</p>
 
@@ -1131,7 +1185,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>References <a class="el" href="ModulesOptions_8h_source.html#l00232">modules::options::SetOption()</a>.</p>
 
-<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00103">modules::reader::AddModule()</a>.</p>
+<p>Referenced by <a class="el" href="ModulesReader_8cpp_source.html#l00104">modules::reader::AddModule()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00196"></a>00196 {<a class="code" href="classmodules_1_1options.html#a038c293514a4441f2d523627eef19b56" title="Set the value of an option.">SetOption</a>(<span class="stringliteral">&quot;alias&quot;</span>,alias);};
 </pre></div></p>
@@ -1156,7 +1210,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00022">22</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
 
-<p>References <a class="el" href="TAPGeneratorOptions_8h_source.html#l00027">fChannel</a>.</p>
+<p>References <a class="el" href="TAPGeneratorOptions_8h_source.html#l00030">fChannel</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">MakeAnalysedPulses::AddGenerator()</a>.</p>
 
@@ -1206,7 +1260,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>References <a class="el" href="ModulesOptions_8h_source.html#l00223">modules::options::fOptions</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00224">modules::options::fOrder</a>.</p>
 
-<p>Referenced by <a class="el" href="TAPGeneratorOptions_8cpp_source.html#l00004">AddArgument()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00117">modules::options::AddArgument()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00192">modules::reader::AddOption()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00196">modules::options::SetAlias()</a>.</p>
+<p>Referenced by <a class="el" href="TAPGeneratorOptions_8cpp_source.html#l00004">AddArgument()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00117">modules::options::AddArgument()</a>, <a class="el" href="ModulesReader_8cpp_source.html#l00193">modules::reader::AddOption()</a>, <a class="el" href="FirstCompleteAPGenerator_8cpp_source.html#l00015">FirstCompleteAPGenerator::FirstCompleteAPGenerator()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses::MakeAnalysedPulses()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00196">modules::options::SetAlias()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00232"></a>00232                                                                                    {
 <a name="l00233"></a>00233     <span class="comment">// if a new key was added, store an iterator in the order list</span>
@@ -1275,9 +1329,26 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00027">27</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
+<p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00030">30</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
 
 <p>Referenced by <a class="el" href="TAPGeneratorOptions_8h_source.html#l00019">GetChannel()</a>, and <a class="el" href="TAPGeneratorOptions_8h_source.html#l00022">SetChannel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9656a889ead4ef0bd8ea540adee68f79"></a><!-- doxytag: member="TAPGeneratorOptions::fDebug" ref="a9656a889ead4ef0bd8ea540adee68f79" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">TAPGeneratorOptions::fDebug</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TAPGeneratorOptions_8h_source.html#l00031">31</a> of file <a class="el" href="TAPGeneratorOptions_8h_source.html">TAPGeneratorOptions.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TAPGeneratorOptions_8h_source.html#l00026">Debug()</a>.</p>
 
 </div>
 </div>
@@ -1303,7 +1374,7 @@ std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el
 <li>rootana/src/TAP_generators/<a class="el" href="TAPGeneratorOptions_8cpp_source.html">TAPGeneratorOptions.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

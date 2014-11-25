@@ -53,6 +53,10 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the n-th source that contains pulses.  <a href="#a849cb95899dbae1c40ed6986ae1f7507"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a24ff5b5fbb152b1c5b0d51aa3d0d9c80">GetNumSources</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of sources with pulses in this TME.  <a href="#a24ff5b5fbb152b1c5b0d51aa3d0d9c80"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#aa88f68418f18fa01ac412be41247140b">GetSourceIndex</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;ch, int start=0) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the index of the next source to match channel, ch, starting at index start.  <a href="#aa88f68418f18fa01ac412be41247140b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#aac5b8f361746b105259c4e9f8b27ddb0">GetFirstSourceIndex</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;ch) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a0ab4178ef4327ac1373b41edaaf08bca">GetLastSourceIndex</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;ch) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#ac3382ac58937e5f101a4e1c7327a7698">GetPulse</a> (const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;detector, int index) const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieve a pulse from the specified source and position in the pulse list.  <a href="#ac3382ac58937e5f101a4e1c7327a7698"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">DetectorPulseList::const_iterator&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a317c56b59cd438a805d2c17442e2c2c2">BeginPulses</a> (const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;detector) const </td></tr>
@@ -81,6 +85,7 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get whether all pulses for a specific channel were used up.  <a href="#a461732f456ee97152dc0fb983803f864"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a8a1346e5b66e6090910f90259590a2ea">GetTime</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the time of this TME defined as the arrival time of the central muon.  <a href="#a8a1346e5b66e6090910f90259590a2ea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classTDetectorPulse.html">TDetectorPulse</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#aa36e26347758abe77b6ed28402481134">GetCentralMuon</a> () const </td></tr>
 <tr><td colspan="2"><h2>Private Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::set&lt; <a class="el" href="classIDs_1_1source.html">IDs::source</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTMuonEvent.html#a84de33cdc1a749ec5ddb9d7ec445c0df">SourceSet</a></td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
@@ -109,7 +114,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00099">99</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00108">108</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
 </div>
 </div>
@@ -228,15 +233,15 @@
 
 <p>Add a pulse into the list of pulses. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00026">26</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00027">27</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxTimeDiffMEGenerator_8cpp_source.html#l00009">MaxTimeDiffMEGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00026"></a>00026                                                                        {
-<a name="l00027"></a>00027     <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>[source].push_back(pulse);
-<a name="l00028"></a>00028 }
+<p><div class="fragment"><pre class="fragment"><a name="l00027"></a>00027                                                                        {
+<a name="l00028"></a>00028     <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>[source].push_back(pulse);
+<a name="l00029"></a>00029 }
 </pre></div></p>
 
 </div>
@@ -272,16 +277,18 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00030">30</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00031">31</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
 <p>Referenced by <a class="el" href="FixedWindowMEGenerator_8cpp_source.html#l00077">FixedWindowMEGenerator::AddPulsesInWindow()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00032"></a>00032                                              {
-<a name="l00033"></a>00033     <span class="keywordflow">if</span>(stop-start &lt;0)  <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1EndOfWindowBeforeStart.html">Except::EndOfWindowBeforeStart</a>();
-<a name="l00034"></a>00034     <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>[source].insert(<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>[source].end(),start,stop);
-<a name="l00035"></a>00035 }
+<p><div class="fragment"><pre class="fragment"><a name="l00033"></a>00033                                              {
+<a name="l00034"></a>00034     <span class="keywordflow">if</span>(stop-start &lt;0)  <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1EndOfWindowBeforeStart.html">Except::EndOfWindowBeforeStart</a>();
+<a name="l00035"></a>00035     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">DetectorPulseList::const_iterator</a> i_p=start; i_p!=stop; ++i_p){
+<a name="l00036"></a>00036       <span class="keywordflow">if</span>( (*i_p)-&gt;IsGood()) <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>[source].push_back(*i_p);
+<a name="l00037"></a>00037     }
+<a name="l00038"></a>00038 }
 </pre></div></p>
 
 </div>
@@ -304,13 +311,13 @@
 
 <p>Set whether all pulses for a certain channel were used up. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00085">85</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00093">93</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00100">fExhaustedChannels</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00109">fExhaustedChannels</a>.</p>
 
 <p>Referenced by <a class="el" href="FixedWindowMEGenerator_8cpp_source.html#l00077">FixedWindowMEGenerator::AddPulsesInWindow()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00085"></a>00085 {<a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.insert(so);};
+<p><div class="fragment"><pre class="fragment"><a name="l00093"></a>00093 {<a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.insert(so);};
 </pre></div></p>
 
 </div>
@@ -333,13 +340,13 @@
 
 <p>Get a const_iterator to the beginning of the pulse list for a given source. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00086">86</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00120">120</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086                                                                                      {
-<a name="l00087"></a>00087     <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidSource&gt;(<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>,detector,detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>().c_str()).begin();
-<a name="l00088"></a>00088 }
+<p><div class="fragment"><pre class="fragment"><a name="l00120"></a>00120                                                                                      {
+<a name="l00121"></a>00121     <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidSource&gt;(<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>,detector,detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>().c_str()).begin();
+<a name="l00122"></a>00122 }
 </pre></div></p>
 
 </div>
@@ -362,13 +369,103 @@
 
 <p>Get a const_iterator to the end of the pulse list for a given source. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00089">89</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00123">123</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00089"></a>00089                                                                                    {
-<a name="l00090"></a>00090     <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidSource&gt;(<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>,detector,detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>().c_str()).end();
-<a name="l00091"></a>00091 }
+<p><div class="fragment"><pre class="fragment"><a name="l00123"></a>00123                                                                                    {
+<a name="l00124"></a>00124     <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidSource&gt;(<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>,detector,detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>().c_str()).end();
+<a name="l00125"></a>00125 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="aa36e26347758abe77b6ed28402481134"></a><!-- doxytag: member="TMuonEvent::GetCentralMuon" ref="aa36e26347758abe77b6ed28402481134" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classTDetectorPulse.html">TDetectorPulse</a>* TMuonEvent::GetCentralMuon </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00102">102</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00106">fCentralMuon</a>.</p>
+
+<p>Referenced by <a class="el" href="PlotTME__activeSiRmuStops_8cpp_source.html#l00134">PlotTME_activeSiRmuStops::FillHistograms()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102 {<span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a58154eb0db2402438c5e1ed2fd729450">fCentralMuon</a>;}
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="aac5b8f361746b105259c4e9f8b27ddb0"></a><!-- doxytag: member="TMuonEvent::GetFirstSourceIndex" ref="aac5b8f361746b105259c4e9f8b27ddb0" args="(const IDs::channel &amp;ch) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TMuonEvent::GetFirstSourceIndex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>ch</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00058">58</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00058"></a>00058                                                             {
+<a name="l00059"></a>00059     <span class="keywordflow">for</span>( <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
+<a name="l00060"></a>00060           i_source!=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end(); ++i_source){
+<a name="l00061"></a>00061         <span class="keywordflow">if</span>(i_source-&gt;first.matches(ch)) 
+<a name="l00062"></a>00062           <span class="keywordflow">return</span> std::distance( <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin(),i_source);
+<a name="l00063"></a>00063     }
+<a name="l00064"></a>00064     <span class="keywordflow">return</span> -1;
+<a name="l00065"></a>00065 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a0ab4178ef4327ac1373b41edaaf08bca"></a><!-- doxytag: member="TMuonEvent::GetLastSourceIndex" ref="a0ab4178ef4327ac1373b41edaaf08bca" args="(const IDs::channel &amp;ch) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TMuonEvent::GetLastSourceIndex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>ch</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00067">67</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00067"></a>00067                                                            {
+<a name="l00068"></a>00068     <span class="keywordflow">for</span>( SourceDetPulseMap::const_reverse_iterator i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.rbegin();
+<a name="l00069"></a>00069           i_source!=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.rend(); ++i_source){
+<a name="l00070"></a>00070         <span class="keywordflow">if</span>(i_source-&gt;first.matches(ch)) 
+<a name="l00071"></a>00071           <span class="keywordflow">return</span> std::distance( i_source,<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.rend());
+<a name="l00072"></a>00072     }
+<a name="l00073"></a>00073     <span class="keywordflow">return</span> -1;
+<a name="l00074"></a>00074 }
 </pre></div></p>
 
 </div>
@@ -392,7 +489,7 @@
 
 <p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00049">49</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00049"></a>00049 {<span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.size();};
 </pre></div></p>
@@ -428,12 +525,15 @@
 
 <p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00019">19</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
+<p>Referenced by <a class="el" href="PlotTME__activeSiRmuStops_8cpp_source.html#l00134">PlotTME_activeSiRmuStops::FillHistograms()</a>.</p>
+
 <p><div class="fragment"><pre class="fragment"><a name="l00019"></a>00019                                                                                  {
 <a name="l00020"></a>00020     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.find(source);
 <a name="l00021"></a>00021     <span class="keywordflow">if</span>(i_source==<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end()) <span class="keywordflow">return</span> NULL;
 <a name="l00022"></a>00022     <span class="keywordflow">if</span>(index&gt;(<span class="keywordtype">int</span>)i_source-&gt;second.size() || index&lt;0) <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1OutOfRange.html">Except::OutOfRange</a>();
-<a name="l00023"></a>00023     <span class="keywordflow">return</span> *(i_source-&gt;second.begin()+index);
-<a name="l00024"></a>00024 }
+<a name="l00023"></a>00023     <span class="keyword">const</span> <a class="code" href="classTDetectorPulse.html">TDetectorPulse</a>* pulse= *(i_source-&gt;second.begin()+index);
+<a name="l00024"></a>00024     <span class="keywordflow">return</span> pulse;
+<a name="l00025"></a>00025 }
 </pre></div></p>
 
 </div>
@@ -456,16 +556,62 @@
 
 <p>Get the n-th source that contains pulses. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00037">37</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00040">40</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037                                                 {
-<a name="l00038"></a>00038     <span class="keywordflow">if</span>(n&gt;(<span class="keywordtype">int</span>)<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.size() || n&lt;0) <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1OutOfRange.html">Except::OutOfRange</a>();
-<a name="l00039"></a>00039     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
-<a name="l00040"></a>00040     std::advance(i_source,n);
-<a name="l00041"></a>00041     <span class="keywordflow">return</span> i_source-&gt;first;
-<a name="l00042"></a>00042 }
+<p><div class="fragment"><pre class="fragment"><a name="l00040"></a>00040                                                 {
+<a name="l00041"></a>00041     <span class="keywordflow">if</span>(n&gt;(<span class="keywordtype">int</span>)<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.size() || n&lt;0) <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1OutOfRange.html">Except::OutOfRange</a>();
+<a name="l00042"></a>00042     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
+<a name="l00043"></a>00043     std::advance(i_source,n);
+<a name="l00044"></a>00044     <span class="keywordflow">return</span> i_source-&gt;first;
+<a name="l00045"></a>00045 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="aa88f68418f18fa01ac412be41247140b"></a><!-- doxytag: member="TMuonEvent::GetSourceIndex" ref="aa88f68418f18fa01ac412be41247140b" args="(const IDs::channel &amp;ch, int start=0) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TMuonEvent::GetSourceIndex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>ch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>start</em> = <code>0</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the index of the next source to match channel, ch, starting at index start. </p>
+<p>The returned index can be used with GetSource and then passed back as the start parameter to loop over all source <a class="el" href="namespaceIDs.html">IDs</a> matching a given channel. If no sources match the channel ID then the returned int is less than 0 </p>
+
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00047">47</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00047"></a>00047                                                                   {
+<a name="l00048"></a>00048     <span class="keywordflow">if</span>(start&gt;(<span class="keywordtype">int</span>)<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.size() || start&lt;0) <span class="keywordflow">throw</span> <a class="code" href="classExcept_1_1OutOfRange.html">Except::OutOfRange</a>();
+<a name="l00049"></a>00049     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
+<a name="l00050"></a>00050     <span class="keywordflow">for</span>(std::advance(i_source,start);
+<a name="l00051"></a>00051             i_source!=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end(); ++i_source){
+<a name="l00052"></a>00052         <span class="keywordflow">if</span>(i_source-&gt;first.matches(ch)) 
+<a name="l00053"></a>00053           <span class="keywordflow">return</span> std::distance( <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin(),i_source);
+<a name="l00054"></a>00054     }
+<a name="l00055"></a>00055     <span class="keywordflow">return</span> -1;
+<a name="l00056"></a>00056 }
 </pre></div></p>
 
 </div>
@@ -487,13 +633,13 @@
 
 <p>Get the time of this TME defined as the arrival time of the central muon. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00093">93</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00101">101</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00097">fCentralMuon</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00034">TDetectorPulse::GetTime()</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00106">fCentralMuon</a>, <a class="el" href="TDetectorPulse_8h_source.html#l00034">TDetectorPulse::GetTime()</a>, and <a class="el" href="TDetectorPulse_8h_source.html#l00021">TDetectorPulse::kFast</a>.</p>
 
-<p>Referenced by <a class="el" href="FixedWindowMEGenerator_8cpp_source.html#l00077">FixedWindowMEGenerator::AddPulsesInWindow()</a>.</p>
+<p>Referenced by <a class="el" href="FixedWindowMEGenerator_8cpp_source.html#l00077">FixedWindowMEGenerator::AddPulsesInWindow()</a>, and <a class="el" href="PlotTME__activeSiRmuStops_8cpp_source.html#l00134">PlotTME_activeSiRmuStops::FillHistograms()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00093"></a>00093 {<span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a58154eb0db2402438c5e1ed2fd729450">fCentralMuon</a>-&gt;<a class="code" href="classTDetectorPulse.html#a9de0d98ab8fbc487da6a9e6179cdb3e9">GetTime</a>();}
+<p><div class="fragment"><pre class="fragment"><a name="l00101"></a>00101 {<span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a58154eb0db2402438c5e1ed2fd729450">fCentralMuon</a>-&gt;<a class="code" href="classTDetectorPulse.html#a9de0d98ab8fbc487da6a9e6179cdb3e9">GetTime</a>(<a class="code" href="classTDetectorPulse.html#a9f412d042408deee0d6801e8cac4b47aafd477646f6d125e1850594e974b25932">TDetectorPulse::kFast</a>);}
 </pre></div></p>
 
 </div>
@@ -515,13 +661,13 @@
 
 <p>Does this TME pass the muon hit criteria. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00068">68</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00102">102</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8cpp_source.html#l00053">NumPulses()</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8cpp_source.html#l00087">NumPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00068"></a>00068                                 {
-<a name="l00069"></a>00069     <span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a9c477c80e75962985d96d113571d8987" title="Get the number of pulses contained in this TME for a given channel.">NumPulses</a>(MuSc); <span class="comment">// &amp;&amp; NumPulses(MuPCX) &amp;&amp; NumPulses(MuPCY);</span>
-<a name="l00070"></a>00070 }
+<p><div class="fragment"><pre class="fragment"><a name="l00102"></a>00102                                 {
+<a name="l00103"></a>00103     <span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a9c477c80e75962985d96d113571d8987" title="Get the number of pulses contained in this TME for a given channel.">NumPulses</a>(MuSc); <span class="comment">// &amp;&amp; NumPulses(MuPCX) &amp;&amp; NumPulses(MuPCY);</span>
+<a name="l00104"></a>00104 }
 </pre></div></p>
 
 </div>
@@ -543,13 +689,15 @@
 
 <p>Does this TME pass the muon pile-up criteria. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00072">72</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00106">106</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8cpp_source.html#l00053">NumPulses()</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8cpp_source.html#l00087">NumPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00072"></a>00072                                    {
-<a name="l00073"></a>00073     <span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a9c477c80e75962985d96d113571d8987" title="Get the number of pulses contained in this TME for a given channel.">NumPulses</a>(MuSc)&gt;1 || <a class="code" href="classTMuonEvent.html#a9c477c80e75962985d96d113571d8987" title="Get the number of pulses contained in this TME for a given channel.">NumPulses</a>(MuScA);
-<a name="l00074"></a>00074 }
+<p>Referenced by <a class="el" href="PlotTME__activeSiRmuStops_8cpp_source.html#l00134">PlotTME_activeSiRmuStops::FillHistograms()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00106"></a>00106                                    {
+<a name="l00107"></a>00107     <span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a9c477c80e75962985d96d113571d8987" title="Get the number of pulses contained in this TME for a given channel.">NumPulses</a>(MuSc)&gt;1 ;<span class="comment">//|| NumPulses(MuScA)&gt;0;</span>
+<a name="l00108"></a>00108 }
 </pre></div></p>
 
 </div>
@@ -572,15 +720,15 @@
 
 <p>Get the number of pulses contained in this TME for a given source. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00062">62</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00096">96</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00062"></a>00062                                                      {
-<a name="l00063"></a>00063     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.find(source);
-<a name="l00064"></a>00064     <span class="keywordflow">if</span>(i_source==<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end()) <span class="keywordflow">return</span> 0;
-<a name="l00065"></a>00065     <span class="keywordflow">return</span> i_source-&gt;second.size();
-<a name="l00066"></a>00066 }
+<p><div class="fragment"><pre class="fragment"><a name="l00096"></a>00096                                                      {
+<a name="l00097"></a>00097     <a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.find(source);
+<a name="l00098"></a>00098     <span class="keywordflow">if</span>(i_source==<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end()) <span class="keywordflow">return</span> 0;
+<a name="l00099"></a>00099     <span class="keywordflow">return</span> i_source-&gt;second.size();
+<a name="l00100"></a>00100 }
 </pre></div></p>
 
 </div>
@@ -604,20 +752,20 @@
 <p>Get the number of pulses contained in this TME for a given channel. </p>
 <p>If multiple generators are used on the same channel then this returns the number of pulses from all sources. See <a class="el" href="classTMuonEvent.html#a6a4f8a484b7eb375707f005f36594205" title="Get the number of pulses contained in this TME for a given source.">NumPulses(const IDs::source&amp;)const </a>for an alternative. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00053">53</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00087">87</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
-<p>Referenced by <a class="el" href="TMuonEvent_8cpp_source.html#l00068">HasMuonHit()</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00072">HasMuonPileup()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTME__activeSiRmuStops_8cpp_source.html#l00134">PlotTME_activeSiRmuStops::FillHistograms()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00102">HasMuonHit()</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00106">HasMuonPileup()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053                                                        {
-<a name="l00054"></a>00054     <span class="keywordtype">int</span> size=0;
-<a name="l00055"></a>00055     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
-<a name="l00056"></a>00056             i_source!=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end(); ++i_source){
-<a name="l00057"></a>00057         <span class="keywordflow">if</span>(i_source-&gt;first==channel) size+=i_source-&gt;second.size();
-<a name="l00058"></a>00058     }
-<a name="l00059"></a>00059     <span class="keywordflow">return</span> size;
-<a name="l00060"></a>00060 }
+<p><div class="fragment"><pre class="fragment"><a name="l00087"></a>00087                                                        {
+<a name="l00088"></a>00088     <span class="keywordtype">int</span> size=0;
+<a name="l00089"></a>00089     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
+<a name="l00090"></a>00090             i_source!=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end(); ++i_source){
+<a name="l00091"></a>00091         <span class="keywordflow">if</span>(i_source-&gt;first==channel) size+=i_source-&gt;second.size();
+<a name="l00092"></a>00092     }
+<a name="l00093"></a>00093     <span class="keywordflow">return</span> size;
+<a name="l00094"></a>00094 }
 </pre></div></p>
 
 </div>
@@ -641,7 +789,7 @@
 
 <p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00035">35</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00100">fExhaustedChannels</a>, and <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00109">fExhaustedChannels</a>, and <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035                     { 
 <a name="l00036"></a>00036             <a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.clear();
@@ -668,20 +816,20 @@
 
 <p>Get the total number of pulses contained in this TME. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00044">44</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00078">78</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00096">fPulseLists</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00105">fPulseLists</a>.</p>
 
 <p>Referenced by <a class="el" href="MaxTimeDiffMEGenerator_8cpp_source.html#l00009">MaxTimeDiffMEGenerator::ProcessPulses()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00044"></a>00044                                    {
-<a name="l00045"></a>00045     <span class="keywordtype">int</span> size=0;
-<a name="l00046"></a>00046     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
-<a name="l00047"></a>00047             i_source!=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end(); ++i_source){
-<a name="l00048"></a>00048         size+=i_source-&gt;second.size();
-<a name="l00049"></a>00049     }
-<a name="l00050"></a>00050     <span class="keywordflow">return</span> size;
-<a name="l00051"></a>00051 }
+<p><div class="fragment"><pre class="fragment"><a name="l00078"></a>00078                                    {
+<a name="l00079"></a>00079     <span class="keywordtype">int</span> size=0;
+<a name="l00080"></a>00080     <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.begin();
+<a name="l00081"></a>00081             i_source!=<a class="code" href="classTMuonEvent.html#a0f7df6e069265397f84bc8afab768a14">fPulseLists</a>.end(); ++i_source){
+<a name="l00082"></a>00082         size+=i_source-&gt;second.size();
+<a name="l00083"></a>00083     }
+<a name="l00084"></a>00084     <span class="keywordflow">return</span> size;
+<a name="l00085"></a>00085 }
 </pre></div></p>
 
 </div>
@@ -703,14 +851,14 @@
 
 <p>Get whether or not this TME is flagged as early in an event. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00076">76</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00110">110</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
 <p>References <a class="el" href="debug__tools_8h_source.html#l00043">DEBUG_PRINT</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00076"></a>00076                                      {
-<a name="l00077"></a>00077     <a class="code" href="debug__tools_8h.html#ab7ddf347af3f261a8add760637a07b21">DEBUG_PRINT</a>(<span class="stringliteral">&quot;TMuonEvent::WasEarlyInEvent is not yet implemented&quot;</span>);
-<a name="l00078"></a>00078     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00079"></a>00079 }
+<p><div class="fragment"><pre class="fragment"><a name="l00110"></a>00110                                      {
+<a name="l00111"></a>00111     <a class="code" href="debug__tools_8h.html#ab7ddf347af3f261a8add760637a07b21">DEBUG_PRINT</a>(<span class="stringliteral">&quot;TMuonEvent::WasEarlyInEvent is not yet implemented&quot;</span>);
+<a name="l00112"></a>00112     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00113"></a>00113 }
 </pre></div></p>
 
 </div>
@@ -742,14 +890,14 @@
 
 <p>Get whether or not this TME is flagged as late in an event. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00081">81</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8cpp_source.html#l00115">115</a> of file <a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a>.</p>
 
 <p>References <a class="el" href="debug__tools_8h_source.html#l00043">DEBUG_PRINT</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00081"></a>00081                                                                                  {
-<a name="l00082"></a>00082     <a class="code" href="debug__tools_8h.html#ab7ddf347af3f261a8add760637a07b21">DEBUG_PRINT</a>(<span class="stringliteral">&quot;TMuonEvent::WasLateInEvent is not yet implemented&quot;</span>);
-<a name="l00083"></a>00083     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00084"></a>00084 }
+<p><div class="fragment"><pre class="fragment"><a name="l00115"></a>00115                                                                                  {
+<a name="l00116"></a>00116     <a class="code" href="debug__tools_8h.html#ab7ddf347af3f261a8add760637a07b21">DEBUG_PRINT</a>(<span class="stringliteral">&quot;TMuonEvent::WasLateInEvent is not yet implemented&quot;</span>);
+<a name="l00117"></a>00117     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00118"></a>00118 }
 </pre></div></p>
 
 </div>
@@ -772,12 +920,12 @@
 
 <p>Get whether all pulses for a specific channel were used up. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00089">89</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00097">97</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00100">fExhaustedChannels</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00109">fExhaustedChannels</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00089"></a>00089                                                        {
-<a name="l00090"></a>00090             <span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.find(so)!=<a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.end();};
+<p><div class="fragment"><pre class="fragment"><a name="l00097"></a>00097                                                        {
+<a name="l00098"></a>00098             <span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.find(so)!=<a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.end();};
 </pre></div></p>
 
 </div>
@@ -799,11 +947,11 @@
 
 <p>Get whether all pulses for ANY channel were used up. </p>
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00087">87</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00095">95</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>References <a class="el" href="TMuonEvent_8h_source.html#l00100">fExhaustedChannels</a>.</p>
+<p>References <a class="el" href="TMuonEvent_8h_source.html#l00109">fExhaustedChannels</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00087"></a>00087 {<span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.size()!=0;};
+<p><div class="fragment"><pre class="fragment"><a name="l00095"></a>00095 {<span class="keywordflow">return</span> <a class="code" href="classTMuonEvent.html#a4c672b9c98e70cfbfa412afe4a9a8bc7">fExhaustedChannels</a>.size()!=0;};
 </pre></div></p>
 
 </div>
@@ -820,9 +968,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00097">97</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00106">106</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TMuonEvent_8h_source.html#l00093">GetTime()</a>.</p>
+<p>Referenced by <a class="el" href="TMuonEvent_8h_source.html#l00102">GetCentralMuon()</a>, and <a class="el" href="TMuonEvent_8h_source.html#l00101">GetTime()</a>.</p>
 
 </div>
 </div>
@@ -837,9 +985,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00100">100</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00109">109</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TMuonEvent_8h_source.html#l00085">AllPulsesUsed()</a>, <a class="el" href="TMuonEvent_8h_source.html#l00035">Reset()</a>, and <a class="el" href="TMuonEvent_8h_source.html#l00087">WereNoPulsesLeft()</a>.</p>
+<p>Referenced by <a class="el" href="TMuonEvent_8h_source.html#l00093">AllPulsesUsed()</a>, <a class="el" href="TMuonEvent_8h_source.html#l00035">Reset()</a>, and <a class="el" href="TMuonEvent_8h_source.html#l00095">WereNoPulsesLeft()</a>.</p>
 
 </div>
 </div>
@@ -854,9 +1002,9 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00096">96</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00105">105</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TMuonEvent_8cpp_source.html#l00026">AddPulse()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00030">AddPulses()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00086">BeginPulses()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00089">EndPulses()</a>, <a class="el" href="TMuonEvent_8h_source.html#l00049">GetNumSources()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00037">GetSource()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00053">NumPulses()</a>, <a class="el" href="TMuonEvent_8h_source.html#l00035">Reset()</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00044">TotalNumPulses()</a>.</p>
+<p>Referenced by <a class="el" href="TMuonEvent_8cpp_source.html#l00027">AddPulse()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00031">AddPulses()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00120">BeginPulses()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00123">EndPulses()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00058">GetFirstSourceIndex()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00067">GetLastSourceIndex()</a>, <a class="el" href="TMuonEvent_8h_source.html#l00049">GetNumSources()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00040">GetSource()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00047">GetSourceIndex()</a>, <a class="el" href="TMuonEvent_8cpp_source.html#l00087">NumPulses()</a>, <a class="el" href="TMuonEvent_8h_source.html#l00035">Reset()</a>, and <a class="el" href="TMuonEvent_8cpp_source.html#l00078">TotalNumPulses()</a>.</p>
 
 </div>
 </div>
@@ -871,7 +1019,7 @@
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00098">98</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
+<p>Definition at line <a class="el" href="TMuonEvent_8h_source.html#l00107">107</a> of file <a class="el" href="TMuonEvent_8h_source.html">TMuonEvent.h</a>.</p>
 
 </div>
 </div>
@@ -880,7 +1028,7 @@
 <li>rootana/src/TME_generators/<a class="el" href="TMuonEvent_8cpp_source.html">TMuonEvent.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

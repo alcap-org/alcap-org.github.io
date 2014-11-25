@@ -35,7 +35,7 @@
 <a name="l00011"></a><a class="code" href="classTAPGeneratorOptions.html">00011</a> <span class="keyword">class </span><a class="code" href="classTAPGeneratorOptions.html">TAPGeneratorOptions</a>:<span class="keyword">public</span> modules::<a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">options</a>{
 <a name="l00012"></a>00012  <span class="keyword">public</span>:
 <a name="l00013"></a><a class="code" href="classTAPGeneratorOptions.html#a836d185fb88d71930a01a0ac90d2df33">00013</a>  <a class="code" href="classTAPGeneratorOptions.html#a836d185fb88d71930a01a0ac90d2df33">TAPGeneratorOptions</a>(<span class="keyword">const</span> std::string&amp; name):
-<a name="l00014"></a>00014   modules::<a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">options</a>(name){};
+<a name="l00014"></a>00014   modules::<a class="code" href="classmodules_1_1options.html#a935400523e4bd60eb7bda5a1e3b109b6" title="Constructor of an option. The name of the module that will.">options</a>(name),<a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a>(false){};
 <a name="l00015"></a><a class="code" href="classTAPGeneratorOptions.html#a9abc50ee8db360d57887ae3a14a8afff">00015</a>   <a class="code" href="classTAPGeneratorOptions.html#a9abc50ee8db360d57887ae3a14a8afff">~TAPGeneratorOptions</a>(){};
 <a name="l00016"></a>00016   
 <a name="l00017"></a>00017   <span class="keywordtype">void</span> <a class="code" href="classTAPGeneratorOptions.html#a27d3382e52e45b0b3565e042abf27515" title="Set the value of an argument.">AddArgument</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; number, <span class="keyword">const</span> std::string&amp; option);
@@ -46,15 +46,19 @@
 <a name="l00022"></a><a class="code" href="classTAPGeneratorOptions.html#a1bb2dcf4fbdadf4c29acb17f3a74d083">00022</a>   <span class="keywordtype">void</span> <a class="code" href="classTAPGeneratorOptions.html#a1bb2dcf4fbdadf4c29acb17f3a74d083">SetChannel</a>(<span class="keyword">const</span> std::string&amp; ch){ 
 <a name="l00023"></a>00023     <a class="code" href="classTAPGeneratorOptions.html#a7e6500bbef91ff5ff7f27bd00895c4d3">fChannel</a> = ch;
 <a name="l00024"></a>00024   }
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026  <span class="keyword">private</span>:
-<a name="l00027"></a><a class="code" href="classTAPGeneratorOptions.html#a7e6500bbef91ff5ff7f27bd00895c4d3">00027</a>   std::string <a class="code" href="classTAPGeneratorOptions.html#a7e6500bbef91ff5ff7f27bd00895c4d3">fChannel</a>;
+<a name="l00025"></a>00025   
+<a name="l00026"></a><a class="code" href="classTAPGeneratorOptions.html#ae308ccff089d994d44ef3ecf9d0bdb8f">00026</a>   <span class="keywordtype">bool</span> <a class="code" href="classTAPGeneratorOptions.html#ae308ccff089d994d44ef3ecf9d0bdb8f">Debug</a>()<span class="keyword">const</span>{<span class="keywordflow">return</span> <a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a>;}
+<a name="l00027"></a><a class="code" href="classTAPGeneratorOptions.html#ad69521d51fc33ce5d4418004968596ca">00027</a>   <span class="keywordtype">void</span> <a class="code" href="classTAPGeneratorOptions.html#ad69521d51fc33ce5d4418004968596ca">Debug</a>(<span class="keywordtype">bool</span> v){<a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a>=v;}
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029 };
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#endif // TAPGENERATOROPTIONS_H_</span>
+<a name="l00029"></a>00029  <span class="keyword">private</span>:
+<a name="l00030"></a><a class="code" href="classTAPGeneratorOptions.html#a7e6500bbef91ff5ff7f27bd00895c4d3">00030</a>   std::string <a class="code" href="classTAPGeneratorOptions.html#a7e6500bbef91ff5ff7f27bd00895c4d3">fChannel</a>;
+<a name="l00031"></a><a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">00031</a>   <span class="keywordtype">bool</span> <a class="code" href="classTAPGeneratorOptions.html#a9656a889ead4ef0bd8ea540adee68f79">fDebug</a>;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 };
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="preprocessor">#endif // TAPGENERATOROPTIONS_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 24 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
