@@ -134,45 +134,45 @@
 <a name="l00107"></a>00107 
 <a name="l00108"></a>00108     <span class="comment">// Loop over each generator</span>
 <a name="l00109"></a>00109     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> detector;
-<a name="l00110"></a>00110     <span class="keywordtype">string</span> bankname;
-<a name="l00111"></a>00111     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* thePulseIslands;
-<a name="l00112"></a>00112     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelGenerators_t::iterator</a> generator;
-<a name="l00113"></a>00113     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> theAnalysedPulses;
-<a name="l00114"></a>00114     <span class="keywordtype">int</span> retVal=0;
-<a name="l00115"></a>00115     <span class="keywordflow">for</span>(generator = <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin(); generator != <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end(); generator++){
-<a name="l00116"></a>00116         <span class="comment">// Get the bank name</span>
-<a name="l00117"></a>00117         detector = (*generator)-&gt;GetChannel().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>();
-<a name="l00118"></a>00118         bankname = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">GetBank</a>(detector);
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120         <span class="comment">// Get the TPIs</span>
-<a name="l00121"></a>00121         thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[bankname];
-<a name="l00122"></a>00122         <span class="keywordflow">if</span>(thePulseIslands-&gt;empty() ){
-<a name="l00123"></a>00123           <span class="keywordflow">if</span>( <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout &lt;&lt; <span class="stringliteral">&quot;Event No: &quot;</span> 
-<a name="l00124"></a>00124                             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() 
-<a name="l00125"></a>00125                             &lt;&lt;<span class="stringliteral">&quot;: List of TPIs for &apos;&quot;</span>&lt;&lt; detector 
-<a name="l00126"></a>00126                             &lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt; endl;
-<a name="l00127"></a>00127           <span class="keywordflow">continue</span>;
-<a name="l00128"></a>00128         }
-<a name="l00129"></a>00129 
-<a name="l00130"></a>00130         <span class="comment">// clear the list of analyse_pulses from the last iteration</span>
-<a name="l00131"></a>00131         theAnalysedPulses.clear();
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133         <span class="comment">// generate the new list of analyse_pulses</span>
-<a name="l00134"></a>00134         (*generator)-&gt;SetPulseList(thePulseIslands);
-<a name="l00135"></a>00135         retVal=(*generator)-&gt;ProcessPulses( *thePulseIslands,theAnalysedPulses);
-<a name="l00136"></a>00136         <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
-<a name="l00137"></a>00137 
-<a name="l00138"></a>00138         <span class="comment">// find the pulse list in gAnalysedPulseMap</span>
-<a name="l00139"></a>00139         <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> it=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find((*generator)-&gt;GetSource());
-<a name="l00140"></a>00140         <span class="keywordflow">if</span>(it==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
-<a name="l00141"></a>00141             <span class="comment">// source doesn&apos;t seem to exist in gAnalysedPulseMap</span>
-<a name="l00142"></a>00142           cout &lt;&lt;<span class="stringliteral">&quot;Error: New TAP source \&quot;&quot;</span> &lt;&lt; (*generator)-&gt;GetSource() 
-<a name="l00143"></a>00143                &lt;&lt;<span class="stringliteral">&quot;\&quot; seems to have been created during processing of pulses.&quot;</span>
-<a name="l00144"></a>00144                &lt;&lt;endl;
-<a name="l00145"></a>00145             <span class="keywordflow">return</span> 1;
-<a name="l00146"></a>00146         }
-<a name="l00147"></a>00147         <span class="comment">// add the pulses into the map</span>
-<a name="l00148"></a>00148         it-&gt;second=theAnalysedPulses;
+<a name="l00110"></a>00110     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* thePulseIslands;
+<a name="l00111"></a>00111     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelGenerators_t::iterator</a> generator;
+<a name="l00112"></a>00112     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> theAnalysedPulses;
+<a name="l00113"></a>00113     <span class="keywordtype">int</span> retVal=0;
+<a name="l00114"></a>00114     <span class="keywordflow">for</span>(generator = <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin(); generator != <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end(); generator++){
+<a name="l00115"></a>00115         <span class="comment">// Get the bank name</span>
+<a name="l00116"></a>00116         detector = (*generator)-&gt;GetChannel().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>();
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="comment">// Get the TPIs</span>
+<a name="l00119"></a>00119         thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[(*generator)-&gt;GetBank()];
+<a name="l00120"></a>00120         <span class="keywordflow">if</span>(thePulseIslands-&gt;empty() ){
+<a name="l00121"></a>00121           <span class="keywordflow">if</span>( <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout &lt;&lt; <span class="stringliteral">&quot;Event No: &quot;</span> 
+<a name="l00122"></a>00122                             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() 
+<a name="l00123"></a>00123                             &lt;&lt;<span class="stringliteral">&quot;: List of TPIs for &apos;&quot;</span>&lt;&lt; detector 
+<a name="l00124"></a>00124                             &lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt; endl;
+<a name="l00125"></a>00125           <span class="keywordflow">continue</span>;
+<a name="l00126"></a>00126         }
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128         <span class="comment">// clear the list of analyse_pulses from the last iteration</span>
+<a name="l00129"></a>00129         theAnalysedPulses.clear();
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131         <span class="comment">// generate the new list of analyse_pulses</span>
+<a name="l00132"></a>00132         (*generator)-&gt;SetPulseList(thePulseIslands);
+<a name="l00133"></a>00133         retVal=(*generator)-&gt;ProcessPulses( *thePulseIslands,theAnalysedPulses);
+<a name="l00134"></a>00134         <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136         <span class="comment">// find the pulse list in gAnalysedPulseMap</span>
+<a name="l00137"></a>00137         <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> it=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find((*generator)-&gt;GetSource());
+<a name="l00138"></a>00138         <span class="keywordflow">if</span>(it==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
+<a name="l00139"></a>00139             <span class="comment">// source doesn&apos;t seem to exist in gAnalysedPulseMap</span>
+<a name="l00140"></a>00140           cout &lt;&lt;<span class="stringliteral">&quot;Error: New TAP source \&quot;&quot;</span> &lt;&lt; (*generator)-&gt;GetSource() 
+<a name="l00141"></a>00141                &lt;&lt;<span class="stringliteral">&quot;\&quot; seems to have been created during processing of pulses.&quot;</span>
+<a name="l00142"></a>00142                &lt;&lt;endl;
+<a name="l00143"></a>00143             <span class="keywordflow">return</span> 1;
+<a name="l00144"></a>00144         }
+<a name="l00145"></a>00145         <span class="comment">// add the pulses into the map</span>
+<a name="l00146"></a>00146         it-&gt;second=theAnalysedPulses;
+<a name="l00147"></a>00147         
+<a name="l00148"></a>00148         (*generator)-&gt;CalibratePulses(it-&gt;second);
 <a name="l00149"></a>00149     }
 <a name="l00150"></a>00150     <span class="keywordflow">return</span> 0;
 <a name="l00151"></a>00151 }
@@ -255,7 +255,7 @@
 <a name="l00228"></a>00228 
 <a name="l00229"></a>00229 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classMakeAnalysedPulses.html">MakeAnalysedPulses</a>,slow_gen,fast_gen);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

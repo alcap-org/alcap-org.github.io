@@ -47,12 +47,17 @@
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a548c02124ff047e7460ca5d7c83a3304">GetNoise</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;channel) const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the error on the pedestal from the SQLite database.  <a href="#a548c02124ff047e7460ca5d7c83a3304"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#afef018a360a4fc9b9132b333710b0454">GetCoarseTimeOffset</a> (const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;src) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#afec8b8d790f9c79b67f84926582df8ae">GetEnergyCalibrationConstants</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;) const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the energy calibration constants.  <a href="#afec8b8d790f9c79b67f84926582df8ae"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#ad6928600fac820b6fbd2eafaa07bc5b6">GetEnergyCalibrationConstants</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets the energy calibration constants.  <a href="#ad6928600fac820b6fbd2eafaa07bc5b6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a41b5f160fe02812c61c4cab29d4427de">GetAdcToEnergyGain</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;ch) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a5143a71e4e082a358d33b863d5cfbe52">GetAdcToEnergyConstant</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;ch) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a4f23792f6016431e960a372a355d0ae0">SetPedestalAndNoise</a> (const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;channel, double pedestal, double noise)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a6538c76e50628b0f4d6c75bbf3229f71">SetCoarseTimeOffset</a> (const <a class="el" href="classIDs_1_1source.html">IDs::source</a> &amp;src, double dt)</td></tr>
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSetupNavigator.html">SetupNavigator</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">Instance</a> ()</td></tr>
+<tr><td colspan="2"><h2>Private Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; double, double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a67ec4a72ad2224ba8396f44467ff6a9a">EnergyCalibRow_t</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The map that stores energy calibration constants as &lt;Gain,Pedestal&gt; pairs.  <a href="#a67ec4a72ad2224ba8396f44467ff6a9a"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#aabf8cf69b7ebc7e19d9b1f99b25941d3">~SetupNavigator</a> ()</td></tr>
@@ -87,12 +92,29 @@ double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 double &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5">fCoarseTimeOffset</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The map that stores the gross time offset values from SQLite database.  <a href="#abfe81c66081077e24b27d5cef4c25db5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static std::map&lt; <a class="el" href="classIDs_1_1channel.html">IDs::channel</a>, <br class="typebreak"/>
-std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#a2e1c4b1c1c73034a666e87f701eb7fa7">fEnergyCalibrationConstants</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The map that stores energy calibration constants as &lt;Gain,Pedestal&gt; pairs.  <a href="#a2e1c4b1c1c73034a666e87f701eb7fa7"></a><br/></td></tr>
+<a class="el" href="classSetupNavigator.html#a67ec4a72ad2224ba8396f44467ff6a9a">EnergyCalibRow_t</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSetupNavigator.html#ad0dfbd50ea0cdbd504f90ed205c25e04">fEnergyCalibrationConstants</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
 <p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00021">21</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a67ec4a72ad2224ba8396f44467ff6a9a"></a><!-- doxytag: member="SetupNavigator::EnergyCalibRow_t" ref="a67ec4a72ad2224ba8396f44467ff6a9a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;double,double&gt; <a class="el" href="classSetupNavigator.html#a67ec4a72ad2224ba8396f44467ff6a9a">SetupNavigator::EnergyCalibRow_t</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The map that stores energy calibration constants as &lt;Gain,Pedestal&gt; pairs. </p>
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00100">100</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="add255c11b74ffac71f4e95eaa9afbbb6"></a><!-- doxytag: member="SetupNavigator::SetupNavigator" ref="add255c11b74ffac71f4e95eaa9afbbb6" args="()" -->
 <div class="memitem">
@@ -111,9 +133,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00037">37</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00081">fServer</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00084">fServer</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00101">Instance()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8h_source.html#l00105">Instance()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00037"></a>00037                                :
 <a name="l00038"></a>00038   <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>(),
@@ -175,7 +197,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00073">73</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00083">fCoarseTimeOffsetTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00084">fEnergyCalibrationConstantsTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00082">fPedestalNoiseTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00081">fServer</a>, <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00072">IsCalibRun()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00086">fCoarseTimeOffsetTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00087">fEnergyCalibrationConstantsTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00085">fPedestalNoiseTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00084">fServer</a>, <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00075">IsCalibRun()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00076">main()</a>.</p>
 
@@ -234,7 +256,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00053">53</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00081">fServer</a>, <a class="el" href="SetupNavigator_8h_source.html#l00075">fThis</a>, <a class="el" href="SetupNavigator_8h_source.html#l00072">IsCalibRun()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00196">OutputCalibCSV()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00084">fServer</a>, <a class="el" href="SetupNavigator_8h_source.html#l00078">fThis</a>, <a class="el" href="SetupNavigator_8h_source.html#l00075">IsCalibRun()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00199">OutputCalibCSV()</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00169">Finish()</a>.</p>
 
@@ -246,6 +268,56 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 <a name="l00058"></a>00058     <span class="keyword">delete</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
 <a name="l00059"></a>00059   <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a> = NULL;
 <a name="l00060"></a>00060 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a5143a71e4e082a358d33b863d5cfbe52"></a><!-- doxytag: member="SetupNavigator::GetAdcToEnergyConstant" ref="a5143a71e4e082a358d33b863d5cfbe52" args="(const IDs::channel &amp;ch) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SetupNavigator::GetAdcToEnergyConstant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>ch</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00054">54</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8cpp_source.html#l00005">TVAnalysedPulseGenerator::TVAnalysedPulseGenerator()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00054"></a>00054 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#ad6928600fac820b6fbd2eafaa07bc5b6" title="Gets the energy calibration constants.">GetEnergyCalibrationConstants</a>(ch).second;}
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a41b5f160fe02812c61c4cab29d4427de"></a><!-- doxytag: member="SetupNavigator::GetAdcToEnergyGain" ref="a41b5f160fe02812c61c4cab29d4427de" args="(const IDs::channel &amp;ch) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SetupNavigator::GetAdcToEnergyGain </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>ch</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00053">53</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8cpp_source.html#l00005">TVAnalysedPulseGenerator::TVAnalysedPulseGenerator()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#ad6928600fac820b6fbd2eafaa07bc5b6" title="Gets the energy calibration constants.">GetEnergyCalibrationConstants</a>(ch).first;}
 </pre></div></p>
 
 </div>
@@ -268,9 +340,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00063">63</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="ModulesParser_8cpp_source.html#l00173">modules::parser::iequals()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00101">Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
+<p>References <a class="el" href="ModulesParser_8cpp_source.html#l00173">modules::parser::iequals()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00105">Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>.</p>
+<p>Referenced by <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00108">TVAnalysedPulseGenerator::SetChannel()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00063"></a>00063                                                            {
 <a name="l00064"></a>00064   std::map&lt;std::string, std::string&gt;* bankDetNameMap=&amp;<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">TSetupData::Instance</a>()-&gt;fBankToDetectorMap;
@@ -329,7 +401,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00163">163</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00083">fCoarseTimeOffsetTableName</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00081">fServer</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00086">fCoarseTimeOffsetTableName</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00084">fServer</a>.</p>
 
 <p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>.</p>
 
@@ -351,12 +423,12 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 </div>
 </div>
-<a class="anchor" id="afec8b8d790f9c79b67f84926582df8ae"></a><!-- doxytag: member="SetupNavigator::GetEnergyCalibrationConstants" ref="afec8b8d790f9c79b67f84926582df8ae" args="(const IDs::channel &amp;) const " -->
+<a class="anchor" id="ad6928600fac820b6fbd2eafaa07bc5b6"></a><!-- doxytag: member="SetupNavigator::GetEnergyCalibrationConstants" ref="ad6928600fac820b6fbd2eafaa07bc5b6" args="(const IDs::channel &amp;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt; double, double &gt; SetupNavigator::GetEnergyCalibrationConstants </td>
+          <td class="memname"><a class="el" href="classSetupNavigator.html#a67ec4a72ad2224ba8396f44467ff6a9a">SetupNavigator::EnergyCalibRow_t</a> SetupNavigator::GetEnergyCalibrationConstants </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classIDs_1_1channel.html">IDs::channel</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>ch</em></td>
@@ -369,15 +441,15 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Gets the energy calibration constants. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00255">255</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00258">258</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00097">fEnergyCalibrationConstants</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00101">fEnergyCalibrationConstants</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
 
 <p>Referenced by <a class="el" href="GeSpectrum_8cpp_source.html#l00030">GeSpectrum::GeSpectrum()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00255"></a>00255                                                                                                {
-<a name="l00256"></a>00256   <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidDetector&gt;(<a class="code" href="classSetupNavigator.html#a2e1c4b1c1c73034a666e87f701eb7fa7" title="The map that stores energy calibration constants as &amp;lt;Gain,Pedestal&amp;gt; pairs.">fEnergyCalibrationConstants</a>, ch, ch.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>().c_str());
-<a name="l00257"></a>00257 }
+<p><div class="fragment"><pre class="fragment"><a name="l00258"></a>00258                                                                                                        {
+<a name="l00259"></a>00259   <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidDetector&gt;(<a class="code" href="classSetupNavigator.html#ad0dfbd50ea0cdbd504f90ed205c25e04">fEnergyCalibrationConstants</a>, ch, ch.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>().c_str());
+<a name="l00260"></a>00260 }
 </pre></div></p>
 
 </div>
@@ -400,15 +472,15 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Gets the error on the pedestal from the SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00248">248</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00251">251</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00091">fNoiseValues</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00094">fNoiseValues</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
 
 <p>Referenced by <a class="el" href="InterpolatePulse_8cpp_source.html#l00010">functions::InterpolatePulse()</a>, and <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00065">PulseCandidateFinder::SetChannel()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00248"></a>00248                                                                {
-<a name="l00249"></a>00249   <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidDetector&gt;(<a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>,channel,channel.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>().c_str());
-<a name="l00250"></a>00250 }
+<p><div class="fragment"><pre class="fragment"><a name="l00251"></a>00251                                                                {
+<a name="l00252"></a>00252   <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidDetector&gt;(<a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>,channel,channel.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>().c_str());
+<a name="l00253"></a>00253 }
 </pre></div></p>
 
 </div>
@@ -431,15 +503,15 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Gets the pedestal from the SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00251">251</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00254">254</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00088">fPedestalValues</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00091">fPedestalValues</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
 
 <p>Referenced by <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00065">PulseCandidateFinder::SetChannel()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00251"></a>00251                                                                   { 
-<a name="l00252"></a>00252   <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidDetector&gt;(<a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>,channel,channel.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>().c_str());
-<a name="l00253"></a>00253 }
+<p><div class="fragment"><pre class="fragment"><a name="l00254"></a>00254                                                                   { 
+<a name="l00255"></a>00255   <span class="keywordflow">return</span> alcap::at&lt;Except::InvalidDetector&gt;(<a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>,channel,channel.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>().c_str());
+<a name="l00256"></a>00256 }
 </pre></div></p>
 
 </div>
@@ -461,7 +533,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00035">35</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00265">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00196">OutputCalibCSV()</a>, <a class="el" href="PlotTAP__Time_8cpp_source.html#l00033">PlotTAP_Time::ProcessEntry()</a>, <a class="el" href="PlotTAP__Amplitude_8cpp_source.html#l00037">PlotTAP_Amplitude::ProcessEntry()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00265">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00199">OutputCalibCSV()</a>, <a class="el" href="PlotTAP__Time_8cpp_source.html#l00033">PlotTAP_Time::ProcessEntry()</a>, <a class="el" href="PlotTAP__Amplitude_8cpp_source.html#l00037">PlotTAP_Amplitude::ProcessEntry()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a2bb492c31a29cf49338bd2c4a7687e12">run</a>;};
 </pre></div></p>
@@ -483,16 +555,16 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00101">101</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00105">105</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00075">fThis</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00037">SetupNavigator()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00078">fThis</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00037">SetupNavigator()</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00100">PlotTAP_TDiff::AfterLastEntry()</a>, <a class="el" href="CalcCoarseTimeOffset_8cpp_source.html#l00103">CalcCoarseTimeOffset::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00265">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="main_8cpp_source.html#l00169">Finish()</a>, <a class="el" href="GeSpectrum_8cpp_source.html#l00030">GeSpectrum::GeSpectrum()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00063">GetBank()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="InterpolatePulse_8cpp_source.html#l00010">functions::InterpolatePulse()</a>, <a class="el" href="main_8cpp_source.html#l00076">main()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">MakeAnalysedPulses::ProcessEntry()</a>, <a class="el" href="PlotTAP__Time_8cpp_source.html#l00033">PlotTAP_Time::ProcessEntry()</a>, <a class="el" href="PlotTAP__Amplitude_8cpp_source.html#l00037">PlotTAP_Amplitude::ProcessEntry()</a>, and <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00065">PulseCandidateFinder::SetChannel()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>, <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00100">PlotTAP_TDiff::AfterLastEntry()</a>, <a class="el" href="CalcCoarseTimeOffset_8cpp_source.html#l00103">CalcCoarseTimeOffset::AfterLastEntry()</a>, <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00265">PulseCandidateFinder::FillParameterHistogram()</a>, <a class="el" href="main_8cpp_source.html#l00169">Finish()</a>, <a class="el" href="GeSpectrum_8cpp_source.html#l00030">GeSpectrum::GeSpectrum()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00063">GetBank()</a>, <a class="el" href="PlotAmpVsMuScTDiff_8cpp_source.html#l00096">PlotAmpVsMuScTDiff::GetHistogram()</a>, <a class="el" href="InterpolatePulse_8cpp_source.html#l00010">functions::InterpolatePulse()</a>, <a class="el" href="main_8cpp_source.html#l00076">main()</a>, <a class="el" href="PlotTAP__Time_8cpp_source.html#l00033">PlotTAP_Time::ProcessEntry()</a>, <a class="el" href="PlotTAP__Amplitude_8cpp_source.html#l00037">PlotTAP_Amplitude::ProcessEntry()</a>, <a class="el" href="PulseCandidateFinder_8cpp_source.html#l00065">PulseCandidateFinder::SetChannel()</a>, <a class="el" href="TVAnalysedPulseGenerator_8h_source.html#l00108">TVAnalysedPulseGenerator::SetChannel()</a>, and <a class="el" href="TVAnalysedPulseGenerator_8cpp_source.html#l00005">TVAnalysedPulseGenerator::TVAnalysedPulseGenerator()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00101"></a>00101                                                {
-<a name="l00102"></a>00102   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
-<a name="l00103"></a>00103   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
-<a name="l00104"></a>00104 }
+<p><div class="fragment"><pre class="fragment"><a name="l00105"></a>00105                                                {
+<a name="l00106"></a>00106   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
+<a name="l00107"></a>00107   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
+<a name="l00108"></a>00108 }
 </pre></div></p>
 
 </div>
@@ -512,11 +584,11 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00072">72</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00075">75</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00053">Close()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00238">SetCoarseTimeOffset()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00228">SetPedestalAndNoise()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00053">Close()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00241">SetCoarseTimeOffset()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00231">SetPedestalAndNoise()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00072"></a>00072 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a008aa96291442ff9a8eabe7aff3f2960">calib</a>;}
+<p><div class="fragment"><pre class="fragment"><a name="l00075"></a>00075 {<span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">fCommandLineArgs</a>.<a class="code" href="structARGUMENTS.html#a008aa96291442ff9a8eabe7aff3f2960">calib</a>;}
 </pre></div></p>
 
 </div>
@@ -536,43 +608,43 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00196">196</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00199">199</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00094">fCoarseTimeOffset</a>, <a class="el" href="SetupNavigator_8h_source.html#l00083">fCoarseTimeOffsetTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00091">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00082">fPedestalNoiseTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00088">fPedestalValues</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00097">fCoarseTimeOffset</a>, <a class="el" href="SetupNavigator_8h_source.html#l00086">fCoarseTimeOffsetTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00094">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00085">fPedestalNoiseTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00091">fPedestalValues</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
 
 <p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00053">Close()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00196"></a>00196                                     {
-<a name="l00197"></a>00197   <span class="keywordtype">char</span> r[6];
-<a name="l00198"></a>00198   sprintf(r, <span class="stringliteral">&quot;%05d&quot;</span>, <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>());
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200   std::ofstream fPN((std::string(<span class="stringliteral">&quot;calib.run&quot;</span>) + r + <span class="stringliteral">&quot;.&quot;</span> + <a class="code" href="classSetupNavigator.html#ad0e11fabbe006d2295cbc270ba57bb22">fPedestalNoiseTableName</a> + <span class="stringliteral">&quot;.csv&quot;</span>).c_str());
-<a name="l00201"></a>00201   fPN &lt;&lt; <span class="stringliteral">&quot;run,channel,pedestal,noise&quot;</span> &lt;&lt; std::endl;
-<a name="l00202"></a>00202   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;IDs::channel, double&gt;::const_iterator</a> i = <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>.begin(); i != <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>.end(); ++i)
-<a name="l00203"></a>00203     fPN &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; i-&gt;first.str() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>
-<a name="l00204"></a>00204         &lt;&lt; i-&gt;second &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>.at(i-&gt;first) &lt;&lt; std::endl;
-<a name="l00205"></a>00205 
-<a name="l00206"></a>00206   std::ofstream fTO((std::string(<span class="stringliteral">&quot;calib.run&quot;</span>) + r + <span class="stringliteral">&quot;.&quot;</span> + <a class="code" href="classSetupNavigator.html#a1f47907af7a5504df18bfdbd57073569">fCoarseTimeOffsetTableName</a> + <span class="stringliteral">&quot;.csv&quot;</span>).c_str());
-<a name="l00207"></a>00207   std::set&lt;IDs::generator&gt; gens;
-<a name="l00208"></a>00208   std::set&lt;IDs::channel&gt; chns;
-<a name="l00209"></a>00209   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;IDs::source, double&gt;::const_iterator</a> i = <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.begin(); i != <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.end(); ++i) {
-<a name="l00210"></a>00210     gens.insert(i-&gt;first.Generator());
-<a name="l00211"></a>00211     chns.insert(i-&gt;first.Channel());
-<a name="l00212"></a>00212   }
-<a name="l00213"></a>00213   fTO &lt;&lt; <span class="stringliteral">&quot;run,channel&quot;</span>;
-<a name="l00214"></a>00214   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::set&lt;IDs::generator&gt;::const_iterator</a> i = gens.begin(); i != gens.end(); ++i)
-<a name="l00215"></a>00215     fTO &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; i-&gt;str();
-<a name="l00216"></a>00216   fTO &lt;&lt; std::endl;
-<a name="l00217"></a>00217   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::set&lt;IDs::channel&gt;::const_iterator</a> i = chns.begin(); i != chns.end(); ++i) {
-<a name="l00218"></a>00218     fTO &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; i-&gt;str();
-<a name="l00219"></a>00219     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::set&lt;IDs::generator&gt;::const_iterator</a> j = gens.begin(); j != gens.end(); ++j) {
-<a name="l00220"></a>00220       fTO &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00221"></a>00221       <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.count(<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(*i, *j)))
-<a name="l00222"></a>00222         fTO &lt;&lt; <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.at(<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(*i, *j));
-<a name="l00223"></a>00223     }
-<a name="l00224"></a>00224     fTO &lt;&lt; std::endl;
-<a name="l00225"></a>00225   }
-<a name="l00226"></a>00226 }
+<p><div class="fragment"><pre class="fragment"><a name="l00199"></a>00199                                     {
+<a name="l00200"></a>00200   <span class="keywordtype">char</span> r[6];
+<a name="l00201"></a>00201   sprintf(r, <span class="stringliteral">&quot;%05d&quot;</span>, <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>());
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203   std::ofstream fPN((std::string(<span class="stringliteral">&quot;calib.run&quot;</span>) + r + <span class="stringliteral">&quot;.&quot;</span> + <a class="code" href="classSetupNavigator.html#ad0e11fabbe006d2295cbc270ba57bb22">fPedestalNoiseTableName</a> + <span class="stringliteral">&quot;.csv&quot;</span>).c_str());
+<a name="l00204"></a>00204   fPN &lt;&lt; <span class="stringliteral">&quot;run,channel,pedestal,noise&quot;</span> &lt;&lt; std::endl;
+<a name="l00205"></a>00205   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;IDs::channel, double&gt;::const_iterator</a> i = <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>.begin(); i != <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>.end(); ++i)
+<a name="l00206"></a>00206     fPN &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; i-&gt;first.str() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>
+<a name="l00207"></a>00207         &lt;&lt; i-&gt;second &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>.at(i-&gt;first) &lt;&lt; std::endl;
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209   std::ofstream fTO((std::string(<span class="stringliteral">&quot;calib.run&quot;</span>) + r + <span class="stringliteral">&quot;.&quot;</span> + <a class="code" href="classSetupNavigator.html#a1f47907af7a5504df18bfdbd57073569">fCoarseTimeOffsetTableName</a> + <span class="stringliteral">&quot;.csv&quot;</span>).c_str());
+<a name="l00210"></a>00210   std::set&lt;IDs::generator&gt; gens;
+<a name="l00211"></a>00211   std::set&lt;IDs::channel&gt; chns;
+<a name="l00212"></a>00212   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::map&lt;IDs::source, double&gt;::const_iterator</a> i = <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.begin(); i != <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.end(); ++i) {
+<a name="l00213"></a>00213     gens.insert(i-&gt;first.Generator());
+<a name="l00214"></a>00214     chns.insert(i-&gt;first.Channel());
+<a name="l00215"></a>00215   }
+<a name="l00216"></a>00216   fTO &lt;&lt; <span class="stringliteral">&quot;run,channel&quot;</span>;
+<a name="l00217"></a>00217   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::set&lt;IDs::generator&gt;::const_iterator</a> i = gens.begin(); i != gens.end(); ++i)
+<a name="l00218"></a>00218     fTO &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; i-&gt;str();
+<a name="l00219"></a>00219   fTO &lt;&lt; std::endl;
+<a name="l00220"></a>00220   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::set&lt;IDs::channel&gt;::const_iterator</a> i = chns.begin(); i != chns.end(); ++i) {
+<a name="l00221"></a>00221     fTO &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; i-&gt;str();
+<a name="l00222"></a>00222     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">std::set&lt;IDs::generator&gt;::const_iterator</a> j = gens.begin(); j != gens.end(); ++j) {
+<a name="l00223"></a>00223       fTO &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;
+<a name="l00224"></a>00224       <span class="keywordflow">if</span> (<a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.count(<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(*i, *j)))
+<a name="l00225"></a>00225         fTO &lt;&lt; <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>.at(<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(*i, *j));
+<a name="l00226"></a>00226     }
+<a name="l00227"></a>00227     fTO &lt;&lt; std::endl;
+<a name="l00228"></a>00228   }
+<a name="l00229"></a>00229 }
 </pre></div></p>
 
 </div>
@@ -596,7 +668,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00138">138</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00094">fCoarseTimeOffset</a>, <a class="el" href="SetupNavigator_8h_source.html#l00083">fCoarseTimeOffsetTableName</a>, <a class="el" href="IdGenerator_8h_source.html#l00021">IDs::field_separator</a>, <a class="el" href="SetupNavigator_8h_source.html#l00081">fServer</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00163">GetCoarseTimeOffsetColumns()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00097">fCoarseTimeOffset</a>, <a class="el" href="SetupNavigator_8h_source.html#l00086">fCoarseTimeOffsetTableName</a>, <a class="el" href="IdGenerator_8h_source.html#l00021">IDs::field_separator</a>, <a class="el" href="SetupNavigator_8h_source.html#l00084">fServer</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00163">GetCoarseTimeOffsetColumns()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
 
 <p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>.</p>
 
@@ -647,25 +719,28 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00179">179</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00097">fEnergyCalibrationConstants</a>, <a class="el" href="SetupNavigator_8h_source.html#l00084">fEnergyCalibrationConstantsTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00081">fServer</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00101">fEnergyCalibrationConstants</a>, <a class="el" href="SetupNavigator_8h_source.html#l00087">fEnergyCalibrationConstantsTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00084">fServer</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
 
 <p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00179"></a>00179                                                     {
 <a name="l00180"></a>00180   std::stringstream cmd;
-<a name="l00181"></a>00181   cmd &lt;&lt; <span class="stringliteral">&quot;SELECT channel,gain,offset FROM &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a73fe8c6ca1ccb5497af1fd2a8960a0c1">fEnergyCalibrationConstantsTableName</a>
-<a name="l00182"></a>00182       &lt;&lt; <span class="stringliteral">&quot; WHERE run==&quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>();
-<a name="l00183"></a>00183   TSQLResult* res = <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(cmd.str().c_str());
-<a name="l00184"></a>00184   TSQLRow* row;
-<a name="l00185"></a>00185   <span class="keywordflow">while</span> ((row = res-&gt;Next())) {
-<a name="l00186"></a>00186     <a class="code" href="classSetupNavigator.html#a2e1c4b1c1c73034a666e87f701eb7fa7" title="The map that stores energy calibration constants as &amp;lt;Gain,Pedestal&amp;gt; pairs.">fEnergyCalibrationConstants</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(row-&gt;GetField(0))] =
-<a name="l00187"></a>00187       std::pair&lt;double,double&gt;(atof(row-&gt;GetField(1)), atof(row-&gt;GetField(2)));
-<a name="l00188"></a>00188     <span class="keyword">delete</span> row;
-<a name="l00189"></a>00189   }
-<a name="l00190"></a>00190   <span class="keyword">delete</span> res;
-<a name="l00191"></a>00191   <span class="comment">//  return !fEnergyCalibrationConstants.empty();</span>
-<a name="l00192"></a>00192   <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// Right now there&apos;s no reason this should be filled for anything</span>
-<a name="l00193"></a>00193 }
+<a name="l00181"></a>00181   <span class="comment">// // Ben:  In the future we will want to include generator parameters in the</span>
+<a name="l00182"></a>00182   <span class="comment">// // table to be able to calibrate multiple generators simultaneously:</span>
+<a name="l00183"></a>00183   <span class="comment">// cmd &lt;&lt; &quot;SELECT channel,gen_params,gain,offset FROM &quot; &lt;&lt; fEnergyCalibrationConstantsTableName </span>
+<a name="l00184"></a>00184   cmd &lt;&lt; <span class="stringliteral">&quot;SELECT channel,gain,offset FROM &quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a73fe8c6ca1ccb5497af1fd2a8960a0c1">fEnergyCalibrationConstantsTableName</a>
+<a name="l00185"></a>00185       &lt;&lt; <span class="stringliteral">&quot; WHERE run==&quot;</span> &lt;&lt; <a class="code" href="classSetupNavigator.html#a1161338906861b207e7e76b0c1c5f412">GetRunNumber</a>();
+<a name="l00186"></a>00186   TSQLResult* res = <a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">fServer</a>-&gt;Query(cmd.str().c_str());
+<a name="l00187"></a>00187   TSQLRow* row;
+<a name="l00188"></a>00188   <span class="keywordflow">while</span> ((row = res-&gt;Next())) {
+<a name="l00189"></a>00189     <a class="code" href="classSetupNavigator.html#ad0dfbd50ea0cdbd504f90ed205c25e04">fEnergyCalibrationConstants</a>[<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(row-&gt;GetField(0))] =
+<a name="l00190"></a>00190       <a class="code" href="classSetupNavigator.html#a67ec4a72ad2224ba8396f44467ff6a9a" title="The map that stores energy calibration constants as &amp;lt;Gain,Pedestal&amp;gt; pairs.">EnergyCalibRow_t</a>(atof(row-&gt;GetField(1)), atof(row-&gt;GetField(2)));
+<a name="l00191"></a>00191     <span class="keyword">delete</span> row;
+<a name="l00192"></a>00192   }
+<a name="l00193"></a>00193   <span class="keyword">delete</span> res;
+<a name="l00194"></a>00194   <span class="comment">//  return !fEnergyCalibrationConstants.empty();</span>
+<a name="l00195"></a>00195   <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// Right now there&apos;s no reason this should be filled for anything</span>
+<a name="l00196"></a>00196 }
 </pre></div></p>
 
 </div>
@@ -689,7 +764,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00108">108</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, <a class="el" href="SetupNavigator_8h_source.html#l00091">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00082">fPedestalNoiseTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00088">fPedestalValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00081">fServer</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
+<p>References <a class="el" href="definitions_8h_source.html#l00043">definitions::DefaultValue</a>, <a class="el" href="SetupNavigator_8h_source.html#l00094">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00085">fPedestalNoiseTableName</a>, <a class="el" href="SetupNavigator_8h_source.html#l00091">fPedestalValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00084">fServer</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00035">GetRunNumber()</a>.</p>
 
 <p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>.</p>
 
@@ -750,21 +825,21 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00238">238</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00241">241</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00094">fCoarseTimeOffset</a>, <a class="el" href="IdSource_8h_source.html#l00085">IDs::source::Generator()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00072">IsCalibRun()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00022">StripTimeShiftConfigFromString()</a>.</p>
+<p>References <a class="el" href="IdSource_8h_source.html#l00088">IDs::source::Channel()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00097">fCoarseTimeOffset</a>, <a class="el" href="IdSource_8h_source.html#l00085">IDs::source::Generator()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00075">IsCalibRun()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00022">StripTimeShiftConfigFromString()</a>.</p>
 
 <p>Referenced by <a class="el" href="PlotTAP__TDiff_8cpp_source.html#l00100">PlotTAP_TDiff::AfterLastEntry()</a>, and <a class="el" href="CalcCoarseTimeOffset_8cpp_source.html#l00103">CalcCoarseTimeOffset::AfterLastEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00238"></a>00238                                                                         {
-<a name="l00239"></a>00239   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">IsCalibRun</a>()) {
-<a name="l00240"></a>00240     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: Warning: Request to edit coarse time offsets &quot;</span>
-<a name="l00241"></a>00241                  <span class="stringliteral">&quot;when not flagged as calibration. Not setting.&quot;</span> &lt;&lt; std::endl;
-<a name="l00242"></a>00242     <span class="keywordflow">return</span>;
-<a name="l00243"></a>00243   }
-<a name="l00244"></a>00244   <span class="comment">// The excess code here is to strip {no_time_shift=*} from the generator config string</span>
-<a name="l00245"></a>00245   <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>[<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(src.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>(), <a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>(<a class="code" href="SetupNavigator_8cpp.html#ac63411fdd93bfaf26d10231904f2442f">StripTimeShiftConfigFromString</a>(src.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().str())))] = dt;
-<a name="l00246"></a>00246 }
+<p><div class="fragment"><pre class="fragment"><a name="l00241"></a>00241                                                                         {
+<a name="l00242"></a>00242   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">IsCalibRun</a>()) {
+<a name="l00243"></a>00243     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: Warning: Request to edit coarse time offsets &quot;</span>
+<a name="l00244"></a>00244                  <span class="stringliteral">&quot;when not flagged as calibration. Not setting.&quot;</span> &lt;&lt; std::endl;
+<a name="l00245"></a>00245     <span class="keywordflow">return</span>;
+<a name="l00246"></a>00246   }
+<a name="l00247"></a>00247   <span class="comment">// The excess code here is to strip {no_time_shift=*} from the generator config string</span>
+<a name="l00248"></a>00248   <a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5" title="The map that stores the gross time offset values from SQLite database.">fCoarseTimeOffset</a>[<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(src.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>(), <a class="code" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">IDs::generator</a>(<a class="code" href="SetupNavigator_8cpp.html#ac63411fdd93bfaf26d10231904f2442f">StripTimeShiftConfigFromString</a>(src.<a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().str())))] = dt;
+<a name="l00249"></a>00249 }
 </pre></div></p>
 
 </div>
@@ -827,21 +902,21 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00228">228</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8cpp_source.html#l00231">231</a> of file <a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a>.</p>
 
-<p>References <a class="el" href="SetupNavigator_8h_source.html#l00091">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00088">fPedestalValues</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00072">IsCalibRun()</a>.</p>
+<p>References <a class="el" href="SetupNavigator_8h_source.html#l00094">fNoiseValues</a>, <a class="el" href="SetupNavigator_8h_source.html#l00091">fPedestalValues</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00075">IsCalibRun()</a>.</p>
 
 <p>Referenced by <a class="el" href="PlotTPI__PedestalAndNoise_8cpp_source.html#l00118">PlotTPI_PedestalAndNoise::AfterLastEntry()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00228"></a>00228                                                                                       {
-<a name="l00229"></a>00229   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">IsCalibRun</a>()) {
-<a name="l00230"></a>00230     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: Warning: Request to edit pedestals and &quot;</span>
-<a name="l00231"></a>00231                  <span class="stringliteral">&quot;noises when not flagged as calibration. Not setting.&quot;</span> &lt;&lt; std::endl;
-<a name="l00232"></a>00232     <span class="keywordflow">return</span>;
-<a name="l00233"></a>00233   }
-<a name="l00234"></a>00234   <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>[chn] = ped;
-<a name="l00235"></a>00235   <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>[chn] = nse;
-<a name="l00236"></a>00236 }
+<p><div class="fragment"><pre class="fragment"><a name="l00231"></a>00231                                                                                       {
+<a name="l00232"></a>00232   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">IsCalibRun</a>()) {
+<a name="l00233"></a>00233     std::cout &lt;&lt; <span class="stringliteral">&quot;SetupNavigator: Warning: Request to edit pedestals and &quot;</span>
+<a name="l00234"></a>00234                  <span class="stringliteral">&quot;noises when not flagged as calibration. Not setting.&quot;</span> &lt;&lt; std::endl;
+<a name="l00235"></a>00235     <span class="keywordflow">return</span>;
+<a name="l00236"></a>00236   }
+<a name="l00237"></a>00237   <a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1" title="The map that stores the pedestal values that we get from the SQLite database.">fPedestalValues</a>[chn] = ped;
+<a name="l00238"></a>00238   <a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a" title="The map that stores the pedestal error values (i.e. noise) that we get from the SQLite...">fNoiseValues</a>[chn] = nse;
+<a name="l00239"></a>00239 }
 </pre></div></p>
 
 </div>
@@ -860,9 +935,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>The map that stores the gross time offset values from SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00094">94</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00097">97</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00196">OutputCalibCSV()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00238">SetCoarseTimeOffset()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00199">OutputCalibCSV()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00241">SetCoarseTimeOffset()</a>.</p>
 
 </div>
 </div>
@@ -877,9 +952,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00083">83</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00086">86</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00163">GetCoarseTimeOffsetColumns()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00196">OutputCalibCSV()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00163">GetCoarseTimeOffsetColumns()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00199">OutputCalibCSV()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>.</p>
 
 </div>
 </div>
@@ -894,26 +969,24 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00076">76</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00079">79</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2e1c4b1c1c73034a666e87f701eb7fa7"></a><!-- doxytag: member="SetupNavigator::fEnergyCalibrationConstants" ref="a2e1c4b1c1c73034a666e87f701eb7fa7" args="" -->
+<a class="anchor" id="ad0dfbd50ea0cdbd504f90ed205c25e04"></a><!-- doxytag: member="SetupNavigator::fEnergyCalibrationConstants" ref="ad0dfbd50ea0cdbd504f90ed205c25e04" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt; <a class="el" href="classIDs_1_1channel.html">IDs::channel</a>, std::pair&lt; double, double &gt; &gt; <a class="el" href="classSetupNavigator.html#a2e1c4b1c1c73034a666e87f701eb7fa7">SetupNavigator::fEnergyCalibrationConstants</a><code> [static, private]</code></td>
+          <td class="memname">std::map&lt; <a class="el" href="classIDs_1_1channel.html">IDs::channel</a>, <a class="el" href="classSetupNavigator.html#a67ec4a72ad2224ba8396f44467ff6a9a">SetupNavigator::EnergyCalibRow_t</a> &gt; <a class="el" href="classSetupNavigator.html#ad0dfbd50ea0cdbd504f90ed205c25e04">SetupNavigator::fEnergyCalibrationConstants</a><code> [static, private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>The map that stores energy calibration constants as &lt;Gain,Pedestal&gt; pairs. </p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00101">101</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00097">97</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00255">GetEnergyCalibrationConstants()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00258">GetEnergyCalibrationConstants()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>.</p>
 
 </div>
 </div>
@@ -928,7 +1001,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00084">84</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00087">87</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
 <p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>.</p>
 
@@ -947,9 +1020,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>The map that stores the pedestal error values (i.e. noise) that we get from the SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00091">91</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00094">94</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00248">GetNoise()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00196">OutputCalibCSV()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00228">SetPedestalAndNoise()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00251">GetNoise()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00199">OutputCalibCSV()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00231">SetPedestalAndNoise()</a>.</p>
 
 </div>
 </div>
@@ -964,9 +1037,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00082">82</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00085">85</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00196">OutputCalibCSV()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00199">OutputCalibCSV()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>.</p>
 
 </div>
 </div>
@@ -983,9 +1056,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>The map that stores the pedestal values that we get from the SQLite database. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00088">88</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00091">91</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00251">GetPedestal()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00196">OutputCalibCSV()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00228">SetPedestalAndNoise()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00254">GetPedestal()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00199">OutputCalibCSV()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00231">SetPedestalAndNoise()</a>.</p>
 
 </div>
 </div>
@@ -1000,7 +1073,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00081">81</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00084">84</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
 <p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00073">CacheCalibDB()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00053">Close()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00163">GetCoarseTimeOffsetColumns()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00138">ReadCoarseTimeOffsetValues()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00179">ReadEnergyCalibrationConstants()</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00108">ReadPedestalAndNoiseValues()</a>, and <a class="el" href="SetupNavigator_8cpp_source.html#l00037">SetupNavigator()</a>.</p>
 
@@ -1019,7 +1092,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 
 <p>The SQLite filename, the SQLite server object and the current table name. </p>
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00080">80</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00083">83</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
 </div>
 </div>
@@ -1034,9 +1107,9 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00075">75</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
+<p>Definition at line <a class="el" href="SetupNavigator_8h_source.html#l00078">78</a> of file <a class="el" href="SetupNavigator_8h_source.html">SetupNavigator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00053">Close()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00101">Instance()</a>.</p>
+<p>Referenced by <a class="el" href="SetupNavigator_8cpp_source.html#l00053">Close()</a>, and <a class="el" href="SetupNavigator_8h_source.html#l00105">Instance()</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1118,7 @@ std::pair&lt; double, double &gt; &gt;&nbsp;</td><td class="memItemRight" valign
 <li>rootana/src/framework/<a class="el" href="SetupNavigator_8cpp_source.html">SetupNavigator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

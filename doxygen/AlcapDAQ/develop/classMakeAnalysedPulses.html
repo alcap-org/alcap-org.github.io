@@ -74,6 +74,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The big kahuna. Overload this in the derived class and it will be called for each event.  <a href="#a63c2b9b6838f06c18e93fd4d58bc1a2e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMakeAnalysedPulses.html#aa3b0fee1356a7a295f1aafbbe1f0ae9c">BeforeFirstEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMakeAnalysedPulses.html#a231612e06acfa949f80146fea5f7b420">AfterLastEntry</a> (<a class="el" href="classTGlobalData.html">TGlobalData</a> *<a class="el" href="group__MV1724ProcessRaw.html#ga69cb952a194ddefc6004dd96e70ccd62">gData</a>, const <a class="el" href="classTSetupData.html">TSetupData</a> *setup)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMakeAnalysedPulses.html#a27582645064bfbe65bed5c1699cb3f8d">CalibratePulses</a> (const <a class="el" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a> *generator, <a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> &amp;theAnalysedPulses) const </td></tr>
 <tr><td colspan="2"><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMakeAnalysedPulses.html#a3d0fdb34ee4dd7ab8d5c025b4d6159a7">ChannelGenerators_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#afde662afdbe1e9de8fba87969d26625d">StringAnalPulseMap</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMakeAnalysedPulses.html#a98740be2d604ee099516a01e5aff4f3a">fAnalysedPulseMap</a></td></tr>
@@ -121,7 +122,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 
 <p>Definition at line <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">21</a> of file <a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00039">fChannelsToAnalyse</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00041">fDefaultOpts</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00082">modules::options::GetVectorStringsByWhiteSpace()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00232">modules::options::SetOption()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00041">fChannelsToAnalyse</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00043">fDefaultOpts</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00082">modules::options::GetVectorStringsByWhiteSpace()</a>, and <a class="el" href="ModulesOptions_8h_source.html#l00232">modules::options::SetOption()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00021"></a>00021                                                           :
 <a name="l00022"></a>00022   <a class="code" href="classBaseModule.html#a828d4e27c72536894e03b3cf330ba8c6" title="Constructor of a module class. Provides several virtual methods that should be overloaded...">BaseModule</a>(<span class="stringliteral">&quot;MakeAnalysedPulses&quot;</span>,opts,<span class="keyword">false</span>),
@@ -195,7 +196,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 
 <p>Definition at line <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">192</a> of file <a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a>.</p>
 
-<p>References <a class="el" href="TemplateFactory_8tpl_source.html#l00023">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TAPGeneratorOptions_8h_source.html#l00026">TAPGeneratorOptions::Debug()</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00041">fDefaultOpts</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00038">fFastGeneratorType</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00033">fGenerators</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00037">fSlowGeneratorType</a>, <a class="el" href="ModulesOptions_8h_source.html#l00177">modules::options::GetNumOptions()</a>, <a class="el" href="TAPGeneratorFactory_8h_source.html#l00034">TAPGeneratorFactory::Instance()</a>, <a class="el" href="IdChannel_8h_source.html#l00037">IDs::kFast</a>, <a class="el" href="IdChannel_8h_source.html#l00038">IDs::kSlow</a>, and <a class="el" href="TAPGeneratorOptions_8h_source.html#l00022">TAPGeneratorOptions::SetChannel()</a>.</p>
+<p>References <a class="el" href="TemplateFactory_8tpl_source.html#l00023">TemplateFactory&lt; BaseModule, OptionsType &gt;::createModule()</a>, <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="TAPGeneratorOptions_8h_source.html#l00026">TAPGeneratorOptions::Debug()</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00043">fDefaultOpts</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00040">fFastGeneratorType</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00037">fGenerators</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00039">fSlowGeneratorType</a>, <a class="el" href="ModulesOptions_8h_source.html#l00177">modules::options::GetNumOptions()</a>, <a class="el" href="TAPGeneratorFactory_8h_source.html#l00034">TAPGeneratorFactory::Instance()</a>, <a class="el" href="IdChannel_8h_source.html#l00037">IDs::kFast</a>, <a class="el" href="IdChannel_8h_source.html#l00038">IDs::kSlow</a>, and <a class="el" href="TAPGeneratorOptions_8h_source.html#l00022">TAPGeneratorOptions::SetChannel()</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00155">ParseGeneratorList()</a>.</p>
 
@@ -306,7 +307,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 
 <p>Definition at line <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00035">35</a> of file <a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a>.</p>
 
-<p>References <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00064">detectors</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00039">fChannelsToAnalyse</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00033">fGenerators</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00040">fOptions</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="TSetupData_8cpp_source.html#l00014">TSetupData::GetAllDetectors()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00092">modules::options::GetVectorStringsByDelimiter()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00239">modules::options::HasOption()</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00173">modules::parser::iequals()</a>, <a class="el" href="TSetupData_8h_source.html#l00115">TSetupData::IsFast()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00155">ParseGeneratorList()</a>.</p>
+<p>References <a class="el" href="MMuSCTimeDifferences_8cpp_source.html#l00064">detectors</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00041">fChannelsToAnalyse</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00037">fGenerators</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00042">fOptions</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="TSetupData_8cpp_source.html#l00014">TSetupData::GetAllDetectors()</a>, <a class="el" href="ModulesOptions_8cpp_source.html#l00092">modules::options::GetVectorStringsByDelimiter()</a>, <a class="el" href="ModulesOptions_8h_source.html#l00239">modules::options::HasOption()</a>, <a class="el" href="ModulesParser_8cpp_source.html#l00173">modules::parser::iequals()</a>, <a class="el" href="TSetupData_8h_source.html#l00115">TSetupData::IsFast()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00155">ParseGeneratorList()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00035"></a>00035                                                                                    {
 <a name="l00036"></a>00036     <span class="comment">// Loop over every named detector channel in TSetupData</span>
@@ -378,6 +379,33 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 <a name="l00102"></a>00102     <span class="keywordflow">return</span> 0;
 <a name="l00103"></a>00103 }
 </pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a27582645064bfbe65bed5c1699cb3f8d"></a><!-- doxytag: member="MakeAnalysedPulses::CalibratePulses" ref="a27582645064bfbe65bed5c1699cb3f8d" args="(const TVAnalysedPulseGenerator *generator, AnalysedPulseList &amp;theAnalysedPulses) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MakeAnalysedPulses::CalibratePulses </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTVAnalysedPulseGenerator.html">TVAnalysedPulseGenerator</a> *&nbsp;</td>
+          <td class="paramname"> <em>generator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>theAnalysedPulses</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -729,52 +757,52 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 
 <p>Definition at line <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">105</a> of file <a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a>.</p>
 
-<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="EventNavigator_8h_source.html#l00095">EventNavigator::EntryNo()</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00033">fGenerators</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="SetupNavigator_8cpp_source.html#l00063">SetupNavigator::GetBank()</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>, <a class="el" href="SetupNavigator_8h_source.html#l00101">SetupNavigator::Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
+<p>References <a class="el" href="BaseModule_8h_source.html#l00071">BaseModule::Debug()</a>, <a class="el" href="EventNavigator_8h_source.html#l00095">EventNavigator::EntryNo()</a>, <a class="el" href="MakeAnalysedPulses_8h_source.html#l00037">fGenerators</a>, <a class="el" href="TGlobalData_8h_source.html#l00037">TGlobalData::fPulseIslandToChannelMap</a>, <a class="el" href="main_8cpp_source.html#l00072">gAnalysedPulseMap</a>, <a class="el" href="EventNavigator_8cpp_source.html#l00050">EventNavigator::Instance()</a>, and <a class="el" href="IdChannel_8cpp_source.html#l00012">IDs::channel::str()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00105"></a>00105                                                                                 {
 <a name="l00106"></a>00106     <span class="comment">// Generator just receives a bunch of TPIs and must return a list of TAPs</span>
 <a name="l00107"></a>00107 
 <a name="l00108"></a>00108     <span class="comment">// Loop over each generator</span>
 <a name="l00109"></a>00109     <a class="code" href="classIDs_1_1channel.html">IDs::channel</a> detector;
-<a name="l00110"></a>00110     <span class="keywordtype">string</span> bankname;
-<a name="l00111"></a>00111     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* thePulseIslands;
-<a name="l00112"></a>00112     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelGenerators_t::iterator</a> generator;
-<a name="l00113"></a>00113     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> theAnalysedPulses;
-<a name="l00114"></a>00114     <span class="keywordtype">int</span> retVal=0;
-<a name="l00115"></a>00115     <span class="keywordflow">for</span>(generator = <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin(); generator != <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end(); generator++){
-<a name="l00116"></a>00116         <span class="comment">// Get the bank name</span>
-<a name="l00117"></a>00117         detector = (*generator)-&gt;GetChannel().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>();
-<a name="l00118"></a>00118         bankname = <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;<a class="code" href="classSetupNavigator.html#a52a414db348d8963a712c90e4ece561a">GetBank</a>(detector);
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120         <span class="comment">// Get the TPIs</span>
-<a name="l00121"></a>00121         thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[bankname];
-<a name="l00122"></a>00122         <span class="keywordflow">if</span>(thePulseIslands-&gt;empty() ){
-<a name="l00123"></a>00123           <span class="keywordflow">if</span>( <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout &lt;&lt; <span class="stringliteral">&quot;Event No: &quot;</span> 
-<a name="l00124"></a>00124                             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() 
-<a name="l00125"></a>00125                             &lt;&lt;<span class="stringliteral">&quot;: List of TPIs for &apos;&quot;</span>&lt;&lt; detector 
-<a name="l00126"></a>00126                             &lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt; endl;
-<a name="l00127"></a>00127           <span class="keywordflow">continue</span>;
-<a name="l00128"></a>00128         }
-<a name="l00129"></a>00129 
-<a name="l00130"></a>00130         <span class="comment">// clear the list of analyse_pulses from the last iteration</span>
-<a name="l00131"></a>00131         theAnalysedPulses.clear();
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133         <span class="comment">// generate the new list of analyse_pulses</span>
-<a name="l00134"></a>00134         (*generator)-&gt;SetPulseList(thePulseIslands);
-<a name="l00135"></a>00135         retVal=(*generator)-&gt;ProcessPulses( *thePulseIslands,theAnalysedPulses);
-<a name="l00136"></a>00136         <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
-<a name="l00137"></a>00137 
-<a name="l00138"></a>00138         <span class="comment">// find the pulse list in gAnalysedPulseMap</span>
-<a name="l00139"></a>00139         <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> it=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find((*generator)-&gt;GetSource());
-<a name="l00140"></a>00140         <span class="keywordflow">if</span>(it==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
-<a name="l00141"></a>00141             <span class="comment">// source doesn&apos;t seem to exist in gAnalysedPulseMap</span>
-<a name="l00142"></a>00142           cout &lt;&lt;<span class="stringliteral">&quot;Error: New TAP source \&quot;&quot;</span> &lt;&lt; (*generator)-&gt;GetSource() 
-<a name="l00143"></a>00143                &lt;&lt;<span class="stringliteral">&quot;\&quot; seems to have been created during processing of pulses.&quot;</span>
-<a name="l00144"></a>00144                &lt;&lt;endl;
-<a name="l00145"></a>00145             <span class="keywordflow">return</span> 1;
-<a name="l00146"></a>00146         }
-<a name="l00147"></a>00147         <span class="comment">// add the pulses into the map</span>
-<a name="l00148"></a>00148         it-&gt;second=theAnalysedPulses;
+<a name="l00110"></a>00110     <a class="code" href="definitions_8h.html#a3c0940832f8741b0c226a24e3dbd62a8">PulseIslandList</a>* thePulseIslands;
+<a name="l00111"></a>00111     <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">ChannelGenerators_t::iterator</a> generator;
+<a name="l00112"></a>00112     <a class="code" href="definitions_8h.html#a84eeb2f0ab9f7a76f210530739f1bd1d">AnalysedPulseList</a> theAnalysedPulses;
+<a name="l00113"></a>00113     <span class="keywordtype">int</span> retVal=0;
+<a name="l00114"></a>00114     <span class="keywordflow">for</span>(generator = <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.begin(); generator != <a class="code" href="classMakeAnalysedPulses.html#a3856abd8d96b17a64cb23969012ef456">fGenerators</a>.end(); generator++){
+<a name="l00115"></a>00115         <span class="comment">// Get the bank name</span>
+<a name="l00116"></a>00116         detector = (*generator)-&gt;GetChannel().<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>();
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="comment">// Get the TPIs</span>
+<a name="l00119"></a>00119         thePulseIslands=&amp;gData-&gt;<a class="code" href="classTGlobalData.html#af871aca81ed72f5b05f063cfb471d9e8" title="Map of bank names to vectors of TPIs.">fPulseIslandToChannelMap</a>[(*generator)-&gt;GetBank()];
+<a name="l00120"></a>00120         <span class="keywordflow">if</span>(thePulseIslands-&gt;empty() ){
+<a name="l00121"></a>00121           <span class="keywordflow">if</span>( <a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) cout &lt;&lt; <span class="stringliteral">&quot;Event No: &quot;</span> 
+<a name="l00122"></a>00122                             &lt;&lt; <a class="code" href="classEventNavigator.html#ad4099e1d7bb809c73abced326a4a09f8">EventNavigator::Instance</a>().<a class="code" href="classEventNavigator.html#a08eb22b0825baa1fa4d271cc48574f79" title="Returns the current event number.">EntryNo</a>() 
+<a name="l00123"></a>00123                             &lt;&lt;<span class="stringliteral">&quot;: List of TPIs for &apos;&quot;</span>&lt;&lt; detector 
+<a name="l00124"></a>00124                             &lt;&lt;<span class="stringliteral">&quot;&apos; was empty &quot;</span>&lt;&lt; endl;
+<a name="l00125"></a>00125           <span class="keywordflow">continue</span>;
+<a name="l00126"></a>00126         }
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128         <span class="comment">// clear the list of analyse_pulses from the last iteration</span>
+<a name="l00129"></a>00129         theAnalysedPulses.clear();
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131         <span class="comment">// generate the new list of analyse_pulses</span>
+<a name="l00132"></a>00132         (*generator)-&gt;SetPulseList(thePulseIslands);
+<a name="l00133"></a>00133         retVal=(*generator)-&gt;ProcessPulses( *thePulseIslands,theAnalysedPulses);
+<a name="l00134"></a>00134         <span class="keywordflow">if</span>(retVal!=0) <span class="keywordflow">return</span> retVal;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136         <span class="comment">// find the pulse list in gAnalysedPulseMap</span>
+<a name="l00137"></a>00137         <a class="code" href="namespacemodules.html#a5ce57c86284eadc5b573cfab0949bfdb">SourceAnalPulseMap::iterator</a> it=<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.find((*generator)-&gt;GetSource());
+<a name="l00138"></a>00138         <span class="keywordflow">if</span>(it==<a class="code" href="LoopSequence_8cpp.html#a193ee69eb428748e7cc88b2b14bc1138">gAnalysedPulseMap</a>.end()){
+<a name="l00139"></a>00139             <span class="comment">// source doesn&apos;t seem to exist in gAnalysedPulseMap</span>
+<a name="l00140"></a>00140           cout &lt;&lt;<span class="stringliteral">&quot;Error: New TAP source \&quot;&quot;</span> &lt;&lt; (*generator)-&gt;GetSource() 
+<a name="l00141"></a>00141                &lt;&lt;<span class="stringliteral">&quot;\&quot; seems to have been created during processing of pulses.&quot;</span>
+<a name="l00142"></a>00142                &lt;&lt;endl;
+<a name="l00143"></a>00143             <span class="keywordflow">return</span> 1;
+<a name="l00144"></a>00144         }
+<a name="l00145"></a>00145         <span class="comment">// add the pulses into the map</span>
+<a name="l00146"></a>00146         it-&gt;second=theAnalysedPulses;
+<a name="l00147"></a>00147         
+<a name="l00148"></a>00148         (*generator)-&gt;CalibratePulses(it-&gt;second);
 <a name="l00149"></a>00149     }
 <a name="l00150"></a>00150     <span class="keywordflow">return</span> 0;
 <a name="l00151"></a>00151 }
@@ -875,7 +903,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 
 <p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00029">29</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
-<p>References <a class="el" href="MakeAnalysedPulses_8h_source.html#l00036">fAnalysedPulseMap</a>.</p>
+<p>References <a class="el" href="MakeAnalysedPulses_8h_source.html#l00038">fAnalysedPulseMap</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00029"></a>00029 {<a class="code" href="classMakeAnalysedPulses.html#a98740be2d604ee099516a01e5aff4f3a">fAnalysedPulseMap</a>=&amp;aMap;}
 </pre></div></p>
@@ -912,7 +940,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00036">36</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
+<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00038">38</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8h_source.html#l00029">SetAnalysedPulseMap()</a>.</p>
 
@@ -929,7 +957,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00039">39</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
+<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00041">41</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00035">BeforeFirstEntry()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses()</a>.</p>
 
@@ -946,7 +974,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00041">41</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
+<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00043">43</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">AddGenerator()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00021">MakeAnalysedPulses()</a>.</p>
 
@@ -963,7 +991,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00038">38</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
+<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00040">40</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">AddGenerator()</a>.</p>
 
@@ -980,7 +1008,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00033">33</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
+<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00037">37</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">AddGenerator()</a>, <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00035">BeforeFirstEntry()</a>, and <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00105">ProcessEntry()</a>.</p>
 
@@ -997,7 +1025,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00040">40</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
+<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00042">42</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00035">BeforeFirstEntry()</a>.</p>
 
@@ -1014,7 +1042,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00037">37</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
+<p>Definition at line <a class="el" href="MakeAnalysedPulses_8h_source.html#l00039">39</a> of file <a class="el" href="MakeAnalysedPulses_8h_source.html">MakeAnalysedPulses.h</a>.</p>
 
 <p>Referenced by <a class="el" href="MakeAnalysedPulses_8cpp_source.html#l00192">AddGenerator()</a>.</p>
 
@@ -1025,7 +1053,7 @@ Inheritance diagram for MakeAnalysedPulses:</div>
 <li>rootana/src/TAP_generators/<a class="el" href="MakeAnalysedPulses_8cpp_source.html">MakeAnalysedPulses.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

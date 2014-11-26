@@ -65,44 +65,48 @@
 <a name="l00048"></a><a class="code" href="classSetupNavigator.html#afef018a360a4fc9b9132b333710b0454">00048</a>   <span class="keywordtype">double</span> <a class="code" href="classSetupNavigator.html#afef018a360a4fc9b9132b333710b0454">GetCoarseTimeOffset</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; src)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> src.<a class="code" href="classIDs_1_1source.html#a181e1b2ba45467d811a132705eb1deb3" title="Returns true if this source matches another.">matches</a>(<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muSc&quot;</span>)) ? 0. : fCoarseTimeOffset.at(src); }
 <a name="l00051"></a>00051   std::pair&lt;double,double&gt; GetEnergyCalibrationConstants(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp;) <span class="keyword">const</span>;
 <a name="l00052"></a>00052 
-<a name="l00053"></a>00053   <span class="keywordtype">void</span> SetPedestalAndNoise(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; channel, <span class="keywordtype">double</span> pedestal, <span class="keywordtype">double</span> noise);
-<a name="l00054"></a>00054   <span class="keywordtype">void</span> SetCoarseTimeOffset(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; src, <span class="keywordtype">double</span> dt);
+<a name="l00053"></a><a class="code" href="classSetupNavigator.html#a41b5f160fe02812c61c4cab29d4427de">00053</a>   <span class="keywordtype">double</span> <a class="code" href="classSetupNavigator.html#a41b5f160fe02812c61c4cab29d4427de">GetAdcToEnergyGain</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; ch)<span class="keyword"> const</span>{<span class="keywordflow">return</span> GetEnergyCalibrationConstants(ch).first;}
+<a name="l00054"></a><a class="code" href="classSetupNavigator.html#a5143a71e4e082a358d33b863d5cfbe52">00054</a>   <span class="keywordtype">double</span> <a class="code" href="classSetupNavigator.html#a5143a71e4e082a358d33b863d5cfbe52">GetAdcToEnergyConstant</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; ch)<span class="keyword"> const</span>{<span class="keywordflow">return</span> GetEnergyCalibrationConstants(ch).second;}
 <a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="keyword">private</span>:
-<a name="l00057"></a>00057 
-<a name="l00060"></a>00060   <span class="keywordtype">bool</span> ReadPedestalAndNoiseValues();
-<a name="l00063"></a>00063   <span class="keywordtype">bool</span> ReadCoarseTimeOffsetValues();
-<a name="l00066"></a>00066   std::vector&lt;std::string&gt; GetCoarseTimeOffsetColumns();
-<a name="l00069"></a>00069   <span class="keywordtype">bool</span> ReadEnergyCalibrationConstants();
-<a name="l00070"></a>00070   <span class="keywordtype">void</span> OutputCalibCSV();
-<a name="l00071"></a>00071   
-<a name="l00072"></a><a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">00072</a>   <span class="keywordtype">bool</span> <a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">IsCalibRun</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> fCommandLineArgs.calib;}
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074  <span class="keyword">private</span>:
-<a name="l00075"></a><a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">00075</a>   <span class="keyword">static</span> SetupNavigator* fThis;
-<a name="l00076"></a><a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">00076</a>   <a class="code" href="structARGUMENTS.html">ARGUMENTS</a> fCommandLineArgs;
-<a name="l00077"></a>00077 
-<a name="l00080"></a><a class="code" href="classSetupNavigator.html#a1d2ec580ec2fd961b5feb552aa133f46">00080</a>   <span class="keyword">const</span> std::string fSQLiteFilename;
-<a name="l00081"></a><a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">00081</a>   TSQLiteServer* fServer;
-<a name="l00082"></a><a class="code" href="classSetupNavigator.html#ad0e11fabbe006d2295cbc270ba57bb22">00082</a>   <span class="keyword">const</span> std::string fPedestalNoiseTableName;
-<a name="l00083"></a><a class="code" href="classSetupNavigator.html#a1f47907af7a5504df18bfdbd57073569">00083</a>   <span class="keyword">const</span> std::string fCoarseTimeOffsetTableName;
-<a name="l00084"></a><a class="code" href="classSetupNavigator.html#a73fe8c6ca1ccb5497af1fd2a8960a0c1">00084</a>   <span class="keyword">const</span> std::string fEnergyCalibrationConstantsTableName;
-<a name="l00085"></a>00085 
-<a name="l00088"></a><a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1">00088</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; fPedestalValues;
-<a name="l00091"></a><a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a">00091</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; fNoiseValues;
-<a name="l00094"></a><a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5">00094</a>   <span class="keyword">static</span> std::map&lt;IDs::source, double&gt; fCoarseTimeOffset;
-<a name="l00097"></a><a class="code" href="classSetupNavigator.html#a2e1c4b1c1c73034a666e87f701eb7fa7">00097</a>   <span class="keyword">static</span> std::map&lt; IDs::channel, std::pair&lt;double,double&gt; &gt; fEnergyCalibrationConstants;
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099 };
-<a name="l00100"></a>00100 
-<a name="l00101"></a><a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">00101</a> <span class="keyword">inline</span> <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>(){
-<a name="l00102"></a>00102   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
-<a name="l00103"></a>00103   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
-<a name="l00104"></a>00104 }
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106 <span class="preprocessor">#endif //SETUPNAVIGATOR_H_</span>
+<a name="l00056"></a>00056   <span class="keywordtype">void</span> SetPedestalAndNoise(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; channel, <span class="keywordtype">double</span> pedestal, <span class="keywordtype">double</span> noise);
+<a name="l00057"></a>00057   <span class="keywordtype">void</span> SetCoarseTimeOffset(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; src, <span class="keywordtype">double</span> dt);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">private</span>:
+<a name="l00060"></a>00060 
+<a name="l00063"></a>00063   <span class="keywordtype">bool</span> ReadPedestalAndNoiseValues();
+<a name="l00066"></a>00066   <span class="keywordtype">bool</span> ReadCoarseTimeOffsetValues();
+<a name="l00069"></a>00069   std::vector&lt;std::string&gt; GetCoarseTimeOffsetColumns();
+<a name="l00072"></a>00072   <span class="keywordtype">bool</span> ReadEnergyCalibrationConstants();
+<a name="l00073"></a>00073   <span class="keywordtype">void</span> OutputCalibCSV();
+<a name="l00074"></a>00074   
+<a name="l00075"></a><a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">00075</a>   <span class="keywordtype">bool</span> <a class="code" href="classSetupNavigator.html#a67ccb32f35c03c184b1f23fe7ff2b635">IsCalibRun</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> fCommandLineArgs.calib;}
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077  <span class="keyword">private</span>:
+<a name="l00078"></a><a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">00078</a>   <span class="keyword">static</span> SetupNavigator* fThis;
+<a name="l00079"></a><a class="code" href="classSetupNavigator.html#a179f2d27b368d452bfe738e45b8f95c2">00079</a>   <a class="code" href="structARGUMENTS.html">ARGUMENTS</a> fCommandLineArgs;
+<a name="l00080"></a>00080 
+<a name="l00083"></a><a class="code" href="classSetupNavigator.html#a1d2ec580ec2fd961b5feb552aa133f46">00083</a>   <span class="keyword">const</span> std::string fSQLiteFilename;
+<a name="l00084"></a><a class="code" href="classSetupNavigator.html#a6d730300979c36d8845484b111184997">00084</a>   TSQLiteServer* fServer;
+<a name="l00085"></a><a class="code" href="classSetupNavigator.html#ad0e11fabbe006d2295cbc270ba57bb22">00085</a>   <span class="keyword">const</span> std::string fPedestalNoiseTableName;
+<a name="l00086"></a><a class="code" href="classSetupNavigator.html#a1f47907af7a5504df18bfdbd57073569">00086</a>   <span class="keyword">const</span> std::string fCoarseTimeOffsetTableName;
+<a name="l00087"></a><a class="code" href="classSetupNavigator.html#a73fe8c6ca1ccb5497af1fd2a8960a0c1">00087</a>   <span class="keyword">const</span> std::string fEnergyCalibrationConstantsTableName;
+<a name="l00088"></a>00088 
+<a name="l00091"></a><a class="code" href="classSetupNavigator.html#ac0b596065d9bef7b3fd54d6d398467c1">00091</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; fPedestalValues;
+<a name="l00094"></a><a class="code" href="classSetupNavigator.html#a1cb81057e43d06eaa983df6aac53ac2a">00094</a>   <span class="keyword">static</span> std::map&lt;IDs::channel, double&gt; fNoiseValues;
+<a name="l00097"></a><a class="code" href="classSetupNavigator.html#abfe81c66081077e24b27d5cef4c25db5">00097</a>   <span class="keyword">static</span> std::map&lt;IDs::source, double&gt; fCoarseTimeOffset;
+<a name="l00100"></a><a class="code" href="classSetupNavigator.html#a67ec4a72ad2224ba8396f44467ff6a9a">00100</a>   <span class="keyword">typedef</span> std::pair&lt;double,double&gt; EnergyCalibRow_t;
+<a name="l00101"></a><a class="code" href="classSetupNavigator.html#ad0dfbd50ea0cdbd504f90ed205c25e04">00101</a>   <span class="keyword">static</span> std::map&lt; IDs::channel, EnergyCalibRow_t &gt; fEnergyCalibrationConstants;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 };
+<a name="l00104"></a>00104 
+<a name="l00105"></a><a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">00105</a> <span class="keyword">inline</span> <a class="code" href="classSetupNavigator.html">SetupNavigator</a>* <a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>(){
+<a name="l00106"></a>00106   <span class="keywordflow">if</span>(!<a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>) <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>=<span class="keyword">new</span> <a class="code" href="classSetupNavigator.html#add255c11b74ffac71f4e95eaa9afbbb6">SetupNavigator</a>();
+<a name="l00107"></a>00107   <span class="keywordflow">return</span> <a class="code" href="classSetupNavigator.html#a638eec68a14b5931489b32313ada1d16">fThis</a>;
+<a name="l00108"></a>00108 }
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="preprocessor">#endif //SETUPNAVIGATOR_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 25 Nov 2014 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 26 Nov 2014 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
