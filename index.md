@@ -30,3 +30,4 @@
 
 
 ## [Plan](https://github.com/alcap-org/AlcapDAQ/wiki/Master-Plan)
+## [Literature](https://github.com/alcap-org/AlcapDAQ/wiki/Literature)
