@@ -133,7 +133,7 @@
 <a name="l00109"></a>00109                                 halfY = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#adce8012b78657337d5aa5315ec324368">get_Box_Y</a>(SolidIndex,i)/2;
 <a name="l00110"></a>00110                                 halfZ = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a4faac0ba2734cf0b545f298fea6f0547">get_Box_Z</a>(SolidIndex,i)/2;
 <a name="l00111"></a>00111                                 sol_Vol=<span class="keyword">new</span> G4Box(iname,halfX,halfY,halfZ);
-<a name="l00112"></a>00112                                 max_step_length = 0.5*std::min(halfX, std::min(halfY, halfZ));
+<a name="l00112"></a>00112                                 max_step_length = 0.25*std::min(halfX, std::min(halfY, halfZ));
 <a name="l00113"></a>00113                         }
 <a name="l00114"></a>00114                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( SolidType == <span class="stringliteral">&quot;EllipticalTube&quot;</span> ){
 <a name="l00115"></a>00115                                 G4double halfX, halfY, halfZ;
@@ -141,7 +141,7 @@
 <a name="l00117"></a>00117                                 halfY = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a4eb3bfe228a5d0a561d817c2e431ac76">get_EllipticalTube_Y</a>(SolidIndex,i)/2;
 <a name="l00118"></a>00118                                 halfZ = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ac22b9162f88643bec35b45134b374bb6">get_EllipticalTube_Z</a>(SolidIndex,i)/2;
 <a name="l00119"></a>00119                                 sol_Vol=<span class="keyword">new</span> G4EllipticalTube(iname,halfX,halfY,halfZ);
-<a name="l00120"></a>00120                                 max_step_length = 0.5*std::min(halfX, std::min(halfY, halfZ));
+<a name="l00120"></a>00120                                 max_step_length = 0.25*std::min(halfX, std::min(halfY, halfZ));
 <a name="l00121"></a>00121                         }
 <a name="l00122"></a>00122                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( SolidType == <span class="stringliteral">&quot;Tubs&quot;</span> ){
 <a name="l00123"></a>00123                                 G4double RMax, RMin, halfLength, StartAng, SpanAng;
@@ -151,7 +151,7 @@
 <a name="l00127"></a>00127                                 StartAng = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a6d82dd2e5f07f87942279d6b8e8a133c">get_Tubs_StartAng</a>(SolidIndex,i);
 <a name="l00128"></a>00128                                 SpanAng = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a59abe653b0b81ff3e8d3d1032fe8e384">get_Tubs_SpanAng</a>(SolidIndex,i);
 <a name="l00129"></a>00129                                 sol_Vol=<span class="keyword">new</span> G4Tubs(iname,RMin,RMax,halfLength,StartAng,SpanAng);
-<a name="l00130"></a>00130                                 max_step_length = 0.5*RMin;
+<a name="l00130"></a>00130                                 max_step_length = 0.25*RMin;
 <a name="l00131"></a>00131                         }
 <a name="l00132"></a>00132                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( SolidType == <span class="stringliteral">&quot;Torus&quot;</span> ){
 <a name="l00133"></a>00133                                 G4double RMax, RMin, Rtor, StartAng, SpanAng;
@@ -161,7 +161,7 @@
 <a name="l00137"></a>00137                                 StartAng = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#abe2f215ffd83559d58e6eccc86f9eb46">get_Torus_StartAng</a>(SolidIndex,i);
 <a name="l00138"></a>00138                                 SpanAng = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a52656a24f940eae2a31abedb96d44825">get_Torus_SpanAng</a>(SolidIndex,i);
 <a name="l00139"></a>00139                                 sol_Vol=<span class="keyword">new</span> G4Torus(iname,RMin,RMax,Rtor,StartAng,SpanAng);
-<a name="l00140"></a>00140                                 max_step_length = 0.5*RMin;
+<a name="l00140"></a>00140                                 max_step_length = 0.25*RMin;
 <a name="l00141"></a>00141                         }
 <a name="l00142"></a>00142                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( SolidType == <span class="stringliteral">&quot;Sphere&quot;</span> ){
 <a name="l00143"></a>00143                                 G4double RMax, RMin, StartPhi, SpanPhi, StartTheta, SpanTheta;
@@ -172,7 +172,7 @@
 <a name="l00148"></a>00148                                 StartTheta = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a1841891e3909e2826909f22f6eabccb2">get_Sphere_StartTheta</a>(SolidIndex,i);
 <a name="l00149"></a>00149                                 SpanTheta = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ab96f5e9f950ace1dfa4ff51b04295fa3">get_Sphere_SpanTheta</a>(SolidIndex,i);
 <a name="l00150"></a>00150                                 sol_Vol=<span class="keyword">new</span> G4Sphere(iname,RMin,RMax,StartPhi,SpanPhi,StartTheta,SpanTheta);
-<a name="l00151"></a>00151                                 max_step_length = 0.5*RMin;
+<a name="l00151"></a>00151                                 max_step_length = 0.25*RMin;
 <a name="l00152"></a>00152                         }
 <a name="l00153"></a>00153                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( SolidType == <span class="stringliteral">&quot;Hype&quot;</span> ){
 <a name="l00154"></a>00154                                 G4double innerRadius, outerRadius, halfLength, innerStereo, outerStereo;
@@ -202,7 +202,7 @@
 <a name="l00178"></a>00178                                 StartAng = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a8d48bcdc73471d770e2f6d25cb03b74f">get_Cons_StartAng</a>(SolidIndex,i);
 <a name="l00179"></a>00179                                 SpanAng = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a79da4cb83e7bd00f9e797efa90a91264">get_Cons_SpanAng</a>(SolidIndex,i);
 <a name="l00180"></a>00180                                 sol_Vol=<span class="keyword">new</span> G4Cons(iname,RMin1,RMax1,RMin2,RMax2,halfLength,StartAng,SpanAng);
-<a name="l00181"></a>00181                                 max_step_length = 0.5*std::min(RMin2, RMin2);
+<a name="l00181"></a>00181                                 max_step_length = 0.25*std::min(RMin2, RMin2);
 <a name="l00182"></a>00182 
 <a name="l00183"></a>00183                         }
 <a name="l00184"></a>00184                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( SolidType == <span class="stringliteral">&quot;Polycone&quot;</span> ){
@@ -414,7 +414,7 @@
 <a name="l00390"></a>00390         <span class="keywordflow">return</span> world_pvol;
 <a name="l00391"></a>00391 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 15 Dec 2014 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Dec 2014 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
