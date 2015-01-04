@@ -52,40 +52,50 @@
 <a name="l00028"></a>00028 
 <a name="l00029"></a>00029   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#a956b579a94c65cac1859728a42e3f9ae">Fill</a>();
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(std::string name, std::vector&lt;double&gt;* pVecD);
-<a name="l00032"></a>00032   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(std::string name, std::vector&lt;int&gt;* pVecI);
-<a name="l00033"></a>00033   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(std::string name, <span class="keywordtype">int</span>* pI);
-<a name="l00034"></a>00034   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(std::string name, <span class="keywordtype">double</span>* pD);
-<a name="l00035"></a>00035   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ab2b63118fb89f9c2f4096cd162d28564">SetBranch</a>(std::string name, std::vector&lt;std::string&gt;* pVecCa);
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037         <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#a5f9d4b3666eff2e29c4288d0bac2b96c">Save</a>();
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#ace4124dc0ad74c8ac4a71676998e5d08">FlushBaskets</a>();
+<a name="l00031"></a>00031   <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;
+<a name="l00032"></a><a class="code" href="classMyRoot.html#ae3af07b7c8a011d48baf5bad31eedbb7">00032</a>   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ae3af07b7c8a011d48baf5bad31eedbb7">SetBranch</a>(<span class="keyword">const</span> std::string&amp; name, Type* var){
+<a name="l00033"></a>00033   <a class="code" href="classMyRoot.html#ab833d92f19a7283e07df4f547b7b9978">m_tree</a>-&gt;Branch(name.c_str(), var);
+<a name="l00034"></a>00034         <span class="keywordflow">if</span> ( <a class="code" href="classMyRoot.html#aeadcd449c77602383538c3f523a529c5">fVerbose</a> &gt;= 5 ){
+<a name="l00035"></a>00035                 std::cout&lt;&lt;<span class="stringliteral">&quot;In MyRoot::SetBranch&quot;</span>&lt;&lt;std::endl;
+<a name="l00036"></a>00036                 std::cout&lt;&lt;<span class="stringliteral">&quot;  New branch created!!&quot;</span>&lt;&lt;std::endl;
+<a name="l00037"></a>00037                 std::cout&lt;&lt;<span class="stringliteral">&quot;  Name: &quot;</span>&lt;&lt;name&lt;&lt;std::endl;
+<a name="l00038"></a>00038 }
+<a name="l00039"></a>00039 }
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ab9d61c841d1ee55e4c1f3aa3be177ba5">Write</a>();
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ad96f022255e9df8685eb40e235c32e29">Close</a>();
-<a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="classMyRoot.html#a573d08c74190aa964cae250281a70012">00045</a>         <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#a573d08c74190aa964cae250281a70012">SetVerbose</a>( <span class="keywordtype">int</span> val ){<a class="code" href="classMyRoot.html#aeadcd449c77602383538c3f523a529c5">fVerbose</a> = val;};
-<a name="l00046"></a><a class="code" href="classMyRoot.html#a713915742cd44f474604572b98d31d93">00046</a>         <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#a713915742cd44f474604572b98d31d93">SetPrintModulo</a>( <span class="keywordtype">int</span> val ){<a class="code" href="classMyRoot.html#a892749aa00af9110d26244133bd3855c">fPrintModulo</a> = val;};
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 <span class="keyword">private</span>:
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050   <span class="keyword">static</span> <a class="code" href="classMyRoot.html">MyRoot</a>* <a class="code" href="classMyRoot.html#a8b9f00f2cbca4b70c78a3c56a15d4b31">fMyRoot</a>;
-<a name="l00051"></a>00051 
-<a name="l00052"></a><a class="code" href="classMyRoot.html#aeadcd449c77602383538c3f523a529c5">00052</a>         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#aeadcd449c77602383538c3f523a529c5">fVerbose</a>;
-<a name="l00053"></a><a class="code" href="classMyRoot.html#a892749aa00af9110d26244133bd3855c">00053</a>         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#a892749aa00af9110d26244133bd3855c">fPrintModulo</a>;
-<a name="l00054"></a><a class="code" href="classMyRoot.html#a8a205788428f90928ecd44136cfe66b1">00054</a>         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#a8a205788428f90928ecd44136cfe66b1">nbFilled</a>;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056   <span class="comment">//about root file</span>
-<a name="l00057"></a><a class="code" href="classMyRoot.html#a67a2950cb06568df5b9a27f35ee39b54">00057</a>   TFile* <a class="code" href="classMyRoot.html#a67a2950cb06568df5b9a27f35ee39b54">m_file</a>;
-<a name="l00058"></a><a class="code" href="classMyRoot.html#ab833d92f19a7283e07df4f547b7b9978">00058</a>   TTree* <a class="code" href="classMyRoot.html#ab833d92f19a7283e07df4f547b7b9978">m_tree</a>;
-<a name="l00059"></a>00059 };
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="preprocessor">#endif</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>
+<a name="l00041"></a>00041   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ae3af07b7c8a011d48baf5bad31eedbb7">SetBranch</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;double&gt;* pVecD);
+<a name="l00042"></a>00042   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ae3af07b7c8a011d48baf5bad31eedbb7">SetBranch</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;int&gt;* pVecI);
+<a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ae3af07b7c8a011d48baf5bad31eedbb7">SetBranch</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">int</span>* pI);
+<a name="l00044"></a>00044   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ae3af07b7c8a011d48baf5bad31eedbb7">SetBranch</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">double</span>* pD);
+<a name="l00045"></a>00045   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ae3af07b7c8a011d48baf5bad31eedbb7">SetBranch</a>(<span class="keyword">const</span> std::string&amp; name, std::vector&lt;std::string&gt;* pVecCa);
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047         <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#a5f9d4b3666eff2e29c4288d0bac2b96c">Save</a>();
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#ace4124dc0ad74c8ac4a71676998e5d08">FlushBaskets</a>();
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ab9d61c841d1ee55e4c1f3aa3be177ba5">Write</a>();
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053   <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#ad96f022255e9df8685eb40e235c32e29">Close</a>();
+<a name="l00054"></a>00054 
+<a name="l00055"></a><a class="code" href="classMyRoot.html#a573d08c74190aa964cae250281a70012">00055</a>         <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#a573d08c74190aa964cae250281a70012">SetVerbose</a>( <span class="keywordtype">int</span> val ){<a class="code" href="classMyRoot.html#aeadcd449c77602383538c3f523a529c5">fVerbose</a> = val;};
+<a name="l00056"></a><a class="code" href="classMyRoot.html#a713915742cd44f474604572b98d31d93">00056</a>         <span class="keywordtype">void</span> <a class="code" href="classMyRoot.html#a713915742cd44f474604572b98d31d93">SetPrintModulo</a>( <span class="keywordtype">int</span> val ){<a class="code" href="classMyRoot.html#a892749aa00af9110d26244133bd3855c">fPrintModulo</a> = val;};
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="keyword">private</span>:
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060   <span class="keyword">static</span> <a class="code" href="classMyRoot.html">MyRoot</a>* <a class="code" href="classMyRoot.html#a8b9f00f2cbca4b70c78a3c56a15d4b31">fMyRoot</a>;
+<a name="l00061"></a>00061 
+<a name="l00062"></a><a class="code" href="classMyRoot.html#aeadcd449c77602383538c3f523a529c5">00062</a>         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#aeadcd449c77602383538c3f523a529c5">fVerbose</a>;
+<a name="l00063"></a><a class="code" href="classMyRoot.html#a892749aa00af9110d26244133bd3855c">00063</a>         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#a892749aa00af9110d26244133bd3855c">fPrintModulo</a>;
+<a name="l00064"></a><a class="code" href="classMyRoot.html#a8a205788428f90928ecd44136cfe66b1">00064</a>         <span class="keywordtype">int</span> <a class="code" href="classMyRoot.html#a8a205788428f90928ecd44136cfe66b1">nbFilled</a>;
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066   <span class="comment">//about root file</span>
+<a name="l00067"></a><a class="code" href="classMyRoot.html#a67a2950cb06568df5b9a27f35ee39b54">00067</a>   TFile* <a class="code" href="classMyRoot.html#a67a2950cb06568df5b9a27f35ee39b54">m_file</a>;
+<a name="l00068"></a><a class="code" href="classMyRoot.html#ab833d92f19a7283e07df4f547b7b9978">00068</a>   TTree* <a class="code" href="classMyRoot.html#ab833d92f19a7283e07df4f547b7b9978">m_tree</a>;
+<a name="l00069"></a>00069 };
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="preprocessor">#endif</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Jan 2015 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Jan 2015 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
