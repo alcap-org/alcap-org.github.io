@@ -3803,7 +3803,7 @@ Inheritance diagram for MonitorSD:</div>
 <a name="l00712"></a>00712 <span class="comment">//                      std::cout&lt;&lt;&quot;dt too small, will not push&quot;&lt;&lt;std::endl;</span>
 <a name="l00713"></a>00713                         willPush = <span class="keyword">false</span>;
 <a name="l00714"></a>00714                 }
-<a name="l00715"></a>00715                 <span class="keywordflow">if</span> ( <a class="code" href="classMonitorSD.html#a88c29b99caf991013c13541f53dc0213">m_tid</a>[index] == trackID&amp;&amp; prePoint-&gt;GetStepStatus() != fGeomBoundary || killed){ <span class="comment">// If this particle was in this volume in last step, don&apos;t generate a new hit</span>
+<a name="l00715"></a>00715                 <span class="keywordflow">if</span> ( <a class="code" href="classMonitorSD.html#a88c29b99caf991013c13541f53dc0213">m_tid</a>[index] == trackID &amp;&amp; (prePoint-&gt;GetStepStatus() != fGeomBoundary || killed || stopped)){ <span class="comment">// If this particle was in this volume in last step, don&apos;t generate a new hit</span>
 <a name="l00716"></a>00716 <span class="comment">//                      std::cout&lt;&lt;&quot;Was here last step&quot;&lt;&lt;std::endl;</span>
 <a name="l00717"></a>00717                         willPush = <span class="keyword">false</span>;
 <a name="l00718"></a>00718                 }
@@ -7808,7 +7808,7 @@ Inheritance diagram for MonitorSD:</div>
 <li>src/<a class="el" href="MonitorSD_8cc_source.html">MonitorSD.cc</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 6 Jan 2015 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 7 Jan 2015 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
