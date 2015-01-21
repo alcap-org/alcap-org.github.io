@@ -57,6 +57,7 @@ Inheritance diagram for IDs::generator:</div>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1generator.html#ad6d532a6a3a8a93593dd79fcddc79109">generator</a> (const std::string &amp;s)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Construct a <a class="el" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">source</a> ID from a single string.  <a href="#ad6d532a6a3a8a93593dd79fcddc79109"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1generator.html#a217101481fc7daa2e5365e60a7e11abd">~generator</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1generator.html#a8be2a3c9c9d53c13cc3e2bd2ac879c94">Reset</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceIDs.html#aba4b89a111725b1d88cbe61fdce125cc">Generator_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1generator.html#a54b9c64ade53e75798aca80ee0cf3e71">Type</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the type of <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a> that this ID represents.  <a href="#a54b9c64ade53e75798aca80ee0cf3e71"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIDs_1_1generator.html#ad73cb107deedde72ab6a45474c366354">Type</a> (const <a class="el" href="namespaceIDs.html#aba4b89a111725b1d88cbe61fdce125cc">Generator_t</a> &amp;g)</td></tr>
@@ -130,14 +131,14 @@ Inheritance diagram for IDs::generator:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00119">119</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00121">121</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00016">IDs::kAnyConfig</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00016">IDs::kAnyConfig</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00119"></a>00119                                                         :
-<a name="l00120"></a>00120         <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>(t),<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>(c){
-<a name="l00121"></a>00121                 <span class="keywordflow">if</span>(<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==<span class="stringliteral">&quot;&quot;</span>) <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>=<a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">kAnyConfig</a>;
-<a name="l00122"></a>00122 }
+<p><div class="fragment"><pre class="fragment"><a name="l00121"></a>00121                                                         :
+<a name="l00122"></a>00122         <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>(t),<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>(c){
+<a name="l00123"></a>00123                 <span class="keywordflow">if</span>(<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==<span class="stringliteral">&quot;&quot;</span>) <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>=<a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">kAnyConfig</a>;
+<a name="l00124"></a>00124 }
 
 </pre></div></p>
 
@@ -265,11 +266,11 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Set the configuration of the <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a> that this ID represents. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00059">59</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00061">61</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00059"></a>00059 {<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>=c;};
+<p><div class="fragment"><pre class="fragment"><a name="l00061"></a>00061 {<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>=c;};
 </pre></div></p>
 
 </div>
@@ -291,13 +292,13 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Returns the configuration of the <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a> that this ID represents. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00056">56</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00058">58</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>.</p>
 
 <p>Referenced by <a class="el" href="IdGenerator_8cpp_source.html#l00030">Debug()</a>, and <a class="el" href="IdGenerator_8cpp_source.html#l00017">operator=()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00056"></a>00056 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00058"></a>00058 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>;};
 </pre></div></p>
 
 </div>
@@ -321,7 +322,7 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Definition at line <a class="el" href="IdGenerator_8cpp_source.html#l00030">30</a> of file <a class="el" href="IdGenerator_8cpp_source.html">IdGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00056">Config()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00050">Type()</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00058">Config()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00052">Type()</a>.</p>
 
 <p>Referenced by <a class="el" href="IdSource_8cpp_source.html#l00028">IDs::source::Debug()</a>.</p>
 
@@ -350,13 +351,13 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Check if any part of the ID is a wildcard. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00087">87</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00089">89</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00084">isWildCardConfig()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00081">isWildCardType()</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00086">isWildCardConfig()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00083">isWildCardType()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdSource_8h_source.html#l00105">IDs::source::isWildCardGenerator()</a>.</p>
+<p>Referenced by <a class="el" href="IdSource_8h_source.html#l00107">IDs::source::isWildCardGenerator()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00087"></a>00087 { <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#a6ef7049572185980eccc428085e65a18" title="Check if the Config_t part of the ID is a wildcard.">isWildCardConfig</a>() || <a class="code" href="classIDs_1_1generator.html#a0f1ae5d03e7c0d64c729f8fa7018bc3a" title="Check if the Generator_t part of the ID is a wildcard.">isWildCardType</a>(); }
+<p><div class="fragment"><pre class="fragment"><a name="l00089"></a>00089 { <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#a6ef7049572185980eccc428085e65a18" title="Check if the Config_t part of the ID is a wildcard.">isWildCardConfig</a>() || <a class="code" href="classIDs_1_1generator.html#a0f1ae5d03e7c0d64c729f8fa7018bc3a" title="Check if the Generator_t part of the ID is a wildcard.">isWildCardType</a>(); }
 </pre></div></p>
 
 </div>
@@ -378,13 +379,13 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Check if the Config_t part of the ID is a wildcard. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00084">84</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00086">86</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00016">IDs::kAnyConfig</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00016">IDs::kAnyConfig</a>.</p>
 
-<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00087">isWildCard()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00105">matches()</a>.</p>
+<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00089">isWildCard()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00107">matches()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00084"></a>00084 { <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a> == <a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">kAnyConfig</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00086"></a>00086 { <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a> == <a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">kAnyConfig</a>; }
 </pre></div></p>
 
 </div>
@@ -406,13 +407,13 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Check if the Generator_t part of the ID is a wildcard. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00081">81</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00083">83</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>, and <a class="el" href="IdGenerator_8h_source.html#l00014">IDs::kAnyGenerator</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>, and <a class="el" href="IdGenerator_8h_source.html#l00014">IDs::kAnyGenerator</a>.</p>
 
-<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00087">isWildCard()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00105">matches()</a>.</p>
+<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00089">isWildCard()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00107">matches()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00081"></a>00081 { <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a> == <a class="code" href="namespaceIDs.html#aea7416b5c5053e501b83e1f2f7249649" title="Standardize the value to use to represent any generator.">kAnyGenerator</a>; }
+<p><div class="fragment"><pre class="fragment"><a name="l00083"></a>00083 { <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a> == <a class="code" href="namespaceIDs.html#aea7416b5c5053e501b83e1f2f7249649" title="Standardize the value to use to represent any generator.">kAnyGenerator</a>; }
 </pre></div></p>
 
 </div>
@@ -433,16 +434,16 @@ Inheritance diagram for IDs::generator:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00105">105</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00107">107</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>, <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>, <a class="el" href="IdGenerator_8h_source.html#l00084">isWildCardConfig()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00081">isWildCardType()</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>, <a class="el" href="IdGenerator_8h_source.html#l00086">isWildCardConfig()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00083">isWildCardType()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdSource_8h_source.html#l00075">IDs::source::matches()</a>.</p>
+<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00041">PlotTDPs::BeforeFirstEntry()</a>, and <a class="el" href="IdSource_8h_source.html#l00077">IDs::source::matches()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00105"></a>00105                                                           {
-<a name="l00106"></a>00106         <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1generator.html#a0f1ae5d03e7c0d64c729f8fa7018bc3a" title="Check if the Generator_t part of the ID is a wildcard.">isWildCardType</a>() || rhs.isWildCardType() || <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>==rhs.fType) 
-<a name="l00107"></a>00107                 &amp;&amp; (<a class="code" href="classIDs_1_1generator.html#a6ef7049572185980eccc428085e65a18" title="Check if the Config_t part of the ID is a wildcard.">isWildCardConfig</a>() || rhs.isWildCardConfig() || <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==rhs.fConfig) ;
-<a name="l00108"></a>00108 }
+<p><div class="fragment"><pre class="fragment"><a name="l00107"></a>00107                                                           {
+<a name="l00108"></a>00108         <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1generator.html#a0f1ae5d03e7c0d64c729f8fa7018bc3a" title="Check if the Generator_t part of the ID is a wildcard.">isWildCardType</a>() || rhs.isWildCardType() || <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>==rhs.fType) 
+<a name="l00109"></a>00109                 &amp;&amp; (<a class="code" href="classIDs_1_1generator.html#a6ef7049572185980eccc428085e65a18" title="Check if the Config_t part of the ID is a wildcard.">isWildCardConfig</a>() || rhs.isWildCardConfig() || <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==rhs.fConfig) ;
+<a name="l00110"></a>00110 }
 </pre></div></p>
 
 </div>
@@ -464,11 +465,11 @@ Inheritance diagram for IDs::generator:</div>
 <div class="memdoc">
 <p>Is this <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a> the different to another, and do both this and the other id have fields not set to kAny </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00068">68</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00070">70</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00101">operator==()</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00103">operator==()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00068"></a>00068 {<span class="keywordflow">return</span> !(this-&gt;<a class="code" href="classIDs_1_1generator.html#a82e7168f0fe1cf142e56c926c6bcbf50">operator==</a>(rhs));};
+<p><div class="fragment"><pre class="fragment"><a name="l00070"></a>00070 {<span class="keywordflow">return</span> !(this-&gt;<a class="code" href="classIDs_1_1generator.html#a82e7168f0fe1cf142e56c926c6bcbf50">operator==</a>(rhs));};
 </pre></div></p>
 
 </div>
@@ -491,14 +492,14 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Not intuitively meaningful but maybe useful for sorting. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00115">115</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00117">117</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00115"></a>00115                                                                {
-<a name="l00116"></a>00116         <span class="keywordtype">int</span> type_cmp=<a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>.compare(rhs.fType);
-<a name="l00117"></a>00117         <span class="keywordflow">return</span>  type_cmp&lt;0 || (type_cmp==0 &amp;&amp; <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>.compare(rhs.fConfig)&lt;0);
-<a name="l00118"></a>00118 }
+<p><div class="fragment"><pre class="fragment"><a name="l00117"></a>00117                                                                {
+<a name="l00118"></a>00118         <span class="keywordtype">int</span> type_cmp=<a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>.compare(rhs.fType);
+<a name="l00119"></a>00119         <span class="keywordflow">return</span>  type_cmp&lt;0 || (type_cmp==0 &amp;&amp; <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>.compare(rhs.fConfig)&lt;0);
+<a name="l00120"></a>00120 }
 </pre></div></p>
 
 </div>
@@ -521,7 +522,7 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Definition at line <a class="el" href="IdGenerator_8cpp_source.html#l00017">17</a> of file <a class="el" href="IdGenerator_8cpp_source.html">IdGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00056">Config()</a>, <a class="el" href="IdGenerator_8h_source.html#l00021">IDs::field_separator</a>, and <a class="el" href="IdGenerator_8h_source.html#l00050">Type()</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00058">Config()</a>, <a class="el" href="IdGenerator_8h_source.html#l00021">IDs::field_separator</a>, and <a class="el" href="IdGenerator_8h_source.html#l00052">Type()</a>.</p>
 
 <p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00041">generator()</a>.</p>
 
@@ -558,15 +559,15 @@ Inheritance diagram for IDs::generator:</div>
 <div class="memdoc">
 <p>Is this <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a> the same as another, or is this or the other id have fields set to kAny </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00101">101</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00103">103</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>.</p>
 
-<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00068">operator!=()</a>.</p>
+<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00070">operator!=()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00101"></a>00101                                                                 {
-<a name="l00102"></a>00102         <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>==rhs.fType) &amp;&amp; (<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==rhs.fConfig) ;
-<a name="l00103"></a>00103 }
+<p><div class="fragment"><pre class="fragment"><a name="l00103"></a>00103                                                                 {
+<a name="l00104"></a>00104         <span class="keywordflow">return</span> (<a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>==rhs.fType) &amp;&amp; (<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>==rhs.fConfig) ;
+<a name="l00105"></a>00105 }
 </pre></div></p>
 
 </div>
@@ -589,14 +590,40 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Not intuitively meaningful but maybe useful for sorting. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00110">110</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00112">112</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00110"></a>00110                                                                {
-<a name="l00111"></a>00111         <span class="keywordtype">int</span> type_cmp=<a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>.compare(rhs.fType);
-<a name="l00112"></a>00112         <span class="keywordflow">return</span>  type_cmp&gt;0 || (type_cmp==0 &amp;&amp; <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>.compare(rhs.fConfig)&gt;0);
-<a name="l00113"></a>00113 }
+<p><div class="fragment"><pre class="fragment"><a name="l00112"></a>00112                                                                {
+<a name="l00113"></a>00113         <span class="keywordtype">int</span> type_cmp=<a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>.compare(rhs.fType);
+<a name="l00114"></a>00114         <span class="keywordflow">return</span>  type_cmp&gt;0 || (type_cmp==0 &amp;&amp; <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>.compare(rhs.fConfig)&gt;0);
+<a name="l00115"></a>00115 }
+</pre></div></p>
+
+</div>
+</div>
+<a class="anchor" id="a8be2a3c9c9d53c13cc3e2bd2ac879c94"></a><!-- doxytag: member="IDs::generator::Reset" ref="a8be2a3c9c9d53c13cc3e2bd2ac879c94" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IDs::generator::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00048">48</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>, <a class="el" href="IdGenerator_8h_source.html#l00016">IDs::kAnyConfig</a>, and <a class="el" href="IdGenerator_8h_source.html#l00014">IDs::kAnyGenerator</a>.</p>
+
+<p>Referenced by <a class="el" href="IdSource_8h_source.html#l00062">IDs::source::Reset()</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00048"></a>00048 {<a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>=<a class="code" href="namespaceIDs.html#aea7416b5c5053e501b83e1f2f7249649" title="Standardize the value to use to represent any generator.">kAnyGenerator</a>; <a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>=<a class="code" href="namespaceIDs.html#a29b61a8291028872e3afd55b914e80ba" title="Standardize the value to use to represent any configuration.">kAnyConfig</a>;};
 </pre></div></p>
 
 </div>
@@ -620,9 +647,9 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Definition at line <a class="el" href="IdGenerator_8cpp_source.html#l00008">8</a> of file <a class="el" href="IdGenerator_8cpp_source.html">IdGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fConfig</a>, <a class="el" href="IdGenerator_8h_source.html#l00021">IDs::field_separator</a>, and <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00098">fConfig</a>, <a class="el" href="IdGenerator_8h_source.html#l00021">IDs::field_separator</a>, and <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>.</p>
 
-<p>Referenced by <a class="el" href="PlotTDPs_8cpp_source.html#l00040">PlotTDPs::BeforeFirstEntry()</a>, and <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
+<p>Referenced by <a class="el" href="IdSource_8cpp_source.html#l00006">IDs::source::str()</a>.</p>
 
 <p><div class="fragment"><pre class="fragment"><a name="l00008"></a>00008                                 {
 <a name="l00009"></a>00009   <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>+<a class="code" href="namespaceIDs.html#a9672489ed1528077290e969d3dff7af7">IDs::field_separator</a>+<a class="code" href="classIDs_1_1generator.html#acc2a8098ab14574ffb5161f14878c86a" title="Stores the configuration of this generator.">fConfig</a>;
@@ -649,11 +676,11 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Set the type of <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a> that this ID represents. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00053">53</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00055">55</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00053"></a>00053 { <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>=g;};
+<p><div class="fragment"><pre class="fragment"><a name="l00055"></a>00055 { <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>=g;};
 </pre></div></p>
 
 </div>
@@ -675,13 +702,13 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Returns the type of <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a> that this ID represents. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00050">50</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00052">52</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>References <a class="el" href="IdGenerator_8h_source.html#l00094">fType</a>.</p>
+<p>References <a class="el" href="IdGenerator_8h_source.html#l00096">fType</a>.</p>
 
-<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00024">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="IdGenerator_8cpp_source.html#l00030">Debug()</a>, <a class="el" href="TAPGeneratorFactory_8h_source.html#l00022">TAPGeneratorFactory::GetTAPType()</a>, and <a class="el" href="IdGenerator_8cpp_source.html#l00017">operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MakeDetectorPulses_8cpp_source.html#l00039">MakeDetectorPulses::BeforeFirstEntry()</a>, <a class="el" href="IdGenerator_8cpp_source.html#l00030">Debug()</a>, <a class="el" href="TAPGeneratorFactory_8h_source.html#l00022">TAPGeneratorFactory::GetTAPType()</a>, and <a class="el" href="IdGenerator_8cpp_source.html#l00017">operator=()</a>.</p>
 
-<p><div class="fragment"><pre class="fragment"><a name="l00050"></a>00050 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>;};
+<p><div class="fragment"><pre class="fragment"><a name="l00052"></a>00052 {<span class="keywordflow">return</span> <a class="code" href="classIDs_1_1generator.html#ae8306f18514f56b9c2fb151bd873230f" title="Stores the type of this generator.">fType</a>;};
 </pre></div></p>
 
 </div>
@@ -700,9 +727,9 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Stores the configuration of this <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a>. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00096">96</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00098">98</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00056">Config()</a>, <a class="el" href="IdGenerator_8h_source.html#l00119">generator()</a>, <a class="el" href="IdGenerator_8h_source.html#l00084">isWildCardConfig()</a>, <a class="el" href="IdGenerator_8h_source.html#l00105">matches()</a>, <a class="el" href="IdGenerator_8h_source.html#l00115">operator&lt;()</a>, <a class="el" href="IdGenerator_8h_source.html#l00101">operator==()</a>, <a class="el" href="IdGenerator_8h_source.html#l00110">operator&gt;()</a>, and <a class="el" href="IdGenerator_8cpp_source.html#l00008">str()</a>.</p>
+<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00058">Config()</a>, <a class="el" href="IdGenerator_8h_source.html#l00121">generator()</a>, <a class="el" href="IdGenerator_8h_source.html#l00086">isWildCardConfig()</a>, <a class="el" href="IdGenerator_8h_source.html#l00107">matches()</a>, <a class="el" href="IdGenerator_8h_source.html#l00117">operator&lt;()</a>, <a class="el" href="IdGenerator_8h_source.html#l00103">operator==()</a>, <a class="el" href="IdGenerator_8h_source.html#l00112">operator&gt;()</a>, <a class="el" href="IdGenerator_8h_source.html#l00048">Reset()</a>, and <a class="el" href="IdGenerator_8cpp_source.html#l00008">str()</a>.</p>
 
 </div>
 </div>
@@ -719,9 +746,9 @@ Inheritance diagram for IDs::generator:</div>
 
 <p>Stores the type of this <a class="el" href="classIDs_1_1generator.html" title="Streamable identifier for an instance of a generator.">generator</a>. </p>
 
-<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00094">94</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="IdGenerator_8h_source.html#l00096">96</a> of file <a class="el" href="IdGenerator_8h_source.html">IdGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00081">isWildCardType()</a>, <a class="el" href="IdGenerator_8h_source.html#l00105">matches()</a>, <a class="el" href="IdGenerator_8h_source.html#l00115">operator&lt;()</a>, <a class="el" href="IdGenerator_8h_source.html#l00101">operator==()</a>, <a class="el" href="IdGenerator_8h_source.html#l00110">operator&gt;()</a>, <a class="el" href="IdGenerator_8cpp_source.html#l00008">str()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00050">Type()</a>.</p>
+<p>Referenced by <a class="el" href="IdGenerator_8h_source.html#l00083">isWildCardType()</a>, <a class="el" href="IdGenerator_8h_source.html#l00107">matches()</a>, <a class="el" href="IdGenerator_8h_source.html#l00117">operator&lt;()</a>, <a class="el" href="IdGenerator_8h_source.html#l00103">operator==()</a>, <a class="el" href="IdGenerator_8h_source.html#l00112">operator&gt;()</a>, <a class="el" href="IdGenerator_8h_source.html#l00048">Reset()</a>, <a class="el" href="IdGenerator_8cpp_source.html#l00008">str()</a>, and <a class="el" href="IdGenerator_8h_source.html#l00052">Type()</a>.</p>
 
 </div>
 </div>
@@ -730,7 +757,7 @@ Inheritance diagram for IDs::generator:</div>
 <li>rootana/src/framework/<a class="el" href="IdGenerator_8cpp_source.html">IdGenerator.cpp</a></li>
 </ul>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 20 Jan 2015 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jan 2015 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
