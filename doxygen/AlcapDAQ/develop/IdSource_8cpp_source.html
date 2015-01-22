@@ -28,36 +28,39 @@
 <h1>rootana/src/framework/IdSource.cpp</h1><a href="IdSource_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="IdSource_8h.html">IdSource.h</a>&quot;</span>
 <a name="l00002"></a>00002 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="debug__tools_8h.html">debug_tools.h</a>&quot;</span>
-<a name="l00004"></a>00004 <a class="code" href="TGlobalData_8cpp.html#ac999af46ecbed64cdd6850e43119a957">ClassImp</a>(<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>);
-<a name="l00005"></a>00005 
-<a name="l00006"></a><a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3">00006</a> std::string <a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">IDs::source::str</a>()<span class="keyword">const</span>{
-<a name="l00007"></a>00007         <span class="keywordflow">return</span> <a class="code" href="classIDs_1_1source.html#a2719187a5087948a838df6471c82b0e9">fChannel</a>.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>() + <a class="code" href="namespaceIDs.html#a9672489ed1528077290e969d3dff7af7">IDs::field_separator</a> +<a class="code" href="classIDs_1_1source.html#a212329d507a05b6f8174966da961efea">fGenerator</a>.<a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19" title="Get this ID as a string.">str</a>();
-<a name="l00008"></a>00008 }
-<a name="l00009"></a>00009 
-<a name="l00010"></a><a class="code" href="IdSource_8h.html#a9126d13f33cc7094b2ff57a4914ad5d2">00010</a> ostream&amp; <a class="code" href="IdChannel_8cpp.html#a1fee8a7cfb62c896250204fd0077c36d">operator&lt;&lt; </a>(ostream&amp; os ,<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; <span class="keywordtype">id</span>) {
-<a name="l00011"></a>00011   os&lt;&lt;<span class="keywordtype">id</span>.str();
-<a name="l00012"></a>00012   <span class="keywordflow">return</span> os;
-<a name="l00013"></a>00013 }
-<a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="classIDs_1_1source.html#ad3d3959f49e882f3c2fa0aeb90be8e30">00015</a> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; <a class="code" href="classIDs_1_1source.html#ad3d3959f49e882f3c2fa0aeb90be8e30">IDs::source::operator=</a>(<span class="keyword">const</span> std::string&amp; rhs){
-<a name="l00016"></a>00016     <span class="comment">// Find the first delimiter</span>
-<a name="l00017"></a>00017     <span class="keywordtype">size_t</span> delim=rhs.find(<a class="code" href="namespaceIDs.html#a9672489ed1528077290e969d3dff7af7">IDs::field_separator</a>.c_str());
-<a name="l00018"></a>00018     <span class="keywordflow">if</span>(delim==std::string::npos){
-<a name="l00019"></a>00019         std::cout&lt;&lt;<span class="stringliteral">&quot;Warning: Strange looking string given to IDs::source: &quot;</span>&lt;&lt;rhs&lt;&lt;std::endl;
-<a name="l00020"></a>00020         <a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=rhs;
-<a name="l00021"></a>00021     } <span class="keywordflow">else</span>{
-<a name="l00022"></a>00022         <a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=rhs.substr(0,delim);
-<a name="l00023"></a>00023         <a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=rhs.substr(delim+1);
-<a name="l00024"></a>00024     }
-<a name="l00025"></a>00025     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00026"></a>00026 }
-<a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="classIDs_1_1source.html#ab3faf4d5145da8a3374460417aa67119">00028</a> <span class="keywordtype">void</span> <a class="code" href="classIDs_1_1source.html#ab3faf4d5145da8a3374460417aa67119" title="Print the individual components of the source.">IDs::source::Debug</a>()<span class="keyword">const</span>{
-<a name="l00029"></a>00029     <a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().<a class="code" href="classIDs_1_1channel.html#a50d4cc8ffb37344e55788f54babdfd87" title="Print the individual components of the ID.">Debug</a>();
-<a name="l00030"></a>00030     <a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().<a class="code" href="classIDs_1_1generator.html#af3eb9718d81a8ec79abf8d928bdfa793" title="Print the individual components of the ID.">Debug</a>();
-<a name="l00031"></a>00031 }
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="ModulesParser_8h.html">ModulesParser.h</a>&quot;</span>
+<a name="l00005"></a>00005 <a class="code" href="TGlobalData_8cpp.html#ac999af46ecbed64cdd6850e43119a957">ClassImp</a>(<a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>);
+<a name="l00006"></a>00006 
+<a name="l00007"></a><a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606">00007</a> std::string <a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">IDs::source::str</a>(<span class="keywordtype">bool</span> cpp_safe)<span class="keyword">const</span>{
+<a name="l00008"></a>00008         std::string tmp= <a class="code" href="classIDs_1_1source.html#a2719187a5087948a838df6471c82b0e9">fChannel</a>.<a class="code" href="classIDs_1_1channel.html#a8f2b9b6975b1a6e0f23830ba85f04ae9" title="Returns the channel as a string.">str</a>() + <a class="code" href="namespaceIDs.html#a9672489ed1528077290e969d3dff7af7">IDs::field_separator</a> +<a class="code" href="classIDs_1_1source.html#a212329d507a05b6f8174966da961efea">fGenerator</a>.<a class="code" href="classIDs_1_1generator.html#a180be08adbdc2729c4a65ba50171dc19" title="Get this ID as a string.">str</a>();
+<a name="l00009"></a>00009         <span class="keywordflow">if</span>(cpp_safe) <a class="code" href="namespacemodules_1_1parser.html#a251ecfa397c10d7e2ba4709b46099260">modules::parser::ToCppValid</a>(tmp);
+<a name="l00010"></a>00010         <span class="keywordflow">return</span> tmp;
+<a name="l00011"></a>00011 }
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="IdSource_8h.html#a9126d13f33cc7094b2ff57a4914ad5d2">00013</a> ostream&amp; <a class="code" href="IdChannel_8cpp.html#a1fee8a7cfb62c896250204fd0077c36d">operator&lt;&lt; </a>(ostream&amp; os ,<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; <span class="keywordtype">id</span>) {
+<a name="l00014"></a>00014   os&lt;&lt;<span class="keywordtype">id</span>.str();
+<a name="l00015"></a>00015   <span class="keywordflow">return</span> os;
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="classIDs_1_1source.html#ad3d3959f49e882f3c2fa0aeb90be8e30">00018</a> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; <a class="code" href="classIDs_1_1source.html#ad3d3959f49e882f3c2fa0aeb90be8e30">IDs::source::operator=</a>(<span class="keyword">const</span> std::string&amp; rhs){
+<a name="l00019"></a>00019     <span class="comment">// Find the first delimiter</span>
+<a name="l00020"></a>00020     <span class="keywordtype">size_t</span> delim=rhs.find(<a class="code" href="namespaceIDs.html#a9672489ed1528077290e969d3dff7af7">IDs::field_separator</a>.c_str());
+<a name="l00021"></a>00021     <span class="keywordflow">if</span>(delim==std::string::npos){
+<a name="l00022"></a>00022         std::cout&lt;&lt;<span class="stringliteral">&quot;Warning: Strange looking string given to IDs::source: &quot;</span>&lt;&lt;rhs&lt;&lt;std::endl;
+<a name="l00023"></a>00023         <a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=rhs;
+<a name="l00024"></a>00024     } <span class="keywordflow">else</span>{
+<a name="l00025"></a>00025         <a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()=rhs.substr(0,delim);
+<a name="l00026"></a>00026         <a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>()=rhs.substr(delim+1);
+<a name="l00027"></a>00027     }
+<a name="l00028"></a>00028     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00029"></a>00029 }
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="classIDs_1_1source.html#ab3faf4d5145da8a3374460417aa67119">00031</a> <span class="keywordtype">void</span> <a class="code" href="classIDs_1_1source.html#ab3faf4d5145da8a3374460417aa67119" title="Print the individual components of the source.">IDs::source::Debug</a>()<span class="keyword">const</span>{
+<a name="l00032"></a>00032     <a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().<a class="code" href="classIDs_1_1channel.html#a50d4cc8ffb37344e55788f54babdfd87" title="Print the individual components of the ID.">Debug</a>();
+<a name="l00033"></a>00033     <a class="code" href="classIDs_1_1source.html#ab26e75017b8cbec1969498adaec8c143" title="Get a reference to the generator ID in this source.">Generator</a>().<a class="code" href="classIDs_1_1generator.html#af3eb9718d81a8ec79abf8d928bdfa793" title="Print the individual components of the ID.">Debug</a>();
+<a name="l00034"></a>00034 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jan 2015 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Jan 2015 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

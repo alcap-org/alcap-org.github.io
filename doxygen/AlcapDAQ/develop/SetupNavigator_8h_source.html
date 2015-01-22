@@ -62,7 +62,7 @@
 <a name="l00041"></a>00041 
 <a name="l00044"></a>00044   <span class="keywordtype">double</span> GetPedestal(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; channel) <span class="keyword">const</span>;
 <a name="l00047"></a>00047   <span class="keywordtype">double</span> GetNoise(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; channel) <span class="keyword">const</span> ;
-<a name="l00048"></a><a class="code" href="classSetupNavigator.html#afef018a360a4fc9b9132b333710b0454">00048</a>   <span class="keywordtype">double</span> <a class="code" href="classSetupNavigator.html#afef018a360a4fc9b9132b333710b0454">GetCoarseTimeOffset</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; src)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> src.<a class="code" href="classIDs_1_1source.html#a181e1b2ba45467d811a132705eb1deb3" title="Returns true if this source matches another.">matches</a>(<a class="code" href="classIDs_1_1channel.html">IDs::channel</a>(<span class="stringliteral">&quot;muSc&quot;</span>)) ? 0. : fCoarseTimeOffset.at(src); }
+<a name="l00048"></a>00048   <span class="keywordtype">double</span> GetCoarseTimeOffset( <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a> src) <span class="keyword">const</span> ;
 <a name="l00051"></a>00051   std::pair&lt;double,double&gt; GetEnergyCalibrationConstants(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp;) <span class="keyword">const</span>;
 <a name="l00052"></a>00052 
 <a name="l00053"></a><a class="code" href="classSetupNavigator.html#a41b5f160fe02812c61c4cab29d4427de">00053</a>   <span class="keywordtype">double</span> <a class="code" href="classSetupNavigator.html#a41b5f160fe02812c61c4cab29d4427de">GetAdcToEnergyGain</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1channel.html">IDs::channel</a>&amp; ch)<span class="keyword"> const</span>{<span class="keywordflow">return</span> GetEnergyCalibrationConstants(ch).first;}
@@ -106,7 +106,7 @@
 <a name="l00109"></a>00109 
 <a name="l00110"></a>00110 <span class="preprocessor">#endif //SETUPNAVIGATOR_H_</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jan 2015 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Jan 2015 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

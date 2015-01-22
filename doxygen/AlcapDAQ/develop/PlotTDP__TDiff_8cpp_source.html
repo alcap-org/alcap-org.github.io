@@ -42,108 +42,105 @@
 <a name="l00015"></a>00015 <span class="keyword">extern</span> <a class="code" href="definitions_8h.html#ab6b36cbc9a3363d8b03d3b9f363c8ced">SourceDetPulseMap</a> <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>;
 <a name="l00016"></a>00016 
 <a name="l00017"></a><a class="code" href="classPlotTDP__TDiff.html#ac0c203a313cfcbee2a4c8a4d90d99238">00017</a> <a class="code" href="classPlotTDP__TDiff.html#ac0c203a313cfcbee2a4c8a4d90d99238" title="Constructor.">PlotTDP_TDiff::PlotTDP_TDiff</a>(<a class="code" href="classmodules_1_1options.html" title="Class to handle options given through the MODULES file.">modules::options</a>* opts):
-<a name="l00018"></a>00018    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotTDP_TDiff&quot;</span>,opts){
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020   <span class="comment">// Do something with opts here.  Has the user specified any</span>
-<a name="l00021"></a>00021   <span class="comment">// particular configuration that you want to know?</span>
-<a name="l00022"></a>00022   <span class="comment">// For example, perhaps this module wants an axis range:  </span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024   <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a> = <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;source_a&quot;</span>));
-<a name="l00025"></a>00025   <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a> = <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;source_b&quot;</span>));
-<a name="l00026"></a>00026 }
-<a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="classPlotTDP__TDiff.html#ae3682993cb2d9d1583820ba74697886c">00028</a> <a class="code" href="classPlotTDP__TDiff.html#ae3682993cb2d9d1583820ba74697886c" title="Is anything done in the destructor?">PlotTDP_TDiff::~PlotTDP_TDiff</a>(){
-<a name="l00029"></a>00029 }
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="comment">// Called before the main event loop</span>
-<a name="l00032"></a>00032 <span class="comment">// Can be used to set things up, like histograms etc</span>
-<a name="l00033"></a>00033 <span class="comment">// Return non-zero to indicate a problem</span>
-<a name="l00034"></a><a class="code" href="classPlotTDP__TDiff.html#ab4b1a40f5b8dff66321d6d1711be8a44">00034</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDP__TDiff.html#ab4b1a40f5b8dff66321d6d1711be8a44" title="Before each run, the DetectorPulseLists for the necessary detectors are stored and...">PlotTDP_TDiff::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00035"></a>00035   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00036"></a>00036   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00037"></a>00037      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotTDP_TDiff::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00038"></a>00038   }
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040   <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;Before(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>,<a class="code" href="classBaseModule.html#af30c91fa2a3388325dd20b322de517ca" title="Get the name of this module as given to the constructor of the base class.">GetName</a>())){
-<a name="l00041"></a>00041     cout&lt;&lt;<span class="stringliteral">&quot;MakeDetectorPulses must be used before PlotTDP_TDiff&quot;</span>&lt;&lt;endl;
-<a name="l00042"></a>00042     <span class="keywordflow">return</span> 1;
-<a name="l00043"></a>00043   }
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045   <span class="comment">// Create the histogram</span>
-<a name="l00046"></a>00046   std::string detname_a = <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str();
-<a name="l00047"></a>00047   std::string detname_b = <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str();
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049   std::string histogram_name = <a class="code" href="namespacemodules_1_1parser.html#a251ecfa397c10d7e2ba4709b46099260">modules::parser::ToCppValid</a>(<span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot;_TDiff&quot;</span>);
-<a name="l00050"></a>00050   std::string histogram_title = <span class="stringliteral">&quot;Time Difference between TDP source &quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>();
-<a name="l00051"></a>00051   <span class="keywordtype">int</span> x_max = 1000000;
-<a name="l00052"></a>00052   <span class="keywordtype">int</span> x_min = -1000000;
-<a name="l00053"></a>00053   <span class="keywordtype">int</span> bin_width = 100;
-<a name="l00054"></a>00054   <span class="keywordtype">int</span> n_bins = (x_max - x_min) / bin_width;
-<a name="l00055"></a>00055   <a class="code" href="classPlotTDP__TDiff.html#ac4ff3ad26fad03972b38e207015f79ae" title="The histogram we fill.">fTDiffPlot</a> = <span class="keyword">new</span> TH1F(histogram_name.c_str(), histogram_title.c_str(), n_bins, x_min, x_max);
+<a name="l00018"></a>00018    <a class="code" href="classBaseModule.html">BaseModule</a>(<span class="stringliteral">&quot;PlotTDP_TDiff&quot;</span>,opts),
+<a name="l00019"></a>00019   fTimeLow(opts-&gt;<a class="code" href="namespacemodules_1_1parser.html#a0fbddc06cf5ff21fe6aab31f83b088d0">GetDouble</a>(<span class="stringliteral">&quot;time_low&quot;</span>,-1.e5)), fTimeHigh(opts-&gt;<a class="code" href="namespacemodules_1_1parser.html#a0fbddc06cf5ff21fe6aab31f83b088d0">GetDouble</a>(<span class="stringliteral">&quot;time_high&quot;</span>,1.e5)){
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021   <span class="comment">// Do something with opts here.  Has the user specified any</span>
+<a name="l00022"></a>00022   <span class="comment">// particular configuration that you want to know?</span>
+<a name="l00023"></a>00023   <span class="comment">// For example, perhaps this module wants an axis range:  </span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025   <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a> = <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;source_a&quot;</span>));
+<a name="l00026"></a>00026   <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a> = <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>(opts-&gt;<a class="code" href="classmodules_1_1options.html#a5abd8fca2bf95e3d0d753d49089c08aa" title="Get the named option as a string.">GetString</a>(<span class="stringliteral">&quot;source_b&quot;</span>));
+<a name="l00027"></a>00027 }
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="classPlotTDP__TDiff.html#ae3682993cb2d9d1583820ba74697886c">00029</a> <a class="code" href="classPlotTDP__TDiff.html#ae3682993cb2d9d1583820ba74697886c" title="Is anything done in the destructor?">PlotTDP_TDiff::~PlotTDP_TDiff</a>(){
+<a name="l00030"></a>00030 }
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="comment">// Called before the main event loop</span>
+<a name="l00033"></a>00033 <span class="comment">// Can be used to set things up, like histograms etc</span>
+<a name="l00034"></a>00034 <span class="comment">// Return non-zero to indicate a problem</span>
+<a name="l00035"></a><a class="code" href="classPlotTDP__TDiff.html#ab4b1a40f5b8dff66321d6d1711be8a44">00035</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDP__TDiff.html#ab4b1a40f5b8dff66321d6d1711be8a44" title="Before each run, the DetectorPulseLists for the necessary detectors are stored and...">PlotTDP_TDiff::BeforeFirstEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00036"></a>00036   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00037"></a>00037   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00038"></a>00038      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotTDP_TDiff::BeforeFirstEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
+<a name="l00039"></a>00039   }
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041   <span class="keywordflow">if</span>(!<a class="code" href="classmodules_1_1navigator.html#a7b9cc64f2131df1cb305c6e9c2256d5d" title="Static method to obtain the singleton instance of the navigator.">modules::navigator::Instance</a>()-&gt;Before(<span class="stringliteral">&quot;MakeDetectorPulses&quot;</span>,<a class="code" href="classBaseModule.html#af30c91fa2a3388325dd20b322de517ca" title="Get the name of this module as given to the constructor of the base class.">GetName</a>())){
+<a name="l00042"></a>00042     cout&lt;&lt;<span class="stringliteral">&quot;MakeDetectorPulses must be used before PlotTDP_TDiff&quot;</span>&lt;&lt;endl;
+<a name="l00043"></a>00043     <span class="keywordflow">return</span> 1;
+<a name="l00044"></a>00044   }
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046   <span class="comment">// Create the histogram</span>
+<a name="l00047"></a>00047   std::string detname_a = <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str();
+<a name="l00048"></a>00048   std::string detname_b = <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>().str();
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050   std::string histogram_name = <a class="code" href="namespacemodules_1_1parser.html#a251ecfa397c10d7e2ba4709b46099260">modules::parser::ToCppValid</a>(<span class="stringliteral">&quot;h&quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot;_TDiff&quot;</span>);
+<a name="l00051"></a>00051   std::string histogram_title = <span class="stringliteral">&quot;Time Difference between TDP source &quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>();
+<a name="l00052"></a>00052   <a class="code" href="classPlotTDP__TDiff.html#ac4ff3ad26fad03972b38e207015f79ae" title="The histogram we fill.">fTDiffPlot</a> = <span class="keyword">new</span> TH1F(histogram_name.c_str(), histogram_title.c_str(), 600, <a class="code" href="classPlotTDP__TDiff.html#addec945c1afd2ab73b213acffb6dd062">fTimeLow</a>, <a class="code" href="classPlotTDP__TDiff.html#addec945c1afd2ab73b213acffb6dd062">fTimeLow</a>);
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054   std::string axis_title = <span class="stringliteral">&quot;t_{&quot;</span> + detname_a + <span class="stringliteral">&quot;} - t_{&quot;</span> + detname_b + <span class="stringliteral">&quot;} [ns]&quot;</span>;
+<a name="l00055"></a>00055   <a class="code" href="classPlotTDP__TDiff.html#ac4ff3ad26fad03972b38e207015f79ae" title="The histogram we fill.">fTDiffPlot</a>-&gt;GetXaxis()-&gt;SetTitle(axis_title.c_str());
 <a name="l00056"></a>00056 
-<a name="l00057"></a>00057   std::string axis_title = <span class="stringliteral">&quot;t_{&quot;</span> + detname_a + <span class="stringliteral">&quot;} - t_{&quot;</span> + detname_b + <span class="stringliteral">&quot;} [ns]&quot;</span>;
-<a name="l00058"></a>00058   <a class="code" href="classPlotTDP__TDiff.html#ac4ff3ad26fad03972b38e207015f79ae" title="The histogram we fill.">fTDiffPlot</a>-&gt;GetXaxis()-&gt;SetTitle(axis_title.c_str());
+<a name="l00057"></a>00057   <span class="keywordflow">return</span> 0;
+<a name="l00058"></a>00058 }
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060   <span class="keywordflow">return</span> 0;
-<a name="l00061"></a>00061 }
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063 <span class="comment">// Called once for each event in the main event loop</span>
-<a name="l00064"></a>00064 <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
-<a name="l00065"></a><a class="code" href="classPlotTDP__TDiff.html#a30cf3b49ac895d9376a1e838819debec">00065</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDP__TDiff.html#a30cf3b49ac895d9376a1e838819debec" title="In every entry the time difference between all the TDPs in one detector and all the...">PlotTDP_TDiff::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067   <span class="comment">// Loop over all TDP sources</span>
-<a name="l00068"></a>00068   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin();
-<a name="l00069"></a>00069       i_source!= <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); ++i_source){
-<a name="l00070"></a>00070     
-<a name="l00071"></a>00071     <span class="comment">//    std::cout &lt;&lt; i_source-&gt;first &lt;&lt; &quot;, &quot; &lt;&lt; fSourceA &lt;&lt; std::endl;</span>
-<a name="l00072"></a>00072     <span class="keywordflow">if</span> ( (i_source-&gt;first).matches(<a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>)) {
-<a name="l00073"></a>00073       <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a> = i_source-&gt;second;
-<a name="l00074"></a>00074       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00075"></a>00075         std::cout &lt;&lt; <span class="stringliteral">&quot;PlotTDP_TDiff: &quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a> &lt;&lt; <span class="stringliteral">&quot; pulses found. (&quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a>.size() &lt;&lt; <span class="stringliteral">&quot; pulses)&quot;</span> &lt;&lt; std::endl;;
-<a name="l00076"></a>00076       }
-<a name="l00077"></a>00077     }
-<a name="l00078"></a>00078     <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((i_source-&gt;first).matches(<a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>)) {
-<a name="l00079"></a>00079       <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a> = i_source-&gt;second;
-<a name="l00080"></a>00080       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
-<a name="l00081"></a>00081         std::cout &lt;&lt; <span class="stringliteral">&quot;PlotTDP_TDiff: &quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a> &lt;&lt; <span class="stringliteral">&quot; pulses found. (&quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a>.size() &lt;&lt; <span class="stringliteral">&quot; pulses)&quot;</span> &lt;&lt; std::endl;
-<a name="l00082"></a>00082       }
-<a name="l00083"></a>00083     }
-<a name="l00084"></a>00084   }
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086   <span class="comment">// Loop through the TDPs in both channels</span>
-<a name="l00087"></a>00087   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">DetectorPulseList::const_iterator</a> i_det_pulse_a = <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a>.begin(); i_det_pulse_a != <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a>.end(); ++i_det_pulse_a) {
-<a name="l00088"></a>00088     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">DetectorPulseList::const_iterator</a> i_det_pulse_b = <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a>.begin(); i_det_pulse_b != <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a>.end(); ++i_det_pulse_b) {
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090       <span class="keywordtype">double</span> time_det_pulse_a = (*i_det_pulse_a)-&gt;GetTime();
-<a name="l00091"></a>00091       <span class="keywordtype">double</span> time_det_pulse_b = (*i_det_pulse_b)-&gt;GetTime();
-<a name="l00092"></a>00092       <span class="keywordtype">double</span> time_difference = time_det_pulse_a - time_det_pulse_b; <span class="comment">// this is the same way as specified in PlotTAP_TDiff to maintain consistency</span>
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094       <a class="code" href="classPlotTDP__TDiff.html#ac4ff3ad26fad03972b38e207015f79ae" title="The histogram we fill.">fTDiffPlot</a>-&gt;Fill(time_difference);
-<a name="l00095"></a>00095     }
-<a name="l00096"></a>00096   }
-<a name="l00097"></a>00097   <span class="keywordflow">return</span> 0;
-<a name="l00098"></a>00098 }
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 <span class="comment">// Called just after the main event loop</span>
-<a name="l00101"></a>00101 <span class="comment">// Can be used to write things out, dump a summary etc</span>
-<a name="l00102"></a>00102 <span class="comment">// Return non-zero to indicate a problem</span>
-<a name="l00103"></a><a class="code" href="classPlotTDP__TDiff.html#ab64f71548c37fc8a9973396a92bc86d3">00103</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDP__TDiff.html#ab64f71548c37fc8a9973396a92bc86d3" title="Nothing needs to be done after each run.">PlotTDP_TDiff::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
-<a name="l00106"></a>00106   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
-<a name="l00107"></a>00107      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotTDP_TDiff::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
-<a name="l00108"></a>00108   }
+<a name="l00060"></a>00060 <span class="comment">// Called once for each event in the main event loop</span>
+<a name="l00061"></a>00061 <span class="comment">// Return non-zero to indicate a problem and terminate the event loop</span>
+<a name="l00062"></a><a class="code" href="classPlotTDP__TDiff.html#a30cf3b49ac895d9376a1e838819debec">00062</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDP__TDiff.html#a30cf3b49ac895d9376a1e838819debec" title="In every entry the time difference between all the TDPs in one detector and all the...">PlotTDP_TDiff::ProcessEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064   <span class="comment">// Loop over all TDP sources</span>
+<a name="l00065"></a>00065   <span class="keywordflow">for</span>(<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">SourceDetPulseMap::const_iterator</a> i_source=<a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.begin();
+<a name="l00066"></a>00066       i_source!= <a class="code" href="main_8cpp.html#a3ad213dca772a240dafd128599ff2c2e">gDetectorPulseMap</a>.end(); ++i_source){
+<a name="l00067"></a>00067     
+<a name="l00068"></a>00068     <span class="comment">//    std::cout &lt;&lt; i_source-&gt;first &lt;&lt; &quot;, &quot; &lt;&lt; fSourceA &lt;&lt; std::endl;</span>
+<a name="l00069"></a>00069     <span class="keywordflow">if</span> ( (i_source-&gt;first).matches(<a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a>)) {
+<a name="l00070"></a>00070       <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a> = i_source-&gt;second;
+<a name="l00071"></a>00071       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00072"></a>00072         std::cout &lt;&lt; <span class="stringliteral">&quot;PlotTDP_TDiff: &quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#ade6f01980dc9eb839894ab21bc5eeda5" title="The sources that are requested.">fSourceA</a> &lt;&lt; <span class="stringliteral">&quot; pulses found. (&quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a>.size() &lt;&lt; <span class="stringliteral">&quot; pulses)&quot;</span> &lt;&lt; std::endl;;
+<a name="l00073"></a>00073       }
+<a name="l00074"></a>00074     }
+<a name="l00075"></a>00075     <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((i_source-&gt;first).matches(<a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a>)) {
+<a name="l00076"></a>00076       <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a> = i_source-&gt;second;
+<a name="l00077"></a>00077       <span class="keywordflow">if</span> (<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()) {
+<a name="l00078"></a>00078         std::cout &lt;&lt; <span class="stringliteral">&quot;PlotTDP_TDiff: &quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#a0742f091905f001c3aff9e7bf1684151">fSourceB</a> &lt;&lt; <span class="stringliteral">&quot; pulses found. (&quot;</span> &lt;&lt; <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a>.size() &lt;&lt; <span class="stringliteral">&quot; pulses)&quot;</span> &lt;&lt; std::endl;
+<a name="l00079"></a>00079       }
+<a name="l00080"></a>00080     }
+<a name="l00081"></a>00081   }
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083   <span class="comment">// Loop through the TDPs in both channels</span>
+<a name="l00084"></a>00084   <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">DetectorPulseList::const_iterator</a> i_det_pulse_a = <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a>.begin(); i_det_pulse_a != <a class="code" href="classPlotTDP__TDiff.html#ac76eacca3248b4edafc62a523733ecb6" title="The pulse lists for the detector pulses that we want.">fDetPulsesA</a>.end(); ++i_det_pulse_a) {
+<a name="l00085"></a>00085     <span class="keywordflow">for</span> (<a class="code" href="namespacemodules.html#aecc7811d5380ed9d9e903c9b71a396aa">DetectorPulseList::const_iterator</a> i_det_pulse_b = <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a>.begin(); i_det_pulse_b != <a class="code" href="classPlotTDP__TDiff.html#a8af5c283215f538e0dece1f20e9099a5">fDetPulsesB</a>.end(); ++i_det_pulse_b) {
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087       <span class="keywordtype">double</span> time_det_pulse_a = (*i_det_pulse_a)-&gt;GetTime();
+<a name="l00088"></a>00088       <span class="keywordtype">double</span> time_det_pulse_b = (*i_det_pulse_b)-&gt;GetTime();
+<a name="l00089"></a>00089       <span class="keywordtype">double</span> time_difference = time_det_pulse_a - time_det_pulse_b; <span class="comment">// this is the same way as specified in PlotTAP_TDiff to maintain consistency</span>
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091       <a class="code" href="classPlotTDP__TDiff.html#ac4ff3ad26fad03972b38e207015f79ae" title="The histogram we fill.">fTDiffPlot</a>-&gt;Fill(time_difference);
+<a name="l00092"></a>00092     }
+<a name="l00093"></a>00093   }
+<a name="l00094"></a>00094   <span class="keywordflow">return</span> 0;
+<a name="l00095"></a>00095 }
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="comment">// Called just after the main event loop</span>
+<a name="l00098"></a>00098 <span class="comment">// Can be used to write things out, dump a summary etc</span>
+<a name="l00099"></a>00099 <span class="comment">// Return non-zero to indicate a problem</span>
+<a name="l00100"></a><a class="code" href="classPlotTDP__TDiff.html#ab64f71548c37fc8a9973396a92bc86d3">00100</a> <span class="keywordtype">int</span> <a class="code" href="classPlotTDP__TDiff.html#ab64f71548c37fc8a9973396a92bc86d3" title="Nothing needs to be done after each run.">PlotTDP_TDiff::AfterLastEntry</a>(<a class="code" href="classTGlobalData.html" title="This class holds all of the data created by alcapana analysis modules.">TGlobalData</a>* <a class="code" href="group__MCAENPulseIslandSortAndStitch.html#ga69cb952a194ddefc6004dd96e70ccd62" title="Object to hold data used and produced by modules throughout alcapana stage of analysis...">gData</a>,<span class="keyword">const</span> <a class="code" href="classTSetupData.html" title="Holds data relevent to each run.">TSetupData</a> *setup){
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102   <span class="comment">// Print extra info if we&apos;re debugging this module:</span>
+<a name="l00103"></a>00103   <span class="keywordflow">if</span>(<a class="code" href="classBaseModule.html#ac6227c641b46487b3deb287fd3ea2408">Debug</a>()){
+<a name="l00104"></a>00104      cout&lt;&lt;<span class="stringliteral">&quot;-----PlotTDP_TDiff::AfterLastEntry(): I&apos;m debugging!&quot;</span>&lt;&lt;endl;
+<a name="l00105"></a>00105   }
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107   <span class="keywordflow">return</span> 0;
+<a name="l00108"></a>00108 }
 <a name="l00109"></a>00109 
-<a name="l00110"></a>00110   <span class="keywordflow">return</span> 0;
-<a name="l00111"></a>00111 }
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113 <span class="comment">// The following macro registers this module to be useable in the config file.</span>
-<a name="l00114"></a>00114 <span class="comment">// The first argument is compulsory and gives the name of this module</span>
-<a name="l00115"></a>00115 <span class="comment">// All subsequent arguments will be used as names for arguments given directly </span>
-<a name="l00116"></a>00116 <span class="comment">// within the modules file.  See the github wiki for more.</span>
-<a name="l00117"></a>00117 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTDP__TDiff.html" title="This module plots the time difference between TDetectorPulses (TDPs) in two given...">PlotTDP_TDiff</a>,source_a,source_b);
+<a name="l00110"></a>00110 <span class="comment">// The following macro registers this module to be useable in the config file.</span>
+<a name="l00111"></a>00111 <span class="comment">// The first argument is compulsory and gives the name of this module</span>
+<a name="l00112"></a>00112 <span class="comment">// All subsequent arguments will be used as names for arguments given directly </span>
+<a name="l00113"></a>00113 <span class="comment">// within the modules file.  See the github wiki for more.</span>
+<a name="l00114"></a>00114 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotTDP__TDiff.html" title="This module plots the time difference between TDetectorPulses (TDPs) in two given...">PlotTDP_TDiff</a>,source_a,source_b, time_low, time_high);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jan 2015 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Jan 2015 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

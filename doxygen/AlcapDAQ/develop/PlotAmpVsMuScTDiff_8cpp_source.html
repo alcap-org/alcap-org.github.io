@@ -121,7 +121,7 @@
 <a name="l00094"></a>00094 }
 <a name="l00095"></a>00095 
 <a name="l00096"></a><a class="code" href="classPlotAmpVsMuScTDiff.html#a25c76617bd4d59c27d69e5323dfe6763">00096</a> <a class="code" href="structPlotAmpVsMuScTDiff_1_1Plots.html">PlotAmpVsMuScTDiff::Plots</a> <a class="code" href="classPlotAmpVsMuScTDiff.html#a25c76617bd4d59c27d69e5323dfe6763">PlotAmpVsMuScTDiff::GetHistogram</a>(<span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; detector, <span class="keyword">const</span> <a class="code" href="classIDs_1_1source.html" title="Class to define the identity of a source. A source, conceptually speaking, is the...">IDs::source</a>&amp; muSc){
-<a name="l00097"></a>00097     std::string keyname=detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>()+ <span class="stringliteral">&quot;-&quot;</span>+muSc.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>();
+<a name="l00097"></a>00097     std::string keyname=detector.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>()+ <span class="stringliteral">&quot;-&quot;</span>+muSc.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>();
 <a name="l00098"></a>00098     <span class="comment">// check if we already have this plot and return it if so</span>
 <a name="l00099"></a>00099     <span class="keywordflow">if</span>(<a class="code" href="classPlotAmpVsMuScTDiff.html#a8890d2f1ff61aac138fa78f66ce7afc2">fPlots</a>.find(keyname)!=<a class="code" href="classPlotAmpVsMuScTDiff.html#a8890d2f1ff61aac138fa78f66ce7afc2">fPlots</a>.end()){
 <a name="l00100"></a>00100         <span class="keywordflow">return</span> <a class="code" href="classPlotAmpVsMuScTDiff.html#a8890d2f1ff61aac138fa78f66ce7afc2">fPlots</a>[keyname];
@@ -129,9 +129,9 @@
 <a name="l00102"></a>00102 
 <a name="l00103"></a>00103     <span class="comment">// names and axes labels</span>
 <a name="l00104"></a>00104     std::string histname = <span class="stringliteral">&quot;h&quot;</span> + keyname + <span class="stringliteral">&quot;_AmpVsMuScTDiff_Coarse&quot;</span>;
-<a name="l00105"></a>00105     std::string histtitle = <span class="stringliteral">&quot;Amplitude vs time difference between &quot;</span> + detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot; and &quot;</span> + muSc.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>();
-<a name="l00106"></a>00106     std::string x_axis_title = <span class="stringliteral">&quot;Time Difference (&quot;</span> + detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot; - muSc) [ns]&quot;</span>;
-<a name="l00107"></a>00107     std::string y_axis_title = <span class="stringliteral">&quot;Amplitude from &quot;</span> + detector.<a class="code" href="classIDs_1_1source.html#a4cd834aa7242fd994872e3f9745284e3" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot; [ADC Value]&quot;</span>;
+<a name="l00105"></a>00105     std::string histtitle = <span class="stringliteral">&quot;Amplitude vs time difference between &quot;</span> + detector.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot; and &quot;</span> + muSc.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>();
+<a name="l00106"></a>00106     std::string x_axis_title = <span class="stringliteral">&quot;Time Difference (&quot;</span> + detector.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot; - muSc) [ns]&quot;</span>;
+<a name="l00107"></a>00107     std::string y_axis_title = <span class="stringliteral">&quot;Amplitude from &quot;</span> + detector.<a class="code" href="classIDs_1_1source.html#aadeb6d76fe12d29e5de030b13906c606" title="Returns the source as a string.">str</a>() + <span class="stringliteral">&quot; [ADC Value]&quot;</span>;
 <a name="l00108"></a>00108 
 <a name="l00109"></a>00109     <span class="comment">// histogram ranges</span>
 <a name="l00110"></a>00110     <span class="keywordtype">int</span> n_bits = <a class="code" href="group__alcapana__main.html#ga96d8c48f8693f69adda6aac005d17589" title="(Quasi-)Singleton interface">TSetupData::Instance</a>()-&gt;<a class="code" href="classTSetupData.html#a40acabc9f8cf502c53ca88b8461bb64a">GetNBits</a>(<a class="code" href="classSetupNavigator.html#acc09765c4d2ca0e1205977075bd7eb49">SetupNavigator::Instance</a>()-&gt;GetBank(detector.<a class="code" href="classIDs_1_1source.html#a5cc6b4375e7d2c6dc171a5fca8da94f7" title="Get a reference to the channel ID in this source.">Channel</a>()));
@@ -161,7 +161,7 @@
 <a name="l00134"></a>00134 
 <a name="l00135"></a>00135 <a class="code" href="Template__module_8cpp.html#af5a8f3de39b8d01369a5c344af6d4a8c">ALCAP_REGISTER_MODULE</a>(<a class="code" href="classPlotAmpVsMuScTDiff.html" title="A one line description of what your module does.">PlotAmpVsMuScTDiff</a>);
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 21 Jan 2015 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 22 Jan 2015 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
