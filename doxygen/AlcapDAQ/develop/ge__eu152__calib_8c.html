@@ -30,9 +30,200 @@
 <h1>rootana/scripts/ge/ge_eu152_calib.c File Reference</h1>
 <p><a href="ge__eu152__calib_8c_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ge__eu152__calib_8c.html#ae7dc2b7d80b34b7090f0ca5153a8bab9">ge_eu152_calib</a> ()</td></tr>
 </table>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="ae7dc2b7d80b34b7090f0ca5153a8bab9"></a><!-- doxytag: member="ge_eu152_calib.c::ge_eu152_calib" ref="ae7dc2b7d80b34b7090f0ca5153a8bab9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ge_eu152_calib </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Feb 2015 for AlcapDAQ by&nbsp;
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ge__eu152__calib_8c_source.html#l00001">1</a> of file <a class="el" href="ge__eu152__calib_8c_source.html">ge_eu152_calib.c</a>.</p>
+
+<p><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001                       {
+<a name="l00002"></a>00002   <span class="comment">// The file to run on in the sum of calibration runs 3375, 3378 and 3379.</span>
+<a name="l00003"></a>00003   TFile* f = <span class="keyword">new</span> TFile(<span class="stringliteral">&quot;calib_ge.root&quot;</span>, <span class="stringliteral">&quot;READ&quot;</span>);
+<a name="l00004"></a>00004   TSpectrum* s = <span class="keyword">new</span> TSpectrum(100, 3.);
+<a name="l00005"></a>00005   TH1* spec = (TH1*)f-&gt;Get(<span class="stringliteral">&quot;PlotTAP_Amplitude/hGe-S#FirstComplete#{constant_fraction=0.60}{no_time_shift=true}_Amplitude&quot;</span>);
+<a name="l00006"></a>00006   spec-&gt;Sumw2();
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008   <span class="comment">// Activity</span>
+<a name="l00009"></a>00009   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> src_date[] = {1, 3, 2000}; <span class="comment">// 1 March 2000?</span>
+<a name="l00010"></a>00010   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> meas_date[] = {19, 12, 2013}; <span class="comment">// 19 Dec 2013</span>
+<a name="l00011"></a>00011   Double_t age = 13.8; <span class="comment">// Years according to WolframAlpha</span>
+<a name="l00012"></a>00012   Double_t halflife = 13.537;
+<a name="l00013"></a>00013   Double_t activity0 = 46.4e3; <span class="comment">// RunPSI2013:661</span>
+<a name="l00014"></a>00014   TTimeStamp t0(src_date[2], src_date[1], src_date[0], 0, 0, 0);
+<a name="l00015"></a>00015   TTimeStamp t(meas_date[2], meas_date[1], meas_date[0], 0, 0, 0);
+<a name="l00016"></a>00016   Double_t dt = (t.GetSec() - t0.GetSec())/60./60./24./365.2425;
+<a name="l00017"></a>00017   Double_t activity = activity0*TMath::Power(0.5,dt/halflife);
+<a name="l00018"></a>00018   Double_t livetime = 3245.5; <span class="comment">// Analysis-R13:129</span>
+<a name="l00019"></a>00019   Double_t events = activity*livetime;
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021   <span class="comment">// Spectrum</span>
+<a name="l00022"></a>00022   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NPeaks = 15;
+<a name="l00023"></a>00023   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Peak511Index = 5, Peak122Index = 0;
+<a name="l00024"></a>00024   Double_t Energy[NPeaks]      = {121.7817, 244.6975, 344.2785, 411.1163, 443.965, 510.999, 778.9040, 867.378, 964.079, 1085.869, 1089.737, 1112.074, 1212.948, 1299.140, 1408.006};
+<a name="l00025"></a>00025   Double_t RedEn[NPeaks-1]       = {121.7817, 244.6975, 344.2785, 411.1163, 443.965, 778.9040, 867.378, 964.079, 1085.869, 1089.737, 1112.074, 1212.948, 1299.140, 1408.006};
+<a name="l00026"></a>00026   Double_t Intensity[NPeaks-1] = {0.2858,   0.07583,  0.265,    0.02234,  0.02821, 0.12942,  0.04245, 0.14605, 0.10207,  0.01726,  0.13644,  0.01422,  0.01623,  0.21005};
+<a name="l00027"></a>00027   Double_t LogEnergy[NPeaks];        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; NPeaks; ++i)   LogEnergy[i]      = TMath::Log(Energy[i]);
+<a name="l00028"></a>00028   Double_t ExpectedCounts[NPeaks-1]; <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; NPeaks-1; ++i) ExpectedCounts[i] = events*Intensity[i];
+<a name="l00029"></a>00029   Double_t ADC[NPeaks]       = {1000.75,  2015.48,  2831.37,  3379.41, 3648.90,  4196.38, 6392.91,  7118.00, 7909.78, 8907.53,  8941.08,  9121.85,  9948.85,  10654.3,  11547.5}; <span class="comment">// First guess</span>
+<a name="l00030"></a>00030   Double_t ADC_Meas[NPeaks];
+<a name="l00031"></a>00031   <span class="keyword">const</span> <span class="keywordtype">char</span>* Functions[NPeaks]       = { <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00032"></a>00032                                           <span class="stringliteral">&quot;gaus(0)+gaus(3)+[6]*x+[7]&quot;</span>,
+<a name="l00033"></a>00033                                           <span class="stringliteral">&quot;gaus(0)+gaus(3)+[6]*x+[7]&quot;</span>,
+<a name="l00034"></a>00034                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00035"></a>00035                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00036"></a>00036                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00037"></a>00037                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00038"></a>00038                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00039"></a>00039                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00040"></a>00040                                           <span class="stringliteral">&quot;gaus(0)+gaus(3)+[6]*x+[7]&quot;</span>,
+<a name="l00041"></a>00041                                           <span class="stringliteral">&quot;gaus(0)+gaus(3)+[6]*x+[7]&quot;</span>,
+<a name="l00042"></a>00042                                           <span class="stringliteral">&quot;gaus(0)+gaus(3)+[6]*x+[7]&quot;</span>,
+<a name="l00043"></a>00043                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span>,
+<a name="l00044"></a>00044                                           <span class="stringliteral">&quot;gaus(0)+gaus(3)+[6]*x+[7]&quot;</span>,
+<a name="l00045"></a>00045                                           <span class="stringliteral">&quot;gaus(0)+[3]*x+[4]&quot;</span> };
+<a name="l00046"></a>00046   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NParam[NPeaks]   = { 5, 8, 8, 5, 5, 5, 5, 5, 5, 8, 8, 8, 5, 8, 5 };
+<a name="l00047"></a>00047   <span class="keyword">const</span> Double_t FitParam[NPeaks][11] = { {1250., ADC[0],  8.,  0.,  0.,      0., 0., 0.,   0., 0., 0.},
+<a name="l00048"></a>00048                                           {200.,  ADC[1],  8.,  20., 1966.,   8., 0., 100., 0., 0., 0.},
+<a name="l00049"></a>00049                                           {70.,   ADC[2],  8.,  10., 2894.,   8., 0., 70.,  0., 0., 0.},
+<a name="l00050"></a>00050                                           {50.,   ADC[3],  8.,  0.,  40.,     0., 0., 0.,   0., 0., 0.},
+<a name="l00051"></a>00051                                           {55.,   ADC[4],  8.,  0.,  35.,     0., 0., 0.,   0., 0., 0.},
+<a name="l00052"></a>00052                                           {450.,  ADC[5],  10., 0.,  25.,     0., 0., 0.,   0., 0., 0.},
+<a name="l00053"></a>00053                                           {125.,  ADC[6],  8.,  0.,  15.,     0., 0., 0.,   0., 0., 0.},
+<a name="l00054"></a>00054                                           {40.,   ADC[7],  8.,  0.,  10.,     0., 0., 0.,   0., 0., 0.},
+<a name="l00055"></a>00055                                           {120.,  ADC[8],  8.,  0.,  10.,     0., 0., 0.,   0., 0., 0.},
+<a name="l00056"></a>00056                                           {75.,   ADC[9],  8.,  15., ADC[10], 8., 0., 5.,   0., 0., 0.},
+<a name="l00057"></a>00057                                           {15.,   ADC[10], 8.,  75., ADC[9],  8., 0., 5.,   0., 0., 0.},
+<a name="l00058"></a>00058                                           {95.,   ADC[11], 8.,  10., 9170.,   8., 0., 5.,   0., 0., 0.},
+<a name="l00059"></a>00059                                           {10.,   ADC[12], 8.,  0.,  5.,      0.. 0., 0.,   0., 0., 0.},
+<a name="l00060"></a>00060                                           {10.,   ADC[13], 8.,  25., 10610.,  8., 0., 2.,   0., 0., 0.},
+<a name="l00061"></a>00061                                           {120.,  ADC[14], 8.,  0.,  0.,      0., 0., 0.,   0., 0., 0.} };
+<a name="l00062"></a>00062   Double_t FitParamRes[NPeaks][11];
+<a name="l00063"></a>00063   Double_t FitParamErr[NPeaks][11];
+<a name="l00064"></a>00064   Double_t Counts[NPeaks-1];
+<a name="l00065"></a>00065   Double_t Efficiency[NPeaks-1];
+<a name="l00066"></a>00066   Double_t LogEfficiency[NPeaks-1];
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068   <span class="comment">// Errors</span>
+<a name="l00069"></a>00069   Double_t Chi2Ndf[NPeaks];
+<a name="l00070"></a>00070   Double_t Error_ADC[NPeaks];
+<a name="l00071"></a>00071   Double_t Error_Counts[NPeaks-1];
+<a name="l00072"></a>00072   Double_t Error_Eff[NPeaks-1];
+<a name="l00073"></a>00073   Double_t Error_LogEff[NPeaks-1];
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075   <span class="comment">// Count the events (integral of fit gaussian)</span>
+<a name="l00076"></a>00076   <span class="keyword">const</span> Double_t rt2pi = TMath::Sqrt(2.*TMath::Pi());
+<a name="l00077"></a>00077   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; NPeaks; ++i) {
+<a name="l00078"></a>00078     TF1* fit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;fit&quot;</span>, Functions[i]);
+<a name="l00079"></a>00079     <span class="keyword">const</span> Double_t fit_window = 100.;
+<a name="l00080"></a>00080     spec-&gt;GetXaxis()-&gt;SetRangeUser(ADC[i] - fit_window, ADC[i] + fit_window);
+<a name="l00081"></a>00081     fit-&gt;SetParameters(FitParam[i]);
+<a name="l00082"></a>00082     TFitResultPtr res = spec-&gt;Fit(fit,<span class="stringliteral">&quot;SMENQ&quot;</span>);
+<a name="l00083"></a>00083     Chi2Ndf[i] = res-&gt;Chi2()/(Double_t)res-&gt;Ndf();
+<a name="l00084"></a>00084     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; NParam[i]; ++j) {
+<a name="l00085"></a>00085       FitParamRes[i][j] = res-&gt;Value(j);
+<a name="l00086"></a>00086       FitParamErr[i][j] = res-&gt;ParError(j);
+<a name="l00087"></a>00087     }
+<a name="l00088"></a>00088   }
+<a name="l00089"></a>00089   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; NPeaks; ++i) {
+<a name="l00090"></a>00090     <span class="comment">// Get energy calibration</span>
+<a name="l00091"></a>00091     ADC_Meas[i] = FitParamRes[i][1];
+<a name="l00092"></a>00092     Error_ADC[i] = FitParamErr[i][1];
+<a name="l00093"></a>00093     <span class="comment">// Get efficiency calibration</span>
+<a name="l00094"></a>00094     <span class="comment">// Adjust for lack of prediction for 511 peak</span>
+<a name="l00095"></a>00095     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = i;
+<a name="l00096"></a>00096     <span class="keywordflow">if</span> (i == Peak511Index)
+<a name="l00097"></a>00097       <span class="keywordflow">continue</span>;
+<a name="l00098"></a>00098     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (i &gt; Peak511Index)
+<a name="l00099"></a>00099       --j;
+<a name="l00100"></a>00100     Counts[j] = FitParamRes[i][0]*FitParamRes[i][2]*rt2pi;
+<a name="l00101"></a>00101     Error_Counts[j] = Counts[j]*TMath::Sqrt(TMath::Power(FitParamErr[i][0]/FitParamRes[i][0],2.)+TMath::Power(FitParamErr[i][2]/FitParamRes[i][2],2.));
+<a name="l00102"></a>00102     Efficiency[j] = Counts[j] / ExpectedCounts[j];
+<a name="l00103"></a>00103     Error_Eff[j] = Error_Counts[j] / ExpectedCounts[j];
+<a name="l00104"></a>00104     LogEfficiency[j] = TMath::Log(Efficiency[j]);
+<a name="l00105"></a>00105     Error_LogEff[j] = Error_Eff[j] / Efficiency[j];
+<a name="l00106"></a>00106   }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108   <span class="comment">// Draw</span>
+<a name="l00109"></a>00109   Double_t en_par[2], en_par_err[2];
+<a name="l00110"></a>00110   Double_t eff_par[2], eff_par_err[2], Chi2[2];
+<a name="l00111"></a>00111   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Ndf[2];
+<a name="l00112"></a>00112   <span class="comment">/* TGraphErrors* e_cal   = new TGraphErrors(NPeaks, Energy, ADC_Meas, 0, Error_ADC); */</span>
+<a name="l00113"></a>00113   TGraphErrors* e_cal   = <span class="keyword">new</span> TGraphErrors(NPeaks-1, ADC_Meas+1, Energy+1, Error_ADC+1, 0);
+<a name="l00114"></a>00114   <span class="comment">/* TGraphErrors* eff_cal = new TGraphErrors(NPeaks-1, LogEnergy+1, LogEfficiency+1, 0, Error_LogEff+1); */</span>
+<a name="l00115"></a>00115   TGraphErrors* eff_cal = <span class="keyword">new</span> TGraphErrors(NPeaks-1, Energy+1, Efficiency+1, 0, Error_Eff+1);
+<a name="l00116"></a>00116   e_cal-&gt;SetTitle(<span class="stringliteral">&quot;Ge Energy Calibration&quot;</span>); e_cal-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;ADC Value [ADC]&quot;</span>); e_cal-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Energy [keV]&quot;</span>);
+<a name="l00117"></a>00117   eff_cal-&gt;SetTitle(<span class="stringliteral">&quot;Ge Efficiency Calibration&quot;</span>); eff_cal-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Energy [keV]&quot;</span>); eff_cal-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Counts / Expected Counts&quot;</span>);
+<a name="l00118"></a>00118   TCanvas* c_en = <span class="keyword">new</span> TCanvas(<span class="stringliteral">&quot;c_en&quot;</span>);
+<a name="l00119"></a>00119   TF1* fit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;fit&quot;</span>, <span class="stringliteral">&quot;[0] + [1]*x&quot;</span>);
+<a name="l00120"></a>00120   fit-&gt;SetParameter(0, 0);
+<a name="l00121"></a>00121   fit-&gt;SetParameter(1, 100);
+<a name="l00122"></a>00122   fit-&gt;SetParName(0, <span class="stringliteral">&quot;Offset&quot;</span>);
+<a name="l00123"></a>00123   fit-&gt;SetParName(1, <span class="stringliteral">&quot;Gradient&quot;</span>);
+<a name="l00124"></a>00124   TFitResultPtr res = e_cal-&gt;Fit(fit,<span class="stringliteral">&quot;SME&quot;</span>); e_cal-&gt;Draw(<span class="stringliteral">&quot;A*&quot;</span>);
+<a name="l00125"></a>00125   TPaveText* text_en = <span class="keyword">new</span> TPaveText(0.2, 0.65, 0.5, 0.75, <span class="stringliteral">&quot;nb NDC&quot;</span>); text_en-&gt;SetBorderSize(0); text_en-&gt;SetTextSize(0.04); text_en-&gt;SetFillColor(kWhite); text_en-&gt;AddText(<span class="stringliteral">&quot;Energy = Offset + Gradient * ADC&quot;</span>); text_en-&gt;Draw();
+<a name="l00126"></a>00126   Chi2[0] = res-&gt;Chi2(); Ndf[0] = res-&gt;Ndf();
+<a name="l00127"></a>00127   en_par[0] = res-&gt;Value(0); en_par[1] = res-&gt;Value(1);
+<a name="l00128"></a>00128   en_par_err[0] = res-&gt;ParError(0); en_par_err[1] = res-&gt;ParError(1);
+<a name="l00129"></a>00129   TCanvas* c_eff = <span class="keyword">new</span> TCanvas(<span class="stringliteral">&quot;c_eff&quot;</span>);
+<a name="l00130"></a>00130   <span class="comment">//  gStyle-&gt;SetOptFit(111);</span>
+<a name="l00131"></a>00131   TF1* logfit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;func&quot;</span>, <span class="stringliteral">&quot;[0]*(x**[1])&quot;</span>);
+<a name="l00132"></a>00132   logfit-&gt;SetParName(0, <span class="stringliteral">&quot;Coefficient&quot;</span>);
+<a name="l00133"></a>00133   logfit-&gt;SetParName(1, <span class="stringliteral">&quot;Exponent&quot;</span>);
+<a name="l00134"></a>00134   logfit-&gt;SetParameters(TMath::Exp(-2.6), -0.84);
+<a name="l00135"></a>00135   res = eff_cal-&gt;Fit(logfit, <span class="stringliteral">&quot;SME&quot;</span>); eff_cal-&gt;Draw(<span class="stringliteral">&quot;A*&quot;</span>);
+<a name="l00136"></a>00136   TPaveText* text_eff = <span class="keyword">new</span> TPaveText(0.5, 0.5, 0.65, 0.6, <span class="stringliteral">&quot;nb NDC&quot;</span>); text_eff-&gt;SetBorderSize(0); text_eff-&gt;SetTextSize(0.05); text_eff-&gt;AddText(<span class="stringliteral">&quot;#varepsilon = aE^{b}&quot;</span>); text_eff-&gt;SetFillColor(kWhite); text_eff-&gt;Draw();
+<a name="l00137"></a>00137   <span class="comment">/* res = eff_cal-&gt;Fit(&quot;pol1&quot;, &quot;SME&quot;); eff_cal-&gt;Draw(&quot;A*&quot;); */</span>
+<a name="l00138"></a>00138   Chi2[1] = res-&gt;Chi2(); Ndf[1] = res-&gt;Ndf();
+<a name="l00139"></a>00139   eff_par[0] = res-&gt;Value(0); eff_par[1] = res-&gt;Value(1);
+<a name="l00140"></a>00140   eff_par_err[0] = res-&gt;ParError(0); eff_par_err[1] = res-&gt;ParError(1);
+<a name="l00141"></a>00141   <span class="comment">// Print out</span>
+<a name="l00142"></a>00142   printf(<span class="stringliteral">&quot;\n&quot;</span>);
+<a name="l00143"></a>00143   printf(<span class="stringliteral">&quot;    %-10s | %-8s | %-5s | %-10s | %-5s | %-7s\n&quot;</span>, <span class="stringliteral">&quot;Energy&quot;</span>, <span class="stringliteral">&quot;ADC&quot;</span>, <span class="stringliteral">&quot;+/-&quot;</span>, <span class="stringliteral">&quot;Eff&quot;</span>, <span class="stringliteral">&quot;+/-&quot;</span>, <span class="stringliteral">&quot;Chi2&quot;</span>);
+<a name="l00144"></a>00144   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; NPeaks; ++i) {
+<a name="l00145"></a>00145     <span class="keywordtype">int</span> adc_exp = TMath::Floor(TMath::Log10(Error_ADC[i]));
+<a name="l00146"></a>00146     <span class="keywordtype">int</span> eff_exp = TMath::Floor(TMath::Log10(Error_Eff[i]));
+<a name="l00147"></a>00147     printf(<span class="stringliteral">&quot;    %-10.10g | %-8.10g | %-5.1g | %-10.10g | %-5.1g | %-7.3g\n&quot;</span>,
+<a name="l00148"></a>00148            Energy[i],
+<a name="l00149"></a>00149            TMath::Floor(ADC_Meas[i] / TMath::Power(10., adc_exp)) * TMath::Power(10., adc_exp),
+<a name="l00150"></a>00150            Error_ADC[i],
+<a name="l00151"></a>00151            TMath::Floor(Efficiency[i] / TMath::Power(10., eff_exp)) * TMath::Power(10., eff_exp),
+<a name="l00152"></a>00152            Error_Eff[i],
+<a name="l00153"></a>00153            Chi2Ndf[i]);
+<a name="l00154"></a>00154   }
+<a name="l00155"></a>00155   printf(<span class="stringliteral">&quot;\n&quot;</span>);
+<a name="l00156"></a>00156   printf(<span class="stringliteral">&quot;ADC = %g(%g) * Energy + %g(%g)    (%g/%u)\n&quot;</span>, en_par[1], en_par_err[1], en_par[0], en_par_err[0], Chi2[0], Ndf[0]);
+<a name="l00157"></a>00157   <span class="comment">/* printf(&quot;Eff = %g(%g)*Energy^[%g(%g)]    (%g/%u)\n&quot;, TMath::Exp(eff_par[0]), TMath::Exp(eff_par[0])*eff_par_err[0], eff_par[1], eff_par_err[1], Chi2[1], Ndf[1]); */</span>
+<a name="l00158"></a>00158   printf(<span class="stringliteral">&quot;Eff = %g(%g)*Energy^[%g(%g)]    (%g/%u)\n&quot;</span>, eff_par[0], eff_par_err[0], eff_par[1], eff_par_err[1], Chi2[1], Ndf[1]);
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160   <span class="comment">//  c_en-&gt;SaveAs(&quot;~/plots/ThesisPlots/ge-calibration-curve.pdf&quot;);</span>
+<a name="l00161"></a>00161   <span class="comment">//  c_eff-&gt;SaveAs(&quot;~/plots/ThesisPlots/ge-efficiency-curve.pdf&quot;);</span>
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163   <span class="keywordtype">double</span> si_peak = 400.177;
+<a name="l00164"></a>00164   <span class="keywordtype">double</span> al_peak = 346.828;
+<a name="l00165"></a>00165   std::cout &lt;&lt; <span class="stringliteral">&quot;Eff(&quot;</span> &lt;&lt; si_peak &lt;&lt; <span class="stringliteral">&quot;) = &quot;</span> &lt;&lt; logfit-&gt;Eval(si_peak) &lt;&lt; std::endl;
+<a name="l00166"></a>00166   std::cout &lt;&lt; <span class="stringliteral">&quot;Eff(&quot;</span> &lt;&lt; al_peak &lt;&lt; <span class="stringliteral">&quot;) = &quot;</span> &lt;&lt; logfit-&gt;Eval(al_peak) &lt;&lt; std::endl;
+<a name="l00167"></a>00167 }
+</pre></div></p>
+
+</div>
+</div>
+</div>
+<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Feb 2015 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

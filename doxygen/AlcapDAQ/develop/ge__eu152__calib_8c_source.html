@@ -25,7 +25,7 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>rootana/scripts/ge/ge_eu152_calib.c</h1><a href="ge__eu152__calib_8c.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 {
+<h1>rootana/scripts/ge/ge_eu152_calib.c</h1><a href="ge__eu152__calib_8c.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="ge__eu152__calib_8c.html#ae7dc2b7d80b34b7090f0ca5153a8bab9">00001</a> <span class="keywordtype">void</span> <a class="code" href="ge__eu152__calib_8c.html#ae7dc2b7d80b34b7090f0ca5153a8bab9">ge_eu152_calib</a>() {
 <a name="l00002"></a>00002   <span class="comment">// The file to run on in the sum of calibration runs 3375, 3378 and 3379.</span>
 <a name="l00003"></a>00003   TFile* f = <span class="keyword">new</span> TFile(<span class="stringliteral">&quot;calib_ge.root&quot;</span>, <span class="stringliteral">&quot;READ&quot;</span>);
 <a name="l00004"></a>00004   TSpectrum* s = <span class="keyword">new</span> TSpectrum(100, 3.);
@@ -139,71 +139,86 @@
 <a name="l00112"></a>00112   <span class="comment">/* TGraphErrors* e_cal   = new TGraphErrors(NPeaks, Energy, ADC_Meas, 0, Error_ADC); */</span>
 <a name="l00113"></a>00113   TGraphErrors* e_cal   = <span class="keyword">new</span> TGraphErrors(NPeaks-1, ADC_Meas+1, Energy+1, Error_ADC+1, 0);
 <a name="l00114"></a>00114   <span class="comment">/* TGraphErrors* eff_cal = new TGraphErrors(NPeaks-1, LogEnergy+1, LogEfficiency+1, 0, Error_LogEff+1); */</span>
-<a name="l00115"></a>00115   TGraphErrors* eff_cal = <span class="keyword">new</span> TGraphErrors(NPeaks-2, RedEn+1, Efficiency+1, 0, Error_Eff+1);
-<a name="l00116"></a>00116   e_cal-&gt;SetTitle(<span class="stringliteral">&quot;Energy Calibration&quot;</span>); e_cal-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;ADC Value&quot;</span>); e_cal-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Energy (keV)&quot;</span>);
-<a name="l00117"></a>00117   eff_cal-&gt;SetTitle(<span class="stringliteral">&quot;Efficiency Calibration&quot;</span>); eff_cal-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Energy (keV)&quot;</span>); eff_cal-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Counts / Expected Counts&quot;</span>);
-<a name="l00118"></a>00118   <span class="keyword">new</span> TCanvas();
-<a name="l00119"></a>00119   TFitResultPtr res = e_cal-&gt;Fit(<span class="stringliteral">&quot;pol1&quot;</span>,<span class="stringliteral">&quot;SME&quot;</span>); e_cal-&gt;Draw(<span class="stringliteral">&quot;A*&quot;</span>);
-<a name="l00120"></a>00120   TPaveText* text_en = <span class="keyword">new</span> TPaveText(0.5, 0.15, 0.8, 0.25, <span class="stringliteral">&quot;brNDC&quot;</span>); text_en.AddText(<span class="stringliteral">&quot;Energy = p0 + p1 * ADC&quot;</span>); text_en-&gt;Draw();
-<a name="l00121"></a>00121   Chi2[0] = res-&gt;Chi2(); Ndf[0] = res-&gt;Ndf();
-<a name="l00122"></a>00122   en_par[0] = res-&gt;Value(0); en_par[1] = res-&gt;Value(1);
-<a name="l00123"></a>00123   en_par_err[0] = res-&gt;ParError(0); en_par_err[1] = res-&gt;ParError(1);
-<a name="l00124"></a>00124   <span class="keyword">new</span> TCanvas();
-<a name="l00125"></a>00125   gStyle-&gt;SetOptFit(111);
-<a name="l00126"></a>00126   TF1* logfit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;func&quot;</span>, <span class="stringliteral">&quot;[0]*(x**[1])&quot;</span>);
-<a name="l00127"></a>00127   logfit-&gt;SetParameters(TMath::Exp(-2.6), -0.84);
-<a name="l00128"></a>00128   res = eff_cal-&gt;Fit(logfit, <span class="stringliteral">&quot;SME&quot;</span>); eff_cal-&gt;Draw(<span class="stringliteral">&quot;A*&quot;</span>);
-<a name="l00129"></a>00129   TPaveText* text_eff = <span class="keyword">new</span> TPaveText(0.5, 0.5, 0.8, 0.6, <span class="stringliteral">&quot;brNDC&quot;</span>); text_eff.AddText(<span class="stringliteral">&quot;Eff = p0 * Energy^{p1}&quot;</span>); text_eff-&gt;Draw();
-<a name="l00130"></a>00130   <span class="comment">/* res = eff_cal-&gt;Fit(&quot;pol1&quot;, &quot;SME&quot;); eff_cal-&gt;Draw(&quot;A*&quot;); */</span>
-<a name="l00131"></a>00131   Chi2[1] = res-&gt;Chi2(); Ndf[1] = res-&gt;Ndf();
-<a name="l00132"></a>00132   eff_par[0] = res-&gt;Value(0); eff_par[1] = res-&gt;Value(1);
-<a name="l00133"></a>00133   eff_par_err[0] = res-&gt;ParError(0); eff_par_err[1] = res-&gt;ParError(1);
-<a name="l00134"></a>00134   <span class="comment">// Print out</span>
-<a name="l00135"></a>00135   printf(<span class="stringliteral">&quot;\n&quot;</span>);
-<a name="l00136"></a>00136   printf(<span class="stringliteral">&quot;    %-10s | %-8s | %-5s | %-10s | %-5s | %-7s\n&quot;</span>, <span class="stringliteral">&quot;Energy&quot;</span>, <span class="stringliteral">&quot;ADC&quot;</span>, <span class="stringliteral">&quot;+/-&quot;</span>, <span class="stringliteral">&quot;Eff&quot;</span>, <span class="stringliteral">&quot;+/-&quot;</span>, <span class="stringliteral">&quot;Chi2&quot;</span>);
-<a name="l00137"></a>00137   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; NPeaks; ++i) {
-<a name="l00138"></a>00138     <span class="keywordtype">int</span> adc_exp = TMath::Floor(TMath::Log10(Error_ADC[i]));
-<a name="l00139"></a>00139     <span class="keywordtype">int</span> eff_exp = TMath::Floor(TMath::Log10(Error_Eff[i]));
-<a name="l00140"></a>00140     printf(<span class="stringliteral">&quot;    %-10.10g | %-8.10g | %-5.1g | %-10.10g | %-5.1g | %-7.3g\n&quot;</span>,
-<a name="l00141"></a>00141            Energy[i],
-<a name="l00142"></a>00142            TMath::Floor(ADC_Meas[i] / TMath::Power(10., adc_exp)) * TMath::Power(10., adc_exp),
-<a name="l00143"></a>00143            Error_ADC[i],
-<a name="l00144"></a>00144            TMath::Floor(Efficiency[i] / TMath::Power(10., eff_exp)) * TMath::Power(10., eff_exp),
-<a name="l00145"></a>00145            Error_Eff[i],
-<a name="l00146"></a>00146            Chi2Ndf[i]);
-<a name="l00147"></a>00147   }
-<a name="l00148"></a>00148   printf(<span class="stringliteral">&quot;\n&quot;</span>);
-<a name="l00149"></a>00149   printf(<span class="stringliteral">&quot;ADC = %g(%g) * Energy + %g(%g)    (%g/%u)\n&quot;</span>, en_par[1], en_par_err[1], en_par[0], en_par_err[0], Chi2[0], Ndf[0]);
-<a name="l00150"></a>00150   <span class="comment">/* printf(&quot;Eff = %g(%g)*Energy^[%g(%g)]    (%g/%u)\n&quot;, TMath::Exp(eff_par[0]), TMath::Exp(eff_par[0])*eff_par_err[0], eff_par[1], eff_par_err[1], Chi2[1], Ndf[1]); */</span>
-<a name="l00151"></a>00151   printf(<span class="stringliteral">&quot;Eff = %g(%g)*Energy^[%g(%g)]    (%g/%u)\n&quot;</span>, eff_par[0], eff_par_err[0], eff_par[1], eff_par_err[1], Chi2[1], Ndf[1]);
-<a name="l00152"></a>00152 }
-<a name="l00153"></a>00153 
-<a name="l00154"></a>00154 <span class="comment">/*</span>
-<a name="l00155"></a>00155 <span class="comment">Peaks:</span>
-<a name="l00156"></a>00156 <span class="comment"></span>
-<a name="l00157"></a>00157 <span class="comment">Energy     ADC      Sigma</span>
-<a name="l00158"></a>00158 <span class="comment">121.7817   1000.75  7.0</span>
-<a name="l00159"></a>00159 <span class="comment">244.6975   2015.48  7.7</span>
-<a name="l00160"></a>00160 <span class="comment">344.2785   2831.37  7.1</span>
-<a name="l00161"></a>00161 <span class="comment">411.1163   3379.41  7.1</span>
-<a name="l00162"></a>00162 <span class="comment">443.965    3648.90  4.9</span>
-<a name="l00163"></a>00163 <span class="comment">510.999    4196.38  9.5</span>
-<a name="l00164"></a>00164 <span class="comment">778.9040   6392.91  7.5</span>
-<a name="l00165"></a>00165 <span class="comment">867.378    7118.00  8.5</span>
-<a name="l00166"></a>00166 <span class="comment">964.079    7909.78  7.9</span>
-<a name="l00167"></a>00167 <span class="comment">1085.869   8907.53  8.0</span>
-<a name="l00168"></a>00168 <span class="comment">1089.737   8941.08  7.7</span>
-<a name="l00169"></a>00169 <span class="comment">1112.074   9121.85  8.6</span>
-<a name="l00170"></a>00170 <span class="comment">1212.948   9948.85  5.8</span>
-<a name="l00171"></a>00171 <span class="comment">1299.140   10654.3  7.2</span>
-<a name="l00172"></a>00172 <span class="comment">1408.006   11547.5  8.8</span>
-<a name="l00173"></a>00173 <span class="comment"></span>
-<a name="l00174"></a>00174 <span class="comment">E = 0.12202 +/- 0.00002* ADC - 1.0 +/- 0.1</span>
-<a name="l00175"></a>00175 <span class="comment">ln(Eff) = -0.84 +/- 0.05 * ln(E) - 2.6 +/- 0.3</span>
-<a name="l00176"></a>00176 <span class="comment">Eff=exp(-2.6)*E^(-0.84)</span>
-<a name="l00177"></a>00177 <span class="comment">/*</span>
+<a name="l00115"></a>00115   TGraphErrors* eff_cal = <span class="keyword">new</span> TGraphErrors(NPeaks-1, Energy+1, Efficiency+1, 0, Error_Eff+1);
+<a name="l00116"></a>00116   e_cal-&gt;SetTitle(<span class="stringliteral">&quot;Ge Energy Calibration&quot;</span>); e_cal-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;ADC Value [ADC]&quot;</span>); e_cal-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Energy [keV]&quot;</span>);
+<a name="l00117"></a>00117   eff_cal-&gt;SetTitle(<span class="stringliteral">&quot;Ge Efficiency Calibration&quot;</span>); eff_cal-&gt;GetXaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Energy [keV]&quot;</span>); eff_cal-&gt;GetYaxis()-&gt;SetTitle(<span class="stringliteral">&quot;Counts / Expected Counts&quot;</span>);
+<a name="l00118"></a>00118   TCanvas* c_en = <span class="keyword">new</span> TCanvas(<span class="stringliteral">&quot;c_en&quot;</span>);
+<a name="l00119"></a>00119   TF1* fit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;fit&quot;</span>, <span class="stringliteral">&quot;[0] + [1]*x&quot;</span>);
+<a name="l00120"></a>00120   fit-&gt;SetParameter(0, 0);
+<a name="l00121"></a>00121   fit-&gt;SetParameter(1, 100);
+<a name="l00122"></a>00122   fit-&gt;SetParName(0, <span class="stringliteral">&quot;Offset&quot;</span>);
+<a name="l00123"></a>00123   fit-&gt;SetParName(1, <span class="stringliteral">&quot;Gradient&quot;</span>);
+<a name="l00124"></a>00124   TFitResultPtr res = e_cal-&gt;Fit(fit,<span class="stringliteral">&quot;SME&quot;</span>); e_cal-&gt;Draw(<span class="stringliteral">&quot;A*&quot;</span>);
+<a name="l00125"></a>00125   TPaveText* text_en = <span class="keyword">new</span> TPaveText(0.2, 0.65, 0.5, 0.75, <span class="stringliteral">&quot;nb NDC&quot;</span>); text_en-&gt;SetBorderSize(0); text_en-&gt;SetTextSize(0.04); text_en-&gt;SetFillColor(kWhite); text_en-&gt;AddText(<span class="stringliteral">&quot;Energy = Offset + Gradient * ADC&quot;</span>); text_en-&gt;Draw();
+<a name="l00126"></a>00126   Chi2[0] = res-&gt;Chi2(); Ndf[0] = res-&gt;Ndf();
+<a name="l00127"></a>00127   en_par[0] = res-&gt;Value(0); en_par[1] = res-&gt;Value(1);
+<a name="l00128"></a>00128   en_par_err[0] = res-&gt;ParError(0); en_par_err[1] = res-&gt;ParError(1);
+<a name="l00129"></a>00129   TCanvas* c_eff = <span class="keyword">new</span> TCanvas(<span class="stringliteral">&quot;c_eff&quot;</span>);
+<a name="l00130"></a>00130   <span class="comment">//  gStyle-&gt;SetOptFit(111);</span>
+<a name="l00131"></a>00131   TF1* logfit = <span class="keyword">new</span> TF1(<span class="stringliteral">&quot;func&quot;</span>, <span class="stringliteral">&quot;[0]*(x**[1])&quot;</span>);
+<a name="l00132"></a>00132   logfit-&gt;SetParName(0, <span class="stringliteral">&quot;Coefficient&quot;</span>);
+<a name="l00133"></a>00133   logfit-&gt;SetParName(1, <span class="stringliteral">&quot;Exponent&quot;</span>);
+<a name="l00134"></a>00134   logfit-&gt;SetParameters(TMath::Exp(-2.6), -0.84);
+<a name="l00135"></a>00135   res = eff_cal-&gt;Fit(logfit, <span class="stringliteral">&quot;SME&quot;</span>); eff_cal-&gt;Draw(<span class="stringliteral">&quot;A*&quot;</span>);
+<a name="l00136"></a>00136   TPaveText* text_eff = <span class="keyword">new</span> TPaveText(0.5, 0.5, 0.65, 0.6, <span class="stringliteral">&quot;nb NDC&quot;</span>); text_eff-&gt;SetBorderSize(0); text_eff-&gt;SetTextSize(0.05); text_eff-&gt;AddText(<span class="stringliteral">&quot;#varepsilon = aE^{b}&quot;</span>); text_eff-&gt;SetFillColor(kWhite); text_eff-&gt;Draw();
+<a name="l00137"></a>00137   <span class="comment">/* res = eff_cal-&gt;Fit(&quot;pol1&quot;, &quot;SME&quot;); eff_cal-&gt;Draw(&quot;A*&quot;); */</span>
+<a name="l00138"></a>00138   Chi2[1] = res-&gt;Chi2(); Ndf[1] = res-&gt;Ndf();
+<a name="l00139"></a>00139   eff_par[0] = res-&gt;Value(0); eff_par[1] = res-&gt;Value(1);
+<a name="l00140"></a>00140   eff_par_err[0] = res-&gt;ParError(0); eff_par_err[1] = res-&gt;ParError(1);
+<a name="l00141"></a>00141   <span class="comment">// Print out</span>
+<a name="l00142"></a>00142   printf(<span class="stringliteral">&quot;\n&quot;</span>);
+<a name="l00143"></a>00143   printf(<span class="stringliteral">&quot;    %-10s | %-8s | %-5s | %-10s | %-5s | %-7s\n&quot;</span>, <span class="stringliteral">&quot;Energy&quot;</span>, <span class="stringliteral">&quot;ADC&quot;</span>, <span class="stringliteral">&quot;+/-&quot;</span>, <span class="stringliteral">&quot;Eff&quot;</span>, <span class="stringliteral">&quot;+/-&quot;</span>, <span class="stringliteral">&quot;Chi2&quot;</span>);
+<a name="l00144"></a>00144   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; NPeaks; ++i) {
+<a name="l00145"></a>00145     <span class="keywordtype">int</span> adc_exp = TMath::Floor(TMath::Log10(Error_ADC[i]));
+<a name="l00146"></a>00146     <span class="keywordtype">int</span> eff_exp = TMath::Floor(TMath::Log10(Error_Eff[i]));
+<a name="l00147"></a>00147     printf(<span class="stringliteral">&quot;    %-10.10g | %-8.10g | %-5.1g | %-10.10g | %-5.1g | %-7.3g\n&quot;</span>,
+<a name="l00148"></a>00148            Energy[i],
+<a name="l00149"></a>00149            TMath::Floor(ADC_Meas[i] / TMath::Power(10., adc_exp)) * TMath::Power(10., adc_exp),
+<a name="l00150"></a>00150            Error_ADC[i],
+<a name="l00151"></a>00151            TMath::Floor(Efficiency[i] / TMath::Power(10., eff_exp)) * TMath::Power(10., eff_exp),
+<a name="l00152"></a>00152            Error_Eff[i],
+<a name="l00153"></a>00153            Chi2Ndf[i]);
+<a name="l00154"></a>00154   }
+<a name="l00155"></a>00155   printf(<span class="stringliteral">&quot;\n&quot;</span>);
+<a name="l00156"></a>00156   printf(<span class="stringliteral">&quot;ADC = %g(%g) * Energy + %g(%g)    (%g/%u)\n&quot;</span>, en_par[1], en_par_err[1], en_par[0], en_par_err[0], Chi2[0], Ndf[0]);
+<a name="l00157"></a>00157   <span class="comment">/* printf(&quot;Eff = %g(%g)*Energy^[%g(%g)]    (%g/%u)\n&quot;, TMath::Exp(eff_par[0]), TMath::Exp(eff_par[0])*eff_par_err[0], eff_par[1], eff_par_err[1], Chi2[1], Ndf[1]); */</span>
+<a name="l00158"></a>00158   printf(<span class="stringliteral">&quot;Eff = %g(%g)*Energy^[%g(%g)]    (%g/%u)\n&quot;</span>, eff_par[0], eff_par_err[0], eff_par[1], eff_par_err[1], Chi2[1], Ndf[1]);
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160   <span class="comment">//  c_en-&gt;SaveAs(&quot;~/plots/ThesisPlots/ge-calibration-curve.pdf&quot;);</span>
+<a name="l00161"></a>00161   <span class="comment">//  c_eff-&gt;SaveAs(&quot;~/plots/ThesisPlots/ge-efficiency-curve.pdf&quot;);</span>
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163   <span class="keywordtype">double</span> si_peak = 400.177;
+<a name="l00164"></a>00164   <span class="keywordtype">double</span> al_peak = 346.828;
+<a name="l00165"></a>00165   std::cout &lt;&lt; <span class="stringliteral">&quot;Eff(&quot;</span> &lt;&lt; si_peak &lt;&lt; <span class="stringliteral">&quot;) = &quot;</span> &lt;&lt; logfit-&gt;Eval(si_peak) &lt;&lt; std::endl;
+<a name="l00166"></a>00166   std::cout &lt;&lt; <span class="stringliteral">&quot;Eff(&quot;</span> &lt;&lt; al_peak &lt;&lt; <span class="stringliteral">&quot;) = &quot;</span> &lt;&lt; logfit-&gt;Eval(al_peak) &lt;&lt; std::endl;
+<a name="l00167"></a>00167 }
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169 <span class="comment">/*</span>
+<a name="l00170"></a>00170 <span class="comment">Peaks:</span>
+<a name="l00171"></a>00171 <span class="comment"></span>
+<a name="l00172"></a>00172 <span class="comment">Energy     ADC      Sigma</span>
+<a name="l00173"></a>00173 <span class="comment">121.7817   1000.75  7.0</span>
+<a name="l00174"></a>00174 <span class="comment">244.6975   2015.48  7.7</span>
+<a name="l00175"></a>00175 <span class="comment">344.2785   2831.37  7.1</span>
+<a name="l00176"></a>00176 <span class="comment">411.1163   3379.41  7.1</span>
+<a name="l00177"></a>00177 <span class="comment">443.965    3648.90  4.9</span>
+<a name="l00178"></a>00178 <span class="comment">510.999    4196.38  9.5</span>
+<a name="l00179"></a>00179 <span class="comment">778.9040   6392.91  7.5</span>
+<a name="l00180"></a>00180 <span class="comment">867.378    7118.00  8.5</span>
+<a name="l00181"></a>00181 <span class="comment">964.079    7909.78  7.9</span>
+<a name="l00182"></a>00182 <span class="comment">1085.869   8907.53  8.0</span>
+<a name="l00183"></a>00183 <span class="comment">1089.737   8941.08  7.7</span>
+<a name="l00184"></a>00184 <span class="comment">1112.074   9121.85  8.6</span>
+<a name="l00185"></a>00185 <span class="comment">1212.948   9948.85  5.8</span>
+<a name="l00186"></a>00186 <span class="comment">1299.140   10654.3  7.2</span>
+<a name="l00187"></a>00187 <span class="comment">1408.006   11547.5  8.8</span>
+<a name="l00188"></a>00188 <span class="comment"></span>
+<a name="l00189"></a>00189 <span class="comment">E = 0.12202 +/- 0.00002* ADC - 1.0 +/- 0.1</span>
+<a name="l00190"></a>00190 <span class="comment">ln(Eff) = -0.84 +/- 0.05 * ln(E) - 2.6 +/- 0.3</span>
+<a name="l00191"></a>00191 <span class="comment">Eff=exp(-2.6)*E^(-0.84)</span>
+<a name="l00192"></a>00192 <span class="comment">*/</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 3 Feb 2015 for AlcapDAQ by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Feb 2015 for AlcapDAQ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
