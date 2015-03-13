@@ -310,111 +310,112 @@
 <a name="l00286"></a>00286                         G4UserLimits* user_limit;
 <a name="l00287"></a>00287                         <span class="keywordflow">if</span> (max_step_length != 0) { <span class="comment">// AE: probably shouldn&apos;t be hard-coded</span>
 <a name="l00288"></a>00288                           user_limit = <span class="keyword">new</span> G4UserLimits(max_step_length); <span class="comment">// set max step length to 25 micron</span>
-<a name="l00289"></a>00289                         }
-<a name="l00290"></a>00290                         <span class="keywordflow">else</span> {
-<a name="l00291"></a>00291                           user_limit = <span class="keyword">new</span> G4UserLimits();
-<a name="l00292"></a>00292                         }
-<a name="l00293"></a>00293                         log_Vol = <span class="keyword">new</span> G4LogicalVolume(sol_Vol, pttoMaterial, iname,0,0,user_limit);
-<a name="l00294"></a>00294                         G4VSensitiveDetector* aSD;
-<a name="l00295"></a>00295                         aSD = <a class="code" href="classMyDetectorManager.html#a3024f4d5ff43ddb939c76d719f01f799">MyDetectorManager::GetMyDetectorManager</a>()-&gt;<a class="code" href="classMyDetectorManager.html#a453f20da32b8941f25984ad132bfd293">GetSD</a>(iname, SDName, const_cast&lt;SimpleGeometrySvc*&gt;(<span class="keyword">this</span>) );
-<a name="l00296"></a>00296                         log_Vol-&gt;SetSensitiveDetector(aSD);
-<a name="l00297"></a>00297                         <span class="comment">//visual</span>
-<a name="l00298"></a>00298                         vis = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a526b985d3fc375c2b599afe08bbafe9c">get_vis</a>(i_Vol);
-<a name="l00299"></a>00299                         <span class="keywordflow">if</span> (!vis){
-<a name="l00300"></a>00300                                 log_Vol-&gt;SetVisAttributes(G4VisAttributes::Invisible);
-<a name="l00301"></a>00301                         }
-<a name="l00302"></a>00302                         <span class="keywordflow">else</span>{
-<a name="l00303"></a>00303                                 r = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a6a9154ff74214477dbdb8d423a7a14b7">get_r</a>(i_Vol);
-<a name="l00304"></a>00304                                 g = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a2ef0d4ae468c51119f037fe7aa77254b">get_g</a>(i_Vol);
-<a name="l00305"></a>00305                                 b = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#af9febe3e9226b6e26a1ad6ba9a8bef34">get_b</a>(i_Vol);
-<a name="l00306"></a>00306                                 t = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a49d6eb32b6f848598c60ebc9ec7d36a6">get_t</a>(i_Vol);
-<a name="l00307"></a>00307                                 G4VisAttributes* visAttributes = <span class="keyword">new</span> G4VisAttributes;
-<a name="l00308"></a>00308                                 visAttributes-&gt;SetVisibility(<span class="keyword">true</span>);
-<a name="l00309"></a>00309                                 visAttributes-&gt;SetColour(r,g,b,t);
-<a name="l00310"></a>00310                                 log_Vol-&gt;SetVisAttributes(visAttributes);
-<a name="l00311"></a>00311                         }
-<a name="l00312"></a>00312                 }
-<a name="l00313"></a>00313         }
-<a name="l00314"></a>00314 }
-<a name="l00315"></a>00315 
-<a name="l00316"></a>00316 <span class="comment">//=&gt;Place Volumes</span>
-<a name="l00317"></a><a class="code" href="classSimpleGeometrySvc.html#a8006222f3c327229908b4df5cba856b5">00317</a> G4VPhysicalVolume* <a class="code" href="classSimpleGeometrySvc.html#a8006222f3c327229908b4df5cba856b5">SimpleGeometrySvc::PlaceVolumes</a>(){
-<a name="l00318"></a>00318         std::stringstream buffer;
-<a name="l00319"></a>00319         G4VPhysicalVolume* world_pvol = 0;
-<a name="l00320"></a>00320         <span class="keywordtype">bool</span> checkOverlap = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classMyVGeometryParameter.html#a36a71a7228cea5e04815c17ef2c6b6a9">get_checkoverlap</a>();
-<a name="l00321"></a>00321         <span class="keywordtype">int</span> nVol = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae4b7201d7159caed2dd5cd7e029524ba">get_VolNo</a>();
-<a name="l00322"></a>00322         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i_Vol = 0; i_Vol &lt; nVol; i_Vol++ ){
-<a name="l00323"></a>00323                 <span class="keywordflow">if</span> (<a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a32d74244b6d1b6d92ec1e2aca35bd34b">get_SolidBoolean</a>(i_Vol)) <span class="keywordflow">continue</span>;
-<a name="l00324"></a>00324                 G4double PosX, PosY, PosZ;
-<a name="l00325"></a>00325                 G4String name, motVolName; 
-<a name="l00326"></a>00326                 G4int SRepNo;
-<a name="l00327"></a>00327                 G4int RepNo;
-<a name="l00328"></a>00328                 name = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a5d7da3c1d410c1f477b4454dc7720471">get_name</a>(i_Vol);
-<a name="l00329"></a>00329 <span class="comment">//              std::cout&lt;&lt;&quot;Place \&quot;&quot;&lt;&lt;name&lt;&lt;&quot;\&quot;&quot;&lt;&lt;std::endl; // to be deleted</span>
-<a name="l00330"></a>00330                 motVolName = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a8dcc7c6c4f519082a80d83edb529df28">get_MotherName</a>(i_Vol);
-<a name="l00331"></a>00331                 SRepNo = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ac625175003a2639c474cefccf54b03fc">get_SRepNo</a>(i_Vol);
-<a name="l00332"></a>00332                 RepNo = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae9c15e6a5fb46e2bc9efa0859cad79ae">get_RepNo</a>(i_Vol);
-<a name="l00333"></a>00333                 G4LogicalVolume* log_container;
-<a name="l00334"></a>00334                 <span class="keywordtype">int</span> motRepNo = 1;
-<a name="l00335"></a>00335                 <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) motRepNo = 1;
-<a name="l00336"></a>00336                 <span class="keywordflow">else</span>{
-<a name="l00337"></a>00337                         <a class="code" href="classSimpleGeometryParameter.html">SimpleGeometryParameter</a>* motPara = <a class="code" href="classMyDetectorManager.html#a3024f4d5ff43ddb939c76d719f01f799">MyDetectorManager::GetMyDetectorManager</a>()-&gt;<a class="code" href="classMyDetectorManager.html#a894f2e8acc893b8f89e7627c2e586da6">GetParaFromVolume</a>(motVolName);
-<a name="l00338"></a>00338                         <span class="keywordflow">if</span> (motPara)
-<a name="l00339"></a>00339                                 motRepNo = motPara-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae9c15e6a5fb46e2bc9efa0859cad79ae">get_RepNo</a>(motPara-&gt;<a class="code" href="classSimpleGeometryParameter.html#a4543c1ab4e7bea413e5b7e97ad9c0328">get_VolIndex</a>(motVolName));
-<a name="l00340"></a>00340                         <span class="keywordflow">else</span>{
-<a name="l00341"></a>00341                                 std::cout&lt;&lt;<span class="stringliteral">&quot;We can&apos;t find parameter pointer!!&quot;</span>&lt;&lt;std::endl;
-<a name="l00342"></a>00342                         }
-<a name="l00343"></a>00343                 }
-<a name="l00344"></a>00344                 <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> im = 0; im &lt; motRepNo; im++ ){
-<a name="l00345"></a>00345                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) log_container = 0;
-<a name="l00346"></a>00346                         <span class="keywordflow">else</span> {
-<a name="l00347"></a>00347                                 G4String imotVolName = motVolName;
-<a name="l00348"></a>00348                                 <span class="keywordflow">if</span> (motRepNo&gt;1){
-<a name="l00349"></a>00349                                         buffer.str(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00350"></a>00350                                         buffer.clear();
-<a name="l00351"></a>00351                                         buffer&lt;&lt;motVolName&lt;&lt;<span class="stringliteral">&quot;_&quot;</span>&lt;&lt;im;
-<a name="l00352"></a>00352                                         imotVolName = buffer.str();
-<a name="l00353"></a>00353                                 }
-<a name="l00354"></a>00354                                 log_container = <a class="code" href="classMyVGeometrySvc.html#a6efddb0ce0edefa256d2e1ece4477e65">get_logicalVolume</a>(imotVolName);
-<a name="l00355"></a>00355                         }
-<a name="l00356"></a>00356                         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i &lt; RepNo; i++ ){
-<a name="l00357"></a>00357                                 G4String iname = name;
-<a name="l00358"></a>00358                                 <span class="keywordflow">if</span> (RepNo&gt;1){
-<a name="l00359"></a>00359                                         buffer.str(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00360"></a>00360                                         buffer.clear();
-<a name="l00361"></a>00361                                         buffer&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot;_&quot;</span>&lt;&lt;i;
-<a name="l00362"></a>00362                                         iname = buffer.str();
-<a name="l00363"></a>00363                                 }
-<a name="l00364"></a>00364                                 G4LogicalVolume* log_Vol = <a class="code" href="classMyVGeometrySvc.html#a6efddb0ce0edefa256d2e1ece4477e65">get_logicalVolume</a>(iname);
-<a name="l00365"></a>00365                                 PosX  = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a00fa30771a19be33f9a785937aadd73a">get_PosX</a>(i_Vol,i);
-<a name="l00366"></a>00366                                 PosY  = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a01eeb8f9e65e13c39ea8ba9b2993d716">get_PosY</a>(i_Vol,i);
-<a name="l00367"></a>00367                                 PosZ  = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#aca24e9d564426b330188781a8ececa44">get_PosZ</a>(i_Vol,i);
-<a name="l00368"></a>00368                                 G4ThreeVector pos(PosX ,PosY ,PosZ);
-<a name="l00369"></a>00369                                 G4double Ephi = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae9d4e5d60d0ef80fb8dfae38441be9ed">get_Ephi</a>(i_Vol,i);
-<a name="l00370"></a>00370                                 G4double Etheta = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a414e75dddb78297af50930506aa95005">get_Etheta</a>(i_Vol,i);
-<a name="l00371"></a>00371                                 G4double Epsi = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a9d058a26185ebe13cfa11be14734383b">get_Epsi</a>(i_Vol,i);
-<a name="l00372"></a>00372                                 G4RotationMatrix* rotateMatrix=<span class="keyword">new</span> G4RotationMatrix(Ephi,Etheta,Epsi);
-<a name="l00373"></a>00373                                 <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) rotateMatrix = 0;
-<a name="l00374"></a>00374                                 G4VPhysicalVolume* phy_Vol =
-<a name="l00375"></a>00375                                         <span class="keyword">new</span> G4PVPlacement(rotateMatrix,                <span class="comment">//rotation</span>
-<a name="l00376"></a>00376                                                         pos,                              <span class="comment">//position</span>
-<a name="l00377"></a>00377                                                         log_Vol,                          <span class="comment">//its logical volume</span>
-<a name="l00378"></a>00378                                                         name,                             <span class="comment">//its name</span>
-<a name="l00379"></a>00379                                                         log_container,                    <span class="comment">//its mother volume</span>
-<a name="l00380"></a>00380                                                         <span class="keyword">false</span>,                            <span class="comment">//no boolean operation</span>
-<a name="l00381"></a>00381                                                         i+SRepNo,                                <span class="comment">//copy number</span>
-<a name="l00382"></a>00382                                                         checkOverlap);                    <span class="comment">//overlaps checking</span>
-<a name="l00383"></a>00383                                 <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) world_pvol = phy_Vol;
-<a name="l00384"></a>00384                         }
-<a name="l00385"></a>00385                 }
-<a name="l00386"></a>00386         }
-<a name="l00387"></a>00387 <span class="comment">//      std::cout&lt;&lt;&quot;Finished!&quot;&lt;&lt;std::endl; // to be deleted</span>
-<a name="l00388"></a>00388         G4VPhysicalVolume *former = <a class="code" href="classSimpleGeometrySvc.html#a8006222f3c327229908b4df5cba856b5">MyVGeometrySvc::PlaceVolumes</a>();
-<a name="l00389"></a>00389         <span class="keywordflow">if</span> (!world_pvol) world_pvol=former;
-<a name="l00390"></a>00390         <span class="keywordflow">return</span> world_pvol;
-<a name="l00391"></a>00391 }
+<a name="l00289"></a>00289                           <span class="comment">//                      std::cout &lt;&lt; &quot;AE: &quot; &lt;&lt; iname &lt;&lt; &quot; User Limit = &quot; &lt;&lt; max_step_length/mm &lt;&lt; &quot; mm&quot; &lt;&lt; std::endl;</span>
+<a name="l00290"></a>00290                         }
+<a name="l00291"></a>00291                         <span class="keywordflow">else</span> {
+<a name="l00292"></a>00292                           user_limit = <span class="keyword">new</span> G4UserLimits();
+<a name="l00293"></a>00293                         }
+<a name="l00294"></a>00294                         log_Vol = <span class="keyword">new</span> G4LogicalVolume(sol_Vol, pttoMaterial, iname,0,0,user_limit);
+<a name="l00295"></a>00295                         G4VSensitiveDetector* aSD;
+<a name="l00296"></a>00296                         aSD = <a class="code" href="classMyDetectorManager.html#a3024f4d5ff43ddb939c76d719f01f799">MyDetectorManager::GetMyDetectorManager</a>()-&gt;<a class="code" href="classMyDetectorManager.html#a453f20da32b8941f25984ad132bfd293">GetSD</a>(iname, SDName, const_cast&lt;SimpleGeometrySvc*&gt;(<span class="keyword">this</span>) );
+<a name="l00297"></a>00297                         log_Vol-&gt;SetSensitiveDetector(aSD);
+<a name="l00298"></a>00298                         <span class="comment">//visual</span>
+<a name="l00299"></a>00299                         vis = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a526b985d3fc375c2b599afe08bbafe9c">get_vis</a>(i_Vol);
+<a name="l00300"></a>00300                         <span class="keywordflow">if</span> (!vis){
+<a name="l00301"></a>00301                                 log_Vol-&gt;SetVisAttributes(G4VisAttributes::Invisible);
+<a name="l00302"></a>00302                         }
+<a name="l00303"></a>00303                         <span class="keywordflow">else</span>{
+<a name="l00304"></a>00304                                 r = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a6a9154ff74214477dbdb8d423a7a14b7">get_r</a>(i_Vol);
+<a name="l00305"></a>00305                                 g = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a2ef0d4ae468c51119f037fe7aa77254b">get_g</a>(i_Vol);
+<a name="l00306"></a>00306                                 b = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#af9febe3e9226b6e26a1ad6ba9a8bef34">get_b</a>(i_Vol);
+<a name="l00307"></a>00307                                 t = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a49d6eb32b6f848598c60ebc9ec7d36a6">get_t</a>(i_Vol);
+<a name="l00308"></a>00308                                 G4VisAttributes* visAttributes = <span class="keyword">new</span> G4VisAttributes;
+<a name="l00309"></a>00309                                 visAttributes-&gt;SetVisibility(<span class="keyword">true</span>);
+<a name="l00310"></a>00310                                 visAttributes-&gt;SetColour(r,g,b,t);
+<a name="l00311"></a>00311                                 log_Vol-&gt;SetVisAttributes(visAttributes);
+<a name="l00312"></a>00312                         }
+<a name="l00313"></a>00313                 }
+<a name="l00314"></a>00314         }
+<a name="l00315"></a>00315 }
+<a name="l00316"></a>00316 
+<a name="l00317"></a>00317 <span class="comment">//=&gt;Place Volumes</span>
+<a name="l00318"></a><a class="code" href="classSimpleGeometrySvc.html#a8006222f3c327229908b4df5cba856b5">00318</a> G4VPhysicalVolume* <a class="code" href="classSimpleGeometrySvc.html#a8006222f3c327229908b4df5cba856b5">SimpleGeometrySvc::PlaceVolumes</a>(){
+<a name="l00319"></a>00319         std::stringstream buffer;
+<a name="l00320"></a>00320         G4VPhysicalVolume* world_pvol = 0;
+<a name="l00321"></a>00321         <span class="keywordtype">bool</span> checkOverlap = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classMyVGeometryParameter.html#a36a71a7228cea5e04815c17ef2c6b6a9">get_checkoverlap</a>();
+<a name="l00322"></a>00322         <span class="keywordtype">int</span> nVol = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae4b7201d7159caed2dd5cd7e029524ba">get_VolNo</a>();
+<a name="l00323"></a>00323         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i_Vol = 0; i_Vol &lt; nVol; i_Vol++ ){
+<a name="l00324"></a>00324                 <span class="keywordflow">if</span> (<a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a32d74244b6d1b6d92ec1e2aca35bd34b">get_SolidBoolean</a>(i_Vol)) <span class="keywordflow">continue</span>;
+<a name="l00325"></a>00325                 G4double PosX, PosY, PosZ;
+<a name="l00326"></a>00326                 G4String name, motVolName; 
+<a name="l00327"></a>00327                 G4int SRepNo;
+<a name="l00328"></a>00328                 G4int RepNo;
+<a name="l00329"></a>00329                 name = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a5d7da3c1d410c1f477b4454dc7720471">get_name</a>(i_Vol);
+<a name="l00330"></a>00330 <span class="comment">//              std::cout&lt;&lt;&quot;Place \&quot;&quot;&lt;&lt;name&lt;&lt;&quot;\&quot;&quot;&lt;&lt;std::endl; // to be deleted</span>
+<a name="l00331"></a>00331                 motVolName = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a8dcc7c6c4f519082a80d83edb529df28">get_MotherName</a>(i_Vol);
+<a name="l00332"></a>00332                 SRepNo = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ac625175003a2639c474cefccf54b03fc">get_SRepNo</a>(i_Vol);
+<a name="l00333"></a>00333                 RepNo = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae9c15e6a5fb46e2bc9efa0859cad79ae">get_RepNo</a>(i_Vol);
+<a name="l00334"></a>00334                 G4LogicalVolume* log_container;
+<a name="l00335"></a>00335                 <span class="keywordtype">int</span> motRepNo = 1;
+<a name="l00336"></a>00336                 <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) motRepNo = 1;
+<a name="l00337"></a>00337                 <span class="keywordflow">else</span>{
+<a name="l00338"></a>00338                         <a class="code" href="classSimpleGeometryParameter.html">SimpleGeometryParameter</a>* motPara = <a class="code" href="classMyDetectorManager.html#a3024f4d5ff43ddb939c76d719f01f799">MyDetectorManager::GetMyDetectorManager</a>()-&gt;<a class="code" href="classMyDetectorManager.html#a894f2e8acc893b8f89e7627c2e586da6">GetParaFromVolume</a>(motVolName);
+<a name="l00339"></a>00339                         <span class="keywordflow">if</span> (motPara)
+<a name="l00340"></a>00340                                 motRepNo = motPara-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae9c15e6a5fb46e2bc9efa0859cad79ae">get_RepNo</a>(motPara-&gt;<a class="code" href="classSimpleGeometryParameter.html#a4543c1ab4e7bea413e5b7e97ad9c0328">get_VolIndex</a>(motVolName));
+<a name="l00341"></a>00341                         <span class="keywordflow">else</span>{
+<a name="l00342"></a>00342                                 std::cout&lt;&lt;<span class="stringliteral">&quot;We can&apos;t find parameter pointer!!&quot;</span>&lt;&lt;std::endl;
+<a name="l00343"></a>00343                         }
+<a name="l00344"></a>00344                 }
+<a name="l00345"></a>00345                 <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> im = 0; im &lt; motRepNo; im++ ){
+<a name="l00346"></a>00346                         <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) log_container = 0;
+<a name="l00347"></a>00347                         <span class="keywordflow">else</span> {
+<a name="l00348"></a>00348                                 G4String imotVolName = motVolName;
+<a name="l00349"></a>00349                                 <span class="keywordflow">if</span> (motRepNo&gt;1){
+<a name="l00350"></a>00350                                         buffer.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00351"></a>00351                                         buffer.clear();
+<a name="l00352"></a>00352                                         buffer&lt;&lt;motVolName&lt;&lt;<span class="stringliteral">&quot;_&quot;</span>&lt;&lt;im;
+<a name="l00353"></a>00353                                         imotVolName = buffer.str();
+<a name="l00354"></a>00354                                 }
+<a name="l00355"></a>00355                                 log_container = <a class="code" href="classMyVGeometrySvc.html#a6efddb0ce0edefa256d2e1ece4477e65">get_logicalVolume</a>(imotVolName);
+<a name="l00356"></a>00356                         }
+<a name="l00357"></a>00357                         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i &lt; RepNo; i++ ){
+<a name="l00358"></a>00358                                 G4String iname = name;
+<a name="l00359"></a>00359                                 <span class="keywordflow">if</span> (RepNo&gt;1){
+<a name="l00360"></a>00360                                         buffer.str(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00361"></a>00361                                         buffer.clear();
+<a name="l00362"></a>00362                                         buffer&lt;&lt;name&lt;&lt;<span class="stringliteral">&quot;_&quot;</span>&lt;&lt;i;
+<a name="l00363"></a>00363                                         iname = buffer.str();
+<a name="l00364"></a>00364                                 }
+<a name="l00365"></a>00365                                 G4LogicalVolume* log_Vol = <a class="code" href="classMyVGeometrySvc.html#a6efddb0ce0edefa256d2e1ece4477e65">get_logicalVolume</a>(iname);
+<a name="l00366"></a>00366                                 PosX  = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a00fa30771a19be33f9a785937aadd73a">get_PosX</a>(i_Vol,i);
+<a name="l00367"></a>00367                                 PosY  = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a01eeb8f9e65e13c39ea8ba9b2993d716">get_PosY</a>(i_Vol,i);
+<a name="l00368"></a>00368                                 PosZ  = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#aca24e9d564426b330188781a8ececa44">get_PosZ</a>(i_Vol,i);
+<a name="l00369"></a>00369                                 G4ThreeVector pos(PosX ,PosY ,PosZ);
+<a name="l00370"></a>00370                                 G4double Ephi = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#ae9d4e5d60d0ef80fb8dfae38441be9ed">get_Ephi</a>(i_Vol,i);
+<a name="l00371"></a>00371                                 G4double Etheta = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a414e75dddb78297af50930506aa95005">get_Etheta</a>(i_Vol,i);
+<a name="l00372"></a>00372                                 G4double Epsi = <a class="code" href="classSimpleGeometrySvc.html#a0e3e9fe0622d07767a099d077a76044c">m_GeometryParameter</a>-&gt;<a class="code" href="classSimpleGeometryParameter.html#a9d058a26185ebe13cfa11be14734383b">get_Epsi</a>(i_Vol,i);
+<a name="l00373"></a>00373                                 G4RotationMatrix* rotateMatrix=<span class="keyword">new</span> G4RotationMatrix(Ephi,Etheta,Epsi);
+<a name="l00374"></a>00374                                 <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) rotateMatrix = 0;
+<a name="l00375"></a>00375                                 G4VPhysicalVolume* phy_Vol =
+<a name="l00376"></a>00376                                         <span class="keyword">new</span> G4PVPlacement(rotateMatrix,                <span class="comment">//rotation</span>
+<a name="l00377"></a>00377                                                         pos,                              <span class="comment">//position</span>
+<a name="l00378"></a>00378                                                         log_Vol,                          <span class="comment">//its logical volume</span>
+<a name="l00379"></a>00379                                                         name,                             <span class="comment">//its name</span>
+<a name="l00380"></a>00380                                                         log_container,                    <span class="comment">//its mother volume</span>
+<a name="l00381"></a>00381                                                         <span class="keyword">false</span>,                            <span class="comment">//no boolean operation</span>
+<a name="l00382"></a>00382                                                         i+SRepNo,                                <span class="comment">//copy number</span>
+<a name="l00383"></a>00383                                                         checkOverlap);                    <span class="comment">//overlaps checking</span>
+<a name="l00384"></a>00384                                 <span class="keywordflow">if</span> ( name == <span class="stringliteral">&quot;World&quot;</span> ) world_pvol = phy_Vol;
+<a name="l00385"></a>00385                         }
+<a name="l00386"></a>00386                 }
+<a name="l00387"></a>00387         }
+<a name="l00388"></a>00388 <span class="comment">//      std::cout&lt;&lt;&quot;Finished!&quot;&lt;&lt;std::endl; // to be deleted</span>
+<a name="l00389"></a>00389         G4VPhysicalVolume *former = <a class="code" href="classSimpleGeometrySvc.html#a8006222f3c327229908b4df5cba856b5">MyVGeometrySvc::PlaceVolumes</a>();
+<a name="l00390"></a>00390         <span class="keywordflow">if</span> (!world_pvol) world_pvol=former;
+<a name="l00391"></a>00391         <span class="keywordflow">return</span> world_pvol;
+<a name="l00392"></a>00392 }
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Mar 2015 for g4sim by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 13 Mar 2015 for g4sim by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
